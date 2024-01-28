@@ -7,7 +7,8 @@
 		# kitty
 		wofi
 		dolphin
-		firefox
+		# firefox
+		qutebrowser
 	];
 
 	wayland.windowManager.hyprland = {
@@ -20,7 +21,7 @@
 
 		$terminal = kitty
 		$fileManager = dolphin
-		$webBrowser = firefox
+		$webBrowser = qutebrowser
 		$menu = wofi --show drun
 		env = XCURSOR_SIZE,24
 
