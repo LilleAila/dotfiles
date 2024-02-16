@@ -15,10 +15,16 @@
       # pkgs = nixpkgs.legacyPackages.${system};
     in {
       nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
+				t420 = nixpkgs.lib.nixosSystem {
+					inherit system;
+					modules = [
+						./hosts/t420/configuration.nix
+					];
+				};
+        legion = nixpkgs.lib.nixosSystem {
 					inherit system;
           modules = [
-            ./nixos/configuration.nix
+            ./hosts/legion/configuration.nix
 						# home-manager.nixosModules.home-manager
 						# {
 						# 	home-manager = {
