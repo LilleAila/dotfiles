@@ -13,6 +13,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+	boot.loader.timeout = 2;
   boot.initrd.luks.devices."luks-88c6adff-e723-48ab-8595-5a0b7975f623".device = "/dev/disk/by-uuid/88c6adff-e723-48ab-8595-5a0b7975f623";
 
 	services.logind.extraConfig = /*conf*/ ''
@@ -47,7 +48,17 @@
     LC_TIME = "nb_NO.UTF-8";
   };
 
-	security.pam.services.swaylock = {};
+	security.pam.services.swaylock = {
+		# enable = true;
+		# fprintAuth = true;
+	};
+	# services.fprintd = {
+	# 	enable = true;
+	# 	tod = {
+	# 		enable = true;
+	# 		driver = pkgs.libfprint-2-tod1-elan;
+	# 	};
+	# };
 
 	hardware.opengl = {
 		enable = true;
@@ -93,9 +104,13 @@
 
   # Configure keymap in X11
   services.xserver = {
+		enable = true;
     layout = "no";
     xkbVariant = "";
   };
+	programs.xwayland = {
+		enable = true;
+	};
 
   # Configure console keymap
   console.keyMap = "no";
@@ -130,13 +145,17 @@
 		home-manager
   ];
 
+	services.upower.enable = true;
+
+	services.fwupd.enable = true;
+
 	# Enable steam
-	# programs.steam = {
-	# 	enable = true;
-	# 	package = pkgs.steam;
-	# 	remotePlay.openFirewall = true;
-	# 	dedicatedServer.openFirewall = true;
-	# };
+	programs.steam = {
+		enable = true;
+		package = pkgs.steam;
+		remotePlay.openFirewall = true;
+		dedicatedServer.openFirewall = true;
+	};
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
