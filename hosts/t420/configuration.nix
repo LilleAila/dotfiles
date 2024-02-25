@@ -20,6 +20,17 @@
 	HandlePowerKey=ignore
 	'';
 
+	services.upower.enable = true;
+	services.tlp = {
+		enable = true;
+		settings = {
+			DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth";
+		};
+	};
+	boot.kernelPackages = pkgs.linuxPackages_latest;
+	# boot.extraModulePackages = with config.boot.kernelPackages; [ tp-smapi ];
+	boot.kernelModules = [ "tp-smapi" ];
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -60,12 +71,6 @@
 	# 	};
 	# };
 
-	hardware.opengl = {
-		enable = true;
-		driSupport = true;
-		driSupport32Bit = true;
-	};
-
 	# xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 	xdg.portal = {
 		enable = true;
@@ -95,9 +100,25 @@
 		vt = 2;
 	};
 
+	nixpkgs.config.packageOverrides = pkgs: {
+    intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
+  };
+	hardware.opengl = {
+		enable = true;
+		driSupport = true;
+		driSupport32Bit = true;
+		extraPackages = with pkgs; [
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+	};
+
 	environment.sessionVariables = {
 		WLR_NO_HARDWARE_CURSORS = "1";
 		NIXOS_OZONE_WL = "1";
+		LIBVA_DRIVER_NAME = "iHD";
 	};
 
 	programs.dconf.enable = true;
@@ -144,8 +165,6 @@
     vim
 		home-manager
   ];
-
-	services.upower.enable = true;
 
 	services.fwupd.enable = true;
 
