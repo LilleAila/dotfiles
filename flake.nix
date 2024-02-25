@@ -7,9 +7,10 @@
 		# 	url = "github:nix-community/home-manager";
 		# 	inputs.nixpkgs.follows = "nixpkgs";
 		# };
+		nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 	};
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, nixos-hardware, ... }:
     let
       system = "x86_64-linux";
       # pkgs = nixpkgs.legacyPackages.${system};
@@ -18,6 +19,7 @@
 				t420 = nixpkgs.lib.nixosSystem {
 					inherit system;
 					modules = [
+						nixos-hardware.nixosModules.lenovo-thinkpad-t420
 						./hosts/t420/configuration.nix
 					];
 				};

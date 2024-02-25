@@ -28,8 +28,21 @@
 		};
 	};
 	boot.kernelPackages = pkgs.linuxPackages_latest;
-	# boot.extraModulePackages = with config.boot.kernelPackages; [ tp-smapi ];
-	boot.kernelModules = [ "tp-smapi" ];
+
+	# https://github.com/NixOS/nixos-hardware
+	hardware.opengl = {
+		enable = true;
+		driSupport = true;
+		driSupport32Bit = true;
+	};
+
+	environment.sessionVariables = {
+		WLR_NO_HARDWARE_CURSORS = "1";
+		NIXOS_OZONE_WL = "1";
+		# LIBVA_DRIVER_NAME = "iHD";
+		LIBVA_DRIVER_NAME = "i965";
+	};
+
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -98,27 +111,6 @@
 			};
 		};
 		vt = 2;
-	};
-
-	nixpkgs.config.packageOverrides = pkgs: {
-    intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
-  };
-	hardware.opengl = {
-		enable = true;
-		driSupport = true;
-		driSupport32Bit = true;
-		extraPackages = with pkgs; [
-      intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
-	};
-
-	environment.sessionVariables = {
-		WLR_NO_HARDWARE_CURSORS = "1";
-		NIXOS_OZONE_WL = "1";
-		LIBVA_DRIVER_NAME = "iHD";
 	};
 
 	programs.dconf.enable = true;
