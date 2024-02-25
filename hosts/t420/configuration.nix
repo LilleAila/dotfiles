@@ -16,6 +16,8 @@
 	boot.loader.timeout = 2;
   boot.initrd.luks.devices."luks-88c6adff-e723-48ab-8595-5a0b7975f623".device = "/dev/disk/by-uuid/88c6adff-e723-48ab-8595-5a0b7975f623";
 
+	boot.kernelPackages = pkgs.linuxPackages_latest;
+
 	services.logind.extraConfig = /*conf*/ ''
 	HandlePowerKey=ignore
 	'';
@@ -27,7 +29,9 @@
 			DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth";
 		};
 	};
-	boot.kernelPackages = pkgs.linuxPackages_latest;
+	# services.auto-cpufreq = {
+	# 	enable = true;
+	# };
 
 	# https://github.com/NixOS/nixos-hardware
 	hardware.opengl = {
