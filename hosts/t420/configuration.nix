@@ -49,7 +49,7 @@
 		WLR_NO_HARDWARE_CURSORS = "1";
 		NIXOS_OZONE_WL = "1";
 		# LIBVA_DRIVER_NAME = "iHD";
-		LIBVA_DRIVER_NAME = "i965";
+		# LIBVA_DRIVER_NAME = "i965"; # <- This one works on T420
 	};
 
 
