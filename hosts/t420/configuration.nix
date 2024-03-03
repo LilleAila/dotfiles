@@ -111,16 +111,16 @@
 		jack.enable = true;
 	};
 
-	services.greetd = {
-		enable = true;
-		settings = {
-			default_session = {
-				# command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
-				command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd Hyprland";
-			};
-		};
-		vt = 2;
-	};
+	# services.greetd = {
+	# 	enable = true;
+	# 	settings = {
+	# 		default_session = {
+	# 			# command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
+	# 			command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd Hyprland";
+	# 		};
+	# 	};
+	# 	vt = 2;
+	# };
 
 	programs.dconf.enable = true;
 
@@ -129,6 +129,45 @@
 		enable = true;
     layout = "no";
     xkbVariant = "";
+
+		updateDbusEnvironment = true;
+		libinput = {
+			enable = true;
+			touchpad = {
+				naturalScrolling = true;
+				disableWhileTyping = true;
+			};
+		};
+		enableCtrlAltBackspace = true;
+
+		# windowManager.exwm = {
+		# 	enable = true;
+		# };
+
+		# displayManager = {
+		# 	# defaultSession = "hyprland";
+		# 	lightdm = {
+		# 		enable = true;
+		# 		greeters.mini = {
+		# 			enable = true;
+		# 		};
+		# 	};
+		# };
+
+		displayManager.lightdm.enable = true;
+		# displayManager.lightdm.autoLogin = { enable = true; user = "olai"; };
+		displayManager.defaultSession = "EXWM";
+		displayManager.session = [
+			{
+				manage = "desktop";
+				name = "EXWM";
+				start = pkgs.writeScript "xsession" ''
+				exec ${pkgs.dbus.dbus-launch} --exit-with-session emacs --eval "(exwm-enable)" -mm --fullscreen --debug-init
+				# emacs --daemon --eval "(exwm-enable)" --fullscreen
+				# exec ${pkgs.dbus.dbus-launch} --exit-with-session emacsclient -c
+				'';
+			}
+		];
   };
 	programs.xwayland = {
 		enable = true;
@@ -160,7 +199,6 @@
   environment.systemPackages = with pkgs; [
     wget
     git
-    wget
     curl
     neovim
     vim
