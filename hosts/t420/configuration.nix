@@ -162,6 +162,9 @@
 				manage = "desktop";
 				name = "EXWM";
 				start = pkgs.writeScript "xsession" ''
+				${pkgs.xorg.xrdb}/bin/xrdb ${pkgs.writeText "Xresources" ''
+				Xft.dpi: 100
+				''}
 				exec ${pkgs.dbus.dbus-launch} --exit-with-session emacs --eval "(exwm-enable)" -mm --fullscreen --debug-init
 				# emacs --daemon --eval "(exwm-enable)" --fullscreen
 				# exec ${pkgs.dbus.dbus-launch} --exit-with-session emacsclient -c
