@@ -16,6 +16,12 @@
       # pkgs = nixpkgs.legacyPackages.${system};
     in {
       nixosConfigurations = {
+				m1pro14 = nixpkgs.lib.nixosSystem {
+					inherit system;
+					modules = [
+						./hosts/m1pro14/configuration.nix
+					];
+				};
 				t420 = nixpkgs.lib.nixosSystem {
 					inherit system;
 					modules = [
