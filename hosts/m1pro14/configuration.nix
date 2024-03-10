@@ -16,10 +16,47 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
 
-  # Specify path to peripheral firmware files.
-  hardware.asahi.peripheralFirmwareDirectory = ./firmware;
-  # Or disable extraction and management of them completely.
-  # hardware.asahi.extractPeripheralFirmware = false;
+  swapDevices = [
+	  {
+			device = "/var/lib/swapfile";
+			size = 16 * 1024;
+		}
+	];
+
+	# Configure asahi
+	hardware.asahi = {
+		peripheralFirmwareDirectory = ./firmware;
+		useExperimentalGPUDriver = true;
+		experimentalGPUInstallMode = "driver";
+		withRust = true;
+	};
+
+	hardware.opengl = {
+		enable = true;
+		driSupport = true;
+		# driSupport32Bit = true;
+	};
+
+  # Configure X11 (for xwayland)
+  services.xserver = {
+    enable = true;
+
+    xkb.layout = "no";
+    xkb.variant = "";
+    displayManager.lightdm.enable = false;
+
+    updateDbusEnvironment = true;
+    libinput = {
+      enable = true;
+      touchpad = {
+        naturalScrolling = true;
+        disableWhileTyping = true;
+      };
+    };
+    enableCtrlAltBackspace = true;
+  };
+  programs.xwayland.enable = true;
+
 
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
@@ -67,25 +104,6 @@
   # Enable dconf
   programs.dconf.enable = true;
   
-  # Configure X11 (for xwayland)
-  services.xserver = {
-    enable = true;
-    xkb.layout = "no";
-    xkb.variant = "";
-    displayManager.lightdm.enable = false;
-
-    updateDbusEnvironment = true;
-    libinput = {
-      enable = true;
-      touchpad = {
-        naturalScrolling = true;
-        disableWhileTyping = true;
-      };
-    };
-    enableCtrlAltBackspace = true;
-  };
-  programs.xwayland.enable = true;
-
   fonts.packages = with pkgs; [ terminus_font ];
   # Set console font and keyboard
   console = {
@@ -120,6 +138,7 @@
     neovim
     home-manager
     git
+		pciutils
   ];
 
   # Copy the NixOS configuration file and link it from the resulting system
