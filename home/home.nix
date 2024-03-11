@@ -53,10 +53,12 @@
 		pavucontrol
   ];
 
+	# TODO: move everything in here to separate files
 	programs.git = {
 		enable = true;
 		userName = "LilleAila";
-		userEmail = "olai.solsvik@gmail.com";
+		# TODO: use secrets with sops instead of whatever this is:
+		userEmail = "olai" + ".sols" + "vik@gm" + "ail.co" + "m";
 		aliases = {
 			pu = "push";
 			co = "checkout";
