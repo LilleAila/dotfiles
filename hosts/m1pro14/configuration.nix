@@ -23,6 +23,7 @@
 		}
 	];
 
+	# TODO: add TLP
 	services.upower.enable = true;
 
 	# Configure asahi
@@ -32,6 +33,12 @@
 		experimentalGPUInstallMode = "replace";
 		withRust = true;
 	};
+	# TODO: switch to using overlays instead of replacing, so that I can rebuild without `--impure`
+	# Overlay has to be made manually, because of infinite loop error from asahi
+	# Something like: ( causes full rebuild :( )
+	# nixpkgs.overlays = [
+	# 	(final: prev: { mesa = final.mesa-asahi-edge; })
+	# ];
 
 	programs.hyprland.enable = true;
 

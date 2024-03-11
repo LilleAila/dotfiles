@@ -2,6 +2,7 @@
   description = "NixOS config flake";
 
 	inputs = {
+		# TODO: wait until nixpkgs fixes u-boot
 		# nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 		# Temporarily using old nixpkgs version, because of tpwrules/nixos-apple-silicon #174
 		nixpkgs.url = "github:nixos/nixpkgs/e9631b9779c8db9cd5ea537b2336926137b1826f";

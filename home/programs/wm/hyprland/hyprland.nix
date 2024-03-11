@@ -29,6 +29,9 @@ in
 		grimblast
 	];
 
+	# TODO: cursor does not work properly on m1pro14
+	# TODO: fix monitor refresh rate (120hz instead of 60hz) (on m1pro14)
+	# TODO: legacyRenderer override only for m1pro14
 	wayland.windowManager.hyprland = {
 		enable = true;
 		package = (inputs.hyprland.packages."${pkgs.system}".hyprland.override { legacyRenderer = true; });

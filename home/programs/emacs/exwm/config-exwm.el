@@ -1,3 +1,4 @@
+;; TODO: remove exwm??
 ;; https://github.com/emacksnotes/exwm/wiki/EXWM-User-Guide
 
 (defun os/run-in-background (command)
