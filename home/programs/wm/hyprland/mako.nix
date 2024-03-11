@@ -1,6 +1,7 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
+	# TODO: rewrite in ags
 	services.mako = {
 		enable = true;
 		backgroundColor = "#${config.colorScheme.palette.base01}";

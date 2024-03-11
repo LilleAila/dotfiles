@@ -1,6 +1,7 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
+	# TODO: rewrite in ags
 	programs.wlogout = {
 		enable = true;
 		package = pkgs.wlogout;

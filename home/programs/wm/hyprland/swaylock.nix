@@ -1,6 +1,7 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
+	# TODO: switch to hyprlock + hypridle
 	programs.swaylock = {
 		enable = true;
 		package = pkgs.swaylock-effects;

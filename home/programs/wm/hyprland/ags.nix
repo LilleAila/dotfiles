@@ -5,6 +5,8 @@
     inputs.ags.homeManagerModules.default
   ];
 
+	# TODO: Make home-manager compile css instead of at runtime
+	# will also stop system being littered with sass cache folders
   home.packages = with pkgs; [
 		sass
 	];

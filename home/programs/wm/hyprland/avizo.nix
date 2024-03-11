@@ -1,6 +1,7 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
+	# TODO: rewrite in ags
 	services.avizo = {
 		enable = true;
 		package = pkgs.avizo;
