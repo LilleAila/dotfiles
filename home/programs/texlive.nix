@@ -1,10 +1,7 @@
 { config, pkgs, inputs, lib, ... }:
 
 {
-	# programs.texlive = {
-	# 	enable = true;
-	# 	# packageSet = pkgs.texliveFull;
-	# };
+	# TODO: Move this to a nix-shell in 1T-oppgaver
 	home.packages = with pkgs; [
 		python311Packages.pygments
 		pandoc

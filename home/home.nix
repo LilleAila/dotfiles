@@ -7,23 +7,20 @@
 		stateVersion = "23.11"; # Changed from stable 23.05
 	};
 
-	# targets.genericLinux.enable = true; # ENABLE ON NON-NIXOS
-
   imports = [
-		inputs.nix-colors.homeManagerModules.default # Provices nix-locate command
+		inputs.nix-colors.homeManagerModules.default
     ./programs/shell/zsh.nix
     ./programs/shell/neovim.nix
 	  ./programs/shell/terminal.nix
 		./programs/shell/lf.nix
 
-		# ./programs/browser.nix
+		./programs/browser.nix
 		# ./programs/discord.nix
-		# ./programs/texlive.nix
-		# ./programs/emacs
+		./programs/texlive.nix
+		./programs/emacs
 
 		# ./programs/wallpaper/wallpaper.nix
-	  # ./programs/hyprland/hyprland.nix
-		# ./programs/wm/hyprland
+		./programs/wm/hyprland
   ];
 
 	# https://github.com/tinted-theming/base16-schemes/
@@ -35,8 +32,6 @@
 		"discord"
 	];
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   home.packages = with pkgs; [
 		gcc
 		cmake
@@ -47,16 +42,14 @@
 		nodejs_20
 		python311
 
-		# neofetch
 		dconf
 
-		# webcord-vencord
+		webcord-vencord
 		# discord
 		# (pkgs.discord.override {
 		# 	withVencord = true;
-		#  })
+		# })
 
-		# steam # Install steam in system config instead
 		pavucontrol
   ];
 

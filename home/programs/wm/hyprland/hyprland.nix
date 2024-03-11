@@ -3,7 +3,7 @@
 let
 	startupScript = pkgs.pkgs.writeShellScriptBin "start" /* bash */ ''
 		${inputs.hyprland.packages."${pkgs.system}".hyprland}/bin/hyprctl setcursor "Bibata-Modern-Ice" 24 &
-		${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &
+		# ${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &
 		ags &
 		${pkgs.mako}/bin/mako &
 	'';
@@ -36,7 +36,7 @@ in
 		xwayland.enable = true;
 
 		settings = {
-			monitor = "eDP-1,preferred,auto,1";
+			monitor = ",preferred,auto,2";
 			exec-once = ''${startupScript}/bin/start'';
 			env = [
 				"XCURSOR_SIZE,24"

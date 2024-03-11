@@ -23,6 +23,8 @@
 		}
 	];
 
+	services.upower.enable = true;
+
 	# Configure asahi
 	hardware.asahi = {
 		peripheralFirmwareDirectory = ./firmware;
@@ -39,6 +41,16 @@
 		enable = true;
 		driSupport = true;
 		# driSupport32Bit = true;
+	};
+
+	services.greetd = {
+		enable = true;
+		settings = {
+			default_session = {
+				command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd Hyprland";
+			};
+		};
+		vt = 2;
 	};
 
   # Configure X11 (for xwayland)
