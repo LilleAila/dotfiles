@@ -1,0 +1,1 @@
+# NixOS home manager config

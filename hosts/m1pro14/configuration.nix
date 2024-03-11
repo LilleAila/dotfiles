@@ -2,14 +2,14 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       # Include the necessary packages and configuration for Apple Silicon support.
-      ./apple-silicon-support
+      # ./apple-silicon-support
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -27,11 +27,15 @@
 	hardware.asahi = {
 		peripheralFirmwareDirectory = ./firmware;
 		useExperimentalGPUDriver = true;
-		experimentalGPUInstallMode = "driver";
+		experimentalGPUInstallMode = "replace";
 		withRust = true;
 	};
 
+	programs.hyprland.enable = true;
+
+	# Enable OpenGL
 	hardware.opengl = {
+		# package = pkgs.mesa-asahi-edge;
 		enable = true;
 		driSupport = true;
 		# driSupport32Bit = true;
@@ -69,7 +73,7 @@
     settings.General.EnableNetworkConfiguration = true;
   };
   networking.networkmanager = {
-    enable = true;
+    enable = false;
     wifi.backend = "iwd";
   };
 
