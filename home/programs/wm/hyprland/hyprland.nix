@@ -129,6 +129,7 @@ in
 			bindm = [
 				"$mainMod, mouse:272, movewindow"
 				"$mainMod, mouse:273, resizewindow"
+				"$mainMod ALT, mouse:272, resizewindow"
 			];
 
 		# l -> do stuff even when locked

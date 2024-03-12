@@ -1,0 +1,118 @@
+* {
+	all: unset;
+	color: $fg;
+}
+
+.bar {
+	background-color: $bar_bg;
+	color: $fg;
+	min-height: $bar_height;
+}
+
+
+.bar .workspaces {
+  margin: 0.2rem 0.5rem;
+
+  button {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 2rem;
+    margin: 0.7rem 0.2rem;
+    min-width: 1rem;
+    transition: 100ms linear;
+  }
+
+  .active {
+    min-width: 2rem;
+  }
+}
+
+.bar {
+	.workspaces {
+		margin: 0 0.4rem;
+
+		.workspace {
+			border-radius: 2rem;
+			margin: 0.55rem 0.4rem; // Top/Bottom Left/Right
+			transition: 100ms linear;
+			background-color: $bg;
+			min-width: 1.2rem;
+		}
+
+		.active {
+			background-color: $bg_alt2;
+			min-width: 3rem;
+		}
+
+		.workspace:not(.active):hover {
+			background-color: $bg_alt;
+		}
+	}
+
+	.date {
+		margin: 0.4rem 0.4rem;
+		// padding: 0.2rem 0.6rem;
+		padding: 0.2rem 0.6rem;
+	}
+
+	.battery {
+		.battery_label, .battery_icon {
+			margin-right: 0.4rem;
+		}
+		margin: 0.4rem 0.4rem;
+		padding: 0.2rem 0.6rem;
+		&.charging .battery_label {
+			color: $base0B;
+		}
+		.battery_label {
+			&.warning {
+				color: $base09;
+			}
+			&.critical {
+				color: $base08;
+			}
+		}
+	}
+
+	.system-tray {
+		.tray-item {
+			transition: 100ms linear;
+			margin: 0.3rem 0.1rem;
+			padding: 0.2rem 0.5rem;
+			border-radius: 0.5rem;
+			&:hover {
+				background-color: $bg_alt;
+			}
+		}
+	}
+}
+
+tooltip {
+	background-color: $bg;
+	padding: 4rem 8rem;
+	border-radius: 1rem;
+	border: 0.1rem solid $bg_alt2;
+}
+
+// System tray
+menu {
+	background-color: $bg;
+	padding: 1rem;
+	border-radius: 1rem;
+	separator {
+		min-height: 0.05rem;
+		margin: 0.5rem 0;
+		background-color: $bg_alt2;
+	}
+
+	menuitem {
+		border-radius: 0;
+		transition: 100ms linear;
+		padding: 0.4rem 0.7rem;
+		// background-color: $bg_alt;
+		border-radius: 0.5rem;
+
+		&:hover {
+			background-color: $bg_alt;
+		}
+	}
+}

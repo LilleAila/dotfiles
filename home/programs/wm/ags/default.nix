@@ -17,6 +17,7 @@
 
 	home.file.".config/ags".source = pkgs.stdenv.mkDerivation {
 		src = ./.;
+		name = "AGS configuration";
 
 		# TODO: autogenerate style/vars.scss from config.colorScheme.palette
 		buildPhase = /* bash */ ''
