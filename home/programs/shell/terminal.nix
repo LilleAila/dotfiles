@@ -63,9 +63,9 @@
 		font = {
 			name = "JetBrains Mono Nerd Font";
 			size = 10;
-			package = pkgs.fira-code-nerdfont;
+			package = pkgs.nerdfonts;
 		};
-		# shellIntegration.enableZshIntegration = true;
+		shellIntegration.enableZshIntegration = true;
 		settings = with config.colorScheme.palette; {
 			scrollback_lines = 1000;
 			placement_strategy = "center";

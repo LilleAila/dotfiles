@@ -95,6 +95,11 @@
 		enableZshIntegration = true;
 	};
 
+	programs.thefuck = {
+		enable = true;
+		enableZshIntegration = true;
+	};
+
 	programs.eza = {
 		enable = true;
 		enableAliases = true;
