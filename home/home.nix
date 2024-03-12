@@ -15,7 +15,7 @@
 		./programs/shell/lf.nix
 
 		./programs/browser.nix
-		# ./programs/discord.nix
+		./programs/discord.nix
 		./programs/texlive.nix
 		./programs/emacs
 
