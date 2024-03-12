@@ -21,6 +21,7 @@
 
 		# ./programs/wallpaper/wallpaper.nix
 		./programs/wm/hyprland
+		./programs/wm/ags
   ];
 
 	# https://github.com/tinted-theming/base16-schemes/

@@ -8,6 +8,6 @@
 		./mako.nix
 		./avizo.nix
 		./wlogout.nix
-		./ags.nix
+		# ./ags.nix
 	];
 }
