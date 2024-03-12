@@ -29,10 +29,11 @@ in
 		grimblast
 	];
 
-	# TODO: implement idle daemon
+	# TODO: implement idle daemon (hypridle + hyprlock)
 	# TODO: cursor does not work properly on m1pro14
 	# TODO: fix monitor refresh rate (120hz instead of 60hz) (on m1pro14)
 	# TODO: legacyRenderer override only for m1pro14
+	# TODO: enable display under notch to show bar
 	wayland.windowManager.hyprland = {
 		enable = true;
 		package = (inputs.hyprland.packages."${pkgs.system}".hyprland.override { legacyRenderer = true; });
@@ -209,12 +210,12 @@ in
 				bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
 
 				animation = [
-					"windows, 1, 7, myBezier"
-					"windowsOut, 1, 7, myBezier, popin 80%"
+					"windows, 1, 4, myBezier"
+					"windowsOut, 1, 4, myBezier, popin 80%"
 					"border, 1, 10, default"
 					"borderangle, 1, 8, default"
 					"fade, 1, 7, default"
-					"workspaces, 1, 6, default"
+					"workspaces, 1, 8, myBezier"
 				];
 			};
 
