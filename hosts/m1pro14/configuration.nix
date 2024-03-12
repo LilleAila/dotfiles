@@ -23,8 +23,18 @@
 		}
 	];
 
-	# TODO: add TLP
 	services.upower.enable = true;
+	# Use TLP for battery charging thresholds
+	services.tlp = {
+		enable = true;
+		settings = {
+			START_CHARGE_THRESH_BAT0 = 70;
+			STOP_CHARGE_THRESH_BAT0 = 80;
+			# Recalibrate with `tlp fullcharge/recalibrate`.
+			# This restores charge threshold before reboot:
+			RESTORE_THRESHOLDS_ON_BAT = 1;
+		};
+	};
 
 	# Configure asahi
 	hardware.asahi = {

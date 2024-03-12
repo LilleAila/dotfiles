@@ -184,7 +184,7 @@
             "enabled": true
         },
         "GameActivityToggle": {
-            "enabled": true,
+            "enabled": false,
             "oldIcon": false
         },
         "GifPaste": {
