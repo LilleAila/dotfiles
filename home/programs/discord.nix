@@ -5,7 +5,23 @@
 		vesktop
 	];
 
+	home.file.".config/vesktop/settings.json".source = pkgs.writeText "settings.json" /* json */ ''
+	{
+		"minimizeToTray": "on",
+		"discordBranch": "stable",
+		"arRPC": "on",
+		"splashColor": "rgb(219, 222, 225)",
+		"splashBackground": "rgb(49, 51, 56)",
+		"staticTitle": true,
+		"splashTheming": false,
+		"checkUpdates": false
+	}
+	'';
+
+	home.file.".config/vesktop/settings/settings.json".source = ./discord-settings.json;
+
 	# Auto-generated color scheme, inspired by https://github.com/deathbeam/base16-discord
+	# Slightly modified by changing theme variables in devtools (Ctrl + Shift + i)
 	home.file.".config/vesktop/themes/base16.theme.css".source = with config.colorScheme.palette; pkgs.writeText "base16.theme.css" /* css */ ''
 /**
 * @name Nix-colors automatic
@@ -41,8 +57,8 @@
     --bg-overlay-2: var(--base00); /* These 2 are needed for proper threads coloring */
     --home-background: var(--base00);
     --background-primary: var(--base00);
-    --background-secondary: var(--base00); /* Changed from --base01 in source */
-    --background-secondary-alt: var(--base00); /* Changed from --base01 in source */
+    --background-secondary: var(--base00); /* --base01 */
+    --background-secondary-alt: var(--base00); /* --base01 */
     --channeltextarea-background: var(--base01);
     --background-tertiary: var(--base00);
     --background-accent: var(--base0E);
@@ -56,8 +72,8 @@
     --interactive-hover: var(--base0C);
     --interactive-active: var(--base0A);
     --interactive-muted: var(--base03);
-    --header-primary: var(--base06);
-    --header-secondary: var(--base03);
+    --header-primary: var(--base0B); /* --base06 */
+    --header-secondary: var(--base04); /* --base03 */
     --scrollbar-thin-track: transparent;
     --scrollbar-auto-track: transparent;
 }
