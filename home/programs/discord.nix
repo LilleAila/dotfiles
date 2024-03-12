@@ -8,10 +8,10 @@
 	# Auto-generated color scheme, inspired by https://github.com/deathbeam/base16-discord
 	home.file.".config/vesktop/themes/base16.theme.css".source = with config.colorScheme.palette; pkgs.writeText "base16.theme.css" /* css */ ''
 /**
-* @name base16 auto-generated
+* @name Nix-colors automatic
 * @author LilleAila
 * @version 1.0.0
-* @description base16 generated from https://github.com/Misterio77/nix-colors
+* @description Base16 color scheme generated from https://github.com/Misterio77/nix-colors
 **/
 
 :root {
