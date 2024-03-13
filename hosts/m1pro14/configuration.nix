@@ -50,7 +50,9 @@
 	# 	(final: prev: { mesa = final.mesa-asahi-edge; })
 	# ];
 
-	programs.hyprland.enable = true;
+	programs.hyprland.enable = true; # Wai dis enabel??
+
+	hardware.bluetooth.enable = true; # TODO: configure audio
 
 	# Enable OpenGL
 	hardware.opengl = {
