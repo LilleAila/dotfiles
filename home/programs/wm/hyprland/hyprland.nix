@@ -29,7 +29,8 @@ in
 		grimblast
 	];
 
-	# TODO: implement idle daemon (hypridle + hyprlock)
+	# TODO: switch from swaylock to hyprlock
+	# TODO: disable touchpad while typing
 	# TODO: cursor does not work properly on m1pro14
 	# TODO: fix monitor refresh rate (120hz instead of 60hz) (on m1pro14)
 	# TODO: legacyRenderer override only for m1pro14
@@ -57,7 +58,7 @@ in
 
 			"$mainMod" = "SUPER";
 			# "$screenshot_format" = "%Y-%m-%d,%H:%M:%S.png";
-			"$screenshot_args" = "--notify --freeze";
+			"$screenshot_args" = "--notify --freeze"; # TODO: fix cursor in screenshots (remove --freeze??)
 			"$screenshot_path" = "~/Screenshots/Raw/$(date +\"%Y-%m-%d,%H:%M:%S.png\")";
 			bind = [
 				"$mainMod SHIFT, E, exec, wl-paste | swappy -f -"
@@ -65,6 +66,9 @@ in
 				"$mainMod SHIFT, S, exec, grimblast $screenshot_args copysave active $screenshot_path"
 				", PRINT, exec, grimblast $screenshot_args copysave output $screenshot_path"
 				"SHIFT, PRINT, exec, grimblast $screenshot_args copysave screen $screenshot_path"
+				# Same as two above but without PrtSc
+				"$mainMod ALT, S, exec, grimblast $screenshot_args copysave output $screenshot_path"
+				"$mainMod ALT SHIFT, S, exec, grimblast $screenshot_args copysave screen $screenshot_path"
 
 				# Apps
 				"$mainMod, return, exec, $terminal"

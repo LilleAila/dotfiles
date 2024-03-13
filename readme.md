@@ -8,3 +8,4 @@ My NixOS system configuration flake. The home-manager configuration is included 
 - [End-4/dots-hyprland](https://github.com/end-4/dots-hyprland)
 - [Ircurry/cfg](https://github.com/ircurry/cfg)
 - [Chadcat7/crystal](https://github.com/chadcat7/crystal)
+- [AngelJumbo/gruvbox-wallpapers](https://github.com/AngelJumbo/gruvbox-wallpapers)

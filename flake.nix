@@ -37,6 +37,11 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
+		hyprpaper = {
+			url = "github:hyprwm/hyprpaper";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+
 		# === Window Manager Related ===
 		flake-parts = {
 			url = "github:hercules-ci/flake-parts";

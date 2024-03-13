@@ -4,6 +4,7 @@
 	imports = [
 		./hyprland.nix
 		./hypridle.nix
+		./hyprpaper.nix
 		./general.nix
 		./swaylock.nix
 		./mako.nix
