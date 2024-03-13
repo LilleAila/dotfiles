@@ -89,6 +89,7 @@
       nixosConfigurations = {
 				m1pro14 = nixpkgs.lib.nixosSystem {
 					inherit system;
+					specialArgs = { inherit inputs; };
 					modules = [
 						({ nixpkgs.overlays = [ inputs.nixos-apple-silicon.overlays.apple-silicon-overlay ]; })
 						inputs.nixos-apple-silicon.nixosModules.apple-silicon-support # TODO: The apple-silicon-support (NOT FIRMWARE!!) folders are probably unnecessary

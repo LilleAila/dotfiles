@@ -25,6 +25,7 @@
 
 	services.upower.enable = true;
 	# Use TLP for battery charging thresholds
+	# TODO: The charge thresholds don't seem to work..
 	services.tlp = {
 		enable = true;
 		settings = {
@@ -52,7 +53,8 @@
 
 	programs.hyprland.enable = true; # Wai dis enabel??
 
-	hardware.bluetooth.enable = true; # TODO: configure audio
+	hardware.bluetooth.enable = true;
+	sound.enable = true;
 
 	# Enable OpenGL
 	hardware.opengl = {
