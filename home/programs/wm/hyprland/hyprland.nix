@@ -30,7 +30,6 @@ in
 	];
 
 	# TODO: switch from swaylock to hyprlock
-	# TODO: disable touchpad while typing
 	# TODO: cursor does not work properly on m1pro14
 	# TODO: fix monitor refresh rate (120hz instead of 60hz) (on m1pro14)
 	# TODO: legacyRenderer override only for m1pro14
@@ -163,6 +162,8 @@ in
 				follow_mouse = 1;
 				touchpad = {
 					natural_scroll = true;
+					disable_while_typing = true;
+					tap-to-click = true;
 				};
 				sensitivity = 0.0;
 				accel_profile = "flat";
