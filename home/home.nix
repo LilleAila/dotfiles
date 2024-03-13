@@ -9,10 +9,13 @@
 
   imports = [
 		inputs.nix-colors.homeManagerModules.default
-    ./programs/shell/zsh.nix
-    ./programs/shell/neovim.nix
-	  ./programs/shell/terminal.nix
-		./programs/shell/lf.nix
+  #   ./programs/shell/zsh.nix
+  #   ./programs/shell/neovim.nix
+	 #  ./programs/shell/terminal.nix
+		# ./programs/shell/lf.nix
+		# ./programs/shell/git.nix
+
+		./programs/shell
 
 		./programs/browser.nix
 		./programs/discord.nix
@@ -45,30 +48,8 @@
 
 		dconf
 
-		webcord-vencord
-		# discord
-		# (pkgs.discord.override {
-		# 	withVencord = true;
-		# })
-
 		pavucontrol
   ];
-
-	# TODO: move everything in here to separate files
-	programs.git = {
-		enable = true;
-		userName = "LilleAila";
-		# TODO: use secrets with sops instead of whatever this is:
-		userEmail = "olai" + ".sols" + "vik@gm" + "ail.co" + "m";
-		aliases = {
-			pu = "push";
-			co = "checkout";
-			cm = "commit";
-		};
-		extraConfig = {
-			credential.helper = "store"; # I should probably switch to ssh
-		};
-	};
 
 	programs.mpv = {
 		enable = true;
