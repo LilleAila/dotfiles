@@ -163,7 +163,7 @@ in
 				touchpad = {
 					natural_scroll = true;
 					disable_while_typing = true;
-					tap-to-click = true;
+					tap-to-click = false; # TODO: still enabled..
 				};
 				sensitivity = 0.0;
 				accel_profile = "flat";

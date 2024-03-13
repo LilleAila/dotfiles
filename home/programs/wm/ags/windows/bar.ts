@@ -33,17 +33,59 @@ const Date = () => Widget.Label({
 });
 
 // TODO: re-write workspaces similar to [this](https://github.com/fufexan/dotfiles/blob/main/home/services/ags/windows/bar/modules/workspaces.js), and make it have a constant number of them.
+const hyprland = await Service.import("hyprland")
+const sortWorkspaces = () => {
+  return hyprland.workspaces
+    .sort((x, y) => {
+      return x.id - y.id;
+    })
+    .filter((x) => {
+      return x.name.indexOf("special") == -1;
+    });
+};
+const getLastWorkspaceId = () => sortWorkspaces().slice(-1)[0].id;
+
 const Workspaces = () => Widget.Box({
-    class_name: "workspaces",
-    children: Hyprland.bind('workspaces').transform(ws => {
-        return ws.map(({ id }) => Widget.Button({
-            on_clicked: () => Hyprland.message(`dispatch workspace ${id}`),
-            // child: Widget.Label(`${id}`),
-            class_name: Hyprland.active.workspace.bind("id")
-                .transform(i => `${i === id ? "active" : ""} workspace`),
-        }));
-    }),
-});
+	class_name: "workspaces",
+	children: [...Array(9)].map((_, i) => {
+		const id = i + 1;
+		return Widget.Button({
+			class_name: "workspace",
+			attribute: id,
+			on_clicked: () => Hyprland.message(`dispatch workspace ${id}`),
+			setup: self => self.hook(hyprland, () => {
+					self.toggleClassName("active", hyprland.active.workspace.id === id)
+					self.toggleClassName("occupied", (hyprland.getWorkspace(id)?.windows || 0) > 0)
+			}),
+		});
+	}),
+	// Why does this take one extra workspace switch to update properly????
+	setup: self => {
+		self.hook(hyprland.active.workspace, () => self.children.map(btn => {
+			const sorted = hyprland.workspaces
+				.sort((x, y) => {
+					return y.id - x.id;
+				})
+				.filter((x) => {
+					return x.name.indexOf("special") == -1;
+				});
+			const last = sorted[0].id; // WHY DOES IT NOT WORK (it works when adding, but not removing??)
+			btn.visible = btn.attribute <= last;
+		}))
+	},
+}); 
+
+// const Workspaces = () => Widget.Box({
+//     class_name: "workspaces",
+//     children: Hyprland.bind('workspaces').transform(ws => {
+//         return ws.map(({ id }) => Widget.Button({
+//             on_clicked: () => Hyprland.message(`dispatch workspace ${id}`),
+//             // child: Widget.Label(`${id}`),
+//             class_name: Hyprland.active.workspace.bind("id")
+//                 .transform(i => `${i === id ? "active" : ""} workspace`),
+//         }));
+//     }),
+// });
 
 const BatteryLabel = () => Widget.Label({
 	// class_name: "battery_label",
