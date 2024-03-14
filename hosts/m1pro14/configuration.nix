@@ -30,16 +30,23 @@
 	services.upower.enable = true;
 	# Use TLP for battery charging thresholds
 	# TODO: The charge thresholds don't seem to work..
-	services.tlp = {
-		enable = true;
-		settings = {
-			START_CHARGE_THRESH_BAT0 = 70;
-			STOP_CHARGE_THRESH_BAT0 = 80;
-			# Recalibrate with `tlp fullcharge/recalibrate`.
-			# This restores charge threshold before reboot:
-			RESTORE_THRESHOLDS_ON_BAT = 1;
-		};
-	};
+	# https://github.com/PaddiM8/asahi-battery-threshold/issues/3
+	# https://www.reddit.com/r/AsahiLinux/comments/y26qx5/comment/is1l7hm/
+	# services.tlp = {
+	# 	enable = true;
+	# 	settings = {
+	# 		START_CHARGE_THRESH_macsmc-battery = 70;
+	# 		STOP_CHARGE_THRESH_macsmc-battery = 80;
+	# 		# Recalibrate with `tlp fullcharge/recalibrate`.
+	# 		# This restores charge threshold before reboot:
+	# 		RESTORE_THRESHOLDS_ON_BAT = 1;
+	# 	};
+	# };
+
+	# Idk if this actually works, but it seems to set it to 80/75 for some reason????
+	services.udev.extraRules = ''
+KERNEL=="macsmc-battery", SUBSYSTEM=="power_supply", ATTR{charge_control_end_threshold}="80", ATTR{charge_control_start_threshold}="60"
+	'';
 
 	# Configure asahi
 	hardware.asahi = {
