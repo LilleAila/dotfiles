@@ -38,12 +38,24 @@
 			min-width: 1.2rem;
 		}
 
-		.occupied:not(.active) {
-			background-color: $bg_alt;
+		.occupied.mon0 {
+			background-color: $accent1;
 		};
 
+		.occupied.mon1 {
+			background-color: $accent2;
+		}
+
+		.occupied.mon2 {
+			background-color: $accent3;
+		}
+
+		.occupied.mon3 {
+			background-color: $accent4;
+		}
+
 		.active {
-			background-color: $bg_alt2;
+			// background-color: $bg_alt2;
 			min-width: 3rem;
 		}
 
