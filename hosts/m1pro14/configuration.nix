@@ -57,9 +57,6 @@
 
 	programs.hyprland.enable = true; # Wai dis enabel??
 
-	hardware.bluetooth.enable = true;
-	sound.enable = true;
-
 	# Enable OpenGL
 	hardware.opengl = {
 		# package = pkgs.mesa-asahi-edge;
@@ -110,9 +107,14 @@
     settings.General.EnableNetworkConfiguration = true;
   };
   networking.networkmanager = {
-    enable = false;
+    enable = true;
     wifi.backend = "iwd";
   };
+
+
+	hardware.bluetooth.enable = true;
+	services.blueman.enable = true;
+	sound.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Oslo";

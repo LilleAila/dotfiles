@@ -18,6 +18,9 @@
 		iconTheme.name = "Papirus-Dark";
 	};
 
+	services.blueman-applet.enable = true;
+	services.network-manager-applet.enable = true;
+
 	xdg.mimeApps.defaultApplications = {
 		"text/plain" = [ "neovide.desktop" ];
 		"application/pdf" = [ "zathura.desktop" ];

@@ -33,6 +33,7 @@ in
 	# TODO: fix monitor refresh rate (120hz instead of 60hz) (on m1pro14)
 	# TODO: legacyRenderer override only for m1pro14
 	# TODO: enable display under notch to show bar
+	# TODO: set up blueberry (bluetooth) and nm-applet / networkmanager (wifi)
 	wayland.windowManager.hyprland = {
 		enable = true;
 		package = (inputs.hyprland.packages."${pkgs.system}".hyprland.override { legacyRenderer = true; });

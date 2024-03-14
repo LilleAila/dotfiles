@@ -60,7 +60,9 @@
 
 				"Home-Manager Options" = {
 					urls = [{
-						template = "https://mipmip.github.io/home-manager-option-search";
+						# template = "https://mipmip.github.io/home-manager-option-search";
+						# home-manager option search was moved to:
+						template = "https://home-manager-options.extranix.com";
 						params = [
 							{ name = "query"; value = "{searchTerms}"; }
 						];
