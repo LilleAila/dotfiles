@@ -33,18 +33,7 @@ const Date = () => Widget.Label({
 });
 
 // TODO: re-write workspaces similar to [this](https://github.com/fufexan/dotfiles/blob/main/home/services/ags/windows/bar/modules/workspaces.js), and make it have a constant number of them.
-const hyprland = await Service.import("hyprland")
-const sortWorkspaces = () => {
-  return hyprland.workspaces
-    .sort((x, y) => {
-      return x.id - y.id;
-    })
-    .filter((x) => {
-      return x.name.indexOf("special") == -1;
-    });
-};
-const getLastWorkspaceId = () => sortWorkspaces().slice(-1)[0].id;
-
+// const hyprland = await Service.import("hyprland") // Idk difference between this and importing Hyprland
 const Workspaces = () => Widget.Box({
 	class_name: "workspaces",
 	children: [...Array(9)].map((_, i) => {
@@ -53,26 +42,27 @@ const Workspaces = () => Widget.Box({
 			class_name: "workspace",
 			attribute: id,
 			on_clicked: () => Hyprland.message(`dispatch workspace ${id}`),
-			setup: self => self.hook(hyprland, () => {
-					self.toggleClassName("active", hyprland.active.workspace.id === id)
-					self.toggleClassName("occupied", (hyprland.getWorkspace(id)?.windows || 0) > 0)
+			setup: self => self.hook(Hyprland, () => {
+					self.toggleClassName("active", Hyprland.active.workspace.id === id)
+					self.toggleClassName("occupied", (Hyprland.getWorkspace(id)?.windows || 0) > 0)
 			}),
 		});
 	}),
 	// Why does this take one extra workspace switch to update properly????
-	setup: self => {
-		self.hook(hyprland.active.workspace, () => self.children.map(btn => {
-			const sorted = hyprland.workspaces
-				.sort((x, y) => {
-					return y.id - x.id;
-				})
-				.filter((x) => {
-					return x.name.indexOf("special") == -1;
-				});
-			const last = sorted[0].id; // WHY DOES IT NOT WORK (it works when adding, but not removing??)
-			btn.visible = btn.attribute <= last;
-		}))
-	},
+	// I just make them always show lol
+	// setup: self => {
+	// 	self.hook(Hyprland.active.workspace, () => self.children.map(btn => {
+	// 		const sorted = Hyprland.workspaces
+	// 			.sort((x, y) => {
+	// 				return y.id - x.id;
+	// 			})
+	// 			.filter((x) => {
+	// 				return x.name.indexOf("special") == -1;
+	// 			});
+	// 		const last = sorted[0].id; // WHY DOES IT NOT WORK (it works when adding, but not removing??)
+	// 		btn.visible = btn.attribute <= last;
+	// 	}))
+	// },
 }); 
 
 // const Workspaces = () => Widget.Box({

@@ -38,6 +38,10 @@
 			min-width: 1.2rem;
 		}
 
+		.occupied:not(.active) {
+			background-color: $bg_alt;
+		};
+
 		.active {
 			background-color: $bg_alt2;
 			min-width: 3rem;
