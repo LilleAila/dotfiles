@@ -129,6 +129,10 @@ in
 				"$mainMod SHIFT, 8, movetoworkspace, 8"
 				"$mainMod SHIFT, 9, movetoworkspace, 9"
 
+				# Move workspaces between monitors (TODO: ags probably won't detect this??? idk)
+				"$mainMod ALT, 1, movecurrentworkspacetomonitor, 0"
+				"$mainMod ALT, 2, movecurrentworkspacetomonitor, 1"
+
 				# Scroll through workspaces with $mainMod + scroll
 				"$mainMod, mouse_down, workspace, e+1"
 				"$mainMod, mouse_up  , workspace, e-1"
