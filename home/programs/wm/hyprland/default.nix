@@ -5,6 +5,7 @@
 		./hyprland.nix
 		./hypridle.nix
 		./hyprpaper.nix
+		./hyprlock.nix
 		./general.nix
 		./swaylock.nix
 		./mako.nix
