@@ -16,6 +16,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
 
+	services.logind.extraConfig = /*conf*/ ''
+	HandlePowerKey=ignore
+	'';
+
   swapDevices = [
 	  {
 			device = "/var/lib/swapfile";
