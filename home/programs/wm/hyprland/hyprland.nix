@@ -28,7 +28,6 @@ in
 		qalculate-gtk
 	];
 
-	# TODO: switch from swaylock to hyprlock
 	# TODO: cursor does not work properly on m1pro14
 	# TODO: fix monitor refresh rate (120hz instead of 60hz) (on m1pro14)
 	# TODO: legacyRenderer override only for m1pro14

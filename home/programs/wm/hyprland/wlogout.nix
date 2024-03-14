@@ -8,7 +8,8 @@
 		layout = [
 		{
 			label = "lock";
-			action = "sleep 1; swaylock";
+			# action = "sleep 1; swaylock";
+			action = "sleep 1; hyprlock";
 			text = "Lock";
 			keybind = "l";
 		}
@@ -33,7 +34,8 @@
 		}
 		{
 			label = "suspend";
-			action = "sleep 1; swaylock & systemctl suspend";
+			# action = "sleep 1; swaylock & systemctl suspend";
+			action = "sleep 1; hyprlock & systemctl suspend";
 			text = "Suspend";
 			keybind = "u";
 		}

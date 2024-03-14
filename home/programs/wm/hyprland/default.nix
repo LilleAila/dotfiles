@@ -3,14 +3,13 @@
 {
 	imports = [
 		./hyprland.nix
+		./hyprlock.nix
 		./hypridle.nix
 		./hyprpaper.nix
-		./hyprlock.nix
 		./general.nix
-		./swaylock.nix
+		# ./swaylock.nix
 		./mako.nix
 		./avizo.nix
 		./wlogout.nix
-		# ./ags.nix
 	];
 }
