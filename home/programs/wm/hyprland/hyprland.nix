@@ -11,13 +11,11 @@ in
 
 {
 	home.packages = with pkgs; [
-		seatd
+		seatd # TODO: this probably doesn't even do anything, idk why here, should be enabled in configuration.nix
 		rofi-wayland
 		dolphin
 		# qutebrowser
 		libnotify
-		swww
-		networkmanagerapplet
 		grim
 		slurp
 		wl-clipboard
@@ -27,6 +25,7 @@ in
 		playerctl
 		brightnessctl
 		grimblast
+		qalculate-gtk
 	];
 
 	# TODO: switch from swaylock to hyprlock
@@ -59,6 +58,7 @@ in
 			"$webBrowser" = "firefox"; # TODO: maybe switch to qutebrowser?
 			"$discord" = "vesktop";
 			"$launcher" = "rofi -show drun -show-icons";
+			"$calculator" = "qalculate-gtk";
 
 			"$mainMod" = "SUPER";
 			"$screenshot_args" = "--notify --freeze"; # TODO: fix cursor in screenshots (remove --freeze??)
@@ -83,6 +83,8 @@ in
 				"$mainMod, D, exec, $fileManager"
 				"$mainMod, B, exec, $webBrowser"
 				"$mainMod, C, exec, $discord"
+				# Toggle calculator
+				"$mainMod, Q, exec, pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk &"
 
 				# WM commands
 				", XF86PowerOff, exec, pgrep -x wlogout && pkill -x wlogout || wlogout"
@@ -256,15 +258,21 @@ in
 
 			animations = {
 				enabled = "true";
-				bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+				# Good place to find beziers: https://easings.net/
+				bezier = [
+					"easeOutQuart, 0.25, 1, 0.5, 1"
+					"easeOutQuad, 0.5, 1, 0.89, 1"
+					"easeInOutBack, 0.68, -0.6, 0.32, 1.6"
+				];
 
 				animation = [
-					"windows, 1, 4, myBezier"
-					"windowsOut, 1, 4, myBezier, popin 80%"
+					"windows, 1, 4, easeOutQuart"
+					"windowsOut, 1, 4, easeOutQuart, popin 80%"
 					"border, 1, 10, default"
 					"borderangle, 1, 8, default"
-					"fade, 1, 7, default"
-					"workspaces, 1, 8, myBezier"
+					"fade, 1, 4, default"
+					"workspaces, 1, 2, easeOutQuad"
+					"specialWorkspace, 1, 4, easeInOutBack, slidevert"
 				];
 			};
 
@@ -283,9 +291,13 @@ in
 				vfr = true;
 			};
 
-			# windowrulev2 = [
-			# 	"nomaximizerequest, class:.*"
-			# ];
+			windowrulev2 = [
+				# "nomaximizerequest, class:.*"
+
+				# Put calculator in special workspace
+				"float,class:(qalculate-gtk)"
+				"workspace special:calculator,class:(qalculate-gtk)"
+			];
 
 			# layerrule = [
 			# 	"blur, bar"
