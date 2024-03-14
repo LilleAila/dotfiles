@@ -56,16 +56,16 @@ in
 
 			"$terminal" = "kitty";
 			"$fileManager" = "dolphin";
-			"$webBrowser" = "firefox";
-			# "$discord" = "${pkgs.webcord-vencord}/bin/webcord";
-			"$discord" = "webcord";
+			"$webBrowser" = "firefox"; # TODO: maybe switch to qutebrowser?
+			"$discord" = "vesktop";
 			"$launcher" = "rofi -show drun -show-icons";
 
 			"$mainMod" = "SUPER";
-			# "$screenshot_format" = "%Y-%m-%d,%H:%M:%S.png";
 			"$screenshot_args" = "--notify --freeze"; # TODO: fix cursor in screenshots (remove --freeze??)
 			"$screenshot_path" = "~/Screenshots/Raw/$(date +\"%Y-%m-%d,%H:%M:%S.png\")";
+
 			bind = [
+				# Screenshots
 				"$mainMod SHIFT, E, exec, wl-paste | swappy -f -"
 				"$mainMod, S, exec, grimblast $screenshot_args copysave area $screenshot_path"
 				"$mainMod SHIFT, S, exec, grimblast $screenshot_args copysave active $screenshot_path"
@@ -79,10 +79,7 @@ in
 				"$mainMod, return, exec, $terminal"
 				# ", XF86Launch1, exec, $terminal"
 				"$mainMod, space, exec, $launcher"
-		# ${pkgs.swww} img ~/Wallpapers/hyprland_wallpaper.png --transition-type none &
-		# ${pkgs.swww} img ~/Wallpapers/hyprland_wallpaper.png --transition-type none &
 				"$mainMod, E, exec, emacsclient -c"
-				# "$mainMod SHIFT, E, exec, systemctl --user restart emacs"
 				"$mainMod, D, exec, $fileManager"
 				"$mainMod, B, exec, $webBrowser"
 				"$mainMod, C, exec, $discord"
@@ -93,19 +90,52 @@ in
 				", XF86WLAN, exec, rfkill toggle all"
 				", XF86Back, workspace, -1"
 				", XF86Forward, workspace, +1"
+
 				"$mainMod, W, killactive,"
 				"$mainMod, O, fullscreen, 0"
 				"$mainMod SHIFT, O, fullscreen, 1"
+				"$mainMod ALT, O, fakefullscreen"
 				"$mainMod, F, togglefloating,"
 				"$mainMod, P, pseudo,"
 				"$mainMod, T, togglesplit,"
-				"$mainMod, M, exit,"
+				# "$mainMod, M, exit," # use wlogout instead
 
 				# Move focus
 				"$mainMod, h, movefocus, l"
-				"$mainMod, l, movefocus, r"
-				"$mainMod, k, movefocus, u"
 				"$mainMod, j, movefocus, d"
+				"$mainMod, k, movefocus, u"
+				"$mainMod, l, movefocus, r"
+
+				# Move windows
+				"$mainMod SHIFT, h, movewindow, l"
+				"$mainMod SHIFT, j, movewindow, d"
+				"$mainMod SHIFT, k, movewindow, u"
+				"$mainMod SHIFT, l, movewindow, r"
+
+				"$mainMod CONTROL, 1, movewindow, mon:0"
+				"$mainMod CONTROL, 2, movewindow, mon:1"
+				"$mainMod CONTROL, 3, movewindow, mon:2"
+				"$mainMod CONTROL, 4, movewindow, mon:3"
+
+				"$mainMod ALT SHIFT, h, moveactive, -10 0"
+				"$mainMod ALT SHIFT, j, moveactive, 0 -10"
+				"$mainMod ALT SHIFT, k, moveactive, 0 10"
+				"$mainMod ALT SHIFT, l, moveactive, 10 0"
+
+				# Swap windows
+				"$mainMod CONTROL, h, swapwindow, l"
+				"$mainMod CONTROL, j, swapwindow, d"
+				"$mainMod CONTROL, k, swapwindow, u"
+				"$mainMod CONTROL, l, swapwindow, r"
+
+				"$mainMod, n, swapnext"
+				"$mainMod SHIFT, n, swapnext, prev"
+
+				# Resize windows
+				"$mainMod ALT, h, resizeactive, -10 0"
+				"$mainMod ALT, j, resizeactive, 0 -10"
+				"$mainMod ALT, k, resizeactive, 0 10"
+				"$mainMod ALT, l, resizeactive, 10 0"
 
 				# Switch workspace with $mainMod + [0-9]
 				"$mainMod, 1, workspace, 1"
@@ -129,9 +159,11 @@ in
 				"$mainMod SHIFT, 8, movetoworkspace, 8"
 				"$mainMod SHIFT, 9, movetoworkspace, 9"
 
-				# Move workspaces between monitors (TODO: ags probably won't detect this??? idk)
+				# Move workspaces between monitors
 				"$mainMod ALT, 1, movecurrentworkspacetomonitor, 0"
 				"$mainMod ALT, 2, movecurrentworkspacetomonitor, 1"
+				"$mainMod ALT, 3, movecurrentworkspacetomonitor, 2"
+				"$mainMod ALT, 4, movecurrentworkspacetomonitor, 3"
 
 				# Scroll through workspaces with $mainMod + scroll
 				"$mainMod, mouse_down, workspace, e+1"
