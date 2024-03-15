@@ -1,6 +1,17 @@
 { config, pkgs, lib, inputs, ... }:
 
+let
+	nix-colors-lib = inputs.nix-colors.lib.contrib { inherit pkgs; };
+in
 {
+	# This is very cool, but i prefer using a less minimal photo instead, maybe generate scheme from wallpaper at some point
+	# home.file."test-wallpaper.png".source = nix-colors-lib.nixWallpaperFromScheme {
+	# 	scheme = config.colorScheme;
+	# 	width = 1920;
+	# 	height = 1080;
+	# 	logoScale = 5.0;
+	# };
+
 	qt = {
 		enable = true;
 		platformTheme = "gtk";
@@ -13,8 +24,12 @@
 		enable = true;
 		cursorTheme.package = pkgs.bibata-cursors;
 		cursorTheme.name = "Bibata-Modern-Ice";
-		theme.package = pkgs.adw-gtk3;
-		theme.name = "adw-gtk3-dark";
+		# theme.package = pkgs.adw-gtk3;
+		# theme.name = "adw-gtk3-dark";
+		theme.package = nix-colors-lib.gtkThemeFromScheme {
+			scheme = config.colorScheme;
+		};
+		theme.name = "${config.colorScheme.slug}";
 		iconTheme.package = pkgs.papirus-icon-theme;
 		iconTheme.name = "Papirus-Dark";
 	};
