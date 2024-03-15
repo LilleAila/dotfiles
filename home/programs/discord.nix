@@ -5,17 +5,17 @@
 		vesktop
 	];
 
+	 # TODO: i think the splash color has to be added here with nix-colors??
 	home.file.".config/vesktop/settings.json".source = pkgs.writeText "settings.json" /* json */ ''
-	{
-		"minimizeToTray": "off",
-		"discordBranch": "stable",
-		"arRPC": "on",
-		"splashColor": "rgb(219, 222, 225)",
-		"splashBackground": "rgb(49, 51, 56)",
-		"staticTitle": true,
-		"splashTheming": false,
-		"checkUpdates": false
-	}
+{
+    "splashColor": "rgb(213, 196, 161)",
+    "splashBackground": "rgb(40, 40, 40)",
+    "minimizeToTray": false,
+    "arRPC": true,
+    "disableMinSize": true,
+    "staticTitle": true,
+    "splashTheming": true
+}
 	'';
 
 	home.file.".config/vesktop/settings/settings.json".source = ./discord-settings.json;
