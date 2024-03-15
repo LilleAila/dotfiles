@@ -8,6 +8,7 @@
 		style.package = pkgs.adwaita-qt;
 	};
 
+	# TODO: GTK theme with nix-colors
 	gtk = {
 		enable = true;
 		cursorTheme.package = pkgs.bibata-cursors;

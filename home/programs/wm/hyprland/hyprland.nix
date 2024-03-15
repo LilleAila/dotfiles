@@ -61,7 +61,7 @@ in
 			"$calculator" = "qalculate-gtk";
 
 			"$mainMod" = "SUPER";
-			"$screenshot_args" = "--notify --freeze"; # TODO: fix cursor in screenshots (remove --freeze??)
+			"$screenshot_args" = "--notify --freeze"; # TODO: fix cursor in screenshots (switch to grim+slurp directly??)
 			"$screenshot_path" = "~/Screenshots/Raw/$(date +\"%Y-%m-%d,%H:%M:%S.png\")";
 
 			bind = [
@@ -80,11 +80,13 @@ in
 				# ", XF86Launch1, exec, $terminal"
 				"$mainMod, space, exec, $launcher"
 				"$mainMod, E, exec, emacsclient -c"
-				"$mainMod, D, exec, $fileManager"
+				# "$mainMod, D, exec, $fileManager"
 				"$mainMod, B, exec, $webBrowser"
-				"$mainMod, C, exec, $discord"
-				# Toggle calculator
+				# "$mainMod, D, exec, $discord"
+				# Toggles
 				"$mainMod, Q, exec, pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk &"
+				# Using pgrep -f to match against window name or smth idk it works
+				"$mainMod, D, exec, pgrep -f vesktop && hyprctl dispatch togglespecialworkspace discord || vesktop &"
 
 				# WM commands
 				", XF86PowerOff, exec, pgrep -x wlogout && pkill -x wlogout || wlogout"
@@ -297,6 +299,10 @@ in
 				# Put calculator in special workspace
 				"float,class:(qalculate-gtk)"
 				"workspace special:calculator,class:(qalculate-gtk)"
+
+				# Put calculator in special workspace
+				"float,class:(vesktop)"
+				"workspace special:discord,class:(vesktop)"
 			];
 
 			# layerrule = [
