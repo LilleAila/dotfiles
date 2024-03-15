@@ -315,10 +315,10 @@ in
 				"float,class:(vesktop)"
 				"workspace special:discord,class:(vesktop)"
 
-				"float,class:(nm-connection-editor)"
+				"float,class:(nm-*)"
 				"float,class:(.blueman-*)"
 				"float,class:(pavucontrol)"
-				"workspace special:config,class:(nm-connection-editor)"
+				"workspace special:config,class:(nm-*)"
 				"workspace special:config,class:(.blueman-*)"
 				"workspace special:config,class:(pavucontrol)"
 			];
