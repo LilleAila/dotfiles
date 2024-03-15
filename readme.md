@@ -1,15 +1,17 @@
 <div align="center">
+
 # LilleAila's Dotfiles
 My personal configuration files for GNU/Linux<sub>, or as I've recently taken to calling it, GNU plus Linux.</sub>, using NixOS with Home-Manager.
 
 Riced with [`nix-colors`](https://github.com/Misterio77/nix-colors) using [`gruvbox`](https://github.com/morhetz/gruvbox) as the color scheme.
+
 </div>
 
 ## Using
 - Window Manager: [`Hyprland`](https://hyprland.dev)
 - Bar: [`AGS`](https://aylur.github.io/ags-docs/)
 - Terminal Emulator: [`kitty`](https://sw.kovidgoyal.net/kitty)
-- Shell: [`Zsh`](https://www.zsh.org/) with [`Oh my Zsh`](https://ohmyz.sh/), using the [`nanotech`](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#nanotech) theme
+- Shell: [`Zsh`](https://www.zsh.org/) with [`Oh my Zsh`](https://ohmyz.sh/), and the [`nanotech`](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#nanotech) theme
 - Editor(s): [`Neovim`](https://neovim.io) and [`Emacs`](https://www.gnu.org/software/emacs/)
 - Discord: [`Vesktop`](https://github.com/Vencord/Vesktop)
 - Wallpapers: [`AngelJumbo/gruvbox-wallpapers`](https://github.com/AngelJumbo/gruvbox-wallpapers)
