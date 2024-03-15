@@ -84,7 +84,7 @@ in
 				"$mainMod, B, exec, $webBrowser"
 				# "$mainMod, D, exec, $discord"
 
-				# Toggles
+				# Special workspaces
 				"$mainMod, Q, exec, bash -c 'pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk &'"
 				# Using pgrep -f to match against window name or smth idk it works
 				"$mainMod, D, exec, bash -c 'pgrep -f vesktop && hyprctl dispatch togglespecialworkspace discord || vesktop &'"
@@ -98,6 +98,7 @@ in
 				# 	vesktop &
 				# fi
 				# ''}/bin/toggle_discord"
+				"$mainMod, C, togglespecialworkspace, config"
 
 				# WM commands
 				", XF86PowerOff, exec, pgrep -x wlogout && pkill -x wlogout || wlogout"
@@ -307,13 +308,19 @@ in
 			windowrulev2 = [
 				# "nomaximizerequest, class:.*"
 
-				# Put calculator in special workspace
+				# Put apps in special workspace
 				"float,class:(qalculate-gtk)"
 				"workspace special:calculator,class:(qalculate-gtk)"
 
-				# Put calculator in special workspace
 				"float,class:(vesktop)"
 				"workspace special:discord,class:(vesktop)"
+
+				"float,class:(nm-connection-editor)"
+				"float,class:(.blueman-*)"
+				"float,class:(pavucontrol)"
+				"workspace special:config,class:(nm-connection-editor)"
+				"workspace special:config,class:(.blueman-*)"
+				"workspace special:config,class:(pavucontrol)"
 			];
 
 			# layerrule = [
