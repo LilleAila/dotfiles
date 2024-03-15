@@ -87,17 +87,17 @@ in
 				# Special workspaces
 				"$mainMod, Q, exec, bash -c 'pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk &'"
 				# Using pgrep -f to match against window name or smth idk it works
-				"$mainMod, D, exec, bash -c 'pgrep -f vesktop && hyprctl dispatch togglespecialworkspace discord || vesktop &'"
+				# "$mainMod, D, exec, bash -c 'pgrep -f vesktop && hyprctl dispatch togglespecialworkspace discord || vesktop &'"
 				# Same thing but a script
-				# "$mainMod, D, exec, ${pkgs.writeShellScriptBin "toggle_discord" /*bash*/ ''
-				# #!/usr/bin/env bash
-				#
-				# if [[ $(pgrep -f vesktop | wc -l) -ne 0 ]]; then
-				# 	hyprctl dispatch togglespecialworkspace discord
-				# else
-				# 	vesktop &
-				# fi
-				# ''}/bin/toggle_discord"
+				"$mainMod, D, exec, ${pkgs.writeShellScriptBin "toggle_discord" /*bash*/ ''
+				#!/usr/bin/env bash
+
+				if [[ $(pgrep -f vesktop | wc -l) -ne 0 ]]; then
+					hyprctl dispatch togglespecialworkspace discord
+				else
+					vesktop &
+				fi
+				''}/bin/toggle_discord"
 				"$mainMod, C, togglespecialworkspace, config"
 
 				# WM commands

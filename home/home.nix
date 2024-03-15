@@ -33,7 +33,8 @@
 
 	# nixpkgs.config.allowUnfree = true;
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-		"discord"
+		# "discord"
+		"geogebra6"
 	];
 
   home.packages = with pkgs; [
@@ -49,6 +50,8 @@
 		dconf
 
 		pavucontrol
+
+		geogebra6
   ];
 
 	programs.mpv = {

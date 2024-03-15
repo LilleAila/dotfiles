@@ -33,6 +33,7 @@ Currently, all the systems use the excact same configuration. This is all in one
 - [tpwrules/nixos-apple-silicon](https://github.com/tpwrules/nixos-apple-silicon/tree/main) - Installing NixOS on m1
 - [Vimjoyer](https://www.youtube.com/@vimjoyer/featured) - Learning nix
 - [System Crafters](https://www.youtube.com/watch?v=74zOY-vgkyw&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ) - Emacs from scratch
+- Other peoples' dotfiles:
 - [IldenH/dotfiles](https://github.com/IldenH/dotfiles) (sånn pittelitt) (sånn veldig lite) (så vidt)
 - [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
 - [Aylur/dotfiles](https://github.com/Aylur/dotfiles)

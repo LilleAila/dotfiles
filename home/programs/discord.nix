@@ -7,7 +7,7 @@
 
 	home.file.".config/vesktop/settings.json".source = pkgs.writeText "settings.json" /* json */ ''
 	{
-		"minimizeToTray": "on",
+		"minimizeToTray": "off",
 		"discordBranch": "stable",
 		"arRPC": "on",
 		"splashColor": "rgb(219, 222, 225)",
