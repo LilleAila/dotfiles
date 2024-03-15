@@ -19,20 +19,20 @@ Riced with [nix-colors](https://github.com/Misterio77/nix-colors) using [gruvbox
 ## Hardware
 I use the following computers with this configuration:
 
-| Type                       | Name      | Architecture | Note                  |
-| -------------------------- | --------- | ------------ | ------------------    |
-| Apple MacBook Pro 14" (m1) | `m1pro14` | `aarch64`    | Build with `--impure` |
-| Lenovo ThinkPad T420       | `t420`    | `x86_64`     |                       |
-| Lenovo Legion Y540         | `legion`  | `x86_64`     |                       |
-| Lenovo ThinkPad e540       | `e540`    | `x86_64`     | Not configured yet    |
-| Raspberry pi 400           | `pi4`     | `aarch64`    | Not configured yet    |
+| Type                   | Name      | Architecture | Note                  |
+| ---------------------- | --------- | ------------ | ------------------    |
+| Apple MacBook Pro 14"  | `m1pro14` | `aarch64`    | Build with `--impure` |
+| Lenovo ThinkPad T420   | `t420`    | `x86_64`     |                       |
+| Lenovo Legion Y540     | `legion`  | `x86_64`     |                       |
+| Lenovo ThinkPad e540   | `e540`    | `x86_64`     | Not configured yet    |
+| Raspberry pi 400       | `pi4`     | `aarch64`    | Not configured yet    |
 
 Currently, all the systems use the excact same configuration. This is all in one flake, so you should be able to install it with `sudo nixos-rebuild switch --flake "github:LilleAila/dotfiles"#<name>`.
 
 ## Inspiration
-- [tpwrules/nixos-apple-silicon](https://github.com/tpwrules/nixos-apple-silicon/tree/main)
-- [Vimjoyer](https://www.youtube.com/@vimjoyer/featured)
-- [System Crafters](https://www.youtube.com/watch?v=74zOY-vgkyw&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ)
+- [tpwrules/nixos-apple-silicon](https://github.com/tpwrules/nixos-apple-silicon/tree/main) - Installing NixOS on m1
+- [Vimjoyer](https://www.youtube.com/@vimjoyer/featured) - Learning nix
+- [System Crafters](https://www.youtube.com/watch?v=74zOY-vgkyw&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ) - Emacs from scratch
 - [IldenH/dotfiles](https://github.com/IldenH/dotfiles) (sånn pittelitt) (sånn veldig lite) (så vidt)
 - [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
 - [Aylur/dotfiles](https://github.com/Aylur/dotfiles)
