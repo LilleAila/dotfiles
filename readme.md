@@ -8,7 +8,7 @@ Riced with [nix-colors](https://github.com/Misterio77/nix-colors) using [gruvbox
 </div>
 
 ## Using
-- Window Manager: [Hyprland](https://hyprland.dev)
+- Window Manager: [Hyprland](https://hyprland.org)
 - Bar: [AGS](https://aylur.github.io/ags-docs/)
 - Terminal Emulator: [kitty](https://sw.kovidgoyal.net/kitty)
 - Shell: [Zsh](https://www.zsh.org/) with [Oh my Zsh](https://ohmyz.sh/), and the [nanotech](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#nanotech) theme
