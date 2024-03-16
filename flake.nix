@@ -86,38 +86,41 @@
 	};
 
   outputs = { nixpkgs, home-manager, nixos-hardware, ... }@inputs:
-    let
-      # system = "x86_64-linux";
-			system = "aarch64-linux"; # TODO: make this work for both architectures
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
+   #  let
+   #    # system = "x86_64-linux";
+			# system = "aarch64-linux"; # TODO: make this work for both architectures
+   #    pkgs = nixpkgs.legacyPackages.${system};
+    # in
+		{
       nixosConfigurations = {
 				m1pro14 = nixpkgs.lib.nixosSystem {
-					inherit system;
+					system = "aarch64-linux";
 					specialArgs = { inherit inputs; };
 					modules = [
 						({ nixpkgs.overlays = [ inputs.nixos-apple-silicon.overlays.apple-silicon-overlay ]; })
-						inputs.nixos-apple-silicon.nixosModules.apple-silicon-support # TODO: The apple-silicon-support (NOT FIRMWARE!!) folders are probably unnecessary
+						inputs.nixos-apple-silicon.nixosModules.apple-silicon-support 
+						# TODO: The apple-silicon-support (NOT FIRMWARE!!) folders are probably unnecessary
 						./hosts/m1pro14/configuration.nix
 						home-manager.nixosModules.home-manager {
 							home-manager = {
 								extraSpecialArgs = { inherit inputs; };
 								useUserPackages = true;
 								useGlobalPkgs = true;
-								users.olai = ./home/home.nix; # TODO: different home.nix-es for each system (use lib.xxx options, with a "control-panel" in each home.nix)
+								users.olai = ./home/home.nix; 
+								# TODO: different home.nix-es for each system (use lib.xxx options, with a "control-panel" in each home.nix)
 							};
 						}
 					];
 				};
 				t420 = nixpkgs.lib.nixosSystem {
-					inherit system;
+					system = "x86_64";
 					modules = [
 						nixos-hardware.nixosModules.lenovo-thinkpad-t420
 						./hosts/t420/configuration.nix
 					];
 				};
         legion = nixpkgs.lib.nixosSystem {
-					inherit system;
+					system = "x86_64";
           modules = [
             ./hosts/legion/configuration.nix
           ];
