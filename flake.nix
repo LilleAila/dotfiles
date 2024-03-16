@@ -2,10 +2,7 @@
   description = "NixOS config flake";
 
 	inputs = {
-		# TODO: wait until nixpkgs fixes u-boot
-		# nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-		# Temporarily using old nixpkgs version, because of tpwrules/nixos-apple-silicon #174
-		nixpkgs.url = "github:nixos/nixpkgs/e9631b9779c8db9cd5ea537b2336926137b1826f";
+		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 		home-manager = {
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -86,11 +83,6 @@
 	};
 
   outputs = { nixpkgs, home-manager, nixos-hardware, ... }@inputs:
-   #  let
-   #    # system = "x86_64-linux";
-			# system = "aarch64-linux"; # TODO: make this work for both architectures
-   #    pkgs = nixpkgs.legacyPackages.${system};
-    # in
 		{
       nixosConfigurations = {
 				m1pro14 = nixpkgs.lib.nixosSystem {
@@ -99,7 +91,6 @@
 					modules = [
 						({ nixpkgs.overlays = [ inputs.nixos-apple-silicon.overlays.apple-silicon-overlay ]; })
 						inputs.nixos-apple-silicon.nixosModules.apple-silicon-support 
-						# TODO: The apple-silicon-support (NOT FIRMWARE!!) folders are probably unnecessary
 						./hosts/m1pro14/configuration.nix
 						home-manager.nixosModules.home-manager {
 							home-manager = {
