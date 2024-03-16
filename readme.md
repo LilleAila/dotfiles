@@ -37,7 +37,7 @@ Currently, all the systems use the excact same configuration. This is all in one
 - [IldenH/dotfiles](https://github.com/IldenH/dotfiles) (sånn pittelitt) (sånn veldig lite) (så vidt)
 - [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
 - [Aylur/dotfiles](https://github.com/Aylur/dotfiles)
-- [wnd-4/dots-hyprland](https://github.com/end-4/dots-hyprland)
+- [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland)
 - [ircurry/cfg](https://github.com/ircurry/cfg)
 - [chadcat7/crystal](https://github.com/chadcat7/crystal)
 - [anotherhadi/nixy](https://github.com/anotherhadi/nixy)

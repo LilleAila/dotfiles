@@ -24,7 +24,7 @@
 	# Slightly modified by changing theme variables in devtools (Ctrl + Shift + i)
 	home.file.".config/vesktop/themes/base16.theme.css".source = with config.colorScheme.palette; pkgs.writeText "base16.theme.css" /* css */ ''
 /**
-* @name Nix-colors automatic
+* @name ${config.colorScheme.slug}
 * @author LilleAila
 * @version 1.0.0
 * @description Base16 color scheme generated from https://github.com/Misterio77/nix-colors

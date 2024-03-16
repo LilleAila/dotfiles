@@ -19,7 +19,7 @@ in
 		style.package = pkgs.adwaita-qt;
 	};
 
-	# TODO: GTK theme with nix-colors
+	# TODO: Make the GTK theme look good (maybe try gruvbox-dark-hard instead of medium)
 	gtk = {
 		enable = true;
 		cursorTheme.package = pkgs.bibata-cursors;
