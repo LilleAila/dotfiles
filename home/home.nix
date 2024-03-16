@@ -9,12 +9,6 @@
 
   imports = [
 		inputs.nix-colors.homeManagerModules.default
-  #   ./programs/shell/zsh.nix
-  #   ./programs/shell/neovim.nix
-	 #  ./programs/shell/terminal.nix
-		# ./programs/shell/lf.nix
-		# ./programs/shell/git.nix
-
 		./programs/shell
 
 		./programs/browser.nix
@@ -26,6 +20,8 @@
 		./programs/wm/hyprland
 		./programs/wm/ags
   ];
+
+	wallpaper = ./wallpapers/wall1.png;
 
 	# https://github.com/tinted-theming/base16-schemes/
 	# colorScheme = inputs.nix-colors.colorSchemes.tokyo-night-dark;
