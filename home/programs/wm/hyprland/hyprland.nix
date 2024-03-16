@@ -42,10 +42,6 @@ in
 		settings = {
 			monitor = [
 				", preferred, auto, 1"
-				"eDP-1, 3024x1890@60, 0x0, 2" # Scaled to 1512x945
-				# X-offset of 2nd monitor = (2560 - 1512) / 2 = 524
-				# Y-offset of 2nd monitor = height (1440)
-				"HDMI-A-1, 2560x1440@144, -524x-1440, 1" # Negative because top-left corner offset
 			];
 			exec-once = ''${startupScript}/bin/start'';
 			env = [

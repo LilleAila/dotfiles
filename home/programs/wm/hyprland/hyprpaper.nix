@@ -4,7 +4,7 @@
 # 	wallpaper = ./wall1.png;
 # in
 {
-	options = {
+	options.settings = {
 		wallpaper = lib.mkOption {
 			default = ./wall1.png;
 			type = lib.types.path;
@@ -26,10 +26,10 @@
 			ipc = true;
 
 			preloads = [
-				"${config.wallpaper}"
+				"${config.settings.wallpaper}"
 			];
 			wallpapers = [
-				", ${config.wallpaper}"
+				", ${config.settings.wallpaper}"
 			];
 		};
 	};

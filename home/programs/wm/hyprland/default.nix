@@ -2,6 +2,7 @@
 
 {
 	imports = [
+		./monitors.nix
 		./hyprland.nix
 		./hyprlock.nix
 		./hypridle.nix
