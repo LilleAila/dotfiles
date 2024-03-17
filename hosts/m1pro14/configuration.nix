@@ -27,6 +27,8 @@
 		}
 	];
 
+	services.fstrim.enable = true;
+
 	services.upower.enable = true;
 	# Use TLP for battery charging thresholds
 	# https://github.com/PaddiM8/asahi-battery-threshold/issues/3
@@ -155,8 +157,9 @@ KERNEL=="macsmc-battery", SUBSYSTEM=="power_supply", ATTR{charge_control_end_thr
    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
-  # Enable dconf
+  # Enable dconf and xconf
   programs.dconf.enable = true;
+	programs.xfconf.enable = true;
   
   fonts.packages = with pkgs; [ terminus_font ];
   # Set console font and keyboard

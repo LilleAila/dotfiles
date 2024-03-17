@@ -45,6 +45,10 @@
 			mako.enable = true;
 			wlogout.enable = true;
 		};
+		files = {
+			nemo.enable = true;
+			thunar.enable = true;
+		};
 		zathura.enable = true;
 		browser = {
 			firefox.enable = true;

@@ -16,6 +16,7 @@
 		./programs/texlive.nix
 		./programs/emacs
 		./programs/zathura.nix
+		./programs/files.nix
 
 		# ./programs/wallpaper/wallpaper.nix
 		./programs/wm/wayland

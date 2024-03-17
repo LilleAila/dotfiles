@@ -23,7 +23,6 @@
 			# Random dependencies and stuff
 			home.packages = with pkgs; [
 				rofi-wayland
-				dolphin
 				libnotify
 				avizo
 				pamixer
