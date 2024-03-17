@@ -19,7 +19,7 @@ in
 		style.package = pkgs.adwaita-qt;
 	};
 
-	# TODO: Make the GTK theme look good (maybe try gruvbox-dark-hard instead of medium)
+	# TODO: Make the GTK theme look good. maybe make a copy of the derivation and tweak it
 	gtk = {
 		enable = true;
 		cursorTheme.package = pkgs.bibata-cursors;
@@ -29,6 +29,11 @@ in
 		theme.package = nix-colors-lib.gtkThemeFromScheme {
 			scheme = config.colorScheme;
 		};
+		# theme.package = (import ./gtk-theme.nix {
+		# 	inherit pkgs;
+		# } {
+		# 	scheme = config.colorScheme;
+		# });
 		theme.name = "${config.colorScheme.slug}";
 		iconTheme.package = pkgs.papirus-icon-theme;
 		iconTheme.name = "Papirus-Dark";
@@ -46,6 +51,7 @@ in
 		"video/*" = [ "mpv.desktop" ];
 	};
 
+	# Configure swapy (simple screenshot annotation)
 	home.file.".config/swappy/config".text = ''
 	[Default]
 	save_dir=$HOME/Screenshots/Edited

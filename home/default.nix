@@ -31,7 +31,6 @@
 		gcc
 		cmake
 
-		ripgrep
 		fd
 
 		nodejs_20

@@ -9,7 +9,6 @@
 	config = lib.mkIf (config.settings.browser.firefox.enable) {
 		programs.firefox = {
 			enable = true;
-			# package = pkgs.firefox;
 			profiles.olai = {
 				bookmarks = [
 					{
@@ -87,6 +86,18 @@
 					"browser.startup.page" = "3"; # Restore pages on startup
 					"media.hardware-video-decoding.force-enabled" = true;
 					"layers.acceleration.force-enabled" = true;
+
+					"browser.disableResetPrompt" = true;
+					"browser.download.panel.shown" = true;
+					"browser.download.useDownloadDir" = false;
+					"browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+					"browser.startup.homepage" = "https://start.duckduckgo.com";
+					"dom.security.https_only_mode" = true;
+					"identity.fxaccounts.enabled" = false;
+					"privacy.trackingprotection.enabled" = true;
+					"signon.rememberSignons" = false;
+					"browser.shell.checkDefaultBrowser" = false;
+					"browser.shell.defaultBrowserCheckCount" = 1;
 				};
 
 				# All available extensions:
@@ -99,6 +110,13 @@
 					enhanced-h264ify
 				];
 			};
+		};
+
+		xdg.mimeApps.defaultApplications = {
+			"text/html" = [ "firefox.desktop" ];
+			"text/xml" = [ "firefox.desktop" ];
+			"x-scheme-handler/http" = [ "firefox.desktop" ];
+			"x-scheme-handler/https" = [ "firefox.desktop" ];
 		};
 	};
 }

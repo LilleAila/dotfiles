@@ -20,7 +20,7 @@ Riced with [nix-colors](https://github.com/Misterio77/nix-colors) using [gruvbox
 I use the following computers with this configuration:
 
 | Type                   | Name      | Architecture | Note                  |
-| ---------------------- | --------- | ------------ | ------------------    |
+| ---------------------- | --------- | ------------ | --------------------- |
 | Apple MacBook Pro 14"  | `m1pro14` | `aarch64`    | Build with `--impure` |
 | Lenovo ThinkPad T420   | `t420`    | `x86_64`     |                       |
 | Lenovo Legion Y540     | `legion`  | `x86_64`     |                       |
@@ -36,7 +36,8 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 - [tpwrules/nixos-apple-silicon](https://github.com/tpwrules/nixos-apple-silicon/tree/main) - Installing NixOS on m1
 - [Vimjoyer](https://www.youtube.com/@vimjoyer/featured) - Learning nix
 - [System Crafters](https://www.youtube.com/watch?v=74zOY-vgkyw&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ) - Emacs from scratch
-- Other peoples' dotfiles:
+- [natpen/awesome-wayland](https://github.com/natpen/awesome-wayland)
+### Other peoples' dotfiles:
 - [IldenH/dotfiles](https://github.com/IldenH/dotfiles) (sånn pittelitt) (sånn veldig lite) (så vidt)
 - [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
 - [Aylur/dotfiles](https://github.com/Aylur/dotfiles)

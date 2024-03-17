@@ -2,8 +2,7 @@
 
 let
 	startupScript = pkgs.pkgs.writeShellScriptBin "start" /* bash */ ''
-		${inputs.hyprland.packages."${pkgs.system}".hyprland}/bin/hyprctl setcursor "Bibata-Modern-Ice" 24 &
-		# ${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &
+		hyprctl setcursor "Bibata-Modern-Ice" 24 &
 		ags &
 		${pkgs.mako}/bin/mako &
 	'';

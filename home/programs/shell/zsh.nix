@@ -85,6 +85,9 @@ in
 			programs.fzf = {
 				enable = true;
 				enableZshIntegration = true;
+				defaultOptions = [
+					"--color 16"
+				];
 			};
 
 			programs.zoxide = {
@@ -105,8 +108,13 @@ in
 				extraOptions = [
 					"--group-directories-first"
 					"--header"
+					"--color=always"
+					"--no-quotes"
+					"--hyperlink"
 				];
 			};
+
+			programs.ripgrep.enable = true;
 		})
 	];
 }
