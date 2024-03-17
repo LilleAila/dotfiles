@@ -42,6 +42,8 @@
 	# 	};
 	# };
 
+	services.seatd.enable = true;
+
 	# Idk if this actually works, but it seems to set it to 80/75 for some reason????
 # TODO: add script to enable / disable fullcharge:
 # echo 100 | sudo tee /sys/class/power_supply/macsmc-battery/charge_control_end_threshold

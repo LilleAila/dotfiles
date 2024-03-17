@@ -13,9 +13,4 @@
 
 (require 'config-lsp)
 
-(require 'config-exwm)
-
-;; (require 'eaf)
-;; (require 'eaf-demo)
-;; (require 'eaf-browser)
-;; (require 'eaf-camera)
+;; (require 'config-exwm)

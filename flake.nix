@@ -97,33 +97,42 @@
 								extraSpecialArgs = { inherit inputs; };
 								useUserPackages = true;
 								useGlobalPkgs = true;
-								users.olai = ./home/home.nix; 
-								# TODO: different home.nix-es for each system (use lib.xxx options, with a "control-panel" in each home.nix)
+								users.olai = ./home/m1pro14.nix; 
 							};
 						}
 					];
 				};
 				t420 = nixpkgs.lib.nixosSystem {
 					system = "x86_64";
+					specialArgs = { inherit inputs; };
 					modules = [
 						nixos-hardware.nixosModules.lenovo-thinkpad-t420
 						./hosts/t420/configuration.nix
+						home-manager.nixosModules.home-manager {
+							home-manager = {
+								extraSpecialArgs = { inherit inputs; };
+								useUserPackages = true;
+								useGlobalPkgs = true;
+								users.olai = ./home/t420.nix; 
+							};
+						}
 					];
 				};
         legion = nixpkgs.lib.nixosSystem {
 					system = "x86_64";
+					specialArgs = { inherit inputs; };
           modules = [
             ./hosts/legion/configuration.nix
+						home-manager.nixosModules.home-manager {
+							home-manager = {
+								extraSpecialArgs = { inherit inputs; };
+								useUserPackages = true;
+								useGlobalPkgs = true;
+								users.olai = ./home/legion.nix; 
+							};
+						}
           ];
         };
       };
-      # homeConfigurations = {
-      #   olai = home-manager.lib.homeManagerConfiguration {
-      #     inherit pkgs;
-      #     modules = [
-      #       ./home/home.nix
-      #     ];
-      #   };
-      # };
     };
 }

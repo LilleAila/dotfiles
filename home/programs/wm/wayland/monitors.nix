@@ -35,7 +35,7 @@ in
 					type = types.int;
 					default = 1;
 				};
-				enabled = mkOption {
+				enable = mkOption {
 					type = types.bool;
 					default = true;
 				};
@@ -55,7 +55,7 @@ in
 					position = "${toString m.x}x${toString m.y}";
 					scale = "${toString m.scale}";
 				in
-				"${m.name},${if m.enabled then "${resolution},${position},${scale}" else "disable"}"
+				"${m.name},${if m.enable then "${resolution},${position},${scale}" else "disable"}"
 			)
 			(config.settings.monitors);
 	};

@@ -5,21 +5,27 @@
     inputs.ags.homeManagerModules.default
   ];
 
-	programs.ags = {
-		enable = true;
-
-		extraPackages = with pkgs; [
-      gtksourceview
-      webkitgtk
-      accountsservice
-    ];
+	options.settings.wm.ags.enable = lib.mkOption {
+		type = lib.types.bool;
+		default = false;
 	};
 
-	home.file.".config/ags".source = pkgs.stdenv.mkDerivation {
-		src = ./.;
-		name = "AGS configuration";
+	config = lib.mkIf (config.settings.wm.ags.enable) {
+		programs.ags = {
+			enable = true;
 
-		buildPhase = /* bash */ with config.colorScheme.palette; ''
+			extraPackages = with pkgs; [
+				gtksourceview
+				webkitgtk
+				accountsservice
+			];
+		};
+
+		home.file.".config/ags".source = pkgs.stdenv.mkDerivation {
+			src = ./.;
+			name = "AGS configuration";
+
+			buildPhase = /* bash */ with config.colorScheme.palette; ''
 cat << EOF > ./style/cols.scss
 \$base00: #${base00}; /* ---- */
 \$base01: #${base01}; /* --- */
@@ -44,11 +50,12 @@ ${pkgs.bun}/bin/bun build ./config.ts \
 	--outfile config.js \
 	--external "resource://*" \
 	--external "gi://*"
-		'';
+			'';
 
-		installPhase = /* bash */ ''
-		mkdir -p $out
-		cp -r * $out
-		'';
+			installPhase = /* bash */ ''
+			mkdir -p $out
+			cp -r * $out
+			'';
+		};
 	};
 }

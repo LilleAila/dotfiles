@@ -1,29 +1,36 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 {
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    withNodeJs = true;
-    withPython3 = true;
-    withRuby = true;
+	options.settings.terminal.neovim.enable = lib.mkOption {
+		type = lib.types.bool;
+		default = false;
+	};
 
-		viAlias = true;
-		vimAlias = true;
-		vimdiffAlias = true;
+	config = lib.mkIf (config.settings.terminal.neovim.enable) {
+		programs.neovim = {
+			enable = true;
+			defaultEditor = true;
+			withNodeJs = true;
+			withPython3 = true;
+			withRuby = true;
 
-		extraPackages = with pkgs; [
-			# xclip
-			wl-clipboard
+			viAlias = true;
+			vimAlias = true;
+			vimdiffAlias = true;
 
-			nodePackages.neovim
-			python311Packages.pynvim
+			extraPackages = with pkgs; [
+				# xclip
+				wl-clipboard
 
-			gcc
-		];
-  };
+				nodePackages.neovim
+				python311Packages.pynvim
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
+				gcc
+			];
+		};
+
+		home.sessionVariables = {
+			EDITOR = "nvim";
+		};
+	};
 }

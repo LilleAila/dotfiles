@@ -12,13 +12,17 @@
 			Path to your wallpaper
 			'';
 		};
+		wm.hyprpaper.enable = lib.mkOption {
+			type = lib.types.bool;
+			default = false;
+		};
 	};
 
 	imports = [
 		inputs.hyprpaper.homeManagerModules.hyprpaper
 	];
 
-	config = {
+	config = lib.mkIf (config.settings.wm.hyprpaper.enable) {
 		services.hyprpaper = {
 			enable = true;
 			splash = true;
