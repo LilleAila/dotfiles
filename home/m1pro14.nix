@@ -29,6 +29,8 @@
 				enable = true;
 			}
 		];
+		qt.enable = true;
+		gtk.enable = true;
 		wm = {
 			ags.enable = true;
 			hyprland = {

@@ -80,7 +80,7 @@
 				search.force = true;
 
 # Settings are stored in ~/.mozilla/firefox/profile_name/prefs.js
-# To find the name of a setting, wither use `diff old_settings new_settings`
+# To find the name of a setting, either use `diff old_settings new_settings`
 # Or check which value changes in about:config when setting it in about:preferences
 				settings = {
 					"browser.startup.page" = "3"; # Restore pages on startup

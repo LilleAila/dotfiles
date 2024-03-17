@@ -37,6 +37,9 @@
 			"$mainMod, Q, exec, bash -c 'pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk &'"
 			"$mainMod, C, togglespecialworkspace, config"
 
+			"$mainMod, Z, togglespecialworkspace"
+			"$mainMod SHIFT, Z, movetoworkspace, special"
+
 			# WM commands
 			", XF86PowerOff, exec, pgrep -x wlogout && pkill -x wlogout || wlogout"
 			", XF86Launch1, exec, pgrep -x wlogout && pkill -x wlogout || wlogout"
