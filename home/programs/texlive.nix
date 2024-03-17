@@ -6,6 +6,5 @@
 		python311Packages.pygments
 		pandoc
 		texliveFull
-		zathura
 	];
 }

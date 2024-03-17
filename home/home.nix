@@ -1,5 +1,6 @@
 { config, pkgs, inputs, lib, ... }:
 
+# NOTE: This is the home.nix file to use on non-nixOS systems
 {	
   imports = [ ./. ];
 
@@ -42,7 +43,6 @@
 			mako.enable = true;
 			wlogout.enable = true;
 		};
-		zathura.enable = true;
 		browser = {
 			firefox.enable = true;
 		};
@@ -61,4 +61,6 @@
 			neovim.enable = true;
 		};
 	};
+
+	programs.home-manager.enable = true;
 }

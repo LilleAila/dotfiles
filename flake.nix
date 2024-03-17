@@ -68,9 +68,6 @@
 
 		nix-colors.url = "github:misterio77/nix-colors";
 
-		nix-index-database.url = "github:Mic92/nix-index-database";
-		nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-
 		wrapper-manager = {
 			url = "github:viperML/wrapper-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -142,7 +139,6 @@
 			modules = [
 				({ nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; })
 				./home.nix
-				nix-index-database.hmModules.nix-index
 			];
 		};
 	};
