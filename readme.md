@@ -42,3 +42,4 @@ Currently, all the systems use the excact same configuration. This is all in one
 - [chadcat7/crystal](https://github.com/chadcat7/crystal)
 - [anotherhadi/nixy](https://github.com/anotherhadi/nixy)
 - [Misterio77/nix-config](https://github.com/Misterio77/nix-config)
+- [iynaix/dotfiles](https://github.com/iynaix/dotfiles)

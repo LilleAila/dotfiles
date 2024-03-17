@@ -83,56 +83,67 @@
 	};
 
   outputs = { nixpkgs, home-manager, nixos-hardware, ... }@inputs:
-		{
-      nixosConfigurations = {
-				m1pro14 = nixpkgs.lib.nixosSystem {
-					system = "aarch64-linux";
-					specialArgs = { inherit inputs; };
-					modules = [
-						({ nixpkgs.overlays = [ inputs.nixos-apple-silicon.overlays.apple-silicon-overlay ]; })
-						inputs.nixos-apple-silicon.nixosModules.apple-silicon-support 
-						./hosts/m1pro14/configuration.nix
-						home-manager.nixosModules.home-manager {
-							home-manager = {
-								extraSpecialArgs = { inherit inputs; };
-								useUserPackages = true;
-								useGlobalPkgs = true;
-								users.olai = ./home/m1pro14.nix; 
-							};
-						}
-					];
-				};
-				t420 = nixpkgs.lib.nixosSystem {
-					system = "x86_64";
-					specialArgs = { inherit inputs; };
-					modules = [
-						nixos-hardware.nixosModules.lenovo-thinkpad-t420
-						./hosts/t420/configuration.nix
-						home-manager.nixosModules.home-manager {
-							home-manager = {
-								extraSpecialArgs = { inherit inputs; };
-								useUserPackages = true;
-								useGlobalPkgs = true;
-								users.olai = ./home/t420.nix; 
-							};
-						}
-					];
-				};
-        legion = nixpkgs.lib.nixosSystem {
-					system = "x86_64";
-					specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/legion/configuration.nix
-						home-manager.nixosModules.home-manager {
-							home-manager = {
-								extraSpecialArgs = { inherit inputs; };
-								useUserPackages = true;
-								useGlobalPkgs = true;
-								users.olai = ./home/legion.nix; 
-							};
-						}
-          ];
-        };
-      };
-    };
+	{
+		nixosConfigurations = {
+			m1pro14 = nixpkgs.lib.nixosSystem {
+				system = "aarch64-linux";
+				specialArgs = { inherit inputs; };
+				modules = [
+					({ nixpkgs.overlays = [ inputs.nixos-apple-silicon.overlays.apple-silicon-overlay ]; })
+					inputs.nixos-apple-silicon.nixosModules.apple-silicon-support 
+					./hosts/m1pro14/configuration.nix
+					home-manager.nixosModules.home-manager {
+						home-manager = {
+							extraSpecialArgs = { inherit inputs; };
+							useUserPackages = true;
+							useGlobalPkgs = true;
+							users.olai = ./home/m1pro14.nix; 
+						};
+					}
+				];
+			};
+			t420 = nixpkgs.lib.nixosSystem {
+				system = "x86_64-linux";
+				specialArgs = { inherit inputs; };
+				modules = [
+					nixos-hardware.nixosModules.lenovo-thinkpad-t420
+					./hosts/t420/configuration.nix
+					home-manager.nixosModules.home-manager {
+						home-manager = {
+							extraSpecialArgs = { inherit inputs; };
+							useUserPackages = true;
+							useGlobalPkgs = true;
+							users.olai = ./home/t420.nix; 
+						};
+					}
+				];
+			};
+			legion = nixpkgs.lib.nixosSystem {
+				system = "x86_64-linux";
+				specialArgs = { inherit inputs; };
+				modules = [
+					./hosts/legion/configuration.nix
+					home-manager.nixosModules.home-manager {
+						home-manager = {
+							extraSpecialArgs = { inherit inputs; };
+							useUserPackages = true;
+							useGlobalPkgs = true;
+							users.olai = ./home/legion.nix; 
+						};
+					}
+				];
+			};
+		};
+
+		homeConfigurations."olai" = home-manager.lib.homeManagerConfiguration {
+			pkgs = nixpkgs.legacyPackages."x86_64-linux";
+			extraSpecialArgs = { inherit inputs; };
+
+			modules = [
+				({ nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; })
+				./home.nix
+				nix-index-database.hmModules.nix-index
+			];
+		};
+	};
 }
