@@ -9,20 +9,9 @@
 		"$calculator" = "qalculate-gtk";
 
 		"$mainMod" = "SUPER";
-		# TODO: fix cursor in screenshots (switch to grim+slurp directly??)
-		"$screenshot_args" = "--notify --freeze";
-		"$screenshot_path" = "~/Screenshots/Raw/$(date +\"%Y-%m-%d,%H:%M:%S.png\")";
 
 		bind = [
 			# Screenshots
-			"$mainMod SHIFT, E, exec, wl-paste | swappy -f -"
-			"$mainMod, S, exec, grimblast $screenshot_args copysave area $screenshot_path"
-			"$mainMod SHIFT, S, exec, grimblast $screenshot_args copysave active $screenshot_path"
-			", PRINT, exec, grimblast $screenshot_args copysave output $screenshot_path"
-			"SHIFT, PRINT, exec, grimblast $screenshot_args copysave screen $screenshot_path"
-			# Same as two above but without PrtSc
-			"$mainMod ALT, S, exec, grimblast $screenshot_args copysave output $screenshot_path"
-			"$mainMod ALT SHIFT, S, exec, grimblast $screenshot_args copysave screen $screenshot_path"
 
 			# Apps
 			"$mainMod, return, exec, $terminal"

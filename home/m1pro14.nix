@@ -36,6 +36,7 @@
 			hyprland = {
 				enable = true;
 				useLegacyRenderer = true;
+				screenshots.enable = true;
 			};
 			avizo.enable = true;
 			hypridle.enable = true;

@@ -4,6 +4,7 @@
 	imports = [
 		./binds.nix
 		./settings.nix
+		./screenshots.nix
 	];
 
 	options.settings.wm.hyprland = {
@@ -24,15 +25,10 @@
 				rofi-wayland
 				dolphin
 				libnotify
-				grim
-				slurp
-				wl-clipboard
-				swappy
 				avizo
 				pamixer
 				playerctl
 				brightnessctl
-				grimblast
 				qalculate-gtk
 			];
 
