@@ -106,7 +106,42 @@
 						thunar-media-tags-plugin
 					];
 				})
+				xfce.exo
+				xfce.catfish
+# Wiki says to enable in system, but this looks like it works the same:
+# Only difference is system adds it to dbus...
+				xfce.tumbler
+				webp-pixbuf-loader
+				poppler
+				ffmpegthumbnailer
+				freetype
+				libgsf
+				gnome.totem
+				evince
+				gnome-epub-thumbnailer
+				mcomix
+				f3d
 			];
+
+			# TODO: make terminal emulator a string in config.settings that will be used everywhere
+			# TODO: add actions from here: https://docs.xfce.org/xfce/thunar/custom-actions#adding_a_custom_action to ~/.config/Thunar/uca.xml
+			home.file.".config/xfce4/helpers.rc".source = pkgs.writeText "helpers.rc" ''
+			TerminalEmulator=kitty
+			'';
+
+			systemd.user.services.thunar = {
+				Unit = {
+					Description = "Thunar file manager daemon";
+					PartOf = [ "graphical-session.target" ];
+				};
+
+				Service = {
+					ExecStart = "${pkgs.xfce.thunar}/bin/thunar --daemon";
+					Restart = "on-failure";
+				};
+
+				Install.WantedBy = [ "graphical-session.target" ];
+			};
 		 })
 	];
 }

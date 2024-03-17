@@ -8,8 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      # Include the necessary packages and configuration for Apple Silicon support.
-      # ./apple-silicon-support
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -157,7 +155,6 @@ KERNEL=="macsmc-battery", SUBSYSTEM=="power_supply", ATTR{charge_control_end_thr
    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
-  # Enable dconf and xconf
   programs.dconf.enable = true;
 	programs.xfconf.enable = true;
 	services.gvfs.enable = true;
