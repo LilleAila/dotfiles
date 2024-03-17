@@ -28,7 +28,6 @@
 						thunar-media-tags-plugin
 					];
 				})
-				gvfs
 			];
 		 })
 	];

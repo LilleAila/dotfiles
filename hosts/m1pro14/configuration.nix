@@ -160,6 +160,7 @@ KERNEL=="macsmc-battery", SUBSYSTEM=="power_supply", ATTR{charge_control_end_thr
   # Enable dconf and xconf
   programs.dconf.enable = true;
 	programs.xfconf.enable = true;
+	services.gvfs.enable = true;
   
   fonts.packages = with pkgs; [ terminus_font ];
   # Set console font and keyboard
