@@ -27,8 +27,9 @@
 			}
 			{
 				label = "logout";
-				# action = "loginctl terminate-user $USER";
-				action = "hyprctl dispatch exit";
+				# The one with hyprctl causes problems with running programs, such as ags.
+				action = "loginctl terminate-user $USER";
+				# action = "hyprctl dispatch exit";
 				text = "Logout";
 				keybind = "e";
 			}
