@@ -68,4 +68,10 @@
 			neovim.enable = true;
 		};
 	};
+
+	# Local shell aliases
+	programs.zsh.shellAliases = {
+		bat-fullcharge = "echo 100 | sudo tee /sys/class/power_supply/macsmc-battery/charge_control_end_threshold";
+		bat-limit = "echo 80 | sudo tee /sys/class/power_supply/macsmc-battery/charge_control_end_threshold";
+	};
 }

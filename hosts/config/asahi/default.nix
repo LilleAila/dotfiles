@@ -16,21 +16,13 @@
 			experimentalGPUInstallMode = "replace";
 			withRust = true;
 		};
-		# TODO: switch to using overlays instead of replacing, so that I can rebuild without `--impure`
-		# Overlay has to be made manually, because of infinite loop error from asahi
-		# Something like: ( causes full rebuild :( )
-		# nixpkgs.overlays = [
-		# 	(final: prev: { mesa = final.mesa-asahi-edge; })
-		# ];
 
-		programs.hyprland.enable = true; # Wai dis enabel??
+		programs.hyprland.enable = true;
 
 		# Enable OpenGL
 		hardware.opengl = {
-			# package = pkgs.mesa-asahi-edge;
 			enable = true;
 			driSupport = true;
-			# driSupport32Bit = true;
 		};
 
 		sound.enable = true;
