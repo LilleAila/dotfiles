@@ -108,7 +108,8 @@
 				})
 				xfce.exo
 				xfce.catfish
-# Wiki says to enable in system, but this looks like it works the same:
+# File thumbnails / previews
+# Wiki says to enable in system, but this looks like it works the same
 # Only difference is system adds it to dbus...
 				xfce.tumbler
 				webp-pixbuf-loader

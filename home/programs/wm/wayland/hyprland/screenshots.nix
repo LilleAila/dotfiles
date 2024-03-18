@@ -10,6 +10,7 @@
 	config = let
 		format = "%Y-%m-%d,%H:%M:%S.png";
 		args = "--notify --freeze";
+		# TODO: as of right now, this folder needs to be created manually
 		path = "$HOME/Screenshots/Raw/$(date +\"${format}\")";
 	in lib.mkIf (config.settings.wm.hyprland.screenshots.enable)
 	{
