@@ -140,7 +140,7 @@
 		};
 
 		homeConfigurations."${globalSettings.username}" = home-manager.lib.homeManagerConfiguration {
-			pkgs = nixpkgs.legacyPackages."x86_64-linux";
+			pkgs = nixpkgs.legacyPackages."x86_64-linux"; # Idk how to do but somehow make this also arm
 			extraSpecialArgs = { inherit inputs; inherit globalSettings; };
 
 			modules = [

@@ -57,5 +57,19 @@ ${pkgs.bun}/bin/bun build ./config.ts \
 			cp -r * $out
 			'';
 		};
+
+		systemd.user.services.ags = {
+			Unit = {
+				Description = "Aylur's GTK Shell";
+				PartOf = [ "graphical-session.target" ];
+			};
+
+			Service = {
+				ExecStart = "${config.programs.ags.package}/bin/ags";
+				Restart = "on-failure";
+			};
+
+			Install.WantedBy = [ "graphical-session.target" ];
+		};
 	};
 }
