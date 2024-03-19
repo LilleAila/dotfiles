@@ -3,7 +3,6 @@
 let
 	startupScript = pkgs.pkgs.writeShellScriptBin "start" /* bash */ ''
 		hyprctl setcursor "Bibata-Modern-Ice" 24 &
-		ags &
 		${pkgs.mako}/bin/mako &
 	'';
 in

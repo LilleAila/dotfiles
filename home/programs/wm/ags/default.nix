@@ -65,6 +65,7 @@ ${pkgs.bun}/bin/bun build ./config.ts \
 			};
 
 			Service = {
+				Environment = "PATH=${lib.makeBinPath [ pkgs.coreutils ]}";
 				ExecStart = "${config.programs.ags.package}/bin/ags";
 				Restart = "on-failure";
 			};
