@@ -102,6 +102,7 @@
 	}
 
 	.volume {
+		margin-left: 1rem;
 		.volume-slider {
 			min-width: 7rem;
 			border-radius: 0.2rem;
@@ -128,9 +129,12 @@
 
 tooltip {
 	background-color: $bg;
-	padding: 4rem 8rem;
-	border-radius: 1rem;
-	border: 0.1rem solid $bg_alt2;
+	border-radius: 0.4rem;
+	border: 0.1rem solid $accent3;
+
+	& * {
+		padding: 0.2rem;
+	}
 }
 
 // System tray
