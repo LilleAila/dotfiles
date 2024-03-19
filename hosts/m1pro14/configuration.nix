@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, globalSettings, ... }:
 
 {
   imports = [ # Include the results of the hardware scan.
@@ -15,7 +15,7 @@
 			other = "nb_NO.UTF-8";
 			timeZone = "Europe/Oslo";
 		};
-		user.name = "olai"; # TODO: special arg?
+		user.name = globalSettings.username;
 		networking = {
 			enable = true;
 			hostname = "nixos-mac";
