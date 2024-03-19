@@ -32,8 +32,6 @@ const Date = () => Widget.Label({
 	class_name: "date",
 });
 
-// TODO: re-write workspaces similar to [this](https://github.com/fufexan/dotfiles/blob/main/home/services/ags/windows/bar/modules/workspaces.js), and make it have a constant number of them.
-// const hyprland = await Service.import("hyprland") // Idk difference between this and importing Hyprland
 const Workspaces = () => Widget.Box({
 	class_name: "workspaces",
 	children: [...Array(9)].map((_, i) => {

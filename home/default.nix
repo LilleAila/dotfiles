@@ -13,7 +13,6 @@
 
 		./programs/browser.nix
 		./programs/discord.nix
-		./programs/texlive.nix
 		./programs/emacs
 		./programs/zathura.nix
 		./programs/files.nix

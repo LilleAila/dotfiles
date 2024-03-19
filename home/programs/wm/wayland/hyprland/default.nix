@@ -32,7 +32,6 @@
 			];
 
 			# TODO: cursor does not work properly on m1pro14
-			# TODO: legacyRenderer override only for m1pro14
 			# TODO: enable display under notch to show bar
 			wayland.windowManager.hyprland = {
 				enable = true;

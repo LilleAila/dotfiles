@@ -35,11 +35,6 @@
 		];
 
 		# Idk if this actually works, but it seems to set it to 80/75 for some reason????
-		# (ignores actual values, is always either 80/75 og 100/100)
-		# TODO: add script to enable / disable fullcharge maybe:
-		# echo 100 | sudo tee /sys/class/power_supply/macsmc-battery/charge_control_end_threshold
-		# echo 80 | sudo tee /sys/class/power_supply/macsmc-battery/charge_control_end_threshold
-		# in home-manager?
 		services.udev.extraRules = ''
 KERNEL=="macsmc-battery", SUBSYSTEM=="power_supply", ATTR{charge_control_end_threshold}="80", ATTR{charge_control_start_threshold}="60"
 		'';
