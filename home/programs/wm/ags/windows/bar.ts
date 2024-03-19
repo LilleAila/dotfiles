@@ -17,6 +17,9 @@ import {
 } from "../imports";
 import Gdk from "gi://Gdk"
 
+// TODO: split bar into multiple files
+// TODO: fix battery saying "0:00 Remaining until empty" when not using battery
+
 const date = Variable('', {
 	poll: [1000, 'date +"%H:%M"'],
 });
@@ -50,34 +53,7 @@ const Workspaces = () => Widget.Box({
 			}),
 		});
 	}),
-	// Why does this take one extra workspace switch to update properly????
-	// I just make them always show lol
-	// setup: self => {
-	// 	self.hook(Hyprland.active.workspace, () => self.children.map(btn => {
-	// 		const sorted = Hyprland.workspaces
-	// 			.sort((x, y) => {
-	// 				return y.id - x.id;
-	// 			})
-	// 			.filter((x) => {
-	// 				return x.name.indexOf("special") == -1;
-	// 			});
-	// 		const last = sorted[0].id; // WHY DOES IT NOT WORK (it works when adding, but not removing??)
-	// 		btn.visible = btn.attribute <= last;
-	// 	}))
-	// },
 }); 
-
-// const Workspaces = () => Widget.Box({
-//     class_name: "workspaces",
-//     children: Hyprland.bind('workspaces').transform(ws => {
-//         return ws.map(({ id }) => Widget.Button({
-//             on_clicked: () => Hyprland.message(`dispatch workspace ${id}`),
-//             // child: Widget.Label(`${id}`),
-//             class_name: Hyprland.active.workspace.bind("id")
-//                 .transform(i => `${i === id ? "active" : ""} workspace`),
-//         }));
-//     }),
-// });
 
 const BatteryLabel = () => Widget.Label({
 	// class_name: "battery_label",
@@ -93,7 +69,9 @@ const BatteryTime = () => Widget.Label({
 	label: Battery.bind("time_remaining").transform(tr => {
 		const hours = Math.floor(tr / 3600);
 		const minutes = Math.floor((tr % 3600) / 60)
-		return `${hours}:${minutes < 10 ? "0" + minutes : minutes}`
+		if (hours > 0 || minutes > 0)
+			return `${hours}:${minutes < 10 ? "0" + minutes : minutes}`
+		else return ""
 	}),
 });
 const BatteryUntil = () => Widget.Label({
@@ -106,7 +84,7 @@ const BatteryStatus = () => Widget.Box({
 		BatteryLabel(),
 		BatteryIcon(),
 		BatteryTime(),
-		BatteryUntil(),
+		// BatteryUntil(),
 	],
 });
 
