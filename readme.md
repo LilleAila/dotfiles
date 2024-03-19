@@ -37,6 +37,8 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 - [Vimjoyer](https://www.youtube.com/@vimjoyer/featured) - Learning nix
 - [System Crafters](https://www.youtube.com/watch?v=74zOY-vgkyw&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ) - Emacs from scratch
 - [natpen/awesome-wayland](https://github.com/natpen/awesome-wayland)
+- [hyprland-community/awesome-hyprland](https://github.com/hyprland-community/awesome-hyprland)
+- [nix-community/awesome-nix](https://github.com/nix-community/awesome-nix)
 ### Other peoples' dotfiles:
 - [IldenH/dotfiles](https://github.com/IldenH/dotfiles) (sånn pittelitt) (sånn veldig lite) (så vidt)
 - [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
