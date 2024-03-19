@@ -32,10 +32,10 @@
 
 		.workspace {
 			border-radius: 2rem;
-			margin: 0.55rem 0.4rem; // Top/Bottom Left/Right
+			margin: 0.6rem 0.4rem; // Top/Bottom Left/Right
 			transition: 100ms linear;
 			background-color: $bg;
-			min-width: 1.2rem;
+			min-width: 1.4rem;
 		}
 
 		.occupied.mon0 {
@@ -97,6 +97,30 @@
 			border-radius: 0.5rem;
 			&:hover {
 				background-color: $bg_alt;
+			}
+		}
+	}
+
+	.volume {
+		.volume-slider {
+			min-width: 7rem;
+			border-radius: 0.2rem;
+			margin: 1rem 0.5rem;
+			min-height: 0.5rem;
+			background-color: $bg_alt;
+
+			highlight {
+				min-height: 0.5rem;
+				border-radius: 0.2rem;
+				background-color: $fg;
+
+				&:hover {
+					background-color: $fg_alt;
+				}
+			}
+
+			slider {
+				background-color: transparent;
 			}
 		}
 	}
