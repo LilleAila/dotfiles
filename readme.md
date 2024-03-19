@@ -49,3 +49,4 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 - [anotherhadi/nixy](https://github.com/anotherhadi/nixy)
 - [Misterio77/nix-config](https://github.com/Misterio77/nix-config)
 - [iynaix/dotfiles](https://github.com/iynaix/dotfiles)
+- [vimjoyer/nixconf](https://github.com/vimjoyer/nixconf)
