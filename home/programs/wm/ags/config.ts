@@ -1,4 +1,4 @@
-import Bar from "./windows/bar.ts";
+import Bar from "./windows/bar/bar.ts";
 import ScreenCorners from "./windows/screencorners.ts";
 import { App } from "./imports.ts";
 
