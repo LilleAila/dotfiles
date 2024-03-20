@@ -9,22 +9,21 @@
 	min-height: $bar_height;
 }
 
-
-.bar .workspaces {
-  margin: 0.2rem 0.5rem;
-
-  button {
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 2rem;
-    margin: 0.7rem 0.2rem;
-    min-width: 1rem;
-    transition: 100ms linear;
-  }
-
-  .active {
-    min-width: 2rem;
-  }
-}
+// .bar .workspaces {
+//   margin: 0.2rem 0.5rem;
+//
+//   button {
+//     background: rgba(0, 0, 0, 0.3);
+//     border-radius: 2rem;
+//     margin: 0.7rem 0.2rem;
+//     min-width: 1rem;
+//     transition: 100ms linear;
+//   }
+//
+//   .active {
+//     min-width: 2rem;
+//   }
+// }
 
 .bar {
 	.workspaces {

@@ -1,5 +1,6 @@
 import Bar from "./windows/bar/bar.ts";
 import ScreenCorners from "./windows/screencorners.ts";
+import QuickSettings from "./windows/quicksettings/quicksettings.ts";
 import { App } from "./imports.ts";
 
 // TODO: replace app launcher, notification daemon and wlogout with ags
@@ -9,5 +10,6 @@ App.config({
     windows: [
 			Bar(0),
 			ScreenCorners(0),
+			QuickSettings(0),
     ],
 });
