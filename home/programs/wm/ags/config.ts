@@ -1,4 +1,5 @@
 import Bar from "./windows/bar.ts";
+import ScreenCorners from "./windows/screencorners.ts";
 import { App } from "./imports.ts";
 
 // TODO: replace app launcher, notification daemon and wlogout with ags
@@ -6,6 +7,7 @@ import { App } from "./imports.ts";
 App.config({
 		style: App.configDir + "/style.css",
     windows: [
-			Bar()
+			Bar(0),
+			ScreenCorners(0),
     ],
 });

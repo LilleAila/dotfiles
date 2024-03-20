@@ -18,7 +18,6 @@ import {
 import Gdk from "gi://Gdk"
 
 // TODO: split bar into multiple files
-// TODO: fix battery saying "0:00 Remaining until empty" when not using battery
 
 const date = Variable('', {
 	poll: [1000, 'date +"%H:%M"'],
@@ -176,12 +175,10 @@ const End = () => Widget.Box({
 		],
 	});
 
-// export default (monitor = 0) => Widget.Window({
-export default () => Widget.Window({
+export default (monitor: number = 0) => Widget.Window({
 	// monitor: monitor
-	monitor: 0,
-	// name: `bar${monitor}`,
-	name: "bar",
+	monitor: monitor,
+	name: `bar${monitor}`,
 	anchor: ['top', 'left', 'right'],
 	exclusivity: "exclusive",
 	child: Widget.CenterBox({
