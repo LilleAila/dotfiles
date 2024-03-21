@@ -47,7 +47,7 @@
 		};
 		files = {
 			nemo.enable = true;
-			thunar.enable = true;
+			thunar.enable = false;
 		};
 		zathura.enable = true;
 		browser = {
