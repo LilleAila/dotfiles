@@ -7,7 +7,7 @@
 		./hyprlock.nix
 		./hypridle.nix
 		./hyprpaper.nix
-		./general.nix
+		./themes.nix
 		./mako.nix
 		./avizo.nix
 		./wlogout.nix

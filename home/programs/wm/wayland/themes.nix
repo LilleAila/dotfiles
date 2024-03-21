@@ -39,18 +39,5 @@ in
 				iconTheme.name = "Papirus-Dark";
 			};
 		})
-		{
-			# Other stuff idk where to put
-			services.blueman-applet.enable = true;
-			services.network-manager-applet.enable = true;
-
-			xdg.mimeApps.enable = true;
-			xdg.mimeApps.defaultApplications = {
-				"application/pdf" = [ "zathura.desktop" ];
-				"video/png" = [ "mpv.desktop" ];
-				"video/jpg" = [ "mpv.desktop" ];
-				"video/*" = [ "mpv.desktop" ];
-			};
-		}
 	];
 }

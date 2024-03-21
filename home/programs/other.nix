@@ -6,6 +6,10 @@
 			type = lib.types.bool;
 			default = false;
 		};
+		other.enable = lib.mkOption {
+			type = lib.types.bool;
+			default = false;
+		};
 	};
 
 	config = lib.mkMerge [
@@ -31,5 +35,18 @@
 				"image/jpeg" = "pix.desktop";
 			};
 		})
+		(lib.mkIf (config.settings.other.enable) {
+			services.blueman-applet.enable = true;
+			services.network-manager-applet.enable = true;
+
+			xdg.mimeApps.enable = true;
+			xdg.mimeApps.defaultApplications = {
+				"application/pdf" = [ "zathura.desktop" ];
+				"video/png" = [ "mpv.desktop" ];
+				"video/jpg" = [ "mpv.desktop" ];
+				# TODO: /* does not work, so this will need to be fixed
+				"video/*" = [ "mpv.desktop" ];
+			};
+		 })
 	];
 }
