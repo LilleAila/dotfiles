@@ -2,8 +2,9 @@
 
 {
 	wayland.windowManager.hyprland.settings = {
-		"$terminal" = "kitty";
-		"$fileManager" = "dolphin";
+		# TODO: turn all of these into nix options like $terminal
+		"$terminal" = "${lib.getExe config.settings.terminal.emulator.package}";
+		"$fileManager" = "nemo";
 		"$webBrowser" = "firefox";
 		"$launcher" = "rofi -show drun -show-icons";
 		"$calculator" = "qalculate-gtk";

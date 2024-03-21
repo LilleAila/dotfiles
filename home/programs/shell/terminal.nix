@@ -13,12 +13,16 @@
 		emulator.exec = lib.mkOption { # internal option, do not set in config
 			type = lib.types.str;
 		};
+		emulator.package = lib.mkOption { # lib.getExe gets used a lot. maybe make it its own option?
+			type = lib.types.package;
+		};
 	};
 
 	config = lib.mkIf (config.settings.terminal.emulator.enable) (lib.mkMerge [
 		(lib.mkIf (config.settings.terminal.emulator.name == "kitty") {
 			home.packages = [ pkgs.nerdfonts ];
-			settings.terminal.emulator.exec = "${lib.getExe config.programs.kitty.package} -e";
+			settings.terminal.emulator.package = config.programs.kitty.package;
+			settings.terminal.emulator.exec = "${lib.getExe config.settings.terminal.emulator.package} -e";
 			programs.kitty = {
 				enable = true;
 				package = pkgs.kitty;
@@ -71,7 +75,8 @@
 		})
 		(lib.mkIf (config.settings.terminal.emulator.name == "wezterm") {
 			home.packages = [ pkgs.nerdfonts ];
-			settings.terminal.emulator.exec = "${lib.getExe config.programs.wezterm.package} start"; # or -e
+			settings.terminal.emulator.package = config.programs.wezterm.package;
+			settings.terminal.emulator.exec = "${lib.getExe config.settings.terminal.emulator.package} start"; # or -e
 			programs.wezterm = {
 				enable = true;
 				package = pkgs.wezterm;
@@ -125,7 +130,8 @@
 		})
 		(lib.mkIf (config.settings.terminal.emulator.name == "alacritty") {
 			home.packages = [ pkgs.nerdfonts ];
-			settings.terminal.emulator.exec = "${lib.getExe config.programs.alacritty.package} -e";
+			settings.terminal.emulator.package = config.programs.alacritty.package;
+			settings.terminal.emulator.exec = "${lib.getExe config.settings.terminal.emulator.package} -e";
 			programs.alacritty = {
 				enable = true;
 				settings.colors = with config.colorScheme.palette; {

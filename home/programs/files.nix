@@ -26,7 +26,7 @@
 			# taken from arch wiki, but doesn't work :(
 			dconf.settings = {
 				"org/cinnamon/desktop/default-applications/terminal" = {
-					exec = "kitty";
+					exec = "${lib.getExe config.settings.terminal.emulator.package}";
 				};
 				"org/nemo/desktop" = {
 					show-desktop-icons = false;
@@ -124,10 +124,8 @@
 				f3d
 			];
 
-			# TODO: make terminal emulator a string in config.settings that will be used everywhere
-			# TODO: add actions from here: https://docs.xfce.org/xfce/thunar/custom-actions#adding_a_custom_action to ~/.config/Thunar/uca.xml
 			home.file.".config/xfce4/helpers.rc".source = pkgs.writeText "helpers.rc" ''
-			TerminalEmulator=kitty
+			TerminalEmulator=${lib.getExe config.settings.terminal.emulator.package}
 			'';
 
 			systemd.user.services.thunar = {

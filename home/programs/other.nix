@@ -40,12 +40,15 @@
 			services.network-manager-applet.enable = true;
 
 			xdg.mimeApps.enable = true;
+			# https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
 			xdg.mimeApps.defaultApplications = {
-				"application/pdf" = [ "zathura.desktop" ];
-				"video/png" = [ "mpv.desktop" ];
-				"video/jpg" = [ "mpv.desktop" ];
-				# TODO: /* does not work, so this will need to be fixed
-				"video/*" = [ "mpv.desktop" ];
+				"application/pdf" = "zathura.desktop";
+				"video/png" = "mpv.desktop";
+				"video/jpg" = "mpv.desktop";
+				"video/mp4" = "mpv.desktop";
+				"video/mov" = "mpv.desktop";
+				"video/webm" = "mpv.desktop";
+				"video/ogg" = "mpv.desktop";
 			};
 		 })
 	];

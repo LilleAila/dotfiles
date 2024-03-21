@@ -51,7 +51,7 @@
 					y=$5
 					
 					if [[ "$( ${pkgs.file}/bin/file -Lb --mime-type "$file")" =~ ^image ]]; then
-							${pkgs.kitty}/bin/kitty +kitten icat --silent --stdin no --transfer-mode file --place "''${w}x''${h}@''${x}x''${y}" "$file" < /dev/null > /dev/tty
+							${lib.getExe config.programs.kitty.package} +kitten icat --silent --stdin no --transfer-mode file --place "''${w}x''${h}@''${x}x''${y}" "$file" < /dev/null > /dev/tty
 							exit 1
 					fi
 					
@@ -59,7 +59,7 @@
 				'';
 
 				cleaner = pkgs.writeShellScriptBin "clean.sh" ''
-					${pkgs.kitty}/bin/kitty +kitten icat --clear --stdin no --silent --transfer-mode file < /dev/null > /dev/tty
+					${lib.getExe config.programs.kitty.package} +kitten icat --clear --stdin no --silent --transfer-mode file < /dev/null > /dev/tty
 				'';
 			in
 			''
