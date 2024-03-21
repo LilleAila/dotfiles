@@ -67,6 +67,7 @@
 			kitty.enable = true;
 			neovim.enable = true;
 		};
+		imageviewer.enable = true;
 	};
 
 	# Local shell aliases

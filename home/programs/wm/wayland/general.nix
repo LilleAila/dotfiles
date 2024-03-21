@@ -47,7 +47,6 @@ in
 			xdg.mimeApps.enable = true;
 			xdg.mimeApps.defaultApplications = {
 				"application/pdf" = [ "zathura.desktop" ];
-				"image/*" = [ "sxiv.desktop" ];
 				"video/png" = [ "mpv.desktop" ];
 				"video/jpg" = [ "mpv.desktop" ];
 				"video/*" = [ "mpv.desktop" ];

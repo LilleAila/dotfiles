@@ -16,6 +16,7 @@
 		./programs/emacs
 		./programs/zathura.nix
 		./programs/files.nix
+		./programs/other.nix
 
 		# ./programs/wallpaper/wallpaper.nix
 		./programs/wm/wayland
