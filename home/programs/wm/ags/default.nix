@@ -65,7 +65,12 @@ ${pkgs.bun}/bin/bun build ./config.ts \
 			};
 
 			Service = {
-				Environment = "PATH=${lib.makeBinPath [ pkgs.coreutils ]}";
+				# Dependencies have to be added manually to PATH
+				Environment = "PATH=${lib.makeBinPath [
+					pkgs.coreutils
+					config.programs.hyprlock.package
+					pkgs.systemd
+				]}";
 				ExecStart = "${config.programs.ags.package}/bin/ags";
 				Restart = "on-failure";
 			};

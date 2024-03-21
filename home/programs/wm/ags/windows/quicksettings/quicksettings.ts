@@ -7,44 +7,103 @@ const Settings = () => Widget.Box({
 	class_name: "quicksettings",
 	children: [
 		Widget.Box({
+			class_name: "power",
+			hpack: "end",
 			children: [
-				// I found icon names using the icon browser example form ags github
+				Widget.Label({
+					class_name: "title-label",
+					label: "Quick Settings",
+				}),
+				// I found icon names using the icon browser example from ags github
 				Widget.Button({
+					class_name: "power-button",
 					child: Widget.Icon({ icon: "lock-symbolic" }),
-					onClicked: () => print("Suspend"),
+					onClicked: () => Utils.exec("hyprlock"),
 				}),
 				Widget.Button({
+					class_name: "power-button",
 					child: Widget.Icon({ icon: "application-exit-symbolic" }),
-					onClicked: () => print("Log out"),
+					onClicked: () => Utils.exec("loginctl terminate-user $USER"),
 				}),
 				Widget.Button({
+					class_name: "power-button",
 					child: Widget.Icon({ icon: "system-shutdown-symbolic" }),
-					onClicked: () => print("Shut down"),
+					onClicked: () => Utils.exec("systemctl poweroff"),
 				}),
 			],
 		}),
 		// Volume slider (with mute button)
-		// Brightness slider (and potentially night-light)
+		// Brightness slider (and potentially night-light toggle)
 		Widget.Box({
+			class_name: "controls",
 			children: [
 				Widget.Button({
-					child: Widget.Label({ label: "wifi name" }),
+					class_name: "toggle",
+					child: Widget.Box({
+						children: [
+							Widget.Icon({
+								class_name: "toggle-icon",
+								icon: "network-wireless-signal-good-symbolic",
+							}),
+							Widget.Label({
+								class_name: "toggle-label",
+								label: "Sushi",
+							}),
+						],
+					}),
 					onClicked: () => print("Toggle wifi"),
 				}),
 				Widget.Button({
-					child: Widget.Label({ label: "bluetooth" }),
+					class_name: "toggle disabled",
+					child: Widget.Box({
+						children: [
+							Widget.Icon({
+								class_name: "toggle-icon",
+								icon: "bluetooth-active-symbolic",
+							}),
+							Widget.Label({
+								class_name: "toggle-label",
+								label: "Disabled",
+							}),
+						],
+					}),
 					onClicked: () => print("Toggle bluetooth"),
 				}),
 			],
 		}),
 		Widget.Box({
+			class_name: "controls",
 			children: [
 				Widget.Button({
-					child: Widget.Label({ label: "battery limit" }),
+					class_name: "toggle",
+					child: Widget.Box({
+						children: [
+							Widget.Icon({
+								class_name: "toggle-icon",
+								icon: "battery-good-symbolic",
+							}),
+							Widget.Label({
+								class_name: "toggle-label",
+								label: "Limited",
+							}),
+						],
+					}),
 					onClicked: () => print("Toggle battery limit"),
 				}),
 				Widget.Button({
-					child: Widget.Label({ label: "microphone" }),
+					class_name: "toggle",
+					child: Widget.Box({
+						children: [
+							Widget.Icon({
+								class_name: "toggle-icon",
+								icon: "audio-input-microphone-high-symbolic",
+							}),
+							Widget.Label({
+								class_name: "toggle-label",
+								label: "Unmuted",
+							}),
+						],
+					}),
 					onClicked: () => print("Toggle microphone"),
 				}),
 			],
