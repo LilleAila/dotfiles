@@ -7,7 +7,7 @@ const date = Variable('', {
 });
 const full_date = Variable('', {
 	// poll: [1000, 'date +"%Y-%m-%d %H:%M"'],
-	poll: [1000, 'date +"%A %d. %B %y, Uke %V %H:%M"'],
+	poll: [1000, 'date +"%A %d. %B %Y, Uke %V"'],
 });
 export default () => Widget.Label({
 	label: date.bind(),
