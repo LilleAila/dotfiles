@@ -37,7 +37,7 @@
 			name = "Neovim";
 			genericName = "Text Editor";
 			icon = "nvim";
-			exec = "${config.programs.kitty.package}/bin/kitty -e nvim %f";
+			exec = "${lib.getExe config.programs.kitty.package} -e nvim %f";
 		};
 		xdg.mimeApps.defaultApplications = {
 			"text/plain" = "nvim.desktop";

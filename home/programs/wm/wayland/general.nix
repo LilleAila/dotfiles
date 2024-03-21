@@ -44,6 +44,7 @@ in
 			services.blueman-applet.enable = true;
 			services.network-manager-applet.enable = true;
 
+			xdg.mimeApps.enable = true;
 			xdg.mimeApps.defaultApplications = {
 				"application/pdf" = [ "zathura.desktop" ];
 				"image/*" = [ "sxiv.desktop" ];
