@@ -45,7 +45,6 @@ in
 			services.network-manager-applet.enable = true;
 
 			xdg.mimeApps.defaultApplications = {
-				"text/plain" = [ "neovide.desktop" ];
 				"application/pdf" = [ "zathura.desktop" ];
 				"image/*" = [ "sxiv.desktop" ];
 				"video/png" = [ "mpv.desktop" ];
