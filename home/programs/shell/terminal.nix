@@ -2,23 +2,23 @@
 
 {
 	options.settings.terminal = {
-		kitty.enable = lib.mkOption {
+		emulator.enable = lib.mkOption {
 			type = lib.types.bool;
 			default = false;
 		};
-		wezterm.enable = lib.mkOption {
-			type = lib.types.bool;
-			default = false;
+		emulator.name = lib.mkOption {
+			type = lib.types.str;
+			default = "kitty";
 		};
-		alacritty.enable = lib.mkOption {
-			type = lib.types.bool;
-			default = false;
+		emulator.exec = lib.mkOption { # internal option, do not set in config
+			type = lib.types.str;
 		};
 	};
 
-	config = lib.mkMerge [
-		(lib.mkIf (config.settings.terminal.kitty.enable) {
+	config = lib.mkIf (config.settings.terminal.emulator.enable) (lib.mkMerge [
+		(lib.mkIf (config.settings.terminal.emulator.name == "kitty") {
 			home.packages = [ pkgs.nerdfonts ];
+			settings.terminal.emulator.exec = "${lib.getExe config.programs.kitty.package} -e";
 			programs.kitty = {
 				enable = true;
 				package = pkgs.kitty;
@@ -69,8 +69,9 @@
 				};
 			};
 		})
-		(lib.mkIf (config.settings.terminal.wezterm.enable) {
+		(lib.mkIf (config.settings.terminal.emulator.name == "wezterm") {
 			home.packages = [ pkgs.nerdfonts ];
+			settings.terminal.emulator.exec = "${lib.getExe config.programs.wezterm.package} start"; # or -e
 			programs.wezterm = {
 				enable = true;
 				package = pkgs.wezterm;
@@ -122,8 +123,9 @@
 				'';
 			};
 		})
-		(lib.mkIf (config.settings.terminal.alacritty.enable) {
+		(lib.mkIf (config.settings.terminal.emulator.name == "alacritty") {
 			home.packages = [ pkgs.nerdfonts ];
+			settings.terminal.emulator.exec = "${lib.getExe config.programs.alacritty.package} -e";
 			programs.alacritty = {
 				enable = true;
 				settings.colors = with config.colorScheme.palette; {
@@ -158,5 +160,5 @@
 				};
 			};
 		})
-	];
+	]);
 }

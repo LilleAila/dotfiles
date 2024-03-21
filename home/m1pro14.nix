@@ -64,10 +64,14 @@
 				theme = "nanotech";
 				utils.enable = true;
 			};
-			kitty.enable = true;
+			emulator = {
+				enable = true;
+				name = "kitty";
+			};
 			neovim.enable = true;
 		};
 		imageviewer.enable = true;
+		other.enable = true;
 	};
 
 	# Local shell aliases
