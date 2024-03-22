@@ -57,10 +57,11 @@
 		# To find the name of a setting, either use `diff old_settings new_settings`
 		# Or check which value changes in about:config when setting it in about:preferences
 		settings = {
-			"browser.startup.page" = "3"; # Restore pages on startup
+			"browser.startup.page" = 3; # Restore pages on startup
 			"media.hardware-video-decoding.force-enabled" = true;
 			"layers.acceleration.force-enabled" = true;
 
+			"browser.toolbars.bookmarks.visibility" = "always";
 			"browser.disableResetPrompt" = true;
 			"browser.download.panel.shown" = true;
 			"browser.download.useDownloadDir" = false;
@@ -73,6 +74,7 @@
 			"browser.shell.checkDefaultBrowser" = false;
 			"browser.shell.defaultBrowserCheckCount" = 1;
 			"toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+			"browser.startup.homepage_override.mstone" = "ignore";
 
 			"browser.tabs.firefox-view" = false;
 			"browser.tabs.tabmanager.enabled" = false;
@@ -90,7 +92,7 @@
 	in lib.mkIf (config.settings.browser.firefox.enable) {
 		programs.firefox = {
 			enable = true;
-			profiles.olai = {
+			profiles.main = {
 				inherit settings;
 				inherit search;
 				inherit extensions;
@@ -139,7 +141,7 @@
 				}];
 			};
 
-			profiles.matte = {
+			profiles.math = {
 				inherit settings;
 				inherit search;
 				inherit extensions;
