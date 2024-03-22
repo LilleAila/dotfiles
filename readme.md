@@ -26,6 +26,7 @@ I use the following computers with this configuration:
 | Lenovo Legion Y540     | `legion`  | `x86_64`     |                       |
 | Lenovo ThinkPad e540   | `e540`    | `x86_64`     | Not configured yet    |
 | Raspberry pi 400       | `pi4`     | `aarch64`    | Not configured yet    |
+| Oracle cloud           | `oci`     | `aarch64`    | Not configured yet    |
 
 Currently, all the systems use the excact same configuration. This is all in one flake, so you should be able to install it with `sudo nixos-rebuild switch --flake "github:LilleAila/dotfiles"#<name>`.
 
@@ -36,6 +37,7 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 - [tpwrules/nixos-apple-silicon](https://github.com/tpwrules/nixos-apple-silicon/tree/main) - Installing NixOS on m1
 - [Vimjoyer](https://www.youtube.com/@vimjoyer/featured) - Learning nix
 - [System Crafters](https://www.youtube.com/watch?v=74zOY-vgkyw&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ) - Emacs from scratch
+- [nix-workflow](https://ayats.org/blog/nix-workflow/)
 - [natpen/awesome-wayland](https://github.com/natpen/awesome-wayland)
 - [hyprland-community/awesome-hyprland](https://github.com/hyprland-community/awesome-hyprland)
 - [nix-community/awesome-nix](https://github.com/nix-community/awesome-nix)
@@ -50,3 +52,22 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 - [Misterio77/nix-config](https://github.com/Misterio77/nix-config)
 - [iynaix/dotfiles](https://github.com/iynaix/dotfiles)
 - [vimjoyer/nixconf](https://github.com/vimjoyer/nixconf)
+
+## Notes
+### SSH
+```bash
+# Generate a new key:
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+
+### SOPS
+```bash
+# Generate age key:
+nix shell nixpkgs#age -c age-keygen -o ~/.config/sops/age/keys.txt # Random
+## From SSH key: (I used the SSH key from `m1pro14`)
+nix run nixpkgs#ssh-to-age -- -private-key -i ~/.ssh/id_ed25519 > ~/.config/sops/age/keys.txt
+
+# Get the public key:
+nix shell nixpkgs#age -c age-keygen -y ~/.config/sops/age/keys.txt
+```
+You will need the private key file at `~/.config/sops/age/keys.txt` before building!
