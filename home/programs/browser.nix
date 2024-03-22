@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, ... }:
+{ config, pkgs, inputs, lib, stdenv, ... }:
 
 {
 	options.settings.browser.firefox.enable = lib.mkOption {
@@ -89,6 +89,16 @@
 			youtube-shorts-block
 			enhanced-h264ify
 		];
+
+		colorTab = bg: fg: ''
+		.tab-background[selected] {
+			background-color: #${bg} !important;
+			background-image: none !important;
+		}
+		.tab-content[selected] {
+			color: #${fg} !important;
+		}
+		'';
 	in lib.mkIf (config.settings.browser.firefox.enable) {
 		programs.firefox = {
 			enable = true;
@@ -122,6 +132,8 @@
 						];
 					}
 				];
+
+				userChrome = with config.colorScheme.palette; colorTab base0D base00;
 			};
 
 			profiles.school = {
@@ -139,6 +151,7 @@
 						{ name = "Sheets"; url = "https://sheets.google.com"; }
 					];
 				}];
+				userChrome = with config.colorScheme.palette; colorTab base0B base00;
 			};
 
 			profiles.math = {
@@ -155,6 +168,7 @@
 						{ name = "Symbolab"; url = "https://symbolab.com"; }
 					];
 				}];
+				userChrome = with config.colorScheme.palette; colorTab base0E base00;
 			};
 		};
 
