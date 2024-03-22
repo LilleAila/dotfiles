@@ -23,6 +23,7 @@
 			extraGroups = [ "wheel" ];
 			packages = with pkgs; [];
 			shell = shell;
+			initialPassword = "";
 		};
 	};
 }

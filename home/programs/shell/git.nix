@@ -12,9 +12,9 @@
 				co = "checkout";
 				cm = "commit";
 			};
-			extraConfig = {
-				credential.helper = "store"; # I should probably switch to ssh
-			};
+			# extraConfig = {
+			# 	credential.helper = "store"; # I should probably switch to ssh # I SWITCHED TO SSH!!!
+			# };
 		};
 	};
 }
