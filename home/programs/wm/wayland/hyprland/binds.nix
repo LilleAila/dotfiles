@@ -5,7 +5,7 @@
 		# TODO: turn all of these into nix options like $terminal
 		"$terminal" = "${lib.getExe config.settings.terminal.emulator.package}";
 		"$fileManager" = "nemo";
-		"$webBrowser" = "firefox";
+		"$webBrowser" = "${lib.getExe config.programs.firefox.package}";
 		"$launcher" = "rofi -show drun -show-icons";
 		"$calculator" = "qalculate-gtk";
 
@@ -20,8 +20,9 @@
 			"$mainMod, space, exec, $launcher"
 			"$mainMod, E, exec, emacsclient -c"
 			# "$mainMod, D, exec, $fileManager"
-			"$mainMod, B, exec, $webBrowser"
-			# "$mainMod, D, exec, $discord"
+			"$mainMod, B, exec, $webBrowser -P main"
+			"$mainMod, M, exec, $webBrowser -P math"
+			"$mainMod SHIFT, B, exec, $webBrowser -P school"
 
 			# Special workspaces
 			"$mainMod, Q, exec, bash -c 'pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk &'"
