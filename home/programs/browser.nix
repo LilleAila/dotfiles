@@ -98,6 +98,9 @@
 					"signon.rememberSignons" = false;
 					"browser.shell.checkDefaultBrowser" = false;
 					"browser.shell.defaultBrowserCheckCount" = 1;
+
+					"browser.tabs.firefox-view" = false;
+					"browser.tabs.tabmanager.enabled" = false;
 				};
 
 				# All available extensions:

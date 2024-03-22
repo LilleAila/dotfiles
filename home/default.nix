@@ -23,9 +23,10 @@
 		./programs/wm/ags
   ];
 
-	# Random other packages
+	# Random other packages (hmm, it seems that all unfree packages are allowed because useGlobalPkgs... TODO)
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
 		"geogebra6"
+		"_1password-gui-beta"
 	];
 
   home.packages = with pkgs; [
@@ -36,14 +37,13 @@
 
 		nodejs_20
 		python311
-
 		dconf
 
 		pavucontrol
-
 		geogebra6
-		
 		nurl
+
+		_1password-gui-beta
   ];
 
 	programs.mpv = {

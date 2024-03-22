@@ -50,6 +50,10 @@
 				"video/webm" = "mpv.desktop";
 				"video/ogg" = "mpv.desktop";
 			};
+
+			programs.ssh.enable = true;
+			services.ssh-agent.enable = true;
+			programs.ssh.addKeysToAgent = "yes";
 		 })
 	];
 }
