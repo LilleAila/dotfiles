@@ -2,6 +2,7 @@
 
 {
 	imports = [
+		./sops.nix
 		./greeter.nix
 		./xserver.nix
 		./locale.nix

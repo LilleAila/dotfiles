@@ -17,13 +17,14 @@
 	};
 
 	config = with config.settings.user; {
+		# TODO: Set users.users.user.name = ${name} instead of users.users."${name}"?
 		users.users."${name}" = {
 			isNormalUser = true;
 			description = desc;
 			extraGroups = [ "wheel" ];
 			packages = with pkgs; [];
 			shell = shell;
-			initialPassword = "";
+			# initialPassword = "";
 		};
 	};
 }

@@ -42,6 +42,7 @@
 		pavucontrol
 		geogebra6
 		nurl
+		sops
 
 		_1password-gui-beta
   ];

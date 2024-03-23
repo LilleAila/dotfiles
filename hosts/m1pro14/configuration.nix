@@ -28,6 +28,7 @@
 			font = "ter-u32n";
 			keyMap = "no";
 		};
+		sops.enable = true;
 	};
 
   # Enable XDG-desktop-portals (TODO: I think it's possible to do this in home)

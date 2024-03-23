@@ -27,9 +27,20 @@
 		[Default]
 		save_dir=$HOME/Screenshots/Edited
 		save_filename_format=${format}
-		show_panel=true
-		# early_exit=true # Exit on export
+		show_panel=false # Show panel on start
+		early_exit=true # Exit on export
+		line_size=5
+		text_size=20
+		text_font=sans-serif
+		paint_mode=brush
+		fill_shape=false
 		'';
+
+		/*
+AAA HOW DO YTOU TAKE SCRENHOT WITHOUR COSOR??????
+slurp | grim -g - - | convert - -shave 2x2 PNG:- | swappy -f -
+grim -g "$(slurp)" - | convert - -shave 2x2 PNG:- | swappy -f -
+		*/
 
 		# Configure keybindings
 		wayland.windowManager.hyprland.settings = {
