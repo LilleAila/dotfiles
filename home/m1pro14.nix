@@ -6,7 +6,7 @@
 	# https://github.com/tinted-theming/base16-schemes/
 	colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
 	settings = {
-		wallpaper = ./wallpapers/wall13.jpg;
+		wallpaper = ./wallpapers/wall18.jpg;
 		monitors = [
 			{
 				name = "eDP-1";
