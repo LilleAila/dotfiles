@@ -82,6 +82,13 @@
 			url = "github:Mic92/sops-nix";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
+		# === Neovim configuration ===
+		nixvim = {
+			url = "/home/olai/nvim"; # Change this to your home folder, idk how it should be written
+			inputs.nixpkgs.follows = "nixpkgs";
+			inputs.flake-parts.follows = "nixpkgs";
+		};
 	};
 
   outputs = { nixpkgs, home-manager, nixos-hardware, ... }@inputs:
