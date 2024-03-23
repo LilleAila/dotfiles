@@ -23,6 +23,7 @@
 			"$mainMod, B, exec, $webBrowser -P main"
 			"$mainMod, M, exec, $webBrowser -P math"
 			"$mainMod SHIFT, B, exec, $webBrowser -P school"
+			"$mainMod, Y, exec, $webBrowser -P yt"
 
 			# Special workspaces
 			"$mainMod, Q, exec, bash -c 'pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk &'"

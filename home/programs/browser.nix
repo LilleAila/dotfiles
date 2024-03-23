@@ -56,7 +56,7 @@
 		# Settings are stored in ~/.mozilla/firefox/profile_name/prefs.js
 		# To find the name of a setting, either use `diff old_settings new_settings`
 		# Or check which value changes in about:config when setting it in about:preferences
-		settings = {
+		settingsWithHomepage = homepage: {
 			"browser.startup.page" = 3; # Restore pages on startup
 			"media.hardware-video-decoding.force-enabled" = true;
 			"layers.acceleration.force-enabled" = true;
@@ -80,6 +80,7 @@
 
 			"browser.translations.neverTranslateLanguages" = "nb,nn,fr,en";
 			# "browser.startup.homepage" = "https://start.duckduckgo.com";
+			"browser.startup.homepage" = homepage;
 		};
 
 		# All available extensions:
@@ -105,10 +106,9 @@
 		programs.firefox = {
 			enable = true;
 			profiles.main = {
-				inherit settings;
+				settings = settingsWithHomepage "https://start.duckduckgo.com";
 				inherit search;
 				inherit extensions;
-				# settings."browser.startup.homepage" = "https://start.duckduckgo.com";
 				isDefault = true;
 				id = 0;
 
@@ -140,10 +140,9 @@
 			};
 
 			profiles.school = {
-				inherit settings;
+				settings = settingsWithHomepage "https://classroom.google.com";
 				inherit search;
 				inherit extensions;
-				# settings."browser.startup.homepage" = "https://classroom.google.com";
 				id = 1;
 				bookmarks = [{
 					name = "Toolbar";
@@ -176,10 +175,9 @@
 			};
 
 			profiles.math = {
-				inherit settings;
+				settings = settingsWithHomepage "https://skole.digilaer.no";
 				inherit search;
 				inherit extensions;
-				# settings."browser.startup.homepage" = "https://skole.digilaer.no";
 				id = 2;
 				bookmarks = [{
 					name = "Toolbar";
@@ -191,6 +189,21 @@
 					];
 				}];
 				userChrome = with config.colorScheme.palette; colorTab base0E base00;
+			};
+
+			profiles.yt = {
+				settings = settingsWithHomepage "https://youtube.com";
+				inherit search;
+				inherit extensions;
+				id = 3;
+				bookmarks = [{
+					name = "Toolbar";
+					toolbar = true;
+					bookmarks = [
+						{ name = "YouTube"; url = "https://youtube.com"; }
+					];
+				}];
+				userChrome = with config.colorScheme.palette; colorTab base08 base00;
 			};
 		};
 
