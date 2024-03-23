@@ -77,6 +77,8 @@ in
 					cat = "${pkgs.bat}/bin/bat";
 
 					cd = "z";
+					open = "xdg-open";
+					o = "xdg-open";
 				};
 			};
 		})

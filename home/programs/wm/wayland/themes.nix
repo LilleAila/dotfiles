@@ -20,9 +20,14 @@ in
 		(lib.mkIf (config.settings.qt.enable) {
 			qt = {
 				enable = true;
+				# platformTheme = "gtk";
+				# style.name = "adwaita-dark";
+				# style.package = pkgs.adwaita-qt;
 				platformTheme = "gtk";
-				style.name = "adwaita-dark";
-				style.package = pkgs.adwaita-qt;
+				style = {
+					name = "gtk2";
+					package = pkgs.qt6Packages.qt6gtk2;
+				};
 			};
 		})
 		(lib.mkIf (config.settings.gtk.enable) {

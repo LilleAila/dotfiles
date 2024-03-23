@@ -66,7 +66,6 @@
 			"browser.download.panel.shown" = true;
 			"browser.download.useDownloadDir" = false;
 			"browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-			"browser.startup.homepage" = "https://start.duckduckgo.com";
 			"dom.security.https_only_mode" = true;
 			"identity.fxaccounts.enabled" = false;
 			"privacy.trackingprotection.enabled" = true;
@@ -80,6 +79,7 @@
 			"browser.tabs.tabmanager.enabled" = false;
 
 			"browser.translations.neverTranslateLanguages" = "nb,nn,fr,en";
+			# "browser.startup.homepage" = "https://start.duckduckgo.com";
 		};
 
 		# All available extensions:
@@ -108,6 +108,7 @@
 				inherit settings;
 				inherit search;
 				inherit extensions;
+				# settings."browser.startup.homepage" = "https://start.duckduckgo.com";
 				isDefault = true;
 				id = 0;
 
@@ -142,6 +143,7 @@
 				inherit settings;
 				inherit search;
 				inherit extensions;
+				# settings."browser.startup.homepage" = "https://classroom.google.com";
 				id = 1;
 				bookmarks = [{
 					name = "Toolbar";
@@ -177,6 +179,7 @@
 				inherit settings;
 				inherit search;
 				inherit extensions;
+				# settings."browser.startup.homepage" = "https://skole.digilaer.no";
 				id = 2;
 				bookmarks = [{
 					name = "Toolbar";
