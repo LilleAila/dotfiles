@@ -11,5 +11,6 @@
 		./utils.nix
 		./tlp.nix
 		./console.nix
+		./ssh.nix
 	];
 }
