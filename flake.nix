@@ -85,7 +85,8 @@
 
 		# === Neovim configuration ===
 		nixvim = {
-			url = "/home/olai/nvim"; # Change this to your home folder, idk how it should be written
+			# url = "/home/olai/nvim";
+			url = "github:LilleAila/nvim-nix";
 			inputs.nixpkgs.follows = "nixpkgs";
 			inputs.flake-parts.follows = "nixpkgs";
 		};
