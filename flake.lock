@@ -805,17 +805,17 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1711215891,
-        "narHash": "sha256-TzIPM/g1JQsqm2oEpcIpJO+zKzZ5M8a6ry9UCObZ5OA=",
-        "ref": "refs/heads/main",
-        "rev": "f8eb71fea7333c0c383113575c62811e95e222b3",
-        "revCount": 1,
-        "type": "git",
-        "url": "file:///home/olai/nvim"
+        "lastModified": 1711275927,
+        "narHash": "sha256-14HUCmSlSg+AJdn/1b3siGTGIPxJsy7P73VDMQ2kjZQ=",
+        "owner": "LilleAila",
+        "repo": "nvim-nix",
+        "rev": "5765021d7a2e83dca5fd3ac60be41c19311989ba",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/olai/nvim"
+        "owner": "LilleAila",
+        "repo": "nvim-nix",
+        "type": "github"
       }
     },
     "nixvim_2": {

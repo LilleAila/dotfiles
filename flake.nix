@@ -118,6 +118,23 @@
 				];
 			};
 
+			oci = nixpkgs.lib.nixosSystem {
+				system = "aarch64-linux";
+				specialArgs = { inherit inputs; inherit globalSettings; };
+				modules = [
+					inputs.nixos-apple-silicon.nixosModules.apple-silicon-support 
+					./hosts/oci/configuration.nix
+					home-manager.nixosModules.home-manager {
+						home-manager = {
+							extraSpecialArgs = { inherit inputs; inherit globalSettings; };
+							useUserPackages = true;
+							useGlobalPkgs = true;
+							users."${globalSettings.username}" = ./home/oci.nix; 
+						};
+					}
+				];
+			};
+
 			t420 = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
 				specialArgs = { inherit inputs; inherit globalSettings; };
