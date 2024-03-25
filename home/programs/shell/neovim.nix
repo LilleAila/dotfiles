@@ -33,12 +33,13 @@
 			EDITOR = "nvim";
 		};
 
-		xdg.desktopEntries.nvim = {
-			name = "Neovim";
-			genericName = "Text Editor";
-			icon = "nvim";
-			exec = "${config.settings.terminal.emulator.exec} ${lib.getExe config.programs.neovim.package} %f";
-		};
+		# TODO make xdg.enable option
+		# xdg.desktopEntries.nvim = {
+		#	name = "Neovim";
+		#	genericName = "Text Editor";
+		#	icon = "nvim";
+		#	exec = "${config.settings.terminal.emulator.exec} ${lib.getExe config.programs.neovim.package} %f";
+		# };
 		xdg.mimeApps.defaultApplications = {
 			"text/plain" = "nvim.desktop";
 			"application/x-shellscript" = "nvim.desktop";

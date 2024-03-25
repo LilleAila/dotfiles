@@ -15,7 +15,6 @@
 	];
 	
 	settings = {
-		asahi.enable = false;
 		locale = {
 			main = "en_US.UTF-8";
 			other = "nb_NO.UTF-8";

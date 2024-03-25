@@ -122,7 +122,6 @@
 				system = "aarch64-linux";
 				specialArgs = { inherit inputs; inherit globalSettings; };
 				modules = [
-					inputs.nixos-apple-silicon.nixosModules.apple-silicon-support 
 					./hosts/oci/configuration.nix
 					home-manager.nixosModules.home-manager {
 						home-manager = {

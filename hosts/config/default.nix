@@ -10,7 +10,6 @@
 		./networking.nix
 		./utils.nix
 		./tlp.nix
-		./asahi
 		./console.nix
 	];
 }
