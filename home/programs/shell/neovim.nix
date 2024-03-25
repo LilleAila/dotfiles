@@ -6,43 +6,46 @@
 		default = false;
 	};
 
-	config = lib.mkIf (config.settings.terminal.neovim.enable) {
-		programs.neovim = {
-			enable = true;
-			defaultEditor = true;
-			withNodeJs = true;
-			withPython3 = true;
-			withRuby = true;
+	config = lib.mkIf (config.settings.terminal.neovim.enable)
+		(lib.mkMerge [
+			{
+				programs.neovim = {
+					enable = true;
+					defaultEditor = true;
+					withNodeJs = true;
+					withPython3 = true;
+					withRuby = true;
 
-			viAlias = true;
-			vimAlias = true;
-			vimdiffAlias = true;
+					viAlias = true;
+					vimAlias = true;
+					vimdiffAlias = true;
 
-			extraPackages = with pkgs; [
-				# xclip
-				wl-clipboard
+					extraPackages = with pkgs; [
+						# xclip
+						wl-clipboard
 
-				nodePackages.neovim
-				python311Packages.pynvim
+						nodePackages.neovim
+						python311Packages.pynvim
 
-				gcc
-			];
-		};
+						gcc
+					];
+				};
 
-		home.sessionVariables = {
-			EDITOR = "nvim";
-		};
-
-		# TODO make xdg.enable option
-		# xdg.desktopEntries.nvim = {
-		#	name = "Neovim";
-		#	genericName = "Text Editor";
-		#	icon = "nvim";
-		#	exec = "${config.settings.terminal.emulator.exec} ${lib.getExe config.programs.neovim.package} %f";
-		# };
-		xdg.mimeApps.defaultApplications = {
-			"text/plain" = "nvim.desktop";
-			"application/x-shellscript" = "nvim.desktop";
-		};
-	};
+				home.sessionVariables = {
+					EDITOR = "nvim";
+				};
+			}
+			(lib.mkIf (config.settings.terminal.emulator.enable) {
+				xdg.desktopEntries.nvim = {
+					name = "Neovim";
+					genericName = "Text Editor";
+					icon = "nvim";
+					exec = "${config.settings.terminal.emulator.exec} ${lib.getExe config.programs.neovim.package} %f";
+				};
+				xdg.mimeApps.defaultApplications = {
+					"text/plain" = "nvim.desktop";
+					"application/x-shellscript" = "nvim.desktop";
+				};
+			})
+		]);
 }

@@ -24,9 +24,9 @@ I use the following computers with this configuration:
 | Apple MacBook Pro 14"  | `m1pro14` | `aarch64`    | Build with `--impure` |
 | Lenovo ThinkPad T420   | `t420`    | `x86_64`     |                       |
 | Lenovo Legion Y540     | `legion`  | `x86_64`     |                       |
+| Oracle cloud A1        | `oci`     | `aarch64`    |                       |
 | Lenovo ThinkPad e540   | `e540`    | `x86_64`     | Not configured yet    |
 | Raspberry pi 400       | `pi4`     | `aarch64`    | Not configured yet    |
-| Oracle cloud           | `oci`     | `aarch64`    | Not configured yet    |
 
 Currently, all the systems use the excact same configuration. This is all in one flake, so you should be able to install it with `sudo nixos-rebuild switch --flake "github:LilleAila/dotfiles"#<name>`.
 
@@ -35,6 +35,7 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 
 ## Inspiration
 - [tpwrules/nixos-apple-silicon](https://github.com/tpwrules/nixos-apple-silicon/tree/main) - Installing NixOS on m1
+- [NixOS on oracle cloud](https://blog.korfuri.fr/posts/2022/08/nixos-on-an-oracle-free-tier-ampere-machine/)
 - [Vimjoyer](https://www.youtube.com/@vimjoyer/featured) - Learning nix
 - [System Crafters](https://www.youtube.com/watch?v=74zOY-vgkyw&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ) - Emacs from scratch
 - [nix-workflow](https://ayats.org/blog/nix-workflow/)

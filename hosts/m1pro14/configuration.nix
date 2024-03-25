@@ -4,7 +4,7 @@
   imports = [ # Include the results of the hardware scan.
 		./hardware-configuration.nix
 		../.
-		../config/asahi
+		../config/asahi # This causes problems when imported globally
   ];
 	
 	settings = {
