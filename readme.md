@@ -60,6 +60,7 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 # Generate a new key:
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
+SSH-ing into a server can often result in errors because kitty terminfo files are unavailable. To fix this, run `kitten ssh` instead of `ssh`.
 
 ### SOPS
 ```bash
