@@ -12,7 +12,6 @@ Riced with [nix-colors](https://github.com/Misterio77/nix-colors) using [gruvbox
 - Bar: [AGS](https://aylur.github.io/ags-docs/)
 - Terminal Emulator: [kitty](https://sw.kovidgoyal.net/kitty)
 - Shell: [Zsh](https://www.zsh.org/) with [Oh my Zsh](https://ohmyz.sh/), and the [nanotech](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#nanotech) theme
-- Shell: [Fish](https://fishshell.com/)
 - Editor(s): [Neovim](https://neovim.io) and [Emacs](https://www.gnu.org/software/emacs/)
 - Discord: [Vesktop](https://github.com/Vencord/Vesktop)
 - Wallpapers: [AngelJumbo/gruvbox-wallpapers](https://github.com/AngelJumbo/gruvbox-wallpapers)

@@ -50,8 +50,8 @@
 				'';
 			};
 		}
-		(lib.mkIf (config.settings.terminal.emulator.name == "kitty") {
-			programs.kitty.settings.shell = lib.mkForce (lib.getExe config.programs.fish.package);
-		})
+		# (lib.mkIf (config.settings.terminal.emulator.name == "kitty") {
+		# 	programs.kitty.settings.shell = lib.mkForce (lib.getExe config.programs.fish.package);
+		# })
 	]);
 }
