@@ -11,7 +11,8 @@
 	};
 
 	config = lib.mkIf (config.settings.wm.hyprlock.enable) {
-		programs.hyprlock = {
+		programs.hyprlock =
+		let primaryMonitor = (builtins.elemAt config.settings.monitors 0).name; in {
 			enable = true;
 			general = {
 				disable_loading_bar = true;
@@ -23,7 +24,7 @@
 
 			backgrounds = [
 				{
-					monitor = "";
+					monitor = "${primaryMonitor}";
 					path = "screenshot";
 					# path = "${./wall1.png}";
 					color = "rgb(${config.colorScheme.palette.base01})";
@@ -42,7 +43,7 @@
 			input-fields = [
 				{
 					# monitor = "eDP-1";
-					monitor = "";
+					monitor = "${primaryMonitor}";
 					size = {
 						width = 500;
 						height = 50;
@@ -80,7 +81,7 @@
 
 			labels = [
 				{
-					monitor = "";
+					monitor = "${primaryMonitor}";
 					text = "Hi there, $USER";
 					color = "rgb(${config.colorScheme.palette.base06})";
 					font_size = 25;

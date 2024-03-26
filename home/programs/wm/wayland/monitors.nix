@@ -43,6 +43,10 @@ in
 					type = types.path;
 					default = null;
 				};
+				primary = mkOption { # Used by hyprlock
+					type = types.bool;
+					default = false;
+				};
 			};
 		});
 		default = [ ];
