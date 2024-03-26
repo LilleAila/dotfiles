@@ -84,7 +84,7 @@
 		};
 
 		# === Neovim configuration ===
-		nixvim = {
+		nixvim-config = {
 			# url = "/home/olai/nvim";
 			url = "github:LilleAila/nvim-nix";
 			inputs.nixpkgs.follows = "nixpkgs";

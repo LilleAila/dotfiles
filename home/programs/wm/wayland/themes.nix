@@ -44,5 +44,12 @@ in
 				iconTheme.name = "Papirus-Dark";
 			};
 		})
+		(lib.mkIf (config.settings.wm.hyprland.enable) {
+			home.pointerCursor = {
+				package = pkgs.bibata-cursors;
+				name = "Bibata-Modern-Ice";
+				size = 24;
+			};
+		})
 	];
 }

@@ -11,6 +11,7 @@
 			{
 				programs.neovim = {
 					enable = true;
+					# package = inputs.nixvim-config.packages."${pkgs.system}".nvim;
 					defaultEditor = true;
 					withNodeJs = true;
 					withPython3 = true;

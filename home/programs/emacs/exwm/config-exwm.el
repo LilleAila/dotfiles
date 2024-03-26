@@ -1,4 +1,3 @@
-;; TODO: remove exwm??
 ;; https://github.com/emacksnotes/exwm/wiki/EXWM-User-Guide
 
 (defun os/run-in-background (command)
@@ -15,7 +14,6 @@
 	(exwm-workspace-rename-buffer exwm-class-name)
 )
 
-;; TODO: make this only run if emacs is started as a window manager
 (use-package exwm
 	:config
 	;; Set default number of workspaces
