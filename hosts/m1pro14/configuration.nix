@@ -17,6 +17,7 @@
 			timeZone = "Europe/Oslo";
 		};
 		user.name = globalSettings.username;
+		user.shell = pkgs.fish;
 		networking = {
 			enable = true;
 			hostname = "nixos-mac";

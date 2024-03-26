@@ -32,6 +32,7 @@
 					package = pkgs.nerdfonts;
 				};
 				shellIntegration.enableZshIntegration = true;
+				shellIntegration.enableFishIntegration = true;
 				settings = with config.colorScheme.palette; {
 					scrollback_lines = 1000;
 					placement_strategy = "center";

@@ -12,6 +12,7 @@ Riced with [nix-colors](https://github.com/Misterio77/nix-colors) using [gruvbox
 - Bar: [AGS](https://aylur.github.io/ags-docs/)
 - Terminal Emulator: [kitty](https://sw.kovidgoyal.net/kitty)
 - Shell: [Zsh](https://www.zsh.org/) with [Oh my Zsh](https://ohmyz.sh/), and the [nanotech](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#nanotech) theme
+- Shell: [Fish](https://fishshell.com/)
 - Editor(s): [Neovim](https://neovim.io) and [Emacs](https://www.gnu.org/software/emacs/)
 - Discord: [Vesktop](https://github.com/Vencord/Vesktop)
 - Wallpapers: [AngelJumbo/gruvbox-wallpapers](https://github.com/AngelJumbo/gruvbox-wallpapers)
@@ -42,6 +43,8 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 - [natpen/awesome-wayland](https://github.com/natpen/awesome-wayland)
 - [hyprland-community/awesome-hyprland](https://github.com/hyprland-community/awesome-hyprland)
 - [nix-community/awesome-nix](https://github.com/nix-community/awesome-nix)
+- [awsm.fish](https://github.com/jorgebucaran/awsm.fish)
+- [thiscute - modularize the configuration](https://nixos-and-flakes.thiscute.world/nixos-with-flakes/modularize-the-configuration)
 - [Configuration Collection](https://nixos.wiki/wiki/Configuration_Collection)
 ### Other peoples' dotfiles:
 - [IldenH/dotfiles](https://github.com/IldenH/dotfiles) (sånn pittelitt) (sånn veldig lite) (så vidt)

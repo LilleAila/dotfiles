@@ -62,8 +62,11 @@
 			zsh = {
 				enable = true;
 				theme = "nanotech";
-				utils.enable = true;
 			};
+			fish = {
+				enable = true;
+			};
+			utils.enable = true;
 			emulator = {
 				enable = true;
 				name = "kitty";
@@ -75,7 +78,7 @@
 	};
 
 	# Local shell aliases
-	programs.zsh.shellAliases = {
+	home.shellAliases = {
 		bat-fullcharge = "echo 100 | sudo tee /sys/class/power_supply/macsmc-battery/charge_control_end_threshold";
 		bat-limit = "echo 80 | sudo tee /sys/class/power_supply/macsmc-battery/charge_control_end_threshold";
 	};

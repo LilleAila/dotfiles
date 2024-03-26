@@ -4,12 +4,12 @@ let
 	inherit (lib) mkOption types;
 in
 {
-	options.settings.terminal.zsh = {
-		enable = mkOption {
+	options.settings.terminal = {
+		zsh.enable = mkOption {
 			type = types.bool;
 			default = false;
 		};
-		theme = mkOption {
+		zsh.theme = mkOption {
 			type = types.str;
 			default = "nanotech";
 		};
@@ -83,10 +83,11 @@ in
 			};
 		})
 		
-		(lib.mkIf (config.settings.terminal.zsh.utils.enable) {
+		(lib.mkIf (config.settings.terminal.utils.enable) {
 			programs.fzf = {
 				enable = true;
 				enableZshIntegration = true;
+				enableFishIntegration = true;
 				defaultOptions = [
 					"--color 16"
 				];
@@ -95,11 +96,13 @@ in
 			programs.zoxide = {
 				enable = true;
 				enableZshIntegration = true;
+				enableFishIntegration = true;
 			};
 
 			programs.thefuck = {
 				enable = true;
 				enableZshIntegration = true;
+				enableFishIntegration = true;
 			};
 
 			programs.eza = {
