@@ -6,7 +6,6 @@
 	# https://github.com/tinted-theming/base16-schemes/
 	colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
 	settings = {
-		wallpaper = ./wallpapers/wall18.jpg;
 		monitors = [
 			{
 				name = "eDP-1";
@@ -17,6 +16,7 @@
 				y = 0;
 				scale = 2;
 				enable = true;
+				wallpaper = ./wallpapers/wall18.jpg;
 			}
 			{
 				name = "HDMI-A-1";
@@ -27,6 +27,7 @@
 				y = -1440;
 				scale = 1;
 				enable = true;
+				wallpaper = ./wallpapers/wall1.png;
 			}
 		];
 		qt.enable = true;

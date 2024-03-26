@@ -39,6 +39,10 @@ in
 					type = types.bool;
 					default = true;
 				};
+				wallpaper = mkOption {
+					type = types.path;
+					default = null;
+				};
 			};
 		});
 		default = [ ];
