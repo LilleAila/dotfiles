@@ -51,5 +51,13 @@
 		};
 
 		programs.ripgrep.enable = true;
+
+		programs.direnv = {
+			enable = true;
+			# aaaa idk which shell best
+			enableZshIntegration = true;
+			# enableFishIntegration = true; # Automatically set or something
+			enableBashIntegration = true;
+		};
 	};
 }
