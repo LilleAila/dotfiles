@@ -5,10 +5,7 @@
 		inputs.hyprlock.homeManagerModules.hyprlock
 	];
 
-	options.settings.wm.hyprlock.enable = lib.mkOption {
-		type = lib.types.bool;
-		default = false;
-	};
+	options.settings.wm.hyprlock.enable = lib.mkEnableOption "hyprlock";
 
 	config = lib.mkIf (config.settings.wm.hyprlock.enable) {
 		programs.hyprlock =

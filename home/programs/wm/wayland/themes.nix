@@ -5,15 +5,8 @@ let
 in
 {
 	options.settings = {
-		qt.enable = lib.mkOption {
-			type = lib.types.bool;
-			default = false;
-		};
-
-		gtk.enable = lib.mkOption {
-			type = lib.types.bool;
-			default = false;
-		};
+		qt.enable = lib.mkEnableOption "qt";
+		gtk.enable = lib.mkEnableOption "gtk";
 	};
 
 	config = lib.mkMerge [
@@ -50,6 +43,9 @@ in
 				name = "Bibata-Modern-Ice";
 				size = 24;
 			};
+			wayland.windowManager.hyprland.settings.exec-once = [
+				"hyprctl setcursor \"Bibata-Modern-Ice\" &"
+			];
 		})
 	];
 }

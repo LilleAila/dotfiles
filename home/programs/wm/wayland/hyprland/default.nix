@@ -8,14 +8,8 @@
 	];
 
 	options.settings.wm.hyprland = {
-		enable = lib.mkOption {
-			type = lib.types.bool;
-			default = false;
-		};
-		useLegacyRenderer = lib.mkOption {
-			type = lib.types.bool;
-			default = false;
-		};
+		enable = lib.mkEnableOption "hyprland";
+		useLegacyRenderer = lib.mkEnableOption "legacyRenderer";
 	};
 
 	config = lib.mkMerge [
@@ -31,7 +25,6 @@
 				qalculate-gtk
 			];
 
-			# TODO: cursor does not work properly on m1pro14
 			# TODO: enable display under notch to show bar
 			wayland.windowManager.hyprland = {
 				enable = true;

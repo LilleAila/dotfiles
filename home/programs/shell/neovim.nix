@@ -1,10 +1,7 @@
 { config, pkgs, inputs, lib, ... }:
 
 {
-	options.settings.terminal.neovim.enable = lib.mkOption {
-		type = lib.types.bool;
-		default = false;
-	};
+	options.settings.terminal.neovim.enable = lib.mkEnableOption "neovim";
 
 	config = lib.mkIf (config.settings.terminal.neovim.enable)
 		(lib.mkMerge [

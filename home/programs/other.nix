@@ -2,14 +2,8 @@
 
 {
 	options.settings = {
-		imageviewer.enable = lib.mkOption {
-			type = lib.types.bool;
-			default = false;
-		};
-		other.enable = lib.mkOption {
-			type = lib.types.bool;
-			default = false;
-		};
+		imageviewer.enable = lib.mkEnableOption "imageviewer";
+		other.enable = lib.mkEnableOption "other";
 	};
 
 	config = lib.mkMerge [

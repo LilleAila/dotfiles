@@ -14,10 +14,7 @@ in
 		inputs.hypridle.homeManagerModules.hypridle
 	];
 
-	options.settings.wm.hypridle.enable = lib.mkOption {
-		type = lib.types.bool;
-		default = false;
-	};
+	options.settings.wm.hypridle.enable = lib.mkEnableOption "hypridle";
 
 	config = lib.mkIf (config.settings.wm.hypridle.enable) {
 		services.hypridle = {

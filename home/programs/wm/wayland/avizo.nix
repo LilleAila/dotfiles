@@ -1,10 +1,7 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-	options.settings.wm.avizo.enable = lib.mkOption {
-		type = lib.types.bool;
-		default = false;
-	};
+	options.settings.wm.avizo.enable = lib.mkEnableOption "avizo";
 
 	config = lib.mkIf (config.settings.wm.avizo.enable) {
 		# TODO: rewrite in ags

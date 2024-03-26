@@ -2,15 +2,9 @@
 
 {
 	options.settings.files = {
-		nemo.enable = lib.mkOption {
-			type = lib.types.bool;
-			default = false;
-		};
+		nemo.enable = lib.mkEnableOption "nemo";
 
-		thunar.enable = lib.mkOption {
-			type = lib.types.bool;
-			default = false;
-		};
+		thunar.enable = lib.mkEnableOption "thunar";
 	};
 
 	config = lib.mkMerge [

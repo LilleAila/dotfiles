@@ -77,10 +77,7 @@ let
 	};
 in
 {
-	options.settings.emacs.enable = lib.mkOption {
-		type = lib.types.bool;
-		default = false;
-	};
+	options.settings.emacs.enable = lib.mkEnableOption "emacs";
 
 	config = lib.mkIf config.settings.emacs.enable {
 		programs.emacs = {

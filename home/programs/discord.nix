@@ -5,17 +5,8 @@ let
 in
 {
 	options.settings.discord = {
-		enable = mkOption {
-			type = types.bool;
-			default = false;
-		};
-		hyprland.enable = mkOption {
-			type = types.bool;
-			default = false;
-			description = ''
-			Enable integration with hyprland
-			'';
-		};
+		enable = lib.mkEnableOption "discord";
+		hyprland.enable = lib.mkEnableOption "hyprland integeration";
 	};
 
 	config = lib.mkMerge [

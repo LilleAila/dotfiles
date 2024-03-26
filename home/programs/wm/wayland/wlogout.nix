@@ -1,10 +1,7 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-	options.settings.wm.wlogout.enable = lib.mkOption {
-		type = lib.types.bool;
-		default = false;
-	};
+	options.settings.wm.wlogout.enable = lib.mkEnableOption "wlogout";
 
 	config = lib.mkIf (config.settings.wm.wlogout.enable) {
 		# TODO: rewrite in ags

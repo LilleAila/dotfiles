@@ -2,10 +2,7 @@
 
 {
 	options.settings = {
-		wm.hyprpaper.enable = lib.mkOption {
-			type = lib.types.bool;
-			default = false;
-		};
+		wm.hyprpaper.enable = lib.mkEnableOption "hyprpaper";
 	};
 
 	imports = [

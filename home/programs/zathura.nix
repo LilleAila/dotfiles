@@ -1,10 +1,7 @@
 { config, pkgs, inputs, lib, ... }:
 
 {
-	options.settings.zathura.enable = lib.mkOption {
-		type = lib.types.bool;
-		default = false;
-	};
+	options.settings.zathura.enable = lib.mkEnableOption "zathura";
 
 	config = lib.mkIf (config.settings.zathura.enable) {
 		programs.zathura = with config.colorScheme.palette; {

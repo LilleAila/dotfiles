@@ -1,10 +1,7 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-	options.settings.wm.mako.enable = lib.mkOption {
-		type = lib.types.bool;
-		default = false;
-	};
+	options.settings.wm.mako.enable = lib.mkEnableOption "mako";
 
 	config = lib.mkIf (config.settings.wm.mako.enable) {
 		# TODO: rewrite in ags

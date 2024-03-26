@@ -5,10 +5,7 @@ let
 in
 {
 	options.settings.terminal = {
-		zsh.enable = mkOption {
-			type = types.bool;
-			default = false;
-		};
+		zsh.enable = lib.mkEnableOption "zsh";
 		zsh.theme = mkOption {
 			type = types.str;
 			default = "nanotech";

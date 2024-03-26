@@ -1,10 +1,7 @@
 { config, pkgs, inputs, lib, ... }:
 
 {
-	options.settings.terminal.utils.enable = lib.mkOption {
-		type = lib.types.bool;
-		default = false;
-	};
+	options.settings.terminal.utils.enable = lib.mkEnableOption "utils";
 
 	config = lib.mkIf (config.settings.terminal.utils.enable) {
 		home.shellAliases = {

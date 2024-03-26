@@ -1,10 +1,7 @@
 { config, pkgs, inputs, lib, stdenv, ... }:
 
 {
-	options.settings.browser.firefox.enable = lib.mkOption {
-		type = lib.types.bool;
-		default = false;
-	};
+	options.settings.browser.firefox.enable = lib.mkEnableOption "firefox";
 
 	config = let
 		search = {

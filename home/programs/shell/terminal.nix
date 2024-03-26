@@ -2,10 +2,7 @@
 
 {
 	options.settings.terminal = {
-		emulator.enable = lib.mkOption {
-			type = lib.types.bool;
-			default = false;
-		};
+		emulator.enable = lib.mkEnableOption "terminal emulator";
 		emulator.name = lib.mkOption {
 			type = lib.types.str;
 			default = "kitty";

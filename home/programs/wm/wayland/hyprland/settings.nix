@@ -2,7 +2,6 @@
 
 let
 	startupScript = pkgs.pkgs.writeShellScriptBin "start" /* bash */ ''
-		hyprctl setcursor "Bibata-Modern-Ice" 24 &
 		${pkgs.mako}/bin/mako &
 	'';
 in
@@ -11,7 +10,10 @@ in
 		monitor = [ # Monitor fallback
 			", preferred, auto, 1"
 		];
-		exec-once = ''${startupScript}/bin/start'';
+		# TODO: completely replace the startup script with systemd services (only mako left)
+		exec-once = [
+			"${startupScript}/bin/start"
+		];
 		env = [
 			"XCURSOR_SIZE,24"
 			"GRIMBLAST_EDITOR,\"swappy -f\""

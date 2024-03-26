@@ -5,10 +5,7 @@
     inputs.ags.homeManagerModules.default
   ];
 
-	options.settings.wm.ags.enable = lib.mkOption {
-		type = lib.types.bool;
-		default = false;
-	};
+	options.settings.wm.ags.enable = lib.mkEnableOption "ags";
 
 	config = lib.mkIf (config.settings.wm.ags.enable) {
 		programs.ags = {

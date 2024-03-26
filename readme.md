@@ -44,6 +44,7 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 - [nix-community/awesome-nix](https://github.com/nix-community/awesome-nix)
 - [awsm.fish](https://github.com/jorgebucaran/awsm.fish)
 - [thiscute - modularize the configuration](https://nixos-and-flakes.thiscute.world/nixos-with-flakes/modularize-the-configuration)
+- [use nix repl effectively](https://aldoborrero.com/posts/2022/12/02/learn-how-to-use-the-nix-repl-effectively/)
 - [Configuration Collection](https://nixos.wiki/wiki/Configuration_Collection)
 ### Other peoples' dotfiles:
 - [IldenH/dotfiles](https://github.com/IldenH/dotfiles) (sånn pittelitt) (sånn veldig lite) (så vidt)
@@ -58,6 +59,19 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 - [vimjoyer/nixconf](https://github.com/vimjoyer/nixconf)
 
 ## Notes
+### Nix repl
+Open REPL and load nixpkgs:
+```bash
+nix repl # open repl
+:l <nixpkgs> # load nixpkgs from system channel
+```
+Using it:
+```bash
+:? # get help
+:e lib.mkEnableOption # see source
+:q # quit
+```
+
 ### SSH
 ```bash
 # Generate a new key:

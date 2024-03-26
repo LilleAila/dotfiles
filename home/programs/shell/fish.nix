@@ -2,10 +2,7 @@
 
 {
 	options.settings.terminal.fish = {
-		enable = lib.mkOption {
-			type = lib.types.bool;
-			default = false;
-		};
+		enable = lib.mkEnableOption "fish";
 	};
 
 	config = lib.mkIf (config.settings.terminal.fish.enable) (lib.mkMerge [
