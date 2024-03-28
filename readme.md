@@ -90,3 +90,34 @@ nix run nixpkgs#ssh-to-age -- -private-key -i ~/.ssh/id_ed25519 > ~/.config/sops
 nix shell nixpkgs#age -c age-keygen -y ~/.config/sops/age/keys.txt
 ```
 You will need the private key file at `~/.config/sops/age/keys.txt` before building!
+
+### Writable files?
+Some prograps may need a writable file for some reason. This is probably one of the worst ways of doing it with a lot of downsides:
+
+#### Writable file
+Changes to the file are ignored when rebuilding.
+```nix
+home.file."test_hm.txt" = {
+ text = ''
+    abd
+    def
+    ghi
+    jkl
+    1234567890
+  '';
+  onChange = ''
+    rm -f $HOME/test.txt
+    cp $HOME/test_hm.txt $HOME/test.txt
+    chmod u+w $HOME/test.txt
+  '';
+};
+```
+
+#### Symlinked file
+When edited, changes are reflected in the source flake.
+```nix
+home.activation.symlinkCustomFiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  run rm -f $HOME/testFile.txt && ln -s $HOME/dotfiles/home/testFile.txt $HOME/testFile.txt
+'';
+```
+(pls don't actually use this)

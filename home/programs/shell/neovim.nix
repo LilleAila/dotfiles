@@ -8,7 +8,7 @@
 			{
 				programs.neovim = {
 					enable = true;
-					# package = inputs.nixvim-config.packages."${pkgs.system}".nvim;
+					# package = inputs.nixvim-config.packages."${pkgs.system}".nixvim;
 					defaultEditor = true;
 					withNodeJs = true;
 					withPython3 = true;
@@ -28,6 +28,8 @@
 						gcc
 					];
 				};
+
+				# home.packages = [ inputs.nixvim-config.config.packages."${pkgs.system}".nvim ];
 
 				home.sessionVariables = {
 					EDITOR = "nvim";
