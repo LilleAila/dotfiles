@@ -1,7 +1,11 @@
-{ config, pkgs, lib, inputs, ... }:
-
 {
-	imports = [
-		./config
-	];
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
+  imports = [
+    ./config
+  ];
 }

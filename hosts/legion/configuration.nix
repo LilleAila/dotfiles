@@ -1,22 +1,27 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-	services.logind.extraConfig = /*conf*/ ''
-	HandlePowerKey=ignore
-	'';
+  services.logind.extraConfig =
+    /*
+    conf
+    */
+    ''
+      HandlePowerKey=ignore
+    '';
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -46,80 +51,80 @@
     LC_TIME = "nb_NO.UTF-8";
   };
 
-	security.pam.services.swaylock = {};
+  security.pam.services.swaylock = {};
 
-	hardware.opengl = {
-		enable = true;
-		driSupport = true;
-		driSupport32Bit = true;
-	};
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
 
-	# xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-	xdg.portal = {
-		enable = true;
-		wlr.enable = true;
-		configPackages = [ pkgs.xdg-desktop-portal-gtk ];
-		extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-	};
+  # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    configPackages = [pkgs.xdg-desktop-portal-gtk];
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  };
 
-	sound.enable = true;
-	security.rtkit.enable = true;
-	services.pipewire = {
-		enable = true;
-		alsa.enable = true;
-		alsa.support32Bit = true;
-		pulse.enable = true;
-		jack.enable = true;
-	};
+  sound.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
 
-	services.xserver = {
-		videoDrivers = [ "nvidia" ];
-		# enable = true;
-		# displayManager = {
-		# 	# defaultSession = "hyprland";
-		# 	lightdm = {
-		# 		enable = true;
-		# 		greeters.mini = {
-		# 			enable = true;
-		# 		};
-		# 	};
-		# };
-	};
+  services.xserver = {
+    videoDrivers = ["nvidia"];
+    # enable = true;
+    # displayManager = {
+    # 	# defaultSession = "hyprland";
+    # 	lightdm = {
+    # 		enable = true;
+    # 		greeters.mini = {
+    # 			enable = true;
+    # 		};
+    # 	};
+    # };
+  };
 
-	services.greetd = {
-		enable = true;
-		settings = {
-			default_session = {
-				# command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
-				command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd Hyprland";
-			};
-		};
-		vt = 2;
-	};
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        # command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd Hyprland";
+      };
+    };
+    vt = 2;
+  };
 
-	environment.sessionVariables = {
-		WLR_NO_HARDWARE_CURSORS = "1";
-		NIXOS_OZONE_WL = "1";
-	};
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
+  };
 
   hardware.nvidia = {
-		modesetting.enable = true;
-		powerManagement.enable = false;
-		powerManagement.finegrained = false;
-		open = false;
-		nvidiaSettings = true;
-		package = config.boot.kernelPackages.nvidiaPackages.stable;
-		prime = {
-			offload = {
-				enable = true;
-				enableOffloadCmd = true;
-			};
-			intelBusId = "PCI:0:2:0";
-			nvidiaBusId = "PCI:1:0:0";
-		};
-	};
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    prime = {
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
+  };
 
-	programs.dconf.enable = true;
+  programs.dconf.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -134,40 +139,40 @@
   users.users.olai = {
     isNormalUser = true;
     description = "Olai";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [];
     shell = pkgs.zsh;
   };
 
-  environment.shells = [ pkgs.zsh ];
+  environment.shells = [pkgs.zsh];
   programs.zsh.enable = true;
-	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  
+
   services.openssh.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
     git
     wget
     curl
     # neovim
     vim
-		home-manager
+    home-manager
   ];
 
-	# Enable steam
-	programs.steam = {
-		enable = true;
-		package = pkgs.steam;
-		remotePlay.openFirewall = true;
-		dedicatedServer.openFirewall = true;
-	};
+  # Enable steam
+  programs.steam = {
+    enable = true;
+    package = pkgs.steam;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -195,5 +200,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
-
 }
