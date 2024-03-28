@@ -12,6 +12,7 @@
     "$webBrowser" = "${lib.getExe config.programs.firefox.package}";
     "$launcher" = "rofi -show drun -show-icons";
     "$calculator" = "qalculate-gtk";
+    "$colorPicker" = "${lib.getExe inputs.hyprpicker.packages.${pkgs.system}.hyprpicker} --render-inactive --autocopy --format=hex";
 
     "$mainMod" = "SUPER";
 
@@ -28,6 +29,7 @@
       "$mainMod, M, exec, $webBrowser -P math"
       "$mainMod SHIFT, B, exec, $webBrowser -P school"
       "$mainMod, Y, exec, $webBrowser -P yt"
+      "$mainMod, P, exec, $colorPicker"
 
       # Special workspaces
       "$mainMod, Q, exec, bash -c 'pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk &'"
@@ -51,7 +53,7 @@
       "$mainMod SHIFT, O, fullscreen, 1"
       "$mainMod ALT, O, fakefullscreen"
       "$mainMod, F, togglefloating,"
-      "$mainMod, P, pseudo,"
+      # "$mainMod, P, pseudo,"
       "$mainMod, T, togglesplit,"
       # "$mainMod, M, exit," # use wlogout instead
 
