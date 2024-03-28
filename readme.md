@@ -72,6 +72,17 @@ Using it:
 :q # quit
 ```
 
+### Nix flakes
+A new project can be created using one of the available templates (completion with tab). Example with rust:
+```bash
+mkdir new-project
+cd new-project
+nix flake init --template templates\#rust
+cargo init .
+git add -A && git commit -m "Initial commit"
+nvim flake.nix # add rust-analyzer and start coding
+```
+
 ### SSH
 ```bash
 # Generate a new key:
