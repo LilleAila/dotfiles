@@ -958,11 +958,11 @@
         "plugin-move": "plugin-move"
       },
       "locked": {
-        "lastModified": 1711634720,
-        "narHash": "sha256-6S0gkHiy04UrFUm7+TL4X445jTZrkCn3fuGDljGRGj4=",
+        "lastModified": 1711643692,
+        "narHash": "sha256-+J0wMg19qQsrxMEFIZ3soRnyckK8OOXM2EgcNsCYWzE=",
         "owner": "LilleAila",
         "repo": "nvim-nix",
-        "rev": "5cbdbad3623407ea63a28155cbf760092aae80cf",
+        "rev": "08665392e20286a5308fb656b4b6c25ee403461d",
         "type": "github"
       },
       "original": {
