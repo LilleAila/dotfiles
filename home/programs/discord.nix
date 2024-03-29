@@ -20,7 +20,8 @@ in {
       ];
 
       home.file.".config/vesktop/settings.json" = {
-        source = pkgs.writeText "settings.json"
+        source =
+          pkgs.writeText "settings.json"
           /*
           json
           */
