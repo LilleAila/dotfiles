@@ -46,6 +46,7 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 - [thiscute - modularize the configuration](https://nixos-and-flakes.thiscute.world/nixos-with-flakes/modularize-the-configuration)
 - [use nix repl effectively](https://aldoborrero.com/posts/2022/12/02/learn-how-to-use-the-nix-repl-effectively/)
 - [Configuration Collection](https://nixos.wiki/wiki/Configuration_Collection)
+- [riceyourride.com](https://riceyourride.com/best/1)
 ### Other peoples' dotfiles:
 - [IldenH/dotfiles](https://github.com/IldenH/dotfiles) (sånn pittelitt) (sånn veldig lite) (så vidt)
 - [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
@@ -57,6 +58,7 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 - [Misterio77/nix-config](https://github.com/Misterio77/nix-config)
 - [iynaix/dotfiles](https://github.com/iynaix/dotfiles)
 - [vimjoyer/nixconf](https://github.com/vimjoyer/nixconf)
+- [matt1432/nixos-configs](https://git.nelim.org/matt1432/nixos-configs/)
 
 ## Notes
 ### Nix repl

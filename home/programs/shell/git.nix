@@ -10,6 +10,9 @@
       enable = true;
       userName = "LilleAila";
       userEmail = "olai" + ".sols" + "vik@gm" + "ail.co" + "m";
+      extraConfig = {
+        init.defaultBranch = "main";
+      };
       aliases = {
         pu = "push";
         co = "checkout";
