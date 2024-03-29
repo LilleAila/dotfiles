@@ -1151,11 +1151,11 @@
         "plugin-move": "plugin-move"
       },
       "locked": {
-        "lastModified": 1711704496,
-        "narHash": "sha256-Hr435QNZSLOJgwLC62qifKr6epIBK8LZmBU9T/OtwG4=",
+        "lastModified": 1711708264,
+        "narHash": "sha256-EnRQrhdA9EQpJxMobas1C2SfSZoUWqnaBUKjVMmuwXQ=",
         "owner": "LilleAila",
         "repo": "nvim-nix",
-        "rev": "1d20b6fa01bbdc96f50f2ca2da4e300848f005e5",
+        "rev": "4f380a8533f509b31800a7f3479ce65a5e658eec",
         "type": "github"
       },
       "original": {
