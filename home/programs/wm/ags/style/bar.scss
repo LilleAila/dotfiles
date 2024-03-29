@@ -3,10 +3,21 @@
 	color: $fg;
 }
 
+window.bar_window {
+	border-radius: 2rem;
+}
+
+// If you look closer, the blurred corners show
 .bar {
 	background-color: $bar_bg;
 	color: $fg;
 	min-height: $bar_height;
+	// margin-left: 1.5rem;
+	// margin-right: 1.5rem;
+	// margin-top: 0.5rem;
+	border-radius: 2rem;
+	// padding: 0 0.3rem;
+	border: 0.1rem solid $fg_alt;
 }
 
 // .bar .workspaces {

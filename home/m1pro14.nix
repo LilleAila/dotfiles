@@ -40,7 +40,7 @@
       ags.enable = true;
       hyprland = {
         enable = true;
-        useLegacyRenderer = true;
+        # useLegacyRenderer = true;
         screenshots.enable = true;
       };
       avizo.enable = true;

@@ -63,16 +63,14 @@ in {
     decoration = {
       rounding = 10;
       blur = {
-        enabled = false;
-      	# enabled = true;
-      	# brightness = 1.0;
-      	# contrast = 1.0;
-      	# noise = 0.02;
-      	# passes = 3;
-      	# size = 10;
-      	# size = 3;
-      	# passes = 1;
-      	# vibrancy = 0.1696;
+        # enabled = false;
+        enabled = true;
+        brightness = 1.0;
+        contrast = 1.0;
+        noise = 0.02;
+        passes = 3;
+        size = 10;
+        vibrancy = 0.1696;
       };
       drop_shadow = true;
       shadow_range = 4;
@@ -132,8 +130,8 @@ in {
     ];
 
     layerrule = [
-    	"blur, bar*"
-      "blur, corner*"
+      "blur, bar*"
+      # "blur, corner*"
     ];
   };
 }
