@@ -1,5 +1,5 @@
 {
-    "notifyAboutUpdates": true,
+    "notifyAboutUpdates": false,
     "autoUpdate": false,
     "autoUpdateNotification": true,
     "useQuickCss": true,
@@ -337,7 +337,7 @@
             "enabled": true
         },
         "PinDMs": {
-            "enabled": true,
+            "enabled": false,
             "pinOrder": 0,
             "pinnedDMs": "877537986235990086"
         },

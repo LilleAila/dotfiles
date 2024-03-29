@@ -19,22 +19,28 @@ in {
         vesktop
       ];
 
-      home.file.".config/vesktop/settings.json".source =
-        pkgs.writeText "settings.json"
-        /*
-        json
-        */
-        ''
-          {
-          	"splashColor": "#${config.colorScheme.palette.base05}",
-          	"splashBackground": "#${config.colorScheme.palette.base01}",
-          	"minimizeToTray": false,
-          	"arRPC": true,
-          	"disableMinSize": true,
-          	"staticTitle": true,
-          	"splashTheming": true
-          }
+      home.file.".config/vesktop/settings-hm.json" = {
+        source = pkgs.writeText "settings.json"
+          /*
+          json
+          */
+          ''
+            {
+              "splashColor": "#${config.colorScheme.palette.base05}",
+              "splashBackground": "#${config.colorScheme.palette.base01}",
+              "minimizeToTray": false,
+              "arRPC": true,
+              "disableMinSize": true,
+              "staticTitle": false,
+              "splashTheming": true
+            }
         '';
+        # onChange = ''
+        #   rm -f $HOME/.config/vesktop/settings.json
+        #   cp $HOME/.config/vesktop/settings-hm.json $HOME/.config/vesktop/settings.json
+        #   chmod u+w $HOME/.config/vesktop/settings.json
+        # '';
+      };
 
       home.file.".config/vesktop/settings/settings.json".source = ./discord-settings.json;
 
