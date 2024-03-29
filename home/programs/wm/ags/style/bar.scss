@@ -3,56 +3,30 @@
   color: $fg;
 }
 
-window.bar_window {
-  border-radius: 2rem;
-}
-
-// If you look closer, the blurred corners show
 .bar {
   background-color: $bar_bg;
   color: $fg;
   min-height: $bar_height;
-  // margin-left: 1.5rem;
-  // margin-right: 1.5rem;
-  // margin-top: 0.5rem;
   border-radius: 1rem;
-  // padding: 0 0.3rem;
-  border: 0.1rem solid $fg_alt;
+  border: 0.1rem solid $fg;
 }
-
-// .bar .workspaces {
-//   margin: 0.2rem 0.5rem;
-//
-//   button {
-//     background: rgba(0, 0, 0, 0.3);
-//     border-radius: 2rem;
-//     margin: 0.7rem 0.2rem;
-//     min-width: 1rem;
-//     transition: 100ms linear;
-//   }
-//
-//   .active {
-//     min-width: 2rem;
-//   }
-// }
 
 .bar {
   .workspaces {
-    margin: 0 0.4rem;
+    margin: 0 0.6rem; // Double of one workspace
 
     .workspace {
       border-radius: 2rem;
-      margin: 0.6rem 0.4rem; // Top/Bottom Left/Right
+      margin: 0 0.3rem; // Top/Bottom Left/Right
       transition: 100ms linear;
       background-color: $bg;
-      min-width: 1.4rem;
+      min-width: 1.2rem;
+      min-height: 1.2rem;
     }
 
     .occupied.mon0 {
       background-color: $accent1;
     }
-
-    ;
 
     .occupied.mon1 {
       background-color: $accent2;
@@ -68,7 +42,7 @@ window.bar_window {
 
     .active {
       // background-color: $bg_alt2;
-      min-width: 3rem;
+      min-width: 2rem;
     }
 
     .workspace:not(.active):hover {

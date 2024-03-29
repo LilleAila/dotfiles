@@ -20,7 +20,7 @@
         y = 0;
         scale = 2;
         enable = true;
-        wallpaper = ./wallpapers/wall18.jpg;
+        wallpaper = ./wallpapers/wall23.jpg;
       }
       {
         name = "HDMI-A-1";
@@ -31,7 +31,7 @@
         y = -1440;
         scale = 1;
         enable = true;
-        wallpaper = ./wallpapers/wall1.png;
+        wallpaper = ./wallpapers/wall18.jpg;
       }
     ];
     qt.enable = true;
