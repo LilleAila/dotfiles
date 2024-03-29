@@ -237,7 +237,7 @@
             "enabled": true,
             "deleteStyle": "text",
             "ignoreBots": false,
-            "ignoreSelf": false,
+            "ignoreSelf": true,
             "ignoreUsers": "",
             "ignoreChannels": "",
             "ignoreGuilds": ""

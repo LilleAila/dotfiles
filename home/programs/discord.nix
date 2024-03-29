@@ -19,22 +19,26 @@ in {
         vesktop
       ];
 
-      home.file.".config/vesktop/settings-hm.json" = {
+      home.file.".config/vesktop/settings.json" = {
         source = pkgs.writeText "settings.json"
           /*
           json
           */
           ''
             {
-              "splashColor": "#${config.colorScheme.palette.base05}",
-              "splashBackground": "#${config.colorScheme.palette.base01}",
-              "minimizeToTray": false,
-              "arRPC": true,
-              "disableMinSize": true,
-              "staticTitle": false,
-              "splashTheming": true
+                "splashColor": "#${config.colorScheme.palette.base05}",
+                "splashBackground": "#${config.colorScheme.palette.base01}",
+                "customTitleBar": false,
+                "staticTitle": true,
+                "splashTheming": true,
+                "tray": false,
+                "minimizeToTray": false,
+                "disableMinSize": true,
+                "appBadge": false,
+                "checkUpdates": false,
+                "arRPC": true
             }
-        '';
+          '';
         # onChange = ''
         #   rm -f $HOME/.config/vesktop/settings.json
         #   cp $HOME/.config/vesktop/settings-hm.json $HOME/.config/vesktop/settings.json
