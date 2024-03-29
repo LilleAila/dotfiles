@@ -42,7 +42,7 @@
           allow_remote_control = "yes";
           enable_audio_bell = "no";
           copy_on_select = "clipboard";
-          background_opacity = "0.7";
+          background_opacity = "0.8";
 
           foreground = "#${base06}";
           background = "#${base00}";
