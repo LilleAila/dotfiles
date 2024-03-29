@@ -20,7 +20,7 @@
         y = 0;
         scale = 2;
         enable = true;
-        wallpaper = ./wallpapers/wall23.jpg;
+        wallpaper = ./wallpapers/wall3.jpg;
       }
       {
         name = "HDMI-A-1";

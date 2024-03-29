@@ -1,19 +1,23 @@
 .powermenu {
-  // background-color: $bar_bg;
-
-  // .powerbuttons {
   background-color: $bar_bg;
   border-radius: 2rem;
-  border: 0.3rem solid $fg_alt;
-  min-height: 10rem;
-  min-width: 40rem;
+  border: 0.1rem solid $fg;
+  min-height: 12rem;
+  min-width: 52rem;
+  // padding: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 
   .powerbutton {
-    background-color: $fg;
+    background-color: $bg;
     min-width: 8rem;
     min-height: 8rem;
-    margin: 2rem;
-  }
+    margin: 1rem;
+    border-radius: 1rem;
+    transition: 0.1s linear;
 
-  // }
+    &:hover {
+      background-color: $bg_alt;
+    }
+  }
 }

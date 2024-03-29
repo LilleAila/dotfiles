@@ -132,6 +132,8 @@ in {
     layerrule = [
       "blur, bar*"
       "ignorealpha 0.2, bar*"
+      "blur, powermenu"
+      "ignorealpha 0.2, powermenu"
       # "blur, corner*"
     ];
   };
