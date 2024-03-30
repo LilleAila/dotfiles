@@ -48,5 +48,13 @@
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
+  # Temporary patch for backdoor in xz
+  system.replaceRuntimeDependencies = [
+    {
+      original = pkgs.xz;
+      replacement = inputs.nixpkgs-staging.legacyPackages.${pkgs.system}.xz;
+    }
+  ];
+
   system.stateVersion = "24.05"; # Did you read the comment?
 }

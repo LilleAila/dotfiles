@@ -1064,6 +1064,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-staging": {
+      "locked": {
+        "lastModified": 1711778457,
+        "narHash": "sha256-L6uaSIPJyqOyaSY8VGdbhMyiaCKSdGDvmpQtVCMoYTo=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "459f861224e8517134b4c5a104cf44aa0bd14c22",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "staging-next",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1711523803,
@@ -1245,6 +1261,7 @@
         "nixos-apple-silicon": "nixos-apple-silicon",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
+        "nixpkgs-staging": "nixpkgs-staging",
         "nixvim-config": "nixvim-config",
         "sops-nix": "sops-nix",
         "wrapper-manager": "wrapper-manager"
