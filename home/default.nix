@@ -50,6 +50,7 @@
     sops
 
     _1password-gui-beta
+    handbrake
   ];
 
   programs.mpv = {

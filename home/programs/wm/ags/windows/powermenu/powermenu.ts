@@ -3,7 +3,7 @@ import { Widget } from "../../imports";
 const Button = (classname: string, icon: string, click: any) =>
   Widget.Button({
     class_name: classname,
-    child: Widget.Icon({ icon: icon, size: 96 }),
+    child: Widget.Icon({ icon: icon, size: 64 }),
     onClicked: click,
     hexpand: false,
     vexpand: false,

@@ -30,5 +30,10 @@
       shell = shell;
       # initialPassword = "";
     };
+
+    nix.settings.trusted-users = [
+      "@wheel"
+      config.settings.user.name
+    ];
   };
 }
