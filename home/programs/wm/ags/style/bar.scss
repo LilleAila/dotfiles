@@ -12,6 +12,18 @@
 }
 
 .bar {
+  .button {
+    min-width: 2rem;
+    min-height: 2rem;
+    margin-right: 1rem;
+    border-radius: 0.6rem;
+    transition: 100ms linear;
+
+    &:hover {
+      background-color: $bg_alt;
+    }
+  }
+
   .workspaces {
     margin: 0 0.6rem; // Double of one workspace
 

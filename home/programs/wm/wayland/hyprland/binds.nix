@@ -42,8 +42,10 @@
       "$mainMod SHIFT, X, movetoworkspace, special:secondary"
 
       # WM commands
-      ", XF86PowerOff, exec, pgrep -x wlogout && pkill -x wlogout || wlogout"
-      ", XF86Launch1, exec, pgrep -x wlogout && pkill -x wlogout || wlogout"
+      # ", XF86PowerOff, exec, pgrep -x wlogout && pkill -x wlogout || wlogout"
+      # ", XF86Launch1, exec, pgrep -x wlogout && pkill -x wlogout || wlogout"
+      ", XF86PowerOff, exec, ags -t powermenu"
+      ", XF86Launch1, exec, ags -t powermenu"
       ", XF86WLAN, exec, rfkill toggle all"
       ", XF86Back, workspace, -1"
       ", XF86Forward, workspace, +1"

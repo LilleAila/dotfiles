@@ -6,6 +6,7 @@ import Time from "./time.ts";
 import SysTray from "./systray.ts";
 import Volume from "./volume.ts";
 import BatteryStatus from "./battery.ts";
+import PowerMenu from "./power.ts";
 
 const Start = () =>
   Widget.Box({
@@ -23,7 +24,7 @@ const End = () =>
   Widget.Box({
     hexpand: true,
     hpack: "end",
-    children: [SysTray(), Volume(), BatteryStatus()],
+    children: [SysTray(), Volume(), BatteryStatus(), PowerMenu()],
   });
 
 export default (monitor: number = 0) =>
