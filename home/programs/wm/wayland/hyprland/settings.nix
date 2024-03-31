@@ -72,11 +72,9 @@ in {
         size = 10;
         vibrancy = 0.1696;
       };
-      drop_shadow = true;
-      shadow_range = 4;
-      shadow_render_power = 3;
-      "col.shadow" = "rgba(1a1a1aee)";
-      # drop_shadow = false;
+      drop_shadow = false;
+      dim_inactive = true;
+      dim_strength = 0.1;
     };
 
     animations = {
@@ -129,6 +127,7 @@ in {
       "workspace special:config,class:(pavucontrol)"
 
       "rounding 12, floating:1"
+      "noborder, floating:0"
     ];
 
     layerrule = [
@@ -136,7 +135,8 @@ in {
       "ignorealpha 0.2, bar*"
       "blur, powermenu"
       "ignorealpha 0.2, powermenu"
-      # "blur, corner*"
+      "blur, corner*"
+      "ignorealpha 0.2, corner*"
     ];
   };
 }
