@@ -1,0 +1,68 @@
+unset shellHook
+PATH=${PATH:-}
+nix_saved_PATH="$PATH"
+XDG_DATA_DIRS=${XDG_DATA_DIRS:-}
+nix_saved_XDG_DATA_DIRS="$XDG_DATA_DIRS"
+BASH='/noshell'
+HOSTTYPE='aarch64'
+IFS=' 	
+'
+IN_NIX_SHELL='impure'
+export IN_NIX_SHELL
+LINENO='76'
+MACHTYPE='aarch64-unknown-linux-gnu'
+NIX_BUILD_CORES='0'
+export NIX_BUILD_CORES
+NIX_STORE='/nix/store'
+export NIX_STORE
+OLDPWD=''
+export OLDPWD
+OPTERR='1'
+OSTYPE='linux-gnu'
+PATH='/path-not-set'
+export PATH
+PS4='+ '
+builder='/nix/store/hdhjy5g75mrr6v0pwlmlznnqjhi0dlrm-bash-interactive-5.2p26/bin/bash'
+export builder
+dontAddDisableDepTrack='1'
+export dontAddDisableDepTrack
+name='devshell-env'
+export name
+out='/home/olai/dotfiles/home/programs/wm/ags/outputs/out'
+export out
+outputs='out'
+shellHook='# Remove all the unnecessary noise that is set by the build env
+unset NIX_BUILD_TOP NIX_BUILD_CORES NIX_STORE
+unset TEMP TEMPDIR TMP TMPDIR
+# $name variable is preserved to keep it compatible with pure shell https://github.com/sindresorhus/pure/blob/47c0c881f0e7cfdb5eaccd335f52ad17b897c060/pure.zsh#L235
+unset builder out shellHook stdenv system
+# Flakes stuff
+unset dontAddDisableDepTrack outputs
+
+# For `nix develop`. We get /noshell on Linux and /sbin/nologin on macOS.
+if [[ "$SHELL" == "/noshell" || "$SHELL" == "/sbin/nologin" ]]; then
+  export SHELL=/nix/store/hdhjy5g75mrr6v0pwlmlznnqjhi0dlrm-bash-interactive-5.2p26/bin/bash
+fi
+
+# Load the environment
+source "/nix/store/sk2qsxs1l3ycb50rs7ybi1kccg6jlyp1-devshell-dir/env.bash"
+'
+export shellHook
+stdenv='/nix/store/wy34nicl9n38m5n9mswk0ny8cyrwvjqm-naked-stdenv'
+export stdenv
+system='aarch64-linux'
+export system
+runHook ()
+{
+ 
+    eval "$shellHook";
+    unset runHook
+}
+PATH="$PATH${nix_saved_PATH:+:$nix_saved_PATH}"
+XDG_DATA_DIRS="$XDG_DATA_DIRS${nix_saved_XDG_DATA_DIRS:+:$nix_saved_XDG_DATA_DIRS}"
+export NIX_BUILD_TOP="$(mktemp -d -t nix-shell.XXXXXX)"
+export TMP="$NIX_BUILD_TOP"
+export TMPDIR="$NIX_BUILD_TOP"
+export TEMP="$NIX_BUILD_TOP"
+export TEMPDIR="$NIX_BUILD_TOP"
+eval "$shellHook"

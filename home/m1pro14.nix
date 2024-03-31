@@ -48,7 +48,7 @@
       hyprlock.enable = true;
       hyprpaper.enable = true;
       mako.enable = true;
-      wlogout.enable = true;
+      wlogout.enable = false; # Replaced with ags
     };
     files = {
       nemo.enable = true;

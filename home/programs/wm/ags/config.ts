@@ -8,5 +8,10 @@ import { App } from "./imports.ts";
 // `ags -t `windowname`
 App.config({
   style: App.configDir + "/style.css",
-  windows: [Bar(0), ScreenCorners(0), QuickSettings(0), Powermenu(0)],
+  windows: [
+    Bar(0),
+    //ScreenCorners(0),
+    QuickSettings(0),
+    Powermenu(0),
+  ],
 });
