@@ -53,7 +53,7 @@ in {
     general = {
       gaps_in = 0;
       gaps_out = 0;
-      border_size = 2;
+      border_size = 1;
       "col.active_border" = "rgb(${config.colorScheme.palette.base04}) rgb(${config.colorScheme.palette.base05}) 45deg";
       "col.inactive_border" = "rgb(${config.colorScheme.palette.base00})";
       layout = "dwindle";
@@ -127,6 +127,8 @@ in {
       "workspace special:config,class:(nm-*)"
       "workspace special:config,class:(.blueman-*)"
       "workspace special:config,class:(pavucontrol)"
+
+      "rounding 12, floating:1"
     ];
 
     layerrule = [
