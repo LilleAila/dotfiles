@@ -51,17 +51,17 @@ in {
     };
 
     general = {
-      gaps_in = 20;
-      gaps_out = 20;
+      gaps_in = 0;
+      gaps_out = 0;
       border_size = 2;
-      "col.active_border" = "rgba(${config.colorScheme.palette.base04}ee) rgba(${config.colorScheme.palette.base05}ee) 45deg";
-      "col.inactive_border" = "rgba(${config.colorScheme.palette.base00}aa)";
+      "col.active_border" = "rgb(${config.colorScheme.palette.base04}) rgb(${config.colorScheme.palette.base05}) 45deg";
+      "col.inactive_border" = "rgb(${config.colorScheme.palette.base00})";
       layout = "dwindle";
       allow_tearing = "false";
     };
 
     decoration = {
-      rounding = 10;
+      rounding = 0;
       blur = {
         # enabled = false;
         enabled = true;

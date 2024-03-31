@@ -1,17 +1,10 @@
-* {
-  all: unset;
-  color: $fg;
-}
-
 .bar {
   background-color: $bar_bg;
   color: $fg;
   min-height: $bar_height;
-  border-radius: 1rem;
-  border: 0.1rem solid $fg;
-}
+  // border-radius: 1rem;
+  // border: 0.1rem solid $fg;
 
-.bar {
   .button {
     min-width: 2rem;
     min-height: 2rem;

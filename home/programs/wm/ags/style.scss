@@ -1,6 +1,11 @@
 @import "style/cols";
 @import "style/vars";
 
+* {
+  all: unset;
+  color: $fg;
+}
+
 @import "style/bar";
 @import "style/screencorners";
 @import "style/quicksettings";

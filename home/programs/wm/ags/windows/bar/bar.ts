@@ -35,7 +35,7 @@ export default (monitor: number = 0) =>
     class_name: "bar_window",
     anchor: ["top", "left", "right"],
     exclusivity: "exclusive",
-    margins: [10, 20, 0, 20],
+    // margins: [5, 5, 0, 5],
     child: Widget.CenterBox({
       className: "bar",
 
