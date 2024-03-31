@@ -79,7 +79,7 @@
     # Settings are stored in ~/.mozilla/firefox/profile_name/prefs.js
     # To find the name of a setting, either use `diff old_settings new_settings`
     # Or check which value changes in about:config when setting it in about:preferences
-    settingsWithHomepage = homepage: {
+    settings = {
       "browser.startup.page" = 3; # Restore pages on startup
       "media.hardware-video-decoding.force-enabled" = true;
       "layers.acceleration.force-enabled" = true;
@@ -102,8 +102,8 @@
       "browser.tabs.tabmanager.enabled" = false;
 
       "browser.translations.neverTranslateLanguages" = "nb,nn,fr,en";
-      # "browser.startup.homepage" = "https://start.duckduckgo.com";
-      "browser.startup.homepage" = homepage;
+      "browser.startup.homepage" = "https://start.duckduckgo.com";
+      # "browser.startup.homepage" = homepage;
     };
 
     # All available extensions:
@@ -130,7 +130,12 @@
       programs.firefox = {
         enable = true;
         profiles.main = {
-          settings = settingsWithHomepage "https://start.duckduckgo.com";
+          # settings = settingsWithHomepage "https://start.duckduckgo.com";
+          settings =
+            settings
+            // {
+              "browser.startup.homepage" = "https://start.duckduckgo.com";
+            };
           inherit search;
           inherit extensions;
           isDefault = true;
@@ -164,7 +169,12 @@
         };
 
         profiles.school = {
-          settings = settingsWithHomepage "https://classroom.google.com";
+          # settings = settingsWithHomepage "https://classroom.google.com";
+          settings =
+            settings
+            // {
+              "browser.startup.homepage" = "https://classroom.google.com";
+            };
           inherit search;
           inherit extensions;
           id = 1;
@@ -249,7 +259,12 @@
         };
 
         profiles.math = {
-          settings = settingsWithHomepage "https://skole.digilaer.no";
+          # settings = settingsWithHomepage "https://skole.digilaer.no";
+          settings =
+            settings
+            // {
+              "browser.startup.homepage" = "https://skole.digilaer.no";
+            };
           inherit search;
           inherit extensions;
           id = 2;
@@ -277,7 +292,12 @@
         };
 
         profiles.yt = {
-          settings = settingsWithHomepage "https://youtube.com";
+          # settings = settingsWithHomepage "https://youtube.com";
+          settings =
+            settings
+            // {
+              "browser.startup.homepage" = "https://youtube.com";
+            };
           inherit search;
           inherit extensions;
           id = 3;

@@ -48,5 +48,14 @@
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
+  environment.systemPackages = with pkgs; [
+    wayvnc
+  ];
+
+  networking.firewall = {
+    allowedUDPPorts = [5900];
+    allowedTCPPorts = [5900];
+  };
+
   system.stateVersion = "24.05"; # Did you read the comment?
 }

@@ -90,12 +90,6 @@
       "$mainMod, n, swapnext"
       "$mainMod SHIFT, n, swapnext, prev"
 
-      # Resize windows
-      "$mainMod ALT, h, resizeactive, -10 0"
-      "$mainMod ALT, j, resizeactive, 0 -10"
-      "$mainMod ALT, k, resizeactive, 0 10"
-      "$mainMod ALT, l, resizeactive, 10 0"
-
       # Switch workspace with $mainMod + [0-9]
       "$mainMod, 1, workspace, 1"
       "$mainMod, 2, workspace, 2"
@@ -138,6 +132,14 @@
 
     # l -> do stuff even when locked
     # e -> repeats when key is held
+    binde = [
+      # Resize windows
+      "$mainMod ALT, h, resizeactive, -10 0"
+      "$mainMod ALT, j, resizeactive, 0 -10"
+      "$mainMod ALT, k, resizeactive, 0 10"
+      "$mainMod ALT, l, resizeactive, 10 0"
+    ];
+
     bindl = [
       ", XF86AudioMute, exec, volumectl toggle-mute"
       ", XF86AudioMicMute, exec, volumectl -m toggle-mute"
