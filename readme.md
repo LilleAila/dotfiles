@@ -58,7 +58,9 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 - [Misterio77/nix-config](https://github.com/Misterio77/nix-config)
 - [iynaix/dotfiles](https://github.com/iynaix/dotfiles)
 - [vimjoyer/nixconf](https://github.com/vimjoyer/nixconf)
-- [matt1432/nixos-configs](https://git.nelim.org/matt1432/nixos-configs/)
+- [matt1432/nixos-configs](https://git.nelim.org/matt1432/nixos-configs)
+- [BANanaD3V/nixos-config](https://github.com/BANanaD3V/nixos-config)
+- [0fie/Maika](https://github.com/0fie/Maika)
 
 ## Notes
 ### Nix repl
