@@ -58,6 +58,7 @@ in {
       "col.inactive_border" = "rgb(${config.colorScheme.palette.base00})";
       layout = "dwindle";
       allow_tearing = "false";
+      cursor_inactive_timeout = 1;
     };
 
     decoration = {
