@@ -1164,14 +1164,15 @@
         "nixpkgs": "nixpkgs_4",
         "nixvim": "nixvim",
         "plugin-img-clip": "plugin-img-clip",
-        "plugin-move": "plugin-move"
+        "plugin-move": "plugin-move",
+        "plugin-org-bullets": "plugin-org-bullets"
       },
       "locked": {
-        "lastModified": 1711985511,
-        "narHash": "sha256-g7sX7rz0WWQwp1X9fuvPL++eUXDMGTU7Yf0MhWKUIHk=",
+        "lastModified": 1712071909,
+        "narHash": "sha256-6w32zTIKgmUs5xT0MCnCVB4Nr+BJ9krnK/sCDy2FBhU=",
         "owner": "LilleAila",
         "repo": "nvim-nix",
-        "rev": "ed32cc0efa5a18feffeea49ecf734cb3ee4462d6",
+        "rev": "cc23d4c663d1638c04e85b3f93ff9bec0c8cb934",
         "type": "github"
       },
       "original": {
@@ -1209,6 +1210,22 @@
       "original": {
         "owner": "fedepujol",
         "repo": "move.nvim",
+        "type": "github"
+      }
+    },
+    "plugin-org-bullets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1708554267,
+        "narHash": "sha256-aIEe1dgUmDzu9kl33JCNcgyfp8DymURltH0HcZfph0Y=",
+        "owner": "nvim-orgmode",
+        "repo": "org-bullets.nvim",
+        "rev": "3623e86e0fa6d07f45042f7207fc333c014bf167",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-orgmode",
+        "repo": "org-bullets.nvim",
         "type": "github"
       }
     },
