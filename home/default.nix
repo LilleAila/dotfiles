@@ -51,6 +51,8 @@
 
     _1password-gui-beta
     handbrake
+
+    (import ../pkgs/box64.nix {inherit pkgs stdenv;})
   ];
 
   programs.mpv = {
