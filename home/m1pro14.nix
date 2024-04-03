@@ -69,6 +69,7 @@
     zathura.enable = true;
     browser = {
       firefox.enable = true;
+      qutebrowser.enable = true;
     };
     discord = {
       enable = true;
