@@ -51,7 +51,6 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 - [IldenH/dotfiles](https://github.com/IldenH/dotfiles) (sånn pittelitt) (sånn veldig lite) (så vidt)
 - [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
 - [Aylur/dotfiles](https://github.com/Aylur/dotfiles)
-- [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland)
 - [ircurry/cfg](https://github.com/ircurry/cfg)
 - [chadcat7/crystal](https://github.com/chadcat7/crystal)
 - [anotherhadi/nixy](https://github.com/anotherhadi/nixy)
@@ -61,6 +60,9 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 - [matt1432/nixos-configs](https://git.nelim.org/matt1432/nixos-configs)
 - [BANanaD3V/nixos-config](https://github.com/BANanaD3V/nixos-config)
 - [0fie/Maika](https://github.com/0fie/Maika)
+- [noib3/dotfiles](https://github.com/noib3/dotfiles)
+### People not using NixOS:
+- [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland)
 
 ## Notes
 ### Nix repl

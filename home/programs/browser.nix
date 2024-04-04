@@ -177,20 +177,86 @@
               }
             ];
 
-            # userChrome = with config.colorScheme.palette; colorTab base0D base00;
             # https://github.com/rockofox/firefox-minima
-            userChrome =
+            # userChrome =
+            #   ''
+            #     @import "${
+            #       # pkgs.fetchFromGitHub { # Minimal
+            #       #   owner = "rockofox";
+            #       #   repo = "firefox-minima";
+            #       #   rev = "c5580fd04e9b198320f79d441c78a641517d7af5";
+            #       #   hash = "sha256-udwu+aPdF907pD95E12BL0GOWkvFmctL7IDi2iEWkEc=";
+            #       # }
+            #       # pkgs.fetchFromGitHub { # Adwaita
+            #       #   owner = "rafaelmardojai";
+            #       #   repo = "firefox-gnome-theme";
+            #       #   rev = "33015314c12190230295cff61ced148e0f7ffe1c";
+            #       #   hash = "sha256-e1xuHAHgeC8EU7cAIa3XfvzgI4Y7rzyTkAt9sBsgrfc=";
+            #       # }
+            #     }/userChrome.css";
+            #   ''
+            #   + (with config.colorScheme.palette; colorTab base0D base00);
+            userChrome = let
+              c = config.colorScheme.palette;
+            in
+              /*
+              css
+              */
               ''
-                @import "${
-                  pkgs.fetchFromGitHub {
-                    owner = "rockofox";
-                    repo = "firefox-minima";
-                    rev = "c5580fd04e9b198320f79d441c78a641517d7af5";
-                    hash = "sha256-udwu+aPdF907pD95E12BL0GOWkvFmctL7IDi2iEWkEc=";
-                  }
-                }/userChrome.css";
+                #titlebar, #PersonalToolbar, #nav-bar, #tabbrowser-tabs, #navigator-toolbox {
+                  background-color: #${c.base00} !important;
+                  box-shadow: none !important;
+                  padding: 0 !important;
+                  border: 0 !important;
+                  margin: 0 !important;
+                }
+
+                #firefox-view-button,
+                #tabs-newtab-button,
+                #back-button,
+                #forward-button,
+                #reload-button,
+                #save-to-pocket-button,
+                #customizableui-special-spring1,
+                .titlebar-spacer,
+                .titlebar-buttonbox-container
+                {
+                  display: none !important;
+                }
+
+                .tabbrowser-tab {
+                  height: 2em !important;
+                  min-height: 0 !important;
+                  align-items: center !important;
+                  font-size: 0.9em !important;
+                  padding: 0 !important;
+                  margin: 0 !important;
+                }
+                .tabbrowser-tab * {
+                  margin: 0 !important;
+                  border-radius: 0 !important;
+                }
+                .tab-icon-image {
+                  height: auto !important;
+                  width: 1.1em !important;
+                  margin-right: 4px !important;
+                }
+
+                /*
+                #nav-bar {
+                  opacity: 0 !important;
+                  min-height: 2.5em !important;
+                  height: 2.5em !important;
+                  margin: 0 0 -2.5em !important;
+                  z-index: -1000 !important;
+                }
+                #nav-bar:focus-within {
+                  z-index: 1000 !important;
+                  opacity: 1 !important;
+                }
+                */
               ''
-              + (with config.colorScheme.palette; colorTab base0D base00);
+              + (colorTab c.base0D c.base00);
           };
 
           profiles.school = {
