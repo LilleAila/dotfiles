@@ -69,6 +69,7 @@
     zathura.enable = true;
     browser = {
       firefox.enable = true;
+      firefox.newtab_image = ./wallpapers/wall1.png;
       qutebrowser.enable = true;
     };
     discord = {

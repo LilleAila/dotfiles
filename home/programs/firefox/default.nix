@@ -5,7 +5,12 @@
   config,
   ...
 }: {
-  options.settings.browser.firefox.enable = lib.mkEnableOption "firefox";
+  options.settings.browser.firefox = {
+    enable = lib.mkEnableOption "firefox";
+    newtab_image = lib.mkOption {
+      type = lib.types.path;
+    };
+  };
 
   config = lib.mkMerge [
     (lib.mkIf (config.settings.browser.firefox.enable) {
@@ -22,6 +27,7 @@
           ];
           settings = import ./settings.nix;
           userChrome = import ./userChrome.nix {colorScheme = config.colorScheme.palette;};
+          userContent = import ./userContent.nix {inherit config;};
           colorTab = bg: fg: ''
             .tab-background[selected] {
               background-color: #${bg} !important;
@@ -35,7 +41,7 @@
           main = {
             isDefault = true;
             id = 0;
-            inherit search extensions;
+            inherit search extensions userContent;
             settings =
               settings
               // {
@@ -47,7 +53,7 @@
 
           school = {
             id = 1;
-            inherit search extensions;
+            inherit search extensions userContent;
             settings =
               settings
               // {
@@ -59,7 +65,7 @@
 
           math = {
             id = 2;
-            inherit search extensions;
+            inherit search extensions userContent;
             settings =
               settings
               // {
@@ -71,7 +77,7 @@
 
           yt = {
             id = 3;
-            inherit search extensions;
+            inherit search extensions userContent;
             settings =
               settings
               // {

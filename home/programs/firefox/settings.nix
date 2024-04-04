@@ -32,7 +32,7 @@
   "browser.disableResetPrompt" = true;
   "browser.download.panel.shown" = true;
   "browser.download.useDownloadDir" = false;
-  "browser.toolbars.bookmarks.visibility" = "newtab";
+  "browser.toolbars.bookmarks.visibility" = "never"; # newtab/never/always
   "widget.gtk.overlay-scrollbars.enabled" = false;
 
   # Translations

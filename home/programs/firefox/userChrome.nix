@@ -24,10 +24,11 @@ in
     #reload-button,
     #save-to-pocket-button,
     #customizableui-special-spring1,
+    #customizableui-special-spring2,
     #new-tab-button,
     #alltabs-button,
     .titlebar-spacer,
-    .titlebar-buttonbox-container,
+    .titlebar-buttonbox-container
     {
       display: none !important;
     }
