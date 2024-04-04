@@ -32,7 +32,7 @@ css
       left: 0;
       width: 100vw;
       height: 50vh;
-      font-size: 1em;
+      font-size: 2.5em;
       text-align: center;
       display: grid;
       place-items: center;

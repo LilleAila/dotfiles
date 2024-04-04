@@ -49,6 +49,10 @@ in {
           type = types.bool;
           default = false;
         };
+        rotation = mkOption {
+          type = types.int;
+          default = 0;
+        };
       };
     });
     default = [];
@@ -67,7 +71,11 @@ in {
           scale = "${toString m.scale}";
         in "${m.name},${
           if m.enable
-          then "${resolution},${position},${scale}"
+          then "${resolution},${position},${scale}${
+            if (m.rotation != 0)
+            then ",transform,${toString m.rotation}"
+            else ""
+          }"
           else "disable"
         }"
       )
