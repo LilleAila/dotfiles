@@ -96,7 +96,7 @@
         "media.hardware-video-decoding.force-enabled" = true;
         "layers.acceleration.force-enabled" = true;
 
-        "browser.toolbars.bookmarks.visibility" = "always";
+        "browser.toolbars.bookmarks.visibility" = "never"; # always
         "browser.disableResetPrompt" = true;
         "browser.download.panel.shown" = true;
         "browser.download.useDownloadDir" = false;
@@ -177,7 +177,20 @@
               }
             ];
 
-            userChrome = with config.colorScheme.palette; colorTab base0D base00;
+            # userChrome = with config.colorScheme.palette; colorTab base0D base00;
+            # https://github.com/rockofox/firefox-minima
+            userChrome =
+              ''
+                @import "${
+                  pkgs.fetchFromGitHub {
+                    owner = "rockofox";
+                    repo = "firefox-minima";
+                    rev = "c5580fd04e9b198320f79d441c78a641517d7af5";
+                    hash = "sha256-udwu+aPdF907pD95E12BL0GOWkvFmctL7IDi2iEWkEc=";
+                  }
+                }/userChrome.css";
+              ''
+              + (with config.colorScheme.palette; colorTab base0D base00);
           };
 
           profiles.school = {

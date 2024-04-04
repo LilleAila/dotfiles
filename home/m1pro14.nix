@@ -73,7 +73,7 @@
     };
     discord = {
       vesktop.enable = true;
-      dissent.enable = true;
+      dissent.enable = false;
     };
     emacs.enable = true;
     terminal = {
