@@ -52,8 +52,10 @@
     wayvnc
   ];
 
+  programs.nix-ld.enable = true;
+
   networking.firewall = {
-    allowedUDPPorts = [5900];
+    allowedUDPPorts = [5900]; # For vnc
     allowedTCPPorts = [5900];
   };
 

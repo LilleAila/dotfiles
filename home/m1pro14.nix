@@ -72,8 +72,8 @@
       qutebrowser.enable = true;
     };
     discord = {
-      enable = true;
-      hyprland.enable = true;
+      vesktop.enable = true;
+      dissent.enable = true;
     };
     emacs.enable = true;
     terminal = {

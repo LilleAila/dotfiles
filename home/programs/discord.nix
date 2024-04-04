@@ -8,13 +8,15 @@
   inherit (lib) mkOption types;
 in {
   options.settings.discord = {
-    enable = lib.mkEnableOption "discord";
-    hyprland.enable = lib.mkEnableOption "hyprland integeration";
+    vesktop.enable = lib.mkEnableOption "vesktop";
+    dissent.enable = lib.mkEnableOption "dissent";
   };
 
   config = lib.mkMerge [
-    # When in a list, apparently mkIf has to be wrapped with ()
-    (lib.mkIf (config.settings.discord.enable) {
+    (lib.mkIf (config.settings.discord.dissent.enable) {
+      home.packages = with pkgs; [dissent];
+    })
+    (lib.mkIf (config.settings.discord.vesktop.enable) {
       home.packages = with pkgs; [
         vesktop
       ];
@@ -40,11 +42,6 @@ in {
                 "arRPC": true
             }
           '';
-        # onChange = ''
-        #   rm -f $HOME/.config/vesktop/settings.json
-        #   cp $HOME/.config/vesktop/settings-hm.json $HOME/.config/vesktop/settings.json
-        #   chmod u+w $HOME/.config/vesktop/settings.json
-        # '';
       };
 
       home.file.".config/vesktop/settings/settings.json".source = ./discord-settings.json;
@@ -113,7 +110,7 @@ in {
           }
         '';
     })
-    (lib.mkIf (config.settings.discord.hyprland.enable) {
+    (lib.mkIf (config.settings.wm.hyprland.enable) {
       wayland.windowManager.hyprland.settings = {
         "$discord" = "vesktop";
         bind = [

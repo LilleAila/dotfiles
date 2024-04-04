@@ -51,7 +51,7 @@ in {
         		fi
         }
 
-        ${pkgs.leaf}/bin/leaf
+        ${pkgs.nitch}/bin/nitch
       '';
       /*
       Fastest to slowest

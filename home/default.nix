@@ -53,6 +53,9 @@
     handbrake
 
     (import ../pkgs/box64.nix {inherit pkgs stdenv;})
+
+    # idk what i'm doing lol
+    # (pkgs.callPackage ../pkgs/factorio.nix {releaseType = "demo";})
   ];
 
   programs.mpv = {
