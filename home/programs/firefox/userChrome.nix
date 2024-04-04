@@ -13,6 +13,10 @@ in
       margin: 0 !important;
     }
 
+    #urlbar-input-container {
+      background-color: #${c.base01} !important;
+    }
+
     #firefox-view-button,
     #tabs-newtab-button,
     #back-button,
@@ -20,8 +24,10 @@ in
     #reload-button,
     #save-to-pocket-button,
     #customizableui-special-spring1,
+    #new-tab-button,
+    #alltabs-button,
     .titlebar-spacer,
-    .titlebar-buttonbox-container
+    .titlebar-buttonbox-container,
     {
       display: none !important;
     }
