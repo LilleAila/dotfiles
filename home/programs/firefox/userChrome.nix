@@ -59,6 +59,19 @@ in
       color: #${c.base07} !important;
     }
 
+    /* Extensions menu */
+    #unified-extensions-panel {
+      background-color: transparent !important;
+    }
+
+    #unified-extensions-view {
+      background-color: #${c.base00} !important;
+    }
+
+    #unified-extensions-view toolbarseparator {
+      display: none !important;
+    }
+
     /* Context menus (right-click) */
     .menupopup-arrowscrollbox {
       background-color: #${c.base00} !important;
