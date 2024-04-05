@@ -72,6 +72,42 @@ in
       display: none !important;
     }
 
+    /* Identity popup */
+    #identity-popup #identity-popup-mainView {
+      background-color: #${c.base00} !important;
+      color: #${c.base07} !important;
+    }
+
+    #identity-popup-mainView toolbarseparator {
+      display: none !important;
+    }
+
+    /* Edit bookmark panel */
+    #editBookmarkPanel .panel-header,
+    #editBookmarkPanel .panel-subview-body,
+    #editBookmarkPanel .panel-footer {
+      background-color: #${c.base00} !important;
+      color: #${c.base07} !important;
+    }
+
+    #editBookmarkPanel toolbarseparator {
+      display: none !important;
+    }
+
+    #editBookmarkPanel .panel-button,
+    #editBMPanel_tagsField,
+    #editBMPanel_folderMenuList,
+    #editBMPanel_namePicker,
+    #editBookmarkPanelRemoveButton {
+      background-color: #${c.base01} !important;
+      color: #${c.base07} !important;
+    }
+
+    #editBookmarkPanelDoneButton {
+      background-color: #${c.base0A} !important;
+      color: #${c.base01} !important;
+    }
+
     /* Context menus (right-click) */
     .menupopup-arrowscrollbox {
       background-color: #${c.base00} !important;
