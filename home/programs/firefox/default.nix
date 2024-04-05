@@ -24,6 +24,7 @@
             darkreader
             youtube-shorts-block
             enhanced-h264ify
+            clearurls
           ];
           settings = import ./settings.nix;
           userChrome = import ./userChrome.nix {colorScheme = config.colorScheme.palette;};

@@ -1,0 +1,5 @@
+* 2024
+** 2024-04 April
+*** 2024-04-04 Thursday
+**** TODO Configure devenv to use instead of manual devshells
+[[https://github.com/cachix/devenv][Devenv]]
