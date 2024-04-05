@@ -82,13 +82,31 @@ in
       display: none !important;
     }
 
+    /* Translate page panel */
+    #translations-panel-view-default {
+      background-color: #${c.base00} !important;
+      color: #${c.base07} !important;
+    }
+
+    #translations-panel-translate {
+      background-color: #${c.base0D} !important;
+      color: #${c.base01} !important;
+    }
+
+    /* Permissions popup */
+    #permission-popup #permission-popup-mainView {
+      background-color: #${c.base00} !important;
+      color: #${c.base07} !important;
+    }
+
     /* Edit bookmark panel */
-    #editBookmarkPanel .panel-header,
+    /* I don't want to do the hover colors lol */
+    /*#editBookmarkPanel .panel-header,
     #editBookmarkPanel .panel-subview-body,
     #editBookmarkPanel .panel-footer {
       background-color: #${c.base00} !important;
       color: #${c.base07} !important;
-    }
+    }*/
 
     #editBookmarkPanel toolbarseparator {
       display: none !important;
@@ -149,7 +167,8 @@ in
     #context-viewpartialsource-selection,
     #context-stripOnShareLink,
     #context-searchselect,
-    #context-sendimage {
+    #context-sendimage,
+    #context-savepage {
       display: none !important;
     }
 
