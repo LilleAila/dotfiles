@@ -25,6 +25,8 @@
     services.gvfs.enable = true;
     # services.printing.enable = true;
 
+    hardware.keyboard.qmk.enable = true;
+
     environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
       NIXOS_OZONE_WL = "1"; # Fix electron apps on wayland
