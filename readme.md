@@ -1,7 +1,7 @@
 <div align="center">
 
 # LilleAila's Dotfiles
-**My personal configuration files for GNU/Linux<sub>, or as I've recently taken to calling it, GNU plus Linux</sub>, using NixOS with Home-Manager.**
+**My personal configuration files for Linux, using NixOS with Home-Manager.**
 
 Riced with [nix-colors](https://github.com/Misterio77/nix-colors) using [gruvbox](https://github.com/morhetz/gruvbox) as the color scheme.
 
