@@ -252,11 +252,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1709336216,
-        "narHash": "sha256-Dt/wOWeW6Sqm11Yh+2+t0dfEWxoMxGBvv3JpIocFl9E=",
+        "lastModified": 1712014858,
+        "narHash": "sha256-sB4SWl2lX95bExY2gMFG5HIzvva5AVMJd4Igm+GpZNw=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "f7b3c975cf067e56e7cda6cb098ebe3fb4d74ca2",
+        "rev": "9126214d0a59633752a136528f5f3b9aa8565b7d",
         "type": "github"
       },
       "original": {
@@ -834,11 +834,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1711669189,
-        "narHash": "sha256-VVRFhOKS/MmhV2u6av2e9Qzg4WE24vEmrW/JKed6tlo=",
+        "lastModified": 1712355530,
+        "narHash": "sha256-sQmkgl5Z4G3LEtdyFbmRPttVQaLnLdKZtesDTgvHd+E=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "e2224a7933b6e30ab6efb0b7ad4e3f26da57c226",
+        "rev": "a4e4e493df5f6897345278a460cccd175f7f4cf0",
         "type": "github"
       },
       "original": {
@@ -857,11 +857,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1711670984,
-        "narHash": "sha256-orA2u5/LqpdPCvYUZnQStarJjjRMylTDYS8JKf97ZfU=",
+        "lastModified": 1712361808,
+        "narHash": "sha256-akgqGRhjQbRIZJmU/J3Nb5qI1Uhu2+aOsGmqLOMeWpc=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "6a5e80c188d3f3763a624df1610294b4a11764a0",
+        "rev": "cc3b95fd0c45924babac9195d2a3b345c138866b",
         "type": "github"
       },
       "original": {
@@ -1082,11 +1082,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1711624657,
-        "narHash": "sha256-IViG6BKCJY/I6oRNfAANf/QitYylepQSCzgam0TF+bs=",
+        "lastModified": 1712192574,
+        "narHash": "sha256-LbbVOliJKTF4Zl2b9salumvdMXuQBr2kuKP5+ZwbYq4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "72c6ed328aa4e5d9151b1a512f6ad83aca7529fa",
+        "rev": "f480f9d09e4b4cf87ee6151eba068197125714de",
         "type": "github"
       },
       "original": {
@@ -1152,11 +1152,11 @@
         "plugin-org-bullets": "plugin-org-bullets"
       },
       "locked": {
-        "lastModified": 1712166416,
-        "narHash": "sha256-+W+Wb9nW/vztkUQ0IJvSfSaEhtWf204WHBh9T+7eJPc=",
+        "lastModified": 1712409874,
+        "narHash": "sha256-102ESPGi2m90rmNmXhyPTD8ZSrkroryct4oYFNPkGkk=",
         "owner": "LilleAila",
         "repo": "nvim-nix",
-        "rev": "3119e35c66a2c258d8b363e8e5ea5a6057251c50",
+        "rev": "913f70f6c90c5881de84e47c7fe724212a80c20e",
         "type": "github"
       },
       "original": {
