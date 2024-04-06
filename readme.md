@@ -81,7 +81,7 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 | [0fie/Maika](https://github.com/0fie/maika) | Hyprland | Waybar | x |
 | [noib3/dotfiles](https://github.com/noib3/dotfiles) | BSPWM | Polybar | x |
 | [rice-cracker-dev](https://github.com/rice-cracker-dev/nixos-config) | Hyprland | AGS | x |
-| [end-4](https://github.com/end-4/dots-hyprland) | Hyprland | AGS | x |
+| [end-4](https://github.com/end-4/dots-hyprland) | Hyprland | AGS |  |
 ## Notes
 ### Nix repl
 Open REPL and load nixpkgs:
