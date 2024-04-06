@@ -24,23 +24,22 @@
         no_fade_out = false;
       };
 
-      backgrounds = [
-        {
-          monitor = "${primaryMonitor}";
-          path = "screenshot";
-          # path = "${./wall1.png}";
-          color = "rgb(${config.colorScheme.palette.base01})";
+      backgrounds = map (m: {
+        # monitor = "${primaryMonitor}";
+        monitor = "${m.name}";
+        path = "screenshot";
+        # path = "${m.wallpaper}"; # TODO: This doesn't work rn because only PNG is supported..
+        color = "rgb(${config.colorScheme.palette.base01})";
 
-          # Blur
-          blur_size = 8;
-          blur_passes = 2;
-          noise = 0.0117;
-          contrast = 0.8917;
-          brightness = 0.8172;
-          vibrancy = 0.1686;
-          vibrancy_darkness = 0.05;
-        }
-      ];
+        # Blur
+        blur_size = 8;
+        blur_passes = 2;
+        noise = 0.0117;
+        contrast = 0.8917;
+        brightness = 0.8172;
+        vibrancy = 0.1686;
+        vibrancy_darkness = 0.05;
+      }) (config.settings.monitors);
 
       input-fields = [
         {

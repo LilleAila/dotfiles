@@ -69,7 +69,7 @@
       vesktop.enable = true;
       dissent.enable = false;
     };
-    emacs.enable = true;
+    emacs.enable = false;
     terminal = {
       zsh = {
         enable = true;

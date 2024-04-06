@@ -32,9 +32,10 @@ in {
         cursorTheme.package = pkgs.bibata-cursors;
         cursorTheme.name = "Bibata-Modern-Ice";
         # Tested schene with `nix-shell -p awf --run awf-gtk3`
-        theme.package = nix-colors-lib.gtkThemeFromScheme {
-          scheme = config.colorScheme;
-        };
+        # theme.package = nix-colors-lib.gtkThemeFromScheme {
+        #   scheme = config.colorScheme;
+        # };
+        theme.package = import ./gtk-theme.nix {inherit pkgs;} {scheme = config.colorScheme;};
         theme.name = "${config.colorScheme.slug}";
         iconTheme.package = pkgs.papirus-icon-theme;
         iconTheme.name = "Papirus-Dark";

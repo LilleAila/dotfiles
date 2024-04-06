@@ -7,9 +7,9 @@
 }:
 # https://github.com/ircurry/cfg/blob/master/home/programs/emacs/default.nix
 let
-  # The -pgtk version does NOT work with EXWM
-  # emacs-package = with pkgs; ((emacsPackagesFor emacs29-pgtk).emacsWithPackages (
-  emacs-package = with pkgs; ((emacsPackagesFor emacs29).emacsWithPackages (
+  # NOTE: The -pgtk version does NOT work with EXWM
+  emacs-package = with pkgs; ((emacsPackagesFor emacs29-pgtk).emacsWithPackages (
+    # emacs-package = with pkgs; ((emacsPackagesFor emacs29).emacsWithPackages (
     epkgs: [
       # === Use-package ===
       epkgs.use-package
