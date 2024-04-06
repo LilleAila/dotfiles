@@ -27,6 +27,7 @@
         playerctl
         brightnessctl
         qalculate-gtk
+        wlr-randr
       ];
 
       # TODO: enable display under notch to show bar

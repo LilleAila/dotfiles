@@ -33,19 +33,7 @@
         # x = -524;
         # y = -1440;
         x = -1080;
-        y = -1450;
-        scale = 1;
-        enable = true;
-        wallpaper = ./wallpapers/wall18.jpg;
-      }
-      {
-        # This no work :( number increments by one every time `hyprctl output create headless`
-        name = "HEADLESS-*";
-        width = 2732;
-        height = 2048;
-        refreshRate = 60;
-        x = -2732;
-        y = 0;
+        y = -1100;
         scale = 1;
         enable = true;
         wallpaper = ./wallpapers/wall18.jpg;

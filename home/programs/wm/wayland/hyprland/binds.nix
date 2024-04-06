@@ -31,6 +31,9 @@
       "$mainMod, Y, exec, $webBrowser -P yt"
       "$mainMod, P, exec, $colorPicker"
 
+      "$mainMod, V, exec, wlr-randr --output HDMI-A-1 --transform normal --pos -1920,0"
+      "$mainMod SHIFT, V, exec, hyprctl reload"
+
       # Special workspaces
       "$mainMod, Q, exec, bash -c 'pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk &'"
       "$mainMod, C, togglespecialworkspace, config"

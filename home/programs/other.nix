@@ -52,6 +52,13 @@
       programs.ssh.enable = true;
       services.ssh-agent.enable = true;
       programs.ssh.addKeysToAgent = "yes";
+
+      programs.mpv = {
+        enable = true;
+        config = {
+          keep-open = "always";
+        };
+      };
     })
   ];
 }
