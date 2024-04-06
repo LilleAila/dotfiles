@@ -5,7 +5,10 @@
   lib,
   ...
 }: {
-  imports = [./.];
+  imports = [
+    ./.
+    inputs.nix-index-database.hmModules.nix-index
+  ];
 
   # https://github.com/tinted-theming/base16-schemes/
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;

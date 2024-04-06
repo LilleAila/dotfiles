@@ -61,9 +61,27 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 - [BANanaD3V/nixos-config](https://github.com/BANanaD3V/nixos-config)
 - [0fie/Maika](https://github.com/0fie/Maika)
 - [noib3/dotfiles](https://github.com/noib3/dotfiles)
+- [rice-cracker-dev/nixos-config](https://github.com/rice-cracker-dev/nixos-config)
 ### People not using NixOS:
 - [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland)
-
+### TABLES!!!
+| User | Bar | WM | NixOS |
+| ---- | --- | -- | ----- |
+| [IldenH](https://github.com/IldenH/dotfiles) | Hyprland | Waybar | x |
+| [fufexan](https://github.com/fufexan/dotfiles) | Hyprland | AGS | x |
+| [Aylur](https://github.com/Aylur/dotfiles)| Hyprland | AGS | x |
+| [ircurry](https://github.com/ircurry/cfg) | Hyprland | Waybar | x |
+| [chadcat7](https://github.com/chadcat7/crystal) | Hyprland | All?? | x |
+| [anotherhadi](https://github.com/anotherhadi/nixy) | Hyprland | Waybar | x |
+| [Misterio77](https://github.com/Misterio77/nix-config) | Hyprland | Waybar | x |
+| [iynaix](https://github.com/iynaix/dotfiles) | Hyprland | Waybar | x |
+| [vimjoyer](https://github.com/vimjoyer/nixconf) | Hyprland | Waybar | x |
+| [matt1432](https://git.nelim.org/matt1432/nixos-configs) | Hyprland | AGS | x |
+| [BANanaD3V](https://github.com/BANanaD3V/nixos-config) | Hyprland | Waybar | x |
+| [0fie/Maika](https://github.com/0fie/maika) | Hyprland | Waybar | x |
+| [noib3/dotfiles](https://github.com/noib3/dotfiles) | BSPWM | Polybar | x |
+| [rice-cracker-dev](https://github.com/rice-cracker-dev/nixos-config) | Hyprland | AGS | x |
+| [end-4](https://github.com/end-4/dots-hyprland) | Hyprland | AGS | x |
 ## Notes
 ### Nix repl
 Open REPL and load nixpkgs:

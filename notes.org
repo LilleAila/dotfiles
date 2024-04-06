@@ -1,5 +1,11 @@
 * 2024
 ** 2024-04 April
+*** 2024-04-06 Saturday
+**** TODO Find out if =base00= or =base01= is better here.
+This affects things like number keys in qalculate, and popup menus in firefox. On one hand, leaving it as =base01= will make the calculator buttons stand out a bit more, but if it gets changed to =base00=, most of the =userChrome= for firefox can be removed..
+[2024-04-06 Sat 17:00]
+[[file:/home/olai/dotfiles/home/programs/wm/wayland/gtk-theme.nix::46]]
+
 *** 2024-04-04 Thursday
 **** TODO Configure devenv to use instead of manual devshells
 [[https://github.com/cachix/devenv][Devenv]]

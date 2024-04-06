@@ -30,7 +30,7 @@ in
 
     /* URL input field */
     #urlbar-input-container {
-      background-color: #${c.base01} !important;
+      background-color: #${c.base00} !important;
     }
 
     /* Some buttons */
@@ -39,10 +39,6 @@ in
     #PanelUI-button,
     #blocked-permissions-container {
       color: #${c.base07} !important;
-    }
-
-    #star-button {
-      fill: #${c.base0A} !important;
     }
 
     /* Hide search bar placeholder */
@@ -107,6 +103,10 @@ in
       background-color: #${c.base00} !important;
       color: #${c.base07} !important;
     }*/
+
+    #star-button {
+      fill: #${c.base0A} !important;
+    }
 
     #editBookmarkPanel toolbarseparator {
       display: none !important;
