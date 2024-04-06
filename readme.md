@@ -48,23 +48,6 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 - [Configuration Collection](https://nixos.wiki/wiki/Configuration_Collection)
 - [riceyourride.com](https://riceyourride.com/best/1)
 ### Other peoples' dotfiles:
-- [IldenH/dotfiles](https://github.com/IldenH/dotfiles) (sånn pittelitt) (sånn veldig lite) (så vidt)
-- [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
-- [Aylur/dotfiles](https://github.com/Aylur/dotfiles)
-- [ircurry/cfg](https://github.com/ircurry/cfg)
-- [chadcat7/crystal](https://github.com/chadcat7/crystal)
-- [anotherhadi/nixy](https://github.com/anotherhadi/nixy)
-- [Misterio77/nix-config](https://github.com/Misterio77/nix-config)
-- [iynaix/dotfiles](https://github.com/iynaix/dotfiles)
-- [vimjoyer/nixconf](https://github.com/vimjoyer/nixconf)
-- [matt1432/nixos-configs](https://git.nelim.org/matt1432/nixos-configs)
-- [BANanaD3V/nixos-config](https://github.com/BANanaD3V/nixos-config)
-- [0fie/Maika](https://github.com/0fie/Maika)
-- [noib3/dotfiles](https://github.com/noib3/dotfiles)
-- [rice-cracker-dev/nixos-config](https://github.com/rice-cracker-dev/nixos-config)
-### People not using NixOS:
-- [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland)
-### TABLES!!!
 | User | WM | Bar | NixOS |
 | ---- | -- | --- | ----- |
 | [IldenH](https://github.com/IldenH/dotfiles) | Hyprland | Waybar | x |
