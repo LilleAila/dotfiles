@@ -65,8 +65,8 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 ### People not using NixOS:
 - [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland)
 ### TABLES!!!
-| User | Bar | WM | NixOS |
-| ---- | --- | -- | ----- |
+| User | WM | Bar | NixOS |
+| ---- | -- | --- | ----- |
 | [IldenH](https://github.com/IldenH/dotfiles) | Hyprland | Waybar | x |
 | [fufexan](https://github.com/fufexan/dotfiles) | Hyprland | AGS | x |
 | [Aylur](https://github.com/Aylur/dotfiles)| Hyprland | AGS | x |
