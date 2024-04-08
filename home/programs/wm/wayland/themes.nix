@@ -25,6 +25,10 @@ in {
           package = pkgs.qt6Packages.qt6gtk2;
         };
       };
+      home.packages = with pkgs; [
+        libsForQt5.qt5.qtwayland
+        kdePackages.qtwayland
+      ];
     })
     (lib.mkIf (config.settings.gtk.enable) {
       gtk = {

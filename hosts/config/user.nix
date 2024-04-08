@@ -25,7 +25,7 @@
     users.users."${name}" = {
       isNormalUser = true;
       description = desc;
-      extraGroups = ["wheel"];
+      extraGroups = ["wheel" "input"];
       packages = with pkgs; [];
       shell = shell;
       # initialPassword = "";

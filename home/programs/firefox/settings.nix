@@ -61,7 +61,7 @@
   "media.hardware-video-decoding.force-enabled" = true;
   "layers.acceleration.force-enabled" = true;
 
-  "general.autoScroll" = true;
+  "general.autoScroll" = false;
   "browser.aboutConfig.showWarning" = false;
   "extensions.autoDisableScopes" = 0; # enables all extensions
   "media.videocontrols.picture-in-picture.enabled" = false;

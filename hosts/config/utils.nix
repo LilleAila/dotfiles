@@ -26,6 +26,12 @@
     # services.printing.enable = true;
 
     hardware.keyboard.qmk.enable = true;
+    # Allow read/write to ttyACM0 serial port
+    # Allow dotool as non-root user (in input group)
+    services.udev.extraRules = ''
+      KERNEL=="ttyACM0", MODE="0666"
+      KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
+    '';
 
     environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
@@ -37,6 +43,9 @@
       HandlePowerKey=ignore
     '';
 
+    # Allow authentication in swaylock
+    security.pam.services.swaylock = {};
+
     # Enable some packages
     nixpkgs.config.allowUnfree = true;
     environment.systemPackages = with pkgs; [
@@ -46,6 +55,8 @@
       home-manager
       git
       pciutils
+      dotool
+      wtype
     ];
   };
 }

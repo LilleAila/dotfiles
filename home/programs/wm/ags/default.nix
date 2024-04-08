@@ -77,7 +77,8 @@
         # Dependencies have to be added manually to PATH
         Environment = "PATH=${lib.makeBinPath [
           pkgs.coreutils
-          config.programs.hyprlock.package
+          # config.programs.hyprlock.package
+          config.programs.swaylock.package
           pkgs.systemd
         ]}";
         ExecStart = "${config.programs.ags.package}/bin/ags";

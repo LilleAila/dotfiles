@@ -12,7 +12,7 @@ const Button = (classname: string, icon: string, click: any) =>
   });
 
 const closeMenu = () => App.closeWindow("powermenu");
-const lock = () => Utils.exec("hyprlock");
+const lock = () => Utils.exec("swaylock");
 const logout = () => Utils.exec("pkill hyprland");
 const suspend = () => Utils.exec("systemctl suspend");
 const poweroff = () => Utils.exec("systemctl poweroff");

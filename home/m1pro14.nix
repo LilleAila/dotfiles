@@ -53,7 +53,8 @@
       };
       avizo.enable = true;
       hypridle.enable = true;
-      hyprlock.enable = true;
+      # hyprlock.enable = true;
+      swaylock.enable = true;
       hyprpaper.enable = true;
       mako.enable = true;
       wlogout.enable = false; # Replaced with ags

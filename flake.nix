@@ -72,6 +72,8 @@
     # === Other ===
     flake-utils.url = "github:numtide/flake-utils";
 
+    plover-flake.url = "github:LilleAila/plover-flake/wayland-support";
+
     nix-colors.url = "github:misterio77/nix-colors";
 
     wrapper-manager = {

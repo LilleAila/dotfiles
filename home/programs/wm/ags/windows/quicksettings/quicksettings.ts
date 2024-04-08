@@ -17,7 +17,7 @@ const Settings = () =>
           Widget.Button({
             class_name: "power-button",
             child: Widget.Icon({ icon: "lock-symbolic" }),
-            onClicked: () => Utils.exec("hyprlock"),
+            onClicked: () => Utils.exec("swaylock"),
           }),
           Widget.Button({
             class_name: "power-button",

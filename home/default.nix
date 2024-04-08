@@ -56,5 +56,10 @@
 
     # idk what i'm doing lol
     # (pkgs.callPackage ../pkgs/factorio.nix {releaseType = "demo";})
+
+    (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (ps:
+      with ps; [
+        plover_output_dotool
+      ]))
   ];
 }
