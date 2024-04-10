@@ -28,7 +28,7 @@
           ];
           settings = import ./settings.nix;
           userChrome = import ./userChrome.nix {colorScheme = config.colorScheme.palette;};
-          userContent = import ./userContent.nix {inherit config;};
+          userContent = import ./userContent.nix {inherit config pkgs;};
           colorTab = bg: fg: ''
             .tab-background[selected] {
               background-color: #${bg} !important;

@@ -59,7 +59,8 @@
 
     (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (ps:
       with ps; [
-        plover_output_dotool
+        # plover_output_dotool
+        plover_uinput
       ]))
   ];
 }

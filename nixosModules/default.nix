@@ -16,5 +16,6 @@
     ./tlp.nix
     ./console.nix
     ./ssh.nix
+    ./desktop.nix
   ];
 }

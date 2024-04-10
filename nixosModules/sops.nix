@@ -15,7 +15,7 @@
   ];
 
   config = lib.mkIf (config.settings.sops.enable) {
-    sops.defaultSopsFile = ../../secrets/secrets.yaml;
+    sops.defaultSopsFile = ../secrets/secrets.yaml;
     sops.defaultSopsFormat = "yaml";
     sops.age.keyFile = "/home/${config.settings.user.name}/.config/sops/age/keys.txt";
 

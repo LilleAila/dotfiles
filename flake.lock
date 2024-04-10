@@ -1243,17 +1243,18 @@
         "plover-machine-hid": "plover-machine-hid",
         "plover-output-dotool": "plover-output-dotool",
         "plover-stroke": "plover-stroke",
+        "plover-uinput": "plover-uinput",
         "plover2cat": "plover2cat",
         "plover_auto_reconnect_machine": "plover_auto_reconnect_machine",
         "plover_plugins_registry": "plover_plugins_registry",
         "rtf-tokenize": "rtf-tokenize"
       },
       "locked": {
-        "lastModified": 1712588875,
-        "narHash": "sha256-IwhcKLflvXgTjoZFBj4P1eZ5Sy4ZwepXR+WamMQLtgc=",
+        "lastModified": 1712761739,
+        "narHash": "sha256-LS2WA+z0MjuoLRvx67nXs9E0/iQSEwe9zhHEo5mfbxE=",
         "owner": "LilleAila",
         "repo": "plover-flake",
-        "rev": "d28475433173c42263d6133cda17307a616f9e8a",
+        "rev": "522812576921b10302522bd8fe271064ad279b8a",
         "type": "github"
       },
       "original": {
@@ -1308,6 +1309,22 @@
       "original": {
         "owner": "openstenoproject",
         "repo": "plover_stroke",
+        "type": "github"
+      }
+    },
+    "plover-uinput": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1712761716,
+        "narHash": "sha256-ExpmeJK0tLWpueebJQRfknJx2vAzlfThqgNn5i+hqF8=",
+        "owner": "LilleAila",
+        "repo": "plover-uinput",
+        "rev": "b35d7850d686f79e946546c0a93e8cbda0e895d4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LilleAila",
+        "repo": "plover-uinput",
         "type": "github"
       }
     },

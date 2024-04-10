@@ -21,8 +21,10 @@
       services.xserver = {
         enable = true;
 
-        xkb.layout = "no";
-        xkb.variant = "";
+        xkb = {
+          layout = "no";
+          variant = "";
+        };
         displayManager.lightdm.enable = false;
 
         updateDbusEnvironment = true;

@@ -9,7 +9,7 @@
   imports = [
     # TODO: Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../.
+    ../../nixosModules
   ];
 
   # TODO: look over these options whenever i actually test the config

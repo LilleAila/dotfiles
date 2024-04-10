@@ -9,7 +9,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../.
+    ../../nixosModules
   ];
 
   boot.loader.systemd-boot.enable = true;

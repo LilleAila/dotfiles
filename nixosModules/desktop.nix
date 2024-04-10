@@ -5,25 +5,22 @@
   lib,
   ...
 }: {
-  options.settings.utils.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-    description = "Enable various general utilities";
-  };
+  options.settings.desktop.enable = lib.mkEnableOption "misc. gui utils";
 
-  config = lib.mkIf (config.settings.utils.enable) {
-    environment.shells = [pkgs.zsh pkgs.fish];
-    programs.zsh.enable = true;
-    programs.fish.enable = true;
-    nix.settings.experimental-features = ["nix-command" "flakes"];
-
-    services.fstrim.enable = true;
-    services.upower.enable = true;
+  config = lib.mkIf (config.settings.desktop.enable) {
     services.seatd.enable = true;
     programs.dconf.enable = true;
     programs.xfconf.enable = true;
     services.gvfs.enable = true;
     # services.printing.enable = true;
+
+    # i18n.inputMethod = {
+    #   enabled = "ibus";
+    #   ibus.engines = with pkgs.ibus-engines; [
+    #     uniemoji
+    #     mozc
+    #   ];
+    # };
 
     hardware.keyboard.qmk.enable = true;
     # Allow read/write to ttyACM0 serial port
@@ -45,18 +42,5 @@
 
     # Allow authentication in swaylock
     security.pam.services.swaylock = {};
-
-    # Enable some packages
-    nixpkgs.config.allowUnfree = true;
-    environment.systemPackages = with pkgs; [
-      vim
-      wget
-      neovim
-      home-manager
-      git
-      pciutils
-      dotool
-      wtype
-    ];
   };
 }

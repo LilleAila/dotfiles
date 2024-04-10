@@ -9,8 +9,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../.
-    ../config/asahi # This causes problems when imported globally
+    ../../nixosModules
+    ../../nixosModules/asahi # This causes problems when imported globally
   ];
 
   settings = {
@@ -32,6 +32,7 @@
       bluetooth.enable = true;
     };
     utils.enable = true;
+    desktop.enable = true;
     tlp.enable = false;
     console = {
       font = "ter-u32n";
