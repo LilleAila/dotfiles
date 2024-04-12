@@ -80,7 +80,7 @@ in {
       };
       drop_shadow = false;
       dim_inactive = true;
-      dim_strength = 0.2;
+      dim_strength = 0.1;
     };
 
     animations = {
