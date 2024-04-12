@@ -60,7 +60,9 @@
     (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (ps:
       with ps; [
         # plover_output_dotool
-        plover_uinput
+        plover-uinput
       ]))
   ];
+
+  home.sessionVariables."PLOVER_UINPUT_LAYOUT" = "no";
 }

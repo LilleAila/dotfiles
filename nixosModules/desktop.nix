@@ -17,10 +17,25 @@
     # i18n.inputMethod = {
     #   enabled = "ibus";
     #   ibus.engines = with pkgs.ibus-engines; [
-    #     uniemoji
     #     mozc
     #   ];
     # };
+
+    # Den krasjer hver gang skrive en bokstav....
+    # i18n.inputMethod = {
+    #   enabled = "fcitx5";
+    #   fcitx5 = {
+    #     waylandFrontend = true;
+    #     addons = with pkgs; [
+    #       fcitx5-gtk
+    #       fcitx5-configtool
+    #       fcitx5-m17n
+    #       fcitx5-mozc
+    #     ];
+    #   };
+    # };
+
+    xdg.autostart.enable = true;
 
     hardware.keyboard.qmk.enable = true;
     # Allow read/write to ttyACM0 serial port

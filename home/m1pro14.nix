@@ -29,16 +29,16 @@
       # TODO: Make this a string instead so that I can set preferred / auto (if width or height == null then preferred, same for position but auto)
       {
         name = "HDMI-A-1";
-        # width = 2560;
-        # height = 1440;
-        width = 1920;
-        height = 1080;
-        rotation = 1;
-        refreshRate = 75;
-        # x = -524;
-        # y = -1440;
-        x = -1080;
-        y = -1100;
+        width = 2560;
+        height = 1440;
+        # width = 1920;
+        # height = 1080;
+        # rotation = 1;
+        # refreshRate = 75;
+        x = -524;
+        y = -1440;
+        # x = -1080;
+        # y = -1100;
         scale = 1;
         enable = true;
         wallpaper = ./wallpapers/wall18.jpg;
@@ -52,6 +52,9 @@
         enable = true;
         # useLegacyRenderer = true;
         screenshots.enable = true;
+      };
+      sway = {
+        enable = true;
       };
       avizo.enable = true;
       hypridle.enable = true;
@@ -100,4 +103,14 @@
     bat-fullcharge = "echo 100 | sudo tee /sys/class/power_supply/macsmc-battery/charge_control_end_threshold";
     bat-limit = "echo 80 | sudo tee /sys/class/power_supply/macsmc-battery/charge_control_end_threshold";
   };
+
+  # i18n.inputMethod = {
+  #   enabled = "fcitx5";
+  #   fcitx5.addons = with pkgs; [
+  #     fcitx5-gtk
+  #     fcitx5-configtool
+  #     fcitx5-m17n
+  #     fcitx5-mozc
+  #   ];
+  # };
 }

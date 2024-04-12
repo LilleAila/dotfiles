@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1711629152,
-        "narHash": "sha256-GxhduJ3mRzdtdOiJTn2fD6Z5rvM51aT9X7YrZCmoKbs=",
+        "lastModified": 1712831798,
+        "narHash": "sha256-FJ9LytXocb2PERvMcmOhp2SmmMYXjauJ8qC1AxwikvU=",
         "owner": "Aylur",
         "repo": "ags",
-        "rev": "eedd643db42bb9a5f837904062efb01b6d59fa5b",
+        "rev": "a626865c9b3b898eaffaa8e2f5efebff62891e8d",
         "type": "github"
       },
       "original": {
@@ -1250,11 +1250,11 @@
         "rtf-tokenize": "rtf-tokenize"
       },
       "locked": {
-        "lastModified": 1712761739,
-        "narHash": "sha256-LS2WA+z0MjuoLRvx67nXs9E0/iQSEwe9zhHEo5mfbxE=",
+        "lastModified": 1712928127,
+        "narHash": "sha256-FcR4Nv/2Yk0N0joVrL6V/7Ei844AUDuUR7llwn6LeVA=",
         "owner": "LilleAila",
         "repo": "plover-flake",
-        "rev": "522812576921b10302522bd8fe271064ad279b8a",
+        "rev": "b19ef395f7d5697c25b0d6e3b4ce8a9c69f06914",
         "type": "github"
       },
       "original": {
@@ -1315,11 +1315,11 @@
     "plover-uinput": {
       "flake": false,
       "locked": {
-        "lastModified": 1712761716,
-        "narHash": "sha256-ExpmeJK0tLWpueebJQRfknJx2vAzlfThqgNn5i+hqF8=",
+        "lastModified": 1712850916,
+        "narHash": "sha256-n2yfhZO25VTvs8IapcH+39dO5aPETdRDKKY8+aBVZOc=",
         "owner": "LilleAila",
         "repo": "plover-uinput",
-        "rev": "b35d7850d686f79e946546c0a93e8cbda0e895d4",
+        "rev": "f6a32b343849ce4037dd574f6ef1d919c07e809f",
         "type": "github"
       },
       "original": {

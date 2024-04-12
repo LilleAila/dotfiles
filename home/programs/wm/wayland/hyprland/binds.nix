@@ -33,7 +33,7 @@
 
       "$mainMod, V, exec, hyprctl reload"
       # TODO sette opp at forskjellige skjerm configs med keubind (jeg gjhør det sikkert senere)
-      "$mainMod SHIFT, V, exec, wlr-randr --output eDP-1 --transform 1 --pos -1920,0"
+      "$mainMod SHIFT, V, exec, wlr-randr --output HDMI-A-1 --transform 90 --pos -1080,-1100"
 
       # Special workspaces
       "$mainMod, Q, exec, bash -c 'pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk &'"

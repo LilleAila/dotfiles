@@ -6,8 +6,9 @@
   ...
 }: {
   imports = [
-    ./monitors.nix
     ./hyprland
+    ./sway
+    ./monitors.nix
     ./hyprlock.nix
     ./swaylock.nix
     ./hypridle.nix
