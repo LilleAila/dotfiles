@@ -14,7 +14,7 @@
     "$calculator" = "qalculate-gtk";
     "$colorPicker" = "${lib.getExe inputs.hyprpicker.packages.${pkgs.system}.hyprpicker} --render-inactive --autocopy --format=hex";
 
-    "$mainMod" = "SUPER";
+    "$mainMod" = lib.mkDefault "SUPER";
 
     bind = [
       # Screenshots

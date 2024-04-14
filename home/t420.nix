@@ -64,5 +64,6 @@
     other.enable = true;
   };
 
-  wayland.windowManager.hyprland.settings.input.kb_options = ["ctrl:nocaps,altwin:swap_alt_win"];
+  wayland.windowManager.hyprland.settings.input.kb_options = lib.mkForce "ctrl:nocaps,altwin:swap_lalt_lwin";
+  # wayland.windowManager.hyprland.settings."$mainMod" = lib.mkForce "ALT_L";
 }

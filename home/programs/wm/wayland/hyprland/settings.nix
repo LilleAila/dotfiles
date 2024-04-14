@@ -39,9 +39,7 @@ in {
       };
       sensitivity = 0.0;
       accel_profile = "flat";
-      kb_options = [
-        "ctrl:nocaps"
-      ];
+      kb_options = lib.mkDefault "ctrl:nocaps";
     };
 
     # "device:synps/2-synaptics-touchpad"
