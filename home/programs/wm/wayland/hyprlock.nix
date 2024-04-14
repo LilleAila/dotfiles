@@ -11,7 +11,7 @@
 
   options.settings.wm.hyprlock.enable = lib.mkEnableOption "hyprlock";
 
-  config = lib.mkIf (config.settings.wm.hyprlock.enable) {
+  config = lib.mkIf (config.settings.wm.hyprlock.enable) (lib.mkAssert (!config.settings.wm.swaylock.enable) "You cannot enable both swaylock and hyprlock at the same time!" {
     programs.hyprlock = let
       primaryMonitor = (builtins.elemAt config.settings.monitors 0).name;
     in {
@@ -96,5 +96,5 @@
         }
       ];
     };
-  };
+  });
 }
