@@ -79,6 +79,7 @@
           pkgs.coreutils
           # config.programs.hyprlock.package
           config.programs.swaylock.package
+          config.wayland.windowManager.hyprland.package # For hyprctl
           pkgs.systemd
         ]}";
         ExecStart = "${config.programs.ags.package}/bin/ags";

@@ -11,8 +11,7 @@
   ];
 
   # https://github.com/tinted-theming/base16-schemes/
-  settings.terminal = { zsh = { enable = true; theme = "nanotech"; }; utils.enable = true; };
-  /*colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
+  colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
   settings = {
     monitors = [
       {
@@ -80,12 +79,6 @@
     };
     imageviewer.enable = true;
     other.enable = true;
-  };*/
-
-  # Local shell aliases
-  home.shellAliases = {
-    bat-fullcharge = "echo 100 | sudo tee /sys/class/power_supply/macsmc-battery/charge_control_end_threshold";
-    bat-limit = "echo 80 | sudo tee /sys/class/power_supply/macsmc-battery/charge_control_end_threshold";
   };
 
   # i18n.inputMethod = {

@@ -113,6 +113,47 @@ in {
             };
           };
 
+          colors = let
+            c = config.colorScheme.palette;
+          in {
+            background = "#${c.base00}";
+            focused = {
+              border = "#${c.base05}";
+              background = "#${c.base00}";
+              text = "#${c.base06}";
+              indicator = "#${c.base00}";
+              childBorder = "#${c.base02}";
+            };
+            focusedInactive = {
+              border = "#${c.base02}";
+              background = "#${c.base00}";
+              text = "#${c.base06}";
+              indicator = "#${c.base00}";
+              childBorder = "#${c.base02}";
+            };
+            unfocused = {
+              border = "#${c.base01}";
+              background = "#${c.base00}";
+              text = "#${c.base06}";
+              indicator = "#${c.base00}";
+              childBorder = "#${c.base02}";
+            };
+            urgent = {
+              border = "#${c.base0A}";
+              background = "#${c.base00}";
+              text = "#${c.base06}";
+              indicator = "#${c.base00}";
+              childBorder = "#${c.base02}";
+            };
+            placeholder = {
+              border = "#${c.base01}";
+              background = "#${c.base00}";
+              text = "#${c.base06}";
+              indicator = "#${c.base00}";
+              childBorder = "#${c.base02}";
+            };
+          };
+
           bars = [];
 
           input = {
@@ -121,7 +162,82 @@ in {
               xkb_options = "ctrl:nocaps";
             };
           };
+
+          window = {
+            titlebar = false;
+            border = 0;
+          };
+
+          # Set wallpapers
+          output = {
+            # "*" = {bg = "";};
+          };
+
+          workspaceAutoBackAndForth = true; # Switch twice to return
+          defaultWorkspace = "workspace number 1";
+          workspaceOutputAssign = [
+            {
+              workspace = "number 1";
+              output = "eDP-1";
+            }
+            {
+              workspace = "number 2";
+              output = "eDP-1";
+            }
+            {
+              workspace = "number 3";
+              output = "eDP-1";
+            }
+            {
+              workspace = "number 4";
+              output = "eDP-1";
+            }
+            {
+              workspace = "number 5";
+              output = "eDP-1";
+            }
+            {
+              workspace = "number 6";
+              output = "HDMI-A-1";
+            }
+            {
+              workspace = "number 7";
+              output = "HDMI-A-1";
+            }
+            {
+              workspace = "number 8";
+              output = "HDMI-A-1";
+            }
+            {
+              workspace = "number 9";
+              output = "HDMI-A-1";
+            }
+            {
+              workspace = "number 10";
+              output = "HDMI-A-1";
+            }
+          ];
+
+          gaps = {
+            inner = 0;
+            outer = 0;
+            horizontal = 0;
+            vertical = 0;
+            top = 0;
+            left = 0;
+            bottom = 0;
+            right = 0;
+          };
         };
+        # Monitor config, set graphically and imperativaly with nwg-displays
+        extraConfig = ''
+          include $HOME/.config/sway/outputs
+
+          blur enable
+          corner_radius 0
+          shadows disable
+          default_dim_inactive 0.2
+        '';
       };
     })
   ];

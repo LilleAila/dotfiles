@@ -33,7 +33,7 @@
       bluetooth.enable = true;
     };
     utils.enable = true;
-    #desktop.enable = true;
+    desktop.enable = true;
     tlp.enable = false;
     console = {
       font = "ter-u16n";
