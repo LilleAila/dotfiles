@@ -24,6 +24,11 @@
           vim = "nvim";
           nano = "nvim";
           e = "nvim";
+          vnim = "nvim";
+          nvi = "nvim";
+          nivm = "nvim";
+          nimv = "nvim";
+
           vimdiff = "nvim -d";
           diff = "nvim -d";
         };
