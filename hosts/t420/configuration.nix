@@ -116,14 +116,14 @@
   };
 
   services.greetd = {
-  	enable = true;
-  	settings = {
-  		default_session = {
-  			# command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
-  			command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd Hyprland";
-  		};
-  	};
-  	vt = 2;
+    enable = true;
+    settings = {
+      default_session = {
+        # command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd Hyprland";
+      };
+    };
+    vt = 2;
   };
 
   programs.dconf.enable = true;

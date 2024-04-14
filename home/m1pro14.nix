@@ -114,8 +114,8 @@
   #   ];
   # };
 
-	home.packages = with pkgs; [
-		(import ../pkgs/box64.nix { inherit pkgs stdenv; })
-		# (pkgs.callPackage ../pkgs/factorio.nix { releaseType = "demo" })
-	];
+  home.packages = with pkgs; [
+    (import ../pkgs/box64.nix {inherit pkgs stdenv;})
+    # (pkgs.callPackage ../pkgs/factorio.nix { releaseType = "demo" })
+  ];
 }
