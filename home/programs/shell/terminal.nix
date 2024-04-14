@@ -11,6 +11,10 @@
       type = lib.types.str;
       default = "kitty";
     };
+    # TODO: use these options. Either use assertions to allow only one, or use another value to set the default terminal, but allow installing multiple
+    kitty.enable = lib.mkEnableOption "Kitty terminal emulator";
+    alacritty.enable = lib.mkEnableOption "Alacritty terminal emulator";
+    wezterm.enable = lib.mkEnableOption "WezTerm terminal emulator";
     emulator.exec = lib.mkOption {
       # internal option, do not set in config
       type = lib.types.str;
