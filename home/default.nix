@@ -44,24 +44,23 @@
     python311
     dconf
 
-    pavucontrol
-    geogebra6
+    #pavucontrol
+    #geogebra6
     nurl
     sops
 
-    _1password-gui-beta
-    handbrake
+    #_1password-gui-beta
+    #handbrake
 
-    (import ../pkgs/box64.nix {inherit pkgs stdenv;})
+    #(import ../pkgs/box64.nix {inherit pkgs stdenv;})
 
     # idk what i'm doing lol
     # (pkgs.callPackage ../pkgs/factorio.nix {releaseType = "demo";})
 
-    (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (ps:
-      with ps; [
-        # plover_output_dotool
-        plover-uinput
-      ]))
+    #(inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (ps:
+    #  with ps; [
+    #    plover-uinput
+    #  ]))
   ];
 
   home.sessionVariables."PLOVER_UINPUT_LAYOUT" = "no";
