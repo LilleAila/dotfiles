@@ -51,7 +51,7 @@
           EOF
 
           ${pkgs.sass}/bin/sass ./style.scss ./style.css
-          ${pkgs.bun}/bin/bun build ./config.ts \
+          ${lib.getExe pkgs.bun} build ./config.ts \
           	--outfile config.js \
           	--external "resource://*" \
           	--external "gi://*"

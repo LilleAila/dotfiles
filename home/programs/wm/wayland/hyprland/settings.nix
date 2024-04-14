@@ -52,7 +52,7 @@ in {
       workspace_swipe_distance = 400;
       workspace_swipe_min_speed_to_force = 25;
       workspace_swipe_create_new = false;
-      workspace_swipe_numbered = true;
+      # workspace_swipe_numbered = true;
     };
 
     general = {
