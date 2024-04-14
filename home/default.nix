@@ -44,18 +44,13 @@
     python311
     dconf
 
-    #pavucontrol
+    pavucontrol
     #geogebra6
     nurl
     sops
 
-    #_1password-gui-beta
-    #handbrake
-
-    #(import ../pkgs/box64.nix {inherit pkgs stdenv;})
-
-    # idk what i'm doing lol
-    # (pkgs.callPackage ../pkgs/factorio.nix {releaseType = "demo";})
+    _1password-gui-beta
+    handbrake
 
     (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (ps:
       with ps; [

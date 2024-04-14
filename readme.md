@@ -26,7 +26,7 @@ I use the following computers with this configuration:
 | Lenovo Legion Y540     | `legion`  | `x86_64`     |                             |
 | Oracle cloud A1        | `oci`     | `aarch64`    |                             |
 | Lenovo ThinkPad e540   | `e540`    | `x86_64`     | Not configured yet          |
-| Raspberry pi 400       | `pi4`     | `aarch64`    | Hardware conf missing       |
+| Raspberry pi 400       | `pi4`     | `aarch64`    |                             |
 
 Currently, all the systems use the excact same configuration. This is all in one flake, so you should be able to install it with `sudo nixos-rebuild switch --flake "github:LilleAila/dotfiles"#<name>`.
 
