@@ -57,10 +57,10 @@
     # idk what i'm doing lol
     # (pkgs.callPackage ../pkgs/factorio.nix {releaseType = "demo";})
 
-    #(inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (ps:
-    #  with ps; [
-    #    plover-uinput
-    #  ]))
+    (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (ps:
+      with ps; [
+        plover-uinput
+      ]))
   ];
 
   home.sessionVariables."PLOVER_UINPUT_LAYOUT" = "no";

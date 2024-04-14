@@ -113,4 +113,9 @@
   #     fcitx5-mozc
   #   ];
   # };
+
+	home.packages = with pkgs; [
+		(import ../pkgs/box64.nix { inherit pkgs stdenv; })
+		# (pkgs.callPackage ../pkgs/factorio.nix { releaseType = "demo" })
+	];
 }

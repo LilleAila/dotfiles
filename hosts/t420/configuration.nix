@@ -131,8 +131,8 @@
   # Configure keymap in X11
   services.xserver = {
     enable = true;
-    layout = "no";
-    xkbVariant = "";
+    xkb.layout = "no";
+    xkb.variant = "";
 
     updateDbusEnvironment = true;
     libinput = {
