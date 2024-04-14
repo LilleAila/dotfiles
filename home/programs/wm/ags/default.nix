@@ -51,10 +51,20 @@
           EOF
 
           ${pkgs.sass}/bin/sass ./style.scss ./style.css
-          ${lib.getExe pkgs.bun} build ./config.ts \
-          	--outfile config.js \
-          	--external "resource://*" \
-          	--external "gi://*"
+
+          # ${lib.getExe pkgs.bun} build ./config.ts \
+          # 	--outfile config.js \
+          # 	--external "resource://*" \
+          # 	--external "gi://*"
+
+          # Bun build does not work on old CPUs, such as the one in T420 :(
+          ${lib.getExe pkgs.esbuild} config.ts \
+            --outfile=config.js \
+            --bundle \
+            --platform=neutral \
+            --target=es2017 \
+            --external:"resource://*" \
+            --external:"gi://*"
         '';
 
       installPhase =

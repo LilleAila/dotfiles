@@ -26,7 +26,7 @@
     qt.enable = true;
     gtk.enable = true;
     wm = {
-      # ags.enable = true;
+      ags.enable = true;
       hyprland = {
         enable = true;
         screenshots.enable = true;
