@@ -77,7 +77,7 @@
         },
         "BetterFolders": {
             "enabled": true,
-            "sidebar": true,
+            "sidebar": false,
             "showFolderIcon": 1,
             "closeAllHomeButton": false,
             "keepIcons": false,
