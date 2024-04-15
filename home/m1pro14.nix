@@ -16,29 +16,10 @@
     monitors = [
       {
         name = "eDP-1";
-        width = 3024; # 1512
-        height = 1890; # 945
-        refreshRate = 60;
-        x = 0;
-        y = 0;
-        scale = 2;
-        enable = true;
         wallpaper = ./wallpapers/wall3.jpg;
       }
       {
         name = "HDMI-A-1";
-        width = 2560;
-        height = 1440;
-        # width = 1920;
-        # height = 1080;
-        # rotation = 1;
-        # refreshRate = 75;
-        x = -524;
-        y = -1440;
-        # x = -1080;
-        # y = -1100;
-        scale = 1;
-        enable = true;
         wallpaper = ./wallpapers/wall18.jpg;
       }
     ];

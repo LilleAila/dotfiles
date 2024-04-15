@@ -13,13 +13,6 @@
     monitors = [
       {
         name = "LVDS-1";
-        width = 1600;
-        height = 900;
-        refreshRate = 60;
-        x = 0;
-        y = 0;
-        scale = 1;
-        enable = true;
         wallpaper = ./wallpapers/wall13.jpg;
       }
     ];

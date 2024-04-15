@@ -14,47 +14,46 @@ in {
           type = types.str;
           example = "eDP-1";
         };
-        width = mkOption {
-          type = types.int;
-          example = 1920;
-        };
-        height = mkOption {
-          type = types.int;
-          default = 1080;
-        };
-        refreshRate = mkOption {
-          type = types.int;
-          default = 60;
-        };
-        x = mkOption {
-          type = types.int;
-          default = 0;
-        };
-        y = mkOption {
-          type = types.int;
-          default = 0;
-        };
-        scale = mkOption {
-          type = types.int;
-          default = 1;
-        };
-        enable = mkOption {
-          type = types.bool;
-          default = true;
-        };
+        # width = mkOption {
+        #   type = types.int;
+        #   example = 1920;
+        # };
+        # height = mkOption {
+        #   type = types.int;
+        #   default = 1080;
+        # };
+        # refreshRate = mkOption {
+        #   type = types.int;
+        #   default = 60;
+        # };
+        # x = mkOption {
+        #   type = types.int;
+        #   default = 0;
+        # };
+        # y = mkOption {
+        #   type = types.int;
+        #   default = 0;
+        # };
+        # scale = mkOption {
+        #   type = types.int;
+        #   default = 1;
+        # };
+        # enable = mkOption {
+        #   type = types.bool;
+        #   default = true;
+        # };
         wallpaper = mkOption {
           type = types.path;
           default = null;
         };
-        primary = mkOption {
-          # Used by hyprlock
-          type = types.bool;
-          default = false;
-        };
-        rotation = mkOption {
-          type = types.int;
-          default = 0;
-        };
+        # primary = mkOption {
+        #   type = types.bool;
+        #   default = false;
+        # };
+        # rotation = mkOption {
+        #   type = types.int;
+        #   default = 0;
+        # };
       };
     });
     default = [];
