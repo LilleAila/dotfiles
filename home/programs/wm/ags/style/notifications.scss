@@ -1,0 +1,62 @@
+window.notification-popups {
+  .notifications {
+    padding: 0.5em;
+    min-width: 2px;
+    min-height: 2px;
+  }
+
+  .icon {
+    min-width: 68px;
+    min-height: 68px;
+    margin-right: 1em;
+
+    image {
+      font-size: 58px;
+      margin: 5px;
+      color: $fg;
+    }
+
+    box {
+      min-width: 68px;
+      min-height: 68px;
+      border-radius: 7px;
+    }
+  }
+
+  .notification {
+    min-width: 250px;
+    border-radius: 11px;
+    padding: 1em;
+    margin: 0.5em;
+    border: 1px solid $fg_alt;
+    // background-color: $bar_bg;
+    background-color: rgba($bg, 0.1);
+
+    &.critical {
+      border: 1px solid $base08;
+    }
+  }
+
+  .title {
+    color: $fg;
+  }
+
+  .body {
+    color: $fg_alt;
+  }
+
+  .actions {
+    .action-button {
+      margin: 0 0.4em;
+      margin-top: 0.8em;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

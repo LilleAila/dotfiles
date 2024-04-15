@@ -40,7 +40,7 @@
       # hyprlock.enable = true;
       swaylock.enable = true;
       hyprpaper.enable = true;
-      mako.enable = true;
+      mako.enable = false; # Replaced with ags
       wlogout.enable = false; # Replaced with ags
     };
     files = {

@@ -4,24 +4,11 @@
   lib,
   inputs,
   ...
-}: let
-  startupScript =
-    pkgs.pkgs.writeShellScriptBin "start"
-    /*
-    bash
-    */
-    ''
-      ${pkgs.mako}/bin/mako &
-    '';
-in {
+}: {
   wayland.windowManager.hyprland.settings = {
     monitor = [
       # Monitor fallback
       ", preferred, auto, 1"
-    ];
-    # TODO: completely replace the startup script with systemd services (only mako left)
-    exec-once = [
-      "${startupScript}/bin/start"
     ];
     env = [
       "XCURSOR_SIZE,24"
@@ -167,6 +154,10 @@ in {
       "blur, corner*"
       "ignorealpha 0.2, corner*"
       "noanim, corner*"
+
+      "blur, notifications*"
+      "ignorezero, notifications*"
+      "noanim, notifications*"
     ];
   };
 }
