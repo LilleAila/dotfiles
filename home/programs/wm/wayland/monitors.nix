@@ -1,6 +1,8 @@
 {
   lib,
   config,
+  pkgs,
+  inputs,
   ...
 }: let
   inherit (lib) mkOption types;
@@ -62,23 +64,25 @@ in {
   };
 
   config = {
-    wayland.windowManager.hyprland.settings.monitor =
-      map
-      (
-        m: let
-          resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
-          position = "${toString m.x}x${toString m.y}";
-          scale = "${toString m.scale}";
-        in "${m.name},${
-          if m.enable
-          then "${resolution},${position},${scale}${
-            if (m.rotation != 0)
-            then ",transform,${toString m.rotation}"
-            else ""
-          }"
-          else "disable"
-        }"
-      )
-      (config.settings.monitors);
+    home.packages = [pkgs.nwg-displays];
+    # Switched to using nwg-displays instead (:o no declarative?????)
+    # wayland.windowManager.hyprland.settings.monitor =
+    #   map
+    #   (
+    #     m: let
+    #       resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
+    #       position = "${toString m.x}x${toString m.y}";
+    #       scale = "${toString m.scale}";
+    #     in "${m.name},${
+    #       if m.enable
+    #       then "${resolution},${position},${scale}${
+    #         if (m.rotation != 0)
+    #         then ",transform,${toString m.rotation}"
+    #         else ""
+    #       }"
+    #       else "disable"
+    #     }"
+    #   )
+    #   (config.settings.monitors);
   };
 }

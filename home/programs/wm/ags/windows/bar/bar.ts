@@ -12,7 +12,7 @@ const Start = () =>
   Widget.Box({
     hexpand: true,
     hpack: "start",
-    children: [Workspaces()],
+    children: [Time(), Workspaces()],
   });
 
 const Center = () =>
@@ -40,7 +40,7 @@ export default (monitor: number = 0) =>
       className: "bar",
 
       startWidget: Start(),
-      centerWidget: Center(),
+      //centerWidget: Center(),
       endWidget: End(),
     }),
   });

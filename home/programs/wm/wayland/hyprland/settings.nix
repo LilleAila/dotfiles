@@ -28,6 +28,25 @@ in {
       "GRIMBLAST_EDITOR,\"swappy -f\""
     ];
 
+    # Configured through nwg-displays
+    source = [
+      "~/.config/hypr/monitors.conf"
+      "~/.config/hypr/workspaces.conf"
+    ];
+
+    # Also using nwg-displays
+    # workspace = [
+    #   "1, monitor:eDP-1,default:true"
+    #   "2, monitor:eDP-1"
+    #   "3, monitor:eDP-1"
+    #   "4, monitor:eDP-1"
+    #   "5, monitor:eDP-1"
+    #   "6, monitor:HDMI-A-1,default:true"
+    #   "7, monitor:HDMI-A-1"
+    #   "8, monitor:HDMI-A-1"
+    #   "9, monitor:HDMI-A-1"
+    # ];
+
     input = {
       kb_layout = "no";
       follow_mouse = 1;
@@ -126,9 +145,11 @@ in {
       "float,class:(nm-*)"
       "float,class:(.blueman-*)"
       "float,class:(pavucontrol)"
+      "float,class:(nwg-displays)"
       "workspace special:config,class:(nm-*)"
       "workspace special:config,class:(.blueman-*)"
       "workspace special:config,class:(pavucontrol)"
+      "workspace special:config,class:(nwg-displays)"
 
       "rounding 12, floating:1"
       "noborder, floating:0"
@@ -137,22 +158,15 @@ in {
     layerrule = [
       "blur, bar*"
       "ignorealpha 0.2, bar*"
+      "noanim, bar*"
+
       "blur, powermenu"
       "ignorealpha 0.2, powermenu"
+      "noanim, powermenu"
+
       "blur, corner*"
       "ignorealpha 0.2, corner*"
-    ];
-
-    workspace = [
-      "1, monitor:eDP-1"
-      "2, monitor:eDP-1"
-      "3, monitor:eDP-1"
-      "4, monitor:eDP-1"
-      "5, monitor:eDP-1"
-      "6, monitor:HDMI-A-1"
-      "7, monitor:HDMI-A-1"
-      "8, monitor:HDMI-A-1"
-      "9, monitor:HDMI-A-1"
+      "noanim, corner*"
     ];
   };
 }

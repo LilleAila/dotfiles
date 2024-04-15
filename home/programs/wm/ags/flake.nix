@@ -27,6 +27,7 @@
       perSystem = {
         pkgs,
         system,
+        lib,
         ...
       }: {
         devshells.default = {
@@ -71,11 +72,13 @@
                 EOF
 
                 ${pkgs.sass}/bin/sass ./style.scss ./style.css
-                ${pkgs.bun}/bin/bun build ./config.ts \
-                  --outfile config.js \
-                  --external "resource://*" \
-                  --external "gi://*"
-
+                ${lib.getExe pkgs.esbuild} config.ts \
+                  --outfile=config.js \
+                  --bundle \
+                  --platform=neutral \
+                  --target=es2017 \
+                  --external:"resource://*" \
+                  --external:"gi://*"
               '';
 
             installPhase =
@@ -88,7 +91,7 @@
                 cp -r * $out
 
                 cat << EOF > $out/bin/ags
-                ags -c $out/config.js
+                ags -c $out/config.js -b ags-testing
                 EOF
                 chmod +x $out/bin/ags
               '';

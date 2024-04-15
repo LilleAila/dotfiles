@@ -25,8 +25,6 @@
         enable = true;
         wallpaper = ./wallpapers/wall3.jpg;
       }
-      # Use keybindings with wlr-randr to define external displays, reload with mod V
-      # TODO: Make this a string instead so that I can set preferred / auto (if width or height == null then preferred, same for position but auto)
       {
         name = "HDMI-A-1";
         width = 2560;

@@ -3,7 +3,7 @@ import { Widget, Hyprland } from "../../imports";
 export default () =>
   Widget.Box({
     class_name: "workspaces",
-    children: [...Array(9)].map((_, i) => {
+    children: [...Array(10)].map((_, i) => {
       const id = i + 1;
       return Widget.Button({
         class_name: "workspace",
