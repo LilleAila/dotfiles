@@ -49,6 +49,7 @@
           background_opacity = "0.8";
           # window_padding_width = 5;
           window_padding_width = 0;
+          confirm_os_window_close = 0;
 
           foreground = "#${base06}";
           background = "#${base00}";

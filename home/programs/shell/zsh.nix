@@ -50,8 +50,6 @@ in {
         			echo "$1 is not a valid file"
         		fi
         }
-
-        ${pkgs.nitch}/bin/nitch
       '';
       /*
       Fastest to slowest
@@ -61,7 +59,7 @@ in {
       ${pkgs.disfetch}/bin/disfetch
       ${pkgs.owofetch}/bin/owofetch
       ${pkgs.inxi}/bin/inxi
-      ${pkgs.nitch}/bin/nitch
+      ${pkgs.nitch}/bin/nitch # Looks the most goodest
       ${pkgs.bunnyfetch}/bin/bunnyfetch
       ${pkgs.yafetch}/bin/yafetch
       ${pkgs.afetch}/bin/afetch

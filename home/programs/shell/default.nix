@@ -13,5 +13,6 @@
     ./neovim.nix
     ./lf.nix
     ./git.nix
+    ./zellij.nix
   ];
 }

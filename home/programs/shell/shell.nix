@@ -14,6 +14,8 @@
       cd = "z";
       open = "xdg-open";
       o = "xdg-open";
+
+      neofetch = "${lib.getExe pkgs.nitch}";
     };
 
     programs.fzf = {
