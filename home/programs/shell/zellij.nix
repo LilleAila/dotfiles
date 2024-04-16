@@ -10,6 +10,14 @@
       programs.zellij = {
         enable = true;
         settings = {
+          copy_command = lib.getExe' pkgs.wl-clipboard "wl-copy";
+          # copy_clipboard = "system";
+          copy_on_select = false;
+          session_serialization = true; # Save sessions
+          pane_viewport_serialization = true;
+          scrollback_lines_to_serialize = 100;
+          ui.pane_frames.rounded_corners = true;
+
           themes.nix-colors = let
             c = config.colorScheme.colors;
           in {
@@ -20,9 +28,9 @@
             yellow = "#${c.base0A}";
             blue = "#${c.base0D}";
             magenta = "#${c.base0E}";
-            orange = "#${c.base09}";
+            orange = "#${c.base0F}";
             cyan = "#${c.base0C}";
-            black = "#${c.base00}";
+            black = "#${c.base01}";
             white = "#${c.base05}";
           };
           theme = "nix-colors";
