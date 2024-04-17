@@ -91,7 +91,7 @@
                 cp -r * $out
 
                 cat << EOF > $out/bin/ags
-                ags -c $out/config.js -b ags-testing
+                ags -c $out/config.js
                 EOF
                 chmod +x $out/bin/ags
               '';

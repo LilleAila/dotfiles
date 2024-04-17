@@ -16,7 +16,8 @@ import Network from "resource:///com/github/Aylur/ags/service/network.js";
 import Notifications from "resource:///com/github/Aylur/ags/service/notifications.js";
 import PowerProfiles from "resource:///com/github/Aylur/ags/service/powerprofiles.js";
 import SystemTray from "resource:///com/github/Aylur/ags/service/systemtray.js";
-import Gdk from "gi://Gdk"
+import Applications from "resource:///com/github/Aylur/ags/service/applications.js";
+import Gdk from "gi://Gdk";
 
 export {
   App,
@@ -31,8 +32,9 @@ export {
   PowerProfiles,
   Service,
   SystemTray,
+  Applications,
   Utils,
   Variable,
   Widget,
-	Gdk,
+  Gdk,
 };

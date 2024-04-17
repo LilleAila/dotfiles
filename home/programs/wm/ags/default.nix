@@ -77,26 +77,27 @@
         '';
     };
 
-    systemd.user.services.ags = {
-      Unit = {
-        Description = "Aylur's GTK Shell";
-        PartOf = ["graphical-session.target"];
-      };
-
-      Service = {
-        # Dependencies have to be added manually to PATH
-        Environment = "PATH=${lib.makeBinPath [
-          pkgs.coreutils
-          # config.programs.hyprlock.package
-          config.programs.swaylock.package
-          config.wayland.windowManager.hyprland.package # For hyprctl
-          pkgs.systemd
-        ]}";
-        ExecStart = "${config.programs.ags.package}/bin/ags";
-        Restart = "on-failure";
-      };
-
-      Install.WantedBy = ["graphical-session.target"];
-    };
+    # This works well, other than the app launcher. Because it's run in a separated environment, it does not have all available apps in the list, so I had to launch ags from hyprland `exec-once` instead
+    # systemd.user.services.ags = {
+    #   Unit = {
+    #     Description = "Aylur's GTK Shell";
+    #     PartOf = ["graphical-session.target"];
+    #   };
+    #
+    #   Service = {
+    #     # Dependencies have to be added manually to PATH
+    #     Environment = "PATH=${lib.makeBinPath [
+    #       pkgs.coreutils
+    #       # config.programs.hyprlock.package
+    #       config.programs.swaylock.package
+    #       config.wayland.windowManager.hyprland.package # For hyprctl
+    #       pkgs.systemd
+    #     ]}";
+    #     ExecStart = "${config.programs.ags.package}/bin/ags";
+    #     Restart = "on-failure";
+    #   };
+    #
+    #   Install.WantedBy = ["graphical-session.target"];
+    # };
   };
 }

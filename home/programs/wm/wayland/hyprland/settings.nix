@@ -6,6 +6,10 @@
   ...
 }: {
   wayland.windowManager.hyprland.settings = {
+    exec-once = [
+      "ags"
+    ];
+
     monitor = [
       # Monitor fallback
       ", preferred, auto, 1"
@@ -20,19 +24,6 @@
       "~/.config/hypr/monitors.conf"
       "~/.config/hypr/workspaces.conf"
     ];
-
-    # Also using nwg-displays
-    # workspace = [
-    #   "1, monitor:eDP-1,default:true"
-    #   "2, monitor:eDP-1"
-    #   "3, monitor:eDP-1"
-    #   "4, monitor:eDP-1"
-    #   "5, monitor:eDP-1"
-    #   "6, monitor:HDMI-A-1,default:true"
-    #   "7, monitor:HDMI-A-1"
-    #   "8, monitor:HDMI-A-1"
-    #   "9, monitor:HDMI-A-1"
-    # ];
 
     input = {
       kb_layout = "no";
@@ -158,6 +149,10 @@
       "blur, notifications*"
       "ignorezero, notifications*"
       "noanim, notifications*"
+
+      "blur, applauncher"
+      "ignorezero, applauncher"
+      "noanim, applauncher"
     ];
   };
 }

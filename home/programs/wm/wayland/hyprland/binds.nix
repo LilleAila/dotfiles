@@ -10,7 +10,7 @@
     "$terminal" = "${lib.getExe config.settings.terminal.emulator.package}";
     "$fileManager" = "nemo";
     "$webBrowser" = "${lib.getExe config.programs.firefox.package}";
-    "$launcher" = "rofi -show drun -show-icons";
+    "$launcher" = "ags -t applauncher";
     "$calculator" = "qalculate-gtk";
     "$colorPicker" = "${lib.getExe inputs.hyprpicker.packages.${pkgs.system}.hyprpicker} --render-inactive --autocopy --format=hex";
 

@@ -20,7 +20,6 @@
     (lib.mkIf (config.settings.wm.hyprland.enable) {
       # Random dependencies and stuff
       home.packages = with pkgs; [
-        rofi-wayland
         libnotify
         avizo
         pamixer
