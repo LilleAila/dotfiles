@@ -115,7 +115,7 @@
     };
   in {
     nixosConfigurations = {
-      m1pro14 = nixpkgs.lib.nixosSystem {
+      mac-nix = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         specialArgs = {
           inherit inputs;
@@ -124,7 +124,7 @@
         modules = [
           {nixpkgs.overlays = [inputs.nixos-apple-silicon.overlays.apple-silicon-overlay];}
           inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
-          ./hosts/m1pro14/configuration.nix
+          ./hosts/mac-nix/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -134,7 +134,7 @@
               };
               useUserPackages = true;
               useGlobalPkgs = true;
-              users."${globalSettings.username}" = ./home/m1pro14.nix;
+              users."${globalSettings.username}" = ./home/mac-nix.nix;
             };
           }
         ];

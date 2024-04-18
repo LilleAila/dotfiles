@@ -27,7 +27,7 @@
     user.shell = pkgs.zsh;
     networking = {
       enable = true;
-      hostname = "nixos-mac";
+      hostname = "mac-nix";
       wifi.enable = true;
       bluetooth.enable = true;
     };
