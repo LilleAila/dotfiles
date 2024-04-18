@@ -45,8 +45,6 @@
       };
     };
 
-    # system.nixos.codeName = "hmm";
-
     # Enable some packages and random stuff
     environment.systemPackages = with pkgs; [
       vim
@@ -56,8 +54,6 @@
 
       dotool
       wtype
-
-      polkit_gnome
     ];
   };
 }
