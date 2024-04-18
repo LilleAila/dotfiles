@@ -31,7 +31,6 @@
     # system.nixos.codeName = "hmm";
 
     # Enable some packages and random stuff
-    nixpkgs.config.allowUnfree = true;
     environment.systemPackages = with pkgs; [
       vim
       wget

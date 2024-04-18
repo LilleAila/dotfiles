@@ -27,13 +27,6 @@
     ./programs/wm/ags
   ];
 
-  # Random other packages (hmm, it seems that all unfree packages are allowed because useGlobalPkgs... TODO)
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "geogebra6"
-      "_1password-gui-beta"
-    ];
-
   home.packages = with pkgs; [
     gcc
     cmake
@@ -44,19 +37,7 @@
     python311
     dconf
 
-    pavucontrol
-    #geogebra6
     nurl
     sops
-
-    _1password-gui-beta
-    handbrake
-
-    (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (ps:
-      with ps; [
-        plover-uinput
-      ]))
   ];
-
-  home.sessionVariables."PLOVER_UINPUT_LAYOUT" = "no";
 }

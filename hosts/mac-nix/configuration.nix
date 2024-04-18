@@ -49,16 +49,15 @@
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
-  environment.systemPackages = with pkgs; [
-    wayvnc
-  ];
+  # programs.nix-ld.enable = true;
 
-  programs.nix-ld.enable = true;
-
-  networking.firewall = {
-    allowedUDPPorts = [5900]; # For vnc
-    allowedTCPPorts = [5900];
-  };
+  nixpkgs.config.allowUnsupportedSystem = true;
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "geogebra"
+      "1password"
+      "1password-gui"
+    ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
 }

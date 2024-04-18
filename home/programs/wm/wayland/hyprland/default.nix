@@ -23,6 +23,7 @@
         libnotify
         avizo
         pamixer
+        pavucontrol
         playerctl
         brightnessctl
         qalculate-gtk

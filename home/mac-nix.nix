@@ -96,5 +96,18 @@
   home.packages = with pkgs; [
     (import ../pkgs/box64.nix {inherit pkgs stdenv;})
     # (pkgs.callPackage ../pkgs/factorio.nix { releaseType = "demo" })
+
+    _1password-gui-beta
+    handbrake
+
+    (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (ps:
+      with ps; [
+        plover-uinput
+      ]))
+
+    geogebra6
+    lmms
   ];
+
+  home.sessionVariables."PLOVER_UINPUT_LAYOUT" = "no";
 }
