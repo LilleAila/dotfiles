@@ -19,7 +19,7 @@
           ui.pane_frames.rounded_corners = true;
 
           themes.nix-colors = let
-            c = config.colorScheme.colors;
+            c = config.colorScheme.palette;
           in {
             fg = "#${c.base06}";
             bg = "#${c.base00}";

@@ -21,6 +21,15 @@
     services.fstrim.enable = true;
     services.upower.enable = true;
 
+    programs.nh = {
+      enable = true;
+      flake = "/home/olai/dotfiles";
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+    };
+
+    # system.nixos.codeName = "hmm";
+
     # Enable some packages and random stuff
     nixpkgs.config.allowUnfree = true;
     environment.systemPackages = with pkgs; [
