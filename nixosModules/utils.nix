@@ -22,11 +22,14 @@
     services.upower.enable = true;
 
     programs.nh = {
+      package = inputs.nh.packages.${pkgs.system}.nh;
       enable = true;
       flake = "/home/olai/dotfiles";
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 3";
     };
+
+    security.polkit.enable = true;
 
     # system.nixos.codeName = "hmm";
 
@@ -34,12 +37,13 @@
     environment.systemPackages = with pkgs; [
       vim
       wget
-      neovim
-      home-manager
       git
       pciutils
+
       dotool
       wtype
+
+      polkit_gnome
     ];
   };
 }

@@ -69,7 +69,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # === Other ===
+    # === Other utils ===
     flake-utils.url = "github:numtide/flake-utils";
 
     plover-flake.url = "github:LilleAila/plover-flake/wayland-support";
@@ -93,6 +93,11 @@
 
     nix-index-database.url = "github:Mic92/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
+    nh = {
+      url = "github:viperML/nh";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # === Neovim configuration ===
     nixvim-config = {

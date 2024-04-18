@@ -16,6 +16,9 @@
       o = "xdg-open";
 
       neofetch = "${lib.getExe pkgs.nitch}";
+
+      osbuild = lib.mkDefault "nh os switch";
+      nix-collect-garbage = "nh clean all --nogcroots";
     };
 
     programs.fzf = {
