@@ -65,6 +65,7 @@
   "browser.aboutConfig.showWarning" = false;
   "extensions.autoDisableScopes" = 0; # enables all extensions
   "media.videocontrols.picture-in-picture.enabled" = false;
+  "mousewheel.with_control.action" = 0; # Disable ctrl+scroll to zoom
 
   "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 }
