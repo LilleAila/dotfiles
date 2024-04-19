@@ -96,8 +96,6 @@
   # };
 
   home.packages = with pkgs; [
-    # (pkgs.callPackage ../pkgs/box64.nix {})
-    # (pkgs.callPackage ../pkgs/factorio.nix {releaseType = "demo";})
     outputs.packages.${pkgs.system}.box64
 
     _1password-gui-beta

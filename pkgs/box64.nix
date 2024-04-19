@@ -1,6 +1,7 @@
 {
   pkgs,
   stdenv,
+  lib,
   cmake,
   python3,
   ...
@@ -33,4 +34,14 @@ stdenv.mkDerivation {
 
     runHook postInstall
   '';
+
+  meta = with lib; {
+    homepage = "https://box86.org/";
+    description = "A slightly modified version of box64 that runs on asahi";
+    license = licenses.mit;
+    # maintainers = with maintainers; [gador OPNA2608];
+    mainProgram = "box64";
+    # x86 also supported because that's what forAllSystems does, idk how to fix
+    platforms = ["aarch64-linux" "x86_64-linux"];
+  };
 }
