@@ -32,7 +32,10 @@
       driSupport = true;
     };
 
+    programs.nix-ld.enable = true;
+
     sound.enable = true;
+    services.pipewire.jack.enable = true;
 
     swapDevices = [
       {

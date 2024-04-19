@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  outputs,
   lib,
   ...
 }: {
@@ -95,8 +96,9 @@
   # };
 
   home.packages = with pkgs; [
-    (import ../pkgs/box64.nix {inherit pkgs stdenv;})
-    # (pkgs.callPackage ../pkgs/factorio.nix { releaseType = "demo" })
+    # (pkgs.callPackage ../pkgs/box64.nix {})
+    # (pkgs.callPackage ../pkgs/factorio.nix {releaseType = "demo";})
+    outputs.packages.${pkgs.system}.box64
 
     _1password-gui-beta
     handbrake

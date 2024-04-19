@@ -25,6 +25,11 @@
       "~/.config/hypr/workspaces.conf"
     ];
 
+    xwayland = {
+      use_nearest_neighbor = false; # Blurry rather than pixelated
+      force_zero_scaling = false;
+    };
+
     input = {
       kb_layout = "no";
       follow_mouse = 1;

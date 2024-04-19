@@ -1,6 +1,8 @@
 {
   pkgs,
   stdenv,
+  cmake,
+  python3,
   ...
 }:
 stdenv.mkDerivation {
@@ -8,11 +10,11 @@ stdenv.mkDerivation {
   src = pkgs.fetchFromGitHub {
     owner = "ptitSeb";
     repo = "box64";
-    rev = "4a889e39ad9a8b39119e71a8c9640affd3591a34";
-    hash = "sha256-HviPNRWy7ScxNODPi7LbuNo08MbEd6/c9BtWhN9bA/E=";
+    rev = "cb6616bba13d61b130be53b32db1740becee03d3";
+    hash = "sha256-0ZFgOLCy/E7A1t0dzgHgkzeT1Nu94Fn6Bbz7Cih2KuQ=";
   };
 
-  nativeBuildInputs = with pkgs; [
+  nativeBuildInputs = [
     cmake
     python3
   ];

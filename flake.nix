@@ -110,21 +110,38 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
     home-manager,
     nixos-hardware,
     ...
   } @ inputs: let
+    inherit (self) outputs;
+    lib = nixpkgs.lib // home-manager.lib;
+    systems = [
+      "x86_64-linux"
+      "aarch64-linux"
+    ];
+    forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
+    pkgsFor = lib.genAttrs systems (
+      system:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        }
+    );
     globalSettings = {
       username = "olai";
     };
   in {
+    packages = forEachSystem (pkgs: import ./pkgs {inherit pkgs;});
+
+    # TODO: split into multiple files, and maybe a helper function too
     nixosConfigurations = {
       mac-nix = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         specialArgs = {
-          inherit inputs;
-          inherit globalSettings;
+          inherit inputs outputs globalSettings;
         };
         modules = [
           {nixpkgs.overlays = [inputs.nixos-apple-silicon.overlays.apple-silicon-overlay];}
@@ -134,8 +151,7 @@
           {
             home-manager = {
               extraSpecialArgs = {
-                inherit inputs;
-                inherit globalSettings;
+                inherit inputs outputs globalSettings;
               };
               useUserPackages = true;
               useGlobalPkgs = true;
@@ -148,8 +164,7 @@
       oci = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         specialArgs = {
-          inherit inputs;
-          inherit globalSettings;
+          inherit inputs outputs globalSettings;
         };
         modules = [
           ./hosts/oci/configuration.nix
@@ -157,8 +172,7 @@
           {
             home-manager = {
               extraSpecialArgs = {
-                inherit inputs;
-                inherit globalSettings;
+                inherit inputs outputs globalSettings;
               };
               useUserPackages = true;
               useGlobalPkgs = true;
@@ -171,8 +185,7 @@
       pi4 = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         specialArgs = {
-          inherit inputs;
-          inherit globalSettings;
+          inherit inputs outputs globalSettings;
         };
         modules = [
           ./hosts/pi4/configuration.nix
@@ -180,8 +193,7 @@
           {
             home-manager = {
               extraSpecialArgs = {
-                inherit inputs;
-                inherit globalSettings;
+                inherit inputs outputs globalSettings;
               };
               useUserPackages = true;
               useGlobalPkgs = true;
@@ -194,8 +206,7 @@
       t420 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
-          inherit inputs;
-          inherit globalSettings;
+          inherit inputs outputs globalSettings;
         };
         modules = [
           nixos-hardware.nixosModules.lenovo-thinkpad-t420
@@ -204,8 +215,7 @@
           {
             home-manager = {
               extraSpecialArgs = {
-                inherit inputs;
-                inherit globalSettings;
+                inherit inputs outputs globalSettings;
               };
               useUserPackages = true;
               useGlobalPkgs = true;
@@ -218,8 +228,7 @@
       legion = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
-          inherit inputs;
-          inherit globalSettings;
+          inherit inputs outputs globalSettings;
         };
         modules = [
           ./hosts/legion/configuration.nix
@@ -227,8 +236,7 @@
           {
             home-manager = {
               extraSpecialArgs = {
-                inherit inputs;
-                inherit globalSettings;
+                inherit inputs outputs globalSettings;
               };
               useUserPackages = true;
               useGlobalPkgs = true;
@@ -242,8 +250,7 @@
     homeConfigurations."${globalSettings.username}" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages."x86_64-linux"; # Idk how to do but somehow make this also arm
       extraSpecialArgs = {
-        inherit inputs;
-        inherit globalSettings;
+        inherit inputs outputs globalSettings;
       };
 
       modules = [
