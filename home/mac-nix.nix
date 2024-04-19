@@ -97,6 +97,7 @@
 
   home.packages = with pkgs; [
     outputs.packages.${pkgs.system}.box64
+    outputs.packages.${pkgs.system}.fhsenv
 
     _1password-gui-beta
     handbrake
