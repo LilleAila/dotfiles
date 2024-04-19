@@ -16,6 +16,7 @@
     ];
     env = [
       "XCURSOR_SIZE,24"
+      "GDK_SCALE,2"
       "GRIMBLAST_EDITOR,\"swappy -f\""
     ];
 
@@ -27,7 +28,7 @@
 
     xwayland = {
       use_nearest_neighbor = false; # Blurry rather than pixelated
-      force_zero_scaling = false;
+      force_zero_scaling = true;
     };
 
     input = {

@@ -27,6 +27,7 @@ const hibernate = () => {
   Utils.exec("swaylock & systemctl hibernate");
 };
 const poweroff = () => Utils.exec("systemctl poweroff");
+const reboot = () => Utils.exec("systemctl reboot");
 
 const Powermenu = () =>
   Widget.Box({
@@ -34,12 +35,43 @@ const Powermenu = () =>
     vpack: "center",
     hpack: "center",
     children: [
-      Button("powerbutton cancel", "window-close-symbolic", closeMenu, "Cancel"),
-      Button("powerbutton lock", "lock-symbolic", lock, "Lock"),
-      Button("powerbutton logout", "application-exit-symbolic", logout, "Log out"),
-      Button("powerbutton suspend", "system-suspend-symbolic", suspend, "Suspend"),
-      Button("powerbutton hibernate", "system-hibernate-symbolic", hibernate, "Hibernate"),
-      Button("powerbutton poweroff", "system-shutdown-symbolic", poweroff, "Power off"),
+      Button(
+        "powerbutton cancel",
+        "window-close-symbolic",
+        closeMenu,
+        "Cancel",
+      ),
+      Button("powerbutton lock", "lock-symbolic", lock, "Lock (l)"),
+      Button(
+        "powerbutton logout",
+        "application-exit-symbolic",
+        logout,
+        "Log out (e)",
+      ),
+      Button(
+        "powerbutton suspend",
+        "system-suspend-symbolic",
+        suspend,
+        "Suspend (s)",
+      ),
+      Button(
+        "powerbutton hibernate",
+        "system-hibernate-symbolic",
+        hibernate,
+        "Hibernate (h)",
+      ),
+      Button(
+        "powerbutton poweroff",
+        "system-shutdown-symbolic",
+        poweroff,
+        "Power off (p)",
+      ),
+      Button(
+        "powerbutton reboot",
+        "system-reboot-symbolic",
+        reboot,
+        "Reboot (r)",
+      ),
     ],
     setup: (w) => {
       w.keybind("Escape", closeMenu);
