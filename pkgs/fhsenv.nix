@@ -1,4 +1,4 @@
-# Basically stolen from steam-run source
+# Basically stolen from steam-run in nixpkgs
 {pkgs, ...}:
 pkgs.buildFHSEnv {
   name = "fhs";
