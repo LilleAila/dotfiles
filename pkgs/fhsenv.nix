@@ -1,7 +1,7 @@
 # Basically stolen from steam-run in nixpkgs
 {pkgs, ...}:
 pkgs.buildFHSEnv {
-  name = "fhs";
+  name = "fhsenv";
   runScript = "$@"; # Needed for some reason
   multiPkgs = pkgs:
     with pkgs; [
