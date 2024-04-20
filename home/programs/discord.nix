@@ -176,6 +176,11 @@ in {
           .divider_bdb894, .akaBadge__27cd4, .nicknames__12efb {
             display: none !important;
           }
+
+          /* Hide that one separator on top of server list */
+          .guildSeparator__75928 {
+            display: none !important;
+          }
         '';
     })
     (lib.mkIf (config.settings.wm.hyprland.enable) {
