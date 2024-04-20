@@ -16,7 +16,7 @@
     ./programs/shell
 
     ./programs/browser.nix
-    ./programs/discord.nix
+    ./programs/discord
     ./programs/emacs
     ./programs/zathura.nix
     ./programs/files.nix
