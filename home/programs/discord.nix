@@ -213,6 +213,10 @@ in {
           [aria-label="Start Video Call"] {
             display: none !important;
           }
+
+          [aria-label="Inbox"] {
+            display: none !important;
+          }
         '';
     })
     (lib.mkIf (config.settings.wm.hyprland.enable) {
