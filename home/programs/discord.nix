@@ -131,6 +131,11 @@ in {
             padding: 3px !important;
           }
 
+          /* Folder backgrounds */
+          .expandedFolderBackground_b1385f {
+            background-color: var(--base01) !important;
+          }
+
           /* Input placeholder */
           .placeholder_dec8c7 {
             display: none !important;
@@ -184,6 +189,11 @@ in {
 
           /* Hide that one separator on top of server list */
           .guildSeparator__75928 {
+            display: none !important;
+          }
+
+          /* Hide top-right help button */
+          a[href="https://support.discord.com"] {
             display: none !important;
           }
         '';
