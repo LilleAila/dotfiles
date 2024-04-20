@@ -200,7 +200,7 @@ in {
           }
 
           /* Hide explore button */
-          div[aria-label="Explore Discoverable Servers"] {
+          .listItem__48528 > .listItemWrapper__3d465 > .wrapper__9916c > svg > foreignObject > div[aria-label="Explore Discoverable Servers"] {
             display: none !important;
           }
 
