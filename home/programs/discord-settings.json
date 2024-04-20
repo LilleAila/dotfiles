@@ -460,7 +460,7 @@
             "enabled": false
         },
         "Translate": {
-            "enabled": true,
+            "enabled": false,
             "autoTranslate": false
         },
         "TypingIndicator": {

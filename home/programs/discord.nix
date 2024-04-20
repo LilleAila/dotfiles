@@ -115,12 +115,66 @@ in {
               --font-primary ${sansSerif.name} !important;
           }
 
+          /* Code blocks */
+          code {
+            font-family: ${monospace.name} !important;
+            background-color: var(--base01) !important;
+            border-radius: 6px !important;
+          }
+
+          code.inline {
+            padding: 3px !important;
+          }
+
+          /* Input placeholder */
           .placeholder_dec8c7 {
             display: none !important;
           }
 
-          code {
-            font-family: ${monospace.name} !important;
+          /* Disable orange outline that sometimes shows up on server list */
+          .tree__7a511 {
+            border: none !important;
+            outline: none !important;
+          }
+
+          /* Disable background color of profile banners */
+          .banner__6d414, .panelBanner__7d7e2, .bannerPremium__69560 {
+            background-color: transparent !important;
+            background-image: none !important;
+          }
+
+          /* Hide scrollbar */
+          .scroller_e412fe {
+            scrollbar-width: none !important;
+          }
+
+          /* Hide unneded buttons in message input */
+          button[aria-label="Send a gift"],
+          button[aria-label="Open GIF picker"],
+          button[aria-label="Open sticker picker"],
+          .channelTextArea-1FufC0 > .container-1ZA19X {
+              display: none !important;
+          }
+
+          /* Padding on right side of message input */
+          .scrollableContainer_ff917f {
+            padding-right: 10px !important;
+          }
+
+          /* Hide weird square in top-right of message input */
+          .form_d8a4a1::after {
+            display: none !important;
+          }
+
+          /* Hide shop and nitro buttons */
+          a[data-list-item-id="private-channels-uid_18___nitro"],
+          a[data-list-item-id="private-channels-uid_18___shop"] {
+            display: none !important;
+          }
+
+          /* Hide nicknames text */
+          .divider_bdb894, .akaBadge__27cd4, .nicknames__12efb {
+            display: none !important;
           }
         '';
     })
