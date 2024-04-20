@@ -21,6 +21,7 @@
     ./programs/zathura.nix
     ./programs/files.nix
     ./programs/other.nix
+    ./programs/fonts.nix
 
     # ./programs/wallpaper/wallpaper.nix
     ./programs/wm/wayland

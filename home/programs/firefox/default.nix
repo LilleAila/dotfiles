@@ -26,7 +26,7 @@
             enhanced-h264ify
             clearurls
           ];
-          settings = import ./settings.nix;
+          settings = import ./settings.nix {inherit config;};
           userChrome = import ./userChrome.nix {colorScheme = config.colorScheme.palette;};
           userContent = import ./userContent.nix {inherit config pkgs;};
           colorTab = bg: fg: ''

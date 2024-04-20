@@ -27,16 +27,15 @@
 
   config = lib.mkIf (config.settings.terminal.emulator.enable) (lib.mkMerge [
     (lib.mkIf (config.settings.terminal.emulator.name == "kitty") {
-      home.packages = [pkgs.nerdfonts];
       settings.terminal.emulator.package = config.programs.kitty.package;
       settings.terminal.emulator.exec = "${lib.getExe config.settings.terminal.emulator.package} -e";
       programs.kitty = {
         enable = true;
         package = pkgs.kitty;
-        font = {
-          name = "JetBrains Mono Nerd Font";
-          size = 10;
-          package = pkgs.nerdfonts;
+        font = with config.settings.fonts; {
+          name = monospace.name;
+          package = monospace.package;
+          size = size;
         };
         shellIntegration.enableZshIntegration = true;
         shellIntegration.enableFishIntegration = true;
@@ -85,7 +84,6 @@
       };
     })
     (lib.mkIf (config.settings.terminal.emulator.name == "wezterm") {
-      home.packages = [pkgs.nerdfonts];
       settings.terminal.emulator.package = config.programs.wezterm.package;
       settings.terminal.emulator.exec = "${lib.getExe config.settings.terminal.emulator.package} start"; # or -e
       programs.wezterm = {
@@ -126,53 +124,61 @@
             ];
           };
         };
-        extraConfig = ''
+        extraConfig = with config.settings.fonts; ''
           local config = {
           	enable_wayland = true,
           	color_scheme = "base16",
           	window_background_opacity = 0.85,
           	use_fancy_tab_bar = false,
-          	font = wezterm.font "JetBrainsMono Nerd Font",
-          	font_size = 10,
+          	font = wezterm.font "${monospace.name}",
+          	font_size = ${toString size},
           }
           return config
         '';
       };
     })
     (lib.mkIf (config.settings.terminal.emulator.name == "alacritty") {
-      home.packages = [pkgs.nerdfonts];
       settings.terminal.emulator.package = config.programs.alacritty.package;
       settings.terminal.emulator.exec = "${lib.getExe config.settings.terminal.emulator.package} -e";
       programs.alacritty = {
         enable = true;
-        settings.colors = with config.colorScheme.palette; {
-          bright = {
-            black = "0x${base00}";
-            blue = "0x${base0D}";
-            cyan = "0x${base0C}";
-            green = "0x${base0B}";
-            magenta = "0x${base0E}";
-            red = "0x${base08}";
-            white = "0x${base06}";
-            yellow = "0x${base09}";
+        settings = {
+          font = with config.settings.fonts; {
+            size = size;
+            normal.family = monospace.name;
+            bold.family = monospace.name;
+            bold_italic.family = monospace.name;
+            italic.family = monospace.name;
           };
-          cursor = {
-            cursor = "0x${base06}";
-            text = "0x${base06}";
-          };
-          normal = {
-            black = "0x${base00}";
-            blue = "0x${base0D}";
-            cyan = "0x${base0C}";
-            green = "0x${base0B}";
-            magenta = "0x${base0E}";
-            red = "0x${base08}";
-            white = "0x${base06}";
-            yellow = "0x${base0A}";
-          };
-          primary = {
-            background = "0x${base00}";
-            foreground = "0x${base06}";
+          colors = with config.colorScheme.palette; {
+            bright = {
+              black = "0x${base00}";
+              blue = "0x${base0D}";
+              cyan = "0x${base0C}";
+              green = "0x${base0B}";
+              magenta = "0x${base0E}";
+              red = "0x${base08}";
+              white = "0x${base06}";
+              yellow = "0x${base09}";
+            };
+            cursor = {
+              cursor = "0x${base06}";
+              text = "0x${base06}";
+            };
+            normal = {
+              black = "0x${base00}";
+              blue = "0x${base0D}";
+              cyan = "0x${base0C}";
+              green = "0x${base0B}";
+              magenta = "0x${base0E}";
+              red = "0x${base08}";
+              white = "0x${base06}";
+              yellow = "0x${base0A}";
+            };
+            primary = {
+              background = "0x${base00}";
+              foreground = "0x${base06}";
+            };
           };
         };
       };

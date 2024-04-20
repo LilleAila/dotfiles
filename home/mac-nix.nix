@@ -76,6 +76,19 @@
     };
     imageviewer.enable = true;
     other.enable = true;
+    fonts = let
+      jetbrains_nerd = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+    in {
+      serif.package = pkgs.dejavu_fonts;
+      serif.name = "DejaVu Serif";
+      sansSerif.package = pkgs.dejavu_fonts;
+      sansSerif.name = "DejaVu Sans";
+      monospace.package = jetbrains_nerd;
+      monospace.name = "JetBrainsMono Nerd Font";
+      nerd.package = jetbrains_nerd;
+      nerd.name = "JetBrainsMono Nerd Font";
+      size = 10;
+    };
   };
 
   # Local shell aliases

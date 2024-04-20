@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   # First run
   "app.normandy.first_run" = false;
   "doh-rollout.doneFirstRun" = true;
@@ -68,4 +68,9 @@
   "mousewheel.with_control.action" = 0; # Disable ctrl+scroll to zoom
 
   "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+
+  # Fonts
+  "font.name.monospace.x-western" = config.settings.fonts.monospace.name;
+  "font.name.sans-serif.x-western" = config.settings.fonts.sansSerif.name;
+  "font.name.serif.x-western" = config.settings.fonts.serif.name;
 }
