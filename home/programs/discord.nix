@@ -199,13 +199,18 @@ in {
             display: none !important;
           }
 
-          /* Hide explore button */
+          /* Hide explore button (hover tooltip is still there..) */
           .listItem__48528 > .listItemWrapper__3d465 > .wrapper__9916c > svg > foreignObject > div[aria-label="Explore Discoverable Servers"] {
             display: none !important;
           }
 
           /* Hide unread indicator */
           .pill__6b31b {
+            display: none !important;
+          }
+
+          /* Hide video call button */
+          [aria-label="Start Video Call"] {
             display: none !important;
           }
         '';
