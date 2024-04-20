@@ -198,6 +198,16 @@ in {
           a[href="https://support.discord.com"] {
             display: none !important;
           }
+
+          /* Hide explore button */
+          div[aria-label="Explore Discoverable Servers"] {
+            display: none !important;
+          }
+
+          /* Hide unread indicator */
+          .pill__6b31b {
+            display: none !important;
+          }
         '';
     })
     (lib.mkIf (config.settings.wm.hyprland.enable) {
