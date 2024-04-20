@@ -104,7 +104,7 @@ in {
           		--interactive-hover: var(--base0C);
           		--interactive-active: var(--base0A);
           		--interactive-muted: var(--base03);
-          		--header-primary: var(--base0D); /* --base06 */
+          		--header-primary: var(--base0B); /* --base06 */
           		--header-secondary: var(--base04); /* --base03 */
           		--scrollbar-thin-track: transparent;
           		--scrollbar-auto-track: transparent;
@@ -113,6 +113,11 @@ in {
               --font-display ${serif.name} !important;
               --font-headline ${serif.name} !important;
               --font-primary ${sansSerif.name} !important;
+          }
+
+          /* Username color */
+          .username__0b0e7 {
+            color: var(--base0D) !important;
           }
 
           /* Code blocks */
