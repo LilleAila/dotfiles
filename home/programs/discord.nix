@@ -49,6 +49,7 @@ in {
       # Auto-generated color scheme, inspired by https://github.com/deathbeam/base16-discord
       # Slightly modified by changing theme variables in devtools (Ctrl + Shift + i)
       home.file.".config/vesktop/themes/base16.theme.css".source = with config.colorScheme.palette;
+      with config.settings.fonts;
         pkgs.writeText "base16.theme.css"
         /*
         css
@@ -103,10 +104,23 @@ in {
           		--interactive-hover: var(--base0C);
           		--interactive-active: var(--base0A);
           		--interactive-muted: var(--base03);
-          		--header-primary: var(--base0B); /* --base06 */
+          		--header-primary: var(--base0D); /* --base06 */
           		--header-secondary: var(--base04); /* --base03 */
           		--scrollbar-thin-track: transparent;
           		--scrollbar-auto-track: transparent;
+
+              --font-code ${monospace.name} !important;
+              --font-display ${serif.name} !important;
+              --font-headline ${serif.name} !important;
+              --font-primary ${sansSerif.name} !important;
+          }
+
+          .placeholder_dec8c7 {
+            display: none !important;
+          }
+
+          code {
+            font-family: ${monospace.name} !important;
           }
         '';
     })
