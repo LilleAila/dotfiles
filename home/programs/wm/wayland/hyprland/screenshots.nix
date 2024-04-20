@@ -59,6 +59,9 @@
           "$mainMod ALT, S, exec, grimblast ${args} copysave output ${path}"
           "$mainMod ALT SHIFT, S, exec, grimblast ${args} copysave screen ${path}"
         ];
+        env = [
+          "GRIMBLAST_EDITOR,\"swappy -f\""
+        ];
       };
     };
 }

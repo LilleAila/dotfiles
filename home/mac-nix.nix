@@ -26,6 +26,19 @@
     ];
     qt.enable = true;
     gtk.enable = true;
+    cursor = {
+      size = 24;
+      # package = pkgs.bibata-cursors;
+      # name = "Bibata-Modern-Ice";
+      # package = pkgs.oreo-cursors-plus;
+      # name = "oreo_spark_black_bordered_cursors";
+      package = pkgs.google-cursor;
+      name = "GoogleDot-Black";
+      # package = pkgs.apple-cursor;
+      # name = "macOS-BigSur";
+      # package = pkgs.catppuccin-cursors.macchiatoDark;
+      # name = "Catppuccin-Macchiato-Dark-Cursors";
+    };
     wm = {
       ags.enable = true;
       hyprland = {

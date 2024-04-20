@@ -10,6 +10,9 @@ in {
   options.settings = {
     qt.enable = lib.mkEnableOption "qt";
     gtk.enable = lib.mkEnableOption "gtk";
+    cursor.package = lib.mkOption {type = lib.types.package;};
+    cursor.name = lib.mkOption {type = lib.types.str;};
+    cursor.size = lib.mkOption {type = lib.types.int;};
   };
 
   config = lib.mkMerge [
@@ -33,12 +36,9 @@ in {
     (lib.mkIf (config.settings.gtk.enable) {
       gtk = {
         enable = true;
-        cursorTheme.package = pkgs.bibata-cursors;
-        cursorTheme.name = "Bibata-Modern-Ice";
+        cursorTheme.package = config.settings.cursor.package;
+        cursorTheme.name = config.settings.cursor.name;
         # Tested schene with `nix-shell -p awf --run awf-gtk3`
-        # theme.package = nix-colors-lib.gtkThemeFromScheme {
-        #   scheme = config.colorScheme;
-        # };
         theme.package = import ./gtk-theme.nix {inherit pkgs;} {scheme = config.colorScheme;};
         theme.name = "${config.colorScheme.slug}";
         iconTheme.package = pkgs.papirus-icon-theme;
@@ -47,13 +47,19 @@ in {
     })
     (lib.mkIf (config.settings.wm.hyprland.enable) {
       home.pointerCursor = {
-        package = pkgs.bibata-cursors;
-        name = "Bibata-Modern-Ice";
-        size = 24;
+        package = config.settings.cursor.package;
+        name = config.settings.cursor.name;
+        size = config.settings.cursor.size;
       };
-      wayland.windowManager.hyprland.settings.exec-once = [
-        "hyprctl setcursor \"Bibata-Modern-Ice\" &"
-      ];
+      home.packages = [config.settings.cursor.package];
+      wayland.windowManager.hyprland.settings = {
+        exec-once = [
+          "hyprctl setcursor \"Bibata-Modern-Ice\" ${toString config.settings.cursor.size} &"
+        ];
+        env = [
+          "XCURSOR_SIZE,${toString config.settings.cursor.size}"
+        ];
+      };
     })
   ];
 }

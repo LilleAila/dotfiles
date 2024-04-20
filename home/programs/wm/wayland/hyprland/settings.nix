@@ -15,9 +15,7 @@
       ", preferred, auto, 1"
     ];
     env = [
-      "XCURSOR_SIZE,24"
       "GDK_SCALE,2"
-      "GRIMBLAST_EDITOR,\"swappy -f\""
     ];
 
     # Configured through nwg-displays
