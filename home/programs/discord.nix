@@ -178,7 +178,9 @@ in {
 
           /* Hide shop and nitro buttons */
           a[data-list-item-id="private-channels-uid_18___nitro"],
-          a[data-list-item-id="private-channels-uid_18___shop"] {
+          a[data-list-item-id="private-channels-uid_18___shop"],
+          a[href="/shop"],
+          a[href="/store"] {
             display: none !important;
           }
 
