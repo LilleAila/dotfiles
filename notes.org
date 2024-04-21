@@ -1,13 +1,76 @@
-* 2024
-** 2024-04 April
-*** 2024-04-14 Sunday
-**** TODO change the neovim config to not use a datetree (only for project-local notes) and move the notes at the bottom of [[./readme.md][readme.md]]
-*** 2024-04-06 Saturday
-**** TODO Find out if =base00= or =base01= is better here.
-This affects things like number keys in qalculate, and popup menus in firefox. On one hand, leaving it as =base01= will make the calculator buttons stand out a bit more, but if it gets changed to =base00=, most of the =userChrome= for firefox can be removed..
-[2024-04-06 Sat 17:00]
-[[file:/home/olai/dotfiles/home/programs/wm/wayland/gtk-theme.nix::46]]
+* Using the nix repl:
+#+begin_src bash
+nix repl
+:l <nixpkgs>
+:? # get help
+:e lib.mkEnableOption # see source
+:q # quit
+#+end_src
 
-*** 2024-04-04 Thursday
-**** TODO Configure devenv to use instead of manual devshells
+* Nix flakes
+A new project can be created using one of the available templates (completion with tab). Example with rust:
+#+begin_src bash
+mkdir new-project
+cd new-project
+nix flake init --template templates#rust
+cargo init .
+git add -A && git commit -m "Initial commit"
+nvim flake.nix # Add rust-analyzer and start coding
+#+end_src
+
+I have also created a few of my own templates, located at [[https://github.com/LilleAila/flake-templates]]
+
+* SSH
+Generate a new key:
+#+begin_src bash
+ssh-keygen -t ed25519 -C "your_email@example.com note"
+#+end_src
+
+SSH-ing into a server can often result in errors because kitty terminfo files are unavailable. To fix this, run =kitten ssh= instead of =ssh=.
+
+* SOPS
+This config needs =SOPS= to work! If it is not configured properly, the user will not have a password!
+#+begin_src bash
+# Generate age key:
+nix shell nixpkgs#age -c age-keygen -o ~/.config/sops/age/keys.txt # Random
+## From SSH key: (I used the SSH key from `m1pro14`)
+nix run nixpkgs#ssh-to-age -- -private-key -i ~/.ssh/id_ed25519 > ~/.config/sops/age/keys.txt
+
+# Get the public key:
+nix shell nixpkgs#age -c age-keygen -y ~/.config/sops/age/keys.txt
+#+end_src
+
+The private key file should be at =~/.config/sops/age/keys.txt=.
+
+* Creating writable files
+Some programe may need a writable file for some reasom. This is probably one of the worst ways of doing it with a lot of downsides:
+** Writable only
+Changes to the file are ignored when rebuilding
+#+begin_src nix
+home.file."test_hm.txt" = {
+ text = ''
+    abd
+    def
+    ghi
+    jkl
+    1234567890
+  '';
+  onChange = ''
+    rm -f $HOME/test.txt
+    cp $HOME/test_hm.txt $HOME/test.txt
+    chmod u+w $HOME/test.txt
+  '';
+};
+#+end_src
+
+** Symlinked file
+When edited, changes are reflected in the source flake.
+#+begin_src bash
+home.activation.symlinkCustomFiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  run rm -f $HOME/testFile.txt && ln -s $HOME/dotfiles/home/testFile.txt $HOME/testFile.txt
+'';
+#+end_src
+(pls don't actually use this)
+
+* TODO Configure devenv to use instead of manual devshells
 [[https://github.com/cachix/devenv][Devenv]]
