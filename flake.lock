@@ -1207,11 +1207,11 @@
         "plugin-org-bullets": "plugin-org-bullets"
       },
       "locked": {
-        "lastModified": 1712657477,
-        "narHash": "sha256-bC9wuYdcopQszUbWEC6GYy3srUDg/5JK9unV5EGR+zw=",
+        "lastModified": 1713691780,
+        "narHash": "sha256-R5BoQsfHqJKhf+ss7TKOwUaV4ddtQgTHwIVQCI0CDiw=",
         "owner": "LilleAila",
         "repo": "nvim-nix",
-        "rev": "2301e75e515e1bdffe0ec4bb6e28e7704ec51e07",
+        "rev": "f841b31cbba980573dcb5e534aff973bc0cbfc92",
         "type": "github"
       },
       "original": {
