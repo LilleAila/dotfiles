@@ -35,8 +35,7 @@
       # package = pkgs.google-cursor;
       # name = "GoogleDot-Black";
       package = outputs.packages.${pkgs.system}.google-cursor {
-        bc = "#${config.colorScheme.palette.base00}";
-        oc = "#${config.colorScheme.palette.base07}";
+        colorScheme = config.colorScheme;
       };
       name = "GoogleDot-Custom";
       # package = pkgs.apple-cursor;
