@@ -78,7 +78,7 @@ css
     }
 
     code.inline {
-      padding: 3px !important;
+      padding: 2px !important;
     }
 
     /* Folder backgrounds */
