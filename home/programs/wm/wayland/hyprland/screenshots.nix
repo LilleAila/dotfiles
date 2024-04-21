@@ -5,19 +5,26 @@
   lib,
   ...
 }: {
-  options.settings.wm.hyprland.screenshots.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
+  options.settings.wm.hyprland.screenshots = {
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+    };
+    path = lib.mkOption {
+      type = lib.types.str;
+      default = "$HOME/Pictures/Screenshots";
+    };
+    format = lib.mkOption {
+      type = lib.types.str;
+      default = "%Y-%m-%d,%H:%M:%S.png";
+    };
   };
 
   # TODO: fix cursor in screenshots (switch to grim+slurp directly??)
   config = let
-    format = "%Y-%m-%d,%H:%M:%S.png";
-    args = "--notify --freeze";
-    # TODO: as of right now, this folder needs to be created manually
-    path = "$HOME/Screenshots/Raw/$(date +\"${format}\")";
+    cfg = config.settings.wm.hyprland.screenshots;
   in
-    lib.mkIf (config.settings.wm.hyprland.screenshots.enable)
+    lib.mkIf (cfg.enable)
     {
       home.packages = with pkgs; [
         grim
@@ -30,8 +37,8 @@
       # Configure swappy (screenshot annotation tool)
       home.file.".config/swappy/config".text = ''
         [Default]
-        save_dir=$HOME/Screenshots/Edited
-        save_filename_format=${format}
+        save_dir=$XDG_SCREENSHOTS_DIR
+        save_filename_format=${cfg.format}
         show_panel=false # Show panel on start
         early_exit=true # Exit on export
         line_size=5
@@ -47,17 +54,27 @@
       grim -g "$(slurp)" - | convert - -shave 2x2 PNG:- | swappy -f -
       */
 
+      xdg.userDirs.extraConfig.XDG_SCREENSHOTS_DIR = cfg.path;
+
       # Configure keybindings
       wayland.windowManager.hyprland.settings = {
-        bind = [
-          "$mainMod SHIFT, E, exec, wl-paste | swappy -f -"
-          "$mainMod, S, exec, grimblast ${args} copysave area ${path}"
-          "$mainMod SHIFT, S, exec, grimblast ${args} copysave active ${path}"
-          ", PRINT, exec, grimblast ${args} copysave output ${path}"
-          "SHIFT, PRINT, exec, grimblast ${args} copysave screen ${path}"
-          # Same as two above but without PrtSc
-          "$mainMod ALT, S, exec, grimblast ${args} copysave output ${path}"
-          "$mainMod ALT SHIFT, S, exec, grimblast ${args} copysave screen ${path}"
+        bind = let
+          cmd = "${lib.getExe pkgs.hyprshot} -o ${cfg.path} -f $(date +${cfg.format})";
+          paste = lib.getExe' pkgs.wl-clipboard "wl-paste";
+          copy = lib.getExe' pkgs.wl-clipboard "wl-copy";
+          magick = lib.getExe pkgs.imagemagick;
+        in [
+          "$mainMod, E, exec, ${paste} | ${lib.getExe pkgs.swappy} -f -"
+          # Crop image in clipboard:
+          "$mainMod SHIFT, E, exec, sh -c \"${paste} | ${magick} - -shave 2x2 PNG:- | ${copy}\""
+
+          "$mainMod, S, exec, ${cmd} -m region"
+          "$mainMod SHIFT, S, exec, ${cmd} -m window -c"
+          "$mainMod ALT, S, exec, ${cmd} -m output -c"
+
+          ", PRINT, exec, ${cmd} -m region"
+          "SHIFT, PRINT, exec, ${cmd} -m window -c"
+          "ALT, PRINT, exec, ${cmd} -m output -c"
         ];
         env = [
           "GRIMBLAST_EDITOR,\"swappy -f\""

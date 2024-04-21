@@ -49,6 +49,14 @@
         "video/ogg" = "mpv.desktop";
       };
 
+      xdg.userDirs = {
+        enable = true;
+        createDirectories = true;
+        desktop = null;
+        publicShare = null;
+        templates = null;
+      };
+
       programs.ssh.enable = true;
       services.ssh-agent.enable = true;
       programs.ssh.addKeysToAgent = "yes";
