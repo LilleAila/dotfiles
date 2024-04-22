@@ -34,8 +34,13 @@
       # name = "oreo_spark_black_bordered_cursors";
       # package = pkgs.google-cursor;
       # name = "GoogleDot-Black";
-      package = outputs.packages.${pkgs.system}.google-cursor {
-        colorScheme = config.colorScheme;
+      # package = outputs.packages.${pkgs.system}.google-cursor {
+      #   colorScheme = config.colorScheme;
+      # };
+      package = outputs.packages.${pkgs.system}.google-cursor.override {
+        background_color = "#${config.colorScheme.palette.base00}";
+        outline_color = "#${config.colorScheme.palette.base06}";
+        accent_color = "#${config.colorScheme.palette.base0B}";
       };
       name = "GoogleDot-Custom";
       # package = pkgs.apple-cursor;

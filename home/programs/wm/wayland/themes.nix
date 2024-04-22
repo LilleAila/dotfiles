@@ -36,8 +36,6 @@ in {
     (lib.mkIf (config.settings.gtk.enable) {
       gtk = {
         enable = true;
-        cursorTheme.package = config.settings.cursor.package;
-        cursorTheme.name = config.settings.cursor.name;
         # Tested schene with `nix-shell -p awf --run awf-gtk3`
         theme.package = import ./gtk-theme.nix {inherit pkgs;} {scheme = config.colorScheme;};
         theme.name = "${config.colorScheme.slug}";
@@ -50,11 +48,12 @@ in {
         package = config.settings.cursor.package;
         name = config.settings.cursor.name;
         size = config.settings.cursor.size;
+        gtk.enable = true;
       };
       home.packages = [config.settings.cursor.package];
       wayland.windowManager.hyprland.settings = {
         exec-once = [
-          "hyprctl setcursor \"Bibata-Modern-Ice\" ${toString config.settings.cursor.size} &"
+          "hyprctl setcursor \"${config.settings.cursor.name}\" ${toString config.settings.cursor.size} &"
         ];
         env = [
           "XCURSOR_SIZE,${toString config.settings.cursor.size}"
