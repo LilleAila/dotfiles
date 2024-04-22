@@ -81,6 +81,12 @@ css
       padding: 2px !important;
     }
 
+    /* Message embeds */
+    .embedWrapper__47b23, embedFull__14919, embed_cc6dae {
+      background-color: var(--base01) !important;
+      border-radius: 6px !important;
+    }
+
     /* Folder backgrounds */
     .expandedFolderBackground_b1385f {
       background-color: var(--base01) !important;
