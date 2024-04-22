@@ -33,9 +33,6 @@ stdenv.mkDerivation {
     substituteInPlace build.toml \
       --replace "platforms = ['x11', 'windows']" \
       "platforms = ['x11']"
-    # substituteInPlace build.toml \
-    #   --replace "x11_sizes = [22, 24, 28, 32, 40, 48, 56, 64, 72, 80, 88, 96]" \
-    #   ""
     sed -i "s/^x11_sizes.*$//g" build.toml
     substituteInPlace build.toml \
       --replace "win_size = 32" \
@@ -56,16 +53,14 @@ stdenv.mkDerivation {
   # It does however work when running it directly from the terminal
   # Also the animated ones aren't animated
   buildPhase =
-    ''
-      # cbmp -d 'svg' -o 'bitmaps/GoogleDot-Custom' -bc '${background_color}' -oc '${outline_color}'
-
+    extra_commands
+    + ''
       find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#00FF00/${background_color}/gi' {} \;
       find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#FF0000/${background_color}/gi' {} \;
       find ${svg_dir}/ -name "*.svg" -exec sed -i 's/black/${background_color}/g' {} \;
       find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#0000FF/${outline_color}/gi' {} \;
       find ${svg_dir}/ -name "*.svg" -exec sed -i 's/white/${outline_color}/g' {} \;
     ''
-    + extra_commands
     + ''
       mkdir -p bitmaps/${name}
       find ${svg_dir}/ -name "*.svg" -exec sh -c 'inkscape --export-type=png --export-filename="bitmaps/${name}/$(basename "{}" .svg).png" "{}"' \;

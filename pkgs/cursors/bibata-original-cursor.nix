@@ -20,5 +20,23 @@ pkgs.callPackage ./cursors.nix {
   extra_commands = ''
     cp svg/original/left_ptr_watch/left_ptr_watch-01.svg svg/original/left_ptr_watch.svg
     cp svg/original/wait/wait-01.svg svg/original/wait.svg
+
+    sed -i "s/#96C865/${background_color}/g" svg/original/bottom_left_corner.svg
+    sed -i "s/#FDBE2A/${background_color}/g" svg/original/bottom_right_corner.svg
+    sed -i "s/#FE0000/${accent_color}/g" svg/original/circle.svg
+    sed -i "s/#5F3BE4/${accent_color}/g" svg/original/context-menu.svg
+    sed -i "s/#06B231/${accent_color}/g" svg/original/copy.svg
+    sed -i "s/#FE0000/${background_color}/g" svg/original/crossed_circle.svg
+    sed -i "s/#FE0000/${outline_color}/g" svg/original/crosshair.svg
+    sed -i "s/#F27400/${accent_color}/g" svg/original/dnd-ask.svg
+    sed -i "s/#06B231/${accent_color}/g" svg/original/dnd-copy.svg
+    sed -i "s/#606060/${accent_color}/g" svg/original/dnd-link.svg
+    sed -i "s/#FE0000/${accent_color}/g" svg/original/dnd_no_drop.svg
+    sed -i "s/#606060/${accent_color}/g" svg/original/link.svg
+    sed -i "s/#2C2C2C/${accent_color}/g" svg/original/person.svg
+    sed -i "s/#0A6857/${accent_color}/g" svg/original/pin.svg
+    sed -i "s/#179DD8/${accent_color}/g" svg/original/pointer-move.svg
+    sed -i "s/#4FADDF/${background_color}/g" svg/original/top_left_corner.svg
+    sed -i "s/#F1613A/${background_color}/g" svg/original/top_right_corner.svg
   '';
 }
