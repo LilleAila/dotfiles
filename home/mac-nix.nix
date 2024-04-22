@@ -132,6 +132,8 @@
 
     geogebra6
     lmms
+    musescore
+    inkscape
   ];
 
   home.sessionVariables."PLOVER_UINPUT_LAYOUT" = "no";
