@@ -50,15 +50,11 @@ in {
         size = config.settings.cursor.size;
         gtk.enable = true;
       };
-      home.packages = [config.settings.cursor.package];
-      wayland.windowManager.hyprland.settings = {
-        exec-once = [
-          "hyprctl setcursor \"${config.settings.cursor.name}\" ${toString config.settings.cursor.size} &"
-        ];
-        env = [
-          "XCURSOR_SIZE,${toString config.settings.cursor.size}"
-        ];
-      };
+      # wayland.windowManager.hyprland.settings = {
+      #   exec-once = [
+      #     "hyprctl setcursor \"${config.settings.cursor.name}\" ${toString config.settings.cursor.size} &"
+      #   ];
+      # };
     })
   ];
 }
