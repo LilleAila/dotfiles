@@ -28,12 +28,12 @@
     gtk.enable = true;
     cursor = {
       size = 24;
-      package = outputs.packages.${pkgs.system}.apple-cursor.override {
+      package = outputs.packages.${pkgs.system}.breeze-cursor.override {
         background_color = "#${config.colorScheme.palette.base00}";
         outline_color = "#${config.colorScheme.palette.base06}";
         accent_color = "#${config.colorScheme.palette.base0B}";
       };
-      name = "Apple-Custom";
+      name = "Breeze-Custom";
     };
     wm = {
       ags.enable = true;

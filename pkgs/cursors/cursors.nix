@@ -9,6 +9,7 @@
   outline_color, # Outline color
   accent_color, # Accent color
   svg_dir ? "svg",
+  extra_commands ? "",
   ...
 }:
 stdenv.mkDerivation {
@@ -53,29 +54,21 @@ stdenv.mkDerivation {
   # The `cbmp` command doesn't work in the buildPhase for some reason??
   # It does however work when running it directly from the terminal
   # Also the animated ones aren't animated
-  buildPhase = ''
-    # cbmp -d 'svg' -o 'bitmaps/GoogleDot-Custom' -bc '${background_color}' -oc '${outline_color}'
+  buildPhase =
+    ''
+      # cbmp -d 'svg' -o 'bitmaps/GoogleDot-Custom' -bc '${background_color}' -oc '${outline_color}'
 
-    find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#00FF00/${background_color}/g' {} \;
-    find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#FF0000/${background_color}/g' {} \;
-    find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#0000FF/${outline_color}/g' {} \;
+      find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#00FF00/${background_color}/g' {} \;
+      find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#FF0000/${background_color}/g' {} \;
+      find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#0000FF/${outline_color}/g' {} \;
+    ''
+    + extra_commands
+    + ''
+      mkdir -p bitmaps/${name}
+      find ${svg_dir}/ -name "*.svg" -exec sh -c 'inkscape --export-type=png --export-filename="bitmaps/${name}/$(basename "{}" .svg).png" "{}"' \;
 
-    sed -i "s/white/${outline_color}/g" ${svg_dir}/animated/wait.svg
-    sed -i "s/#8c382a/${background_color}/g" ${svg_dir}/animated/wait.svg
-    sed -i "s/#c5523f/${accent_color}/g" ${svg_dir}/animated/wait.svg
-
-    sed -i "s/white/${outline_color}/g" ${svg_dir}/animated/left_ptr_watch.svg
-    sed -i "s/#8c382a/${background_color}/g" ${svg_dir}/animated/left_ptr_watch.svg
-    sed -i "s/#c5523f/${accent_color}/g" ${svg_dir}/animated/left_ptr_watch.svg
-
-    sed -i "s/#FC3C36/${accent_color}/g" ${svg_dir}/static/zoom-out.svg
-    sed -i "s/#00D161/${accent_color}/g" ${svg_dir}/static/zoom-in.svg
-
-    mkdir -p bitmaps/${name}
-    find ${svg_dir}/ -name "*.svg" -exec sh -c 'inkscape --export-type=png --export-filename="bitmaps/${name}/$(basename "{}" .svg).png" "{}"' \;
-
-    ctgen build.toml
-  '';
+      ctgen build.toml
+    '';
 
   installPhase = ''
     mkdir -p $out/share/icons
