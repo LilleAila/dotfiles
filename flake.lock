@@ -994,11 +994,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1713796810,
-        "narHash": "sha256-3AcY4EX4HQNWwUofhI/z92w6fPa5LS8ReAD+j/Zx6X8=",
+        "lastModified": 1713799205,
+        "narHash": "sha256-FjBvcGa6v5X3NgjrIzqgGlzEaQBzrnMw6c6bf3bD3pk=",
         "owner": "LilleAila",
         "repo": "nix-cursors",
-        "rev": "87c2a255736ec9f9c9c0da7981b583232a6f2196",
+        "rev": "1efd6e8bf22910debae4ee84e5aec00136014fe7",
         "type": "github"
       },
       "original": {

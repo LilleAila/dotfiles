@@ -59,7 +59,8 @@
       # Configure keybindings
       wayland.windowManager.hyprland.settings = {
         bind = let
-          cmd = "${lib.getExe pkgs.hyprshot} -o ${cfg.path} -f $(date +${cfg.format})";
+          # cmd = "${lib.getExe pkgs.hyprshot} -o ${cfg.path} -f $(date +${cfg.format})";
+          cmd = mode: "${lib.getExe pkgs.grimblast} --notify --freeze copysave ${mode} ${cfg.path}";
           paste = lib.getExe' pkgs.wl-clipboard "wl-paste";
           copy = lib.getExe' pkgs.wl-clipboard "wl-copy";
           magick = lib.getExe pkgs.imagemagick;
@@ -68,13 +69,20 @@
           # Crop image in clipboard:
           "$mainMod SHIFT, E, exec, sh -c \"${paste} | ${magick} - -shave 2x2 PNG:- | ${copy}\""
 
-          "$mainMod, S, exec, ${cmd} -m region"
-          "$mainMod SHIFT, S, exec, ${cmd} -m window -c"
-          "$mainMod ALT, S, exec, ${cmd} -m output -c"
+          # Grimblast
+          "$mainMod, S, exec, ${cmd "area"}"
+          "$mainMod SHIFT, S, exec, ${cmd "active"}"
+          "$mainMod ALT, S, exec, ${cmd "output"}"
+          "$mainMod Alt SHIFT, S, exec, ${cmd "screen"}"
 
-          ", PRINT, exec, ${cmd} -m region"
-          "SHIFT, PRINT, exec, ${cmd} -m window -c"
-          "ALT, PRINT, exec, ${cmd} -m output -c"
+          # Using hyprshot
+          # "$mainMod, S, exec, ${cmd} -m region"
+          # "$mainMod SHIFT, S, exec, ${cmd} -m window -c"
+          # "$mainMod ALT, S, exec, ${cmd} -m output -c"
+
+          # ", PRINT, exec, ${cmd} -m region"
+          # "SHIFT, PRINT, exec, ${cmd} -m window -c"
+          # "ALT, PRINT, exec, ${cmd} -m output -c"
         ];
         env = [
           "GRIMBLAST_EDITOR,\"swappy -f\""
