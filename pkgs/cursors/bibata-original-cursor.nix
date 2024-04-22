@@ -16,7 +16,6 @@ pkgs.callPackage ./cursors.nix {
     rev = "afb25d6e9ec30acc51e43e62e89792879e7be862";
     hash = "sha256-3S2eIJ6tEkMKWQqV3Az9R2wz48z9MljTx0Xi0jQ2AUA=";
   };
-  # TODO: patch the other colors
   extra_commands = ''
     cp svg/original/left_ptr_watch/left_ptr_watch-01.svg svg/original/left_ptr_watch.svg
     cp svg/original/wait/wait-01.svg svg/original/wait.svg
