@@ -8,11 +8,11 @@
 }:
 pkgs.callPackage ./cursors.nix {
   inherit background_color outline_color accent_color;
-  name = "GoogleDot-Custom";
+  name = "Fuchsia-Custom";
   source = fetchFromGitHub {
     owner = "ful1e5";
-    repo = "Google_Cursor";
-    rev = "7e416f8ae074a9346bf860961a0c4d47a58f4f00";
-    hash = "sha256-ON4dwn24sc+8gSErelBsCQo4PLb7Vy6/x7JfXyuvg+4=";
+    repo = "fuchsia-cursor";
+    rev = "aad95a3fef84a9682fcc536c8188f0b3da5788db";
+    hash = "sha256-iSoaEmypFQfule+IoeXhhjKjYeKczAZkWhOSOacrijg=";
   };
 }

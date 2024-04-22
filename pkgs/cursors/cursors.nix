@@ -8,24 +8,11 @@
   background_color, # Background color
   outline_color, # Outline color
   accent_color, # Accent color
+  svg_dir ? "svg",
   ...
 }:
 stdenv.mkDerivation {
   name = "${name}";
-
-  # src = fetchFromGitHub {
-  #   owner = "ful1e5";
-  #   repo = "Google_Cursor";
-  #   rev = "7e416f8ae074a9346bf860961a0c4d47a58f4f00";
-  #   hash = "sha256-ON4dwn24sc+8gSErelBsCQo4PLb7Vy6/x7JfXyuvg+4=";
-  # };
-
-  # src = fetchFromGitHub {
-  #   owner = "ful1e5";
-  #   repo = "fuchsia-cursor";
-  #   rev = "aad95a3fef84a9682fcc536c8188f0b3da5788db";
-  #   hash = "sha256-iSoaEmypFQfule+IoeXhhjKjYeKczAZkWhOSOacrijg=";
-  # };
 
   src = source;
 
@@ -69,23 +56,23 @@ stdenv.mkDerivation {
   buildPhase = ''
     # cbmp -d 'svg' -o 'bitmaps/GoogleDot-Custom' -bc '${background_color}' -oc '${outline_color}'
 
-    find svg/ -name "*.svg" -exec sed -i 's/#00FF00/${background_color}/g' {} \;
-    find svg/ -name "*.svg" -exec sed -i 's/#FF0000/${background_color}/g' {} \;
-    find svg/ -name "*.svg" -exec sed -i 's/#0000FF/${outline_color}/g' {} \;
+    find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#00FF00/${background_color}/g' {} \;
+    find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#FF0000/${background_color}/g' {} \;
+    find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#0000FF/${outline_color}/g' {} \;
 
-    sed -i "s/white/${outline_color}/g" svg/animated/wait.svg
-    sed -i "s/#8c382a/${background_color}/g" svg/animated/wait.svg
-    sed -i "s/#c5523f/${accent_color}/g" svg/animated/wait.svg
+    sed -i "s/white/${outline_color}/g" ${svg_dir}/animated/wait.svg
+    sed -i "s/#8c382a/${background_color}/g" ${svg_dir}/animated/wait.svg
+    sed -i "s/#c5523f/${accent_color}/g" ${svg_dir}/animated/wait.svg
 
-    sed -i "s/white/${outline_color}/g" svg/animated/left_ptr_watch.svg
-    sed -i "s/#8c382a/${background_color}/g" svg/animated/left_ptr_watch.svg
-    sed -i "s/#c5523f/${accent_color}/g" svg/animated/left_ptr_watch.svg
+    sed -i "s/white/${outline_color}/g" ${svg_dir}/animated/left_ptr_watch.svg
+    sed -i "s/#8c382a/${background_color}/g" ${svg_dir}/animated/left_ptr_watch.svg
+    sed -i "s/#c5523f/${accent_color}/g" ${svg_dir}/animated/left_ptr_watch.svg
 
-    sed -i "s/#FC3C36/${accent_color}/g" svg/static/zoom-out.svg
-    sed -i "s/#00D161/${accent_color}/g" svg/static/zoom-in.svg
+    sed -i "s/#FC3C36/${accent_color}/g" ${svg_dir}/static/zoom-out.svg
+    sed -i "s/#00D161/${accent_color}/g" ${svg_dir}/static/zoom-in.svg
 
     mkdir -p bitmaps/${name}
-    find svg/ -name "*.svg" -exec sh -c 'inkscape --export-type=png --export-filename="bitmaps/${name}/$(basename "{}" .svg).png" "{}"' \;
+    find ${svg_dir}/ -name "*.svg" -exec sh -c 'inkscape --export-type=png --export-filename="bitmaps/${name}/$(basename "{}" .svg).png" "{}"' \;
 
     ctgen build.toml
   '';

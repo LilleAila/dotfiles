@@ -8,11 +8,12 @@
 }:
 pkgs.callPackage ./cursors.nix {
   inherit background_color outline_color accent_color;
-  name = "GoogleDot-Custom";
+  name = "Apple-Custom";
+  svg_dir = "svg/monterey";
   source = fetchFromGitHub {
     owner = "ful1e5";
-    repo = "Google_Cursor";
-    rev = "7e416f8ae074a9346bf860961a0c4d47a58f4f00";
-    hash = "sha256-ON4dwn24sc+8gSErelBsCQo4PLb7Vy6/x7JfXyuvg+4=";
+    repo = "apple_cursor";
+    rev = "7af6c433dc72d0f2eab022e7e8c1bb989a4bb468";
+    hash = "sha256-2EH+6PE2ABeyUSUgXShKTZDfNp/P/vIaXHlZhweiyOA=";
   };
 }

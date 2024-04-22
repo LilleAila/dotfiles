@@ -28,25 +28,12 @@
     gtk.enable = true;
     cursor = {
       size = 24;
-      # package = pkgs.bibata-cursors;
-      # name = "Bibata-Modern-Ice";
-      # package = pkgs.oreo-cursors-plus;
-      # name = "oreo_spark_black_bordered_cursors";
-      # package = pkgs.google-cursor;
-      # name = "GoogleDot-Black";
-      # package = outputs.packages.${pkgs.system}.google-cursor {
-      #   colorScheme = config.colorScheme;
-      # };
-      package = outputs.packages.${pkgs.system}.google-cursor.override {
+      package = outputs.packages.${pkgs.system}.apple-cursor.override {
         background_color = "#${config.colorScheme.palette.base00}";
         outline_color = "#${config.colorScheme.palette.base06}";
         accent_color = "#${config.colorScheme.palette.base0B}";
       };
-      name = "GoogleDot-Custom";
-      # package = pkgs.apple-cursor;
-      # name = "macOS-BigSur";
-      # package = pkgs.catppuccin-cursors.macchiatoDark;
-      # name = "Catppuccin-Macchiato-Dark-Cursors";
+      name = "Apple-Custom";
     };
     wm = {
       ags.enable = true;
