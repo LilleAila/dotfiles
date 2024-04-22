@@ -15,4 +15,7 @@ pkgs.callPackage ./cursors.nix {
     rev = "aad95a3fef84a9682fcc536c8188f0b3da5788db";
     hash = "sha256-iSoaEmypFQfule+IoeXhhjKjYeKczAZkWhOSOacrijg=";
   };
+  extra_commands = ''
+    sed -i "s/#FF1313/${background_color}/g" svg/static/dnd_no_drop.svg
+  '';
 }
