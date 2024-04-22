@@ -16,11 +16,9 @@ pkgs.callPackage ./cursors.nix {
     hash = "sha256-ON4dwn24sc+8gSErelBsCQo4PLb7Vy6/x7JfXyuvg+4=";
   };
   extra_commands = ''
-    sed -i "s/white/${outline_color}/g" svg/animated/wait.svg
     sed -i "s/#8c382a/${background_color}/g" svg/animated/wait.svg
     sed -i "s/#c5523f/${accent_color}/g" svg/animated/wait.svg
 
-    sed -i "s/white/${outline_color}/g" svg/animated/left_ptr_watch.svg
     sed -i "s/#8c382a/${background_color}/g" svg/animated/left_ptr_watch.svg
     sed -i "s/#c5523f/${accent_color}/g" svg/animated/left_ptr_watch.svg
 

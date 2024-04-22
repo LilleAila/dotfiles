@@ -58,9 +58,11 @@ stdenv.mkDerivation {
     ''
       # cbmp -d 'svg' -o 'bitmaps/GoogleDot-Custom' -bc '${background_color}' -oc '${outline_color}'
 
-      find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#00FF00/${background_color}/g' {} \;
-      find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#FF0000/${background_color}/g' {} \;
-      find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#0000FF/${outline_color}/g' {} \;
+      find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#00FF00/${background_color}/gi' {} \;
+      find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#FF0000/${background_color}/gi' {} \;
+      find ${svg_dir}/ -name "*.svg" -exec sed -i 's/black/${background_color}/g' {} \;
+      find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#0000FF/${outline_color}/gi' {} \;
+      find ${svg_dir}/ -name "*.svg" -exec sed -i 's/white/${outline_color}/g' {} \;
     ''
     + extra_commands
     + ''
