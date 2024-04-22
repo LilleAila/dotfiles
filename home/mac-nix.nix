@@ -28,7 +28,7 @@
     gtk.enable = true;
     cursor = {
       size = 24;
-      package = outputs.packages.${pkgs.system}.bibata-original-cursor.override {
+      package = inputs.nix-cursors.packages.${pkgs.system}.bibata-original-cursor.override {
         background_color = "#${config.colorScheme.palette.base00}";
         outline_color = "#${config.colorScheme.palette.base06}";
         accent_color = "#${config.colorScheme.palette.base0B}";

@@ -99,6 +99,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-cursors = {
+      url = "github:LilleAila/nix-cursors";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # === Neovim configuration ===
     nixvim-config = {
       # url = "/home/olai/nvim";
@@ -126,6 +131,7 @@
     pkgsFor = lib.genAttrs systems (
       system:
         import nixpkgs {
+          # TODO: hmmmmmm skal den egentlig være allowUnfree?
           inherit system;
           config.allowUnfree = true;
         }
