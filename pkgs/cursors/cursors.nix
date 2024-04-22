@@ -33,9 +33,10 @@ stdenv.mkDerivation {
     substituteInPlace build.toml \
       --replace "platforms = ['x11', 'windows']" \
       "platforms = ['x11']"
-    substituteInPlace build.toml \
-      --replace "x11_sizes = [22, 24, 28, 32, 40, 48, 56, 64, 72, 80, 88, 96]" \
-      ""
+    # substituteInPlace build.toml \
+    #   --replace "x11_sizes = [22, 24, 28, 32, 40, 48, 56, 64, 72, 80, 88, 96]" \
+    #   ""
+    sed -i "s/^x11_sizes.*$//g" build.toml
     substituteInPlace build.toml \
       --replace "win_size = 32" \
       ""

@@ -18,5 +18,7 @@ pkgs.callPackage ./cursors.nix {
   };
   # TODO: patch the other colors
   extra_commands = ''
+    cp svg/original/left_ptr_watch/left_ptr_watch-01.svg svg/original/left_ptr_watch.svg
+    cp svg/original/wait/wait-01.svg svg/original/wait.svg
   '';
 }
