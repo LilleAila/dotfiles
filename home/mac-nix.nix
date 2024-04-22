@@ -31,7 +31,7 @@
       package = inputs.nix-cursors.packages.${pkgs.system}.bibata-original-cursor.override {
         background_color = "#${config.colorScheme.palette.base00}";
         outline_color = "#${config.colorScheme.palette.base06}";
-        accent_color = "#${config.colorScheme.palette.base0B}";
+        accent_color = "#${config.colorScheme.palette.base00}";
         replace_crosshair = true;
       };
       name = "Bibata-Original-Custom";
