@@ -89,6 +89,13 @@ css
     }
     */
 
+    /* Left sidebar (disabled because settings and other buttons disappear) */
+    /*
+    .sidebar_e031be {
+      width: 150px !important;
+    }
+    */
+
     /* Folder backgrounds */
     .expandedFolderBackground_b1385f {
       background-color: var(--base01) !important;

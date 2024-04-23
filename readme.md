@@ -21,7 +21,7 @@ I use the following computers with this configuration:
 
 | Type                   | Name      | Architecture | Note                        |
 | ---------------------- | --------- | ------------ | --------------------------- |
-| Apple MacBook Pro 14"  | `m1pro14` | `aarch64`    | Main, Build with `--impure` |
+| Apple MacBook Pro 14"  | `mac-nix` | `aarch64`    | Main, Build with `--impure` |
 | Lenovo ThinkPad T420   | `t420`    | `x86_64`     |                             |
 | Lenovo Legion Y540     | `legion`  | `x86_64`     |                             |
 | Oracle cloud A1        | `oci`     | `aarch64`    |                             |
