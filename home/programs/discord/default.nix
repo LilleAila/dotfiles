@@ -65,7 +65,7 @@ in {
               if [[ $(pgrep -f vesktop | wc -l) -ne 0 ]]; then
               	hyprctl dispatch togglespecialworkspace discord
               else
-              	vesktop &
+              	vesktop --enable-wayland-ime &
               fi
             ''}/bin/toggle_discord"
         ];
