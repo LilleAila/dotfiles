@@ -96,6 +96,11 @@ css
     }
     */
 
+    /* "Active Now" sidebar in friends menu */
+    .nowPlayingColumn_b025fe {
+      display: none !important;
+    }
+
     /* Folder backgrounds */
     .expandedFolderBackground_b1385f {
       background-color: var(--base01) !important;

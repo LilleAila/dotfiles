@@ -36,6 +36,7 @@
       };
       name = "Bibata-Original-Custom";
     };
+    fcitx5.enable = true;
     wm = {
       ags.enable = true;
       hyprland = {

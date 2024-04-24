@@ -63,7 +63,34 @@
 
   system.stateVersion = "24.05"; # Did you read the comment?
 
+  fonts.packages = with pkgs; [
+    carlito
+    dejavu_fonts
+    ipafont
+    kochi-substitute
+    source-code-pro
+    ttf_bitstream_vera
+  ];
+
+  fonts.fontconfig.defaultFonts = {
+    monospace = [
+      "DejaVu Sans Mono"
+      "IPAGothic"
+    ];
+    sansSerif = [
+      "DejaVu Sans"
+      "IPAPGothic"
+    ];
+    serif = [
+      "DejaVu Serif"
+      "IPAPMincho"
+    ];
+  };
+
   i18n.inputMethod = {
+    # enabled = "ibus";
+    # ibus.engines = with pkgs.ibus-engines; [mozc];
+
     enabled = "fcitx5";
     fcitx5 = {
       waylandFrontend = true;
@@ -71,6 +98,17 @@
         fcitx5-mozc
         fcitx5-gtk
       ];
+      # TODO: probably set these settings with home-manager
+      # settings = {
+      #   globalOptions = {
+      #     Behavior.ActiveByDefault = "True";
+      #     Behavior.ShareInputState = "All";
+      #   };
+      #   addons = {
+      #     classicui.TrayOutlineColor = "#282828";
+      #     classicui.TrayTextColor = "#fbf1c7";
+      #   };
+      # };
     };
   };
 }

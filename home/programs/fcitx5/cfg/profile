@@ -1,0 +1,22 @@
+[Groups/0]
+# Group Name
+Name=Default
+# Layout
+Default Layout=no
+# Default Input Method
+DefaultIM=no
+
+[Groups/0/Items/0]
+# Name
+Name=keyboard-no
+# Layout
+Layout=
+
+[Groups/0/Items/1]
+# Name
+Name=mozc
+# Layout
+Layout=
+
+[GroupOrder]
+0=Default

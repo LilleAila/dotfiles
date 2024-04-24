@@ -8,7 +8,8 @@
   wayland.windowManager.hyprland.settings = {
     exec-once = [
       "ags" # Ags has to be run in the user environment
-      "fcitx5" # Has to be manually started
+      # "fcitx5"
+      # "ibus-daemon -rxRd"
     ];
 
     monitor = [
