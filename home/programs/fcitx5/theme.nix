@@ -1,15 +1,16 @@
 {config, ...}: let
   c = config.colorScheme.palette;
+  name = config.colorScheme.slug;
 in ''
   [Metadata]
-  Name=Nord-Dark
+  Name=${name}
   Version=0.1
-  Author=tonyfettes
-  Description=Nord Color Theme (Dark)
+  Author=LilleAila
+  Description=Nix-colors ${name}
   ScaleWithDPI=True
 
   [InputPanel]
-  Font=Sans 13
+  Font=Sans 10
   NormalColor=#${c.base06}
   HighlightCandidateColor=#${c.base07}
   HighlightColor=#${c.base07}
@@ -24,6 +25,8 @@ in ''
 
   [InputPanel/Background]
   Color=#${c.base00}
+  BorderColor=#${c.base01}
+  BorderWidth=2
 
   [InputPanel/Background/Margin]
   Left=2

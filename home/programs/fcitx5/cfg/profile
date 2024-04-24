@@ -4,7 +4,7 @@ Name=Default
 # Layout
 Default Layout=no
 # Default Input Method
-DefaultIM=no
+DefaultIM=keyboard-no
 
 [Groups/0/Items/0]
 # Name

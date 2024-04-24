@@ -28,12 +28,13 @@
       '';
     };
 
-    home.file.".local/share/fcitx5/themes/nix-colors".source = pkgs.stdenv.mkDerivation {
+    home.file.".local/share/fcitx5/themes".source = pkgs.stdenv.mkDerivation {
       name = "fcitx5-theme";
-      src = ./theme;
-      buildPkase = ''
-        cat > theme.conf << EOF
-        ${import ./theme/theme.nix {inherit config;}}
+      src = ./themes;
+      buildPhase = ''
+        mkdir -p nix-colors
+        cat > nix-colors/theme.conf << EOF
+        ${import ./theme.nix {inherit config;}}
         EOF
       '';
       installPhase = ''
