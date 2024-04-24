@@ -30,7 +30,6 @@
         wlr-randr
       ];
 
-      # TODO: enable display under notch to show bar
       wayland.windowManager.hyprland = {
         enable = true;
         # package = (inputs.hyprland.packages."${pkgs.system}".hyprland.override { legacyRenderer = true; });

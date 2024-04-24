@@ -98,7 +98,6 @@
         fcitx5-mozc
         fcitx5-gtk
       ];
-      # TODO: probably set these settings with home-manager
       # settings = {
       #   globalOptions = {
       #     Behavior.ActiveByDefault = "True";

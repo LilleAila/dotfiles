@@ -20,7 +20,6 @@
     };
   };
 
-  # TODO: fix cursor in screenshots (switch to grim+slurp directly??)
   config = let
     cfg = config.settings.wm.hyprland.screenshots;
   in

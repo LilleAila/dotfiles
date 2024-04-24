@@ -12,7 +12,6 @@
   };
 
   config = lib.mkIf (config.settings.utils.enable) {
-    # TODO: separate into misc. gui and misc. all
     environment.shells = [pkgs.zsh pkgs.fish];
     programs.zsh.enable = true;
     programs.fish.enable = true;

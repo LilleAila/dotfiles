@@ -131,9 +131,7 @@
     pkgsFor = lib.genAttrs systems (
       system:
         import nixpkgs {
-          # TODO: hmmmmmm skal den egentlig være allowUnfree?
           inherit system;
-          config.allowUnfree = true;
         }
     );
     globalSettings = {
