@@ -22,9 +22,9 @@ in ''
   # Use input method language to display text
   UseInputMethodLanguageToDisplayText=True
   # Theme
-  Theme=default
+  Theme=nix-colors
   # Dark Theme
-  DarkTheme=default
+  DarkTheme=nix-colors
   # Follow system light/dark color scheme
   UseDarkTheme=False
   # Follow system accent color if it is supported by theme and desktop
