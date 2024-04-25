@@ -15,6 +15,8 @@
     boot.loader.efi.canTouchEfiVariables = false;
     boot.kernelParams = [
       "apple_dcp.show_notch=1"
+      "hid_apple.swap_fn_leftctrl=1"
+      "hid_apple.fnmode=2" # F-keys first, media keys with fn
     ];
 
     hardware.asahi = {
