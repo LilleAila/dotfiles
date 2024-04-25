@@ -14,8 +14,8 @@ in ''
   NormalColor=#${c.base06}
   HighlightCandidateColor=#${c.base07}
   HighlightColor=#${c.base07}
-  HighlightBackgroundColor=#${c.base00}
-  Spacing=3
+  HighlightBackgroundColor=#00000000
+  Spacing=0
 
   [InputPanel/TextMargin]
   Left=10
@@ -24,7 +24,7 @@ in ''
   Bottom=6
 
   [InputPanel/Background]
-  Color=#${c.base00}
+  Color=#${c.base00}aa
   BorderColor=#${c.base01}
   BorderWidth=2
 
@@ -35,7 +35,7 @@ in ''
   Bottom=2
 
   [InputPanel/Highlight]
-  Color=#${c.base01}
+  Color=#${c.base01}aa
 
   [InputPanel/Highlight/Margin]
   Left=10

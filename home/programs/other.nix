@@ -35,6 +35,10 @@
     })
     (lib.mkIf (config.settings.other.enable) {
       services.blueman-applet.enable = true;
+      dconf.settings."org/blueman/general" = {
+        plugin-list = ["!ConnectionNotifier"];
+      };
+
       services.network-manager-applet.enable = true;
 
       xdg.mimeApps.enable = true;
