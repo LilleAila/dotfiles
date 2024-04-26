@@ -70,7 +70,6 @@
     decoration = {
       rounding = 0;
       blur = {
-        # enabled = false;
         enabled = true;
         brightness = 1.0;
         contrast = 1.0;
@@ -78,6 +77,9 @@
         passes = 3;
         size = 10;
         vibrancy = 0.1696;
+        # popups = true;
+        # ignore_opacity = true;
+        # special = true; # blur special wses
       };
       drop_shadow = false;
       dim_inactive = true;
@@ -138,6 +140,9 @@
 
       "rounding 12, floating:1"
       "noborder, floating:0"
+
+      # "opacity 0.9, class:(vesktop)"
+      # "opacity 0.9, class:(firefox)"
     ];
 
     layerrule = [
