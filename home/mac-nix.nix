@@ -148,13 +148,14 @@
     };
   };
 
-  settings.webapps.firefox = {
-    ddg = {
-      icon = "duckduckgo";
-      url = "https://start.duckduckgo.com/";
-      id = 4;
-    };
-  };
+  # Chromium webapps work a lot better.
+  # settings.webapps.firefox = {
+  #   ddg = {
+  #     icon = "duckduckgo";
+  #     url = "https://start.duckduckgo.com/";
+  #     id = 4;
+  #   };
+  # };
 
   home.sessionVariables."PLOVER_UINPUT_LAYOUT" = "no";
 }
