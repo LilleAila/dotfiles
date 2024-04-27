@@ -89,6 +89,10 @@ css
       backdrop-filter: blur(3px);
     }
 
+    .children_cde9af:after {
+      display: none;
+    }
+
     .newMessagesBar__8b272 {
       top: 48px;
     }
