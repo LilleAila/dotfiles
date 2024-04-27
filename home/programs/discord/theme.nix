@@ -76,6 +76,23 @@ css
       --font-primary ${sansSerif.name} !important;
     }
 
+    /* Top bar transparency */
+    .subtitleContainer_f50402 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .subtitleContainer_f50402 .title_d4ba1a {
+      background-color: #${base00}44;
+      backdrop-filter: blur(3px);
+    }
+
+    .newMessagesBar__8b272 {
+      top: 48px;
+    }
+
     /* Remove profile decorations */
     [class^="profileEffects"] {
       display: none;
