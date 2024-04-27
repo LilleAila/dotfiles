@@ -116,7 +116,7 @@ css
     }
 
     .sidebar_e031be {
-      width: 150px;
+      width: 160px;
     }
 
     .searchBar__621ec {
