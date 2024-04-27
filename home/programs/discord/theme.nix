@@ -76,6 +76,42 @@ css
       --font-primary ${sansSerif.name} !important;
     }
 
+    /* Bottom-left profile icon */
+    .nameTag__77ab2 {
+      display: none;
+    }
+
+    .avatar_f8541f {
+      border-radius: 6px;
+    }
+    .avatar_f8541f:hover {
+      background-color: var(--base01);
+    }
+
+    .avatarWrapper__500a6 {
+      min-width: 0;
+    }
+
+    .sidebar_e031be {
+      width: 150px;
+    }
+
+    .searchBar__621ec {
+      display: none;
+    }
+
+    .scroller__89969 {
+      scrollbar-width: none;
+    }
+
+    /*.activity_d189d8.subtext__798a4 {
+      display: none;
+    }*/
+
+    .overflow__993fa, .activityText__56d3b, .headerText__88997 {
+      text-overflow: clip;
+    }
+
     /* Top bar transparency */
     .subtitleContainer_f50402 {
       position: absolute;
@@ -192,6 +228,9 @@ css
     }
 
     /* Hide scrollbar */
+    * {
+      scrollbar-width: none;
+    }
     .scroller_e412fe, .scrollableContainer_ff917f {
       scrollbar-width: none !important;
     }
