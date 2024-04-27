@@ -45,7 +45,7 @@
           allow_remote_control = "yes";
           enable_audio_bell = "no";
           copy_on_select = "clipboard";
-          background_opacity = "0.9";
+          background_opacity = "0.91";
           # window_padding_width = 5;
           window_padding_width = 0;
           confirm_os_window_close = 0;

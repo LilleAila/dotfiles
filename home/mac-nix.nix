@@ -135,7 +135,6 @@
     lmms
     musescore
     inkscape
-    ungoogled-chromium
   ];
 
   settings.webapps.chromium = {
@@ -146,6 +145,14 @@
     Monkeytype = {
       icon = "input-keyboard-symbolic";
       url = "https://monkeytype.com";
+    };
+  };
+
+  settings.webapps.firefox = {
+    ddg = {
+      icon = "duckduckgo";
+      url = "https://start.duckduckgo.com/";
+      id = 4;
     };
   };
 
