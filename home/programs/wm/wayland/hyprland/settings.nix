@@ -59,7 +59,7 @@
     general = {
       gaps_in = 0;
       gaps_out = 0;
-      border_size = 0;
+      border_size = 1;
       "col.active_border" = "rgb(${config.colorScheme.palette.base04}) rgb(${config.colorScheme.palette.base05}) 45deg";
       "col.inactive_border" = "rgb(${config.colorScheme.palette.base00})";
       layout = "dwindle";
@@ -70,7 +70,7 @@
     decoration = {
       rounding = 0;
       blur = {
-        enabled = true;
+        enabled = false; # Disabled blur
         brightness = 1.0;
         contrast = 1.0;
         noise = 0.02;
@@ -78,7 +78,7 @@
         size = 10;
         vibrancy = 0.1696;
         # popups = true;
-        # ignore_opacity = true;
+        # ignore_opacity = true; # Probably very heavy
         # special = true; # blur special wses
       };
       drop_shadow = false;
@@ -143,6 +143,7 @@
 
       # "opacity 0.9, class:(vesktop)"
       # "opacity 0.9, class:(firefox)"
+      "opacity 0.9, class:(chrome-monkeytype.com__-Default)"
     ];
 
     layerrule = [
