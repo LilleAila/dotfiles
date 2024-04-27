@@ -76,6 +76,29 @@ css
       --font-primary ${sansSerif.name} !important;
     }
 
+    /* Mentions */
+    .mentioned_fa6fd2 {
+      background-color: #${base0E}44 !important;
+    }
+    .mentioned_fa6fd2:hover {
+      background-color: #${base0E}33 !important;
+    }
+    .mentioned_fa6fd2::before {
+      background-color: var(--base0E) !important;
+    }
+
+    .mention {
+      background-color: #${base0C}77;
+      color: var(--base07);
+      padding: 0 3px;
+      border-radius: 4px;
+    }
+
+    /* Message sent time */
+    .timestamp_c79dd2.timestampInline__430cf {
+      color: var(--base04) !important;
+    }
+
     /* Username color */
     .username__0b0e7 {
       color: var(--base0D) !important;
