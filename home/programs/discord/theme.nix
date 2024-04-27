@@ -93,6 +93,10 @@ css
       padding: 0 3px;
       border-radius: 4px;
     }
+    .mention:hover {
+      background-color: #${base0C}55;
+      color: var(--base06);
+    }
 
     /* Message sent time */
     .timestamp_c79dd2.timestampInline__430cf {
