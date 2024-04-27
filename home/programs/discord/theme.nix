@@ -76,7 +76,30 @@ css
       --font-primary ${sansSerif.name} !important;
     }
 
-    /* Bottom-left profile icon */
+    /* Right sidebar */
+    .profilePanel_e2cafe {
+      width: 220px;
+    }
+
+    .profileMutuals_ba77b9 {
+      display: none;
+    }
+
+    .membersWrap__5ca6b {
+      min-width: 160px;
+      width: 160px;
+      padding-top: 24px; /* Account for floating top-bar */
+    }
+
+    .members__573eb {
+      width: 100%;
+    }
+
+    .name_c3d448, .username__4a6f7, .activityText__31c22 {
+      text-overflow: clip;
+    }
+
+    /* Left sidebar */
     .nameTag__77ab2 {
       display: none;
     }
