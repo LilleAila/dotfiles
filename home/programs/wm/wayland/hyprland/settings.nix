@@ -59,7 +59,7 @@
     general = {
       gaps_in = 0;
       gaps_out = 0;
-      border_size = 1;
+      border_size = 0;
       "col.active_border" = "rgb(${config.colorScheme.palette.base04}) rgb(${config.colorScheme.palette.base05}) 45deg";
       "col.inactive_border" = "rgb(${config.colorScheme.palette.base00})";
       layout = "dwindle";
