@@ -23,6 +23,7 @@
     ./programs/other.nix
     ./programs/fonts.nix
     ./programs/fcitx5
+    ./programs/webapps
 
     # ./programs/wallpaper/wallpaper.nix
     ./programs/wm/wayland
