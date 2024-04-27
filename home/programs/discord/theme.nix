@@ -12,7 +12,7 @@ css
     * @description Base16 color scheme generated from https://github.com/Misterio77/nix-colors
     **/
 
-    @import url(https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Apple.css);
+    /*@import url(https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Apple.css);*/
     @import url(https://mwittrien.github.io/BetterDiscordAddons/Themes/SettingsModal/SettingsModal.css);
 
     /* Settings modal */
@@ -76,6 +76,15 @@ css
       --font-primary ${sansSerif.name} !important;
     }
 
+    /* Remove profile decorations */
+    [class^="profileEffects"] {
+      display: none;
+    }
+
+    [class^="avatarDecoration"] {
+      display: none;
+    }
+
     /* Mentions */
     .mentioned_fa6fd2 {
       background-color: #${base0E}44 !important;
@@ -87,13 +96,13 @@ css
       background-color: var(--base0E) !important;
     }
 
-    .mention {
+    .mention, .channelMention {
       background-color: #${base0C}77;
       color: var(--base07);
       padding: 0 3px;
       border-radius: 4px;
     }
-    .mention:hover {
+    .mention:hover, .channelMention:hover {
       background-color: #${base0C}55;
       color: var(--base06);
     }
@@ -162,12 +171,12 @@ css
     }
 
     /* Hide scrollbar */
-    .scroller_e412fe {
+    .scroller_e412fe, .scrollableContainer_ff917f {
       scrollbar-width: none !important;
     }
 
     /* Top bar bottom border */
-    .searchBar__621ec {
+    .searchBar__621ec, .header__77c95, .content__01e65:before {
       box-shadow: none !important;
     }
 
