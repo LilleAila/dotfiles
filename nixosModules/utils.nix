@@ -15,7 +15,6 @@
     environment.shells = [pkgs.zsh pkgs.fish];
     programs.zsh.enable = true;
     programs.fish.enable = true;
-    nix.settings.experimental-features = ["nix-command" "flakes"];
 
     services.fstrim.enable = true;
     services.upower.enable = true;

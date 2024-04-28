@@ -14,26 +14,48 @@
     services.gvfs.enable = true;
     # services.printing.enable = true;
 
-    # i18n.inputMethod = {
-    #   enabled = "ibus";
-    #   ibus.engines = with pkgs.ibus-engines; [
-    #     mozc
-    #   ];
-    # };
+    # Enable XDG-desktop-portals (TODO: I think it's possible to do this in home)
+    xdg.portal = {
+      enable = true;
+      wlr.enable = true;
+      configPackages = [pkgs.xdg-desktop-portal-gtk];
+      extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    };
 
-    # Den krasjer hver gang skrive en bokstav....
-    # i18n.inputMethod = {
-    #   enabled = "fcitx5";
-    #   fcitx5 = {
-    #     waylandFrontend = true;
-    #     addons = with pkgs; [
-    #       fcitx5-gtk
-    #       fcitx5-configtool
-    #       fcitx5-m17n
-    #       fcitx5-mozc
-    #     ];
-    #   };
-    # };
+    i18n.inputMethod = {
+      enabled = "fcitx5";
+      fcitx5 = {
+        waylandFrontend = true;
+        addons = with pkgs; [
+          fcitx5-mozc
+          fcitx5-gtk
+        ];
+      };
+    };
+
+    fonts.packages = with pkgs; [
+      carlito
+      dejavu_fonts
+      ipafont
+      kochi-substitute
+      source-code-pro
+      ttf_bitstream_vera
+    ];
+
+    fonts.fontconfig.defaultFonts = {
+      monospace = [
+        "DejaVu Sans Mono"
+        "IPAGothic"
+      ];
+      sansSerif = [
+        "DejaVu Sans"
+        "IPAPGothic"
+      ];
+      serif = [
+        "DejaVu Serif"
+        "IPAPMincho"
+      ];
+    };
 
     xdg.autostart.enable = true;
 
