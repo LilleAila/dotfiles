@@ -86,8 +86,8 @@ css
     }
 
     .membersWrap__5ca6b {
-      min-width: 160px;
-      width: 160px;
+      min-width: 180px;
+      width: 180px;
       padding-top: 24px; /* Account for floating top-bar */
     }
 
@@ -113,10 +113,33 @@ css
 
     .avatarWrapper__500a6 {
       min-width: 0;
+      margin: 0;
     }
 
-    .sidebar_e031be {
-      width: 160px;
+    .sidebar_e031be { /* The sidebar itself */
+      width: 40px;
+      margin-right: 8px;
+    }
+
+    .sidebar_e031be:has(.container__7e23c) { /* Server sidebars are wider */
+      width: 180px !important;
+    }
+
+    .sidebar_e031be:has(.container__7e23c) .container_debb33 {
+      flex-direction: row !important;
+      height: 32px !important;
+      padding-bottom: 8px;
+      justify-content: center;
+    }
+
+
+    .sidebar_e031be:has(.container__7e23c) .container_debb33 .flex_f18b02 {
+      flex-direction: row !important;
+    }
+
+    .avatarWithText__3fb83 {
+      padding-right: 0;
+      padding-left: 4px;
     }
 
     .searchBar__621ec {
@@ -127,12 +150,65 @@ css
       scrollbar-width: none;
     }
 
-    /*.activity_d189d8.subtext__798a4 {
+    .subtext__798a4 {
       display: none;
-    }*/
+    }
 
     .overflow__993fa, .activityText__56d3b, .headerText__88997 {
       text-overflow: clip;
+    }
+
+    /*button[aria-label="Mute"], button[aria-label="Deafen"] {*/
+    /*  display: none;*/
+    /*}*/
+
+    .closeButton__116c3, div[aria-label="Leave Group"] {
+      display: none !important;
+    }
+
+    .container_debb33 {
+      flex-direction: column;
+      height: 128px;
+      padding: 0;
+      margin-left: 0;
+    }
+
+    .container_debb33 .flex_f18b02 {
+      flex-direction: column;
+    }
+
+    .channel__0aef5.container__3792d {
+      margin-left: 0;
+    }
+
+    .nameAndDecorators_c896d6 {
+      display: none;
+    }
+
+    .privateChannelsHeaderContainer_b22dc9 .headerText__88997 {
+      display: none;
+    }
+
+    .privateChannelRecipientsInviteButtonIcon__459c2.iconWrapper_de6cd1 {
+      background-color: var(--base01);
+      padding: 6px;
+      border-radius: 100%;
+      transition: border-radius 0.2s ease-out;
+    }
+
+    .privateChannelRecipientsInviteButtonIcon__459c2.iconWrapper_de6cd1:hover {
+      border-radius: 6px;
+    }
+
+    .privateChannelsHeaderContainer_b22dc9 {
+      padding: 0;
+      height: 28px;
+      margin-left: 4px;
+      margin-bottom: 8px;
+    }
+
+    .layout__59abc {
+      padding-left: 4px;
     }
 
     /* Top bar transparency */
