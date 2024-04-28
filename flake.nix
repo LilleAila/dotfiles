@@ -207,7 +207,7 @@
         ];
       };
 
-      t420 = nixpkgs.lib.nixosSystem {
+      t420-nix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           inherit inputs outputs globalSettings;
