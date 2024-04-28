@@ -36,6 +36,8 @@
         systemd.enable = true;
         xwayland.enable = true;
       };
+
+      settings.wm.hyprland.screenshots.enable = lib.mkDefault true;
     })
     # There is probably a more clean way to do this
     (lib.mkIf (config.settings.wm.hyprland.useLegacyRenderer) {

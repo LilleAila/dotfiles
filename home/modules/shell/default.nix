@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    inputs.nix-index-database.hmModules.nix-index
     ./zsh.nix
     ./fish.nix
     ./utils.nix
