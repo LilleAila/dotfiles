@@ -36,12 +36,6 @@
       enableFishIntegration = true;
     };
 
-    programs.thefuck = {
-      enable = true;
-      enableZshIntegration = true;
-      enableFishIntegration = true;
-    };
-
     programs.eza = {
       enable = true;
       git = true;
@@ -61,5 +55,10 @@
       enable = true;
       nix-direnv.enable = true;
     };
+
+    home.packages = with pkgs; [
+      nurl
+      sops
+    ];
   };
 }

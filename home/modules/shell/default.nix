@@ -8,7 +8,7 @@
   imports = [
     ./zsh.nix
     ./fish.nix
-    ./shell.nix
+    ./utils.nix
     ./neovim.nix
     ./lf.nix
     ./git.nix
