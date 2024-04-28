@@ -117,7 +117,7 @@ css
     }
 
     .sidebar_e031be { /* The sidebar itself */
-      width: 40px;
+      width: 48px;
       margin-right: 8px;
     }
 
@@ -203,12 +203,23 @@ css
     .privateChannelsHeaderContainer_b22dc9 {
       padding: 0;
       height: 28px;
-      margin-left: 4px;
       margin-bottom: 8px;
+      width: 100%;
+      justify-content: center;
     }
 
     .layout__59abc {
-      padding-left: 4px;
+      padding: 0;
+      width: 100%;
+    }
+
+    .avatar__7bd22 {
+      margin: 0;
+      width: 100%;
+    }
+
+    .linkButton__9da2c {
+      padding-right: 0;
     }
 
     /* Top bar transparency */
