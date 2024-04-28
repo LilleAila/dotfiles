@@ -5,10 +5,6 @@
   lib,
   ...
 }: {
-  imports = [
-    ./firefox
-  ];
-
   options.settings.browser = {
     qutebrowser.enable = lib.mkEnableOption "qutebrowser";
   };
@@ -18,7 +14,7 @@
       programs.qutebrowser = {
         enable = true;
         settings = {
-          colors = import ./qutebrowser_colors.nix {inherit config;};
+          colors = import ./colors.nix {inherit config;};
         };
       };
     })

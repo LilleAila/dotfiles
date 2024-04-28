@@ -8,26 +8,28 @@
   home = {
     username = "olai";
     homeDirectory = "/home/olai";
-    stateVersion = "23.11"; # Changed from stable 23.05
+    stateVersion = "23.11";
   };
 
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    ./programs/shell
+    # ./programs/shell
 
-    ./programs/browser.nix
-    ./programs/discord
-    ./programs/emacs
-    ./programs/zathura.nix
-    ./programs/files.nix
-    ./programs/other.nix
-    ./programs/fonts.nix
-    ./programs/fcitx5
-    ./programs/webapps
+    # ./programs/browser.nix
+    # ./programs/discord
+    # ./programs/emacs
+    # ./programs/zathura.nix
+    # ./programs/files.nix
+    # ./programs/other.nix
+    # ./programs/fonts.nix
+    # ./programs/fcitx5
+    # ./programs/webapps
 
     # ./programs/wallpaper/wallpaper.nix
-    ./programs/wm/wayland
-    ./programs/wm/ags
+    # ./programs/wm/wayland
+    # ./programs/wm/ags
+
+    ./modules
   ];
 
   home.packages = with pkgs; [
