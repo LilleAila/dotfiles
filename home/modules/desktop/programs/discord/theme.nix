@@ -321,9 +321,9 @@ css
     }
 
     /* Input placeholder */
-    .placeholder_dec8c7 {
-      display: none !important;
-    }
+    /*.placeholder_dec8c7 {*/
+    /*  display: none !important;*/
+    /*}*/
 
     /* Disable orange outline that sometimes shows up on server list */
     .tree__7a511 {
