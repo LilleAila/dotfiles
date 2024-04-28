@@ -10,8 +10,6 @@
     ./.
   ];
 
-  # https://github.com/tinted-theming/base16-schemes/
-  colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
   settings = {
     monitors = [
       {

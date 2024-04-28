@@ -17,6 +17,8 @@ in {
   options.settings.desktop.enable = mkEnableOption "Default desktop configuration";
 
   config = mkIf cfg.enable {
+    # https://github.com/tinted-theming/base16-schemes/
+    colorScheme = mkDefault inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
     settings = {
       gtk.enable = mkDefault true;
       qt.enable = mkDefault true;
