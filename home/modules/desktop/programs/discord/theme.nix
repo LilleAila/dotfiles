@@ -162,9 +162,14 @@ css
       display: none !important;
     }
 
+    .interactiveSelected__689f0 {
+      background-color: var(--base01);
+    }
+
     .container_debb33 {
-      flex-direction: column;
-      height: 128px;
+      flex-direction: column-reverse;
+      height: 136px;
+      justify-content: start;
       padding: 0;
       margin-left: 0;
     }
