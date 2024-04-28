@@ -158,10 +158,6 @@ css
       text-overflow: clip;
     }
 
-    /*button[aria-label="Mute"], button[aria-label="Deafen"] {*/
-    /*  display: none;*/
-    /*}*/
-
     .closeButton__116c3, div[aria-label="Leave Group"] {
       display: none !important;
     }
@@ -244,10 +240,7 @@ css
     }
 
     /* Remove profile decorations */
-    [class^="profileEffects"] {
-      display: none;
-    }
-
+    [class^="profileEffects"],
     [class^="avatarDecoration"] {
       display: none;
     }
@@ -295,21 +288,6 @@ css
       padding: 2px !important;
     }
 
-    /* Message embeds */
-    /*
-    .embedWrapper__47b23, embedFull__14919, embed_cc6dae {
-      background-color: var(--base01) !important;
-      border-radius: 6px !important;
-    }
-    */
-
-    /* Left sidebar (disabled because settings and other buttons disappear) */
-    /*
-    .sidebar_e031be {
-      width: 150px !important;
-    }
-    */
-
     /* "Active Now" sidebar in friends menu */
     .nowPlayingColumn_b025fe {
       display: none !important;
@@ -319,11 +297,6 @@ css
     .expandedFolderBackground_b1385f {
       background-color: var(--base01) !important;
     }
-
-    /* Input placeholder */
-    /*.placeholder_dec8c7 {*/
-    /*  display: none !important;*/
-    /*}*/
 
     /* Disable orange outline that sometimes shows up on server list */
     .tree__7a511 {
@@ -355,63 +328,29 @@ css
       padding: 0 !important;
     }
 
-    /* Hide unneded buttons in message input */
-    button[aria-label="Send a gift"],
-    button[aria-label="Open GIF picker"],
-    button[aria-label="Open sticker picker"],
-    .channelTextArea-1FufC0 > .container-1ZA19X {
-        display: none !important;
-    }
-
     /* Padding on right side of message input */
     .scrollableContainer_ff917f {
-      padding-right: -5px !important;
+      padding: 0 !important;
     }
 
-    /* Hide weird square in top-right of message input */
-    .form_d8a4a1::after {
-      display: none !important;
-    }
-
-    /* Hide shop and nitro buttons */
+    /* Hide some unneeded buttons */
+    .listItem__48528:has(.circleIconButton__05cf2[aria-label="Explore Discoverable Servers"]),
+    .pill__6b31b,
+    [aria-label="Start Video Call"],
+    [aria-label="Inbox"],
+    a[href="https://support.discord.com"],
+    .guildSeparator__75928,
+    .divider_bdb894, .akaBadge__27cd4, .nicknames__12efb,
     a[data-list-item-id="private-channels-uid_18___nitro"],
     a[data-list-item-id="private-channels-uid_18___shop"],
     a[href="/shop"],
-    a[href="/store"] {
-      display: none !important;
-    }
-
-    /* Hide nicknames text */
-    .divider_bdb894, .akaBadge__27cd4, .nicknames__12efb {
-      display: none !important;
-    }
-
-    /* Hide that one separator on top of server list */
-    .guildSeparator__75928 {
-      display: none !important;
-    }
-
-    /* Hide top-right help button */
-    a[href="https://support.discord.com"] {
-      display: none !important;
-    }
-
-    /* Hide explore button (hover tooltip is still there..) */
-    .listItem__48528 > .listItemWrapper__3d465 > .wrapper__9916c > svg > foreignObject > div[arialabel="Explore Discoverable Servers"] {
-      display: none !important;
-    }
-
-    /* Hide unread indicator */
-    .pill__6b31b {
-      display: none !important;
-    }
-
-    /* Hide video call button */
-    [aria-label="Start Video Call"] {
-      display: none !important;
-    }
-
-    [aria-label="Inbox"] {
+    a[href="/store"],
+    .form_d8a4a1::after,
+    button[aria-label="Send a gift"],
+    button[aria-label="Open GIF picker"],
+    button[aria-label="Open sticker picker"],
+    .channelTextArea-1FufC0 > .container-1ZA19X
+    {
       display: none !important;
     }
   ''
