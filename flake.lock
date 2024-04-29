@@ -581,11 +581,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1713335726,
-        "narHash": "sha256-znkNLAy3qRC4BNaA5AlcWNLyVsTBogN9pVqpkNqskSU=",
+        "lastModified": 1713472482,
+        "narHash": "sha256-7Ft5WZTMIjXOGgRCf31DZBwK6RK8xkeKlD5vFXz3gII=",
         "owner": "hyprwm",
         "repo": "hypridle",
-        "rev": "eb916db19cffd20fc184fc3110a0a8f1860abf5c",
+        "rev": "7cff4581a3753154fc5b41f39a098fad49b777b1",
         "type": "github"
       },
       "original": {
@@ -789,11 +789,11 @@
         "systems": "systems_8"
       },
       "locked": {
-        "lastModified": 1712919696,
-        "narHash": "sha256-93zNQy4LGFP5h/GrQJctd8cPE0VdCDsWigTOx2effrE=",
+        "lastModified": 1714228722,
+        "narHash": "sha256-tf1Hg7MMB0cngyUo/zyAehtuFOt+zyIfi7Vge8jxQM4=",
         "owner": "hyprwm",
         "repo": "hyprpaper",
-        "rev": "02ee7ff3bbd9cba72f26be7b09dde4a89fc31c21",
+        "rev": "4b3843e283a0df1b7ab762459c416e91604a3c7e",
         "type": "github"
       },
       "original": {
@@ -1271,11 +1271,11 @@
         "rtf-tokenize": "rtf-tokenize"
       },
       "locked": {
-        "lastModified": 1712928127,
-        "narHash": "sha256-FcR4Nv/2Yk0N0joVrL6V/7Ei844AUDuUR7llwn6LeVA=",
+        "lastModified": 1714312601,
+        "narHash": "sha256-7kBO0Oq22BxW/EBsb6ordY4hr5/66R/5BfIe5N7vZks=",
         "owner": "LilleAila",
         "repo": "plover-flake",
-        "rev": "b19ef395f7d5697c25b0d6e3b4ce8a9c69f06914",
+        "rev": "3da40a6404c43f17da10eec259d96d78c8e23591",
         "type": "github"
       },
       "original": {

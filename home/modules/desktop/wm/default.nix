@@ -8,6 +8,7 @@
   imports = [
     ./hyprland
     ./sway
+    ./wayfire
     ./wayland # shared
   ];
 }

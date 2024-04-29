@@ -21,6 +21,7 @@
         wallpaper = ./wallpapers/wall18.jpg;
       }
     ];
+    wayfire.enable = true;
     desktop.enable = true;
   };
 
