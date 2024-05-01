@@ -229,7 +229,7 @@
         ];
       };
 
-      legion = nixpkgs.lib.nixosSystem {
+      legion-nix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           inherit inputs outputs globalSettings;
