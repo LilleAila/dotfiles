@@ -34,7 +34,7 @@
       };
     })
     (lib.mkIf (config.settings.other.enable) {
-      services.blueman-applet.enable = true;
+      services.blueman-applet.enable = lib.mkDefault true;
       dconf.settings."org/blueman/general" = {
         plugin-list = ["!ConnectionNotifier"];
       };
