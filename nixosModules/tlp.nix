@@ -37,13 +37,13 @@
         CPU_MIN_PERF_ON_AC = 0;
         CPU_MAX_PERF_ON_AC = 100;
         CPU_MIN_PERF_ON_BAT = 0;
-        CPU_MAX_PERF_ON_BAT = 30;
+        CPU_MAX_PERF_ON_BAT = 50;
         # CPU_DRIVER_OPMODE_ON_AC = "active";
         # CPU_DRIVER_OPMODE_ON_BAT = "passive";
         # CPU_SCALING_GOVERNOR_ON_AC = "performance";
         # CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
         PCIE_ASPM_ON_AC = "default";
-        PCIE_ASPM_ON_BAT = "powersave"; # Idk if use or not
+        PCIE_ASPM_ON_BAT = "default"; # default or powersave
         USB_AUTOSUSPEND = 1;
         USB_EXCLUDE_AUDIO = 1; # Exclude audio from autosuspend
         # USB_AUTOSUSPEND_DISABLE_ON_SHUTDOWN = 1;
