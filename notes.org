@@ -1,3 +1,10 @@
+* Legion Y540
+** Model: Y540-15irh
+** Docs: [[https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/legion-series/legion-y540-15irh/documentation/doc_userguide][lenovo.com]]
+** BIOS keys:
+- Enter BIOS settings: F2
+- Boot menu: F12
+
 * Using the nix repl:
 #+begin_src bash
 nix repl

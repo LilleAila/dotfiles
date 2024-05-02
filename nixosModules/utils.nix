@@ -42,16 +42,5 @@
         TimeoutStopSec = 10;
       };
     };
-
-    # Enable some packages and random stuff
-    environment.systemPackages = with pkgs; [
-      vim
-      wget
-      git
-      pciutils
-
-      dotool
-      wtype
-    ];
   };
 }
