@@ -32,6 +32,8 @@
     osbuild = lib.mkForce "nh os switch -- --impure";
   };
 
+  wayland.windowManager.hyprland.settings.env = ["GDK_SCALE,2"];
+
   home.packages = with pkgs; [
     outputs.packages.${pkgs.system}.box64
     outputs.packages.${pkgs.system}.fhsenv

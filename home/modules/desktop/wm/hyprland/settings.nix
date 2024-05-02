@@ -16,9 +16,9 @@
       # Monitor fallback
       ", preferred, auto, 1"
     ];
-    env = [
-      "GDK_SCALE,2"
-    ];
+    # env = [
+    #   "GDK_SCALE,2"
+    # ];
 
     # Configured through nwg-displays
     source = [

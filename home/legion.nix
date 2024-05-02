@@ -18,8 +18,15 @@
       }
     ];
     desktop.enable = true;
+    fcitx5.enable = false;
   };
   wayland.windowManager.hyprland.settings.input.kb_options = lib.mkForce "ctrl:nocaps,altwin:swap_lalt_lwin";
+  home.shellAliases = {
+    bat-fullcharge = "sudo tlp fullcharge";
+    bat-limit = "sudo tlp setcharge 0 1 BAT0";
+    bt = "bluetooth";
+    osbuild = lib.mkForce "nh os switch -- --impure";
+  };
   home.packages = with pkgs; [
     _1password-gui-beta
   ];
