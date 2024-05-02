@@ -94,6 +94,9 @@
     nix-index-database.url = "github:Mic92/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
+    programsdb.url = "github:wamserma/flake-programs-sqlite";
+    programsdb.inputs.nixpkgs.follows = "nixpkgs";
+
     nh = {
       url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs";
