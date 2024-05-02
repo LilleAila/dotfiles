@@ -38,7 +38,7 @@
           inherit (cfg) name icon genericName;
           exec = lib.strings.concatStringsSep " " [
             "${lib.getExe pkgs.ungoogled-chromium}"
-            "--user-data-dir=\"\\$HOME/.config/chromium/${name}\""
+            "--user-data-dir=\"${config.home.homeDirectory}/.config/chromium/${name}\""
             "--app=${cfg.url}"
           ];
           terminal = false;

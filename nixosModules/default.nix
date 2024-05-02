@@ -13,10 +13,10 @@
     ./user.nix
     ./networking.nix
     ./utils.nix
-    ./tlp.nix
     ./console.nix
     ./ssh.nix
     ./desktop.nix
     ./nix.nix
+    ./sound.nix
   ];
 }

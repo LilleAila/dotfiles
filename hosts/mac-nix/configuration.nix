@@ -35,7 +35,6 @@
     };
     utils.enable = true;
     desktop.enable = true;
-    tlp.enable = false;
     console = {
       font = "ter-u32n";
       keyMap = "no";

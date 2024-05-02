@@ -3,11 +3,12 @@
   pkgs,
   inputs,
   lib,
+  globalSettings,
   ...
 }: {
   home = {
-    username = "olai";
-    homeDirectory = "/home/olai";
+    username = "${globalSettings.username}";
+    homeDirectory = "/home/${config.home.username}";
     stateVersion = "23.11";
   };
 

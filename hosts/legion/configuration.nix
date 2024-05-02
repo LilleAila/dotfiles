@@ -30,7 +30,7 @@
     };
     utils.enable = true;
     desktop.enable = true;
-    tlp.enable = false; # TODO: different profiles
+    sound.enable = true;
     console = {
       font = "ter-u16n";
       keyMap = "no";
@@ -81,7 +81,7 @@
       CPU_BOOST_ON_BAT = 0;
       CPU_HWP_DYN_BOOST_ON_AC = 1;
       CPU_HWP_DYN_BOOST_ON_BAT = 0;
-      RUNTIME_PM_ON_AC = "on";
+      RUNTIME_PM_ON_AC = "auto";
       RUNTIME_PM_ON_BAT = "auto";
       CPU_MIN_PERF_ON_AC = 0;
       CPU_MAX_PERF_ON_AC = 100;
@@ -130,16 +130,5 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
-  };
-
-  # TODO: in its own file
-  sound.enable = true;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
   };
 }

@@ -87,5 +87,12 @@ in {
         size = mkDefault 10;
       };
     };
+
+    settings.webapps.chromium = {
+      Monkeytype = {
+        icon = mkDefault "input-keyboard-symbolic";
+        url = mkDefault "https://monkeytype.com";
+      };
+    };
   };
 }

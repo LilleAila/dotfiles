@@ -52,16 +52,5 @@
     inkscape
   ];
 
-  settings.webapps.chromium = {
-    CSTimer = {
-      icon = "alarm-timer";
-      url = "https://cstimer.net";
-    };
-    Monkeytype = {
-      icon = "input-keyboard-symbolic";
-      url = "https://monkeytype.com";
-    };
-  };
-
   home.sessionVariables."PLOVER_UINPUT_LAYOUT" = "no";
 }
