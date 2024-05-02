@@ -76,6 +76,10 @@ css
       --font-primary ${sansSerif.name} !important;
     }
 
+    .list__5ced9.auto_a3c0bd.scrollerBase_f742b2 {
+      padding-top: 24px;
+    }
+
     /* Right sidebar */
     .profilePanel_e2cafe {
       width: 220px;
@@ -88,7 +92,7 @@ css
     .membersWrap__5ca6b {
       min-width: 180px;
       width: 180px;
-      padding-top: 24px; /* Account for floating top-bar */
+      padding-top: 48px; /* Account for floating top-bar */
     }
 
     .members__573eb {
