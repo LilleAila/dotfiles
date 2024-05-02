@@ -20,7 +20,6 @@
       timeZone = "Europe/Oslo";
     };
     user.name = globalSettings.username;
-    # user.shell = pkgs.fish;
     user.shell = pkgs.zsh;
     networking = {
       enable = true;
@@ -31,18 +30,13 @@
     utils.enable = true;
     desktop.enable = true;
     sound.enable = true;
+    nvidia.enable = false;
     console = {
       font = "ter-u16n";
       keyMap = "no";
     };
     sops.enable = true;
     nix.unfree = [
-      # "steam"
-      # "steam-original"
-      # "steam-run"
-      "nvidia-x11"
-      "nvidia-settings"
-      "nvidia-persistenced"
       "1password"
       "1password-gui"
     ];
@@ -106,26 +100,6 @@
     };
   };
 
-  # Nvidia GPU disabled in BIOS for more better battery life
-  # services.xserver.videoDrivers = ["nvidia"];
-  # hardware.nvidia = {
-  #   modesetting.enable = true;
-  #   powerManagement.enable = false;
-  #   powerManagement.finegrained = false;
-  #   open = false;
-  #   nvidiaSettings = true;
-  #   package = config.boot.kernelPackages.nvidiaPackages.stable;
-  #   prime = {
-  #     offload = {
-  #       enable = true;
-  #       enableOffloadCmd = true; # nvidia-offload command
-  #     };
-  #     intelBusId = "PCI:0:2:0";
-  #     nvidiaBusId = "PCI:1:0:0";
-  #   };
-  # };
-
-  # https://github.com/NixOS/nixos-hardware
   hardware.opengl = {
     enable = true;
     driSupport = true;

@@ -18,5 +18,7 @@
     ./desktop.nix
     ./nix.nix
     ./sound.nix
+    ./steam.nix
+    ./nvidia.nix
   ];
 }

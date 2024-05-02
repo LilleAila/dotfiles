@@ -37,20 +37,7 @@
       keyMap = "no";
     };
     sops.enable = true;
-    nix.unfree = [
-      "steam"
-      "steam-original"
-      "steam-run"
-    ];
   };
-
-  # Enable steam
-  # programs.steam = {
-  #   enable = true;
-  #   package = pkgs.steam;
-  #   remotePlay.openFirewall = true;
-  #   dedicatedServer.openFirewall = true;
-  # };
 
   system.stateVersion = "24.05";
 
