@@ -59,6 +59,7 @@
 
     xdg.autostart.enable = true;
 
+    # services.hardware.openrgb.enable = true;
     hardware.keyboard.qmk.enable = true;
     # Allow read/write to ttyACM0 serial port
     # Allow dotool as non-root user (in input group)
