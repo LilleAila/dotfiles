@@ -15,7 +15,7 @@
         package = pkgs.steam;
         remotePlay.openFirewall = true;
         dedicatedServer.openFirewall = true;
-        # gamescopeSession.enable = true;
+        gamescopeSession.enable = true;
       };
 
       settings.nix.unfree = [
@@ -29,7 +29,7 @@
     (lib.mkIf config.settings.gaming.enable {
       programs.gamemode.enable = true;
       programs.gamescope.enable = true;
-      # environment.systemPackages = with pkgs; [mangohud];
+      environment.systemPackages = with pkgs; [mangohud];
     })
   ];
 }
