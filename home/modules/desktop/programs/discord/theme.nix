@@ -80,6 +80,11 @@ css
       padding-top: 24px;
     }
 
+    /* Missing padding in message input */
+    .inner__9fd0b {
+      padding-right: 12px; /* 16 - 4px margin of emoji button */
+    }
+
     /* Right sidebar */
     .profilePanel_e2cafe {
       width: 220px;
