@@ -254,6 +254,17 @@ css
       display: none;
     }
 
+    /* Replying to */
+    .replying__38514 {
+      background-color: #${base0D}44 !important;
+    }
+    .replying__38514:hover {
+      background-color: #${base0D}33 !important;
+    }
+    .replying__38514::before {
+      background-color: var(--base0D) !important;
+    }
+
     /* Mentions */
     .mentioned_fa6fd2 {
       background-color: #${base0E}44 !important;

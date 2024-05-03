@@ -50,6 +50,7 @@
     lmms
     musescore
     inkscape
+    prismlauncher
   ];
 
   home.sessionVariables."PLOVER_UINPUT_LAYOUT" = "no";
