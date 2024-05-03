@@ -17,7 +17,8 @@
 
       neofetch = "${lib.getExe pkgs.nitch}";
 
-      osbuild = lib.mkDefault "nh os switch";
+      # osbuild = lib.mkDefault "nh os switch";
+      osbuild = lib.mkDefault "sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/dotfiles --fast --no-build-nix";
       nix-collect-garbage = "nh clean all --nogcroots";
     };
 

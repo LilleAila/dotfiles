@@ -29,7 +29,8 @@
   home.shellAliases = {
     bat-fullcharge = "echo 100 | sudo tee /sys/class/power_supply/macsmc-battery/charge_control_end_threshold";
     bat-limit = "echo 80 | sudo tee /sys/class/power_supply/macsmc-battery/charge_control_end_threshold";
-    osbuild = lib.mkForce "nh os switch -- --impure";
+    # osbuild = lib.mkForce "nh os switch -- --impure";
+    osbuild = lib.mkDefault "sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/dotfiles --fast --no-build-nix --impute";
   };
 
   wayland.windowManager.hyprland.settings.env = ["GDK_SCALE,2"];
