@@ -15,8 +15,8 @@
       zsh = {
         enable = true;
         theme = "nanotech";
-        utils.enable = true;
       };
+      utils.enable = true;
       neovim.enable = true;
     };
     # other.enable = true;
