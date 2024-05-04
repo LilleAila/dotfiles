@@ -8,5 +8,6 @@
   imports = [
     ./shell
     ./desktop
+    ./system
   ];
 }

@@ -36,10 +36,10 @@
       keyMap = "no";
     };
     sops.enable = true;
-    nix.unfree = [
-      "1password"
-      "1password-gui"
-    ];
+    # nix.unfree = [
+    #   "1password"
+    #   "1password-gui"
+    # ];
   };
 
   system.stateVersion = "24.05";

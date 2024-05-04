@@ -19,6 +19,10 @@
     ];
     desktop.enable = true;
     fcitx5.enable = false;
+    nix.unfree = [
+      "1password"
+      "1password-gui"
+    ];
   };
   wayland.windowManager.hyprland.settings.input.kb_options = lib.mkForce "ctrl:nocaps,altwin:swap_lalt_lwin,altwin:prtsc_rwin";
   home.shellAliases = {

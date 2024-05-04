@@ -14,11 +14,12 @@
     };
   };
   config = lib.mkIf config.settings.nix.enable {
-    nixpkgs.config = {
+    nixpkgs.config = let
+      unfreePkgs = config.settings.nix.unfree ++ config.home-manager.users.${config.settings.user.name}.settings.nix.unfree;
+    in {
       allowUnsupportedSystem = true;
-      # allowUnfree = true; # Nuh uh
       allowUnfreePredicate = pkg:
-        builtins.elem (lib.getName pkg) config.settings.nix.unfree;
+        builtins.elem (lib.getName pkg) unfreePkgs;
     };
 
     nix = {
