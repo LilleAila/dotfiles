@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./virtualisation.nix
     ./sops.nix
     ./greeter.nix
     ./xserver.nix

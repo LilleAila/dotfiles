@@ -36,10 +36,8 @@
       keyMap = "no";
     };
     sops.enable = true;
-    # nix.unfree = [
-    #   "1password"
-    #   "1password-gui"
-    # ];
+    virtualisation.enable = true;
+    virtualisation.passthrough.enable = true;
   };
 
   system.stateVersion = "24.05";
@@ -49,7 +47,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 2;
   boot.initrd.luks.devices."luks-bb382811-0530-49f8-927f-a7e18e048288".device = "/dev/disk/by-uuid/bb382811-0530-49f8-927f-a7e18e048288";
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.kernelParams = [
     "quiet"
     "splash"

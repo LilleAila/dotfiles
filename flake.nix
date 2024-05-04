@@ -239,7 +239,7 @@
         };
         modules = [
           nixos-hardware.nixosModules.common-cpu-intel # Also does gpu
-          nixos-hardware.nixosModules.common-gpu-nvidia-disable # Disable nvidia gpu
+          # nixos-hardware.nixosModules.common-gpu-nvidia-disable # Disable nvidia gpu
           ./hosts/legion/configuration.nix
           home-manager.nixosModules.home-manager
           {
