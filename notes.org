@@ -94,3 +94,6 @@ home.activation.symlinkCustomFiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
     - After booting the VM, plug in a second monitor to install the GPU drivers (it might be possible to do this before removing video drivers, so that an external monitor is not needed)
     - Follow the remaining configuration steps from looking glass. Remember to keep spice enabled, but with video type as =none=!
     - Set up a [[https://github.com/itsmikethetech/Virtual-Display-Driver][virtual display]] so that it works without a monitor plugged in (also possible to do earlier)
+  - Use the [[https://christitus.com/windows-tool/][ctt windows utility]] to install other stuff
+    - Open administrator command prompt
+    - =iwr -useb https://christitus.com/win | iex=
