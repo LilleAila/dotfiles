@@ -97,3 +97,4 @@ home.activation.symlinkCustomFiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
   - Use the [[https://christitus.com/windows-tool/][ctt windows utility]] to install other stuff
     - Open administrator command prompt
     - =iwr -useb https://christitus.com/win | iex=
+  - Do [[https://www.reddit.com/r/ChromeOSFlex/comments/ucno4b/comment/i6cviv8][these things]] (TODO for next vm, virtio drive or passthrough external drive)
