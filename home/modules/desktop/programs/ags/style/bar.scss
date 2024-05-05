@@ -28,31 +28,48 @@
       background-color: $bg;
       min-width: 1.2rem;
       min-height: 1.2rem;
+
+      &.occupied {
+        &.mon1 {
+          // 0-indexed!
+          background-color: transparent;
+          border: 0.2rem solid $base0B;
+          border-style: solid;
+          border-width: 0.2rem;
+        }
+      }
+
+      &.active {
+        min-width: 3rem;
+      }
+
+      &:not(.active):hover {
+        background-color: $bg_alt;
+      }
     }
 
-    .occupied.mon0 {
-      background-color: $accent1;
+    &.specialisation_default .occupied {
+      background-color: $base0B;
+
+      &.mon1 {
+        border-color: $base0B;
+      }
     }
 
-    .occupied.mon1 {
-      background-color: $accent2;
+    &.specialisation_gaming .occupied {
+      background-color: $base0D;
+
+      &.mon1 {
+        border-color: $base0D;
+      }
     }
 
-    .occupied.mon2 {
-      background-color: $accent3;
-    }
+    &.specialisation_virtualisation .occupied {
+      background-color: $base0E;
 
-    .occupied.mon3 {
-      background-color: $accent4;
-    }
-
-    .active {
-      // background-color: $bg_alt2;
-      min-width: 3rem;
-    }
-
-    .workspace:not(.active):hover {
-      background-color: $bg_alt;
+      &.mon1 {
+        border-color: $base0E;
+      }
     }
   }
 

@@ -30,7 +30,7 @@ window.notification-popups {
     margin: 0.5em;
     border: 1px solid $fg_alt;
     // background-color: $bar_bg;
-    background-color: rgba($bg, 0.1);
+    background-color: rgba($bg, 0.6);
 
     &.critical {
       border: 1px solid $base08;

@@ -1,8 +1,14 @@
-import { Widget, Hyprland } from "../../imports";
+import { Widget, Hyprland, Utils, GLib } from "../../imports";
+
+//const active_specialisation = Utils.exec(
+//  "printenv NIXOS_ACTIVE_SPECIALISATION",
+//);
+
+const active_specialisation = GLib.getenv("NIXOS_ACTIVE_SPECIALISATION");
 
 export default () =>
   Widget.Box({
-    class_name: "workspaces",
+    class_name: `workspaces specialisation_${active_specialisation}`,
     children: [...Array(10)].map((_, i) => {
       const id = i + 1;
       return Widget.Button({
@@ -29,14 +35,6 @@ export default () =>
             self.toggleClassName(
               "mon1",
               (Hyprland.getWorkspace(id)?.monitorID || 0) == 1,
-            );
-            self.toggleClassName(
-              "mon2",
-              (Hyprland.getWorkspace(id)?.monitorID || 0) == 2,
-            );
-            self.toggleClassName(
-              "mon3",
-              (Hyprland.getWorkspace(id)?.monitorID || 0) == 3,
             );
           }),
       });

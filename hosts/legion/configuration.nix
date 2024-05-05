@@ -39,6 +39,8 @@
     nvidia.disable = lib.mkDefault true;
   };
 
+  environment.sessionVariables.NIXOS_ACTIVE_SPECIALISATION = lib.mkDefault "default";
+
   # Default: no nvidia
   # To rebuild and switch to a specific specialisation, use the `--specialisation <name>` flag of `nixos-rebuild`
   specialisation = {
@@ -51,6 +53,7 @@
       };
       # Some gaming options are enabled in home instead
       home-manager.users.${config.settings.user.name}.settings.gaming.enable = true;
+      environment.sessionVariables.NIXOS_ACTIVE_SPECIALISATION = "gaming";
     };
     virtualisation.configuration = {
       settings = {
@@ -63,6 +66,7 @@
         ];
         virtualisation.enable = true;
       };
+      environment.sessionVariables.NIXOS_ACTIVE_SPECIALISATION = "virtualisation";
     };
   };
 

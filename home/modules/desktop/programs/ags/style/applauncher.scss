@@ -6,7 +6,7 @@ $app-height: 400px;
 .app-box {
   margin: calc(2 * #{$app-spacing});
   border-radius: 12px;
-  background-color: rgba($base00, 0.4);
+  background-color: rgba($base00, 0.8);
   padding: 1rem;
   border: 1px solid $fg;
 }
