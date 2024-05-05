@@ -30,14 +30,40 @@
     utils.enable = true;
     desktop.enable = true;
     sound.enable = true;
-    nvidia.enable = false;
     console = {
       font = "ter-u16n";
       keyMap = "no";
     };
     sops.enable = true;
-    virtualisation.enable = true;
-    virtualisation.passthrough.enable = true;
+
+    nvidia.disable = lib.mkDefault true;
+  };
+
+  # Default: no nvidia
+  # To rebuild and switch to a specific specialisation, use the `--specialisation <name>` flag of `nixos-rebuild`
+  specialisation = {
+    gaming.configuration = {
+      settings = {
+        nvidia.disable = lib.mkForce false;
+        nvidia.enable = true;
+        gaming.enable = true;
+        steam.enable = true;
+      };
+      # Some gaming options are enabled in home instead
+      home-manager.users.${config.settings.user.name}.settings.gaming.enable = true;
+    };
+    virtualisation.configuration = {
+      settings = {
+        nvidia.disable = lib.mkForce false;
+        nvidia.passthrough.enable = true;
+        # `lspci -nnk`
+        nvidia.passthrough.ids = [
+          "10de:1f11" # Nvidia 2060 mobile GPU
+          "10de:10f9" # Nvidia audio controller
+        ];
+        virtualisation.enable = true;
+      };
+    };
   };
 
   system.stateVersion = "24.05";

@@ -19,7 +19,7 @@
     ./desktop.nix
     ./nix.nix
     ./sound.nix
-    ./steam.nix
+    ./gaming.nix
     ./nvidia.nix
   ];
 }

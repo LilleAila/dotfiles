@@ -15,5 +15,6 @@
     ./qutebrowser
     ./terminal
     ./webapps
+    ./gaming.nix
   ];
 }

@@ -6,7 +6,12 @@
   ...
 }: {
   options.settings.virtualisation.enable = lib.mkEnableOption "virtualisation";
-  options.settings.virtualisation.passthrough.enable = lib.mkEnableOption "passthrough";
+  options.settings.nvidia.passthrough.enable = lib.mkEnableOption "passthrough";
+  options.settings.nvidia.passthrough.ids = lib.mkOption {
+    type = lib.types.listOf lib.types.str;
+    default = [];
+    description = "IDs of hardware to pass through with vfio";
+  };
 
   config = lib.mkMerge [
     (lib.mkIf config.settings.virtualisation.enable {
@@ -29,7 +34,7 @@
         "iommu=pt"
       ];
     })
-    (lib.mkIf config.settings.virtualisation.passthrough.enable {
+    (lib.mkIf config.settings.nvidia.passthrough.enable {
       /*
       Useful resources:
       - https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF
@@ -41,8 +46,8 @@
       boot.kernelPackages = lib.mkForce pkgs.linuxPackages_zen; # This not be necessary on other computers, but on my computer the GPU was in the same IOMMU group as other pci stuff that was not supposed to be passed through
       boot.kernelParams = [
         # These are device ids found with `lspci -nnk`.
-        "vfio-pci.ids=10de:1f11,10de:10f9"
-        "pcie_acs_override=downstream,multifunction"
+        "vfio-pci.ids=${lib.concatStringsSep "," config.settings.nvidia.passthrough.ids}"
+        "pcie_acs_override=downstream,multifunction" # Make GPU be in a different IOMMU group
       ];
       boot.initrd.kernelModules = [
         "vfio_pci"
