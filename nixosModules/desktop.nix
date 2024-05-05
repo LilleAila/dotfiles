@@ -14,6 +14,8 @@
     services.gvfs.enable = true;
     # services.printing.enable = true;
 
+    environment.sessionVariables.NIXOS_ACTIVE_SPECIALISATION = lib.mkDefault "default";
+
     # Enable XDG-desktop-portals (TODO: I think it's possible to do this in home)
     xdg.portal = {
       enable = true;

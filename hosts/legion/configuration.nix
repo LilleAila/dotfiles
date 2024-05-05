@@ -39,8 +39,6 @@
     nvidia.disable = lib.mkDefault true;
   };
 
-  environment.sessionVariables.NIXOS_ACTIVE_SPECIALISATION = lib.mkDefault "default";
-
   # Default: no nvidia
   # To rebuild and switch to a specific specialisation, use the `--specialisation <name>` flag of `nixos-rebuild`
   specialisation = {
