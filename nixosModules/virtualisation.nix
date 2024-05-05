@@ -35,14 +35,6 @@
       ];
     })
     (lib.mkIf config.settings.nvidia.passthrough.enable {
-      /*
-      Useful resources:
-      - https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF
-      - https://astrid.tech/2022/09/22/0/nixos-gpu-vfio/
-      - https://alexbakker.me/post/nixos-pci-passthrough-qemu-vfio.html
-      - https://github.com/bryansteiner/gpu-passthrough-tutorial
-      - https://looking-glass.io/docs/B6/install/
-      */
       boot.kernelPackages = lib.mkForce pkgs.linuxPackages_zen; # This not be necessary on other computers, but on my computer the GPU was in the same IOMMU group as other pci stuff that was not supposed to be passed through
       boot.kernelParams = [
         # These are device ids found with `lspci -nnk`.
