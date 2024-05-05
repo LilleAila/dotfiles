@@ -94,7 +94,8 @@ home.activation.symlinkCustomFiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
     - After booting the VM, plug in a second monitor to install the GPU drivers (it might be possible to do this before removing video drivers, so that an external monitor is not needed)
     - Follow the remaining configuration steps from looking glass. Remember to keep spice enabled, but with video type as =none=!
     - Set up a [[https://github.com/itsmikethetech/Virtual-Display-Driver][virtual display]] so that it works without a monitor plugged in (also possible to do earlier)
-    - For me, windows only detected a single [[https://www.reddit.com/r/VFIO/comments/8vcepm/comment/e1px449/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button][one]] of the 6 cpu cores passed through. The solution was to check "Manually set CPU topology", with 1 socket, 6 cores and 1 thread
+    - For me, windows only detected a single [[https://www.reddit.com/r/VFIO/comments/8vcepm/comment/e1px449/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button][one]] of the 6 cpu cores passed through. The solution was to check "Manually set CPU topology", with 1 socket, 6 cores and 2 threads
+      - The threads refer to threads per core, and according to =lscpu= my cpu has 2 threads per core.
   - Use the [[https://christitus.com/windows-tool/][ctt windows utility]] to install other stuff
     - Open administrator command prompt
     - =iwr -useb https://christitus.com/win | iex=
