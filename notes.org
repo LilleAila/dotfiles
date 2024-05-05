@@ -81,3 +81,16 @@ home.activation.symlinkCustomFiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
 
 * TODO Configure devenv to use instead of manual devshells
 [[https://github.com/cachix/devenv][Devenv]]
+
+* Virtual Machines
+** Basic setup steps
+- Enable virtualisation stuff in nixOS
+- Use =lspci -nnk= to find ids of hardware to pass through
+- Make the virtual machine
+  - Configure the VM before installation (CPU to =host-passthrough= and use =EFI=)
+  - Follow the steps described in the [[https://looking-glass.io/docs/B6/install/][looking glass install guide]].
+    - First, install the host and other tools in windows with the default VM config
+    - Set video type to =none= and pass through the GPU, a mouse and a keyboard with "add hardware"
+    - After booting the VM, plug in a second monitor to install the GPU drivers (it might be possible to do this before removing video drivers, so that an external monitor is not needed)
+    - Follow the remaining configuration steps from looking glass. Remember to keep spice enabled, but with video type as =none=!
+    - Set up a [[https://github.com/itsmikethetech/Virtual-Display-Driver][virtual display]] so that it works without a monitor plugged in (also possible to do earlier)

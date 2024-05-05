@@ -56,6 +56,13 @@
       '';
       boot.blacklistedKernelModules = ["nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" "i2c_nvidia_gpu"];
       virtualisation.spiceUSBRedirection.enable = true;
+
+      # Looking glass
+      environment.systemPackages = [pkgs.looking-glass-client];
+      systemd.tmpfiles.rules = [
+        "f /dev/shm/looking-glass 0660 ${config.settings.user.name} libvirtd -"
+      ];
+
       settings.virtualisation.enable = true;
     })
   ];
