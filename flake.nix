@@ -126,6 +126,7 @@
   } @ inputs: let
     inherit (self) outputs;
     lib = nixpkgs.lib // home-manager.lib;
+
     systems = [
       "x86_64-linux"
       "aarch64-linux"
@@ -137,122 +138,56 @@
           inherit system;
         }
     );
+
     globalSettings = {
+      # Define username here. Probably a better way to do this
       username = "olai";
     };
+    mkConfig = {
+      name,
+      extraModules ? [],
+    }:
+      nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs globalSettings;};
+        modules =
+          [
+            ./hosts/${name}/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                extraSpecialArgs = {inherit inputs outputs globalSettings;};
+                useUserPackages = true;
+                useGlobalPkgs = true;
+                users."${globalSettings.username}" = ./home/${name}.nix;
+              };
+            }
+            (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" globalSettings.username])
+          ]
+          ++ extraModules;
+      };
   in {
     packages = forEachSystem (pkgs: import ./pkgs {inherit pkgs;});
 
-    # TODO: split into multiple files, and maybe a helper function too
     nixosConfigurations = {
-      mac-nix = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
-        specialArgs = {
-          inherit inputs outputs globalSettings;
-        };
-        modules = [
-          {nixpkgs.overlays = [inputs.nixos-apple-silicon.overlays.apple-silicon-overlay];}
+      mac-nix = mkConfig {
+        name = "mac-nix";
+        extraModules = [
           inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
-          ./hosts/mac-nix/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              extraSpecialArgs = {
-                inherit inputs outputs globalSettings;
-              };
-              useUserPackages = true;
-              useGlobalPkgs = true;
-              users."${globalSettings.username}" = ./home/mac-nix.nix;
-            };
-          }
         ];
       };
 
-      oci = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
-        specialArgs = {
-          inherit inputs outputs globalSettings;
-        };
-        modules = [
-          ./hosts/oci/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              extraSpecialArgs = {
-                inherit inputs outputs globalSettings;
-              };
-              useUserPackages = true;
-              useGlobalPkgs = true;
-              users."${globalSettings.username}" = ./home/oci.nix;
-            };
-          }
-        ];
+      oci-nix = mkConfig {
+        name = "oci";
       };
 
-      pi4 = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
-        specialArgs = {
-          inherit inputs outputs globalSettings;
-        };
-        modules = [
-          ./hosts/pi4/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              extraSpecialArgs = {
-                inherit inputs outputs globalSettings;
-              };
-              useUserPackages = true;
-              useGlobalPkgs = true;
-              users."${globalSettings.username}" = ./home/pi4.nix;
-            };
-          }
-        ];
+      t420-nix = mkConfig {
+        name = "t420";
+        extraModules = [nixos-hardware.nixosModules.lenovo-thinkpad-t420];
       };
 
-      t420-nix = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs outputs globalSettings;
-        };
-        modules = [
-          nixos-hardware.nixosModules.lenovo-thinkpad-t420
-          ./hosts/t420/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              extraSpecialArgs = {
-                inherit inputs outputs globalSettings;
-              };
-              useUserPackages = true;
-              useGlobalPkgs = true;
-              users."${globalSettings.username}" = ./home/t420.nix;
-            };
-          }
-        ];
-      };
-
-      legion-nix = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs outputs globalSettings;
-        };
-        modules = [
-          nixos-hardware.nixosModules.common-cpu-intel # Also does gpu
-          # nixos-hardware.nixosModules.common-gpu-nvidia-disable # Disable nvidia gpu
-          ./hosts/legion/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              extraSpecialArgs = {
-                inherit inputs outputs globalSettings;
-              };
-              useUserPackages = true;
-              useGlobalPkgs = true;
-              users."${globalSettings.username}" = ./home/legion.nix;
-            };
-          }
-        ];
+      legion-nix = mkConfig {
+        name = "legion";
+        extraModules = [nixos-hardware.nixosModules.common-cpu-intel];
       };
     };
 

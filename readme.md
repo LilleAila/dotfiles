@@ -19,14 +19,13 @@ Riced with [nix-colors](https://github.com/Misterio77/nix-colors) using [gruvbox
 ## Hardware
 I use the following computers with this configuration:
 
-| Type                   | Name      | Architecture | Note                        |
-| ---------------------- | --------- | ------------ | --------------------------- |
-| Apple MacBook Pro 14"  | `mac-nix` | `aarch64`    | Main, Build with `--impure` |
-| Lenovo ThinkPad T420   | `t420`    | `x86_64`     |                             |
-| Lenovo Legion Y540     | `legion`  | `x86_64`     |                             |
-| Oracle cloud A1        | `oci`     | `aarch64`    |                             |
-| Lenovo ThinkPad e540   | `e540`    | `x86_64`     | Not configured yet          |
-| Raspberry pi 400       | `pi4`     | `aarch64`    |                             |
+| Type                   | Name         | Architecture | Note                        |
+| ---------------------- | ------------ | ------------ | --------------------------- |
+| Apple MacBook Pro 14"  | `mac-nix`    | `aarch64`    | Main, Build with `--impure` |
+| Lenovo ThinkPad T420   | `t420-nix`   | `x86_64`     |                             |
+| Lenovo Legion Y540     | `legion-nix` | `x86_64`     |                             |
+| Oracle cloud A1        | `oci-nix`    | `aarch64`    |                             |
+| Lenovo ThinkPad e540   | `e540-nix`   | `x86_64`     | Not configured yet          |
 
 Currently, all the systems use the excact same configuration. This is all in one flake, so you should be able to install it with `sudo nixos-rebuild switch --flake "github:LilleAila/dotfiles"#<name>`.
 

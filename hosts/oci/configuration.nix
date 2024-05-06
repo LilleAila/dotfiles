@@ -24,7 +24,7 @@
     user.name = globalSettings.username;
     networking = {
       enable = true;
-      hostname = "nixos-oci";
+      hostname = "oci-nix";
     };
     utils.enable = true;
     console = {

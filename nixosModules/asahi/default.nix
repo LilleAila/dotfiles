@@ -19,6 +19,8 @@
       "hid_apple.fnmode=2" # F-keys first, media keys with fn
     ];
 
+    nixpkgs.overlays = [inputs.nixos-apple-silicon.overlays.apple-silicon-overlay];
+
     hardware.asahi = {
       peripheralFirmwareDirectory = ./firmware;
       useExperimentalGPUDriver = true;

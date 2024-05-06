@@ -8,7 +8,6 @@
   options.settings.wm.wlogout.enable = lib.mkEnableOption "wlogout";
 
   config = lib.mkIf (config.settings.wm.wlogout.enable) {
-    # TODO: rewrite in ags
     programs.wlogout = {
       enable = true;
       package = pkgs.wlogout;
