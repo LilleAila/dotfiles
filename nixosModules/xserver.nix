@@ -28,13 +28,6 @@
         displayManager.lightdm.enable = false;
 
         updateDbusEnvironment = true;
-        libinput = {
-          enable = true;
-          touchpad = {
-            naturalScrolling = true;
-            disableWhileTyping = true;
-          };
-        };
         enableCtrlAltBackspace = true;
       };
     })

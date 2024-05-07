@@ -13,25 +13,35 @@
     fi
   '';
 in {
-  imports = [
-    inputs.hypridle.homeManagerModules.hypridle
-  ];
+  # imports = [
+  #   inputs.hypridle.homeManagerModules.hypridle
+  # ];
 
   options.settings.wm.hypridle.enable = lib.mkEnableOption "hypridle";
 
   config = lib.mkIf (config.settings.wm.hypridle.enable) {
     services.hypridle = {
       enable = true;
-      beforeSleepCmd = "${pkgs.systemd}/bin/loginctl lock-session";
-      # lockCmd = lib.getExe config.programs.hyprlock.package;
-      lockCmd = lib.getExe config.programs.swaylock.package;
+      settings = rec {
+        general = {
+          before_sleep_cmd = "${lib.getExe' pkgs.systemd "loginctl"} lock-session";
+          ignore_dbus_inhibit = false;
+          # lock_cmd = lib.getExe config.programs.hyprlock.package;
+          lock_cmd = lib.getExe config.programs.swaylock.package;
+        };
 
-      listeners = [
-        {
-          timeout = 330;
-          onTimeout = suspendScript.outPath;
-        }
-      ];
+        listener = [
+          {
+            timeout = 300;
+            on-timeout = general.lock_cmd;
+          }
+          {
+            timeout = 600;
+            # TODO: replace with hyprctl dispatch dpms off/on && systemctl suspend
+            on-timeout = suspendScript.outPath;
+          }
+        ];
+      };
     };
   };
 }

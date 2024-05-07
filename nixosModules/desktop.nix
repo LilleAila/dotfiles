@@ -24,6 +24,14 @@
       extraPortals = [pkgs.xdg-desktop-portal-gtk];
     };
 
+    services.libinput = {
+      enable = true;
+      touchpad = {
+        naturalScrolling = true;
+        disableWhileTyping = true;
+      };
+    };
+
     i18n.inputMethod = {
       enabled = "fcitx5";
       fcitx5 = {
