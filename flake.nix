@@ -18,6 +18,7 @@
 
     # === Hyprland ===
     hyprland = {
+      # url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       url = "github:hyprwm/Hyprland/tags/v0.39.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -44,6 +45,17 @@
 
     hypr-darkwindow = {
       url = "github:micha4w/Hypr-DarkWindow/tags/v0.39.0";
+      # url = "github:micha4w/Hypr-DarkWindow";
+      inputs.hyprland.follows = "hyprland";
+    };
+
+    hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      inputs.hyprland.follows = "hyprland";
+    };
+
+    hyprfocus = {
+      url = "github:VortexCoyote/hyprfocus";
       inputs.hyprland.follows = "hyprland";
     };
 

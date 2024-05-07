@@ -9,7 +9,7 @@
     ./binds.nix
     ./settings.nix
     ./screenshots.nix
-    ./hypr-darkwindow.nix
+    ./plugins.nix
   ];
 
   options.settings.wm.hyprland = {

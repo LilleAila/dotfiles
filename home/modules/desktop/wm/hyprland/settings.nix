@@ -83,7 +83,7 @@
         # special = true; # blur special wses
       };
       drop_shadow = false;
-      dim_inactive = true;
+      dim_inactive = false;
       dim_strength = 0.1;
     };
 
