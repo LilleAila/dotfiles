@@ -10,5 +10,6 @@
     ./fonts.nix
     ./other.nix
     ./zathura.nix
+    ./espanso
   ];
 }

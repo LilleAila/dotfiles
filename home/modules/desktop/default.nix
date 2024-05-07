@@ -45,6 +45,7 @@ in {
         hyprpaper.enable = mkDefault true;
         mako.enable = mkDefault false;
         wlogout.enable = mkDefault false;
+        espanso.enable = mkDefault false;
       };
 
       files.nemo.enable = mkDefault true;
