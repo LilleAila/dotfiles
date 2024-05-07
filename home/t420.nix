@@ -15,7 +15,6 @@
       }
     ];
     desktop.enable = true;
-    fcitx5.enable = false;
   };
   services.blueman-applet.enable = false;
 

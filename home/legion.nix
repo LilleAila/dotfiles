@@ -18,7 +18,6 @@
       }
     ];
     desktop.enable = true;
-    fcitx5.enable = false;
     nix.unfree = [
       "1password"
       "1password-gui"

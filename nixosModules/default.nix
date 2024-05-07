@@ -21,5 +21,10 @@
     ./sound.nix
     ./gaming.nix
     ./nvidia.nix
+
+    # "home-manager" modules
+    # idk if i like this way of doing it, because this means that some things can be enabled even when everything system-wise is disabled
+    # possible solution: if both the home option in question and for example `config.settings.enable-hm`
+    ./fcitx5.nix
   ];
 }

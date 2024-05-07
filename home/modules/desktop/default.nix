@@ -33,7 +33,7 @@ in {
         name = mkDefault "Bibata-Original-Custom";
       };
 
-      fcitx5.enable = mkDefault true;
+      fcitx5.enable = mkDefault false;
       wm = {
         ags.enable = mkDefault true;
         hyprland.enable = mkDefault true;
