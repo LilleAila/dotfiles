@@ -76,6 +76,20 @@ css
       --font-primary ${sansSerif.name} !important;
     }
 
+    /* Fade out effect in DM channel scroller */
+    .privateChannels__9b518::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background: linear-gradient(to bottom, transparent 85%, var(--base00));
+      pointer-events: none;
+    }
+
+    /* Fix padding */
     .list__5ced9.auto_a3c0bd.scrollerBase_f742b2 {
       padding-top: 24px;
     }
