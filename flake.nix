@@ -17,6 +17,16 @@
     };
 
     # === Hyprland ===
+    hyprland = {
+      url = "github:hyprwm/Hyprland/tags/v0.39.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     hyprlock = {
       url = "github:hyprwm/hyprlock";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,6 +40,11 @@
     hyprpicker = {
       url = "github:hyprwm/hyprpicker";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hypr-darkwindow = {
+      url = "github:micha4w/Hypr-DarkWindow/tags/v0.39.0";
+      inputs.hyprland.follows = "hyprland";
     };
 
     # === Window Manager Related ===

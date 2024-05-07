@@ -65,3 +65,4 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 | [rice-cracker-dev](https://github.com/rice-cracker-dev/nixos-config) | Hyprland | AGS | x |
 | [end-4](https://github.com/end-4/dots-hyprland) | Hyprland | AGS |  |
 | [SimonBradner](https://github.com/SimonBrandner/dotfiles) | KDE | AGS | ? |
+| [alexhulbert](https://github.com/alexhulbert/seaglass) | Hyprland | Waybar | x |

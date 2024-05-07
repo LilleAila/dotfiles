@@ -9,6 +9,7 @@
     ./binds.nix
     ./settings.nix
     ./screenshots.nix
+    ./hypr-darkwindow.nix
   ];
 
   options.settings.wm.hyprland = {
@@ -32,8 +33,8 @@
 
       wayland.windowManager.hyprland = {
         enable = true;
-        # wayland.windowManager.hyprland.package = lib.mkDefault inputs.hyprland.packages."${pkgs.system}".hyprland;
-        package = lib.mkDefault pkgs.hyprland;
+        package = lib.mkDefault inputs.hyprland.packages."${pkgs.system}".hyprland;
+        # package = lib.mkDefault pkgs.hyprland;
         systemd.enable = true;
         xwayland.enable = true;
       };
@@ -41,8 +42,8 @@
       settings.wm.hyprland.screenshots.enable = lib.mkDefault true;
     })
     (lib.mkIf (config.settings.wm.hyprland.useLegacyRenderer) {
-      # wayland.windowManager.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland.override {legacyRenderer = true;};
-      wayland.windowManager.hyprland.package = pkgs.hyprland.override {legacyRenderer = true;};
+      wayland.windowManager.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland.override {legacyRenderer = true;};
+      # wayland.windowManager.hyprland.package = pkgs.hyprland.override {legacyRenderer = true;};
     })
   ];
 }
