@@ -15,7 +15,7 @@
 
   config = lib.mkMerge [
     (lib.mkIf isNixOS {
-      programs.firefox.pacage = null;
+      programs.firefox.package = null;
     })
     (lib.mkIf (config.settings.browser.firefox.enable) {
       programs.firefox = {
