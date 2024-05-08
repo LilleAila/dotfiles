@@ -169,7 +169,10 @@
             home-manager.nixosModules.home-manager
             {
               home-manager = {
-                extraSpecialArgs = {inherit inputs outputs globalSettings;};
+                extraSpecialArgs = {
+                  inherit inputs outputs globalSettings;
+                  isNixOS = true;
+                };
                 useUserPackages = true;
                 useGlobalPkgs = true;
                 users."${globalSettings.username}" = ./home/${name}.nix;
