@@ -170,7 +170,7 @@ css
     }
 
     .scroller__89969 {
-      scrollbar-width: none;
+      scrollbar-width: none !important;
     }
 
     .subtext__798a4 {
