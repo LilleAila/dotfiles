@@ -6,10 +6,9 @@
   ...
 }: {
   wayland.windowManager.hyprland.settings = {
-    # TODO: turn all of these into nix options like $terminal
     "$terminal" = "${lib.getExe config.settings.terminal.emulator.package}";
     "$fileManager" = "nemo";
-    "$webBrowser" = "${lib.getExe config.programs.firefox.package}";
+    "$webBrowser" = "firefox";
     "$launcher" = "ags -t applauncher";
     "$calculator" = "qalculate-gtk";
     "$colorPicker" = "${lib.getExe inputs.hyprpicker.packages.${pkgs.system}.hyprpicker} --render-inactive --autocopy --format=hex";

@@ -16,6 +16,8 @@
     (lib.mkIf (config.settings.browser.firefox.enable) {
       programs.firefox = {
         enable = true;
+        # The package is set to null here because firefox is configured in system, see `nixosModules/firefox.nix`
+        package = null;
         profiles = let
           search = import ./search.nix {inherit pkgs;};
           extensions = with inputs.firefox-addons.packages."${pkgs.system}"; [
