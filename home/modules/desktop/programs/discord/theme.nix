@@ -285,13 +285,13 @@ css
     }
 
     /* Mentions */
-    .mentioned_fa6fd2 {
+    .mentioned_fa6fd2:not(.replying__38514) {
       background-color: #${base0E}44 !important;
     }
-    .mentioned_fa6fd2:hover {
+    .mentioned_fa6fd2:hover:not(.replying__38514) {
       background-color: #${base0E}33 !important;
     }
-    .mentioned_fa6fd2::before {
+    .mentioned_fa6fd2:not(.replying__38514)::before {
       background-color: var(--base0E) !important;
     }
 
