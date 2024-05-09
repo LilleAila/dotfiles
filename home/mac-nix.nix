@@ -21,8 +21,8 @@
         wallpaper = ./wallpapers/wall18.jpg;
       }
     ];
-    wayfire.enable = true;
     desktop.enable = true;
+    wm.wayland.useFlake = false;
   };
 
   # Local shell aliases
