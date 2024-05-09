@@ -25,7 +25,6 @@
   };
   wayland.windowManager.hyprland.settings.input = {
     kb_options = "ctrl:nocaps,altwin:prtsc_rwin";
-    touchpad.tap-to-click = true;
   };
   home.shellAliases = {
     bat-fullcharge = "sudo tlp fullcharge";

@@ -33,9 +33,9 @@
         "image/jpeg" = "pix.desktop";
       };
     })
-    (lib.mkIf config.services.blueman-applet.enable {
-      systemd.user.services.blueman-applet.Service.ExecStart = lib.mkForce "sleep 5; ${lib.getExe' pkgs.blueman "blueman-applet"}";
-    })
+    # (lib.mkIf config.services.blueman-applet.enable {
+    #   systemd.user.services.blueman-applet.Service.ExecStart = lib.mkForce "sleep 5 && ${lib.getExe' pkgs.blueman "blueman-applet"}";
+    # })
     (lib.mkIf (config.settings.other.enable) {
       services.blueman-applet.enable = lib.mkDefault true;
       dconf.settings."org/blueman/general" = {
