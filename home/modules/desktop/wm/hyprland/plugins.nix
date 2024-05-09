@@ -25,7 +25,7 @@
         workspace_method = "first 1";
         enable_gesture = true;
         gesture_distance = 300;
-        gesture_positive = false;
+        gesture_positive = true;
       };
     };
   };
