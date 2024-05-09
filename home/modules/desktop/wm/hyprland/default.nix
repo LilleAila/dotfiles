@@ -19,7 +19,7 @@
   options.settings.wm.hyprland.useFlake = lib.mkEnableOption "Use flake for hyprland" // {default = true;};
 
   config = lib.mkMerge [
-    (lib.mkIf config.settings.wm.hyprland.useFlake {
+    (lib.mkIf (!config.settings.wm.hyprland.useFlake) {
       wayland.windowManager.hyprland.package = pkgs.hyprland;
     })
     (lib.mkIf (config.settings.wm.hyprland.enable) {
