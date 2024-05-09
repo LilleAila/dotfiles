@@ -23,7 +23,7 @@
       "1password-gui"
     ];
   };
-  wayland.windowManager.hyprland.settings.input.kb_options = lib.mkForce "ctrl:nocaps,altwin:swap_lalt_lwin,altwin:prtsc_rwin";
+  wayland.windowManager.hyprland.settings.input.kb_options = lib.mkForce "ctrl:nocaps,altwin:prtsc_rwin";
   home.shellAliases = {
     bat-fullcharge = "sudo tlp fullcharge";
     bat-limit = "sudo tlp setcharge 0 1 BAT0";

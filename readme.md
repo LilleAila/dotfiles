@@ -66,3 +66,5 @@ If you're not using NixOS, there is a home-manager-only output that can be used 
 | [end-4](https://github.com/end-4/dots-hyprland) | Hyprland | AGS |  |
 | [SimonBradner](https://github.com/SimonBrandner/dotfiles) | KDE | AGS | ? |
 | [alexhulbert](https://github.com/alexhulbert/seaglass) | Hyprland | Waybar | x |
+| [linuxmobile](https://github.com/linuxmobile/kaku) | Hyprland | AGS | x |
+| [Kreyren](https://github.com/Kreyren/nixos-config) | Gnome | Gnome | x |

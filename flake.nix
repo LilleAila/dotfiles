@@ -19,8 +19,9 @@
     # === Hyprland ===
     hyprland = {
       # url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-      url = "github:hyprwm/Hyprland/tags/v0.39.0";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # url = "github:hyprwm/Hyprland/tags/v0.39.0";
+      url = "github:hyprwm/Hyprland?ref=v0.40.0&submodules=1";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     hyprland-plugins = {
@@ -55,7 +56,8 @@
     };
 
     hyprfocus = {
-      url = "github:VortexCoyote/hyprfocus";
+      # url = "github:VortexCoyote/hyprfocus";
+      url = "github:pyt0xic/hyprfocus";
       inputs.hyprland.follows = "hyprland";
     };
 
