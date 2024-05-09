@@ -27,6 +27,8 @@
       clean.extraArgs = "--nogcroots --keep-since 4d --keep 3";
     };
 
+    programs.nano.enable = false;
+
     services.envfs.enable = true;
 
     security.polkit.enable = true;
