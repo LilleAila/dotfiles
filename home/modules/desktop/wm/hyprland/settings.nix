@@ -37,7 +37,7 @@
       touchpad = {
         natural_scroll = true;
         disable_while_typing = true;
-        tap-to-click = false;
+        tap-to-click = lib.mkDefault false;
         clickfinger_behavior = true; # one, two and three finger click
       };
       sensitivity = 0.0;
