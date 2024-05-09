@@ -27,6 +27,8 @@
       clean.extraArgs = "--nogcroots --keep-since 4d --keep 3";
     };
 
+    services.envfs.enable = true;
+
     security.polkit.enable = true;
 
     systemd.user.services.polkit-gnome-authentication-agent-1 = {
