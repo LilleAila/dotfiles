@@ -22,7 +22,7 @@
       }
     ];
     desktop.enable = true;
-    wm.wayland.useFlake = false;
+    wm.hyprland.useFlake = false;
   };
 
   # Local shell aliases
