@@ -16,12 +16,17 @@
 
     environment.sessionVariables.NIXOS_ACTIVE_SPECIALISATION = lib.mkDefault "default";
 
-    # Enable XDG-desktop-portals (TODO: I think it's possible to do this in home)
     xdg.portal = {
       enable = true;
-      wlr.enable = true;
-      configPackages = [pkgs.xdg-desktop-portal-gtk];
-      extraPortals = [pkgs.xdg-desktop-portal-gtk];
+      # wlr.enable = true;
+      configPackages = [
+        pkgs.xdg-desktop-portal-gtk
+        inputs.xdph.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+      ];
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+        inputs.xdph.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+      ];
     };
 
     services.libinput = {

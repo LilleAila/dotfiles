@@ -12,6 +12,7 @@ in {
     inputs.nix-colors.homeManagerModules.default
     ./wm
     ./programs
+    ./xdg.nix
   ];
 
   options.settings.desktop.enable = mkEnableOption "Default desktop configuration";

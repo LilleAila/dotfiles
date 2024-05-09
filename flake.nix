@@ -81,6 +81,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:viperML/wrapper-manager";
     };
+    xdph = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:hyprwm/xdg-desktop-portal-hyprland";
+    };
   };
   outputs = inputs: inputs.flakegen ./flake.in.nix inputs;
 }

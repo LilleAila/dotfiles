@@ -40,6 +40,11 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
+  xdph = {
+    url = "github:hyprwm/xdg-desktop-portal-hyprland";
+    # inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   # hypr-darkwindow = {
   #   url = "github:micha4w/Hypr-DarkWindow/tags/v0.39.0";
   #   # url = "github:micha4w/Hypr-DarkWindow";
