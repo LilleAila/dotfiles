@@ -3,7 +3,7 @@
 
   background = "#${c.base00}";
   secondary-background = "#${c.base01}";
-  selection-background = "#${c.base03}";
+  selection-background = "#${c.base02}";
 
   foreground = "#${c.base05}";
   inverted-foreground = "#${c.base00}";
@@ -126,11 +126,11 @@ in {
 
   statusbar = {
     caret = {
-      bg = selection-background;
+      bg = secondary-background;
       fg = foreground;
 
       selection = {
-        bg = selection-background;
+        bg = secondary-background;
         fg = foreground;
       };
     };
@@ -235,5 +235,10 @@ in {
         fg = foreground;
       };
     };
+  };
+
+  webpage = {
+    darkmode.enabled = true;
+    preferred_color_scheme = "dark";
   };
 }
