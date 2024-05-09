@@ -19,6 +19,7 @@
 
       # osbuild = lib.mkDefault "nh os switch";
       osbuild = lib.mkDefault "sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/dotfiles --fast --no-build-nix";
+      update-inputs = "nix run .#genflake flake.nix && nix flake lock";
       nix-collect-garbage = "nh clean all --nogcroots";
     };
 

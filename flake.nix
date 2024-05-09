@@ -35,19 +35,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager";
     };
-    hypr-darkwindow = {
-      inputs.hyprland.follows = "hyprland";
-      url = "github:micha4w/Hypr-DarkWindow/tags/v0.39.0";
-    };
-    hyprfocus = {
-      inputs.hyprland.follows = "hyprland";
-      url = "github:pyt0xic/hyprfocus";
-    };
     hyprland.url = "github:hyprwm/Hyprland?ref=v0.40.0&submodules=1";
-    hyprland-plugins = {
-      inputs.hyprland.follows = "hyprland";
-      url = "github:hyprwm/hyprland-plugins";
-    };
     hyprlock = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:hyprwm/hyprlock";
@@ -59,10 +47,6 @@
     hyprpicker = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:hyprwm/hyprpicker";
-    };
-    hyprspace = {
-      inputs.hyprland.follows = "hyprland";
-      url = "github:KZDKM/Hyprspace";
     };
     nh = {
       inputs.nixpkgs.follows = "nixpkgs";

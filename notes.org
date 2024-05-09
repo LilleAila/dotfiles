@@ -1,5 +1,5 @@
 * Flakegen
-The =flake.nix= uses some nix expressions, which means that it can not be evaluated normally. To fix this, I used [[https://github.com/jorsn/flakegen][flakegen]]. This means that I have to edit =flake.in.nix= instead of =flake.nix=, and run =nix run .#genflake flake.nix= after changing something. Omitting the =flake.nix= argument will preview the file without writing it.
+The =flake.nix= uses some nix expressions, which means that it can not be evaluated normally. To fix this, I used [[https://github.com/jorsn/flakegen][flakegen]]. This means that I have to edit =flake.in.nix= instead of =flake.nix=, and run =nix run .#genflake flake.nix= (aliased to =update-inputs=) after changing something. Omitting the =flake.nix= argument will preview the file without writing it.
 ** Initializing
 When initializing =flakegen=, i did:
 #+begin_src bash
