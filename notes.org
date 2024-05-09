@@ -1,3 +1,6 @@
+* Flakegen
+The =flake.nix= uses some nix expressions, which means that it can not be evaluated normally. To fix this, I used [[https://github.com/jorsn/flakegen][flakegen]]. This means that I have to edit =flake.in.nix= instead of =flake.nix=, and run =nix run .#genflake flake.nix= after changing something. Omitting the =flake.nix= argument will preview the file without writing it.
+
 * Legion Y540
 ** Model: Y540-15irh
 ** Docs: [[https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/legion-series/legion-y540-15irh/documentation/doc_userguide][lenovo.com]]
