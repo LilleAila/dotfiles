@@ -33,5 +33,6 @@
   };
   home.packages = with pkgs; [
     _1password-gui-beta
+    protonvpn-gui
   ];
 }
