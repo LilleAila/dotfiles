@@ -955,11 +955,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1713879669,
-        "narHash": "sha256-vZ9wjP9yFYxoqNz94jZvl6+IB9R3VqQdrABh6fNunI0=",
+        "lastModified": 1715327697,
+        "narHash": "sha256-i6pS/0Z+BT8UFpsmiBJgZT67vLxTrTScO8eao0EZ6KI=",
         "owner": "LilleAila",
         "repo": "nix-cursors",
-        "rev": "e1b912c656390389ce8ee37dfd0ab8a267079226",
+        "rev": "aa83cd8eb7021c474acb694a7bd26cd41336ab60",
         "type": "github"
       },
       "original": {
