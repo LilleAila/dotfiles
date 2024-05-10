@@ -8,22 +8,11 @@
   wayland.windowManager.hyprland.settings = {
     exec-once = [
       "ags" # Ags has to be run in the user environment
-      # "fcitx5"
-      # "ibus-daemon -rxRd"
     ];
 
     monitor = [
       # Monitor fallback
       ", preferred, auto, 1"
-    ];
-    # env = [
-    #   "GDK_SCALE,2"
-    # ];
-
-    # Configured through nwg-displays
-    source = [
-      "~/.config/hypr/monitors.conf"
-      "~/.config/hypr/workspaces.conf"
     ];
 
     xwayland = {

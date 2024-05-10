@@ -15,6 +15,8 @@
       {
         name = "eDP-1";
         wallpaper = ./wallpapers/wall3.jpg;
+        geometry = "1920x1080@60";
+        position = "0x0";
       }
     ];
     desktop.enable = true;
@@ -22,6 +24,7 @@
       "1password"
       "1password-gui"
     ];
+    wm.hyprland.monitors.enable = true;
   };
   wayland.windowManager.hyprland.settings.input = {
     kb_options = "ctrl:nocaps,altwin:prtsc_rwin";

@@ -14,46 +14,28 @@ in {
           type = types.str;
           example = "eDP-1";
         };
-        # width = mkOption {
-        #   type = types.int;
-        #   example = 1920;
-        # };
-        # height = mkOption {
-        #   type = types.int;
-        #   default = 1080;
-        # };
-        # refreshRate = mkOption {
-        #   type = types.int;
-        #   default = 60;
-        # };
-        # x = mkOption {
-        #   type = types.int;
-        #   default = 0;
-        # };
-        # y = mkOption {
-        #   type = types.int;
-        #   default = 0;
-        # };
-        # scale = mkOption {
-        #   type = types.int;
-        #   default = 1;
-        # };
-        # enable = mkOption {
-        #   type = types.bool;
-        #   default = true;
-        # };
         wallpaper = mkOption {
           type = types.path;
           default = null;
         };
-        # primary = mkOption {
-        #   type = types.bool;
-        #   default = false;
-        # };
-        # rotation = mkOption {
-        #   type = types.int;
-        #   default = 0;
-        # };
+        geometry = mkOption {
+          type = types.nullOr types.str;
+        };
+        position = mkOption {
+          type = types.nullOr types.str;
+        };
+        scale = mkOption {
+          type = types.int;
+          default = 1;
+        };
+        enable = mkOption {
+          type = types.bool;
+          default = true;
+        };
+        rotation = mkOption {
+          type = types.int;
+          default = 0;
+        };
       };
     });
     default = [];
@@ -62,26 +44,32 @@ in {
     '';
   };
 
-  config = {
-    home.packages = [pkgs.nwg-displays];
-    # Switched to using nwg-displays instead (:o no declarative?????)
-    # wayland.windowManager.hyprland.settings.monitor =
-    #   map
-    #   (
-    #     m: let
-    #       resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
-    #       position = "${toString m.x}x${toString m.y}";
-    #       scale = "${toString m.scale}";
-    #     in "${m.name},${
-    #       if m.enable
-    #       then "${resolution},${position},${scale}${
-    #         if (m.rotation != 0)
-    #         then ",transform,${toString m.rotation}"
-    #         else ""
-    #       }"
-    #       else "disable"
-    #     }"
-    #   )
-    #   (config.settings.monitors);
-  };
+  options.settings.wm.hyprland.monitors.enable = lib.mkEnableOption "hyprland monitors";
+
+  config = lib.mkIf config.settings.wm.hyprland.enable (lib.mkMerge [
+    (lib.mkIf (!config.settings.wm.hyprland.monitors.enable) {
+      # Configured through nwg-displays
+      home.packages = [pkgs.nwg-displays];
+      wayland.windowManager.hyprland.settings.source = [
+        "~/.config/hypr/monitors.conf"
+        "~/.config/hypr/workspaces.conf"
+      ];
+    })
+    (lib.mkIf config.settings.wm.hyprland.monitors.enable {
+      wayland.windowManager.hyprland.settings.monitor =
+        map
+        (
+          m: "${m.name},${
+            if m.enable
+            then "${m.geometry},${m.position},${toString m.scale}${
+              if (m.rotation != 0)
+              then ",transform,${toString m.rotation}"
+              else ""
+            }"
+            else "disable"
+          }"
+        )
+        (config.settings.monitors);
+    })
+  ]);
 }
