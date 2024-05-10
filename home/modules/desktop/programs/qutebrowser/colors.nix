@@ -185,7 +185,7 @@ in {
     bar.bg = background;
 
     even = {
-      bg = secondary-background;
+      bg = background;
       fg = foreground;
     };
 
