@@ -18,9 +18,9 @@
   };
 
   config = lib.mkIf config.settings.console.enable (with config.settings.console; {
-    fonts.packages = with pkgs; [terminus_font];
+    fonts.packages = with pkgs; [terminus_font jetbrains-mono];
     console = {
-      packages = with pkgs; [terminus_font];
+      packages = with pkgs; [] ++ config.fonts.packages;
       font = font;
       keyMap = keyMap;
     };
