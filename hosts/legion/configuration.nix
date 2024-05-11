@@ -81,6 +81,11 @@
     "splash"
   ];
 
+  services.logind.extraConfig = ''
+    HandleLidSwitch=suspend
+    HandleLidSwitchDocked=suspend
+  '';
+
   services.tlp = {
     enable = true;
     settings = {
