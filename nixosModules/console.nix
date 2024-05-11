@@ -6,6 +6,7 @@
   ...
 }: {
   options.settings.console = {
+    enable = lib.mkEnableOption "console config" // {default = true;};
     font = lib.mkOption {
       type = lib.types.str;
       default = "ter-u32n";
@@ -16,7 +17,7 @@
     };
   };
 
-  config = with config.settings.console; {
+  config = lib.mkIf config.settings.console.enable (with config.settings.console; {
     fonts.packages = with pkgs; [terminus_font];
     console = {
       packages = with pkgs; [terminus_font];
@@ -44,5 +45,5 @@
       "${c.base0C}" # lightcyan
       "${c.base06}" # white
     ];
-  };
+  });
 }
