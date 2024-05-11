@@ -68,6 +68,7 @@ in {
               	vesktop --enable-wayland-ime &
               fi
             ''}/bin/toggle_discord"
+          "$mainMod SHIFT, D, movetoworkspace, special:discord"
         ];
         windowrulev2 = [
           "float,class:($discord)"

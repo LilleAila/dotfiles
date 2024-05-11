@@ -36,7 +36,10 @@
 
       # Special workspaces
       "$mainMod, Q, exec, bash -c 'pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk &'"
+      "$mainMod SHIFT, Q, movetoworkspace, special:calculator"
+
       "$mainMod, C, togglespecialworkspace, config"
+      "$mainMod SHIFT, C, movetoworkspace, special:config"
 
       "$mainMod, Z, togglespecialworkspace"
       "$mainMod SHIFT, Z, movetoworkspace, special"
