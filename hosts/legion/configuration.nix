@@ -39,6 +39,14 @@
     nvidia.disable = lib.mkDefault true;
   };
 
+  environment.systemPackages = with pkgs; [
+    lenovo-legion
+  ];
+
+  boot.extraModulePackages = with config.boot.kernelPackages; [lenovo-legion-module];
+
+  services.thermald.enable = true;
+
   # Default: no nvidia
   # To rebuild and switch to a specific specialisation, use the `--specialisation <name>` flag of `nixos-rebuild`
   specialisation = {
