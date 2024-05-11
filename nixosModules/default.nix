@@ -6,6 +6,8 @@
   ...
 }: {
   imports = [
+    ./services
+
     ./virtualisation.nix
     ./sops.nix
     ./greeter.nix
