@@ -8,6 +8,10 @@
   options.settings.wm.hypridle.enable = lib.mkEnableOption "hypridle";
 
   config = lib.mkIf (config.settings.wm.hypridle.enable) {
+    wayland.windowManager.hyprland.settings.bindl = [
+      ", switch:on:Lid Switch, exec, ${lib.getExe' pkgs.systemd "systemctl"} suspend"
+    ];
+
     services.hypridle = {
       enable = true;
       settings = let
