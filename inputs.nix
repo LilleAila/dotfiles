@@ -51,10 +51,10 @@
   #   inputs.hyprland.follows = "hyprland";
   # };
 
-  # hyprspace = {
-  #   url = "github:KZDKM/Hyprspace";
-  #   inputs.hyprland.follows = "hyprland";
-  # };
+  hyprspace = {
+    url = "github:KZDKM/Hyprspace";
+    inputs.hyprland.follows = "hyprland";
+  };
 
   # hyprfocus = {
   #   # url = "github:VortexCoyote/hyprfocus";
