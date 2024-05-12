@@ -54,11 +54,7 @@
       settings = {
         nvidia.disable = lib.mkForce false;
         nvidia.enable = true;
-        gaming.enable = true;
-        steam.enable = true;
       };
-      # Some gaming options are enabled in home instead
-      home-manager.users.${config.settings.user.name}.settings.gaming.enable = true;
       environment.sessionVariables.NIXOS_ACTIVE_SPECIALISATION = "gaming";
     };
     virtualisation.configuration = {

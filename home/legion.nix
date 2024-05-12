@@ -25,6 +25,9 @@
       "1password-gui"
     ];
     wm.hyprland.monitors.enable = true;
+
+    gaming.enable = true;
+    gaming.steam.enable = true;
   };
   wayland.windowManager.hyprland.settings.input = {
     kb_options = "ctrl:nocaps,altwin:prtsc_rwin";
