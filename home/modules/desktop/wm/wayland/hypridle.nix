@@ -13,6 +13,21 @@
       ", switch:on:Lid Switch, exec, ${lib.getExe config.programs.swaylock.package}"
     ];
 
+    systemd.user.services.swaylock = {
+      Unit = {
+        Description = "Lock the screen with swaylock";
+        Before = ["suspend.target"];
+      };
+
+      Service = {
+        Type = "forking";
+        ExecStart = "${lib.getExe config.programs.swaylock.package}";
+        ExecStartPost = "${lib.getExe' pkgs.coreutils "sleep"} 1";
+      };
+
+      Install.WantedBy = ["suspend.target"];
+    };
+
     services.hypridle = {
       enable = true;
       settings = let
