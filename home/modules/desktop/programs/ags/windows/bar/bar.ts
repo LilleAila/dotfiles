@@ -1,5 +1,3 @@
-// TODO: bar is now split into multiple files, I should do the same for CSS.
-
 import { Widget } from "../../imports";
 import Workspaces from "./workspaces.ts";
 import Time from "./time.ts";

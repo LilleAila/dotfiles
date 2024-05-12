@@ -4,6 +4,7 @@ import QuickSettings from "./windows/quicksettings/quicksettings.ts";
 import Powermenu from "./windows/powermenu/powermenu.ts";
 import Notifications from "./windows/notifications/notifications.ts";
 import Applauncher from "./windows/applauncher/applauncher.ts";
+import OSD from "./windows/osd/osd.ts";
 import { App } from "./imports.ts";
 
 // TODO: replace app launcher, notification daemon and wlogout with ags
@@ -17,5 +18,6 @@ App.config({
     Powermenu(0),
     Notifications(0),
     Applauncher(),
+    OSD(),
   ],
 });
