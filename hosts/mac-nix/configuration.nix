@@ -35,7 +35,6 @@
     };
     utils.enable = true;
     desktop.enable = true;
-    gaming.enable = true;
     console = {
       font = "ter-u32n";
       keyMap = "no";
