@@ -1,3 +1,6 @@
+* TODO factorio as global install (might complain about arm, idk)
+Factorio is currently downloaded manually as an executable from [[https://factorio.com][factorio.com]] and run directly from an fhsenv. Now that I have "inline" secrets set up, maybe I can switch to downloading it from nixpkgs (this will also mean that i have to edit syncthing to reflect the new config directory path)
+
 * TODO add some documentation to the repo
 1. Some screenshots of the configuration
 2. File structure
