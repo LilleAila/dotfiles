@@ -43,16 +43,16 @@ in {
           folders = {
             "Default Folder" = {
               path = "${homePath}/Sync";
-              devices = ["legion"];
+              devices = ["legion" "mac"];
             };
             "Factorio" = {
               path = "${homePath}/factorio";
-              devices = ["legion"];
+              devices = ["legion" "mac"];
               ignorePerms = false; # executable permissions and stuff
             };
             "Notes" = {
               path = "${homePath}/org";
-              devices = ["legion"];
+              devices = ["legion" "mac"];
             };
           };
         };
