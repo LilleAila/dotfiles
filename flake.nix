@@ -77,6 +77,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:wamserma/flake-programs-sqlite";
     };
+    secrets.url = "git+ssh://git@github.com/LilleAila/dotfiles-secrets.git";
     sops-nix = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:Mic92/sops-nix";

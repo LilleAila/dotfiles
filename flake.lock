@@ -1594,6 +1594,7 @@
         "nixvim-config": "nixvim-config",
         "plover-flake": "plover-flake",
         "programsdb": "programsdb",
+        "secrets": "secrets",
         "sops-nix": "sops-nix",
         "wrapper-manager": "wrapper-manager",
         "xdph": "xdph_2"
@@ -1629,6 +1630,21 @@
         "owner": "oxalica",
         "repo": "rust-overlay",
         "type": "github"
+      }
+    },
+    "secrets": {
+      "locked": {
+        "lastModified": 1715613967,
+        "narHash": "sha256-YMNYBmGvarF9Atv/WHWizVBR6WEZiS3aFqZK1OzTdAw=",
+        "ref": "refs/heads/main",
+        "rev": "25b3ceda5da2ad64ff3f9f470df6013b69881f75",
+        "revCount": 3,
+        "type": "git",
+        "url": "ssh://git@github.com/LilleAila/dotfiles-secrets.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/LilleAila/dotfiles-secrets.git"
       }
     },
     "sops-nix": {

@@ -53,4 +53,6 @@
     _1password-gui-beta
     protonvpn-gui
   ];
+
+  home.file."my-super-secret-secret.txt".text = inputs.secrets.test;
 }

@@ -1,3 +1,14 @@
+* TODO add some documentation to the repo
+1. Some screenshots of the configuration
+2. File structure
+3. Secrets: setting up the keys before building, and the syntax of secrets files (private repo, gpg key etc.)
+
+* TODO add ssh private and public keys to the SOPS secrets
+Place them in the correct location using the path value, and set the owner as the correct user. [[https://discourse.nixos.org/t/gpg-ssh-key-pairs-management/28604/4]]
+
+* File encryption
+I am currently using sops-nix in combination with a private nix flake hosted on GitHub. This works, but I should maybe look into setting up GPG to encrypt some files using [[https://github.com/AGWA/git-crypt][git-crypt]], and also [[https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key][signing git commits]]. Also see [[https://discourse.nixos.org/t/agenix-and-syncthing-devices-folders/41003/10][this]]
+
 * Flakegen
 The =flake.nix= uses some nix expressions, which means that it can not be evaluated normally. To fix this, I used [[https://github.com/jorsn/flakegen][flakegen]]. This means that I have to edit =flake.in.nix= instead of =flake.nix=, and run =nix run .#genflake flake.nix= (aliased to =update-inputs=) after changing something. Omitting the =flake.nix= argument will preview the file without writing it.
 ** Initializing
