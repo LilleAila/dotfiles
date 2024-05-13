@@ -17,6 +17,7 @@
         pu = "push";
         co = "checkout";
         cm = "commit";
+        aa = "add -A";
       };
     };
   };

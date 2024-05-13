@@ -28,6 +28,8 @@
           nvi = "nvim";
           nivm = "nvim";
           nimv = "nvim";
+          nv = "nvim";
+          nvimnvim = "nvim";
 
           vimdiff = "nvim -d";
           diff = "nvim -d";
