@@ -11,5 +11,6 @@
     ./other.nix
     ./zathura.nix
     ./espanso
+    ./syncthing.nix
   ];
 }

@@ -35,6 +35,7 @@ in {
       };
 
       fcitx5.enable = mkDefault false;
+      # syncthing.tray.enable = mkDefault true;
       wm = {
         ags.enable = mkDefault true;
         hyprland.enable = mkDefault true;
