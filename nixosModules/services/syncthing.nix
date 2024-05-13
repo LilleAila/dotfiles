@@ -38,6 +38,7 @@ in {
           };
           devices = {
             legion = {id = "${secrets.ids.legion}";};
+            mac = {id = "${secrets.ids.mac}";};
           };
           folders = {
             "Default Folder" = {

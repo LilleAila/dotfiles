@@ -34,6 +34,7 @@
       bluetooth.enable = true;
     };
     utils.enable = true;
+    syncthing.enable = true;
     desktop.enable = true;
     console = {
       font = "ter-u32n";
