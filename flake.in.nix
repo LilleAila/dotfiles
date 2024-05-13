@@ -56,6 +56,7 @@
       };
   in {
     packages = forEachSystem (pkgs: import ./pkgs {inherit pkgs;});
+    devShells = forEachSystem (pkgs: {default = import ./shell.nix {inherit pkgs;};});
 
     nixosConfigurations = {
       mac-nix = mkConfig {
