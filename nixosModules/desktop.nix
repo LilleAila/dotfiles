@@ -21,11 +21,9 @@
       # wlr.enable = true;
       configPackages = [
         pkgs.xdg-desktop-portal-gtk
-        inputs.xdph.packages.${pkgs.system}.xdg-desktop-portal-hyprland
       ];
       extraPortals = [
         pkgs.xdg-desktop-portal-gtk
-        inputs.xdph.packages.${pkgs.system}.xdg-desktop-portal-hyprland
       ];
     };
 
