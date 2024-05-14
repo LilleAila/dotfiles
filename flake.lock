@@ -1634,11 +1634,11 @@
     },
     "secrets": {
       "locked": {
-        "lastModified": 1715682420,
-        "narHash": "sha256-PIWfCIVTSErIB1hi4B8d8yyVtM+uC0HjTmDxT5rlGGM=",
+        "lastModified": 1715689346,
+        "narHash": "sha256-99FstZb1/7f69UFoKiWFUuPExJXGfWA3AeQRFEKq/K8=",
         "ref": "refs/heads/main",
-        "rev": "5561214d635d12e4a09ba0ed762edae41c940417",
-        "revCount": 8,
+        "rev": "534ce92162bfcfde179b06d70ed200424adbcdab",
+        "revCount": 10,
         "type": "git",
         "url": "ssh://git@github.com/LilleAila/dotfiles-secrets.git"
       },

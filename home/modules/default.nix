@@ -10,7 +10,21 @@
     ./desktop
     ./other
 
-    # inputs.sops-nix.homeManagerModules.sops # i no no wanna set up :( using in system works fine
+    inputs.sops-nix.homeManagerModules.sops
     inputs.nix-colors.homeManagerModules.default
+  ];
+
+  # FIXME ? not set to true by default?
+  options.settings.sops.enable = lib.mkEnableOption "sops" // {default = true;};
+
+  config = lib.mkMerge [
+    (lib.mkIf config.settings.sops.enable {
+      sops = {
+        age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
+        defaultSopsFile = ../../secrets/secrets.yaml;
+      };
+
+      # home.file.".config/sops/age/keys.txt".text = inputs.secrets.sops.age-key;
+    })
   ];
 }
