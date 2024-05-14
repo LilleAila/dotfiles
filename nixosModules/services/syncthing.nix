@@ -26,6 +26,7 @@ in {
         "Default Folder".enable = lib.mkDefault true;
         "Factorio".enable = lib.mkDefault true;
         "Notes".enable = lib.mkDefault true;
+        "Minecraft".enable = lib.mkDefault true;
       };
     })
     (lib.mkIf config.settings.syncthing.enable {
@@ -60,6 +61,10 @@ in {
             };
             "Notes" = {
               path = "${homePath}/org";
+              devices = ["legion" "mac"];
+            };
+            "Minecraft" = {
+              path = "${homePath}/.local/share/PrismLauncher/instances";
               devices = ["legion" "mac"];
             };
           };
