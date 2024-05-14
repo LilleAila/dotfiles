@@ -96,5 +96,7 @@ in {
         url = mkDefault "https://monkeytype.com";
       };
     };
+
+    home.sessionVariables."PLOVER_UINPUT_LAYOUT" = lib.mkDefault "no";
   };
 }

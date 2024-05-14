@@ -54,5 +54,6 @@
     prismlauncher
   ];
 
-  home.sessionVariables."PLOVER_UINPUT_LAYOUT" = "no";
+  sops.secrets."ssh/mac".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
+  home.file.".ssh/id_ed25519.pub".text = inputs.secrets.ssh.mac.public;
 }
