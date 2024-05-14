@@ -42,5 +42,8 @@
       # Doesn't look the best, but it works /shrug
       pinentryPackage = pkgs.pinentry-qt;
     };
+
+    # home.file.".gnupg/private-keys-v1.d/${inputs.secrets.gpg.primary.name}.key".text = inputs.secrets.gpg.primary.contents;
+    # home.file.".gnupg/private-keys-v1.d/${inputs.secrets.gpg.subkey.name}.key".text = inputs.secrets.gpg.subkey.contents;
   };
 }

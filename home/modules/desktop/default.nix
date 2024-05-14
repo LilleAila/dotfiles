@@ -9,7 +9,6 @@
   cfg = config.settings.desktop;
 in {
   imports = [
-    inputs.nix-colors.homeManagerModules.default
     ./wm
     ./programs
     ./xdg.nix
