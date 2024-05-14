@@ -9,9 +9,12 @@
     programs.git = {
       enable = true;
       userName = "LilleAila";
-      userEmail = "olai" + ".sols" + "vik@gm" + "ail.co" + "m";
+      userEmail = inputs.secrets.email;
       extraConfig = {
         init.defaultBranch = "main";
+        commit.gpgSign = true;
+        gpg.program = "${lib.getExe config.programs.gpg.package}";
+        user.signingKey = inputs.secrets.gpg.id;
       };
       aliases = {
         pu = "push";
@@ -19,6 +22,25 @@
         cm = "commit";
         aa = "add -A";
       };
+      ignores = [
+        ".direnv"
+        "result"
+      ];
+    };
+
+    # TODO: somehow syncronise GPG (and maybe SSH too) keys between computers (secrets with sops or private repo?)
+    # Idk if this should be configured in system or user..
+    programs.gpg = {
+      enable = true;
+      homedir = "${config.home.homeDirectory}/.gnupg";
+      mutableKeys = true; # FIXME ? it might be better to keep mutable, idk
+      # package = pkgs.gnupg;
+    };
+
+    services.gpg-agent = {
+      enable = true;
+      # Doesn't look the best, but it works /shrug
+      pinentryPackage = pkgs.pinentry-qt;
     };
   };
 }

@@ -28,7 +28,6 @@
                 --window-padding 2 \
                 --remember \
                 --theme ${lib.concatStringsSep ";" [
-                # FIXME: Uncomment above line whenever https://github.com/apognu/tuigreet/commit/71cf19e233f990f39b11716a9849c0cf8035b9c3 gets added to nixpkgs
                 # Colors for the TTY are defined in nixosModules/utils.nix
                 "text=white"
                 "time=white"

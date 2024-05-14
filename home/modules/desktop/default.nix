@@ -56,7 +56,7 @@ in {
       zathura.enable = mkDefault true;
       browser.firefox.enable = mkDefault true;
       browser.firefox.newtab_image = mkDefault ../../wallpapers/wall1.png;
-      browser.qutebrowser.enable = mkDefault true;
+      # browser.qutebrowser.enable = mkDefault true;
 
       discord.vesktop.enable = mkDefault true;
       discord.dissent.enable = mkDefault false;
