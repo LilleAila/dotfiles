@@ -32,8 +32,6 @@
           nv = "nvim";
           nvimnvim = "nvim";
 
-          less = "nvimpager";
-
           vimdiff = "nvim -d";
           diff = "nvim -d";
         };
