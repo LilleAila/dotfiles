@@ -6,7 +6,7 @@ Factorio is currently downloaded manually as an executable from [[https://factor
 2. File structure
 3. Secrets: setting up the keys before building, and the syntax of secrets files (private repo, gpg key etc.)
 
-* TODO add ssh private and public keys to the SOPS secrets
+* DONE add ssh private and public keys to the SOPS secrets
 Place them in the correct location using the path value, and set the owner as the correct user. [[https://discourse.nixos.org/t/gpg-ssh-key-pairs-management/28604/4]]
 
 * File encryption

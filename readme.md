@@ -32,6 +32,8 @@ Currently, all the systems use the excact same configuration. This is all in one
 ### Non-nixOS
 If you're not using NixOS, there is a home-manager-only output that can be used normally with `home-manager switch --flake "github:LilleAila/dotfiles"`, assuming you already have set up home-manager following the [manual](https://nix-community.github.io/home-manager).
 
+### For more info, see the [docs](/docs/main.md)
+
 ## Inspiration
 - [tpwrules/nixos-apple-silicon](https://github.com/tpwrules/nixos-apple-silicon/tree/main) - Installing NixOS on m1
 - [NixOS on oracle cloud](https://blog.korfuri.fr/posts/2022/08/nixos-on-an-oracle-free-tier-ampere-machine/)
