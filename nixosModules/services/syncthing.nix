@@ -18,8 +18,16 @@ Also note that the devices defined here depend on my secrets private GitHub repo
   secrets = inputs.secrets.syncthing;
 in {
   options.settings.syncthing.enable = lib.mkEnableOption "Syncthing";
+  options.settings.syncthing.enableAllFolders = lib.mkEnableOption "Syncthing";
 
   config = lib.mkMerge [
+    (lib.mkIf config.settings.syncthing.enableAllFolders {
+      services.syncthing.settings.folders = {
+        "Default Folder".enable = lib.mkDefault true;
+        "Factorio".enable = lib.mkDefault true;
+        "Notes".enable = lib.mkDefault true;
+      };
+    })
     (lib.mkIf config.settings.syncthing.enable {
       # Config panel at http://127.0.0.1:8384/
       # Go to the config panel to find the device ID
