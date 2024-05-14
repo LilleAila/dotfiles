@@ -7,6 +7,44 @@ Riced with [nix-colors](https://github.com/Misterio77/nix-colors) using [gruvbox
 
 </div>
 
+<!-- Tables work, but don't look as good -->
+<!--
+<div align="center">
+
+| ![Desktop screenshot](assets/desktop.png) |
+|:--:|
+| *Hyprland, kitty and ags, all themed with nix-colors* |
+
+| ![Firefox screenshot](assets/firefox.png) |
+|:--:|
+| *Firefox minimal theme with nix-colors* |
+
+| ![Discord screenshot](assets/discord.png) |
+|:--:|
+| *Discord, with a tweaked UI and themed with nix-colors* |
+
+</div>
+-->
+
+<div align="center">
+
+<figure>
+  <img src="assets/desktop.png" alt="Desktop screenshot"/>
+  <figcaption><br>Hyprland, kitty and ags, all themed with nix-colors</figcaption>
+</figure>
+<br><br>
+<figure>
+  <img src="assets/firefox.png" alt="Firefox screenshot"/>
+  <figcaption><br>Minimal firefox theme with nix-colors</figcaption>
+</figure>
+<br><br>
+<figure>
+  <img src="assets/discord.png" alt="Discord screenshot"/>
+  <figcaption><br>Discord, with a tweaked UI and themed with nix-colors</figcaption>
+</figure>
+
+</div>
+
 ## Using
 - Window Manager: [Hyprland](https://hyprland.org)
 - Bar: [AGS](https://aylur.github.io/ags-docs/)
@@ -26,11 +64,6 @@ I use the following computers with this configuration:
 | Lenovo Legion Y540     | `legion-nix` | `x86_64`     |                             |
 | Oracle cloud A1        | `oci-nix`    | `aarch64`    |                             |
 | Lenovo ThinkPad e540   | `e540-nix`   | `x86_64`     | Not configured yet          |
-
-Currently, all the systems use the excact same configuration. This is all in one flake, so you should be able to install it with `sudo nixos-rebuild switch --flake "github:LilleAila/dotfiles"#<name>`.
-
-### Non-nixOS
-If you're not using NixOS, there is a home-manager-only output that can be used normally with `home-manager switch --flake "github:LilleAila/dotfiles"`, assuming you already have set up home-manager following the [manual](https://nix-community.github.io/home-manager).
 
 ### For more info, see the [docs](/docs/main.md)
 
