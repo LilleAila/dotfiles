@@ -20,7 +20,8 @@
   # === Hyprland ===
   hyprland = {
     # url = "github:hyprwm/Hyprland/tags/v0.39.0";
-    url = "github:hyprwm/Hyprland?ref=v0.40.0&submodules=1";
+    # url = "github:hyprwm/Hyprland?ref=v0.40.0&submodules=1";
+    url = "github:hyprwm/Hyprland?ref=v0.39.0&submodules=1";
     # inputs.nixpkgs.follows = "nixpkgs"; # Disabled because cachix
   };
 
@@ -49,22 +50,22 @@
     # inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  # hypr-darkwindow = {
-  #   url = "github:micha4w/Hypr-DarkWindow/tags/v0.39.0";
-  #   # url = "github:micha4w/Hypr-DarkWindow";
-  #   inputs.hyprland.follows = "hyprland";
-  # };
+  hypr-darkwindow = {
+    url = "github:micha4w/Hypr-DarkWindow/tags/v0.39.0";
+    # url = "github:micha4w/Hypr-DarkWindow";
+    inputs.hyprland.follows = "hyprland";
+  };
 
   hyprspace = {
     url = "github:KZDKM/Hyprspace";
     inputs.hyprland.follows = "hyprland";
   };
 
-  # hyprfocus = {
-  #   # url = "github:VortexCoyote/hyprfocus";
-  #   url = "github:pyt0xic/hyprfocus";
-  #   inputs.hyprland.follows = "hyprland";
-  # };
+  hyprfocus = {
+    # url = "github:VortexCoyote/hyprfocus";
+    url = "github:pyt0xic/hyprfocus";
+    inputs.hyprland.follows = "hyprland";
+  };
 
   # === Window Manager Related ===
   flake-parts = {

@@ -25,7 +25,7 @@
       "1password-gui"
     ];
     wm.hyprland.monitors.enable = true;
-    wm.hyprland.useFlake = false;
+    wm.hyprland.useFlake = true;
 
     gaming.enable = true;
     gaming.steam.enable = true;
