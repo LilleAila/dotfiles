@@ -22,6 +22,8 @@ in {
 
   config = lib.mkMerge [
     (lib.mkIf config.settings.syncthing.enableAllFolders {
+      # FIXME: 1. all folders get enabled by default, so this is unnecessary
+      #        2. folders are created automatically even if the computer is not listed for said folder
       services.syncthing.settings.folders = {
         "Default Folder".enable = lib.mkDefault true;
         "Factorio".enable = lib.mkDefault true;
@@ -48,11 +50,12 @@ in {
           devices = {
             legion = {id = "${secrets.ids.legion}";};
             mac = {id = "${secrets.ids.mac}";};
+            t420 = {id = "${secrets.ids.t420}";};
           };
           folders = {
             "Default Folder" = {
               path = "${homePath}/Sync";
-              devices = ["legion" "mac"];
+              devices = ["legion" "mac" "t420"];
             };
             "Factorio" = {
               path = "${homePath}/factorio";
@@ -61,7 +64,7 @@ in {
             };
             "Notes" = {
               path = "${homePath}/org";
-              devices = ["legion" "mac"];
+              devices = ["legion" "mac" "t420"];
             };
             "Minecraft" = {
               path = "${homePath}/.local/share/PrismLauncher/instances";
