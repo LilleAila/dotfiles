@@ -17,9 +17,12 @@
         user.signingKey = inputs.secrets.gpg.id;
       };
       aliases = {
-        pu = "push";
+        p = "push";
+        pp = "pull";
+        pr = "pull --rebase";
         co = "checkout";
         cm = "commit";
+        c = "commit -m";
         aa = "add -A";
       };
       ignores = [
