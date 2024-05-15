@@ -60,6 +60,10 @@
       inputs.hyprland.follows = "hyprland";
       url = "github:KZDKM/Hyprspace";
     };
+    matcha = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "git+https://codeberg.org/QuincePie/matcha.git";
+    };
     nh = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:viperML/nh";
