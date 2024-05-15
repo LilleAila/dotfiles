@@ -11,7 +11,8 @@
     home.packages = [inputs.matcha.packages.${pkgs.system}.default];
 
     wayland.windowManager.hyprland.settings.exec-once = [
-      "${lib.getExe' inputs.matcha.packages.${pkgs.system}.default "matcha"} --daemon"
+      # Start inhibitor daemon with inhibit disabled
+      "${lib.getExe' inputs.matcha.packages.${pkgs.system}.default "matcha"} --daemon --off"
     ];
 
     wayland.windowManager.hyprland.settings.bindl = [

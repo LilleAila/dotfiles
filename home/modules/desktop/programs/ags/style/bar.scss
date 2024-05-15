@@ -7,14 +7,23 @@
   // border-bottom: 1px solid $fg;
 
   .button {
-    min-width: 2rem;
-    min-height: 2rem;
+    min-width: 1.8rem;
+    min-height: 1.8rem;
     margin-right: 1rem;
     border-radius: 0.6rem;
     transition: 100ms linear;
 
     &:hover {
       background-color: $bg_alt;
+    }
+  }
+
+  .idle_inhibit {
+    .inhibit_button {
+      margin-left: 0.3rem;
+      margin-right: 0;
+      // min-width: 1rem;
+      // min-height: 1rem;
     }
   }
 
