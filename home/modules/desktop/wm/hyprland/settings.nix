@@ -135,7 +135,7 @@
       "workspace special:config,class:(nwg-displays)"
 
       "rounding 12, floating:1"
-      "noborder, floating:0"
+      # "noborder, floating:0" # not needed because border size 0
 
       # "opacity 0.9, class:(vesktop)"
       # "opacity 0.9, class:(firefox)"
