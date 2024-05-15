@@ -34,7 +34,11 @@
     sops.enable = true;
     ssh.enable = true;
     # services.nextcloud.enable = true; # it no no work :(
+    syncthing.enable = true;
   };
+
+  # To access the GUI, use SSH tunneling: `ssh -L 9999:localhost:8384 olai@158.179.205.169`, and then go to 127.0.0.1:9999 on the local machine
+  # docs: https://docs.syncthing.net/users/firewall.html#tunneling-via-ssh
 
   system.stateVersion = "24.05"; # Did you read the comment?
 }

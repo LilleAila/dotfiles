@@ -51,24 +51,25 @@ in {
             legion = {id = "${secrets.ids.legion}";};
             mac = {id = "${secrets.ids.mac}";};
             t420 = {id = "${secrets.ids.t420}";};
+            oci = {id = "${secrets.ids.oci}";};
           };
           folders = {
             "Default Folder" = {
               path = "${homePath}/Sync";
-              devices = ["legion" "mac" "t420"];
+              devices = ["oci" "legion" "mac" "t420"];
             };
             "Factorio" = {
               path = "${homePath}/factorio";
-              devices = ["legion" "mac"];
+              devices = ["oci" "legion" "mac"];
               ignorePerms = false; # executable permissions and stuff
             };
             "Notes" = {
               path = "${homePath}/org";
-              devices = ["legion" "mac" "t420"];
+              devices = ["oci" "legion" "mac" "t420"];
             };
             "Minecraft" = {
               path = "${homePath}/.local/share/PrismLauncher/instances";
-              devices = ["legion" "mac"];
+              devices = ["oci" "legion" "mac"];
             };
           };
         };
