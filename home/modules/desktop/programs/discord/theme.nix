@@ -76,6 +76,11 @@ css
       --font-primary ${sansSerif.name} !important;
     }
 
+    /* Stop thread icon from clipping into top bar */
+    .container_cd7d9c {
+      padding-top: 16px;
+    }
+
     /* Fade out effect in DM channel scroller */
     .privateChannels__9b518::after {
       content: "";
