@@ -86,12 +86,18 @@
       ];
 
       animation = [
-        "windows, 1, 4, easeOutQuart"
-        "windowsOut, 1, 4, easeOutQuart, popin 80%"
+        # "windows, 1, 4, easeOutQuart"
+        # "windowsOut, 1, 4, easeOutQuart, popin 80%"
+        "windows, 0"
+        "windowsIn, 0"
+        "windowsOut, 0"
+        "windowsMove, 0"
+        "layers, 0"
         "border, 1, 10, default"
         "borderangle, 1, 8, default"
         "fade, 1, 4, default"
         "workspaces, 1, 2, easeOutQuad"
+        # "workspaces, 0"
         "specialWorkspace, 1, 4, easeInOutBack, slidevert"
       ];
     };

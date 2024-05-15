@@ -28,7 +28,7 @@
         plugin.hyprfocus = {
           enabled = "yes";
           focus_animation = "shrink";
-          animate_workspacechange = "no";
+          animate_workspacechange = "yes";
           animate_floating = "yes";
           bezier = [
             "bezIn, 0.5, 0.0, 1.0, 0.5"
