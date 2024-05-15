@@ -35,6 +35,12 @@
       homedir = "${config.home.homeDirectory}/.gnupg";
       mutableKeys = true; # FIXME ? it might be better to keep mutable, idk
       # package = pkgs.gnupg;
+      publicKeys = [
+        {
+          text = inputs.secrets.gpg.public;
+          trust = "ultimate";
+        }
+      ];
     };
 
     services.gpg-agent = {

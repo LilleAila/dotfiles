@@ -33,7 +33,7 @@
     };
     sops.enable = true;
     ssh.enable = true;
-    services.nextcloud.enable = true;
+    # services.nextcloud.enable = true; # it no no work :(
   };
 
   system.stateVersion = "24.05"; # Did you read the comment?

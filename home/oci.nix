@@ -21,4 +21,7 @@
     };
     # other.enable = true;
   };
+
+  sops.secrets."ssh/oci".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
+  home.file.".ssh/id_ed25519.pub".text = inputs.secrets.ssh.oci.public;
 }
