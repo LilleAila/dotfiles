@@ -58,4 +58,6 @@
   home.file."my-super-secret-secret.txt".text = inputs.secrets.test;
   sops.secrets."ssh/legion".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
   home.file.".ssh/id_ed25519.pub".text = inputs.secrets.ssh.legion.public;
+  sops.secrets."syncthing/legion/cert".path = "${config.home.homeDirectory}/.config/syncthing/cert.pem";
+  sops.secrets."syncthing/legion/key".path = "${config.home.homeDirectory}/.config/syncthing/key.pem";
 }

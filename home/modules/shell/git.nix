@@ -52,10 +52,6 @@
       pinentryPackage = pkgs.pinentry-qt;
     };
 
-    # TODO: Maybe use home.acticationScripts to import the keys
-    # NOTE: when running `gpg --import <path/to/key>`, only the primary key is needed, the subkey gets generated automatically (?)
-    # home.file.".gnupg/private-keys-v1.d/${inputs.secrets.gpg.primary.name}.key".text = inputs.secrets.gpg.primary.contents;
-    # home.file.".gnupg/private-keys-v1.d/${inputs.secrets.gpg.subkey.name}.key".text = inputs.secrets.gpg.subkey.contents;
     sops.secrets."gpg/primary".path = "${config.home.homeDirectory}/.gnupg/private-keys-v1.d/${inputs.secrets.gpg.primary.name}.key";
     sops.secrets."gpg/subkey".path = "${config.home.homeDirectory}/.gnupg/private-keys-v1.d/${inputs.secrets.gpg.subkey.name}.key";
   };
