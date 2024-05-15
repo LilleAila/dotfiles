@@ -34,6 +34,7 @@ in {
     (lib.mkIf config.settings.syncthing.enable {
       # Config panel at http://127.0.0.1:8384/
       # Go to the config panel to find the device ID
+      # TODO: configure syncthing keys and certs for different computers using sops
       services.syncthing = {
         enable = true;
         user = username;
@@ -43,6 +44,11 @@ in {
         overrideDevices = true;
         overrideFolders = true;
         settings = {
+          options = {
+            # TODO: maybe set up my own relay, but i can't find any nix options for custom relays
+            urAccepted = -1; # Don't submit usage data
+            relaysEnabled = true;
+          };
           gui = {
             user = "${username}";
             password = "${secrets.password}";
