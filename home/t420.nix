@@ -15,8 +15,8 @@
       }
     ];
     desktop.enable = true;
+    blueman-applet.enable = false;
   };
-  services.blueman-applet.enable = false;
 
   wayland.windowManager.hyprland.settings.input.kb_options = lib.mkForce "ctrl:nocaps,altwin:menu_win";
   # wayland.windowManager.hyprland.settings."$mainMod" = lib.mkForce "ALT_L";

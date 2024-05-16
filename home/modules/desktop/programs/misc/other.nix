@@ -8,6 +8,7 @@
   options.settings = {
     imageviewer.enable = lib.mkEnableOption "imageviewer";
     other.enable = lib.mkEnableOption "other";
+    blueman-applet.enable = lib.mkEnableOption "blueman applet";
   };
 
   config = lib.mkMerge [
@@ -36,8 +37,12 @@
     # (lib.mkIf config.services.blueman-applet.enable {
     #   systemd.user.services.blueman-applet.Service.ExecStart = lib.mkForce "sleep 5 && ${lib.getExe' pkgs.blueman "blueman-applet"}";
     # })
+    (lib.mkIf config.settings.blueman-applet.enable {
+      wayland.windowManager.hyprland.settings.exec-once = [
+        "${lib.getExe' pkgs.blueman "blueman-applet"}"
+      ];
+    })
     (lib.mkIf (config.settings.other.enable) {
-      services.blueman-applet.enable = lib.mkDefault true;
       dconf.settings."org/blueman/general" = {
         plugin-list = ["!ConnectionNotifier"];
       };

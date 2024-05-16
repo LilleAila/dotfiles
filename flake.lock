@@ -1012,11 +1012,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1715327697,
-        "narHash": "sha256-i6pS/0Z+BT8UFpsmiBJgZT67vLxTrTScO8eao0EZ6KI=",
+        "lastModified": 1715851169,
+        "narHash": "sha256-3sEgiweyiyUBu1SqdgFsanedQ/Q8hpBCqTzcrERKiTk=",
         "owner": "LilleAila",
         "repo": "nix-cursors",
-        "rev": "aa83cd8eb7021c474acb694a7bd26cd41336ab60",
+        "rev": "fe467be9866045b215671149ec0a3d7ddbdb4ebb",
         "type": "github"
       },
       "original": {

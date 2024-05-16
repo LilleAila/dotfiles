@@ -24,16 +24,17 @@ in {
       qt.enable = mkDefault true;
       cursor = {
         size = mkDefault 24;
-        package = mkDefault (inputs.nix-cursors.packages.${pkgs.system}.bibata-original-cursor.override {
+        package = mkDefault (inputs.nix-cursors.packages.${pkgs.system}.bibata-modern-cursor.override {
           background_color = "#${config.colorScheme.palette.base00}";
           outline_color = "#${config.colorScheme.palette.base06}";
           accent_color = "#${config.colorScheme.palette.base00}";
           replace_crosshair = true;
         });
-        name = mkDefault "Bibata-Original-Custom";
+        name = mkDefault "Bibata-Modern-Custom";
       };
 
       fcitx5.enable = mkDefault false;
+      blueman-applet.enable = lib.mkDefault true;
       # syncthing.tray.enable = mkDefault true;
       wm = {
         ags.enable = mkDefault true;
