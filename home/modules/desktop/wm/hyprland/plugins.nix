@@ -26,7 +26,7 @@
         ];
 
         plugin.hyprfocus = {
-          enabled = "yes";
+          enabled = "yes"; # Does weird animation stuff when opening new windows
           focus_animation = "shrink";
           animate_workspacechange = "yes";
           animate_floating = "yes";
