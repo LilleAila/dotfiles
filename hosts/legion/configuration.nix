@@ -43,7 +43,10 @@
 
   environment.systemPackages = with pkgs; [
     lenovo-legion
+    wayvnc
   ];
+
+  networking.firewall.allowedTCPPorts = [5900]; # VNC
 
   boot.extraModulePackages = with config.boot.kernelPackages; [lenovo-legion-module];
 
