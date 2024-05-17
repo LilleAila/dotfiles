@@ -96,6 +96,10 @@ in {
         icon = mkDefault "input-keyboard-symbolic";
         url = mkDefault "https://monkeytype.com";
       };
+      CSTimer = {
+        icon = mkDefault "timer-symbolic";
+        url = mkDefault "https://cstimer.net";
+      };
     };
 
     home.sessionVariables."PLOVER_UINPUT_LAYOUT" = lib.mkDefault "no";
