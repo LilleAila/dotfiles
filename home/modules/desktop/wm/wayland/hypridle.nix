@@ -41,6 +41,7 @@
       settings = let
         hyprctl = lib.getExe' config.wayland.windowManager.hyprland.package "hyprctl";
         loginctl = lib.getExe' pkgs.systemd "loginctl";
+        systemctl = lib.getExe' pkgs.systemd "systemctl";
         swaylock = lib.getExe config.programs.swaylock.package;
       in rec {
         general = {
@@ -50,6 +51,12 @@
           ignore_dbus_inhibit = false;
         };
 
+        /*
+        TODO have these listeners in this order:
+        1. dim screen (brightnessctl)
+        2. turn off screen (hyprctl dpms)
+        3. suspend (systemctl, also fix the before_sleep_cmd to actually run on suspend)
+        */
         listener = [
           {
             timeout = 300;
@@ -57,12 +64,12 @@
           }
           {
             timeout = 600;
-            on-timeout = general.before_sleep_cmd;
-          }
-          {
-            timeout = 660;
             on-timeout = "${hyprctl} dispatch dpms off";
             on-resume = "${hyprctl} dispatch dpms on";
+          }
+          {
+            timeout = 600;
+            on-timeout = "${systemctl} suspend";
           }
         ];
       };
