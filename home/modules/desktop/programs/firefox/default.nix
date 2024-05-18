@@ -13,11 +13,23 @@
     };
   };
 
-  config = lib.mkMerge [
+  config = lib.mkIf config.settings.browser.firefox.enable (lib.mkMerge [
     (lib.mkIf isNixOS {
       programs.firefox.package = null;
     })
-    (lib.mkIf (config.settings.browser.firefox.enable) {
+    (lib.mkIf config.settings.wm.hyprland.enable {
+      wayland.windowManager.hyprland.settings.bind = let
+        c = config.colorScheme.palette;
+        inactive = config.wayland.windowManager.hyprland.settings.general."col.inactive_border";
+      in [
+        # Bordercolors don't work :( it reverts to default color when window is unfocused and re-focused
+        "$mainMod, B, exec, [workspace 2;bordercolor rgb(${c.base0D}) ${inactive}] $webBrowser -P main"
+        "$mainMod, M, exec, [workspace 4;bordercolor rgb(${c.base0E}) ${inactive}] $webBrowser -P math"
+        "$mainMod SHIFT, B, exec, [workspace 4;bordercolor rgb(${c.base0B}) ${inactive}] $webBrowser -P school"
+        "$mainMod, Y, exec, [workspace 3;bordercolor rgb(${c.base08}) ${inactive}] $webBrowser -P yt"
+      ];
+    })
+    {
       programs.firefox = {
         enable = true;
         # The package is set to null here because firefox is configured in system, see `nixosModules/firefox.nix`
@@ -95,6 +107,6 @@
           };
         };
       };
-    })
-  ];
+    }
+  ]);
 }

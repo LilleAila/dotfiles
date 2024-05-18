@@ -24,10 +24,6 @@
       "$mainMod, space, exec, $launcher"
       "$mainMod, E, exec, emacsclient -c"
       # "$mainMod, D, exec, $fileManager"
-      "$mainMod, B, exec, $webBrowser -P main"
-      "$mainMod, M, exec, $webBrowser -P math"
-      "$mainMod SHIFT, B, exec, $webBrowser -P school"
-      "$mainMod, Y, exec, $webBrowser -P yt"
       "$mainMod, P, exec, $colorPicker"
 
       "$mainMod, V, exec, hyprctl reload"
