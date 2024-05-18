@@ -50,6 +50,10 @@ in {
         			echo "$1 is not a valid file"
         		fi
         }
+
+        run() {
+          NIXPKGS_ALLOW_UNFREE=1 NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1 nix run nixpkgs#$1 --impure
+        }
       '';
       /*
       Fastest to slowest
