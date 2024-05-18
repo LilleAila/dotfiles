@@ -69,6 +69,10 @@
 
   "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
+  "browser.tabs.inTitlebar" = 0;
+  "privacy.exposeContentTitleInWindow" = false;
+  "privacy.exposeContentTitleInWindow.pbm" = false;
+
   # Fonts
   "font.name.monospace.x-western" = config.settings.fonts.monospace.name;
   "font.name.sans-serif.x-western" = config.settings.fonts.sansSerif.name;
