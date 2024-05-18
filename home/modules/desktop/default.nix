@@ -42,6 +42,9 @@ in {
         sway.enable = mkDefault false;
         avizo.enable = mkDefault true;
         hypridle.enable = mkDefault true;
+        hypridle.inhibit = [
+          "cstimer"
+        ];
         swaylock.enable = mkDefault true;
         hyprlock.enable = mkDefault false;
         hyprpaper.enable = mkDefault true;

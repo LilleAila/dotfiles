@@ -5,15 +5,19 @@
   inputs,
   ...
 }: let
-  mkSuspendScript = command:
+  mkTimeout = command:
     lib.getExe (pkgs.writeShellScriptBin "suspend-script" ''
       #!/usr/bin/env bash
-      if ! ${lib.getExe' config.wayland.windowManager.hyprland.package "hyprctl"} clients | ${lib.getExe pkgs.ripgrep} -iq cstimer; then
+      if ! ${lib.getExe' config.wayland.windowManager.hyprland.package "hyprctl"} clients | ${lib.getExe pkgs.ripgrep} -iq '${lib.concatStringsSep "|" config.settings.wm.hypridle.inhibit}'; then
         ${command}
       fi
     '');
 in {
   options.settings.wm.hypridle.enable = lib.mkEnableOption "hypridle";
+  options.settings.wm.hypridle.inhibit = lib.mkOption {
+    type = lib.types.listOf lib.types.str;
+    default = [];
+  };
 
   config = lib.mkIf (config.settings.wm.hypridle.enable) {
     home.packages = [inputs.matcha.packages.${pkgs.system}.default];
@@ -53,8 +57,8 @@ in {
         swaylock = lib.getExe config.programs.swaylock.package;
       in rec {
         general = {
-          before_sleep_cmd = mkSuspendScript "${loginctl} lock-session";
-          lock_cmd = mkSuspendScript "pidof swaylock || ${swaylock}";
+          before_sleep_cmd = mkTimeout "${loginctl} lock-session";
+          lock_cmd = mkTimeout "pidof swaylock || ${swaylock}";
           after_sleep_cmd = "${hyprctl} dispatch dpms on";
           ignore_dbus_inhibit = false;
         };
@@ -72,12 +76,12 @@ in {
           }
           {
             timeout = 600;
-            on-timeout = mkSuspendScript "${hyprctl} dispatch dpms off";
+            on-timeout = mkTimeout "${hyprctl} dispatch dpms off";
             on-resume = "${hyprctl} dispatch dpms on";
           }
           {
             timeout = 660;
-            on-timeout = mkSuspendScript "${systemctl} suspend";
+            on-timeout = mkTimeout "${systemctl} suspend";
           }
         ];
       };
