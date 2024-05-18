@@ -130,6 +130,8 @@
       "workspace special:config,class:(pavucontrol)"
       "workspace special:config,class:(nwg-displays)"
 
+      "float,class:(Qsynth)"
+
       "rounding 12, floating:1"
       # "noborder, floating:0" # not needed because border size 0
 

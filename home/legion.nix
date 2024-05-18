@@ -53,6 +53,8 @@
   home.packages = with pkgs; [
     _1password-gui-beta
     protonvpn-gui
+    fluidsynth
+    qsynth
   ];
 
   home.file."my-super-secret-secret.txt".text = inputs.secrets.test;

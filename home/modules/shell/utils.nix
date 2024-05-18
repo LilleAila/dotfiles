@@ -14,6 +14,7 @@
       cd = "z";
       open = "xdg-open";
       o = "xdg-open";
+      img = "kitty +kitten icat";
 
       neofetch = "${lib.getExe pkgs.nitch}";
 
