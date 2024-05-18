@@ -139,6 +139,8 @@
       # "opacity 0.9, class:(firefox)"
       "opacity 0.9, class:(chrome-monkeytype.com__-Default)"
       # "opacity 0.875, class:(chrome-cstimer.net__-Default)"
+
+      "idleinhibit focus, class:(chrome-cstimer.net__-Default)"
     ];
 
     layerrule = [
