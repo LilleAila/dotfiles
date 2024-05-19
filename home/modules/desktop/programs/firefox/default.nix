@@ -18,16 +18,45 @@
       programs.firefox.package = null;
     })
     (lib.mkIf config.settings.wm.hyprland.enable {
-      wayland.windowManager.hyprland.settings.bind = let
+      wayland.windowManager.hyprland = let
         c = config.colorScheme.palette;
         inactive = config.wayland.windowManager.hyprland.settings.general."col.inactive_border";
-      in [
-        # Bordercolors don't work :( it reverts to default color when window is unfocused and re-focused
-        "$mainMod, B, exec, [workspace 2;bordercolor rgb(${c.base0D}) ${inactive}] $webBrowser -P main"
-        "$mainMod, M, exec, [workspace 4;bordercolor rgb(${c.base0E}) ${inactive}] $webBrowser -P math"
-        "$mainMod SHIFT, B, exec, [workspace 4;bordercolor rgb(${c.base0B}) ${inactive}] $webBrowser -P school"
-        "$mainMod, Y, exec, [workspace 3;bordercolor rgb(${c.base08}) ${inactive}] $webBrowser -P yt"
-      ];
+        mkShortcut = key: url: {inherit key url;};
+        shortcuts = [
+          (mkShortcut "L" "https://github.com/LilleAila/dotfiles/")
+          (mkShortcut "I" "https://github.com/IldenH/dotfiles/")
+          (mkShortcut "H" "https://wiki.hyprland.org/")
+          (mkShortcut "A" "https://aylur.github.io/ags-docs/")
+          (mkShortcut "G" "https://grep.app/")
+          (mkShortcut "C" "https://chat.openai.com/")
+          (mkShortcut "T" "https://temp-mail.org")
+          (mkShortcut "S" "http://127.0.0.1:8384/")
+        ];
+      in {
+        settings.bind = [
+          # Bordercolors don't work :( it reverts to default color when window is unfocused and re-focused
+          "$mainMod, B, exec, [workspace 2;bordercolor rgb(${c.base0D}) ${inactive}] firefox -P main"
+          "$mainMod, M, exec, [workspace 4;bordercolor rgb(${c.base0E}) ${inactive}] firefox -P math"
+          "$mainMod SHIFT, B, exec, [workspace 4;bordercolor rgb(${c.base0B}) ${inactive}] firefox -P school"
+          "$mainMod, Y, exec, [workspace 3;bordercolor rgb(${c.base08}) ${inactive}] firefox -P yt"
+        ];
+        extraConfig =
+          ''
+            bind = $mainMod CONTROL, B, submap, browser
+            submap = browser
+          ''
+          + (lib.concatStringsSep "\n" (
+            map (w: ''
+              bind = , ${w.key}, exec, firefox -P main --new-tab "${w.url}"
+              bind = , ${w.key}, submap, reset
+            '')
+            shortcuts
+          ))
+          + ''
+            bind = , escape, submap, reset
+            submap = reset
+          '';
+      };
     })
     {
       programs.firefox = {

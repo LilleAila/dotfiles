@@ -8,7 +8,6 @@
   wayland.windowManager.hyprland.settings = {
     "$terminal" = "${lib.getExe config.settings.terminal.emulator.package}";
     "$fileManager" = "nemo";
-    "$webBrowser" = "firefox";
     "$launcher" = "ags -t applauncher";
     "$calculator" = "qalculate-gtk";
     "$colorPicker" = "${lib.getExe inputs.hyprpicker.packages.${pkgs.system}.hyprpicker} --render-inactive --autocopy --format=hex";

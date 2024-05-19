@@ -36,8 +36,8 @@ css
       left: 0;
       margin-left: calc((100vw - 100vmin) / 2);
       margin-top: calc((100vh - 100vmin) / 2);
-      width: 80vmin;
-      height: 80vmin;
+      width: 100vmin;
+      height: 100vmin;
       font-size: 3.1vmin;
       text-align: center;
       display: grid;
