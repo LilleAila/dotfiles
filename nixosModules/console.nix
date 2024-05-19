@@ -6,6 +6,7 @@
   ...
 }: {
   options.settings.console = {
+    # FIXME not have true by default?
     enable = lib.mkEnableOption "console config" // {default = true;};
     font = lib.mkOption {
       type = lib.types.str;

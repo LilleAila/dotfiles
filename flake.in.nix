@@ -25,13 +25,14 @@
         }
     );
 
-    globalSettings = {
+    defaultSettings = {
       # Define username here. Probably a better way to do this
       username = "olai";
     };
     mkConfig = {
       name,
       extraModules ? [],
+      globalSettings ? defaultSettings,
     }:
       nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs globalSettings;};
@@ -79,12 +80,18 @@
         name = "legion";
         extraModules = [nixos-hardware.nixosModules.common-cpu-intel];
       };
+
+      installer = mkConfig {
+        name = "installer";
+        globalSettings.username = "nixos";
+      };
     };
 
-    homeConfigurations."${globalSettings.username}" = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations."${defaultSettings.username}" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages."x86_64-linux"; # Idk how to do but somehow make this also arm
       extraSpecialArgs = {
-        inherit inputs outputs globalSettings;
+        inherit inputs outputs;
+        globalSettings = defaultSettings;
       };
 
       modules = [

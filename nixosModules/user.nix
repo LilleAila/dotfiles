@@ -6,6 +6,7 @@
   ...
 }: {
   options.settings.user = {
+    enable = lib.mkEnableOption "user configuration" // {default = true;};
     name = lib.mkOption {
       type = lib.types.str;
     };
@@ -20,7 +21,7 @@
     };
   };
 
-  config = with config.settings.user; {
+  config = lib.mkIf config.settings.user.enable (with config.settings.user; {
     users.users."${name}" = {
       isNormalUser = true;
       description = desc;
@@ -30,9 +31,11 @@
       initialPassword = "Password123";
     };
 
+    environment.shells = [config.settings.user.shell];
+
     nix.settings.trusted-users = [
       "@wheel"
       config.settings.user.name
     ];
-  };
+  });
 }
