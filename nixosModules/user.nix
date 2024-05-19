@@ -27,7 +27,7 @@
       extraGroups = ["wheel" "input"];
       packages = with pkgs; [];
       shell = shell;
-      # initialPassword = "";
+      initialPassword = "Password123";
     };
 
     nix.settings.trusted-users = [
