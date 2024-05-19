@@ -30,6 +30,7 @@
           (mkShortcut "G" "https://grep.app/")
           (mkShortcut "C" "https://chat.openai.com/")
           (mkShortcut "T" "https://temp-mail.org")
+          (mkShortcut "N" "https://nix-community.github.io/nixvim")
           (mkShortcut "S" "http://127.0.0.1:8384/")
         ];
       in {
