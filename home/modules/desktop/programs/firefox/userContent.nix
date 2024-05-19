@@ -34,11 +34,11 @@ css
       position: fixed;
       top: 0;
       left: 0;
-      margin-left: 10vw;
-      margin-top: 10vh;
-      width: 80vw;
-      height: 80vh;
-      font-size: 2em;
+      margin-left: calc((100vw - 100vmin) / 2);
+      margin-top: calc((100vh - 100vmin) / 2);
+      width: 80vmin;
+      height: 80vmin;
+      font-size: 3.1vmin;
       text-align: center;
       display: grid;
       place-items: center;
