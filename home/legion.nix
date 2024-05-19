@@ -23,6 +23,7 @@
     nix.unfree = [
       "1password"
       "1password-gui"
+      "geogebra"
     ];
     wm.hyprland.monitors.enable = true;
     wm.hyprland.useFlake = true;
@@ -55,6 +56,12 @@
     protonvpn-gui
     fluidsynth
     qsynth
+    inkscape
+    (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (ps:
+      with ps; [
+        plover-uinput
+      ]))
+    geogebra6
   ];
 
   home.file."my-super-secret-secret.txt".text = inputs.secrets.test;
