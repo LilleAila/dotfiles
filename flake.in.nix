@@ -49,6 +49,7 @@
                 };
                 useUserPackages = true;
                 useGlobalPkgs = true;
+                backupFileExtension = "backup";
                 users."${globalSettings.username}" = ./hosts/${name}/home.nix;
               };
             }
