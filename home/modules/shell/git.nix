@@ -10,7 +10,7 @@
     programs.git = {
       enable = true;
       userName = "LilleAila";
-      userEmail = "67327023+LilleAila@users.noreply.github.com";
+      userEmail = "olai.solsvik@gmail.com";
       extraConfig = {
         init.defaultBranch = "main";
         commit.gpgSign = true;
