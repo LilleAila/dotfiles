@@ -25,7 +25,7 @@
     users.users."${name}" = {
       isNormalUser = true;
       description = desc;
-      extraGroups = ["wheel" "input"];
+      extraGroups = ["wheel" "input" "dialout"];
       packages = with pkgs; [];
       shell = shell;
       initialPassword = "Password123";
