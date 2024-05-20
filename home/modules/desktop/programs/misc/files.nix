@@ -35,7 +35,7 @@
           default-folder-viewer = "list-view";
           "inherit-folder-viewer" = true;
           ignore-view-metadata = true;
-          click-policy = "single";
+          click-policy = "double";
           quick-renames-with-pause-in-between = false; # double-click name to rename
           click-double-parent-folder = true; # double-click empty space
           never-queue-file-ops = false;
