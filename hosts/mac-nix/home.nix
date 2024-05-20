@@ -7,9 +7,7 @@
   keys,
   ...
 }: {
-  imports = [
-    ./.
-  ];
+  imports = [../../home];
 
   settings = {
     monitors = [

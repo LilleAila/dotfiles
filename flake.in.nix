@@ -49,7 +49,7 @@
                 };
                 useUserPackages = true;
                 useGlobalPkgs = true;
-                users."${globalSettings.username}" = ./home/${name}.nix;
+                users."${globalSettings.username}" = ./hosts/${name}/home.nix;
               };
             }
             (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" globalSettings.username])
