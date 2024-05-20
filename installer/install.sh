@@ -19,6 +19,8 @@ function yesno() {
     done
 }
 
+git clone git@github.com:LilleAila/dotfiles
+
 # TODO: stop using two repositories. This causes circular dependencies
 new=$(yesno "Set up a new host?")
 if [[ $new == "y" ]]; then

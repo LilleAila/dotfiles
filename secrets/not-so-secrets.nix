@@ -28,5 +28,6 @@
     legion.public = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN5Z52ibKQO2mugbjo8x4+EvWFSCf+rFg8cOd9Zl7Xj2 olai.solsvik@gmail.com legion";
     t420.public = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEJHIpVw9hUyEkO/b4qmkpumxceN1vZQKKm6HAJC87NW olai.solsvik@gmail.com T420";
     oci.public = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAflP4pHO9TpdmFmqdrnhWgBH3JsZqZJ8cnBZKabGANg olai.solsvik@gmail.com OCI";
+    installer.public = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ/cCDWazpsY+tkCHJ8NJX3/s+jJgEQnlL+P2APqcr2Q olai.solsvik@gmail.com NixOS installer";
   };
 }

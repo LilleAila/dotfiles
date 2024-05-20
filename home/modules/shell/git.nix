@@ -32,6 +32,8 @@
       ];
     };
 
+    home.packages = [pkgs.git-crypt];
+
     programs.gpg = {
       enable = true;
       homedir = "${config.home.homeDirectory}/.gnupg";
