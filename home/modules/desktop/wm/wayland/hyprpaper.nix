@@ -16,7 +16,7 @@
   config = lib.mkIf (config.settings.wm.hyprpaper.enable) {
     services.hyprpaper = {
       enable = true;
-      splash = false;
+      splash = true;
       ipc = true;
 
       preloads = map (m: "${toString m.wallpaper}") (config.settings.monitors);

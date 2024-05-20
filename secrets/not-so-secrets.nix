@@ -17,6 +17,23 @@
       =PT4y
       -----END PGP PUBLIC KEY BLOCK-----
     '';
+    other = {
+      ildenh = ''
+        -----BEGIN PGP PUBLIC KEY BLOCK-----
+
+        mDMEZks8NRYJKwYBBAHaRw8BAQdAChhh9N+FhQ+O3EE4Lj50HrndVlCxO+Pbjfom
+        kX9pzTi0JElsZGVuSCAoR2l0aHViKSA8SWxkZW5ILjFAcHJvdG9uLm1lPoiOBBMW
+        CgA2FiEEojdtMBkxiw/r///63l3ojLZWlToFAmZLPDUCGwMECwkIBwQVCgkIBRYC
+        AwEAAh4FAheAAAoJEN5d6Iy2VpU6ZPgA/3oRczab/GAKTL3AgdFCMXx1DwNr0lVs
+        QtU0f0lTb0EPAQCLpIM77BCRSnoc1VRqWJRirg7CA8VXYLEnAotrwOsDC7g4BGZL
+        PDUSCisGAQQBl1UBBQEBB0DInzcqiIT0CD0A8hBYMNAUUoYYWmDamdS14h7XZ/mP
+        DgMBCAeIeAQYFgoAIBYhBKI3bTAZMYsP6///+t5d6Iy2VpU6BQJmSzw1AhsMAAoJ
+        EN5d6Iy2VpU6GGgA/2azrjnKBKA4F9f0j2jvPdXVQELm1os0I5XfLxjLSPTgAP9P
+        OKFOEOOhv5l0PK+oZgIVBsuRo/D/Fg0CCcOl/N90CQ==
+        =/t3z
+        -----END PGP PUBLIC KEY BLOCK-----
+      '';
+    };
   };
 
   ssh = {
