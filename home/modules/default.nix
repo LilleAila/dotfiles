@@ -27,6 +27,7 @@
       # NOTE: when setting up a new machine, `nixos-rebuild switch` has to be run twice.
       # The first time, this file is written, but the 'setupSecretsForUsers' activation script failes
       # Then, it has to be run a second time to decrypt all the SOPS secrets.
+      # FIXME: put this key into the install media or something instead of using secrets (or do something like git-crypt?)
       home.file.".config/sops/age/keys.txt".text = inputs.secrets.sops.age-key;
     })
   ];

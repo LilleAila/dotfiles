@@ -3,6 +3,7 @@
   pkgs,
   inputs,
   lib,
+  keys,
   ...
 }: {
   imports = [./.];
@@ -23,5 +24,5 @@
   };
 
   sops.secrets."ssh/oci".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
-  home.file.".ssh/id_ed25519.pub".text = inputs.secrets.ssh.oci.public;
+  home.file.".ssh/id_ed25519.pub".text = keys.ssh.oci.public;
 }

@@ -20,4 +20,5 @@
       neovim.enable = true;
     };
   };
+  home.username = lib.mkForce "nixos";
 }

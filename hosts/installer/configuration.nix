@@ -16,7 +16,7 @@
   ];
 
   settings = {
-    user.name = globalSettings.username;
+    user.name = "nixos";
     user.enable = false;
     console = {
       font = "ter-u16n";

@@ -4,6 +4,7 @@
   inputs,
   outputs,
   lib,
+  keys,
   ...
 }: {
   imports = [
@@ -55,5 +56,5 @@
   ];
 
   sops.secrets."ssh/mac".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
-  home.file.".ssh/id_ed25519.pub".text = inputs.secrets.ssh.mac.public;
+  home.file.".ssh/id_ed25519.pub".text = keys.ssh.mac.public;
 }

@@ -24,6 +24,7 @@
           inherit system;
         }
     );
+    keys = import ./secrets/not-so-secrets.nix;
 
     defaultSettings = {
       # Define username here. Probably a better way to do this
@@ -35,7 +36,7 @@
       globalSettings ? defaultSettings,
     }:
       nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs globalSettings;};
+        specialArgs = {inherit inputs outputs globalSettings keys;};
         modules =
           [
             ./hosts/${name}/configuration.nix
@@ -43,7 +44,7 @@
             {
               home-manager = {
                 extraSpecialArgs = {
-                  inherit inputs outputs globalSettings;
+                  inherit inputs outputs globalSettings keys;
                   isNixOS = true;
                 };
                 useUserPackages = true;
@@ -90,7 +91,7 @@
     homeConfigurations."${defaultSettings.username}" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages."x86_64-linux"; # Idk how to do but somehow make this also arm
       extraSpecialArgs = {
-        inherit inputs outputs;
+        inherit inputs outputs keys;
         globalSettings = defaultSettings;
       };
 

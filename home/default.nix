@@ -7,7 +7,7 @@
   ...
 }: {
   home = {
-    username = "${globalSettings.username}";
+    username = lib.mkDefault "${globalSettings.username}";
     homeDirectory = "/home/${config.home.username}";
     stateVersion = "23.11";
   };
