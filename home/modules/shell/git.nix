@@ -43,10 +43,10 @@
           text = keys.gpg.public;
           trust = "ultimate";
         }
-        {
-          text = "${builtins.readFile ../../../secrets/gpg-key.asc}";
-          trust = "ultimate";
-        }
+        # {
+        #   text = "${builtins.readFile ../../../secrets/gpg-key.asc}";
+        #   trust = "ultimate";
+        # }
       ];
     };
 
