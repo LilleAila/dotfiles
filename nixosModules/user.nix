@@ -21,6 +21,14 @@
     };
   };
 
+  # silence warning about setting multiple user password options
+  # https://github.com/NixOS/nixpkgs/pull/287506#issuecomment-1950958990
+  options.warnings = lib.mkOption {
+    apply = lib.filter (
+      w: !(lib.strings.hasInfix "The options silently discard others by the order of precedence" w)
+    );
+  };
+
   config = lib.mkIf config.settings.user.enable (with config.settings.user; {
     users.users."${name}" = {
       isNormalUser = true;
