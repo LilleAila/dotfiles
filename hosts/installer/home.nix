@@ -11,7 +11,6 @@
   # https://github.com/tinted-theming/base16-schemes/
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
   settings = {
-    # emacs.enable = true;
     terminal = {
       zsh = {
         enable = true;
