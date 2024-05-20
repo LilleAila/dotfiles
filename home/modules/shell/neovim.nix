@@ -21,6 +21,7 @@
         };
 
         home.shellAliases = {
+          v = "nvim";
           vi = "nvim";
           vim = "nvim";
           nano = "nvim";
