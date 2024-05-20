@@ -1,6 +1,7 @@
 # TODO: also put some stuff like usernames etc. here
 {
   gpg = {
+    /*
     id = "D2C70E07095CF5E5";
     public = ''
       -----BEGIN PGP PUBLIC KEY BLOCK-----
@@ -20,6 +21,23 @@
     # Private key names. The keys themselves are encrypted with sops
     primary = "3A99EF8882EB73173BFD911D6690E3465C901012";
     subkey = "7011A0A00F1933CFC7C70B41EDFCDC6221B14F69";
+    */
+    id = "D1ACCDCF2B9B9799";
+    public = ''
+      -----BEGIN PGP PUBLIC KEY BLOCK-----
+
+      mDMEZktZNBYJKwYBBAHaRw8BAQdA/k7C6pIGPE4nCgwNUM7OL0LnUcf0cs1ArUGR
+      g801yAi0JU9sYWkgU29sc3ZpayA8b2xhaS5zb2xzdmlrQGdtYWlsLmNvbT6IjgQT
+      FgoANhYhBIGFKfm7TDPwabuXgtGszc8rm5eZBQJmS1k0AhsDBAsJCAcEFQoJCAUW
+      AgMBAAIeBQIXgAAKCRDRrM3PK5uXmf6ZAQCPCQwsETzoF97MvsnoEdQF+caJnhAT
+      WtLu2/tMeGgrrgEA7IIjWtioKFmjXZ8WKLvYMD62K2CzqqosiJsThh8hPQ64OARm
+      S1k0EgorBgEEAZdVAQUBAQdAToXMwH0rNAlrjZRsYwDPsoqqLVkyeWH0IxWbf1WU
+      FFQDAQgHiHgEGBYKACAWIQSBhSn5u0wz8Gm7l4LRrM3PK5uXmQUCZktZNAIbDAAK
+      CRDRrM3PK5uXmT6iAQDNKvvIYSMQtE6zDr2ufSC7J7jq6AjJKYDO4TXn2kDKuwD/
+      e5moeoEIiVZq29ePgv+zvgJmP8r06yZfwsVjUdzOOgM=
+      =PT4y
+      -----END PGP PUBLIC KEY BLOCK-----
+    '';
   };
 
   ssh = {

@@ -43,6 +43,10 @@
           text = keys.gpg.public;
           trust = "ultimate";
         }
+        # {
+        #   text = builtins.readFile ../../../secrets/gpg-key.asc;
+        #   trust = "ultimate";
+        # }
       ];
     };
 
@@ -52,7 +56,7 @@
       pinentryPackage = pkgs.pinentry-qt;
     };
 
-    sops.secrets."gpg/primary".path = "${config.home.homeDirectory}/.gnupg/private-keys-v1.d/${keys.gpg.primary}.key";
-    sops.secrets."gpg/subkey".path = "${config.home.homeDirectory}/.gnupg/private-keys-v1.d/${keys.gpg.subkey}.key";
+    # sops.secrets."gpg/primary".path = "${config.home.homeDirectory}/.gnupg/private-keys-v1.d/${keys.gpg.primary}.key";
+    # sops.secrets."gpg/subkey".path = "${config.home.homeDirectory}/.gnupg/private-keys-v1.d/${keys.gpg.subkey}.key";
   };
 }
