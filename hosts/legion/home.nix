@@ -62,6 +62,12 @@
     (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (ps:
       with ps; [
         plover_uinput
+        plover-lapwing-aio
+        # plover_dict_commands
+        # plover_last_translation
+        # plover-modal-dictionary
+        # plover_python_dictionary
+        # plover_stitching
       ]))
     geogebra6
   ];

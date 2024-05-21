@@ -75,8 +75,7 @@
                 ${lib.getExe pkgs.esbuild} config.ts \
                   --outfile=config.js \
                   --bundle \
-                  --platform=neutral \
-                  --target=es2017 \
+                  --format=esm \
                   --external:"resource://*" \
                   --external:"gi://*"
               '';

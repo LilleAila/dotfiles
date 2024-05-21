@@ -1411,11 +1411,11 @@
         "rtf-tokenize": "rtf-tokenize"
       },
       "locked": {
-        "lastModified": 1716290177,
-        "narHash": "sha256-Qjap/uNCkp6pPfFrXTOpR05oW/CF6T4KkEd59oo6oRw=",
+        "lastModified": 1716309841,
+        "narHash": "sha256-BccK7EpDfQvuHdJtKmEpX+p1poY5GKbgIwXAiUW0rX8=",
         "owner": "LilleAila",
         "repo": "plover-flake",
-        "rev": "bb88181312bfac843cd866be9b8c4a41a8916b3f",
+        "rev": "9d15fbe49c24659114047f860453d6bb942c3766",
         "type": "github"
       },
       "original": {
