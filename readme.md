@@ -95,11 +95,13 @@ I use the following computers with this configuration:
 | [vimjoyer](https://github.com/vimjoyer/nixconf) | Hyprland | Waybar | x |
 | [matt1432](https://git.nelim.org/matt1432/nixos-configs) | Hyprland | AGS | x |
 | [BANanaD3V](https://github.com/BANanaD3V/nixos-config) | Hyprland | Waybar | x |
-| [0fie/Maika](https://github.com/0fie/maika) | Hyprland | Waybar | x |
-| [noib3/dotfiles](https://github.com/noib3/dotfiles) | BSPWM | Polybar | x |
+| [0fie](https://github.com/0fie/maika) | Hyprland | Waybar | x |
+| [noib3](https://github.com/noib3/dotfiles) | BSPWM | Polybar | x |
 | [rice-cracker-dev](https://github.com/rice-cracker-dev/nixos-config) | Hyprland | AGS | x |
 | [end-4](https://github.com/end-4/dots-hyprland) | Hyprland | AGS |  |
-| [SimonBradner](https://github.com/SimonBrandner/dotfiles) | KDE | AGS | ? |
+| [SimonBradner](https://github.com/SimonBrandner/dotfiles) | Hyprland | AGS | x |
 | [alexhulbert](https://github.com/alexhulbert/seaglass) | Hyprland | Waybar | x |
 | [linuxmobile](https://github.com/linuxmobile/kaku) | Hyprland | AGS | x |
 | [Kreyren](https://github.com/Kreyren/nixos-config) | Gnome | Gnome | x |
+| [jacekpoz](https://git.jacekpoz.pl/jacekpoz/niksos) | Hyprland | Waybar | x |
+| [TheSmallTeaBoi](https://github.com/TheSmallTeaBoi/frogix/tree/main) | Awesome | <-? | x |
