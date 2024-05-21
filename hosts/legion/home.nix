@@ -13,7 +13,10 @@
     monitors = [
       {
         name = "eDP-1";
-        wallpaper = ./wallpapers/wall3.jpg;
+        # wallpaper = ./wallpapers/wall10.jpg;
+        wallpaper = outputs.packages.${pkgs.system}.wallpaper.override {
+          scheme = config.colorScheme;
+        };
         geometry = "1920x1080@60";
         position = "0x0";
       }
@@ -58,7 +61,7 @@
     inkscape
     (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (ps:
       with ps; [
-        plover-uinput
+        plover_uinput
       ]))
     geogebra6
   ];

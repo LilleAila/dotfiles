@@ -43,7 +43,7 @@
 
     (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (ps:
       with ps; [
-        plover-uinput
+        plover_uinput
       ]))
 
     geogebra6
