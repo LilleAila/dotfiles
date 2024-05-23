@@ -15,6 +15,7 @@
       open = "xdg-open";
       o = "xdg-open";
       img = "kitty +kitten icat";
+      c = "find . -type d -not -path " * /. * " -not -path "." | fzf -m | cd";
 
       neofetch = "${lib.getExe pkgs.nitch}";
 
