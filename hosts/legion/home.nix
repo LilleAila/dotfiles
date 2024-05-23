@@ -14,6 +14,7 @@
       {
         name = "eDP-1";
         # wallpaper = ./wallpapers/wall10.jpg;
+        # wallpaper = ./wallpapers/wall24.png;
         wallpaper = outputs.packages.${pkgs.system}.wallpaper.override {
           scheme = config.colorScheme;
         };
