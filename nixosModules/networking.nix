@@ -31,16 +31,16 @@
     })
     (lib.mkIf (config.settings.networking.enable) {
       networking.hostName = config.settings.networking.hostname;
-      networking.networkmanager.enable = true;
-      users.users."${config.settings.user.name}".extraGroups = ["networkmanager"];
     })
     (lib.mkIf (config.settings.networking.wifi.enable) {
+      networking.networkmanager.enable = true;
+      users.users."${config.settings.user.name}".extraGroups = ["networkmanager"];
       settings.networking.enable = true;
-      networking.networkmanager.wifi.backend = "iwd";
-      networking.wireless.iwd = {
-        enable = true;
-        settings.General.EnableNetworkConfiguration = true;
-      };
+      #networking.networkmanager.wifi.backend = "iwd";
+      #networking.wireless.iwd = {
+      #  enable = true;
+      #  settings.General.EnableNetworkConfiguration = true;
+      #};
     })
   ];
 }
