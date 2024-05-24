@@ -48,6 +48,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 2;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.extraModulePackages = with config.boot.kernelPackages; [rtw89];
+  boot.kernelModules = ["rtw89"];
 
   services.logind.extraConfig = ''
     HandleLidSwitch=suspend
