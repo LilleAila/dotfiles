@@ -27,6 +27,9 @@ stdenv.mkDerivation {
     patchelf \
       --set-rpath ${lib.makeLibraryPath [libfprint-tod]} \
       FPC_driver_linux_libfprint/install_libfprint/usr/lib/x86_64-linux-gnu/libfprint-2.so.2.0.0
+    patchelf \
+      --set-rpath ${lib.makeLibraryPath [libfprint-tod]} \
+      FPC_driver_linux_27.26.23.39/install_fpc/libfpcbep.so
   '';
 
   installPhase = ''
@@ -35,10 +38,11 @@ stdenv.mkDerivation {
     mkdir -p "$out/lib/libfprint-2/tod-1/"
     mkdir -p "$out/lib/udev/rules.d"
 
-    cp FPC_driver_linux_libfprint/install_libfprint/usr/lib/x86_64-linux-gnu/* "$out/lib/libfprint-2/"
-    # install -Dm444 FPC_driver_linux_libfprint/install_libfprint/usr/lib/x86_64-linux-gnu/libfprint-2.so -t "$out/lib/libfprint-2/tod-1/"
-    # install -Dm444 FPC_driver_linux_libfprint/install_libfprint/usr/lib/x86_64-linux-gnu/libfprint-2.so.2 -t "$out/lib/libfprint-2/tod-1/"
-    # install -Dm444 FPC_driver_linux_libfprint/install_libfprint/usr/lib/x86_64-linux-gnu/libfprint-2.so.2.0.0 -t "$out/lib/libfprint-2/tod-1/"
+    # cp FPC_driver_linux_libfprint/install_libfprint/usr/lib/x86_64-linux-gnu/* "$out/lib/libfprint-2/tod-1/"
+    install -Dm444 FPC_driver_linux_27.26.23.39/install_fpc/libfpcbep.so -t "$out/lib/libfprint-2/tod-1"
+    install -Dm444 FPC_driver_linux_libfprint/install_libfprint/usr/lib/x86_64-linux-gnu/libfprint-2.so -t "$out/lib/libfprint-2/tod-1/"
+    install -Dm444 FPC_driver_linux_libfprint/install_libfprint/usr/lib/x86_64-linux-gnu/libfprint-2.so.2 -t "$out/lib/libfprint-2/tod-1/"
+    install -Dm444 FPC_driver_linux_libfprint/install_libfprint/usr/lib/x86_64-linux-gnu/libfprint-2.so.2.0.0 -t "$out/lib/libfprint-2/tod-1/"
     cp FPC_driver_linux_libfprint/install_libfprint/lib/udev/rules.d/60-libfprint-2-device-fpc.rules $out/lib/udev/rules.d/
 
     # runHook postInstall
