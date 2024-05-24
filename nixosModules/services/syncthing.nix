@@ -58,24 +58,25 @@ in {
             mac = {id = "${secrets.ids.mac}";};
             t420 = {id = "${secrets.ids.t420}";};
             oci = {id = "${secrets.ids.oci}";};
+            e14g5 = {id = "${secrets.ids.e14g5}";};
           };
           folders = {
             "Default Folder" = {
               path = "${homePath}/Sync";
-              devices = ["oci" "legion" "mac" "t420"];
+              devices = ["oci" "legion" "mac" "t420" "e14g5"];
             };
             "Factorio" = {
               path = "${homePath}/factorio";
-              devices = ["oci" "legion" "mac"];
+              devices = ["oci" "legion" "mac" "e14g5"];
               ignorePerms = false; # executable permissions and stuff
             };
             "Notes" = {
               path = "${homePath}/org";
-              devices = ["oci" "legion" "mac" "t420"];
+              devices = ["oci" "legion" "mac" "t420" "e14g5"];
             };
             "Minecraft" = {
               path = "${homePath}/.local/share/PrismLauncher/instances";
-              devices = ["oci" "legion" "mac"];
+              devices = ["oci" "legion" "mac" "e14g5"];
             };
           };
         };

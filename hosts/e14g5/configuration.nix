@@ -30,8 +30,7 @@
     };
     utils.enable = true;
     desktop.enable = true;
-    #syncthing.enable = true;
-    #syncthing.enableAllFolders = true;
+    syncthing.enable = true;
     sound.enable = true;
     console = {
       font = "ter-u16n";
