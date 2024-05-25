@@ -49,7 +49,7 @@
   boot.loader.timeout = 2;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.extraModulePackages = with config.boot.kernelPackages; [rtw89];
-  boot.kernelModules = ["rtw89"];
+  boot.kernelModules = ["rtw89" "rtw89pci"];
 
   services.logind.extraConfig = ''
     HandleLidSwitch=suspend
