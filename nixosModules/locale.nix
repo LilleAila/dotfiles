@@ -6,6 +6,9 @@
   ...
 }: {
   options.settings.locale = {
+    # main = lib.mkStrOption "en_US.UTF-8";
+    # other = lib.mkStrOption config.settings.locale.main;
+    # timeZone = lib.mkStrOption "Europe/Oslo";
     main = lib.mkOption {
       type = lib.types.str;
       default = "en_US.UTF-8";

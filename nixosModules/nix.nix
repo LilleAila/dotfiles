@@ -20,6 +20,10 @@
       allowUnsupportedSystem = true;
       allowUnfreePredicate = pkg:
         builtins.elem (lib.getName pkg) unfreePkgs;
+
+      overlays = [
+        (final: prev: {lib = prev.lib // (import ../lib prev.lib);})
+      ];
     };
 
     nix = {
