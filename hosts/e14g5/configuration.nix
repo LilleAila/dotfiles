@@ -49,7 +49,16 @@
   boot.loader.timeout = 2;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.extraModulePackages = with config.boot.kernelPackages; [rtw89];
+  # boot.extraModulePackages = [
+  #   # (outputs.packages.${pkgs.system}.rtw89.override {
+  #   #   kernel = config.boot.kernelPackages;
+  #   # })
+  #   (config.boot.kernelPackages.callPackage ../../pkgs/rtw89.nix {})
+  # ];
   boot.kernelModules = ["rtw89" "rtw89pci"];
+  boot.extraModprobeConfig = ''
+    options rtw89_8852be power_save=0
+  '';
 
   services.logind.extraConfig = ''
     HandleLidSwitch=suspend
@@ -62,23 +71,23 @@
     driSupport32Bit = true;
   };
 
-  settings.nix.unfree = [
-    # "libfprint-2-tod1-goodix-550a"
-    # "libfprint-2-tod1-goodix"
-    # "libfprint-2-tod1-elan"
-  ];
-
-  services.fprintd = {
-    enable = true;
-    tod = {
-      enable = true;
-      # driver = pkgs.libfprint-2-tod1-vfs0090;
-      # driver = pkgs.libfprint-2-tod1-goodix-550a;
-      # driver = pkgs.libfprint-2-tod1-goodix;
-      # driver = pkgs.libfprint-2-tod1-elan;
-      driver = outputs.packages.${pkgs.system}.libfprint-2-tod1-fpc;
-    };
-  };
+  # settings.nix.unfree = [
+  #   # "libfprint-2-tod1-goodix-550a"
+  #   # "libfprint-2-tod1-goodix"
+  #   # "libfprint-2-tod1-elan"
+  # ];
+  #
+  # services.fprintd = {
+  #   enable = true;
+  #   tod = {
+  #     enable = true;
+  #     # driver = pkgs.libfprint-2-tod1-vfs0090;
+  #     # driver = pkgs.libfprint-2-tod1-goodix-550a;
+  #     # driver = pkgs.libfprint-2-tod1-goodix;
+  #     # driver = pkgs.libfprint-2-tod1-elan;
+  #     driver = outputs.packages.${pkgs.system}.libfprint-2-tod1-fpc;
+  #   };
+  # };
 
   services.fwupd.enable = true;
 
@@ -109,7 +118,7 @@
       USB_EXCLUDE_AUDIO = 1;
       WOL_DISABLE = "Y";
       WIFI_PWR_ON_AC = "off";
-      WIFI_PWR_ON_BAT = "on";
+      WIFI_PWR_ON_BAT = "off";
       DEVICES_TO_DISABLE_ON_LAN_CONNECT = "wifi";
       DEVICES_TO_ENABLE_ON_LAN_DISCONNECT = "wifi";
     };

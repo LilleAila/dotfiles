@@ -9,6 +9,7 @@
     programs.firefox = {
       enable = true;
       # TODO: install extensions and configure stuff here
+      # nativeMessagingHosts.tridactyl = true;
     };
   };
 }

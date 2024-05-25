@@ -73,6 +73,7 @@
             youtube-shorts-block
             enhanced-h264ify
             clearurls
+            # tridactyl
           ];
           settings = import ./settings.nix {inherit config;};
           userChrome = import ./userChrome.nix {colorScheme = config.colorScheme.palette;};

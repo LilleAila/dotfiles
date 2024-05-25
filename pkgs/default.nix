@@ -6,6 +6,8 @@
 
   libfprint-2-tod1-fpc = pkgs.callPackage ./e14g5-fpc.nix {};
 
+  rtw89 = pkgs.callPackage ./rtw89.nix {};
+
   # Doesn't work :(
   # nerdfont_patcher = pkgs.callPackage ./nerdfonts.nix {};
 }
