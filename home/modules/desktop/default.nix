@@ -19,6 +19,7 @@ in {
   config = mkIf cfg.enable {
     # https://github.com/tinted-theming/base16-schemes/
     colorScheme = mkDefault inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
+    home.file."colorscheme.txt".text = lib.concatStringsSep "\n" (lib.mapAttrsToList (a: b: "${a}: #${b}") config.colorScheme.palette);
     settings = {
       gtk.enable = mkDefault true;
       qt.enable = mkDefault true;
