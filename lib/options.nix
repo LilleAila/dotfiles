@@ -1,5 +1,6 @@
-lib: rec {
-  mkOption' = type: default: lib.mkOption {inherit type default;};
+{lib}:
+with lib; rec {
+  mkOption' = type: default: mkOption {inherit type default;};
 
-  mkStrOption = default: mkOption' lib.types.str default;
+  mkStrOption = default: mkOption' types.str default;
 }

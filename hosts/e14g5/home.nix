@@ -29,6 +29,7 @@
     wm.hyprland.monitors.enable = true;
     wm.hyprland.useFlake = true;
   };
+  wayland.windowManager.hyprland.settings.input.kb_options = "ctrl:nocaps,altwin:prtsc_rwin";
   home.shellAliases = {
     bt = "bluetooth";
   };

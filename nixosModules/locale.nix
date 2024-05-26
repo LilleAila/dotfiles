@@ -3,24 +3,25 @@
   pkgs,
   inputs,
   lib,
+  mylib,
   ...
 }: {
   options.settings.locale = {
-    # main = lib.mkStrOption "en_US.UTF-8";
-    # other = lib.mkStrOption config.settings.locale.main;
-    # timeZone = lib.mkStrOption "Europe/Oslo";
-    main = lib.mkOption {
-      type = lib.types.str;
-      default = "en_US.UTF-8";
-    };
-    other = lib.mkOption {
-      type = lib.types.str;
-      default = config.settings.locale.main;
-    };
-    timeZone = lib.mkOption {
-      type = lib.types.str;
-      default = "Europe/Oslo";
-    };
+    main = mylib.mkStrOption "en_US.UTF-8";
+    other = mylib.mkStrOption config.settings.locale.main;
+    timeZone = mylib.mkStrOption "Europe/Oslo";
+    # main = lib.mkOption {
+    #   type = lib.types.str;
+    #   default = "en_US.UTF-8";
+    # };
+    # other = lib.mkOption {
+    #   type = lib.types.str;
+    #   default = config.settings.locale.main;
+    # };
+    # timeZone = lib.mkOption {
+    #   type = lib.types.str;
+    #   default = "Europe/Oslo";
+    # };
   };
 
   config = with config.settings.locale; {

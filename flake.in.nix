@@ -84,8 +84,8 @@
       };
 
       e14g5-nix = mkConfig {
-      	name = "e14g5";
-	extraModules = [nixos-hardware.nixosModules.common-cpu-amd nixos-hardware.nixosModules.common-gpu-amd];
+        name = "e14g5";
+        extraModules = [nixos-hardware.nixosModules.common-cpu-amd nixos-hardware.nixosModules.common-gpu-amd];
       };
 
       installer = mkConfig {

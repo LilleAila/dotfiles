@@ -1,5 +1,8 @@
-lib: {
-  imports = [
-    ./options.nix
-  ];
+{
+  lib,
+  callPackage,
+}:
+{
+  colors = callPackage ./colors.nix {};
 }
+// callPackage ./options.nix {}
