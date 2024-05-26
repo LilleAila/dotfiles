@@ -48,13 +48,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 2;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  # boot.extraModulePackages = with config.boot.kernelPackages; [rtw89];
-  # boot.extraModulePackages = [
-  #   # (outputs.packages.${pkgs.system}.rtw89.override {
-  #   #   kernel = config.boot.kernelPackages;
-  #   # })
-  #   (config.boot.kernelPackages.callPackage ../../pkgs/rtw89.nix {})
-  # ];
+  # Things to make realtek wifi card work
+  # https://bbs.archlinux.org/viewtopic.php?pid=2102231#p2102231
   boot.kernelModules = ["rtw89" "rtw89pci"];
   boot.extraModprobeConfig = ''
     options rtw89_pci disable_clkreq=y disable_aspm_l1=y disable_aspm_l1ss=y
