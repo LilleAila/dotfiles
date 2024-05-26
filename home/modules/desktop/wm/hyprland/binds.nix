@@ -158,8 +158,8 @@
       "SHIFT, XF86AudioRaiseVolume, exec, volumectl -mu up 10"
       "SHIFT, XF86AudioLowerVolume, exec, volumectl -mu down 10"
 
-      ", XF86MonBrightnessUp, exec, lightctl up 10"
-      ", XF86MonBrightnessDown, exec, lightctl down 10"
+      ", XF86MonBrightnessUp, exec, brightnessctl set 10+"
+      ", XF86MonBrightnessDown, exec, brightnessctl set 10-"
       ", XF86Search, exec, $launcher"
     ];
   };
