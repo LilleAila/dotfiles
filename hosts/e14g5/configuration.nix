@@ -57,7 +57,7 @@
   # ];
   boot.kernelModules = ["rtw89" "rtw89pci"];
   boot.extraModprobeConfig = ''
-    options rtw89_8852be power_save=0
+    options rtw89_pci disable_clkreq=y disable_aspm_l1=y disable_aspm_l1ss=y
   '';
   boot.kernelParams = [
     "pciehp.force=1"
