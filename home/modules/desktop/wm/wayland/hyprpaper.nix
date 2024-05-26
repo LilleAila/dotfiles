@@ -9,18 +9,21 @@
     wm.hyprpaper.enable = lib.mkEnableOption "hyprpaper";
   };
 
-  imports = [
-    inputs.hyprpaper.homeManagerModules.hyprpaper
-  ];
+  # imports = [
+  #   inputs.hyprpaper.homeManagerModules.hyprpaper
+  # ];
 
   config = lib.mkIf (config.settings.wm.hyprpaper.enable) {
     services.hyprpaper = {
+      package = inputs.hyprpaper.packages.${pkgs.system}.hyprpaper;
       enable = true;
-      splash = true;
-      ipc = true;
+      settings = {
+        splash = true;
+        ipc = true;
 
-      preloads = map (m: "${toString m.wallpaper}") (config.settings.monitors);
-      wallpapers = map (m: "${toString m.name}, ${toString m.wallpaper}") (config.settings.monitors);
+        preload = map (m: "${toString m.wallpaper}") (config.settings.monitors);
+        wallpaper = map (m: "${toString m.name}, ${toString m.wallpaper}") (config.settings.monitors);
+      };
     };
   };
 }

@@ -47,7 +47,7 @@ in {
         #   "cstimer"
         # ];
         swaylock.enable = mkDefault true;
-        hyprlock.enable = mkDefault false;
+        # hyprlock.enable = mkDefault false;
         hyprpaper.enable = mkDefault true;
         mako.enable = mkDefault false;
         wlogout.enable = mkDefault false;

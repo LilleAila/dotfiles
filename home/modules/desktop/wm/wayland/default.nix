@@ -7,7 +7,7 @@
 }: {
   imports = [
     ./monitors.nix
-    ./hyprlock.nix
+    # ./hyprlock.nix
     ./swaylock.nix
     ./hypridle.nix
     ./hyprpaper.nix

@@ -5,9 +5,9 @@
   inputs,
   ...
 }: {
-  imports = [
-    inputs.hyprlock.homeManagerModules.hyprlock
-  ];
+  # imports = [
+  #   inputs.hyprlock.homeManagerModules.hyprlock
+  # ];
 
   options.settings.wm.hyprlock.enable = lib.mkEnableOption "hyprlock";
 
@@ -16,6 +16,7 @@
       primaryMonitor = (builtins.elemAt config.settings.monitors 0).name;
     in {
       enable = true;
+      package = inputs.hyprlock.packages.${pkgs.system}.hyprlock;
       general = {
         disable_loading_bar = true;
         grace = 1;
