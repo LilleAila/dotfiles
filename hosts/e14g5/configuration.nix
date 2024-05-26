@@ -59,6 +59,9 @@
   boot.extraModprobeConfig = ''
     options rtw89_8852be power_save=0
   '';
+  boot.kernelParams = [
+    "pciehp.force=1"
+  ];
 
   services.logind.extraConfig = ''
     HandleLidSwitch=suspend
