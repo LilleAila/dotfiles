@@ -50,20 +50,20 @@ Riced with [nix-colors](https://github.com/Misterio77/nix-colors) using [gruvbox
 - Bar: [AGS](https://aylur.github.io/ags-docs/)
 - Terminal Emulator: [kitty](https://sw.kovidgoyal.net/kitty)
 - Shell: [Zsh](https://www.zsh.org/) with [Oh my Zsh](https://ohmyz.sh/), and the [nanotech](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#nanotech) theme
-- Editor(s): [Neovim](https://neovim.io) and [Emacs](https://www.gnu.org/software/emacs/)
+- Editor(s): [Neovim](https://neovim.io)
 - Discord: [Vesktop](https://github.com/Vencord/Vesktop)
 - Wallpapers: [AngelJumbo/gruvbox-wallpapers](https://github.com/AngelJumbo/gruvbox-wallpapers)
 
 ## Hardware
 I use the following computers with this configuration:
 
-| Type                   | Name         | Architecture | Note                        |
-| ---------------------- | ------------ | ------------ | --------------------------- |
-| Apple MacBook Pro 14"  | `mac-nix`    | `aarch64`    | Main, Build with `--impure` |
-| Lenovo ThinkPad T420   | `t420-nix`   | `x86_64`     |                             |
-| Lenovo Legion Y540     | `legion-nix` | `x86_64`     |                             |
-| Oracle cloud A1        | `oci-nix`    | `aarch64`    |                             |
-| Lenovo ThinkPad e540   | `e540-nix`   | `x86_64`     | Not configured yet          |
+| Type                      | Name         | Architecture | Note                        |
+| ------------------------- | ------------ | ------------ | --------------------------- |
+| Lenogo ThinkPad E14 Gen 5 | `e14g5`      | `x86_64`     | Main                        |
+| Apple MacBook Pro 14"     | `mac-nix`    | `aarch64`    | Build with `--impure`       |
+| Lenovo ThinkPad T420      | `t420-nix`   | `x86_64`     |                             |
+| Lenovo Legion Y540        | `legion-nix` | `x86_64`     |                             |
+| Oracle cloud A1           | `oci-nix`    | `aarch64`    |                             |
 
 ### For more info, see the [docs](/docs/main.md)
 
