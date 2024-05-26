@@ -92,9 +92,9 @@
         "border, 0"
         "borderangle, 0"
         "fade, 1, 4, default"
-        "workspaces, 1, 2, easeOutQuad"
+        "workspaces, 1, 2, easeOutQuad, slidevert"
         # "workspaces, 0"
-        "specialWorkspace, 1, 4, easeInOutBack, slidevert"
+        "specialWorkspace, 1, 4, easeInOutBack, slide"
       ];
     };
 
