@@ -63,6 +63,15 @@
     "pciehp.force=1"
   ];
 
+  systemd.services.disable_micmute_led = {
+    description = "Disabled the microphone mute light on the keyboard";
+    after = ["multi-user.target"];
+    script = ''
+      echo 0 | tee /sys/class/leds/platform::micmute/brightness
+    '';
+    wantedBy = ["multi-user.target"];
+  };
+
   services.logind.extraConfig = ''
     HandleLidSwitch=suspend
     HandleLidSwitchDocked=suspend
