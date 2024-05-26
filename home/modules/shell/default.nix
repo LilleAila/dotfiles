@@ -14,5 +14,6 @@
     ./lf.nix
     ./git.nix
     ./zellij.nix
+    ./btop.nix
   ];
 }
