@@ -16,6 +16,10 @@
         wallpaper = outputs.packages.${pkgs.system}.wallpaper.override {
           scheme = config.colorScheme;
         };
+        # wallpaper = outputs.packages.${pkgs.system}.lutgen-img.override {
+        #   colorScheme = config.colorScheme;
+        #   image = ../../home/wallpapers/wall25.jpg;
+        # };
         geometry = "1920x1200@60";
         position = "0x0";
       }

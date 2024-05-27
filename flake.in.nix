@@ -58,7 +58,7 @@
           ++ extraModules;
       };
   in {
-    packages = forEachSystem (pkgs: import ./pkgs {inherit pkgs;});
+    packages = forEachSystem (pkgs: import ./pkgs {inherit pkgs inputs;});
     devShells = forEachSystem (pkgs: {default = import ./shell.nix {inherit pkgs;};});
 
     nixosConfigurations = {

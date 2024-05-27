@@ -5,10 +5,18 @@ with lib; rec {
   x = c: "#${c}";
 
   # Hex color to r, g and b
-  rgba = c: let
+  rgb = c: let
     r = toString (hexToDec (__substring 0 2 c));
     g = toString (hexToDec (__substring 2 2 c));
     b = toString (hexToDec (__substring 4 2 c));
+  in {inherit r g b;};
+
+  # doens't work
+  darken = c: p: let
+    adjust = v: builtins.floor (v * p);
+    r = adjust c.r;
+    g = adjust c.g;
+    b = adjust c.b;
   in {inherit r g b;};
 
   # Hex value to int

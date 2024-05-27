@@ -3,6 +3,6 @@
   callPackage,
 }:
 {
-  colors = callPackage ./colors.nix {};
+  color = callPackage ./colors.nix {};
 }
 // callPackage ./options.nix {}
