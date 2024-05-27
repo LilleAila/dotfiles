@@ -144,25 +144,21 @@
     ];
 
     layerrule = [
-      "blur, bar*"
-      "ignorealpha 0.2, bar*"
+      # If i was using blur:
+      # "blur, bar*"
+      # "ignorealpha 0.2, bar*"
+      # "ignorezero, bar*" # ignorealpha but only for =0 values
+
       "noanim, bar*"
+      "animation slide left, powermenu"
 
-      "blur, powermenu"
-      "ignorealpha 0.2, powermenu"
-      "noanim, powermenu"
-
-      "blur, corner*"
-      "ignorealpha 0.2, corner*"
-      "noanim, corner*"
-
-      "blur, notifications*"
-      "ignorezero, notifications*"
-      "noanim, notifications*"
-
-      "blur, applauncher"
-      "ignorezero, applauncher"
-      "noanim, applauncher"
+      # "blur, notifications*"
+      # "ignorezero, notifications*"
+      # "noanim, notifications*"
+      #
+      # "blur, applauncher"
+      # "ignorezero, applauncher"
+      # "noanim, applauncher"
     ];
   };
 }
