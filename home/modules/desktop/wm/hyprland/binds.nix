@@ -42,6 +42,8 @@
       "$mainMod, X, togglespecialworkspace, secondary"
       "$mainMod SHIFT, X, movetoworkspace, special:secondary"
 
+      "$mainMod SHIFT, P, exec, ${inputs.woomer.packages.${pkgs.system}.default}/bin/woomer"
+
       # WM commands
       # ", XF86PowerOff, exec, pgrep -x wlogout && pkill -x wlogout || wlogout"
       # ", XF86Launch1, exec, pgrep -x wlogout && pkill -x wlogout || wlogout"

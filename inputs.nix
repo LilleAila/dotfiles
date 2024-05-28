@@ -73,6 +73,11 @@
     inputs.hyprland.follows = "hyprland";
   };
 
+  woomer = {
+    url = "github:coffeeispower/woomer";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   # === Window Manager Related ===
   flake-parts = {
     url = "github:hercules-ci/flake-parts";

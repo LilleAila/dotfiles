@@ -94,6 +94,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:Mic92/sops-nix";
     };
+    woomer = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:coffeeispower/woomer";
+    };
     wrapper-manager = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:viperML/wrapper-manager";
