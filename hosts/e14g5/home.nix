@@ -51,6 +51,7 @@
     geogebra6
   ];
 
+  sops.secrets."yubikey/u2f_keys".path = "${config.home.homeDirectory}/.config/Yubico/u2f_keys";
   sops.secrets."ssh/e14g5".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
   home.file.".ssh/id_ed25519.pub".text = keys.ssh.e14g5.public;
   sops.secrets."syncthing/e14g5/cert".path = "${config.home.homeDirectory}/.config/syncthing/cert.pem";

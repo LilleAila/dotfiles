@@ -28,5 +28,13 @@
       login.u2fAuth = true;
       sudo.u2fAuth = true;
     };
+
+    environment.systemPackages = with pkgs; [
+      yubioath-flutter
+      yubikey-manager
+      yubikey-manager-qt
+      yubikey-personalization
+      yubikey-personalization-gui
+    ];
   };
 }
