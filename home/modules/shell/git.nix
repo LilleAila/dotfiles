@@ -43,10 +43,10 @@
           text = keys.gpg.public;
           trust = "ultimate";
         }
-        # {
-        #   text = keys.gpg.other.ildenh;
-        #   trust = "ultimate";
-        # }
+        {
+          text = keys.gpg.other.ildenh;
+          trust = "ultimate";
+        }
       ];
     };
 

@@ -17,6 +17,32 @@
       =PT4y
       -----END PGP PUBLIC KEY BLOCK-----
     '';
+    other = {
+      ildenh = ''
+        -----BEGIN PGP PUBLIC KEY BLOCK-----
+
+        mDMEZkt3jBYJKwYBBAHaRw8BAQdA18H8GbRwQCVDrChm1+h57H0H7UJzQV81lxg9
+        tUoI5EC0JElsZGVuSCAoR2l0aHViKSA8SWxkZW5ILjFAcHJvdG9uLm1lPoiOBBMW
+        CgA2FiEEK+SbennYaI9yIWk4OUkqIuSuXasFAmZLd4wCGwMECwkIBwQVCgkIBRYC
+        AwEAAh4FAheAAAoJEDlJKiLkrl2rGSEBAMPTSNyLxToA1fhEO1Pl+SPzFalchk3g
+        +29W7wu7w268AP42vPC13dAbSu/04zBj9QVeDerqThBFWmatcLOfOLRICrg4BGZL
+        d4wSCisGAQQBl1UBBQEBB0ALyJy/BUWyiTf2PVo/yzOr+oQ1SZLh3vAKb8gio48e
+        DAMBCAeIeAQYFgoAIBYhBCvkm3p52GiPciFpODlJKiLkrl2rBQJmS3eMAhsMAAoJ
+        EDlJKiLkrl2rR5AA/jw/EeaeQskno6PDw6RIsS49qYiE6tmOqRjXJnLvizcDAQDq
+        QTFk84nmutkuVN16QL1A1bZV9flePEw1fb7brxfPBJgzBGZM/A0WCSsGAQQB2kcP
+        AQEHQK6JY3UhytqvTJl5sjmjxlNxTzk9i+Y084AskUVKti17tCRJbGRlbkggKEdp
+        dGh1YikgPElsZGVuSC4xQHByb3Rvbi5tZT6IjgQTFgoANhYhBN5xGthwcFdluhkT
+        LQl4RHOoX6eEBQJmTPwNAhsDBAsJCAcEFQoJCAUWAgMBAAIeBQIXgAAKCRAJeERz
+        qF+nhJZ8AP9xiAapRD6Rz8DcOYQexytmFBYIZO93KMOxmqWzhztHOwEArWS+eWjH
+        KrB1FLLcCsXR9l2hRlbPJZSE2Fi4zYrmIQO4OARmTPwNEgorBgEEAZdVAQUBAQdA
+        dFgAfXNQYsFLXFClHrJAGf5Ni9rhpL4JedCKw8mc8kwDAQgHiHgEGBYKACAWIQTe
+        cRrYcHBXZboZEy0JeERzqF+nhAUCZkz8DQIbDAAKCRAJeERzqF+nhJzDAQCmWREh
+        EUUIm6hsPqFfy826B6fMLBxmYprunp5+pwws6wEA0MvTNtbpMpTzwb0Iz5LfY2pJ
+        6JiEPoaWW4QA+rL7dA0=
+        =2M8D
+        -----END PGP PUBLIC KEY BLOCK-----
+      '';
+    };
   };
 
   ssh = {
