@@ -37,6 +37,7 @@
       keyMap = "no";
     };
     sops.enable = true;
+    yubikey.enable = true;
   };
 
   services.thermald.enable = true;
