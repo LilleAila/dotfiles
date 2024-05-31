@@ -1,10 +1,6 @@
 /*
 https://nixos.wiki/wiki/Syncthing
 https://wes.today/nixos-syncthing
-
-The folder.<name>.enable option has to be set to true for the folders to actually sync.
-I think that is better to do per-system instead of globally
-Also note that the devices defined here depend on my secrets private GitHub repo.
 */
 {
   pkgs,

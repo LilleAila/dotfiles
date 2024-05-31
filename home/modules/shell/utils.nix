@@ -33,6 +33,14 @@
         oci = {
           hostname = "158.179.205.169";
           user = "olai";
+          localForwards = [
+            {
+              # Forward syncthing interface
+              bind.port = 9999;
+              host.port = 8384;
+              host.address = "127.0.0.1";
+            }
+          ];
         };
       };
     };
