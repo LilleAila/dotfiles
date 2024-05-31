@@ -49,15 +49,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 2;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  # Things to make realtek wifi card work
-  # https://bbs.archlinux.org/viewtopic.php?pid=2102231#p2102231
-  boot.kernelModules = ["rtw89" "rtw89pci"];
-  boot.extraModprobeConfig = ''
-    options rtw89_pci disable_clkreq=y disable_aspm_l1=y disable_aspm_l1ss=y
-  '';
-  boot.kernelParams = [
-    "pciehp.force=1"
-  ];
 
   systemd.services.disable_micmute_led = {
     description = "Disabled the microphone mute light on the keyboard";

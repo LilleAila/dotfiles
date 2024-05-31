@@ -6,22 +6,14 @@
   ...
 }: {
   options.settings.networking = {
-    bluetooth.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-    };
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-    };
+    bluetooth.enable = lib.mkEnableOption "Bluetooth";
+    enable = lib.mkEnableOption "Networking";
     hostname = lib.mkOption {
       type = lib.types.str;
       default = "nixos";
     };
-    wifi.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-    };
+    wifi.enable = lib.mkEnableOption "wifi";
+    rtl8852be.enable = lib.mkEnableOption "rtl8852be tweaks";
   };
 
   config = lib.mkMerge [
@@ -41,6 +33,18 @@
         enable = true;
         settings.General.EnableNetworkConfiguration = true;
       };
+    })
+    (lib.mkIf (config.settings.networking.rtl8852be.enable) {
+      # Things to make realtek wifi card work
+      # https://bbs.archlinux.org/viewtopic.php?pid=2102231#p2102231
+      boot.extraModprobeConfig = ''
+        options rtw89_pci disable_clkreq=y disable_aspm_l1=y disable_aspm_l1ss=y
+      '';
+      # I don't think the below two things are necessary, but i've switched to intel ax210, so it doesn't matter ¯\_(ツ)_/¯
+      boot.kernelModules = ["rtw89" "rtw89pci"];
+      boot.kernelParams = [
+        "pciehp.force=1"
+      ];
     })
   ];
 }

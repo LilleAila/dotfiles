@@ -83,6 +83,7 @@
         "easeOutQuart, 0.25, 1, 0.5, 1"
         "easeOutQuad, 0.5, 1, 0.89, 1"
         "easeInOutBack, 0.68, -0.6, 0.32, 1.6"
+        "linear, 0, 0, 1, 1"
       ];
 
       animation = [
@@ -150,7 +151,9 @@
       # "ignorezero, bar*" # ignorealpha but only for =0 values
 
       "noanim, bar*"
-      "animation slide left, powermenu"
+      "noanim, osd*"
+      "noanim, powermenu*"
+      # "animation slide left, powermenu*"
 
       # "blur, notifications*"
       # "ignorezero, notifications*"
