@@ -12,7 +12,12 @@
     lib.mkIf (config.settings.ssh.enable)
     (lib.mkMerge [
       {
-        services.openssh.enable = true;
+        services.openssh = {
+          enable = true;
+          settings = {
+            PasswordAuthentication = false;
+          };
+        };
         users.users."${config.settings.user.name}".openssh.authorizedKeys.keys = config.settings.ssh.keys;
       }
       /*
