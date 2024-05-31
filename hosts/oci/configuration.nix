@@ -4,6 +4,7 @@
   pkgs,
   inputs,
   globalSettings,
+  keys,
   ...
 }: {
   imports = [
@@ -33,6 +34,12 @@
     };
     sops.enable = true;
     ssh.enable = true;
+    ssh.keys = with keys.ssh; [
+      mac.public
+      legion.public
+      e14g5.public
+      t420.public
+    ];
     # services.nextcloud.enable = true; # it no no work :(
     syncthing.enable = true;
   };

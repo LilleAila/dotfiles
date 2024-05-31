@@ -4,6 +4,7 @@
   pkgs,
   inputs,
   globalSettings,
+  keys,
   ...
 }: {
   imports = [
@@ -39,6 +40,10 @@
     };
     sops.enable = true;
     ssh.enable = true;
+    ssh.keys = with keys.ssh; [
+      e14g5.public
+      legion.public
+    ];
   };
 
   system.stateVersion = "24.05";
