@@ -5,10 +5,7 @@
   lib,
   ...
 }: {
-  options.settings.ssh.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-  };
+  options.settings.ssh.enable = lib.mkEnableOption "ssh";
 
   config =
     lib.mkIf (config.settings.ssh.enable)

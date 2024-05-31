@@ -6,7 +6,7 @@
   ...
 }: {
   options.settings.nix = {
-    enable = lib.mkEnableOption "nix" // {default = true;};
+    enable = lib.mkDisableOption "nix";
     unfree = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [];
@@ -22,8 +22,9 @@
         builtins.elem (lib.getName pkg) unfreePkgs;
     };
 
-    # _module.args.mylib = import ../lib lib;
-    _module.args.mylib = pkgs.callPackage ../lib {};
+    # Extending lib instead
+    # _module.args.util = pkgs.callPackage ../lib {};
+    # _module.args.util = import ../lib lib;
 
     nix = {
       settings = {

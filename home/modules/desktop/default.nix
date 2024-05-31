@@ -3,7 +3,6 @@
   pkgs,
   lib,
   inputs,
-  mylib,
   ...
 }: let
   inherit (lib) mkEnableOption mkDefault mkIf;

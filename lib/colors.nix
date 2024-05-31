@@ -1,5 +1,5 @@
 # Mostly stolen from https://github.com/fufexan/dotfiles/blob/main/lib/colors/default.nix
-{lib}:
+lib:
 with lib; rec {
   # Add # to color
   x = c: "#${c}";

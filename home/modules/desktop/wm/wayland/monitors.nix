@@ -10,32 +10,13 @@ in {
   options.settings.monitors = mkOption {
     type = types.listOf (types.submodule {
       options = {
-        name = mkOption {
-          type = types.str;
-          example = "eDP-1";
-        };
-        wallpaper = mkOption {
-          type = types.path;
-          default = null;
-        };
-        geometry = mkOption {
-          type = types.nullOr types.str;
-        };
-        position = mkOption {
-          type = types.nullOr types.str;
-        };
-        scale = mkOption {
-          type = types.int;
-          default = 1;
-        };
-        enable = mkOption {
-          type = types.bool;
-          default = true;
-        };
-        rotation = mkOption {
-          type = types.int;
-          default = 0;
-        };
+        name = lib.mkStrOption "eDP-1";
+        wallpaper = lib.mkOption' types.path null;
+        geometry = lib.mkOption' (types.nullOr types.str) null;
+        position = lib.mkOption' (types.nullOr types.str) null;
+        scale = lib.mkOption' types.int 1;
+        enable = lib.mkDisableOption "this monitor";
+        rotation = lib.mkOption' types.int 0;
       };
     });
     default = [];

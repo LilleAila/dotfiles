@@ -15,7 +15,7 @@
   ];
 
   # FIXME ? not set to true by default?
-  options.settings.sops.enable = lib.mkEnableOption "sops" // {default = true;};
+  options.settings.sops.enable = lib.mkDisableOption "sops";
 
   config = lib.mkMerge [
     (lib.mkIf config.settings.sops.enable {

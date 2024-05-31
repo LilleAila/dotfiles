@@ -3,13 +3,12 @@
   pkgs,
   inputs,
   lib,
-  mylib,
   ...
 }: {
   options.settings.locale = {
-    main = mylib.mkStrOption "en_US.UTF-8";
-    other = mylib.mkStrOption config.settings.locale.main;
-    timeZone = mylib.mkStrOption "Europe/Oslo";
+    main = lib.mkStrOption "en_US.UTF-8";
+    other = lib.mkStrOption config.settings.locale.main;
+    timeZone = lib.mkStrOption "Europe/Oslo";
     # main = lib.mkOption {
     #   type = lib.types.str;
     #   default = "en_US.UTF-8";

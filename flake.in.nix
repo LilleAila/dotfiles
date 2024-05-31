@@ -11,7 +11,10 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    lib = nixpkgs.lib // home-manager.lib;
+    # This may not be the best way to extend lib, because it can create conflicts and stuff, but it's easier than having
+    # two different lib namespaces. It might be better to use pkgs.callPackage if that's possible
+    lib = nixpkgs.lib.extend (final: prev: (import ./lib final) // home-manager.lib);
+    # lib = nixpkgs.lib // home-manager.lib;
 
     systems = [
       "x86_64-linux"
@@ -36,7 +39,7 @@
       globalSettings ? defaultSettings,
     }:
       nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs globalSettings keys;};
+        specialArgs = {inherit inputs outputs globalSettings keys lib;};
         modules =
           [
             ./hosts/${name}/configuration.nix
@@ -44,7 +47,7 @@
             {
               home-manager = {
                 extraSpecialArgs = {
-                  inherit inputs outputs globalSettings keys;
+                  inherit inputs outputs globalSettings keys lib;
                   isNixOS = true;
                 };
                 useUserPackages = true;

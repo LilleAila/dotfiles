@@ -5,11 +5,7 @@
   lib,
   ...
 }: {
-  options.settings.utils.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-    description = "Enable various general utilities";
-  };
+  options.settings.utils.enable = lib.mkEnableOption "various general utilities";
 
   config = lib.mkIf (config.settings.utils.enable) {
     environment.shells = [pkgs.zsh pkgs.fish];

@@ -5,10 +5,7 @@
   lib,
   ...
 }: {
-  options.settings.sops.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-  };
+  options.settings.sops.enable = lib.mkEnableOption "sops";
 
   imports = [
     inputs.sops-nix.nixosModules.sops

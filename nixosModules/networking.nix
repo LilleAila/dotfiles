@@ -8,10 +8,7 @@
   options.settings.networking = {
     bluetooth.enable = lib.mkEnableOption "Bluetooth";
     enable = lib.mkEnableOption "Networking";
-    hostname = lib.mkOption {
-      type = lib.types.str;
-      default = "nixos";
-    };
+    hostname = lib.mkStrOption "nixos";
     wifi.enable = lib.mkEnableOption "wifi";
     rtl8852be.enable = lib.mkEnableOption "rtl8852be tweaks";
   };

@@ -6,14 +6,8 @@
   ...
 }: {
   options.settings.xserver = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-    };
-    xwayland.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "xserver";
+    xwayland.enable = lib.mkEnableOption "xwayland";
   };
 
   config = lib.mkMerge [

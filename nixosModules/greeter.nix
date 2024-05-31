@@ -6,10 +6,7 @@
   ...
 }: {
   # NOTE: This is not the same options.settings as in home; All options are completely separate
-  options.settings.greeter.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-  };
+  options.settings.greeter.enable = lib.mkEnableOption "greeter";
 
   config = lib.mkIf (config.settings.greeter.enable) {
     services.greetd = {

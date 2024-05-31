@@ -5,10 +5,7 @@
   lib,
   ...
 }: {
-  options.settings.asahi.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-  };
+  options.settings.asahi.enable = lib.mkEnableOption "asahi";
 
   config = lib.mkIf (config.settings.asahi.enable) {
     boot.loader.systemd-boot.enable = true;

@@ -6,10 +6,7 @@
   ...
 }: {
   options.settings.wm.hyprland.screenshots = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "screenshots";
     path = lib.mkOption {
       type = lib.types.str;
       default = "$HOME/Pictures/Screenshots";

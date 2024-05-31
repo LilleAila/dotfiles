@@ -6,7 +6,7 @@
   ...
 }: {
   options.settings.user = {
-    enable = lib.mkEnableOption "user configuration" // {default = true;};
+    enable = lib.mkDisableOption "configure user account";
     name = lib.mkOption {
       type = lib.types.str;
     };

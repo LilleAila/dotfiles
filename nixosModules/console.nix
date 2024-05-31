@@ -7,7 +7,7 @@
 }: {
   options.settings.console = {
     # FIXME not have true by default?
-    enable = lib.mkEnableOption "console config" // {default = true;};
+    enable = lib.mkDisableOption "console config";
     font = lib.mkOption {
       type = lib.types.str;
       default = "ter-u32n";

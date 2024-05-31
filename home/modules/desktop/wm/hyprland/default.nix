@@ -16,7 +16,7 @@
     enable = lib.mkEnableOption "hyprland";
     useLegacyRenderer = lib.mkEnableOption "legacyRenderer";
   };
-  options.settings.wm.hyprland.useFlake = lib.mkEnableOption "Use flake for hyprland" // {default = true;};
+  options.settings.wm.hyprland.useFlake = lib.mkDisableOption "Use flake for hyprland";
 
   config = lib.mkMerge [
     (lib.mkIf (!config.settings.wm.hyprland.useFlake) {
