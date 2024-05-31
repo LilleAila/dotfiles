@@ -47,6 +47,14 @@
     services.ssh-agent.enable = true;
     programs.ssh.addKeysToAgent = "yes";
 
+    programs.starship = {
+      enable = true;
+      settings = {
+        add_newline = false;
+        format = "$all";
+      };
+    };
+
     programs.fzf = {
       enable = true;
       enableZshIntegration = true;
