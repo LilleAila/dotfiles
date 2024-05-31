@@ -26,6 +26,19 @@
       nix-collect-garbage = "nh clean all --nogcroots --keep 4";
     };
 
+    programs.ssh = {
+      enable = true;
+      # NOTE: this is a user-specific setting, that should maybe be set somewhere else. desktop/default.nix?
+      matchBlocks = {
+        oci = {
+          hostname = "158.179.205.169";
+          user = "olai";
+        };
+      };
+    };
+    services.ssh-agent.enable = true;
+    programs.ssh.addKeysToAgent = "yes";
+
     programs.fzf = {
       enable = true;
       enableZshIntegration = true;
