@@ -1,7 +1,7 @@
 # TODO: also put some stuff like usernames etc. here
 {
   gpg = {
-    id = "D1ACCDCF2B9B9799";
+    # id = "D1ACCDCF2B9B9799";
     # public = ''
     #   -----BEGIN PGP PUBLIC KEY BLOCK-----
     #
@@ -17,6 +17,7 @@
     #   =PT4y
     #   -----END PGP PUBLIC KEY BLOCK-----
     # '';
+    id = "AA574B5D929430FE";
     public = ''
       -----BEGIN PGP PUBLIC KEY BLOCK-----
 
