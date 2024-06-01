@@ -8,7 +8,6 @@
   wayland.windowManager.hyprland.settings = {
     "$terminal" = "${lib.getExe config.settings.terminal.emulator.package}";
     "$fileManager" = "nemo";
-    "$launcher" = "ags -t applauncher";
     "$calculator" = "qalculate-gtk";
     "$colorPicker" = "${lib.getExe inputs.hyprpicker.packages.${pkgs.system}.hyprpicker} --render-inactive --autocopy --format=hex";
 
@@ -20,7 +19,6 @@
       # Apps
       "$mainMod, return, exec, $terminal"
       # ", XF86Launch1, exec, $terminal"
-      "$mainMod, space, exec, $launcher"
       "$mainMod, E, exec, emacsclient -c"
       # "$mainMod, D, exec, $fileManager"
       "$mainMod, P, exec, $colorPicker"
@@ -47,8 +45,6 @@
       # WM commands
       # ", XF86PowerOff, exec, pgrep -x wlogout && pkill -x wlogout || wlogout"
       # ", XF86Launch1, exec, pgrep -x wlogout && pkill -x wlogout || wlogout"
-      ", XF86PowerOff, exec, ags -t powermenu"
-      ", XF86Launch1, exec, ags -t powermenu"
       ", XF86WLAN, exec, rfkill toggle all"
       ", XF86Back, workspace, -1"
       ", XF86Forward, workspace, +1"
@@ -162,7 +158,6 @@
 
       ", XF86MonBrightnessUp, exec, brightnessctl set 15+"
       ", XF86MonBrightnessDown, exec, brightnessctl set 15-"
-      ", XF86Search, exec, $launcher"
     ];
   };
 }

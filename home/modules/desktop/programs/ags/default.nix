@@ -22,75 +22,19 @@
       ];
     };
 
-    home.file.".config/ags".source = pkgs.stdenv.mkDerivation {
-      src = ./.;
-      name = "AGS configuration";
-
-      buildPhase =
-        /*
-        bash
-        */
-        with config.colorScheme.palette; ''
-          cat << EOF > ./style/cols.scss
-          \$base00: #${base00}; /* ---- */
-          \$base01: #${base01}; /* --- */
-          \$base02: #${base02}; /* -- */
-          \$base03: #${base03}; /* - */
-          \$base04: #${base04}; /* + */
-          \$base05: #${base05}; /* ++ */
-          \$base06: #${base06}; /* +++ */
-          \$base07: #${base07}; /* ++++ */
-          \$base08: #${base08}; /* red */
-          \$base09: #${base09}; /* orange */
-          \$base0A: #${base0A}; /* yellow */
-          \$base0B: #${base0B}; /* green */
-          \$base0C: #${base0C}; /* aqua/cyan */
-          \$base0D: #${base0D}; /* blue */
-          \$base0E: #${base0E}; /* purple */
-          \$base0F: #${base0F}; /* brown */
-          EOF
-
-          ${pkgs.sass}/bin/sass ./style.scss ./style.css
-
-          ${lib.getExe pkgs.esbuild} config.ts \
-            --outfile=config.js \
-            --bundle \
-            --format=esm \
-            --external:"resource://*" \
-            --external:"gi://*"
-        '';
-
-      installPhase =
-        /*
-        bash
-        */
-        ''
-          mkdir -p $out
-          cp -r * $out
-        '';
+    home.file.".config/ags".source = inputs.ags-config.packages.${pkgs.system}.default.override {
+      colorScheme = config.colorScheme;
     };
 
-    # This works well, other than the app launcher. Because it's run in a separated environment, it does not have all available apps in the list, so I had to launch ags from hyprland `exec-once` instead
-    # systemd.user.services.ags = {
-    #   Unit = {
-    #     Description = "Aylur's GTK Shell";
-    #     PartOf = ["graphical-session.target"];
-    #   };
-    #
-    #   Service = {
-    #     # Dependencies have to be added manually to PATH
-    #     Environment = "PATH=${lib.makeBinPath [
-    #       pkgs.coreutils
-    #       # config.programs.hyprlock.package
-    #       config.programs.swaylock.package
-    #       config.wayland.windowManager.hyprland.package # For hyprctl
-    #       pkgs.systemd
-    #     ]}";
-    #     ExecStart = "${config.programs.ags.package}/bin/ags";
-    #     Restart = "on-failure";
-    #   };
-    #
-    #   Install.WantedBy = ["graphical-session.target"];
-    # };
+    wayland.windowManager.hyprland.settings = {
+      "$launcher" = "ags -r 'togglePopup(\"applauncher0\")'";
+      "$powermenu" = "ags -r 'togglePopup(\"powermenu0\")'";
+      bind = [
+        ", XF86PowerOff, exec, $powermenu"
+        ", XF86Launch1, exec, $powermenu"
+        "$mainMod, space, exec, $launcher"
+        ", XF86Search, exec, $launcher"
+      ];
+    };
   };
 }

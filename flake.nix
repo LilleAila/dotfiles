@@ -7,6 +7,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:Aylur/ags";
     };
+    ags-config = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:LilleAila/ags-config";
+    };
     emacs-overlay = {
       inputs = {
         flake-utils.follows = "flake-utils";

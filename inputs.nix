@@ -135,17 +135,22 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
+  # === My stuff ===
   nix-cursors = {
     url = "github:LilleAila/nix-cursors";
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  # === Neovim configuration ===
   nixvim-config = {
     # url = "/home/olai/nvim";
     url = "github:LilleAila/nvim-nix";
     # Adding the follows causes issues for some reason
     # inputs.nixpkgs.follows = "nixpkgs";
     # inputs.flake-parts.follows = "flake-parts";
+  };
+
+  ags-config = {
+    url = "github:LilleAila/ags-config";
+    inputs.nixpkgs.follows = "nixpkgs";
   };
 }
