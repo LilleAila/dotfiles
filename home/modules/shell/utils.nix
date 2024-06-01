@@ -44,8 +44,8 @@
         };
       };
     };
-    services.ssh-agent.enable = true;
-    programs.ssh.addKeysToAgent = "yes";
+    # services.ssh-agent.enable = true;
+    # programs.ssh.addKeysToAgent = "yes";
 
     programs.starship = {
       enable = true;

@@ -39,6 +39,7 @@
       homedir = "${config.home.homeDirectory}/.gnupg";
       mutableKeys = true; # FIXME ? it might be better to keep mutable, idk
       publicKeys = [
+        # Remember to run `gpg2 --card-status` so that secret keys work
         {
           text = keys.gpg.public;
           trust = "ultimate";
