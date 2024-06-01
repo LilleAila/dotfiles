@@ -8,7 +8,10 @@
       url = "github:Aylur/ags";
     };
     ags-config = {
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nix-colors.follows = "nix-colors";
+        nixpkgs.follows = "nixpkgs";
+      };
       url = "github:LilleAila/ags-config";
     };
     emacs-overlay = {

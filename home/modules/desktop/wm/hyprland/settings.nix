@@ -6,10 +6,6 @@
   ...
 }: {
   wayland.windowManager.hyprland.settings = {
-    exec-once = [
-      "ags" # Ags has to be run in the user environment
-    ];
-
     monitor = [
       # Monitor fallback
       ", preferred, auto, 1"

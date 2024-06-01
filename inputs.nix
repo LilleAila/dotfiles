@@ -152,5 +152,6 @@
   ags-config = {
     url = "github:LilleAila/ags-config";
     inputs.nixpkgs.follows = "nixpkgs";
+    inputs.nix-colors.follows = "nix-colors";
   };
 }

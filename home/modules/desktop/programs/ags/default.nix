@@ -27,6 +27,9 @@
     };
 
     wayland.windowManager.hyprland.settings = {
+      exec-once = [
+        "ags"
+      ];
       "$launcher" = "ags -r 'togglePopup(\"applauncher0\")'";
       "$powermenu" = "ags -r 'togglePopup(\"powermenu0\")'";
       bind = [
