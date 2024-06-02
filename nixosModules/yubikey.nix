@@ -1,5 +1,9 @@
 # Basically just followed the steps described in the wiki
 # https://nixos.wiki/wiki/Yubikey
+# https://rzetterberg.github.io/yubikey-gpg-nixos.html
+# https://www.reddit.com/r/yubikey/comments/kfxiue/sign_git_commit_without_entering_pin/
+# https://developers.yubico.com/PGP/Card_edit.html
+# https://github.com/drduh/YubiKey-Guide
 {
   pkgs,
   inputs,
