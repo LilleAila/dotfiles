@@ -28,6 +28,11 @@
       # inputs.nixpkgs.follows = "nixpkgs"; # Disabled because cachix
     };
 
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Idle inhibitor
     matcha = {
       url = "git+https://codeberg.org/QuincePie/matcha.git";
