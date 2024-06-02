@@ -65,14 +65,14 @@ in {
               if [[ $(pgrep -f vesktop | wc -l) -ne 0 ]]; then
               	hyprctl dispatch togglespecialworkspace discord
               else
-              	vesktop --enable-wayland-ime &
+              	vesktop &
               fi
             ''}/bin/toggle_discord"
           "$mainMod SHIFT, D, movetoworkspace, special:discord"
         ];
         windowrulev2 = [
           "float,class:($discord)"
-          "workspace special:discord,class:($discord)"
+          "workspace special:discord silent,class:($discord)"
         ];
       };
     })
