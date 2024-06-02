@@ -11,6 +11,7 @@
         "[workspace special:discord silent] vesktop"
         "[workspace 2 silent] firefox -P main"
         "[workspace 1 silent] $terminal"
+        "[workspace 1 silent] $terminal"
       ];
     };
   };
