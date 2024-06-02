@@ -24,6 +24,8 @@
         position = "0x0";
       }
     ];
+    gaming.enable = true;
+    gaming.steam.enable = true;
     desktop.enable = true;
     nix.unfree = [
       "1password"
@@ -49,6 +51,7 @@
         plover-lapwing-aio
       ]))
     geogebra6
+    krita
   ];
 
   sops.secrets."yubikey/u2f_keys".path = "${config.home.homeDirectory}/.config/Yubico/u2f_keys";
