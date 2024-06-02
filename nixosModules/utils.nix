@@ -16,7 +16,6 @@
     services.upower.enable = true;
 
     programs.nh = {
-      package = inputs.nh.packages.${pkgs.system}.nh;
       enable = true;
       flake = "/home/olai/dotfiles";
       clean.enable = true;
