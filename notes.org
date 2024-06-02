@@ -1,3 +1,26 @@
+* Using QMK
+To use QMK, I just clone my fork:
+#+begin_src bash
+# Initialize repo
+cd
+git clone git@github.com:LilleAila/qmk_firmware
+cd qmk_firmware
+direnv allow
+# git submodule init # below does this for you
+qmk setup
+# Set up remotes
+git remote add upstream https://github.com/qmk/qmk_firmware.git
+# Rebase from upstream
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push origin master
+# Compile keymap
+qmk compile -kb beekeeb/piantor_pro -km default
+# Alternatively, flash directly
+qmk flash -kb beekeeb/piantor_pro -km default
+#+end_src
+
 * TODO factorio as global install (might complain about arm, idk)
 Factorio is currently downloaded manually as an executable from [[https://factorio.com][factorio.com]] and run directly from an fhsenv. Now that I have "inline" secrets set up, maybe I can switch to downloading it from nixpkgs (this will also mean that i have to edit syncthing to reflect the new config directory path)
 
