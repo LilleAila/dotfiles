@@ -38,6 +38,16 @@
         "$mainMod, space, exec, $launcher"
         ", XF86Search, exec, $launcher"
       ];
+      layerrule = [
+        # "blur, bar*"
+        # "ignorezero, bar*"
+
+        "noanim, bar*"
+        "noanim, osd*"
+        "noanim, powermenu*"
+        "noanim, applauncher*"
+        "noanim, notifications*"
+      ];
     };
   };
 }

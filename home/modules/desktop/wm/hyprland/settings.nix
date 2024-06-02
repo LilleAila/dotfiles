@@ -112,6 +112,8 @@
     };
 
     windowrulev2 = [
+      "idleinhibit focus, fullscreen:1"
+
       # "nomaximizerequest, class:.*"
 
       # Put apps in special workspace
@@ -146,9 +148,9 @@
       # "ignorealpha 0.2, bar*"
       # "ignorezero, bar*" # ignorealpha but only for =0 values
 
-      "noanim, bar*"
-      "noanim, osd*"
-      "noanim, powermenu*"
+      # "noanim, bar*"
+      # "noanim, osd*"
+      # "noanim, powermenu*"
       # "animation slide left, powermenu*"
 
       # "blur, notifications*"
