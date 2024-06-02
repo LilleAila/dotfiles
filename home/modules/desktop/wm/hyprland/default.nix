@@ -10,6 +10,7 @@
     ./settings.nix
     ./screenshots.nix
     ./plugins.nix
+    ./autostart.nix
   ];
 
   options.settings.wm.hyprland = {
