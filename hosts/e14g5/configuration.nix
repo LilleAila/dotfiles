@@ -64,6 +64,7 @@
     HandleLidSwitchDocked=suspend
   '';
 
+  services.xserver.videoDrivers = ["amdgpu"];
   hardware.opengl = {
     enable = true;
     driSupport = true;
