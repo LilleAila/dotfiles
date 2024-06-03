@@ -98,7 +98,9 @@
       STOP_CHARGE_THRESH_BAT0 = 80;
       RESTORE_THRESHOLDS_ON_BAT = 1;
 
-      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+      # Loud high-pitched fan noise under load, so a bit of power is sacrificed
+      # https://linrunner.de/tlp/support/optimizing.html#reduce-power-consumption-fan-noise-on-ac-power
+      CPU_ENERGY_PERF_POLICY_ON_AC = "balance_power";
       CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
       PLATFORM_PROFILE_ON_AC = "performance";
       PLATFORM_PROFILE_ON_BAT = "low-power";
@@ -106,12 +108,12 @@
       CPU_BOOST_ON_BAT = 0;
       CPU_HWP_DYN_BOOST_ON_AC = 1;
       CPU_HWP_DYN_BOOST_ON_BAT = 0;
-      RUNTIME_PM_ON_AC = "on";
+      RUNTIME_PM_ON_AC = "auto";
       RUNTIME_PM_ON_BAT = "auto";
       CPU_MIN_PERF_ON_AC = 0;
       CPU_MAX_PERF_ON_AC = 100;
       CPU_MIN_PERF_ON_BAT = 0;
-      CPU_MAX_PERF_ON_BAT = 30;
+      CPU_MAX_PERF_ON_BAT = 40;
 
       USB_AUTOSUSPEND = 1;
       USB_EXCLUDE_AUDIO = 1;
