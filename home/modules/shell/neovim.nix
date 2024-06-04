@@ -14,7 +14,9 @@
         # Putting this as programs.neovim.package does not work, so configuring manually:
         # Here is my nixvim config: https://github.com/LilleAila/nvim-nix/
         home.packages = [
-          inputs.nixvim-config.packages."${pkgs.system}".nvim
+          (inputs.nixvim-config.packages."${pkgs.system}".nvim.override {
+            colorScheme = config.colorScheme;
+          })
           # pkgs.nvimpager
         ];
 
