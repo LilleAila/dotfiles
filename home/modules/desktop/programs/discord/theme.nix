@@ -76,9 +76,13 @@ css
       --font-primary ${sansSerif.name} !important;
     }
 
-    /* Stop thread icon from clipping into top bar */
+    /* Fix thread channel header */
     .container_cd7d9c {
       padding-top: 16px;
+    }
+
+    .content__690c5 {
+      margin-top: 24px;
     }
 
     /* Fade out effect in DM channel scroller */
