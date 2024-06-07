@@ -31,6 +31,7 @@
       "1password"
       "1password-gui"
       "geogebra"
+      "obsidian"
     ];
     wm.hyprland.monitors.enable = true;
     wm.hyprland.useFlake = true;
@@ -52,6 +53,7 @@
       ]))
     geogebra6
     krita
+    obsidian
   ];
 
   sops.secrets."yubikey/u2f_keys".path = "${config.home.homeDirectory}/.config/Yubico/u2f_keys";
