@@ -8,15 +8,11 @@
 
   wallpaper = pkgs.callPackage ./wallpaper.nix {};
 
-  libfprint-2-tod1-fpc = pkgs.callPackage ./e14g5-fpc.nix {};
-
-  rtw89 = pkgs.callPackage ./rtw89.nix {};
-
   lutgen-img = pkgs.callPackage ./lutgen-img.nix {
     colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
     image = ../home/wallpapers/wall25.jpg;
   };
 
-  # Doesn't work :(
+  # Works but extremely slow
   # nerdfont_patcher = pkgs.callPackage ./nerdfonts.nix {};
 }

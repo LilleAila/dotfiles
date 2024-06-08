@@ -5,6 +5,7 @@
   autoPatchelfHook,
   libfprint-tod,
 }:
+# I have no idea how this is actually supposed to be installed
 stdenv.mkDerivation {
   pname = "libfprint-2-tod1-fpc";
   version = "0.0.1";
