@@ -4,6 +4,9 @@
   inkscape,
   # Colors
   colorScheme,
+  # Arguments
+  width ? 1920,
+  height ? 1080,
 }:
 stdenv.mkDerivation {
   name = "nix-wallpaper-${colorScheme.slug}";
@@ -32,7 +35,7 @@ stdenv.mkDerivation {
 
     sed -i "s/rgb(0,0,0)/#${c.base00}/g" template.svg
 
-    inkscape template.svg -p -w 1920 -h 1080 -o ./wallpaper.png
+    inkscape template.svg -p -w ${toString width} -h ${toString height} -o ./wallpaper.png
   '';
   installPhase = ''
     cp ./wallpaper.png $out
