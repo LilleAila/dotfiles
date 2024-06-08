@@ -30,6 +30,8 @@ stdenv.mkDerivation {
     sed -i "s/#ffffff/#${c.base00}/g" template.svg
     sed -i "s/#dddddd/#${c.base01}/g" template.svg
 
+    sed -i "s/rgb(0,0,0)/#${c.base00}/g" template.svg
+
     inkscape template.svg -p -w 1920 -h 1080 -o ./wallpaper.png
   '';
   installPhase = ''
