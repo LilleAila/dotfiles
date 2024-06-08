@@ -35,7 +35,7 @@
       extraModules ? [],
       globalSettings ? defaultSettings,
     }:
-      nixpkgs.lib.nixosSystem {
+      lib.nixosSystem {
         specialArgs = {inherit inputs outputs globalSettings keys lib;};
         modules =
           [

@@ -5,13 +5,26 @@ with lib; rec {
   x = c: "#${c}";
 
   # Hex color to r, g and b
-  rgb = c: let
-    r = toString (hexToDec (__substring 0 2 c));
-    g = toString (hexToDec (__substring 2 2 c));
-    b = toString (hexToDec (__substring 4 2 c));
+  rgb' = c: let
+    r = hexToDec (__substring 0 2 c);
+    g = hexToDec (__substring 2 2 c);
+    b = hexToDec (__substring 4 2 c);
   in {inherit r g b;};
 
-  # doens't work
+  rgb = c: let
+    color = rgb' c;
+  in
+    lib.mapAttrs (_: v: toString v) color;
+
+  format_rgb = color: let
+    inherit (color) r g b;
+  in "rgb(${lib.concatStringsSep ", " (map (c: toString c) [r g b])})";
+
+  format_darken = color: p: let
+    darkened = darken (rgb' color) p;
+  in
+    format_rgb darkened;
+
   darken = c: p: let
     adjust = v: builtins.floor (v * p);
     r = adjust c.r;

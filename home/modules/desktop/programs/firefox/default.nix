@@ -15,6 +15,7 @@
 
   config = lib.mkIf config.settings.browser.firefox.enable (lib.mkMerge [
     (lib.mkIf isNixOS {
+      # The package is set to null here because firefox is configured in system, see `nixosModules/firefox.nix`
       programs.firefox.package = null;
     })
     (lib.mkIf config.settings.wm.hyprland.enable {
@@ -62,7 +63,6 @@
     {
       programs.firefox = {
         enable = true;
-        # The package is set to null here because firefox is configured in system, see `nixosModules/firefox.nix`
         package = lib.mkDefault pkgs.firefox;
         profiles = let
           search = import ./search.nix {inherit pkgs;};

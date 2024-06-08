@@ -13,8 +13,8 @@
     monitors = [
       {
         name = "eDP-1";
-        wallpaper = outputs.packages.${pkgs.system}.wallpaper.override {
-          scheme = config.colorScheme;
+        wallpaper = outputs.packages.${pkgs.system}.wallpaper2.override {
+          colorScheme = config.colorScheme;
         };
         # wallpaper = outputs.packages.${pkgs.system}.lutgen-img.override {
         #   colorScheme = config.colorScheme;
