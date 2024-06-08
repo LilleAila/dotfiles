@@ -61,6 +61,10 @@ in {
               path = "${homePath}/Sync";
               devices = ["oci" "legion" "mac" "t420" "e14g5"];
             };
+            "Obsidian" = {
+              path = "${homePath}/Documents/Obsidian\ Vault";
+              devices = ["oci" "e14g5"];
+            };
             "Factorio" = {
               path = "${homePath}/factorio";
               devices = ["oci" "legion" "mac" "e14g5"];
