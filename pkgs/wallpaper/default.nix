@@ -33,6 +33,8 @@ stdenv.mkDerivation {
     sed -i "s/#ffffff/#${c.base00}/g" template.svg
     sed -i "s/#dddddd/#${c.base01}/g" template.svg
 
+    # hacky way to target only the first one
+    sed -i "0,/rgb(0,0,0)/s/rgb(0,0,0)/${colors.format_darken c.base00 0.4}/" template.svg
     sed -i "s/rgb(0,0,0)/#${c.base00}/g" template.svg
 
     inkscape template.svg -p -w ${toString width} -h ${toString height} -o ./wallpaper.png
