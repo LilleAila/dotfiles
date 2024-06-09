@@ -44,6 +44,12 @@
     syncthing.enable = true;
   };
 
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryPackage = pkgs.pinentry-tty;
+  };
+
   # To access the GUI, use SSH tunneling: `ssh -L 9999:localhost:8384 olai@158.179.205.169`, and then go to 127.0.0.1:9999 on the local machine
   # docs: https://docs.syncthing.net/users/firewall.html#tunneling-via-ssh
 
