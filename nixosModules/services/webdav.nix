@@ -1,3 +1,10 @@
+/*
+Notes:
+https://github.com/pmeiyu/nixos-config/blob/master/modules/webdav.nix
+https://github.com/miquels/webdav-server-rs/blob/master/webdav-server.toml
+https://nixos.wiki/wiki/Nginx (section about TLS reverse proxy)
+For cloudflare, remember to disable proxy in the A record!!!!!!!
+*/
 {
   pkgs,
   lib,
