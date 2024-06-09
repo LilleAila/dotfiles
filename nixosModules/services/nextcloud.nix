@@ -9,9 +9,9 @@ https://mich-murphy.com/configure-nextcloud-nixos/
   config,
   ...
 }: {
-  options.settings.services.nextcloud.enable = lib.mkEnableOption "nextcloud";
+  options.settings.nextcloud.enable = lib.mkEnableOption "nextcloud";
 
-  config = lib.mkIf config.settings.services.nextcloud.enable {
+  config = lib.mkIf config.settings.nextcloud.enable {
     networking.firewall.allowedTCPPorts = [80 443];
 
     sops.secrets."nextcloud/cloudflare" = {

@@ -40,8 +40,9 @@
       e14g5.public
       t420.public
     ];
-    # services.nextcloud.enable = true; # it no no work :(
+    # nextcloud.enable = true; # it no no work :(
     syncthing.enable = true;
+    webdav.enable = true;
   };
 
   programs.gnupg.agent = {
