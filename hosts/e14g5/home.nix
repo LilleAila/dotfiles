@@ -54,6 +54,7 @@
     geogebra6
     krita
     obsidian
+    libreoffice
   ];
 
   sops.secrets."yubikey/u2f_keys".path = "${config.home.homeDirectory}/.config/Yubico/u2f_keys";
