@@ -14,19 +14,8 @@ https://wes.today/nixos-syncthing
   secrets = inputs.secrets.syncthing;
 in {
   options.settings.syncthing.enable = lib.mkEnableOption "Syncthing";
-  options.settings.syncthing.enableAllFolders = lib.mkEnableOption "Syncthing";
 
   config = lib.mkMerge [
-    (lib.mkIf config.settings.syncthing.enableAllFolders {
-      # FIXME: 1. all folders get enabled by default, so this is unnecessary
-      #        2. folders are created automatically even if the computer is not listed for said folder
-      services.syncthing.settings.folders = {
-        "Default Folder".enable = lib.mkDefault true;
-        "Factorio".enable = lib.mkDefault true;
-        "Notes".enable = lib.mkDefault true;
-        "Minecraft".enable = lib.mkDefault true;
-      };
-    })
     (lib.mkIf config.settings.syncthing.enable {
       # Config panel at http://127.0.0.1:8384/
       # Go to the config panel to find the device ID
@@ -66,9 +55,8 @@ in {
               devices = ["oci" "e14g5"];
             };
             "Factorio" = {
-              path = "${homePath}/factorio";
+              path = "${homePath}/.factorio";
               devices = ["oci" "legion" "mac" "e14g5"];
-              ignorePerms = false; # executable permissions and stuff
             };
             "Notes" = {
               path = "${homePath}/org";

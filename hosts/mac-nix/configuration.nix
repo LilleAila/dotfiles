@@ -35,7 +35,6 @@
     };
     utils.enable = true;
     syncthing.enable = true;
-    syncthing.enableAllFolders = true;
     desktop.enable = true;
     console = {
       font = "ter-u32n";
