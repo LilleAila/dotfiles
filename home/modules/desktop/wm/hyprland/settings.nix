@@ -109,6 +109,8 @@
       # disable_hyprland_logo = true
       vfr = true;
       focus_on_activate = true;
+      # Fix some windows opening on workspace 1
+      initial_workspace_tracking = false;
     };
 
     windowrulev2 = [
