@@ -49,6 +49,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 2;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = [
+    "amd_pstate=active"
+  ];
 
   systemd.services.disable_micmute_led = {
     description = "Disabled the microphone mute light on the keyboard";
@@ -120,7 +123,7 @@
       USB_EXCLUDE_AUDIO = 1;
       WOL_DISABLE = "Y";
       WIFI_PWR_ON_AC = "off";
-      WIFI_PWR_ON_BAT = "off";
+      WIFI_PWR_ON_BAT = "off"; # FIXME can probably be enabled again
       DEVICES_TO_DISABLE_ON_LAN_CONNECT = "wifi";
       DEVICES_TO_ENABLE_ON_LAN_DISCONNECT = "wifi";
     };

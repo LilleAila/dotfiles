@@ -20,5 +20,12 @@
       ryujinx
       prismlauncher
     ];
+
+    wayland.windowManager.hyprland.settings = {
+      windowrulev2 = [
+        # So that the titlebar doean't show up outside the window and mess with the rendering
+        "fakefullscreen, title:(Minecraft*)"
+      ];
+    };
   };
 }

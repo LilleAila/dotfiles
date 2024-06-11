@@ -24,6 +24,15 @@
     (lib.mkIf config.hm.settings.gaming.enable {
       programs.gamemode.enable = true;
       programs.gamescope.enable = true;
+      # Use system glfw libraries in prismlauncher, from the workarounds tab
+      # For some reason, i get extremely bad performance running through xwayland
+      hardware.opengl.extraPackages = with pkgs; [
+        glfw-wayland-minecraft
+      ];
+      environment.sessionVariables = {
+        # Make factorio use the correct video driver (see FFF#408)
+        "SDL_VIDEODRIVER" = "wayland";
+      };
     })
   ];
 }
