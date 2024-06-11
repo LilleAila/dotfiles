@@ -93,6 +93,7 @@
       nurl
       sops
       tldr
+      file
     ];
   };
 }
