@@ -54,7 +54,7 @@ in {
               path = "${homePath}/Documents/Obsidian\ Vault";
               devices = ["oci" "e14g5"];
             };
-            "Factorio" = {
+            "Factorio Saves" = {
               path = "${homePath}/.factorio";
               devices = ["oci" "legion" "mac" "e14g5"];
             };
