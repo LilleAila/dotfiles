@@ -224,6 +224,8 @@
     programsdb.url = "github:wamserma/flake-programs-sqlite";
     programsdb.inputs.nixpkgs.follows = "nixpkgs";
 
+    factorio-versions.url = "github:ocfox/factorio-versions";
+
     # === My stuff ===
     nix-cursors = {
       url = "github:LilleAila/nix-cursors";

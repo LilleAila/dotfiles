@@ -143,6 +143,21 @@
         "type": "github"
       }
     },
+    "factorio-versions": {
+      "locked": {
+        "lastModified": 1717813000,
+        "narHash": "sha256-0HbBc9Etj+lbwW4MpULc5/AvY3aSPSj0BcJrzLylMy0=",
+        "owner": "ocfox",
+        "repo": "factorio-versions",
+        "rev": "12d46dc687e70ca840e6c73e4786cc1fb02fbb8f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ocfox",
+        "repo": "factorio-versions",
+        "type": "github"
+      }
+    },
     "firefox-addons": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -1423,6 +1438,7 @@
         "ags": "ags",
         "ags-config": "ags-config",
         "emacs-overlay": "emacs-overlay",
+        "factorio-versions": "factorio-versions",
         "firefox-addons": "firefox-addons",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils_2",
