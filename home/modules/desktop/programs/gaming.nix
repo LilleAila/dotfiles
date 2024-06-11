@@ -15,10 +15,15 @@
       enableSessionWide = true;
     };
 
+    settings.nix.unfree = [
+      "factorio-alpha"
+    ];
+
     home.packages = with pkgs; [
       heroic
       ryujinx
       prismlauncher
+      (pkgs.factorio.override {inherit (import ../../../../secrets/factorio.nix) username token;})
     ];
 
     wayland.windowManager.hyprland.settings = {
