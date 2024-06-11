@@ -55,6 +55,9 @@
     krita
     obsidian
     libreoffice
+    handbrake
+    kdenlive
+    wf-recorder
   ];
 
   sops.secrets."yubikey/u2f_keys".path = "${config.home.homeDirectory}/.config/Yubico/u2f_keys";
