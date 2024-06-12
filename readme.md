@@ -7,25 +7,6 @@ Riced with [nix-colors](https://github.com/Misterio77/nix-colors) using [gruvbox
 
 </div>
 
-<!-- Tables work, but don't look as good -->
-<!--
-<div align="center">
-
-| ![Desktop screenshot](assets/desktop.png) |
-|:--:|
-| *Hyprland, kitty and ags, all themed with nix-colors* |
-
-| ![Firefox screenshot](assets/firefox.png) |
-|:--:|
-| *Firefox minimal theme with nix-colors* |
-
-| ![Discord screenshot](assets/discord.png) |
-|:--:|
-| *Discord, with a tweaked UI and themed with nix-colors* |
-
-</div>
--->
-
 <div align="center">
 
 <figure>
@@ -81,6 +62,7 @@ I use the following computers with this configuration:
 - [use nix repl effectively](https://aldoborrero.com/posts/2022/12/02/learn-how-to-use-the-nix-repl-effectively/)
 - [Configuration Collection](https://nixos.wiki/wiki/Configuration_Collection)
 - [riceyourride.com](https://riceyourride.com/best/1)
+
 ### Other peoples' dotfiles:
 | User | WM | Bar | NixOS |
 | ---- | -- | --- | ----- |
