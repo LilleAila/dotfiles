@@ -33,7 +33,6 @@ Riced with [nix-colors](https://github.com/Misterio77/nix-colors) using [gruvbox
 - Shell: [Zsh](https://www.zsh.org/) with [Oh my Zsh](https://ohmyz.sh/), and the [nanotech](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#nanotech) theme
 - Editor(s): [Neovim](https://neovim.io) ([config](https://github.com/LilleAila/nvim-nix))
 - Discord: [Vesktop](https://github.com/Vencord/Vesktop)
-- Wallpapers: [AngelJumbo/gruvbox-wallpapers](https://github.com/AngelJumbo/gruvbox-wallpapers)
 
 ## Hardware
 I use the following computers with this configuration:
