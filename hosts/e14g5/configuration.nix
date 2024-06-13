@@ -36,6 +36,7 @@
       font = "ter-u16n";
       keyMap = "no";
     };
+    plymouth.enable = true;
     sops.enable = true;
     yubikey.enable = true;
   };

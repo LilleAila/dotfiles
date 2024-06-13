@@ -17,6 +17,8 @@ in {
     image = ../home/wallpapers/wall25.jpg;
   };
 
+  plymouth-theme = pkgs.callPackage ./plymouth-theme {inherit colorScheme;};
+
   # Works but extremely slow
   # nerdfont_patcher = pkgs.callPackage ./nerdfonts.nix {};
 }

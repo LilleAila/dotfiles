@@ -16,6 +16,11 @@ with lib; rec {
   in
     lib.mapAttrs (_: v: toString v) color;
 
+  rgb_dec = c: let
+    rgb = rgb' c;
+  in
+    lib.mapAttrs (_: v: toString (v / 255.0)) rgb;
+
   format_rgb = color: let
     inherit (color) r g b;
   in "rgb(${lib.concatStringsSep ", " (map (c: toString c) [r g b])})";
