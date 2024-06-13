@@ -10,18 +10,18 @@ Riced with [nix-colors](https://github.com/Misterio77/nix-colors) using [gruvbox
 <div align="center">
 
 <figure>
-  <img src="assets/desktop.png" alt="Desktop screenshot"/>
-  <figcaption><br>Hyprland, kitty and ags, all themed with nix-colors</figcaption>
+    <img src="assets/desktop.png" alt="Desktop screenshot"/>
+    <figcaption><br>Hyprland, kitty and ags, all themed with nix-colors</figcaption>
 </figure>
 <br><br>
 <figure>
-  <img src="assets/firefox.png" alt="Firefox screenshot"/>
-  <figcaption><br>Minimal firefox theme with nix-colors</figcaption>
+    <img src="assets/firefox.png" alt="Firefox screenshot"/>
+    <figcaption><br>Minimal firefox theme with nix-colors</figcaption>
 </figure>
 <br><br>
 <figure>
-  <img src="assets/discord.png" alt="Discord screenshot"/>
-  <figcaption><br>Discord, with a tweaked UI and themed with nix-colors</figcaption>
+    <img src="assets/discord.png" alt="Discord screenshot"/>
+    <figcaption><br>Discord, with a tweaked UI and themed with nix-colors</figcaption>
 </figure>
 
 </div>
