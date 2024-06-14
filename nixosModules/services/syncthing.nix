@@ -11,7 +11,7 @@ https://wes.today/nixos-syncthing
 }: let
   username = config.settings.user.name;
   homePath = "/home/${username}";
-  secrets = inputs.secrets.syncthing;
+  secrets = import ../../secrets/syncthing.nix;
 in {
   options.settings.syncthing.enable = lib.mkEnableOption "Syncthing";
 

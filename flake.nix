@@ -106,10 +106,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    secrets = {
-      url = "git+ssh://git@github.com/LilleAila/dotfiles-secrets.git";
-    };
-
     # === Hardware ===
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-apple-silicon = {
