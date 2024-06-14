@@ -16,12 +16,15 @@
   ];
 
   settings = {
+    # because bad code
     user.name = "nixos";
     user.enable = false;
+
     console = {
       font = "ter-u16n";
       keyMap = "no";
     };
+
     locale = {
       main = "en_US.UTF-8";
       other = "nb_NO.UTF-8";
@@ -30,6 +33,13 @@
   };
   programs.zsh.enable = true;
   users.users.nixos.shell = pkgs.zsh;
+
+  # TODO: make a module (separate from yubikey)
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryPackage = pkgs.pinentry-tty;
+  };
 
   networking.hostName = "nixos-installer";
 

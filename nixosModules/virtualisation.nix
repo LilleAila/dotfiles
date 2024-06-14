@@ -29,10 +29,6 @@
       # };
       users.users.${config.settings.user.name}.extraGroups = ["libvirtd"];
       environment.systemPackages = [pkgs.virt-manager];
-      boot.kernelParams = [
-        "intel_iommu=on"
-        "iommu=pt"
-      ];
     })
     (lib.mkIf config.settings.nvidia.passthrough.enable {
       boot.kernelPackages = lib.mkForce pkgs.linuxPackages_zen; # This not be necessary on other computers, but on my computer the GPU was in the same IOMMU group as other pci stuff that was not supposed to be passed through

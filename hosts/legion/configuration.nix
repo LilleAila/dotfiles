@@ -71,6 +71,10 @@
           "10de:10f9" # Nvidia audio controller
         ];
         virtualisation.enable = true;
+        boot.kernelParams = [
+          "intel_iommu=on"
+          "iommu=pt"
+        ];
       };
       environment.sessionVariables.NIXOS_ACTIVE_SPECIALISATION = "virtualisation";
     };

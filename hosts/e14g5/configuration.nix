@@ -39,6 +39,7 @@
     plymouth.enable = true;
     sops.enable = true;
     yubikey.enable = true;
+    virtualisation.enable = true;
   };
 
   services.thermald.enable = true;
