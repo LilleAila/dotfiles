@@ -19,6 +19,7 @@
       "factorio-alpha"
       "factorio-headless"
       "factorio-demo"
+      "osu-lazer-bin"
     ];
 
     home.packages = with pkgs; [
@@ -31,6 +32,7 @@
         versionsJson = inputs.factorio-versions.versions;
         experimental = false;
       })
+      osu-lazer-bin
     ];
 
     wayland.windowManager.hyprland.settings = {
