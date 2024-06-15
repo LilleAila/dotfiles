@@ -33,13 +33,14 @@
     users.users."${name}" = {
       isNormalUser = true;
       uid = 1000;
-      gid = 100;
       description = desc;
       extraGroups = ["wheel" "input" "dialout"];
       packages = with pkgs; [];
       shell = shell;
       initialPassword = "";
     };
+
+    users.groups.users.gid = 100;
 
     environment.shells = [config.settings.user.shell];
 
