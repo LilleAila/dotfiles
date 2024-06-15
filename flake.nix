@@ -197,6 +197,8 @@
     };
 
     # === Other utils ===
+    impermanence.url = "github:nix-community/impermanence";
+
     flake-utils.url = "github:numtide/flake-utils";
 
     plover-flake.url = "github:LilleAila/plover-flake/wayland-support";
