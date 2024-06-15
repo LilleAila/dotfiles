@@ -38,17 +38,26 @@ The following ZFS datasets will be created:
 
 Introduction
 
-
-if [[ -b "/dev/vda" ]]; then
-  # VM
-  DISK="/dev/vda"
-
+while true; do
+  info "Available disks:"
+  lsblk -do NAME,SIZE,TYPE,MODEL
+  read -p "The NAME of the disk to format: " DISKINPUT
+  DISK="/dev/${DISKINPUT}"
+  if [ -b "$DISK" ]; then
+    info "Selected disk $DISKINPUT"
+    break
+  else
+    info "Invalid disk name $DISKINPUT"
+  fi
+done
+if [[ $DISKINPUT == nvme* ]]; then
+  BOOTDISK="${DISK}p1"
+  SWAPDISK="${DISK}p2"
+  ZFSDISK="${DISK}p3"
+else
   BOOTDISK="${DISK}3"
   SWAPDISK="${DISK}2"
   ZFSDISK="${DISK}1"
-# else
-  # Regular disk
-  # TODO
 fi
 
 info "Boot Partiton: $BOOTDISK"
@@ -132,6 +141,9 @@ cd $HOME/dotfiles
 info "Decrypting secrets"
 git-crypt unlock
 
+info "Choose which host to install (this can take some time to load)"
+info "Press enter to continue..."
+read
 HOST=$(echo "Configure a new host" | cat - <(nix flake show . --json 2>/dev/null | jq --raw-output '.nixosConfigurations | keys[]') | fzf --header="Choose a host to install")
 echo
 
