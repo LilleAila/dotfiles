@@ -44,7 +44,7 @@ while true; do
   read -p "The NAME of the disk to format: " DISKINPUT
   DISK="/dev/${DISKINPUT}"
   if [ -b "$DISK" ]; then
-    info "Selected disk $DISKINPUT"
+    echo "\e[1;35mSelected disk:\e[0m $DISKINPUT"
     break
   else
     info "Invalid disk name $DISKINPUT"
