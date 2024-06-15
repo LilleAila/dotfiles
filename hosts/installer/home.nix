@@ -26,6 +26,11 @@
   home.file.".ssh/id_ed25519.pub".text = keys.ssh.installer.public;
   home.file.".config/sops/age/keys.txt".source = ../../secrets/sops-key.txt;
   home.file."gpg-key.asc".source = ../../secrets/gpg-key.asc; # couldn't find a way to declaratively import
+  home.packages = with pkgs; [
+    jq
+    fzf
+    git
+  ];
   home.file."install.sh" = {
     source = ./install.sh;
     executable = true;

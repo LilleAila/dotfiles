@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # TODO: maybe do inside pkgs.writeShellApplication instead of settings home.file and reading those from here
 # Sources:
 # https://github.com/iynaix/dotfiles/blob/main/install.sh
@@ -136,6 +138,13 @@ git-crypt unlock
 # - commit
 # - push (gpg and ssh keys are preconfigured on iso)
 # - proceed to install
-HOST=$(find hosts/ -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | fzf)
+# HOST=$(find hosts/ -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | fzf)
+HOST=$(echo "Configure a new host" | cat - <(nix flake show . --json 2>/dev/null | jq --raw-output '.nixosConfigurations | keys[]') | fzf --header="Choose a host to install")
+
+if [ "$HOST" == "Configure a new host" ]; then
+  echo "Configuring new host..."
+  # TODO
+fi
+
 info "Installing NixOS"
 sudo nixos-install --no-root-password --flake .#$HOST
