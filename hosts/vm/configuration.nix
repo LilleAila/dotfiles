@@ -31,7 +31,7 @@
     };
     utils.enable = true;
     console = {
-      font = "ter-u32n";
+      font = "ter-u16n";
       keyMap = "no";
     };
     sops.enable = true;

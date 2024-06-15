@@ -26,7 +26,7 @@
     user.name = globalSettings.username;
     networking = {
       enable = true;
-      hostname = "placeholder"; # FIXME
+      hostname = "placeholder";
     };
     utils.enable = true;
     console = {
