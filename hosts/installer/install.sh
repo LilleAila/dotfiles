@@ -137,7 +137,7 @@ echo
 
 if [ "$HOST" == "Configure a new host" ]; then
   info "Configuring new host..."
-  read -r "Name for the new host: " HOST_NAME
+  read -rp "Name for the new host: " HOST_NAME
   cp -r hosts/template "hosts/$HOST_NAME"
   sudo nixos-generate-config --no-filesystems --show-hardware-config > "hosts/$HOST_NAME/hardware-configuration.nix"
   info "Editing configuration.nix"
@@ -149,6 +149,7 @@ if [ "$HOST" == "Configure a new host" ]; then
   $hostId=$(head -c 8 /etc/machine-id)
   sed -i "/networking.hostId/s/placeholder/$hostId" "hosts/$HOST_NAME/configuration.nix"
   sed -i "/hostname/s/placeholder/$HOST_NAME" "hosts/$HOST_NAME/configuration.nix"
+  nvim "hosts/$HOST_NAME/configuration.nix"
   info "Adding configuration to flake.nix"
   sed -i "/nixosConfigurations = {/a \ \ \ \ \ \ $HOST_NAME = mkConfig {name = \"$HOST_NAME\";};" flake.nix
   info "Commiting changes"
@@ -165,5 +166,14 @@ read
 sudo nixos-install --no-root-password --flake .#$HOST
 
 info "Copying secrets"
-sudo mkdir -p /mnt/cache/home/olai/.config/sops/age
-sudo cp secrets/sops-key.txt /mnt/cache/home/olai/.config/sops/age/keys.txt
+# This assumes the user ID and group ID are set properly for the user
+# In the case of my own configuration, it is :)
+default_user="olai"
+printf "\033[1;33mUsername of the main user ($default_user):\033[0m "
+read username
+if [ -z "$username" ]; then
+  username="$default_user"
+fi
+sudo mkdir -p "/mnt/cache/home/$username/.config/sops/age"
+sudo cp secrets/sops-key.txt "/mnt/cache/home/$username/.config/sops/age/keys.txt"
+sudo chown -R 1000:100 "/mnt/cache/home/$username"

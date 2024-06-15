@@ -32,6 +32,8 @@
   config = lib.mkIf config.settings.user.enable (with config.settings.user; {
     users.users."${name}" = {
       isNormalUser = true;
+      uid = 1000;
+      gid = 100;
       description = desc;
       extraGroups = ["wheel" "input" "dialout"];
       packages = with pkgs; [];
