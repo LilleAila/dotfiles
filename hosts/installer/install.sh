@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
-
-# TODO: maybe do inside pkgs.writeShellApplication instead of settings home.file and reading those from here
-# Sources:
-# https://github.com/iynaix/dotfiles/blob/main/install.sh
-# https://github.com/iynaix/dotfiles/blob/main/nixos/zfs.nix
-# https://github.com/iynaix/dotfiles/blob/main/nixos/impermanence.nix
-# https://github.com/iynaix/dotfiles/blob/main/hosts/vm/default.nix#L9
 set -e
+
+# For this script to work, you need at least:
+# - A sops key in secrets/sops-key.txt (can be encrypted with git-crypt)
+# - A gpg private key export in home.file."gpg-key.asc"
+# - A configuration that supports the filesystems described below
+
+repo_url="git@github.com:LilleAila/dotfiles"
+default_user="olai"
+
 function yesno() {
   local prompt="$1"
 
@@ -149,7 +151,7 @@ sudo mount --mkdir -t zfs zroot/persist /mnt/persist
 info "Importing GPG key"
 gpg --import gpg-key.asc
 info "Cloning configuration"
-git clone git@github.com:LilleAila/dotfiles
+git clone "$repo_url"
 cd $HOME/dotfiles
 info "Decrypting secrets"
 git-crypt unlock
@@ -193,7 +195,6 @@ sudo nixos-install --no-root-password --flake .#$HOST
 info "Copying secrets"
 # This assumes the user ID and group ID are set properly for the user
 # In the case of my own configuration, it is :)
-default_user="olai"
 printf "\033[1;33mUsername of the main user ($default_user):\033[0m "
 read username
 if [ -z "$username" ]; then
