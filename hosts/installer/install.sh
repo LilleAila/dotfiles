@@ -25,6 +25,19 @@ function info() {
   echo -e "\e[1;35m$1\e[0m"
 }
 
+info "Checking internet connection..."
+if ping -c 1 "8.8.8.8" &> /dev/null; then
+    echo "Internet connection is up."
+else
+  cat << Network
+Your network is disconnected. Connect using the following commands, then re-run the installer:
+wpa_passphrase ESSID | sudo tee /etc/wpa_supplicant.conf
+sudo systemctl restart wpa_supplicant
+, replacing ESSID with the name of your wifi network
+Network
+  exit 1
+fi
+
 cat << Introduction
 This script will format the *entire* disk with a 1GB boot partition
 (labelled NIXBOOT), 16GB of swap, then allocating the rest to ZFS.
