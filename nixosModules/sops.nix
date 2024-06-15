@@ -17,7 +17,8 @@
 
     sops.age.generateKey = false;
     sops.age.keyFile = "/persist/home/${config.settings.user.name}/.config/sops/age/keys.txt";
-    settings.persist.home.files = [".config/sops/age/keys.txt"];
+    # settings.persist.home.files = [".config/sops/age/keys.txt"];
+    settings.persist.home.directories = [".config/sops/age"];
 
     # This is the hashed password, from `echo "password" | mkpasswd -s`
     # Also delete from history with history -d <id>
