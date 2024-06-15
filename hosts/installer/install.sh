@@ -79,7 +79,7 @@ info "Creating Boot Disk"
 sudo mkfs.fat -F 32 "$BOOTDISK" -n NIXBOOT
 
 # setup encryption
-use_encryption=$(yesno "Use encryption? (Encryption must also be enabled within host config.)")
+use_encryption=$(yesno "Use encryption?")
 if [[ $use_encryption == "y" ]]; then
     encryption_options=(-O encryption=aes-256-gcm -O keyformat=passphrase -O keylocation=prompt)
 else
@@ -133,6 +133,7 @@ info "Decrypting secrets"
 git-crypt unlock
 
 HOST=$(echo "Configure a new host" | cat - <(nix flake show . --json 2>/dev/null | jq --raw-output '.nixosConfigurations | keys[]') | fzf --header="Choose a host to install")
+echo
 
 if [ "$HOST" == "Configure a new host" ]; then
   info "Configuring new host..."
@@ -142,16 +143,23 @@ if [ "$HOST" == "Configure a new host" ]; then
   info "Editing configuration.nix"
   info "Press enter to continue..."
   read
-  nvim "hosts/$HOST_NAME/configuration.nix"
+  if [[ $use_encryption == "y" ]]; then
+    sed -i '/zfs.encryption/s/false/true/' "hosts/$HOST_NAME/configuration.nix"
+  fi
+  $hostId=$(head -c 8 /etc/machine-id)
+  sed -i "/networking.hostId/s/placeholder/$hostId" "hosts/$HOST_NAME/configuration.nix"
+  sed -i "/hostname/s/placeholder/$HOST_NAME" "hosts/$HOST_NAME/configuration.nix"
   info "Adding configuration to flake.nix"
   sed -i "/nixosConfigurations = {/a \ \ \ \ \ \ $HOST_NAME = mkConfig {name = \"$HOST_NAME\";};" flake.nix
   info "Commiting changes"
   git add -A
   git commit -m "Hosts: added $HOST_NAME"
   git push
+  info "Installing NixOS configuration for host $HOST_NAME"
+else
+  info "Installinx NixOS configuration for host $HOST"
 fi
 
-info "Installing NixOS"
 info "Press enter to continue..."
 read
 sudo nixos-install --no-root-password --flake .#$HOST

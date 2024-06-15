@@ -15,7 +15,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostId = "da728aa0"; # FIXME
+  networking.hostId = "placeholder";
 
   settings = {
     locale = {
@@ -26,7 +26,7 @@
     user.name = globalSettings.username;
     networking = {
       enable = true;
-      hostname = "vm-nix"; # FIXME
+      hostname = "placeholder"; # FIXME
     };
     utils.enable = true;
     console = {
@@ -36,7 +36,7 @@
     sops.enable = true;
 
     zfs.enable = true;
-    zfs.encryption = true; # Disable this if you did not enable zfs encryption
+    zfs.encryption = false;
     zfs.snapshots = true;
     impermanence.enable = true;
   };
