@@ -128,17 +128,10 @@ info "Importing GPG key"
 gpg --import gpg-key.asc
 info "Cloning configuration"
 git clone git@github.com:LilleAila/dotfiles
-cd dotfiles
+cd $HOME/dotfiles
 info "Decrypting secrets"
 git-crypt unlock
 
-# TODO implement choosing hosts (fzf?) and handle case where host does not already exist
-# - copy minimal config (vm)
-# - generate hardware config (without disks)
-# - commit
-# - push (gpg and ssh keys are preconfigured on iso)
-# - proceed to install
-# HOST=$(find hosts/ -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | fzf)
 HOST=$(echo "Configure a new host" | cat - <(nix flake show . --json 2>/dev/null | jq --raw-output '.nixosConfigurations | keys[]') | fzf --header="Choose a host to install")
 
 if [ "$HOST" == "Configure a new host" ]; then
