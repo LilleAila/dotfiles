@@ -63,6 +63,7 @@
 
     # services.hardware.openrgb.enable = true;
     hardware.keyboard.qmk.enable = true;
+    settings.persist.home.directories = ["qmk_firmware"];
     # Allow read/write to ttyACM0 serial port
     # Allow dotool as non-root user (in input group)
     services.udev.extraRules = ''
