@@ -44,6 +44,7 @@ in {
           directories =
             [
               "devel"
+              "dotfiles"
               ".cache/dconf"
               ".config/dconf"
             ]

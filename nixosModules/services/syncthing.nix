@@ -17,6 +17,14 @@ in {
 
   config = lib.mkMerge [
     (lib.mkIf config.settings.syncthing.enable {
+      settings.persist.home.directories = [
+        "Sync"
+        "Documents/Obsidian Vault"
+        ".factorio"
+        "org"
+        ".local/share/PrismLauncher/instances"
+      ];
+
       # Config panel at http://127.0.0.1:8384/
       # Go to the config panel to find the device ID
       # TODO: configure syncthing keys and certs for different computers using sops
