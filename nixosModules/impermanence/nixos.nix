@@ -28,6 +28,11 @@
         default = [];
         description = "Files to persist in home directory";
       };
+      cache = lib.mkOption {
+        type = with lib.types; listOf str;
+        default = [];
+        description = "Files to persist in home directory, but not to snapshot";
+      };
     };
   };
 }

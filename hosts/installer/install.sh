@@ -157,9 +157,13 @@ if [ "$HOST" == "Configure a new host" ]; then
   git push
   info "Installing NixOS configuration for host $HOST_NAME"
 else
-  info "Installinx NixOS configuration for host $HOST"
+  info "Installing NixOS configuration for host $HOST"
 fi
 
 info "Press enter to continue..."
 read
 sudo nixos-install --no-root-password --flake .#$HOST
+
+info "Copying secrets"
+sudo mkdir -p /mnt/cache/.config/sops/age/keys.txt
+sudo cat $HOME/.config/sops/ags/keys.txt > /mnt/cache/.config/sops/age/keys.txt
