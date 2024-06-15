@@ -23,9 +23,7 @@
         defaultSopsFile = ../../secrets/secrets.yaml;
       };
 
-      # Conflicts with the one created in install.sh for impermanence
-      # TODO: make it write this file only if impermanence disabled
-      # home.file.".config/sops/age/keys.txt".source = ../../secrets/sops-key.txt;
+      home.file.".config/sops/age/keys.txt".source = ../../secrets/sops-key.txt;
     })
   ];
 }
