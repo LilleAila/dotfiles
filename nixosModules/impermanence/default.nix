@@ -11,14 +11,11 @@
 in {
   options.settings.impermanence.enable = lib.mkEnableOption "impermanence";
 
-  imports =
-    [
-      inputs.impermanence.nixosModules.impermanence
-    ]
-    ++ lib.optionals config.settings.impermanence.enable [
-      ./nixos.nix
-      ./hm.nix
-    ];
+  imports = [
+    inputs.impermanence.nixosModules.impermanence
+    ./nixos.nix
+    ./hm.nix
+  ];
 
   config = lib.mkIf config.settings.impermanence.enable (lib.mkAssert (config.settings.zsh.enable == true) {
     boot.tmp.cleanOnBoot = true;
