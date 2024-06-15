@@ -36,7 +36,7 @@
       extraGroups = ["wheel" "input" "dialout"];
       packages = with pkgs; [];
       shell = shell;
-      initialPassword = "Password123";
+      initialPassword = "";
     };
 
     environment.shells = [config.settings.user.shell];
