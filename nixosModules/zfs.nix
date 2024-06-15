@@ -14,7 +14,8 @@
   config = lib.mkIf config.settings.zfs.enable {
     boot = {
       supportedFilesystems.zfs = true;
-      kernelPackages = pkgs.linuxPackages_latest;
+      # kernelPackages = pkgs.linuxPackages_latest;
+      kernelPackages = lib.mkForce config.boot.zfs.package.latestCompatibleLinuxPackages;
       zfs = {
         devNodes = lib.mkDefault "/dev/disk/by-id";
         package = pkgs.zfs_unstable;
