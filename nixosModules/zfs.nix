@@ -17,7 +17,7 @@
       # kernelPackages = pkgs.linuxPackages_latest;
       kernelPackages = lib.mkForce config.boot.zfs.package.latestCompatibleLinuxPackages;
       zfs = {
-        devNodes = lib.mkDefault "/dev/disk/by-id";
+        devNodes = lib.mkDefault "/dev/disk/by-partuuid"; # by-id for intel, by-partuuid for amd
         package = pkgs.zfs_unstable;
         requestEncryptionCredentials = config.settings.zfs.encryption;
       };
