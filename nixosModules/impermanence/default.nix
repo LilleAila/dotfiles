@@ -17,7 +17,7 @@ in {
     ./hm.nix
   ];
 
-  config = lib.mkIf config.settings.impermanence.enable (lib.mkAssert (config.settings.zsh.enable == true) {
+  config = lib.mkIf config.settings.impermanence.enable {
     boot.tmp.cleanOnBoot = true;
 
     fileSystems."/" = {
@@ -61,5 +61,5 @@ in {
         };
       };
     };
-  });
+  };
 }
