@@ -35,6 +35,9 @@
     sops.enable = true;
 
     zfs.enable = true;
+    zfs.encryption = true;
+    zfs.snapshots = true;
+    impermanence.enable = true;
   };
 
   programs.gnupg.agent = {
