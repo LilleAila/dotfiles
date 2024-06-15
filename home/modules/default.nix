@@ -24,10 +24,7 @@
         defaultSopsFile = ../../secrets/secrets.yaml;
       };
 
-      # NOTE: when setting up a new machine, `nixos-rebuild switch` has to be run twice.
-      # The first time, this file is written, but the 'setupSecretsForUsers' activation script failes
-      # Then, it has to be run a second time to decrypt all the SOPS secrets.
-      # FIXME: put this key into the install media or something instead of using secrets (or do something like git-crypt?)
+      # FIXME: with impermanence, this file is not recognised
       home.file.".config/sops/age/keys.txt".source = ../../secrets/sops-key.txt;
     })
   ];
