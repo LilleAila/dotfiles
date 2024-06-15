@@ -142,9 +142,23 @@ git-crypt unlock
 HOST=$(echo "Configure a new host" | cat - <(nix flake show . --json 2>/dev/null | jq --raw-output '.nixosConfigurations | keys[]') | fzf --header="Choose a host to install")
 
 if [ "$HOST" == "Configure a new host" ]; then
-  echo "Configuring new host..."
-  # TODO
+  info "Configuring new host..."
+  read -r "Name for the new host: " HOST_NAME
+  cp -r hosts/template "hosts/$HOST_NAME"
+  sudo nixos-generate-config --no-filesystems --show-hardware-config > "hosts/$HOST_NAME/hardware-configuration.nix"
+  info "Editing configuration.nix"
+  info "Press enter to continue..."
+  read
+  nvim "hosts/$HOST_NAME/configuration.nix"
+  info "Adding configuration to flake.nix"
+  sed -i "/nixosConfigurations = {/a \ \ \ \ \ \ $HOST_NAME = mkConfig {name = \"$HOST_NAME\";};" flake.nix
+  info "Commiting changes"
+  git add -A
+  git commit -m "Hosts: added $HOST_NAME"
+  git push
 fi
 
 info "Installing NixOS"
+info "Press enter to continue..."
+read
 sudo nixos-install --no-root-password --flake .#$HOST
