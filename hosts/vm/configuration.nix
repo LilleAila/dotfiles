@@ -16,6 +16,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  networking.hostId = "da728aa0";
+
   settings = {
     locale = {
       main = "en_US.UTF-8";
