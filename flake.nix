@@ -79,7 +79,7 @@
       };
 
       vm-nix = mkConfig {
-        name = "vm";
+        name = "vm-nix";
       };
 
       installer = mkConfig {
