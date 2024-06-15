@@ -14,7 +14,6 @@
     inputs.nix-colors.homeManagerModules.default
   ];
 
-  # FIXME ? not set to true by default?
   options.settings.sops.enable = lib.mkDisableOption "sops";
 
   config = lib.mkMerge [
@@ -24,7 +23,6 @@
         defaultSopsFile = ../../secrets/secrets.yaml;
       };
 
-      # FIXME: with impermanence, this file is not recognised
       home.file.".config/sops/age/keys.txt".source = ../../secrets/sops-key.txt;
     })
   ];

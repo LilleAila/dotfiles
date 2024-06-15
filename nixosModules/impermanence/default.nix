@@ -18,8 +18,8 @@ in {
   ];
 
   config = lib.mkIf config.settings.impermanence.enable {
-    sops.age.keyFile = "/persist/home/${config.settings.user.name}/.config/sops/age/keys.txt";
-    settings.persist.home.directories = [".config/sops/age"];
+    # sops.age.keyFile = "/persist/home/${config.settings.user.name}/.config/sops/age/keys.txt";
+    # settings.persist.home.directories = [".config/sops/age"];
     # settings.persist.home.files = [".config/sops/age/keys.txt"];
 
     boot.tmp.cleanOnBoot = true;
