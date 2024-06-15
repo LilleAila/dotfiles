@@ -14,7 +14,9 @@
   config = lib.mkIf (config.settings.sops.enable) {
     sops.defaultSopsFile = ../secrets/secrets.yaml;
     sops.defaultSopsFormat = "yaml";
-    sops.age.keyFile = "/home/${config.settings.user.name}/.config/sops/age/keys.txt";
+    sops.age.keyFile = "/persist/home/${config.settings.user.name}/.config/sops/age/keys.txt";
+
+    settings.persist.home.files = [".config/sops/age/keys.txt"];
 
     # This is the hashed password, from `echo "password" | mkpasswd -s`
     # Also delete from history with history -d <id>
