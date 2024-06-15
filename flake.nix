@@ -78,6 +78,10 @@
         extraModules = [nixos-hardware.nixosModules.common-cpu-amd nixos-hardware.nixosModules.common-gpu-amd];
       };
 
+      vm-nix = mkConfig {
+        name = "vm";
+      };
+
       installer = mkConfig {
         name = "installer";
         globalSettings.username = "nixos";
