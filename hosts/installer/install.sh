@@ -204,4 +204,5 @@ if [ -z "$username" ]; then
 fi
 sudo mkdir -p "/mnt/cache/home/$username/.config/sops/age"
 sudo cp secrets/sops-key.txt "/mnt/cache/home/$username/.config/sops/age/keys.txt"
+sudo cp secrets/gpg-key.asc "/mnt/cache/home/$username/"
 sudo chown -R 1000:100 "/mnt/cache/home/$username"

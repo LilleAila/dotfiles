@@ -51,6 +51,8 @@
       ];
     };
 
+    settings.persist.home.files = ["gpg-key.asc"];
+
     # services.gpg-agent = {
     #   enable = true;
     #   # Doesn't look the best, but it works /shrug
