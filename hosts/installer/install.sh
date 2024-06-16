@@ -153,7 +153,7 @@ sudo mount --mkdir -t zfs zroot/persist /mnt/persist
 info "Importing GPG key"
 gpg --import gpg-key.asc
 info "Cloning configuration"
-git clone "$repo_url"
+git clone "$repo_url" dotfiles
 cd $HOME/dotfiles
 info "Decrypting secrets"
 git-crypt unlock
