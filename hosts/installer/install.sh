@@ -192,7 +192,7 @@ fi
 
 info "Press enter to continue..."
 read
-sudo nixos-install --no-root-password --flake .#$HOST
+sudo nixos-install --no-root-password --flake .#$HOST --impure
 
 info "Copying secrets"
 # This assumes the user ID and group ID are set properly for the user
