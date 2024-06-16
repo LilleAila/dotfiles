@@ -142,19 +142,21 @@
     ];
 
     bindl = [
-      ", XF86AudioMute, exec, volumectl toggle-mute"
-      ", XF86AudioMicMute, exec, volumectl -m toggle-mute"
-      "SHIFT, XF86AudioMute, exec, volumectl -m toggle-mute"
-      ", XF86AudioPlay, exec, playerctl play-pause # the stupid key is called play , but it toggles "
-      ", XF86AudioNext, exec, playerctl next "
+      ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+      "SHIFT, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+      ", XF86AudioPlay, exec, playerctl play-pause"
+      ", XF86AudioNext, exec, playerctl next"
       ", XF86AudioPrev, exec, playerctl previous"
     ];
 
-    bindle = [
-      ", XF86AudioRaiseVolume, exec, volumectl -u up 10"
-      ", XF86AudioLowerVolume, exec, volumectl -u down 10"
-      "SHIFT, XF86AudioRaiseVolume, exec, volumectl -mu up 10"
-      "SHIFT, XF86AudioLowerVolume, exec, volumectl -mu down 10"
+    bindle = let
+      setvol = "wpctl set-volume -l 1";
+    in [
+      ", XF86AudioRaiseVolume, exec, ${setvol} @DEFAULT_AUDIO_SINK@ 10%+"
+      ", XF86AudioLowerVolume, exec, ${setvol} @DEFAULT_AUDIO_SINK@ 10%-"
+      "SHIFT, XF86AudioRaiseVolume, exec, ${setvol} @DEFAULT_AUDIO_SOURCE@ 10%+"
+      "SHIFT, XF86AudioLowerVolume, exec, ${setvol} @DEFAULT_AUDIO_SOURCE@ 10%-"
 
       ", XF86MonBrightnessUp, exec, brightnessctl set 15+"
       ", XF86MonBrightnessDown, exec, brightnessctl set 15-"

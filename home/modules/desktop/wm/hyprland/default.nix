@@ -29,7 +29,6 @@
       # Random dependencies and stuff
       home.packages = with pkgs; [
         libnotify
-        avizo
         pamixer
         pavucontrol
         playerctl

@@ -41,7 +41,7 @@ in {
         ags.enable = mkDefault true;
         hyprland.enable = mkDefault true;
         sway.enable = mkDefault false;
-        avizo.enable = mkDefault true;
+        avizo.enable = mkDefault false;
         hypridle.enable = mkDefault true;
         # hypridle.inhibit = [
         #   "cstimer"
