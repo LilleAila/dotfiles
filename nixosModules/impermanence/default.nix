@@ -46,13 +46,7 @@ in {
 
         users.${user} = {
           files = cfg.home.files ++ hmCfg.home.files;
-          directories =
-            [
-              "devel"
-              "dotfiles"
-            ]
-            ++ cfg.home.directories
-            ++ hmCfg.home.directories;
+          directories = cfg.home.directories ++ hmCfg.home.directories;
         };
       };
 

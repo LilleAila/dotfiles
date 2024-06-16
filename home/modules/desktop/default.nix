@@ -93,6 +93,12 @@ in {
         nerd.name = mkDefault "JetBrainsMono Nerd Font";
         size = mkDefault 10;
       };
+
+      persist.home.directories = [
+        "devel"
+        "dotfiles"
+        ".config/plover"
+      ];
     };
 
     settings.webapps.chromium = {
