@@ -25,11 +25,12 @@
       networking.networkmanager.enable = true;
       users.users."${config.settings.user.name}".extraGroups = ["networkmanager"];
       settings.networking.enable = true;
-      networking.networkmanager.wifi.backend = "iwd";
-      networking.wireless.iwd = {
-        enable = true;
-        settings.General.EnableNetworkConfiguration = true;
-      };
+      # networking.networkmanager.wifi.backend = "iwd";
+      # networking.wireless.iwd = {
+      #   enable = true;
+      #   settings.General.EnableNetworkConfiguration = true;
+      # };
+      settings.persist.root.cache = ["/etc/NetworkManager/system-connections"];
     })
     (lib.mkIf (config.settings.networking.rtl8852be.enable) {
       # Things to make realtek wifi card work

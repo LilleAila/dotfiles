@@ -16,6 +16,7 @@ in {
   };
 
   config = lib.mkIf (config.settings.terminal.zsh.enable) {
+    settings.persist.home.cache_files = [".zsh_history"];
     programs.zsh = {
       enable = true;
       enableCompletion = true;

@@ -51,15 +51,7 @@
       ];
     };
 
-    settings.persist.home.files = ["gpg-key.asc"];
-
-    # services.gpg-agent = {
-    #   enable = true;
-    #   # Doesn't look the best, but it works /shrug
-    #   pinentryPackage = pkgs.pinentry-qt;
-    # };
-
-    # sops.secrets."gpg/primary".path = "${config.home.homeDirectory}/.gnupg/private-keys-v1.d/${keys.gpg.primary}.key";
-    # sops.secrets."gpg/subkey".path = "${config.home.homeDirectory}/.gnupg/private-keys-v1.d/${keys.gpg.subkey}.key";
+    settings.persist.home.cache_files = ["gpg-key.asc"];
+    settings.persist.home.cache = [".gnupg"];
   };
 }

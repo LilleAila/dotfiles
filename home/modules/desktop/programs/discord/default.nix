@@ -21,6 +21,8 @@ in {
         vesktop
       ];
 
+      settings.persist.home.cache = [".config/vesktop"];
+
       home.file.".config/vesktop/settings.json" = {
         source =
           pkgs.writeText "settings.json"

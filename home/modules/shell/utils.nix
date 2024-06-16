@@ -89,6 +89,8 @@
       nix-direnv.enable = true;
     };
 
+    settings.persist.home.cache = [".local/share/direnv" ".local/share/zoxide"];
+
     home.packages = with pkgs; [
       nurl
       sops

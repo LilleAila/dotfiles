@@ -61,6 +61,7 @@
       };
     })
     {
+      settings.persist.home.directories = [".mozilla"];
       programs.firefox = {
         enable = true;
         package = lib.mkDefault pkgs.firefox;

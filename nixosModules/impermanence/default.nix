@@ -65,6 +65,7 @@ in {
 
         users.${user} = {
           directories = hmCfg.home.cache ++ cfg.home.cache;
+          files = hmCfg.home.cache_files;
         };
       };
     };

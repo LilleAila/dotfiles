@@ -9,6 +9,7 @@
   options.settings.greeter.enable = lib.mkEnableOption "greeter";
 
   config = lib.mkIf (config.settings.greeter.enable) {
+    settings.persist.root.cache = ["/var/cache/tuigreet"];
     services.greetd = {
       enable = true;
       settings = {
