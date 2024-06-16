@@ -33,14 +33,16 @@ if ping -c 1 "8.8.8.8" &> /dev/null; then
 else
   cat << Network
 Your network is disconnected. Connect using the following commands, then re-run the installer:
-wpa_passphrase ESSID | sudo tee /etc/wpa_supplicant.conf
-sudo systemctl restart wpa_supplicant
-, replacing ESSID with the name of your wifi network
+sudo su
+wpa_supplicant -B -i wlp3n0 -c <(wpa_passphrase ESSID key)
+exit
+, replacing ESSID and key with the ESSID and key of your network
 Network
   exit 1
 fi
 
 cat << Introduction
+
 This script will format the *entire* disk with a 1GB boot partition
 (labelled NIXBOOT), 16GB of swap, then allocating the rest to ZFS.
 
@@ -59,16 +61,16 @@ while true; do
   read -p "The NAME of the disk to format: " DISKINPUT
   DISK="/dev/${DISKINPUT}"
   if [ -b "$DISK" ]; then
-    echo "\e[1;35mSelected disk:\e[0m $DISKINPUT"
+    echo -e "\e[1;35mSelected disk:\e[0m $DISKINPUT"
     break
   else
     info "Invalid disk name $DISKINPUT"
   fi
 done
 if [[ $DISKINPUT == nvme* ]]; then
-  BOOTDISK="${DISK}p1"
+  BOOTDISK="${DISK}p3"
   SWAPDISK="${DISK}p2"
-  ZFSDISK="${DISK}p3"
+  ZFSDISK="${DISK}p1"
 else
   BOOTDISK="${DISK}3"
   SWAPDISK="${DISK}2"
