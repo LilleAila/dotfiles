@@ -40,11 +40,14 @@
     sops.enable = true;
     yubikey.enable = true;
     virtualisation.enable = true;
+
+    zfs.enable = true;
+    zfs.encryption = true;
+    zfs.snapshots = true;
+    impermanence.enable = true;
   };
 
   services.thermald.enable = true;
-
-  system.stateVersion = "24.05";
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -130,4 +133,5 @@
       DEVICES_TO_ENABLE_ON_LAN_DISCONNECT = "wifi";
     };
   };
+  system.stateVersion = "24.11";
 }
