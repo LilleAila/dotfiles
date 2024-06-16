@@ -12,6 +12,8 @@
     ../../nixosModules
   ];
 
+  networking.hostId = "cc76db3f";
+
   settings = {
     greeter.enable = true;
     xserver.xwayland.enable = true;
