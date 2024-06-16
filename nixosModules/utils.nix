@@ -18,8 +18,8 @@
     programs.nh = {
       enable = true;
       flake = "/home/olai/dotfiles";
-      clean.enable = true;
-      clean.extraArgs = "--nogcroots --keep-since 4d --keep 4";
+      # clean.enable = true;
+      # clean.extraArgs = "--nogcroots --keep-since 4d --keep 4";
     };
 
     programs.nano.enable = false;

@@ -27,6 +27,13 @@
     # _module.args.util = import ../lib lib;
 
     nix = {
+      optimise.automatic = true;
+
+      gc = {
+        automatic = true;
+        options = "--keep 5 --nogcroots";
+      };
+
       settings = {
         experimental-features = ["nix-command" "flakes"];
 
