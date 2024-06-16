@@ -16,6 +16,11 @@
         default = [];
         description = "Directories to persist, but not to snapshot";
       };
+      cache_files = lib.mkOption {
+        type = with lib.types; listOf str;
+        default = [];
+        description = "Files to persist in root filesystem, but not to snapshot";
+      };
     };
     home = {
       directories = lib.mkOption {

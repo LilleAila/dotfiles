@@ -13,7 +13,16 @@
     programs.xfconf.enable = true;
     services.gvfs.enable = true;
     settings.persist.home.cache = [".local/share/gvfs-metadata"];
+    settings.persist.home.directories = [".cache/dconf" ".config/dconf" "qmk_firmware"];
     # services.printing.enable = true;
+
+    hardware.keyboard.qmk.enable = true;
+    # Allow read/write to ttyACM0 serial port
+    # Allow uinput as non-root user (in input group)
+    services.udev.extraRules = ''
+      KERNEL=="ttyACM0", MODE="0666"
+      KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
+    '';
 
     environment.sessionVariables.NIXOS_ACTIVE_SPECIALISATION = lib.mkDefault "default";
 
@@ -61,16 +70,6 @@
     };
 
     xdg.autostart.enable = true;
-
-    # services.hardware.openrgb.enable = true;
-    hardware.keyboard.qmk.enable = true;
-    settings.persist.home.directories = ["qmk_firmware"];
-    # Allow read/write to ttyACM0 serial port
-    # Allow dotool as non-root user (in input group)
-    services.udev.extraRules = ''
-      KERNEL=="ttyACM0", MODE="0666"
-      KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
-    '';
 
     environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";

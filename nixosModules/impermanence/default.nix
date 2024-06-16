@@ -20,7 +20,6 @@ in {
   config = lib.mkIf config.settings.impermanence.enable {
     sops.age.keyFile = "/persist/cache/home/${config.settings.user.name}/.config/sops/age/keys.txt";
     settings.persist.home.cache = [".config/sops/age"];
-    # settings.persist.home.files = [".config/sops/age/keys.txt"];
     # With impermanence, the file can not be managed by nix
     hm.home.file.".config/sops/age/keys.txt".enable = false;
 
@@ -51,8 +50,6 @@ in {
             [
               "devel"
               "dotfiles"
-              ".cache/dconf"
-              ".config/dconf"
             ]
             ++ cfg.home.directories
             ++ hmCfg.home.directories;
@@ -61,7 +58,8 @@ in {
 
       "/persist/cache" = {
         hideMounts = true;
-        directories = cfg.root.cache;
+        files = cfg.root.cache_files;
+        directories = ["/var/lib/systemd/backlight"] ++ cfg.root.cache;
 
         users.${user} = {
           directories = hmCfg.home.cache ++ cfg.home.cache;
