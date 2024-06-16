@@ -41,6 +41,11 @@
           vimdiff = "nvim -d";
           diff = "nvim -d";
         };
+
+        settings.persist.home.directories = [
+          ".local/share/nvim"
+          ".local/state/nvim"
+        ];
       }
       (lib.mkIf (config.settings.terminal.emulator.enable) {
         xdg.desktopEntries.nvim = {

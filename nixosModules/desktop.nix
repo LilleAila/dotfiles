@@ -12,6 +12,7 @@
     programs.dconf.enable = true;
     programs.xfconf.enable = true;
     services.gvfs.enable = true;
+    settings.persist.home.cache = [".local/share/gvfs-metadata"];
     # services.printing.enable = true;
 
     environment.sessionVariables.NIXOS_ACTIVE_SPECIALISATION = lib.mkDefault "default";

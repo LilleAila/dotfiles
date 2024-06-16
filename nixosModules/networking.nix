@@ -17,6 +17,7 @@
     (lib.mkIf (config.settings.networking.bluetooth.enable) {
       hardware.bluetooth.enable = true;
       services.blueman.enable = true;
+      settings.persist.root.cache = ["/var/lib/bluetooth"];
     })
     (lib.mkIf (config.settings.networking.enable) {
       networking.hostName = config.settings.networking.hostname;

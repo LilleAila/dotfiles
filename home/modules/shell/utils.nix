@@ -89,7 +89,12 @@
       nix-direnv.enable = true;
     };
 
-    settings.persist.home.cache = [".local/share/direnv" ".local/share/zoxide" ".ssh"];
+    settings.persist.home.cache = [
+      ".local/share/direnv"
+      ".local/share/zoxide"
+      ".ssh"
+      ".cache/nix-index"
+    ];
 
     home.packages = with pkgs; [
       nurl

@@ -24,6 +24,8 @@
       wayland.windowManager.hyprland.package = pkgs.hyprland;
     })
     (lib.mkIf (config.settings.wm.hyprland.enable) {
+      settings.persist.home.cache = [".cache/hyprland"];
+
       # Random dependencies and stuff
       home.packages = with pkgs; [
         libnotify

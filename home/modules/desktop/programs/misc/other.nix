@@ -69,12 +69,22 @@
         templates = null;
       };
 
+      settings.persist.home.directories = [
+        "Documents"
+        "Pictures"
+        "Music"
+        "Videos"
+        # "Downloads"
+      ];
+
       programs.mpv = {
         enable = true;
         config = {
           keep-open = "always";
         };
       };
+
+      settings.persist.home.cache = [".local/state/mpv"];
 
       programs.obs-studio = {
         enable = true;
