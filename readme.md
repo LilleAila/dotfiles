@@ -30,8 +30,8 @@ Riced with [nix-colors](https://github.com/Misterio77/nix-colors) using [gruvbox
 - Window Manager: [Hyprland](https://hyprland.org)
 - Bar: [AGS](https://aylur.github.io/ags-docs/) ([config](https://github.com/LilleAila/ags-config))
 - Terminal Emulator: [kitty](https://sw.kovidgoyal.net/kitty)
-- Shell: [Zsh](https://www.zsh.org/) with [Oh my Zsh](https://ohmyz.sh/), and the [nanotech](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#nanotech) theme
-- Editor(s): [Neovim](https://neovim.io) ([config](https://github.com/LilleAila/nvim-nix))
+- Shell: [Zsh](https://www.zsh.org/)
+- Editor: [Neovim](https://neovim.io) ([config](https://github.com/LilleAila/nvim-nix))
 - Discord: [Vesktop](https://github.com/Vencord/Vesktop)
 
 ## Hardware
