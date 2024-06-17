@@ -43,7 +43,9 @@
     ssh.keys = with keys.ssh; [
       e14g5.public
       legion.public
+      mac.public
     ];
+    yubikey.enable = true;
   };
 
   system.stateVersion = "24.05";

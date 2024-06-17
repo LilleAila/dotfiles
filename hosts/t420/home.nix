@@ -4,6 +4,7 @@
   inputs,
   lib,
   keys,
+  outputs,
   ...
 }: {
   imports = [../../home];
@@ -12,7 +13,9 @@
     monitors = [
       {
         name = "LVDS-1";
-        wallpaper = ./wallpapers/wall13.jpg;
+        wallpaper = outputs.packages.${pkgs.system}.wallpaper2.override {
+          colorScheme = config.colorScheme;
+        };
       }
     ];
     desktop.enable = true;
