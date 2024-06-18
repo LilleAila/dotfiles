@@ -1,6 +1,5 @@
 # https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=libfprint-fpcmoh-git
 {
-  tree,
   lib,
   stdenv,
   fetchFromGitLab,
@@ -75,7 +74,6 @@ in
       docbook-xsl-nons
       docbook_xml_dtd_43
       gobject-introspection
-      tree
     ];
 
     buildInputs = [
@@ -103,6 +101,11 @@ in
     doCheck = false;
 
     doInstallCheck = true;
+
+    postInstall = ''
+      install -D $libfpcbep_path $out/lib/libfpcbep.so
+      patchelf --replace-needed $libfpcbep_path lib/libfpcbep.so libfprint/libfprint-2.so
+    '';
 
     installCheckPhase = ''
       runHook preInstallCheck
