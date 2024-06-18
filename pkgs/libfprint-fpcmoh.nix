@@ -31,6 +31,13 @@
     sha256 = "sha256-/buXlp/WwL16dsdgrmNRxyudmdo9m1HWX0eeaARbI3Q=";
     stripRoot = false;
   };
+  # libfpcbep = stdenv.mkDerivation {
+  #   src = driver_src;
+  #   buildPhase = ''
+  #     libfpcbep_path=$(find ${driver_src} -name 'libfpcbep.so')
+  #     cp -f $libfpcbep_path .
+  #   '';
+  # };
 in
   stdenv.mkDerivation rec {
     pname = "libfprint";
@@ -104,7 +111,9 @@ in
 
     postInstall = ''
       install -D $libfpcbep_path $out/lib/libfpcbep.so
-      patchelf --replace-needed $libfpcbep_path lib/libfpcbep.so libfprint/libfprint-2.so
+      # patchelf --replace-needed libfpcbep.so $out/lib/libfpcbep.so libfprint/libfprint-2.so
+      # patchelf --add-needed libfpcbep.so libfprint/libfprint-2.so
+      install -Dm644 ${driver_src}/FPC_driver_linux_libfprint/install_libfprint/lib/udev/rules.d/60-libfprint-2-device-fpc.rules $out/lib/udev/rules.d/60-libfprint-2-device-fpc.rules
     '';
 
     installCheckPhase = ''
