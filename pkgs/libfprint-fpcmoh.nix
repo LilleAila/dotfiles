@@ -31,13 +31,19 @@
     sha256 = "sha256-/buXlp/WwL16dsdgrmNRxyudmdo9m1HWX0eeaARbI3Q=";
     stripRoot = false;
   };
-  # libfpcbep = stdenv.mkDerivation {
-  #   src = driver_src;
-  #   buildPhase = ''
-  #     libfpcbep_path=$(find ${driver_src} -name 'libfpcbep.so')
-  #     cp -f $libfpcbep_path .
-  #   '';
-  # };
+
+  # idk if i should use this or not
+  libfpcbep = stdenv.mkDerivation {
+    src = driver_src;
+    buildPhase = ''
+      libfpcbep_path=$(find ${driver_src} -name 'libfpcbep.so')
+      cp -f $libfpcbep_path .
+    '';
+    installPhase = ''
+      mkdir -p $out/lib
+      install -D $libfpcbep_path $out/lib/libfpcbep.so
+    '';
+  };
 in
   stdenv.mkDerivation rec {
     pname = "libfprint";
