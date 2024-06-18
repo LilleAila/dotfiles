@@ -85,7 +85,7 @@
   ];
 
   services.fprintd = {
-    enable = true;
+    enable = false;
   };
 
   # settings.nix.unfree = [
@@ -117,7 +117,7 @@
         turbo = "auto";
         # cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
         governor = "powersave";
-        energy_performance_preference = "performance";
+        energy_performance_preference = "balance_power"; # balance_performance?
         # cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq
         scaling_min_freq = 400000; # (400 mHz in kHz)
         # cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq
@@ -139,7 +139,7 @@
   };
 
   services.tlp = {
-    enable = true;
+    enable = false;
     settings = {
       # Values commented out are managed by auto-cpufreq instead
       # TLP is only used for GPU and disabling / enabling devices
