@@ -31,6 +31,8 @@
   };
 
   config = {
+    settings.persist.home.cache = [".cache/chromium"];
+
     xdg.desktopEntries =
       lib.attrsets.mapAttrs'
       (name: cfg:
@@ -45,5 +47,7 @@
           type = "Application";
         })
       (config.settings.webapps.chromium);
+
+    settings.persist.home.directories = lib.attrsets.mapAttrsToList (name: cfg: ".config/chromium/${name}") config.settings.webapps.chromium;
   };
 }

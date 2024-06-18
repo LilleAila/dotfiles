@@ -64,14 +64,11 @@
       with ps; [
         plover_uinput
         plover-lapwing-aio
-        # plover_dict_commands
-        # plover_last_translation
-        # plover-modal-dictionary
-        # plover_python_dictionary
-        # plover_stitching
       ]))
     geogebra6
   ];
+
+  settings.persist.home.cache = [".config/inkscape"];
 
   sops.secrets."ssh/legion".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
   home.file.".ssh/id_ed25519.pub".text = keys.ssh.legion.public;

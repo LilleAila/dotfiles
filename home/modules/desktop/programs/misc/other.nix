@@ -74,7 +74,11 @@
         "Pictures"
         "Music"
         "Videos"
-        # "Downloads"
+      ];
+
+      settings.persist.home.cache = [
+        "Downloads"
+        ".local/state/mpv"
       ];
 
       programs.mpv = {
@@ -83,8 +87,6 @@
           keep-open = "always";
         };
       };
-
-      settings.persist.home.cache = [".local/state/mpv"];
 
       programs.obs-studio = {
         enable = true;

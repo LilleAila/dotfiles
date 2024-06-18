@@ -101,6 +101,7 @@
       sops
       tldr
       file
+      wget
     ];
   };
 }

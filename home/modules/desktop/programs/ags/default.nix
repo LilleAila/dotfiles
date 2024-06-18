@@ -22,6 +22,8 @@
       ];
     };
 
+    settings.persist.home.cache = [".cache/ags"];
+
     home.file.".config/ags".source = inputs.ags-config.packages.${pkgs.system}.default.override {
       colorScheme = config.colorScheme;
     };
