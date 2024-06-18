@@ -19,6 +19,9 @@ in {
 
   plymouth-theme = pkgs.callPackage ./plymouth-theme {inherit colorScheme;};
 
+  libfprint-2-tod1-fpc = pkgs.callPackage ./e14g5-fpc.nix {};
+  libfprint-fpcmoh = pkgs.callPackage ./libfprint-fpcmoh.nix {};
+
   # Works but extremely slow
   # nerdfont_patcher = pkgs.callPackage ./nerdfonts.nix {};
 }

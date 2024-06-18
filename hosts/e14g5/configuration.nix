@@ -78,6 +78,18 @@
     driSupport32Bit = true;
   };
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      libfprint = prev.callPackage ../../pkgs/libfprint-fpcmoh.nix {};
+    })
+  ];
+
+  services.fprintd = {
+    enable = true;
+    # tod.enable = true;
+    # tod.driver = outputs.packages.${pkgs.system}.libfprint-2-tod1-fpc;
+  };
+
   # settings.nix.unfree = [
   #   # "libfprint-2-tod1-goodix-550a"
   #   # "libfprint-2-tod1-goodix"
