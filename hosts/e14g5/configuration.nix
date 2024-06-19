@@ -138,6 +138,7 @@
     };
   };
 
+  # i have to fix power management some time..
   services.tlp = {
     enable = false;
     settings = {
