@@ -111,7 +111,7 @@
   services.thermald.enable = true;
 
   services.auto-cpufreq = {
-    enable = true;
+    enable = false;
     settings = {
       charger = {
         turbo = "auto";
@@ -140,15 +140,15 @@
 
   # i have to fix power management some time..
   services.tlp = {
-    enable = false;
+    enable = true;
     settings = {
       # Values commented out are managed by auto-cpufreq instead
       # TLP is only used for GPU and disabling / enabling devices
       # Using both at the same time is not recommended, but meh what could go wrong?
 
-      # START_CHARGE_THRESH_BAT0 = 75;
-      # STOP_CHARGE_THRESH_BAT0 = 80;
-      # RESTORE_THRESHOLDS_ON_BAT = 1;
+      START_CHARGE_THRESH_BAT0 = 75;
+      STOP_CHARGE_THRESH_BAT0 = 80;
+      RESTORE_THRESHOLDS_ON_BAT = 1;
 
       RADEON_DPM_PERF_LEVEL_ON_AC = "high";
       RADEON_DPM_PERF_LEVEL_ON_BAT = "low";
@@ -165,16 +165,16 @@
       # https://github.com/AdnanHodzic/auto-cpufreq/discussions/176
       # Loud high-pitched fan noise under load, so a bit of power is sacrificed
       # https://linrunner.de/tlp/support/optimizing.html#reduce-power-consumption-fan-noise-on-ac-power
-      # CPU_ENERGY_PERF_POLICY_ON_AC = "balance_power";
-      # CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-      # PLATFORM_PROFILE_ON_AC = "performance";
-      # PLATFORM_PROFILE_ON_BAT = "low-power";
-      # CPU_BOOST_ON_AC = 1;
-      # CPU_BOOST_ON_BAT = 0;
-      # CPU_HWP_DYN_BOOST_ON_AC = 1;
-      # CPU_HWP_DYN_BOOST_ON_BAT = 0;
-      # RUNTIME_PM_ON_AC = "auto";
-      # RUNTIME_PM_ON_BAT = "auto";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "balance_power";
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      PLATFORM_PROFILE_ON_AC = "performance";
+      PLATFORM_PROFILE_ON_BAT = "low-power";
+      CPU_BOOST_ON_AC = 1;
+      CPU_BOOST_ON_BAT = 0;
+      CPU_HWP_DYN_BOOST_ON_AC = 1;
+      CPU_HWP_DYN_BOOST_ON_BAT = 0;
+      RUNTIME_PM_ON_AC = "auto";
+      RUNTIME_PM_ON_BAT = "auto";
 
       USB_AUTOSUSPEND = 1;
       USB_EXCLUDE_AUDIO = 1;
