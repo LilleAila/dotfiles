@@ -27,27 +27,18 @@ in {
 
       settings.persist.home.cache = [".config/vesktop"];
 
-      home.file.".config/vesktop/settings.json" = {
-        source =
-          pkgs.writeText "settings.json"
-          /*
-          json
-          */
-          ''
-            {
-                "splashColor": "#${config.colorScheme.palette.base05}",
-                "splashBackground": "#${config.colorScheme.palette.base01}",
-                "customTitleBar": false,
-                "staticTitle": true,
-                "splashTheming": true,
-                "tray": false,
-                "minimizeToTray": false,
-                "disableMinSize": true,
-                "appBadge": false,
-                "checkUpdates": false,
-                "arRPC": true
-            }
-          '';
+      home.file.".config/vesktop/settings.json".text = builtins.toJSON {
+        splashColor = "#${config.colorScheme.palette.base05}";
+        splashBackground = "#${config.colorScheme.palette.base01}";
+        customTitleBar = false;
+        staticTitle = true;
+        splashTheming = true;
+        tray = false;
+        minimizeToTray = false;
+        disableMinSize = true;
+        appBadge = false;
+        checkUpdates = false;
+        arRPC = true;
       };
 
       home.file.".config/vesktop/settings/settings.json".source = jsonFormat.generate "vesktop-settings" config.settings.discord.vesktop.settings;
