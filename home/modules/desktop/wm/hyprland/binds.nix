@@ -158,8 +158,8 @@
       "SHIFT, XF86AudioRaiseVolume, exec, ${setvol} @DEFAULT_AUDIO_SOURCE@ 10%+"
       "SHIFT, XF86AudioLowerVolume, exec, ${setvol} @DEFAULT_AUDIO_SOURCE@ 10%-"
 
-      ", XF86MonBrightnessUp, exec, brightnessctl set 15+"
-      ", XF86MonBrightnessDown, exec, brightnessctl set 15-"
+      ", XF86MonBrightnessUp, exec, brightnessctl set 15%+"
+      ", XF86MonBrightnessDown, exec, brightnessctl set 15%-"
     ];
   };
 }
