@@ -50,6 +50,9 @@
 
   system.stateVersion = "24.05";
 
+  services.syncthing.settings.folders."Factorio Saves".enable = false;
+  services.syncthing.settings.folders."Minecraft".enable = false;
+
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
