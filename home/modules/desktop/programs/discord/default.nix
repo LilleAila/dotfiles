@@ -60,7 +60,7 @@ in {
           ClearURLS.enabled = true;
           CopyUserURLS.enabled = true;
           CrashHandler.enabled = true;
-          CtrlEnterSend.enabled = true;
+          # CtrlEnterSend.enabled = true;
           DisableCallIdle.enabled = true;
           EmoteCloner.enabled = true;
           FakeNitro.enabled = true;
