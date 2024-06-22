@@ -8,22 +8,25 @@
   options.settings.terminal.utils.enable = lib.mkEnableOption "utils";
 
   config = lib.mkIf (config.settings.terminal.utils.enable) {
-    home.shellAliases = {
-      cat = "${pkgs.bat}/bin/bat";
+    home.shellAliases =
+      {
+        cat = "${pkgs.bat}/bin/bat";
 
-      cd = "z";
-      open = "xdg-open";
-      o = "xdg-open";
-      img = "kitty +kitten icat";
-      c = ''cd $(find . -type d -not -path "*/.*" -not -path "." | fzf -m)'';
+        cd = "z";
+        open = "xdg-open";
+        o = "xdg-open";
+        img = "kitty +kitten icat";
+        c = ''cd $(find . -type d -not -path "*/.*" -not -path "." | fzf -m)'';
 
-      neofetch = "${lib.getExe pkgs.nitch}";
-
-      # osbuild = lib.mkDefault "nh os switch";
-      osbuild = lib.mkDefault "sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/dotfiles --fast --no-build-nix";
-      update-secrets = "nix flake lock --update-input secrets";
-      nix-collect-garbage = "nh clean all --nogcroots --keep 4";
-    };
+        neofetch = "${lib.getExe pkgs.nitch}";
+      }
+      // (let
+        flakePath = "${config.home.homeDirectory}/dotfiles";
+        remoteBuild = hostname: "nixos-rebuild switch --flake ${flakePath}#${hostname} --target-host olai@${hostname}.local --use-remote-sudo";
+      in {
+        osbuild = lib.mkDefault "sudo nixos-rebuild switch --flake ${flakePath}";
+        osbuild-t420 = remoteBuild "t420-nix";
+      });
 
     programs.ssh = {
       enable = true;

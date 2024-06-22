@@ -20,6 +20,7 @@
       settings.persist.root.cache = ["/var/lib/bluetooth"];
     })
     (lib.mkIf (config.settings.networking.enable) {
+      services.avahi.enable = true;
       networking.hostName = config.settings.networking.hostname;
     })
     (lib.mkIf (config.settings.networking.wifi.enable) {
