@@ -16,6 +16,7 @@
           enable = true;
           settings = {
             PasswordAuthentication = false;
+            KbdInteractiveAuthentication = false;
           };
         };
         users.users."${config.settings.user.name}".openssh.authorizedKeys.keys = config.settings.ssh.keys;
