@@ -20,6 +20,7 @@
           };
         };
         users.users."${config.settings.user.name}".openssh.authorizedKeys.keys = config.settings.ssh.keys;
+        users.users.root.openssh.authorizedKeys.keys = config.settings.ssh.keys;
       }
       /*
       # Store SSH keys with SOPS (not really necessary because publickey)
