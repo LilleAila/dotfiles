@@ -35,6 +35,8 @@
     ];
     wm.hyprland.monitors.enable = true;
     wm.hyprland.useFlake = true;
+
+    persist.home.cache = [".config/1Password"];
   };
   wayland.windowManager.hyprland.settings.input.kb_options = "ctrl:nocaps,altwin:prtsc_rwin";
   home.shellAliases = {
