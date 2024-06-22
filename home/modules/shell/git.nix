@@ -34,6 +34,28 @@
 
     home.packages = [pkgs.git-crypt];
 
+    programs.lazygit = {
+      enable = true;
+      settings = {
+        gui.theme = let
+          c = config.colorScheme.palette;
+        in {
+          activeBorderColor = [
+            "#${c.base07}"
+            "bold"
+          ];
+          inactiveBorderColor = ["#${c.base04}"];
+          searchingActiveBorderColor = ["#${c.base02}" "bold"];
+          optionsTextColor = ["#${c.base06}"];
+          selectedLineBgColor = ["#${c.base03}"];
+          cherryPickedCommitBgColor = ["#${c.base02}"];
+          cherryPickedCommitFgColor = ["#${c.base03}"];
+          unstagedChangesColor = ["#${c.base08}"];
+          defaultFgColor = ["#${c.base05}"];
+        };
+      };
+    };
+
     programs.gpg = {
       enable = true;
       homedir = "${config.home.homeDirectory}/.gnupg";
