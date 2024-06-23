@@ -30,11 +30,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1718639973,
-        "narHash": "sha256-L8pkcegzYY+426xbVRvRx1ZHKrwtCJTI70zOE+ybCY4=",
+        "lastModified": 1719156324,
+        "narHash": "sha256-eEhdXvq8nonE2TXG5tX2niAHBvx8Cx3O8G+p0tUwSTg=",
         "owner": "LilleAila",
         "repo": "ags-config",
-        "rev": "79a17f0b4f7225916adbbccb9a0248688598677b",
+        "rev": "988ffd5d78520202e09a71f924df72725e29c516",
         "type": "github"
       },
       "original": {
