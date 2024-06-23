@@ -20,7 +20,7 @@ in {
       qt = {
         enable = true;
         platformTheme.name = "qtct";
-        style.package = with pkgs; [libsForQt5.qtstyleplugins adwaita-qt adwaita-qt6];
+        style.package = with pkgs; [adwaita-qt adwaita-qt6];
       };
       home.packages = with pkgs; [
         libsForQt5.qt5.qtwayland
@@ -89,7 +89,7 @@ in {
               base04 # Normal text
               base05 # Bright text
               base04 # Button text
-              base01 # Normal background
+              base00 # Normal background
               base00 # Window
               base00 # Shadow
               base02 # Highlight
