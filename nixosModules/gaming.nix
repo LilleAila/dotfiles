@@ -20,6 +20,8 @@
         "steam-original"
         "steam-run"
       ];
+
+      settings.persist.home.cache = [".local/share/Steam"];
     })
     (lib.mkIf config.hm.settings.gaming.enable {
       programs.gamemode.enable = true;
