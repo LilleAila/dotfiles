@@ -48,6 +48,8 @@
     impermanence.enable = true;
   };
 
+  environment.sessionVariables.ANKI_WAYLAND = 1;
+
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

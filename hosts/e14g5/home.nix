@@ -36,7 +36,7 @@
     wm.hyprland.monitors.enable = true;
     wm.hyprland.useFlake = true;
 
-    persist.home.cache = [".config/1Password"];
+    persist.home.cache = [".config/1Password" ".local/share/Anki2"];
   };
   wayland.windowManager.hyprland.settings.input.kb_options = "ctrl:nocaps,altwin:prtsc_rwin";
   home.shellAliases = {
@@ -60,6 +60,7 @@
     handbrake
     kdenlive
     wf-recorder
+    anki-bin
   ];
 
   sops.secrets."yubikey/u2f_keys".path = "${config.home.homeDirectory}/.config/Yubico/u2f_keys";
