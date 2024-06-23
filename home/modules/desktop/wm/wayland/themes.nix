@@ -130,7 +130,7 @@ in {
           cursor_flash_time = 1200;
           double_click_interval = 400;
           menus_have_icons = true;
-          show_shortcurs_in_context_menus = true;
+          show_shortcuts_in_context_menus = true;
           gui_effects = "@Invalid()";
           stylesheets = "@Invalid()";
           buttonbox_layout = 3; # GNOME dialog button layout
