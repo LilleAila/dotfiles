@@ -21,7 +21,10 @@
         "steam-run"
       ];
 
-      settings.persist.home.cache = [".local/share/Steam"];
+      settings.persist.home.cache = [
+        ".local/share/Steam"
+        ".local/share/applications" # Steam puts the apps here
+      ];
     })
     (lib.mkIf config.hm.settings.gaming.enable {
       programs.gamemode.enable = true;
