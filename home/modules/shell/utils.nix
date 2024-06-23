@@ -105,6 +105,7 @@
       tldr
       file
       wget
+      fd
     ];
   };
 }
