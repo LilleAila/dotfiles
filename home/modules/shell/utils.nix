@@ -10,6 +10,8 @@
   config = lib.mkIf (config.settings.terminal.utils.enable) {
     home.shellAliases =
       {
+        bigfiles = "sudo fd --one-file-system --base-directory / --type f --hidden --exec ls -lS | sort -k5,5nr | head -n 10";
+
         cat = "${pkgs.bat}/bin/bat";
 
         cd = "z";
