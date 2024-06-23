@@ -26,6 +26,12 @@
 
     environment.sessionVariables.NIXOS_ACTIVE_SPECIALISATION = lib.mkDefault "default";
 
+    # qt = {
+    #   enable = true;
+    #   platformTheme = "gtk2";
+    #   style = "gtk2";
+    # };
+
     xdg.portal = {
       enable = true;
       # wlr.enable = true;
