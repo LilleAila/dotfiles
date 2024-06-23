@@ -140,7 +140,7 @@
             general = "\"DejaVu Sans,10,-1,5,50,0,0,0,0,0,Book\"";
           };
         });
-      home.file.".config/qt6ct/qt5ct.conf".text = lib.generators.toINI {} (baseConfig
+      home.file.".config/qt6ct/qt6ct.conf".text = lib.generators.toINI {} (baseConfig
         // {
           Fonts = {
             fixed = "\"JetBrains Mono,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular\"";
