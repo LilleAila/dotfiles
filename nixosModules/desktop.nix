@@ -28,9 +28,11 @@
 
     # qt = {
     #   enable = true;
-    #   platformTheme = "gtk2";
-    #   style = "gtk2";
+    #   platformTheme = "qt5ct";
     # };
+
+    # Required for qt5ct to work when launching apps from ags (more specifically, through hyprland)
+    environment.sessionVariables.QT_QPA_PLATFORMTHEME = "qt5ct";
 
     xdg.portal = {
       enable = true;
