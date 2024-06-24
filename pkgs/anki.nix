@@ -48,7 +48,7 @@ anki.overrideAttrs {
                     1: #${base04},
                     2: #${base03},
                     3: #${base02},
-                    4: #${base02},
+                    4: #${base01},
                     5: #${base00},
                     6: #${base00},
                     7: #${base00},
