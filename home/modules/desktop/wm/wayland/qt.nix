@@ -92,7 +92,7 @@
         Appearance = {
           color_scheme_path = "${config.home.homeDirectory}/.config/qt5ct/colors/${config.colorScheme.slug}.conf";
           custom_palette = true;
-          icon_theme = "Papirus-Dark"; # TODO: make option and sync with gtk icon theme
+          icon_theme = config.gtk.iconTheme.name;
           standard_dialogs = "default";
           # style = "Fusion";
           style = "Adwaita-Dark";
