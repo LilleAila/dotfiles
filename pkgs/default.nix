@@ -22,6 +22,8 @@ in {
   libfprint-2-tod1-fpc = pkgs.callPackage ./e14g5-fpc.nix {};
   libfprint-fpcmoh = pkgs.callPackage ./libfprint-fpcmoh.nix {};
 
+  anki-nix-colors = pkgs.callPackage ./anki.nix {inherit colorScheme;};
+
   # Works but extremely slow
   # nerdfont_patcher = pkgs.callPackage ./nerdfonts.nix {};
 }

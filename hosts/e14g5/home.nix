@@ -60,7 +60,7 @@
     handbrake
     kdenlive
     wf-recorder
-    anki-bin
+    (outputs.packages.${pkgs.system}.anki-nix-colors.override {inherit (config) colorScheme;})
   ];
 
   sops.secrets."yubikey/u2f_keys".path = "${config.home.homeDirectory}/.config/Yubico/u2f_keys";
