@@ -3,8 +3,10 @@
   writeTextFile,
   colorScheme,
 }:
+# Maybe it's possible to do with a plugin or something similar, to avoid building from source
 anki.overrideAttrs {
   postPatch = ''
+    # This file was renamed to `ts/lib/sass/_color-palette.scss` in later anki versions (that are not packaged in nixpkgs yet)
     rm sass/_color-palette.scss
     cp ${writeTextFile {
       name = "_color-palette.scss";
@@ -47,8 +49,8 @@ anki.overrideAttrs {
                     2: #${base03},
                     3: #${base02},
                     4: #${base02},
-                    5: #${base01},
-                    6: #${base01},
+                    5: #${base00},
+                    6: #${base00},
                     7: #${base00},
                     8: #${base00},
                     9: #${base00},
