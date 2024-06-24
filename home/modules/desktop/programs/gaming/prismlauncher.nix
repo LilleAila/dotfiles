@@ -31,7 +31,8 @@ in
 
     home.file.".local/share/PrismLauncher/prismlauncher.cfg".text = lib.generators.toINI {} {
       General = {
-        ApplicationTheme = "dark";
+        ApplicationTheme = "system"; # Or dark
+        MenuBarInsteadOfToolBar = true;
         CloseAfterLaunch = true;
         IconTheme = "flat_white";
         Language = "en_US";
