@@ -26,6 +26,8 @@
       "osu-lazer-bin"
     ];
 
+    settings.persist.home.cache = [".config/heroic"];
+
     home.packages = with pkgs; [
       heroic
       ryujinx
