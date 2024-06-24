@@ -17,6 +17,12 @@
           description = "Name of the font within the package";
           type = types.str;
         };
+
+        variant = mkOption {
+          description = "Variant of the font";
+          type = types.str;
+          default = "Regular";
+        };
       };
     };
   in {

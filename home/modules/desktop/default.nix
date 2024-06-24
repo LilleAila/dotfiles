@@ -85,8 +85,10 @@ in {
       in {
         serif.package = mkDefault pkgs.dejavu_fonts;
         serif.name = mkDefault "DejaVu Serif";
+        serif.variant = "Book";
         sansSerif.package = mkDefault pkgs.dejavu_fonts;
         sansSerif.name = mkDefault "DejaVu Sans";
+        sansSerif.variant = "Book";
         monospace.package = mkDefault jetbrains_nerd;
         monospace.name = mkDefault "JetBrainsMono Nerd Font";
         nerd.package = mkDefault jetbrains_nerd;

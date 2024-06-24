@@ -133,18 +133,16 @@
       home.file.".config/qt6ct/colors/${config.colorScheme.slug}.conf".text = colorScheme;
       home.file.".config/qt5ct/qt5ct.conf".text = lib.generators.toINI {} (baseConfig
         // {
-          Fonts = {
-            # 10 is the font size, idk about the rest of the numbers
-            # TODO: use the config options
-            fixed = "\"JetBrains Mono,10,-1,5,50,0,0,0,0,0,Regular\"";
-            general = "\"DejaVu Sans,10,-1,5,50,0,0,0,0,0,Book\"";
+          Fonts = with config.settings.fonts; {
+            fixed = "\"${monospace.name},${toString size},-1,5,50,0,0,0,0,0,${monospace.variant}\"";
+            general = "\"${sansSerif.name},${toString size},-1,5,50,0,0,0,0,0,${sansSerif.variant}\"";
           };
         });
       home.file.".config/qt6ct/qt6ct.conf".text = lib.generators.toINI {} (baseConfig
         // {
-          Fonts = {
-            fixed = "\"JetBrains Mono,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular\"";
-            general = "\"DejaVu Sans,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Book\"";
+          Fonts = with config.settings.fonts; {
+            fixed = "\"${monospace.name},${toString size},-1,5,400,0,0,0,0,0,0,0,0,0,0,1,${monospace.variant}\"";
+            general = "\"${sansSerif.name},${toString size},-1,5,400,0,0,0,0,0,0,0,0,0,0,1,${sansSerif.variant}\"";
           };
         });
     }
