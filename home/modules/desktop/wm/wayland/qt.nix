@@ -31,7 +31,7 @@
               base05 # Highlighted text
               base0D # Link
               base0E # Visited link
-              base01 # Alternate background
+              base00 # Alternate background
               base01 # Default
               base01 # Tooltip background
               base06 # Tooltip text
@@ -55,7 +55,7 @@
               base05 # Highlighted text
               base0D # Link
               base0E # Visited link
-              base01 # Alternate background
+              base00 # Alternate background
               base01 # Default
               base01 # Tooltip background
               base05 # Tooltip text
@@ -79,7 +79,7 @@
               base05 # Highlighted text
               base0D # Link
               base0E # Visited link
-              base01 # Alternate background
+              base00 # Alternate background
               base01 # Default
               base01 # Tooltip background
               base04 # Tooltip text
