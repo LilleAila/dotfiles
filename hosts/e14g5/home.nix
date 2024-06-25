@@ -62,6 +62,7 @@
     kdenlive
     wf-recorder
     (outputs.packages.${pkgs.system}.anki-nix-colors.override {inherit (config) colorScheme;})
+    musescore
   ];
 
   sops.secrets."yubikey/u2f_keys".path = "${config.home.homeDirectory}/.config/Yubico/u2f_keys";
