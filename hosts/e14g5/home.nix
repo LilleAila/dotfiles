@@ -37,7 +37,7 @@
     wm.hyprland.useFlake = true;
 
     persist.home.cache = [".config/1Password"];
-    persist.home.directories = [".local/share/Anki2"];
+    persist.home.directories = [".local/share/Anki2" ".config/MuseScore" ".local/share/MuseScore"];
   };
   wayland.windowManager.hyprland.settings.input.kb_options = "ctrl:nocaps,altwin:prtsc_rwin";
   home.shellAliases = {
