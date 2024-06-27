@@ -51,6 +51,8 @@
 
   system.stateVersion = "24.05";
 
+  services.fprintd.enable = true;
+
   services.syncthing.settings.folders."Factorio Saves".enable = false;
   services.syncthing.settings.folders."Minecraft".enable = false;
 
