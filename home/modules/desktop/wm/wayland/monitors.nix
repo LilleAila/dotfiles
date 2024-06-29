@@ -11,7 +11,6 @@ in {
     type = types.listOf (types.submodule {
       options = {
         name = lib.mkStrOption "eDP-1";
-        wallpaper = lib.mkOption' types.path null;
         geometry = lib.mkOption' (types.nullOr types.str) null;
         position = lib.mkOption' (types.nullOr types.str) null;
         scale = lib.mkOption' types.int 1;

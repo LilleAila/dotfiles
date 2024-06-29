@@ -3,6 +3,7 @@
   pkgs,
   lib,
   inputs,
+  outputs,
   ...
 }: let
   inherit (lib) mkEnableOption mkDefault mkIf;
@@ -49,6 +50,9 @@ in {
         swaylock.enable = mkDefault true;
         # hyprlock.enable = mkDefault false;
         hyprpaper.enable = mkDefault true;
+        hyprpaper.wallpaper = mkDefault (outputs.packages.${pkgs.system}.wallpaper2.override {
+          colorScheme = config.colorScheme;
+        });
         mako.enable = mkDefault false;
         wlogout.enable = mkDefault false;
         espanso.enable = mkDefault false;
