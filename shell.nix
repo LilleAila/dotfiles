@@ -1,7 +1,7 @@
 {pkgs ? import <nixpkgs> {}}:
 pkgs.mkShell {
   packages = with pkgs; [
-    alejandra
-    nil
+    nixd
+    nixfmt-rfc-style
   ];
 }
