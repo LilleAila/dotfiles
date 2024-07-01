@@ -161,7 +161,8 @@ git-crypt unlock
 info "Choose which host to install (this can take some time to load)"
 info "Press enter to continue..."
 read
-HOST=$(echo "Configure a new host" | cat - <(nix flake show . --json 2>/dev/null | jq --raw-output '.nixosConfigurations | keys[]') | fzf --header="Choose a host to install")
+HOST=$(echo "Configure a new host
+Install existing host with minimal config" | cat - <(nix flake show . --json 2>/dev/null | jq --raw-output '.nixosConfigurations | keys[]') | fzf --header="Choose a host to install")
 echo
 
 if [ "$HOST" == "Configure a new host" ]; then
@@ -186,6 +187,8 @@ if [ "$HOST" == "Configure a new host" ]; then
   git commit -m "Hosts: added $HOST_NAME"
   git push
   info "Installing NixOS configuration for host $HOST_NAME"
+elif [ "$HOST" == "Install existing host with minimal config" ]; then
+  info "TODO"
 else
   info "Installing NixOS configuration for host $HOST"
 fi
