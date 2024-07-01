@@ -4,7 +4,8 @@
   lib,
   inputs,
   ...
-}: {
+}:
+{
   options.settings.wayfire = {
     enable = lib.mkEnableOption "WayfireWM";
   };
@@ -13,8 +14,7 @@
     home.packages = [
       (pkgs.wayfire-with-plugins.override {
         wayfire = pkgs.wayfire;
-        plugins = with pkgs.wayfirePlugins; [
-        ];
+        plugins = with pkgs.wayfirePlugins; [ ];
       })
     ];
   };

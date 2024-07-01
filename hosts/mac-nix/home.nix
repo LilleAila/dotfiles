@@ -6,8 +6,9 @@
   lib,
   keys,
   ...
-}: {
-  imports = [../../home];
+}:
+{
+  imports = [ ../../home ];
 
   settings = {
     monitors = [
@@ -32,7 +33,7 @@
     osbuild = "sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/dotfiles --fast --no-build-nix --impure";
   };
 
-  wayland.windowManager.hyprland.settings.env = ["GDK_SCALE,2"];
+  wayland.windowManager.hyprland.settings.env = [ "GDK_SCALE,2" ];
 
   home.packages = with pkgs; [
     outputs.packages.${pkgs.system}.box64
@@ -41,10 +42,7 @@
     _1password-gui-beta
     handbrake
 
-    (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (ps:
-      with ps; [
-        plover_uinput
-      ]))
+    (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (ps: with ps; [ plover_uinput ]))
 
     geogebra6
     lmms

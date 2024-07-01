@@ -11,8 +11,9 @@
     nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = {...} @ inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+  outputs =
+    { ... }@inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "x86_64-linux"
         "aarch64-linux"
@@ -20,82 +21,78 @@
         "aarch64-darwin"
       ];
 
-      imports = [
-        inputs.devshell.flakeModule
-      ];
+      imports = [ inputs.devshell.flakeModule ];
 
-      perSystem = {
-        pkgs,
-        system,
-        lib,
-        ...
-      }: {
-        devshells.default = {
-          packages = with pkgs; [
-            nil
-            alejandra
-            typescript
-            nodePackages.typescript-language-server
-            prettierd
-            emmet-ls
-            vscode-langservers-extracted
-          ];
-        };
+      perSystem =
+        {
+          pkgs,
+          system,
+          lib,
+          ...
+        }:
+        {
+          devshells.default = {
+            packages = with pkgs; [
+              nil
+              alejandra
+              typescript
+              nodePackages.typescript-language-server
+              prettierd
+              emmet-ls
+              vscode-langservers-extracted
+            ];
+          };
 
-        packages = {
-          default = pkgs.stdenv.mkDerivation {
-            src = ./.;
-            name = "ags";
+          packages = {
+            default = pkgs.stdenv.mkDerivation {
+              src = ./.;
+              name = "ags";
 
-            buildPhase =
-              /*
-              bash
-              */
-              with inputs.nix-colors.colorSchemes.gruvbox-dark-medium.palette; ''
-                cat << EOF > ./style/cols.scss
-                \$base00: #${base00};
-                \$base01: #${base01};
-                \$base02: #${base02};
-                \$base03: #${base03};
-                \$base04: #${base04};
-                \$base05: #${base05};
-                \$base06: #${base06};
-                \$base07: #${base07};
-                \$base08: #${base08};
-                \$base09: #${base09};
-                \$base0A: #${base0A};
-                \$base0B: #${base0B};
-                \$base0C: #${base0C};
-                \$base0D: #${base0D};
-                \$base0E: #${base0E};
-                \$base0F: #${base0F};
-                EOF
+              buildPhase =
+                # bash
+                with inputs.nix-colors.colorSchemes.gruvbox-dark-medium.palette; ''
+                  cat << EOF > ./style/cols.scss
+                  \$base00: #${base00};
+                  \$base01: #${base01};
+                  \$base02: #${base02};
+                  \$base03: #${base03};
+                  \$base04: #${base04};
+                  \$base05: #${base05};
+                  \$base06: #${base06};
+                  \$base07: #${base07};
+                  \$base08: #${base08};
+                  \$base09: #${base09};
+                  \$base0A: #${base0A};
+                  \$base0B: #${base0B};
+                  \$base0C: #${base0C};
+                  \$base0D: #${base0D};
+                  \$base0E: #${base0E};
+                  \$base0F: #${base0F};
+                  EOF
 
-                ${pkgs.sass}/bin/sass ./style.scss ./style.css
-                ${lib.getExe pkgs.esbuild} config.ts \
-                  --outfile=config.js \
-                  --bundle \
-                  --format=esm \
-                  --external:"resource://*" \
-                  --external:"gi://*"
-              '';
+                  ${pkgs.sass}/bin/sass ./style.scss ./style.css
+                  ${lib.getExe pkgs.esbuild} config.ts \
+                    --outfile=config.js \
+                    --bundle \
+                    --format=esm \
+                    --external:"resource://*" \
+                    --external:"gi://*"
+                '';
 
-            installPhase =
-              /*
-              bash
-              */
-              ''
-                mkdir -p $out
-                mkdir -p $out/bin
-                cp -r * $out
+              installPhase =
+                # bash
+                ''
+                  mkdir -p $out
+                  mkdir -p $out/bin
+                  cp -r * $out
 
-                cat << EOF > $out/bin/ags
-                ags -c $out/config.js
-                EOF
-                chmod +x $out/bin/ags
-              '';
+                  cat << EOF > $out/bin/ags
+                  ags -c $out/config.js
+                  EOF
+                  chmod +x $out/bin/ags
+                '';
+            };
           };
         };
-      };
     };
 }

@@ -4,7 +4,8 @@
   inputs,
   config,
   ...
-}: {
+}:
+{
   options.settings.xdg.enable = lib.mKEnableOption "XDG stuff";
 
   config = lib.mkIf config.settings.xdg.enable {

@@ -4,7 +4,8 @@
   inputs,
   lib,
   ...
-}: {
+}:
+{
   options.settings.locale = {
     main = lib.mkStrOption "en_US.UTF-8";
     other = lib.mkStrOption config.settings.locale.main;

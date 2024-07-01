@@ -1,6 +1,8 @@
-{config, ...}: let
+{ config, ... }:
+let
   c = config.colorScheme.palette;
-in ''
+in
+''
   # Vertical Candidate List
   Vertical Candidate List=False
   # Use mouse wheel to go to prev or next page

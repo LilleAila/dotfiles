@@ -1,4 +1,5 @@
-{config, ...}: let
+{ config, ... }:
+let
   c = config.colorScheme.palette;
 
   background = "#${c.base00}";
@@ -14,7 +15,8 @@
   secondary-info = "#${c.base0C}";
 
   warning = "#${c.base0E}";
-in {
+in
+{
   completion = {
     category = {
       bg = background;

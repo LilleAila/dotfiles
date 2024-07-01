@@ -4,7 +4,8 @@
   lib,
   inputs,
   ...
-}: {
+}:
+{
   options.settings.wm.avizo.enable = lib.mkEnableOption "avizo";
 
   config = lib.mkIf (config.settings.wm.avizo.enable) {

@@ -43,6 +43,9 @@ stdenv.mkDerivation {
     # maintainers = with maintainers; [gador OPNA2608];
     mainProgram = "box64";
     # x86 also supported because that's what forAllSystems does, idk how to fix
-    platforms = ["aarch64-linux" "x86_64-linux"];
+    platforms = [
+      "aarch64-linux"
+      "x86_64-linux"
+    ];
   };
 }

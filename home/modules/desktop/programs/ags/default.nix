@@ -4,10 +4,9 @@
   lib,
   inputs,
   ...
-}: {
-  imports = [
-    inputs.ags.homeManagerModules.default
-  ];
+}:
+{
+  imports = [ inputs.ags.homeManagerModules.default ];
 
   options.settings.wm.ags.enable = lib.mkEnableOption "ags";
 
@@ -22,16 +21,14 @@
       ];
     };
 
-    settings.persist.home.cache = [".cache/ags"];
+    settings.persist.home.cache = [ ".cache/ags" ];
 
     home.file.".config/ags".source = inputs.ags-config.packages.${pkgs.system}.default.override {
       colorScheme = config.colorScheme;
     };
 
     wayland.windowManager.hyprland.settings = {
-      exec-once = [
-        "ags"
-      ];
+      exec-once = [ "ags" ];
       "$launcher" = "ags -r 'togglePopup(\"applauncher0\")'";
       "$powermenu" = "ags -r 'togglePopup(\"powermenu0\")'";
       bind = [

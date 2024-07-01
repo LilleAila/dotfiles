@@ -6,7 +6,8 @@
   globalSettings,
   outputs,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
     ../../nixosModules
@@ -55,17 +56,15 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 2;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = [
-    "amd_pstate=active"
-  ];
+  boot.kernelParams = [ "amd_pstate=active" ];
 
   systemd.services.disable_micmute_led = {
     description = "Disabled the microphone mute light on the keyboard";
-    after = ["multi-user.target"];
+    after = [ "multi-user.target" ];
     script = ''
       echo 0 | tee /sys/class/leds/platform::micmute/brightness
     '';
-    wantedBy = ["multi-user.target"];
+    wantedBy = [ "multi-user.target" ];
   };
 
   services.logind.extraConfig = ''
@@ -73,7 +72,7 @@
     HandleLidSwitchDocked=suspend
   '';
 
-  services.xserver.videoDrivers = ["amdgpu"];
+  services.xserver.videoDrivers = [ "amdgpu" ];
   hardware.opengl = {
     enable = true;
     driSupport = true;
@@ -81,9 +80,7 @@
   };
 
   nixpkgs.overlays = [
-    (final: prev: {
-      libfprint = prev.callPackage ../../pkgs/libfprint-fpcmoh.nix {};
-    })
+    (final: prev: { libfprint = prev.callPackage ../../pkgs/libfprint-fpcmoh.nix { }; })
   ];
 
   services.fprintd = {

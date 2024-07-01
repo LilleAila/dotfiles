@@ -4,28 +4,26 @@
   inputs,
   lib,
   ...
-}: let
-  jsonFormat = pkgs.formats.json {};
-in {
+}:
+let
+  jsonFormat = pkgs.formats.json { };
+in
+{
   options.settings.discord = {
     vesktop.enable = lib.mkEnableOption "vesktop";
     dissent.enable = lib.mkEnableOption "dissent";
     vesktop.settings = lib.mkOption {
       type = jsonFormat.type;
-      default = {};
+      default = { };
     };
   };
 
   config = lib.mkMerge [
-    (lib.mkIf (config.settings.discord.dissent.enable) {
-      home.packages = with pkgs; [dissent];
-    })
+    (lib.mkIf (config.settings.discord.dissent.enable) { home.packages = with pkgs; [ dissent ]; })
     (lib.mkIf (config.settings.discord.vesktop.enable) {
-      home.packages = with pkgs; [
-        vesktop
-      ];
+      home.packages = with pkgs; [ vesktop ];
 
-      settings.persist.home.cache = [".config/vesktop"];
+      settings.persist.home.cache = [ ".config/vesktop" ];
 
       home.file.".config/vesktop/settings.json".text = builtins.toJSON {
         splashColor = "#${config.colorScheme.palette.base05}";
@@ -43,7 +41,9 @@ in {
 
       home.file.".config/vesktop/settings/settings.json".source = jsonFormat.generate "vesktop-settings" config.settings.discord.vesktop.settings;
 
-      home.file.".config/vesktop/themes/base16.theme.css".source = pkgs.writeText "base16.theme.css" (import ./theme.nix {inherit config;});
+      home.file.".config/vesktop/themes/base16.theme.css".source = pkgs.writeText "base16.theme.css" (
+        import ./theme.nix { inherit config; }
+      );
 
       settings.discord.vesktop.settings = lib.mkDefault {
         autoUpdate = false;
@@ -51,7 +51,7 @@ in {
         notifyAboutUpdates = false;
         useQuickCss = true;
         disableMinSize = true;
-        enabledThemes = ["base16.theme.css"];
+        enabledThemes = [ "base16.theme.css" ];
         plugins = {
           AlwaysTrust.enabled = true;
           AnonymiseFileNames.enabled = true;
@@ -134,19 +134,19 @@ in {
         "$discord" = "vesktop";
         bind = [
           # TODO: Make this a general script where "vesktop" is replaced by an argument
-          "$mainMod, D, exec, ${pkgs.writeShellScriptBin "toggle_discord"
-            /*
-            bash
-            */
-            ''
-              #!/usr/bin/env bash
+          "$mainMod, D, exec, ${
+            pkgs.writeShellScriptBin "toggle_discord"
+              # bash
+              ''
+                #!/usr/bin/env bash
 
-              if [[ $(pgrep -f vesktop | wc -l) -ne 0 ]]; then
-              	hyprctl dispatch togglespecialworkspace discord
-              else
-              	vesktop &
-              fi
-            ''}/bin/toggle_discord"
+                if [[ $(pgrep -f vesktop | wc -l) -ne 0 ]]; then
+                	hyprctl dispatch togglespecialworkspace discord
+                else
+                	vesktop &
+                fi
+              ''
+          }/bin/toggle_discord"
           "$mainMod SHIFT, D, movetoworkspace, special:discord"
         ];
         windowrulev2 = [

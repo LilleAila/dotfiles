@@ -4,19 +4,17 @@
   inputs,
   lib,
   ...
-}: {
+}:
+{
   options.settings.terminal.neovim.enable = lib.mkEnableOption "neovim";
 
-  config =
-    lib.mkIf (config.settings.terminal.neovim.enable)
-    (lib.mkMerge [
+  config = lib.mkIf (config.settings.terminal.neovim.enable) (
+    lib.mkMerge [
       {
         # Putting this as programs.neovim.package does not work, so configuring manually:
         # Here is my nixvim config: https://github.com/LilleAila/nvim-nix/
         home.packages = [
-          (inputs.nixvim-config.packages."${pkgs.system}".nvim.override {
-            colorScheme = config.colorScheme;
-          })
+          (inputs.nixvim-config.packages."${pkgs.system}".nvim.override { colorScheme = config.colorScheme; })
           # pkgs.nvimpager
         ];
 
@@ -59,5 +57,6 @@
           "application/x-shellscript" = "nvim.desktop";
         };
       })
-    ]);
+    ]
+  );
 }

@@ -4,13 +4,12 @@
   inputs,
   config,
   ...
-}: {
+}:
+{
   options.settings.fcitx5.enable = lib.mkEnableOption "fcitx5";
 
   config = lib.mkIf (config.settings.fcitx5.enable) {
-    wayland.windowManager.hyprland.settings.exec-once = [
-      "fcitx5 -d"
-    ];
+    wayland.windowManager.hyprland.settings.exec-once = [ "fcitx5 -d" ];
 
     # wtf fcitx5 overwrites read-only files, so i have to do this thing to make the folder itself readonly
     home.file.".config/fcitx5".source = pkgs.stdenv.mkDerivation {
@@ -19,7 +18,7 @@
       buildPhase = ''
         mkdir -p conf
         cat > conf/classicui.conf << EOF
-        ${import ./classicui.nix {inherit config;}}
+        ${import ./classicui.nix { inherit config; }}
         EOF
       '';
       installPhase = ''
@@ -34,7 +33,7 @@
       buildPhase = ''
         mkdir -p nix-colors
         cat > nix-colors/theme.conf << EOF
-        ${import ./theme.nix {inherit config;}}
+        ${import ./theme.nix { inherit config; }}
         EOF
       '';
       installPhase = ''

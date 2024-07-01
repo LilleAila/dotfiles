@@ -4,7 +4,8 @@
   lib,
   inputs,
   ...
-}: {
+}:
+{
   options.settings.wm.wlogout.enable = lib.mkEnableOption "wlogout";
 
   config = lib.mkIf (config.settings.wm.wlogout.enable) {
@@ -54,9 +55,7 @@
         }
       ];
       style =
-        /*
-        css
-        */
+        # css
         with config.colorScheme.palette; ''
           	* {
           		background-image: none;

@@ -4,7 +4,8 @@
   lib,
   inputs,
   ...
-}: {
+}:
+{
   options.settings.syncthing.tray.enable = lib.mkEnableOption "Syncthing tray";
 
   # Not that useful, also xwayland - maybe another tray program?
@@ -12,16 +13,21 @@
     systemd.user.services.syncthingtray = {
       Unit = {
         Description = "syncthingtray";
-        Requires = ["tray.target"];
-        After = ["graphical-session-pre.target" "tray.target"];
-        PartOf = ["graphical-session.target"];
+        Requires = [ "tray.target" ];
+        After = [
+          "graphical-session-pre.target"
+          "tray.target"
+        ];
+        PartOf = [ "graphical-session.target" ];
       };
 
       Service = {
         ExecStart = "${lib.getExe' pkgs.qsyncthingtray "qsyncthingtray"}";
       };
 
-      Install = {WantedBy = ["graphical-session.target"];};
+      Install = {
+        WantedBy = [ "graphical-session.target" ];
+      };
     };
   };
 }

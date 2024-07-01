@@ -1,11 +1,5 @@
-{
-  config,
-  pkgs,
-  ...
-}:
-/*
-css
-*/
+{ config, pkgs, ... }:
+# css
 ''
   @-moz-document url(about:home), url(about:newtab), url(about:privatebrowsing) {
     body::before {

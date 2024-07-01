@@ -1,5 +1,1 @@
-lib:
-{
-  colors = import ./colors.nix lib;
-}
-// import ./options.nix lib
+lib: { colors = import ./colors.nix lib; } // import ./options.nix lib

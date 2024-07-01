@@ -5,8 +5,9 @@
   lib,
   keys,
   ...
-}: {
-  imports = [../../home];
+}:
+{
+  imports = [ ../../home ];
 
   # https://github.com/tinted-theming/base16-schemes/
   # i don't think home manager should be enabled on iso

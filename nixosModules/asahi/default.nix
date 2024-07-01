@@ -4,7 +4,8 @@
   inputs,
   lib,
   ...
-}: {
+}:
+{
   options.settings.asahi.enable = lib.mkEnableOption "asahi";
 
   config = lib.mkIf (config.settings.asahi.enable) {
@@ -16,7 +17,7 @@
       "hid_apple.fnmode=2" # F-keys first, media keys with fn
     ];
 
-    nixpkgs.overlays = [inputs.nixos-apple-silicon.overlays.apple-silicon-overlay];
+    nixpkgs.overlays = [ inputs.nixos-apple-silicon.overlays.apple-silicon-overlay ];
 
     hardware.asahi = {
       peripheralFirmwareDirectory = ./firmware;

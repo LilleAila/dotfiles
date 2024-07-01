@@ -1,7 +1,9 @@
-{config, ...}: let
+{ config, ... }:
+let
   c = config.colorScheme.palette;
   name = config.colorScheme.slug;
-in ''
+in
+''
   [Metadata]
   Name=${name}
   Version=0.1

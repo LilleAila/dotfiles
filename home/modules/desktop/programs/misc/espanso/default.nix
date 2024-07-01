@@ -5,7 +5,8 @@
   inputs,
   config,
   ...
-}: {
+}:
+{
   options.settings.wm.espanso.enable = lib.mkEnableOption "espanso";
 
   config = lib.mkIf config.settings.wm.espanso.enable {

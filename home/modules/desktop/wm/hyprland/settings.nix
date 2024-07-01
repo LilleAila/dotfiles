@@ -4,7 +4,8 @@
   lib,
   inputs,
   ...
-}: {
+}:
+{
   wayland.windowManager.hyprland.settings = {
     monitor = [
       # Monitor fallback
@@ -59,7 +60,7 @@
         enabled = false; # Disabled blur
         brightness = 1.0;
         contrast = 1.0;
-        noise = 0.02;
+        noise = 2.0e-2;
         passes = 3;
         size = 10;
         vibrancy = 0.1696;

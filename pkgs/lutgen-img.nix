@@ -14,9 +14,7 @@ stdenv.mkDerivation {
     text = lib.concatStringsSep "\n" (lib.mapAttrsToList (a: b: "#${b}") colorScheme.palette);
   };
   unpackPhase = "true";
-  nativeBuildInputs = [
-    lutgen
-  ];
+  nativeBuildInputs = [ lutgen ];
   buildPhase = ''
     lutgen apply ${image} -- $(cat $src)
   '';

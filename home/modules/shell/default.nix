@@ -4,7 +4,8 @@
   inputs,
   lib,
   ...
-}: {
+}:
+{
   imports = [
     inputs.nix-index-database.hmModules.nix-index
     ./zsh.nix

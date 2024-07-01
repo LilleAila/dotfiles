@@ -6,7 +6,8 @@
   globalSettings,
   keys,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
     ../../nixosModules
@@ -26,7 +27,7 @@
     user.name = globalSettings.username;
     networking = {
       enable = true;
-      hostname = "placeholder";
+      hostname = "temporary-nix";
     };
     utils.enable = true;
     console = {
@@ -35,8 +36,16 @@
     };
     sops.enable = true;
 
+    ssh.enable = true;
+    ssh.keys = with keys.ssh; [
+      mac.public
+      legion.public
+      e14g5.public
+      t420.public
+    ];
+
     zfs.enable = true;
-    zfs.encryption = false;
+    zfs.encryption = true;
     zfs.snapshots = true;
     impermanence.enable = true;
   };

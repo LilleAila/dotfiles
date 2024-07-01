@@ -20,16 +20,16 @@ stdenv.mkDerivation {
 
   buildPhase = ''
     patchelf \
-      --set-rpath ${lib.makeLibraryPath [libfprint-tod]} \
+      --set-rpath ${lib.makeLibraryPath [ libfprint-tod ]} \
       FPC_driver_linux_libfprint/install_libfprint/usr/lib/x86_64-linux-gnu/libfprint-2.so
     patchelf \
-      --set-rpath ${lib.makeLibraryPath [libfprint-tod]} \
+      --set-rpath ${lib.makeLibraryPath [ libfprint-tod ]} \
       FPC_driver_linux_libfprint/install_libfprint/usr/lib/x86_64-linux-gnu/libfprint-2.so.2
     patchelf \
-      --set-rpath ${lib.makeLibraryPath [libfprint-tod]} \
+      --set-rpath ${lib.makeLibraryPath [ libfprint-tod ]} \
       FPC_driver_linux_libfprint/install_libfprint/usr/lib/x86_64-linux-gnu/libfprint-2.so.2.0.0
     patchelf \
-      --set-rpath ${lib.makeLibraryPath [libfprint-tod]} \
+      --set-rpath ${lib.makeLibraryPath [ libfprint-tod ]} \
       FPC_driver_linux_27.26.23.39/install_fpc/libfpcbep.so
   '';
 
@@ -54,10 +54,10 @@ stdenv.mkDerivation {
   meta = with lib; {
     description = "FPC Fingerprint driver for ThinkPad E14 gen 5";
     homepage = "https://github.com/ramaureirac/thinkpad-e14-linux/blob/main/tweaks/fingerprint/README.md";
-    sourceProvenance = with sourceTypes; [binaryNativeCode];
+    sourceProvenance = with sourceTypes; [ binaryNativeCode ];
     # license = licenses.unfree;
     license = licenses.mit; # temporary, to make it easier to test
     platforms = platforms.linux;
-    maintainers = with maintainers; [utkarshgupta137];
+    maintainers = with maintainers; [ utkarshgupta137 ];
   };
 }

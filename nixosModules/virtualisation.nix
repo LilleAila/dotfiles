@@ -4,12 +4,13 @@
   inputs,
   pkgs,
   ...
-}: {
+}:
+{
   options.settings.virtualisation.enable = lib.mkEnableOption "virtualisation";
   options.settings.nvidia.passthrough.enable = lib.mkEnableOption "passthrough";
   options.settings.nvidia.passthrough.ids = lib.mkOption {
     type = lib.types.listOf lib.types.str;
-    default = [];
+    default = [ ];
     description = "IDs of hardware to pass through with vfio";
   };
 
@@ -27,9 +28,9 @@
       #     uris = ["qemu:///system"];
       #   };
       # };
-      users.users.${config.settings.user.name}.extraGroups = ["libvirtd"];
-      environment.systemPackages = [pkgs.virt-manager];
-      settings.persist.root.cache = ["/var/lib/libvirt"];
+      users.users.${config.settings.user.name}.extraGroups = [ "libvirtd" ];
+      environment.systemPackages = [ pkgs.virt-manager ];
+      settings.persist.root.cache = [ "/var/lib/libvirt" ];
     })
     (lib.mkIf config.settings.nvidia.passthrough.enable {
       boot.kernelPackages = lib.mkForce pkgs.linuxPackages_zen; # This not be necessary on other computers, but on my computer the GPU was in the same IOMMU group as other pci stuff that was not supposed to be passed through
@@ -48,11 +49,17 @@
         softdep drm pre: vfio-pci
         softdep nouveau pre: vfio-pci
       '';
-      boot.blacklistedKernelModules = ["nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" "i2c_nvidia_gpu"];
+      boot.blacklistedKernelModules = [
+        "nouveau"
+        "nvidia"
+        "nvidia_drm"
+        "nvidia_modeset"
+        "i2c_nvidia_gpu"
+      ];
       virtualisation.spiceUSBRedirection.enable = true;
 
       # Looking glass
-      environment.systemPackages = [pkgs.looking-glass-client];
+      environment.systemPackages = [ pkgs.looking-glass-client ];
       systemd.tmpfiles.rules = [
         "f /dev/shm/looking-glass 0660 ${config.settings.user.name} libvirtd -"
       ];

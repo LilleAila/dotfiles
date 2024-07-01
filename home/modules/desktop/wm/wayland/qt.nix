@@ -4,16 +4,19 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options.settings.qt.enable = lib.mkEnableOption "qt";
 
   config = lib.mkIf (config.settings.qt.enable) (
     let
-      colorScheme = lib.generators.toINI {} {
-        ColorScheme = let
-          mkScheme = colors: lib.concatStringsSep ", " (map (color: "#ff${color}") colors);
-        in
-          with config.colorScheme.palette; {
+      colorScheme = lib.generators.toINI { } {
+        ColorScheme =
+          let
+            mkScheme = colors: lib.concatStringsSep ", " (map (color: "#ff${color}") colors);
+          in
+          with config.colorScheme.palette;
+          {
             active_colors = mkScheme [
               base06 # Window text
               base00 # Button background
@@ -119,11 +122,15 @@
           keyboard_scheme = 2; # X11
         };
       };
-    in {
+    in
+    {
       qt = {
         enable = true;
         platformTheme.name = "qtct";
-        style.package = with pkgs; [adwaita-qt adwaita-qt6];
+        style.package = with pkgs; [
+          adwaita-qt
+          adwaita-qt6
+        ];
       };
       home.packages = with pkgs; [
         libsForQt5.qt5.qtwayland
@@ -131,20 +138,24 @@
       ];
       home.file.".config/qt5ct/colors/${config.colorScheme.slug}.conf".text = colorScheme;
       home.file.".config/qt6ct/colors/${config.colorScheme.slug}.conf".text = colorScheme;
-      home.file.".config/qt5ct/qt5ct.conf".text = lib.generators.toINI {} (baseConfig
+      home.file.".config/qt5ct/qt5ct.conf".text = lib.generators.toINI { } (
+        baseConfig
         // {
           Fonts = with config.settings.fonts; {
             fixed = "\"${monospace.name},${toString size},-1,5,50,0,0,0,0,0,${monospace.variant}\"";
             general = "\"${sansSerif.name},${toString size},-1,5,50,0,0,0,0,0,${sansSerif.variant}\"";
           };
-        });
-      home.file.".config/qt6ct/qt6ct.conf".text = lib.generators.toINI {} (baseConfig
+        }
+      );
+      home.file.".config/qt6ct/qt6ct.conf".text = lib.generators.toINI { } (
+        baseConfig
         // {
           Fonts = with config.settings.fonts; {
             fixed = "\"${monospace.name},${toString size},-1,5,400,0,0,0,0,0,0,0,0,0,0,1,${monospace.variant}\"";
             general = "\"${sansSerif.name},${toString size},-1,5,400,0,0,0,0,0,0,0,0,0,0,1,${sansSerif.variant}\"";
           };
-        });
+        }
+      );
     }
   );
 }

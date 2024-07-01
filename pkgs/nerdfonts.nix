@@ -6,14 +6,13 @@
   nerd-font-patcher,
   fetchzip,
   ...
-}: font:
+}:
+font:
 # Input is a font package from nixpkgs
 stdenv.mkDerivation {
   name = "${font.name}-nerd-font-patched";
 
-  nativeBuildInputs = [
-    nerd-font-patcher
-  ];
+  nativeBuildInputs = [ nerd-font-patcher ];
 
   src = font;
 

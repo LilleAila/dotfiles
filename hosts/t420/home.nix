@@ -6,8 +6,9 @@
   keys,
   outputs,
   ...
-}: {
-  imports = [../../home];
+}:
+{
+  imports = [ ../../home ];
 
   settings = {
     monitors = [

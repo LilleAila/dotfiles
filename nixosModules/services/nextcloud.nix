@@ -1,6 +1,6 @@
 /*
-https://jacobneplokh.com/how-to-setup-nextcloud-on-nixos/
-https://mich-murphy.com/configure-nextcloud-nixos/
+  https://jacobneplokh.com/how-to-setup-nextcloud-on-nixos/
+  https://mich-murphy.com/configure-nextcloud-nixos/
 */
 {
   pkgs,
@@ -8,11 +8,15 @@ https://mich-murphy.com/configure-nextcloud-nixos/
   lib,
   config,
   ...
-}: {
+}:
+{
   options.settings.nextcloud.enable = lib.mkEnableOption "nextcloud";
 
   config = lib.mkIf config.settings.nextcloud.enable {
-    networking.firewall.allowedTCPPorts = [80 443];
+    networking.firewall.allowedTCPPorts = [
+      80
+      443
+    ];
 
     sops.secrets."nextcloud/cloudflare" = {
       neededForUsers = true;
@@ -28,7 +32,7 @@ https://mich-murphy.com/configure-nextcloud-nixos/
       };
     };
 
-    users.users.nginx.extraGroups = ["acme"];
+    users.users.nginx.extraGroups = [ "acme" ];
     services.nginx = {
       enable = true;
       recommendedGzipSettings = true;
@@ -54,7 +58,7 @@ https://mich-murphy.com/configure-nextcloud-nixos/
 
     services.postgresql = {
       enable = true;
-      ensureDatabases = ["nextcloud"];
+      ensureDatabases = [ "nextcloud" ];
       ensureUsers = [
         {
           name = "nextcloud";
@@ -106,8 +110,8 @@ https://mich-murphy.com/configure-nextcloud-nixos/
     };
 
     systemd.services."nextcloud-setup" = {
-      requires = ["postgresql.service"];
-      after = ["postgresql.service"];
+      requires = [ "postgresql.service" ];
+      after = [ "postgresql.service" ];
     };
   };
 }

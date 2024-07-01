@@ -6,8 +6,9 @@
   lib,
   keys,
   ...
-}: {
-  imports = [../../home];
+}:
+{
+  imports = [ ../../home ];
 
   settings = {
     monitors = [
@@ -29,8 +30,12 @@
     wm.hyprland.monitors.enable = true;
     wm.hyprland.useFlake = true;
 
-    persist.home.cache = [".config/1Password"];
-    persist.home.directories = [".local/share/Anki2" ".config/MuseScore" ".local/share/MuseScore"];
+    persist.home.cache = [ ".config/1Password" ];
+    persist.home.directories = [
+      ".local/share/Anki2"
+      ".config/MuseScore"
+      ".local/share/MuseScore"
+    ];
   };
   wayland.windowManager.hyprland.settings.input.kb_options = "ctrl:nocaps,altwin:prtsc_rwin";
   home.shellAliases = {
@@ -42,11 +47,12 @@
     fluidsynth
     qsynth
     inkscape
-    (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (ps:
-      with ps; [
+    (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (
+      ps: with ps; [
         plover_uinput
         plover-lapwing-aio
-      ]))
+      ]
+    ))
     geogebra6
     krita
     obsidian
@@ -54,7 +60,7 @@
     handbrake
     kdenlive
     wf-recorder
-    (outputs.packages.${pkgs.system}.anki-nix-colors.override {inherit (config) colorScheme;})
+    (outputs.packages.${pkgs.system}.anki-nix-colors.override { inherit (config) colorScheme; })
     musescore
   ];
 

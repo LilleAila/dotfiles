@@ -4,11 +4,13 @@
   inputs,
   config,
   ...
-}: let
+}:
+let
   user = config.settings.user.name;
   cfg = config.settings.persist;
   hmCfg = config.hm.settings.persist;
-in {
+in
+{
   options.settings.impermanence.enable = lib.mkEnableOption "impermanence";
 
   imports = [
@@ -19,7 +21,7 @@ in {
 
   config = lib.mkIf config.settings.impermanence.enable {
     sops.age.keyFile = "/persist/cache/home/${config.settings.user.name}/.config/sops/age/keys.txt";
-    settings.persist.home.cache = [".config/sops/age"];
+    settings.persist.home.cache = [ ".config/sops/age" ];
     # With impermanence, the file can not be managed by nix
     hm.home.file.".config/sops/age/keys.txt".enable = false;
 
@@ -41,8 +43,8 @@ in {
     environment.persistence = {
       "/persist" = {
         hideMounts = true;
-        files = ["/etc/machine-id"] ++ cfg.root.files;
-        directories = ["/var/log"] ++ cfg.root.directories;
+        files = [ "/etc/machine-id" ] ++ cfg.root.files;
+        directories = [ "/var/log" ] ++ cfg.root.directories;
 
         users.${user} = {
           files = cfg.home.files ++ hmCfg.home.files;
@@ -53,7 +55,7 @@ in {
       "/persist/cache" = {
         hideMounts = true;
         files = cfg.root.cache_files;
-        directories = ["/var/lib/systemd/backlight"] ++ cfg.root.cache;
+        directories = [ "/var/lib/systemd/backlight" ] ++ cfg.root.cache;
 
         users.${user} = {
           directories = hmCfg.home.cache ++ cfg.home.cache;

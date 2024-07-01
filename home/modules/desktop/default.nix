@@ -5,10 +5,12 @@
   inputs,
   outputs,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkDefault mkIf;
   cfg = config.settings.desktop;
-in {
+in
+{
   imports = [
     ./wm
     ./programs
@@ -20,18 +22,22 @@ in {
   config = mkIf cfg.enable {
     # https://github.com/tinted-theming/base16-schemes/
     colorScheme = mkDefault inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
-    home.file."colorscheme.txt".text = lib.concatStringsSep "\n" (lib.mapAttrsToList (a: b: "${a}: #${b}") config.colorScheme.palette);
+    home.file."colorscheme.txt".text = lib.concatStringsSep "\n" (
+      lib.mapAttrsToList (a: b: "${a}: #${b}") config.colorScheme.palette
+    );
     settings = {
       gtk.enable = mkDefault true;
       qt.enable = mkDefault true;
       cursor = {
         size = mkDefault 24;
-        package = mkDefault (inputs.nix-cursors.packages.${pkgs.system}.bibata-modern-cursor.override {
-          background_color = "#${config.colorScheme.palette.base00}";
-          outline_color = "#${config.colorScheme.palette.base06}";
-          accent_color = "#${config.colorScheme.palette.base00}";
-          replace_crosshair = true;
-        });
+        package = mkDefault (
+          inputs.nix-cursors.packages.${pkgs.system}.bibata-modern-cursor.override {
+            background_color = "#${config.colorScheme.palette.base00}";
+            outline_color = "#${config.colorScheme.palette.base06}";
+            accent_color = "#${config.colorScheme.palette.base00}";
+            replace_crosshair = true;
+          }
+        );
         name = mkDefault "Bibata-Modern-Custom";
       };
 
@@ -50,9 +56,9 @@ in {
         swaylock.enable = mkDefault true;
         # hyprlock.enable = mkDefault false;
         hyprpaper.enable = mkDefault true;
-        hyprpaper.wallpaper = mkDefault (outputs.packages.${pkgs.system}.wallpaper2.override {
-          colorScheme = config.colorScheme;
-        });
+        hyprpaper.wallpaper = mkDefault (
+          outputs.packages.${pkgs.system}.wallpaper2.override { colorScheme = config.colorScheme; }
+        );
         mako.enable = mkDefault false;
         wlogout.enable = mkDefault false;
         espanso.enable = mkDefault false;
@@ -84,21 +90,23 @@ in {
       imageviewer.enable = mkDefault true;
       other.enable = mkDefault true;
 
-      fonts = let
-        jetbrains_nerd = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
-      in {
-        serif.package = mkDefault pkgs.dejavu_fonts;
-        serif.name = mkDefault "DejaVu Serif";
-        serif.variant = "Book";
-        sansSerif.package = mkDefault pkgs.dejavu_fonts;
-        sansSerif.name = mkDefault "DejaVu Sans";
-        sansSerif.variant = "Book";
-        monospace.package = mkDefault jetbrains_nerd;
-        monospace.name = mkDefault "JetBrainsMono Nerd Font";
-        nerd.package = mkDefault jetbrains_nerd;
-        nerd.name = mkDefault "JetBrainsMono Nerd Font";
-        size = mkDefault 10;
-      };
+      fonts =
+        let
+          jetbrains_nerd = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+        in
+        {
+          serif.package = mkDefault pkgs.dejavu_fonts;
+          serif.name = mkDefault "DejaVu Serif";
+          serif.variant = "Book";
+          sansSerif.package = mkDefault pkgs.dejavu_fonts;
+          sansSerif.name = mkDefault "DejaVu Sans";
+          sansSerif.variant = "Book";
+          monospace.package = mkDefault jetbrains_nerd;
+          monospace.name = mkDefault "JetBrainsMono Nerd Font";
+          nerd.package = mkDefault jetbrains_nerd;
+          nerd.name = mkDefault "JetBrainsMono Nerd Font";
+          size = mkDefault 10;
+        };
 
       persist.home.directories = [
         "devel"

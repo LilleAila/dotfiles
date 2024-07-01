@@ -4,7 +4,8 @@
   inputs,
   config,
   ...
-}: {
+}:
+{
   config = lib.mkIf config.settings.wm.hyprland.enable {
     wayland.windowManager.hyprland.settings = {
       exec-once = [

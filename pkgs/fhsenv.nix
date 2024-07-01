@@ -1,10 +1,10 @@
 # Basically stolen from steam-run in nixpkgs
-{pkgs, ...}:
+{ pkgs, ... }:
 pkgs.buildFHSEnv {
   name = "fhsenv";
   runScript = "$@"; # Needed for some reason
-  multiPkgs = pkgs:
-    with pkgs; [
+  multiPkgs =
+    pkgs: with pkgs; [
       xorg.libXcomposite
       xorg.libXtst
       xorg.libXrandr

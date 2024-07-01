@@ -4,12 +4,15 @@
   lib,
   inputs,
   ...
-}: {
+}:
+{
   wayland.windowManager.hyprland.settings = {
     "$terminal" = "${lib.getExe config.settings.terminal.emulator.package}";
     "$fileManager" = "nemo";
     "$calculator" = "qalculate-gtk";
-    "$colorPicker" = "${lib.getExe inputs.hyprpicker.packages.${pkgs.system}.hyprpicker} --render-inactive --autocopy --format=hex";
+    "$colorPicker" = "${
+      lib.getExe inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
+    } --render-inactive --autocopy --format=hex";
 
     "$mainMod" = lib.mkDefault "SUPER";
 
@@ -150,16 +153,18 @@
       ", XF86AudioPrev, exec, playerctl previous"
     ];
 
-    bindle = let
-      setvol = "wpctl set-volume -l 1";
-    in [
-      ", XF86AudioRaiseVolume, exec, ${setvol} @DEFAULT_AUDIO_SINK@ 10%+"
-      ", XF86AudioLowerVolume, exec, ${setvol} @DEFAULT_AUDIO_SINK@ 10%-"
-      "SHIFT, XF86AudioRaiseVolume, exec, ${setvol} @DEFAULT_AUDIO_SOURCE@ 10%+"
-      "SHIFT, XF86AudioLowerVolume, exec, ${setvol} @DEFAULT_AUDIO_SOURCE@ 10%-"
+    bindle =
+      let
+        setvol = "wpctl set-volume -l 1";
+      in
+      [
+        ", XF86AudioRaiseVolume, exec, ${setvol} @DEFAULT_AUDIO_SINK@ 10%+"
+        ", XF86AudioLowerVolume, exec, ${setvol} @DEFAULT_AUDIO_SINK@ 10%-"
+        "SHIFT, XF86AudioRaiseVolume, exec, ${setvol} @DEFAULT_AUDIO_SOURCE@ 10%+"
+        "SHIFT, XF86AudioLowerVolume, exec, ${setvol} @DEFAULT_AUDIO_SOURCE@ 10%-"
 
-      ", XF86MonBrightnessUp, exec, brightnessctl set 15%+"
-      ", XF86MonBrightnessDown, exec, brightnessctl set 15%-"
-    ];
+        ", XF86MonBrightnessUp, exec, brightnessctl set 15%+"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 15%-"
+      ];
   };
 }

@@ -1,9 +1,9 @@
 /*
-Notes:
-https://github.com/pmeiyu/nixos-config/blob/master/modules/webdav.nix
-https://github.com/miquels/webdav-server-rs/blob/master/webdav-server.toml
-https://nixos.wiki/wiki/Nginx (section about TLS reverse proxy)
-For cloudflare, remember to disable proxy in the A record!!!!!!!
+  Notes:
+  https://github.com/pmeiyu/nixos-config/blob/master/modules/webdav.nix
+  https://github.com/miquels/webdav-server-rs/blob/master/webdav-server.toml
+  https://nixos.wiki/wiki/Nginx (section about TLS reverse proxy)
+  For cloudflare, remember to disable proxy in the A record!!!!!!!
 */
 {
   pkgs,
@@ -11,7 +11,8 @@ For cloudflare, remember to disable proxy in the A record!!!!!!!
   config,
   inputs,
   ...
-}: {
+}:
+{
   options.settings.webdav.enable = lib.mkEnableOption "webdav";
 
   config = lib.mkIf config.settings.webdav.enable {
@@ -46,13 +47,24 @@ For cloudflare, remember to disable proxy in the A record!!!!!!!
     };
 
     # idk which ones are *actually* needed
-    networking.firewall.allowedTCPPorts = [8080 443 80];
-    networking.firewall.allowedUDPPorts = [8080 443 80];
+    networking.firewall.allowedTCPPorts = [
+      8080
+      443
+      80
+    ];
+    networking.firewall.allowedUDPPorts = [
+      8080
+      443
+      80
+    ];
 
     services.webdav-server-rs = {
       enable = true;
       settings = {
-        server.listen = ["127.0.0.1:8080" "[::1]:8080"];
+        server.listen = [
+          "127.0.0.1:8080"
+          "[::1]:8080"
+        ];
         # server.tls_listen = ["0.0.0.0:443"];
 
         accounts = {
@@ -72,11 +84,11 @@ For cloudflare, remember to disable proxy in the A record!!!!!!!
         };
         location = [
           {
-            route = ["/*path"];
+            route = [ "/*path" ];
             # This directory has to be manually created before connecting
             directory = "~/webdav";
             handler = "filesystem";
-            methods = ["webdav-rw"];
+            methods = [ "webdav-rw" ];
             autoindex = true;
             auth = "true";
             setuid = true;

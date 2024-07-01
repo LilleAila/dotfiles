@@ -4,7 +4,8 @@
   lib,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     ./binds.nix
     ./settings.nix
@@ -24,7 +25,7 @@
       wayland.windowManager.hyprland.package = pkgs.hyprland;
     })
     (lib.mkIf (config.settings.wm.hyprland.enable) {
-      settings.persist.home.cache = [".cache/hyprland"];
+      settings.persist.home.cache = [ ".cache/hyprland" ];
 
       # Random dependencies and stuff
       home.packages = with pkgs; [
@@ -48,7 +49,9 @@
       settings.wm.hyprland.screenshots.enable = lib.mkDefault true;
     })
     (lib.mkIf (config.settings.wm.hyprland.useLegacyRenderer) {
-      wayland.windowManager.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland.override {legacyRenderer = true;};
+      wayland.windowManager.hyprland.package =
+        inputs.hyprland.packages."${pkgs.system}".hyprland.override
+          { legacyRenderer = true; };
       # wayland.windowManager.hyprland.package = pkgs.hyprland.override {legacyRenderer = true;};
     })
   ];

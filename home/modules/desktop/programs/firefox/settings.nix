@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   # First run
   "app.normandy.first_run" = false;
   "doh-rollout.doneFirstRun" = true;

@@ -4,7 +4,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   # None of these plugins work stable and 100% of the time..
   config = lib.mkIf config.settings.wm.hyprland.useFlake {
     wayland.windowManager.hyprland = {
@@ -13,13 +14,9 @@
         inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
       ];
       settings = {
-        darkwindow_invert = [
-          "class:(GeoGebra)"
-        ];
+        darkwindow_invert = [ "class:(GeoGebra)" ];
 
-        bind = [
-          "$mainMod, i, animatefocused"
-        ];
+        bind = [ "$mainMod, i, animatefocused" ];
 
         plugin.hyprfocus = {
           enabled = "yes"; # Does weird animation stuff when opening new windows

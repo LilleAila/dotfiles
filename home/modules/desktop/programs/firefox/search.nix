@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   default = "DuckDuckGo";
   engines = {
     "Nix Packages" = {
@@ -19,7 +20,7 @@
       ];
 
       icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-      definedAliases = ["@np"];
+      definedAliases = [ "@np" ];
     };
 
     "Nix Options" = {
@@ -40,7 +41,7 @@
       ];
 
       icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-      definedAliases = ["@no"];
+      definedAliases = [ "@no" ];
     };
 
     "Home-Manager Options" = {
@@ -59,7 +60,7 @@
       ];
 
       icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-      definedAliases = ["@hm"];
+      definedAliases = [ "@hm" ];
     };
   };
   force = true;

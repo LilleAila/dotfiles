@@ -4,7 +4,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   config = lib.mkIf config.hm.settings.fcitx5.enable {
     # TODO: do the possible configuration here
     i18n.inputMethod = {

@@ -4,7 +4,8 @@
   inputs,
   lib,
   ...
-}: {
+}:
+{
   options.settings.files = {
     nemo.enable = lib.mkEnableOption "nemo";
 
@@ -129,7 +130,7 @@
       systemd.user.services.thunar = {
         Unit = {
           Description = "Thunar file manager daemon";
-          PartOf = ["graphical-session.target"];
+          PartOf = [ "graphical-session.target" ];
         };
 
         Service = {
@@ -137,7 +138,7 @@
           Restart = "on-failure";
         };
 
-        Install.WantedBy = ["graphical-session.target"];
+        Install.WantedBy = [ "graphical-session.target" ];
       };
     })
   ];

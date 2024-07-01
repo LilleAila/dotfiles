@@ -4,9 +4,11 @@
   inputs,
   lib,
   ...
-}: let
+}:
+let
   inherit (lib) mkOption types;
-in {
+in
+{
   options.settings.terminal = {
     zsh.enable = lib.mkEnableOption "zsh";
     zsh.theme = mkOption {
@@ -16,7 +18,7 @@ in {
   };
 
   config = lib.mkIf (config.settings.terminal.zsh.enable) {
-    settings.persist.home.cache_files = [".zsh_history"];
+    settings.persist.home.cache_files = [ ".zsh_history" ];
     programs.zsh = {
       enable = true;
       enableCompletion = true;
@@ -61,19 +63,19 @@ in {
         }
       '';
       /*
-      Fastest to slowest
-      ${pkgs.screenfetch}/bin/screenfetch
-      ${pkgs.neofetch}/bin/neofetch
-      ${pkgs.fastfetch}/bin/fastfetch
-      ${pkgs.disfetch}/bin/disfetch
-      ${pkgs.owofetch}/bin/owofetch
-      ${pkgs.inxi}/bin/inxi
-      ${pkgs.nitch}/bin/nitch # Looks the most goodest
-      ${pkgs.bunnyfetch}/bin/bunnyfetch
-      ${pkgs.yafetch}/bin/yafetch
-      ${pkgs.afetch}/bin/afetch
-      cat /etc/os-release
-      ${pkgs.leaf}/bin/leaf
+        Fastest to slowest
+        ${pkgs.screenfetch}/bin/screenfetch
+        ${pkgs.neofetch}/bin/neofetch
+        ${pkgs.fastfetch}/bin/fastfetch
+        ${pkgs.disfetch}/bin/disfetch
+        ${pkgs.owofetch}/bin/owofetch
+        ${pkgs.inxi}/bin/inxi
+        ${pkgs.nitch}/bin/nitch # Looks the most goodest
+        ${pkgs.bunnyfetch}/bin/bunnyfetch
+        ${pkgs.yafetch}/bin/yafetch
+        ${pkgs.afetch}/bin/afetch
+        cat /etc/os-release
+        ${pkgs.leaf}/bin/leaf
       */
     };
   };

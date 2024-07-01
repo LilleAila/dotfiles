@@ -4,12 +4,11 @@
   inputs,
   lib,
   ...
-}: {
+}:
+{
   options.settings.user = {
     enable = lib.mkDisableOption "configure user account";
-    name = lib.mkOption {
-      type = lib.types.str;
-    };
+    name = lib.mkOption { type = lib.types.str; };
     desc = lib.mkOption {
       type = lib.types.str;
       default = config.settings.user.name;
@@ -29,24 +28,31 @@
     );
   };
 
-  config = lib.mkIf config.settings.user.enable (with config.settings.user; {
-    users.users."${name}" = {
-      isNormalUser = true;
-      uid = 1000;
-      description = desc;
-      extraGroups = ["wheel" "input" "dialout"];
-      packages = with pkgs; [];
-      shell = shell;
-      initialPassword = "";
-    };
+  config = lib.mkIf config.settings.user.enable (
+    with config.settings.user;
+    {
+      users.users."${name}" = {
+        isNormalUser = true;
+        uid = 1000;
+        description = desc;
+        extraGroups = [
+          "wheel"
+          "input"
+          "dialout"
+        ];
+        packages = with pkgs; [ ];
+        shell = shell;
+        initialPassword = "";
+      };
 
-    users.groups.users.gid = 100;
+      users.groups.users.gid = 100;
 
-    environment.shells = [config.settings.user.shell];
+      environment.shells = [ config.settings.user.shell ];
 
-    nix.settings.trusted-users = [
-      "@wheel"
-      config.settings.user.name
-    ];
-  });
+      nix.settings.trusted-users = [
+        "@wheel"
+        config.settings.user.name
+      ];
+    }
+  );
 }

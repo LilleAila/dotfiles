@@ -4,7 +4,8 @@
   inputs,
   lib,
   ...
-}: {
+}:
+{
   options.settings.wm.hyprland.screenshots = {
     enable = lib.mkEnableOption "screenshots";
     path = lib.mkOption {
@@ -17,11 +18,11 @@
     };
   };
 
-  config = let
-    cfg = config.settings.wm.hyprland.screenshots;
-  in
-    lib.mkIf (cfg.enable)
-    {
+  config =
+    let
+      cfg = config.settings.wm.hyprland.screenshots;
+    in
+    lib.mkIf (cfg.enable) {
       home.packages = with pkgs; [
         grim
         slurp
@@ -44,44 +45,48 @@
       '';
 
       /*
-      AAA HOW DO YTOU TAKE SCRENHOT WITHOUR COSOR??????
-      slurp | grim -g - - | convert - -shave 2x2 PNG:- | swappy -f -
-      grim -g "$(slurp)" - | convert - -shave 2x2 PNG:- | swappy -f -
+        AAA HOW DO YTOU TAKE SCRENHOT WITHOUR COSOR??????
+        slurp | grim -g - - | convert - -shave 2x2 PNG:- | swappy -f -
+        grim -g "$(slurp)" - | convert - -shave 2x2 PNG:- | swappy -f -
       */
 
       xdg.userDirs.extraConfig.XDG_SCREENSHOTS_DIR = cfg.path;
 
       # Configure keybindings
       wayland.windowManager.hyprland.settings = {
-        bind = let
-          # cmd = "${lib.getExe pkgs.hyprshot} -o ${cfg.path} -f $(date +${cfg.format})";
-          cmd = mode: "${lib.getExe inputs.hyprland-contrib.packages.${pkgs.system}.grimblast} --notify --freeze copysave ${mode} ${cfg.path}";
-          paste = lib.getExe' pkgs.wl-clipboard "wl-paste";
-          copy = lib.getExe' pkgs.wl-clipboard "wl-copy";
-          magick = lib.getExe pkgs.imagemagick;
-        in [
-          "$mainMod, E, exec, ${paste} | ${lib.getExe pkgs.swappy} -f -"
-          # Crop image in clipboard:
-          "$mainMod SHIFT, E, exec, sh -c \"${paste} | ${magick} - -shave 2x2 PNG:- | ${copy}\""
+        bind =
+          let
+            # cmd = "${lib.getExe pkgs.hyprshot} -o ${cfg.path} -f $(date +${cfg.format})";
+            cmd =
+              mode:
+              "${
+                lib.getExe inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+              } --notify --freeze copysave ${mode} ${cfg.path}";
+            paste = lib.getExe' pkgs.wl-clipboard "wl-paste";
+            copy = lib.getExe' pkgs.wl-clipboard "wl-copy";
+            magick = lib.getExe pkgs.imagemagick;
+          in
+          [
+            "$mainMod, E, exec, ${paste} | ${lib.getExe pkgs.swappy} -f -"
+            # Crop image in clipboard:
+            "$mainMod SHIFT, E, exec, sh -c \"${paste} | ${magick} - -shave 2x2 PNG:- | ${copy}\""
 
-          # Grimblast
-          "$mainMod, S, exec, ${cmd "area"}"
-          "$mainMod SHIFT, S, exec, ${cmd "active"}"
-          "$mainMod ALT, S, exec, ${cmd "output"}"
-          "$mainMod Alt SHIFT, S, exec, ${cmd "screen"}"
+            # Grimblast
+            "$mainMod, S, exec, ${cmd "area"}"
+            "$mainMod SHIFT, S, exec, ${cmd "active"}"
+            "$mainMod ALT, S, exec, ${cmd "output"}"
+            "$mainMod Alt SHIFT, S, exec, ${cmd "screen"}"
 
-          # Using hyprshot
-          # "$mainMod, S, exec, ${cmd} -m region"
-          # "$mainMod SHIFT, S, exec, ${cmd} -m window -c"
-          # "$mainMod ALT, S, exec, ${cmd} -m output -c"
+            # Using hyprshot
+            # "$mainMod, S, exec, ${cmd} -m region"
+            # "$mainMod SHIFT, S, exec, ${cmd} -m window -c"
+            # "$mainMod ALT, S, exec, ${cmd} -m output -c"
 
-          # ", PRINT, exec, ${cmd} -m region"
-          # "SHIFT, PRINT, exec, ${cmd} -m window -c"
-          # "ALT, PRINT, exec, ${cmd} -m output -c"
-        ];
-        env = [
-          "GRIMBLAST_EDITOR,\"swappy -f\""
-        ];
+            # ", PRINT, exec, ${cmd} -m region"
+            # "SHIFT, PRINT, exec, ${cmd} -m window -c"
+            # "ALT, PRINT, exec, ${cmd} -m output -c"
+          ];
+        env = [ "GRIMBLAST_EDITOR,\"swappy -f\"" ];
       };
     };
 }

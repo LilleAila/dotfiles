@@ -4,23 +4,27 @@
   inputs,
   pkgs,
   ...
-}: {
+}:
+{
   options.settings.nix = {
     enable = lib.mkDisableOption "nix";
     unfree = lib.mkOption {
       type = lib.types.listOf lib.types.str;
-      default = [];
+      default = [ ];
       description = "List of allowed unfree package names, usually defined in allowUnfreePredicate.";
     };
   };
   config = lib.mkIf config.settings.nix.enable {
-    nixpkgs.config = let
-      unfreePkgs = config.settings.nix.unfree ++ config.home-manager.users.${config.settings.user.name}.settings.nix.unfree;
-    in {
-      allowUnsupportedSystem = true;
-      allowUnfreePredicate = pkg:
-        builtins.elem (lib.getName pkg) unfreePkgs;
-    };
+    nixpkgs.config =
+      let
+        unfreePkgs =
+          config.settings.nix.unfree
+          ++ config.home-manager.users.${config.settings.user.name}.settings.nix.unfree;
+      in
+      {
+        allowUnsupportedSystem = true;
+        allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) unfreePkgs;
+      };
 
     # Extending lib instead
     # _module.args.util = pkgs.callPackage ../lib {};
@@ -35,7 +39,10 @@
       };
 
       settings = {
-        experimental-features = ["nix-command" "flakes"];
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
 
         access-tokens = "github.com=${builtins.readFile ../secrets/github-token.txt}";
 
@@ -62,11 +69,10 @@
       ];
     };
 
-    systemd.tmpfiles.rules = [
-      "L+ /etc/nixpkgs/channels/nixpkgs - - - - ${pkgs.path}"
-    ];
+    systemd.tmpfiles.rules = [ "L+ /etc/nixpkgs/channels/nixpkgs - - - - ${pkgs.path}" ];
 
-    environment.etc."programs.sqlite".source = inputs.programsdb.packages.${pkgs.system}.programs-sqlite;
+    environment.etc."programs.sqlite".source =
+      inputs.programsdb.packages.${pkgs.system}.programs-sqlite;
     programs.command-not-found = {
       enable = true;
       dbPath = "/etc/programs.sqlite";

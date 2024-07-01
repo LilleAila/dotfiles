@@ -1,9 +1,5 @@
 # Very WIP
-{
-  pkgs,
-  lib,
-  ...
-}:
+{ pkgs, lib, ... }:
 pkgs.writeShellScriptBin "install.sh" ''
   #!/usr/bin/env bash
   set -e

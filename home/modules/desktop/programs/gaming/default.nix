@@ -4,13 +4,12 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   options.settings.gaming.enable = lib.mkEnableOption "gaming";
   options.settings.gaming.steam.enable = lib.mkEnableOption "steam";
 
-  imports = [
-    ./prismlauncher.nix
-  ];
+  imports = [ ./prismlauncher.nix ];
 
   config = lib.mkIf config.settings.gaming.enable {
     # Other stuff like steam is enabled in system module gaming.nix
@@ -26,7 +25,7 @@
       "osu-lazer-bin"
     ];
 
-    settings.persist.home.cache = [".config/heroic"];
+    settings.persist.home.cache = [ ".config/heroic" ];
 
     home.packages = with pkgs; [
       heroic

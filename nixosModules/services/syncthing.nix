@@ -1,6 +1,6 @@
 /*
-https://nixos.wiki/wiki/Syncthing
-https://wes.today/nixos-syncthing
+  https://nixos.wiki/wiki/Syncthing
+  https://wes.today/nixos-syncthing
 */
 {
   pkgs,
@@ -8,11 +8,13 @@ https://wes.today/nixos-syncthing
   inputs,
   config,
   ...
-}: let
+}:
+let
   username = config.settings.user.name;
   homePath = "/home/${username}";
   secrets = import ../../secrets/syncthing.nix;
-in {
+in
+{
   options.settings.syncthing.enable = lib.mkEnableOption "Syncthing";
 
   config = lib.mkMerge [
@@ -25,9 +27,7 @@ in {
         ".local/share/PrismLauncher/instances"
       ];
 
-      settings.persist.home.cache = [
-        ".config/syncthing"
-      ];
+      settings.persist.home.cache = [ ".config/syncthing" ];
 
       # Config panel at http://127.0.0.1:8384/
       # Go to the config panel to find the device ID
@@ -51,32 +51,68 @@ in {
             password = "${secrets.password}";
           };
           devices = {
-            legion = {id = "${secrets.ids.legion}";};
-            mac = {id = "${secrets.ids.mac}";};
-            t420 = {id = "${secrets.ids.t420}";};
-            oci = {id = "${secrets.ids.oci}";};
-            e14g5 = {id = "${secrets.ids.e14g5}";};
+            legion = {
+              id = "${secrets.ids.legion}";
+            };
+            mac = {
+              id = "${secrets.ids.mac}";
+            };
+            t420 = {
+              id = "${secrets.ids.t420}";
+            };
+            oci = {
+              id = "${secrets.ids.oci}";
+            };
+            e14g5 = {
+              id = "${secrets.ids.e14g5}";
+            };
           };
           folders = {
             "Default Folder" = {
               path = "${homePath}/Sync";
-              devices = ["oci" "legion" "mac" "t420" "e14g5"];
+              devices = [
+                "oci"
+                "legion"
+                "mac"
+                "t420"
+                "e14g5"
+              ];
             };
             "Obsidian" = {
               path = "${homePath}/Documents/Obsidian\ Vault";
-              devices = ["oci" "e14g5" "t420"];
+              devices = [
+                "oci"
+                "e14g5"
+                "t420"
+              ];
             };
             "Factorio Saves" = {
               path = "${homePath}/.factorio";
-              devices = ["oci" "legion" "mac" "e14g5"];
+              devices = [
+                "oci"
+                "legion"
+                "mac"
+                "e14g5"
+              ];
             };
             "Notes" = {
               path = "${homePath}/org";
-              devices = ["oci" "legion" "mac" "t420" "e14g5"];
+              devices = [
+                "oci"
+                "legion"
+                "mac"
+                "t420"
+                "e14g5"
+              ];
             };
             "Minecraft" = {
               path = "${homePath}/.local/share/PrismLauncher/instances";
-              devices = ["oci" "legion" "mac" "e14g5"];
+              devices = [
+                "oci"
+                "legion"
+                "mac"
+                "e14g5"
+              ];
             };
           };
         };

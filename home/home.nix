@@ -7,7 +7,7 @@
 }:
 # NOTE: This is the home.nix file to use on non-nixOS systems
 {
-  imports = [./.];
+  imports = [ ./. ];
 
   # https://github.com/tinted-theming/base16-schemes/
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;

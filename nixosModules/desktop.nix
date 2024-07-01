@@ -4,7 +4,8 @@
   inputs,
   lib,
   ...
-}: {
+}:
+{
   options.settings.desktop.enable = lib.mkEnableOption "misc. gui utils";
 
   config = lib.mkIf (config.settings.desktop.enable) {
@@ -12,8 +13,12 @@
     programs.dconf.enable = true;
     programs.xfconf.enable = true;
     services.gvfs.enable = true;
-    settings.persist.home.cache = [".local/share/gvfs-metadata"];
-    settings.persist.home.directories = [".cache/dconf" ".config/dconf" "qmk_firmware"];
+    settings.persist.home.cache = [ ".local/share/gvfs-metadata" ];
+    settings.persist.home.directories = [
+      ".cache/dconf"
+      ".config/dconf"
+      "qmk_firmware"
+    ];
     # services.printing.enable = true;
 
     hardware.keyboard.qmk.enable = true;
@@ -37,12 +42,8 @@
     xdg.portal = {
       enable = true;
       # wlr.enable = true;
-      configPackages = [
-        pkgs.xdg-desktop-portal-gtk
-      ];
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
-      ];
+      configPackages = [ pkgs.xdg-desktop-portal-gtk ];
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     };
 
     services.libinput = {
@@ -92,15 +93,15 @@
 
     # == Authentication stuff ==
     # Allow authentication in swaylock
-    security.pam.services.swaylock = {};
+    security.pam.services.swaylock = { };
 
     services.gnome.gnome-keyring.enable = true;
     security.polkit.enable = true;
     systemd.user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
-      wantedBy = ["graphical-session.target"];
-      wants = ["graphical-session.target"];
-      after = ["graphical-session.target"];
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
       serviceConfig = {
         Type = "simple";
         ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";

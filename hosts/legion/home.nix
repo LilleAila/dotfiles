@@ -6,8 +6,9 @@
   lib,
   keys,
   ...
-}: {
-  imports = [../../home];
+}:
+{
+  imports = [ ../../home ];
 
   settings = {
     monitors = [
@@ -15,9 +16,7 @@
         name = "eDP-1";
         # wallpaper = ./wallpapers/wall10.jpg;
         # wallpaper = ./wallpapers/wall24.png;
-        wallpaper = outputs.packages.${pkgs.system}.wallpaper.override {
-          scheme = config.colorScheme;
-        };
+        wallpaper = outputs.packages.${pkgs.system}.wallpaper.override { scheme = config.colorScheme; };
         geometry = "1920x1080@60";
         position = "0x0";
       }
@@ -41,9 +40,10 @@
     bat-fullcharge = "sudo tlp fullcharge";
     bat-limit = "sudo tlp setcharge 0 1 BAT0";
     bt = "bluetooth";
-    osbuild = let
-      base_cmd = "sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/dotfiles";
-    in
+    osbuild =
+      let
+        base_cmd = "sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/dotfiles";
+      in
       (pkgs.writeShellScript "osbuild" ''
         #!/usr/bin/env bash
         if [ -z "''${NIXOS_ACTIVE_SPECIALISATION}" ] || [ "''${NIXOS_ACTIVE_SPECIALISATION}" = "default" ]; then
@@ -51,8 +51,7 @@
         else
             ${base_cmd} --specialisation "''${NIXOS_ACTIVE_SPECIALISATION}"
         fi
-      '')
-      .outPath;
+      '').outPath;
   };
   home.packages = with pkgs; [
     _1password-gui-beta
@@ -60,15 +59,16 @@
     fluidsynth
     qsynth
     inkscape
-    (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (ps:
-      with ps; [
+    (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (
+      ps: with ps; [
         plover_uinput
         plover-lapwing-aio
-      ]))
+      ]
+    ))
     geogebra6
   ];
 
-  settings.persist.home.cache = [".config/inkscape"];
+  settings.persist.home.cache = [ ".config/inkscape" ];
 
   sops.secrets."ssh/legion".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
   home.file.".ssh/id_ed25519.pub".text = keys.ssh.legion.public;

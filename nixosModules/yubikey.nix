@@ -10,11 +10,12 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options.settings.yubikey.enable = lib.mkEnableOption "yubikey";
 
   config = lib.mkIf config.settings.yubikey.enable {
-    services.udev.packages = [pkgs.yubikey-personalization];
+    services.udev.packages = [ pkgs.yubikey-personalization ];
 
     programs.gnupg.agent = {
       enable = true;
@@ -25,7 +26,7 @@
       enable = true;
       # debug = true;
       mode = "challenge-response";
-      id = ["26543459"];
+      id = [ "26543459" ];
     };
 
     services.pcscd.enable = true;

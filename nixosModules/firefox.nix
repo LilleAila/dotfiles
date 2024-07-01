@@ -4,7 +4,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   config = lib.mkIf config.hm.settings.browser.firefox.enable {
     programs.firefox = {
       enable = true;

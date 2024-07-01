@@ -5,7 +5,8 @@
   lib,
   keys,
   ...
-}: {
+}:
+{
   config = lib.mkIf (config.settings.terminal.utils.enable) {
     programs.git = {
       enable = true;
@@ -32,27 +33,32 @@
       ];
     };
 
-    home.packages = [pkgs.git-crypt];
+    home.packages = [ pkgs.git-crypt ];
 
     programs.lazygit = {
       enable = true;
       settings = {
-        gui.theme = let
-          c = config.colorScheme.palette;
-        in {
-          activeBorderColor = [
-            "#${c.base07}"
-            "bold"
-          ];
-          inactiveBorderColor = ["#${c.base04}"];
-          searchingActiveBorderColor = ["#${c.base02}" "bold"];
-          optionsTextColor = ["#${c.base06}"];
-          selectedLineBgColor = ["#${c.base03}"];
-          cherryPickedCommitBgColor = ["#${c.base02}"];
-          cherryPickedCommitFgColor = ["#${c.base03}"];
-          unstagedChangesColor = ["#${c.base08}"];
-          defaultFgColor = ["#${c.base05}"];
-        };
+        gui.theme =
+          let
+            c = config.colorScheme.palette;
+          in
+          {
+            activeBorderColor = [
+              "#${c.base07}"
+              "bold"
+            ];
+            inactiveBorderColor = [ "#${c.base04}" ];
+            searchingActiveBorderColor = [
+              "#${c.base02}"
+              "bold"
+            ];
+            optionsTextColor = [ "#${c.base06}" ];
+            selectedLineBgColor = [ "#${c.base03}" ];
+            cherryPickedCommitBgColor = [ "#${c.base02}" ];
+            cherryPickedCommitFgColor = [ "#${c.base03}" ];
+            unstagedChangesColor = [ "#${c.base08}" ];
+            defaultFgColor = [ "#${c.base05}" ];
+          };
       };
     };
 
@@ -73,7 +79,7 @@
       ];
     };
 
-    settings.persist.home.cache_files = ["gpg-key.asc"];
-    settings.persist.home.cache = [".gnupg"];
+    settings.persist.home.cache_files = [ "gpg-key.asc" ];
+    settings.persist.home.cache = [ ".gnupg" ];
   };
 }

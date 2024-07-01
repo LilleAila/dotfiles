@@ -4,7 +4,8 @@
   lib,
   inputs,
   ...
-}: {
+}:
+{
   options.settings.wm.swaylock.enable = lib.mkEnableOption "hyprlock";
 
   # config = lib.mkIf config.settings.wm.swaylock.enable (lib.mkAssert (!config.settings.wm.hyprlock.enable) "You cannot enable both swaylock and hyprlock at the same time!" {

@@ -4,7 +4,8 @@
   inputs,
   lib,
   ...
-}: {
+}:
+{
   options.settings = {
     imageviewer.enable = lib.mkEnableOption "imageviewer";
     other.enable = lib.mkEnableOption "other";
@@ -21,7 +22,7 @@
       # cinnamon.pix (YES)
       # swayimg (good but has to be configed)
       # vimiv-qt (VIM but no theme)
-      home.packages = [pkgs.cinnamon.pix];
+      home.packages = [ pkgs.cinnamon.pix ];
       xdg.desktopEntries.pix = {
         name = "Pix";
         genericName = "Image viewer";
@@ -44,7 +45,7 @@
     })
     (lib.mkIf (config.settings.other.enable) {
       dconf.settings."org/blueman/general" = {
-        plugin-list = ["!ConnectionNotifier"];
+        plugin-list = [ "!ConnectionNotifier" ];
       };
 
       services.network-manager-applet.enable = true;

@@ -4,7 +4,8 @@
   inputs,
   lib,
   ...
-}: {
+}:
+{
   options.settings.terminal.utils.enable = lib.mkEnableOption "utils";
 
   config = lib.mkIf (config.settings.terminal.utils.enable) {
@@ -22,13 +23,18 @@
 
         neofetch = "${lib.getExe pkgs.nitch}";
       }
-      // (let
-        flakePath = "${config.home.homeDirectory}/dotfiles";
-        remoteBuild = hostname: "nixos-rebuild switch --flake ${flakePath}#${hostname} --target-host olai@${hostname}.local --use-remote-sudo";
-      in {
-        osbuild = lib.mkDefault "sudo nixos-rebuild switch --flake ${flakePath}";
-        osbuild-t420 = remoteBuild "t420-nix";
-      });
+      // (
+        let
+          flakePath = "${config.home.homeDirectory}/dotfiles";
+          remoteBuild =
+            hostname:
+            "nixos-rebuild switch --flake ${flakePath}#${hostname} --target-host olai@${hostname}.local --use-remote-sudo";
+        in
+        {
+          osbuild = lib.mkDefault "sudo nixos-rebuild switch --flake ${flakePath}";
+          osbuild-t420 = remoteBuild "t420-nix";
+        }
+      );
 
     programs.ssh = {
       enable = true;
@@ -63,9 +69,7 @@
       enable = true;
       enableZshIntegration = true;
       enableFishIntegration = true;
-      defaultOptions = [
-        "--color 16"
-      ];
+      defaultOptions = [ "--color 16" ];
     };
 
     programs.zoxide = {

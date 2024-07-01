@@ -4,7 +4,8 @@
   inputs,
   config,
   ...
-}: {
+}:
+{
   options.settings.zfs = {
     enable = lib.mkEnableOption "zfs";
     encryption = lib.mkEnableOption "zfs encryption";
@@ -28,7 +29,7 @@
       trim.enable = true;
     };
 
-    swapDevices = [{device = "/dev/disk/by-label/SWAP";}];
+    swapDevices = [ { device = "/dev/disk/by-label/SWAP"; } ];
 
     fileSystems = {
       "/boot" = {

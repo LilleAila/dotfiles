@@ -4,12 +4,11 @@
   inputs,
   lib,
   ...
-}: {
+}:
+{
   options.settings.sops.enable = lib.mkEnableOption "sops";
 
-  imports = [
-    inputs.sops-nix.nixosModules.sops
-  ];
+  imports = [ inputs.sops-nix.nixosModules.sops ];
 
   config = lib.mkIf (config.settings.sops.enable) {
     sops.defaultSopsFile = ../secrets/secrets.yaml;

@@ -4,11 +4,15 @@
   inputs,
   lib,
   ...
-}: {
+}:
+{
   options.settings.utils.enable = lib.mkEnableOption "various general utilities";
 
   config = lib.mkIf (config.settings.utils.enable) {
-    environment.shells = [pkgs.zsh pkgs.fish];
+    environment.shells = [
+      pkgs.zsh
+      pkgs.fish
+    ];
     programs.zsh.enable = true;
     programs.fish.enable = true;
 

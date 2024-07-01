@@ -4,7 +4,8 @@
   inputs,
   lib,
   ...
-}: {
+}:
+{
   options.settings.browser = {
     qutebrowser.enable = lib.mkEnableOption "qutebrowser";
   };
@@ -14,7 +15,7 @@
       programs.qutebrowser = {
         enable = true;
         settings = {
-          colors = import ./colors.nix {inherit config;};
+          colors = import ./colors.nix { inherit config; };
           fonts = with config.settings.fonts; {
             default_family = sansSerif.name;
             default_size = "${toString size}pt";

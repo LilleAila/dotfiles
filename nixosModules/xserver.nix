@@ -4,7 +4,8 @@
   inputs,
   lib,
   ...
-}: {
+}:
+{
   options.settings.xserver = {
     enable = lib.mkEnableOption "xserver";
     xwayland.enable = lib.mkEnableOption "xwayland";
