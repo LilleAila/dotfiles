@@ -429,18 +429,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1719682779,
-        "narHash": "sha256-K+fThcMtGZ6axQqjfxrkudVGZUyIbk+n1t3b2J2jBhk=",
-        "ref": "refs/heads/add-prismlauncher-module",
-        "rev": "301b88d0743b9900cd799187096dbe0fa9b75b31",
-        "shallow": true,
-        "type": "git",
-        "url": "file:///persist/home/olai/devel/home-manager"
+        "lastModified": 1719827439,
+        "narHash": "sha256-tneHOIv1lEavZ0vQ+rgz67LPNCgOZVByYki3OkSshFU=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "59ce796b2563e19821361abbe2067c3bb4143a7d",
+        "type": "github"
       },
       "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "file:///persist/home/olai/devel/home-manager"
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
       }
     },
     "home-manager_2": {

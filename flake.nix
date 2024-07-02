@@ -1,114 +1,112 @@
 {
   description = "NixOS config flake";
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      nixos-hardware,
-      ...
-    }@inputs:
-    let
-      inherit (self) outputs;
-      lib = nixpkgs.lib.extend (final: prev: (import ./lib final) // home-manager.lib);
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nixos-hardware,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+    lib = nixpkgs.lib.extend (final: prev: (import ./lib final) // home-manager.lib);
 
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-      ];
-      pkgsFor = lib.genAttrs systems (system: import nixpkgs { inherit system; });
-      forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
+    systems = [
+      "x86_64-linux"
+      "aarch64-linux"
+    ];
+    pkgsFor = lib.genAttrs systems (system: import nixpkgs {inherit system;});
+    forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
 
-      keys = import ./secrets/not-so-secrets.nix;
+    keys = import ./secrets/not-so-secrets.nix;
 
-      defaultSettings = {
-        # Define username here. Probably a better way to do this
-        username = "olai";
-      };
+    defaultSettings = {
+      # Define username here. Probably a better way to do this
+      username = "olai";
+    };
 
-      mkConfig =
-        {
-          name,
-          extraModules ? [ ],
-          globalSettings ? defaultSettings,
-        }:
-        lib.nixosSystem {
-          specialArgs = {
-            inherit
-              inputs
-              outputs
-              globalSettings
-              keys
-              lib
-              ;
-          };
-          modules = [
+    mkConfig = {
+      name,
+      extraModules ? [],
+      globalSettings ? defaultSettings,
+    }:
+      lib.nixosSystem {
+        specialArgs = {
+          inherit
+            inputs
+            outputs
+            globalSettings
+            keys
+            lib
+            ;
+        };
+        modules =
+          [
             ./hosts/${name}/configuration.nix
             {
               # I don't want to pass name as a specialArg
               settings.home-manager.path = ./hosts/${name}/home.nix;
             }
-          ] ++ extraModules;
-        };
-    in
-    {
-      packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs inputs; });
-      devShells = forEachSystem (pkgs: {
-        default = import ./shell.nix { inherit pkgs; };
-      });
+          ]
+          ++ extraModules;
+      };
+  in {
+    packages = forEachSystem (pkgs: import ./pkgs {inherit pkgs inputs;});
+    devShells = forEachSystem (pkgs: {
+      default = import ./shell.nix {inherit pkgs;};
+    });
 
-      nixosConfigurations = {
-        mac-nix = mkConfig {
-          name = "mac-nix";
-          extraModules = [ inputs.nixos-apple-silicon.nixosModules.apple-silicon-support ];
-        };
-
-        oci-nix = mkConfig { name = "oci"; };
-
-        t420-nix = mkConfig {
-          name = "t420";
-          extraModules = [ nixos-hardware.nixosModules.lenovo-thinkpad-t420 ];
-        };
-
-        legion-nix = mkConfig {
-          name = "legion";
-          extraModules = [ nixos-hardware.nixosModules.common-cpu-intel ];
-        };
-
-        e14g5-nix = mkConfig {
-          name = "e14g5";
-          # extraModules = [nixos-hardware.nixosModules.common-cpu-amd nixos-hardware.nixosModules.common-gpu-amd];
-          extraModules = [ nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd ];
-        };
-
-        vm-nix = mkConfig { name = "vm"; };
-
-        installer = mkConfig {
-          name = "installer";
-          globalSettings.username = "nixos";
-        };
+    nixosConfigurations = {
+      mac-nix = mkConfig {
+        name = "mac-nix";
+        extraModules = [inputs.nixos-apple-silicon.nixosModules.apple-silicon-support];
       };
 
-      homeConfigurations."${defaultSettings.username}" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-linux"; # Idk how to do but somehow make this also arm
-        extraSpecialArgs = {
-          inherit inputs outputs keys;
-          globalSettings = defaultSettings;
-        };
+      oci-nix = mkConfig {name = "oci";};
 
-        modules = [
-          { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
-          ./home.nix
-        ];
+      t420-nix = mkConfig {
+        name = "t420";
+        extraModules = [nixos-hardware.nixosModules.lenovo-thinkpad-t420];
+      };
+
+      legion-nix = mkConfig {
+        name = "legion";
+        extraModules = [nixos-hardware.nixosModules.common-cpu-intel];
+      };
+
+      e14g5-nix = mkConfig {
+        name = "e14g5";
+        # extraModules = [nixos-hardware.nixosModules.common-cpu-amd nixos-hardware.nixosModules.common-gpu-amd];
+        extraModules = [nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd];
+      };
+
+      vm-nix = mkConfig {name = "vm";};
+
+      installer = mkConfig {
+        name = "installer";
+        globalSettings.username = "nixos";
       };
     };
+
+    homeConfigurations."${defaultSettings.username}" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages."x86_64-linux"; # Idk how to do but somehow make this also arm
+      extraSpecialArgs = {
+        inherit inputs outputs keys;
+        globalSettings = defaultSettings;
+      };
+
+      modules = [
+        {nixpkgs.overlays = [inputs.emacs-overlay.overlay];}
+        ./home.nix
+      ];
+    };
+  };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "/persist/home/olai/devel/home-manager/";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
