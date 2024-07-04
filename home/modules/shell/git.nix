@@ -25,7 +25,14 @@
         co = "checkout";
         cm = "commit";
         c = "commit -m";
+        a = "add";
         aa = "add -A";
+        wc = "whatchanged";
+        d = "diff";
+        fu = "fetch upstream";
+        fu-shallow = "fetch --depth=1 upstream";
+        cl = "clone";
+        cl-shallow = "clone --depth=1";
       };
       ignores = [
         ".direnv"
@@ -80,6 +87,9 @@
     };
 
     settings.persist.home.cache_files = [ "gpg-key.asc" ];
-    settings.persist.home.cache = [ ".gnupg" ];
+    settings.persist.home.cache = [
+      ".gnupg"
+      ".local/state/lazygit"
+    ];
   };
 }
