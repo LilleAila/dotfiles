@@ -4,6 +4,7 @@
   inputs,
   lib,
   keys,
+  outputs,
   ...
 }:
 {

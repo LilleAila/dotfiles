@@ -19,6 +19,15 @@
   networking.hostId = "210c2d42";
 
   settings = {
+    greeter.enable = true;
+    xserver.xwayland.enable = true;
+    utils.enable = true;
+    desktop.enable = true;
+    sound.enable = true;
+    yubikey.enable = true;
+    # TODO: syncthing
+    # syncthing.enable = true;
+
     locale = {
       main = "en_US.UTF-8";
       other = "nb_NO.UTF-8";
@@ -29,8 +38,8 @@
       enable = true;
       hostname = "x220-nix";
       wifi.enable = true;
+      bluetooth.enable = true;
     };
-    utils.enable = true;
     console = {
       font = "ter-u16n";
       keyMap = "no";
