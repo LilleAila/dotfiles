@@ -28,7 +28,7 @@
     networking = {
       enable = true;
       hostname = "x220-nix";
-      networking.enable = true;
+      wifi.enable = true;
     };
     utils.enable = true;
     console = {
