@@ -40,7 +40,8 @@ I use the following computers with my dotfiles:
 
 | Type                      | Name         | Architecture | Note                        |
 | ------------------------- | ------------ | ------------ | --------------------------- |
-| Lenogo ThinkPad E14 Gen 5 | `e14g5`      | `x86_64`     | Main                        |
+| Lenovo ThinkPad E14 Gen 5 | `e14g5-nix`  | `x86_64`     | Main                        |
+| Lenovo ThinkPad X220      | `x220-nix`   | `x86_64`     |                             |
 | Apple MacBook Pro 14"     | `mac-nix`    | `aarch64`    | Build with `--impure`       |
 | Lenovo ThinkPad T420      | `t420-nix`   | `x86_64`     |                             |
 | Lenovo Legion Y540        | `legion-nix` | `x86_64`     |                             |
