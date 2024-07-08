@@ -57,6 +57,7 @@
     });
 
     nixosConfigurations = {
+      x220-nix = mkConfig {name = "x220-nix";};
       mac-nix = mkConfig {
         name = "mac-nix";
         extraModules = [inputs.nixos-apple-silicon.nixosModules.apple-silicon-support];
