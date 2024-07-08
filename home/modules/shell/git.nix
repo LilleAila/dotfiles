@@ -20,8 +20,9 @@
       };
       aliases = {
         p = "push";
-        pp = "pull";
+        pu = "pull";
         pr = "pull --rebase";
+        pp = "!git pull --rebase && git push";
         co = "checkout";
         cm = "commit";
         c = "commit -m";
