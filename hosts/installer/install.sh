@@ -176,9 +176,9 @@ if [ "$HOST" == "Configure a new host" ]; then
   if [[ $use_encryption == "y" ]]; then
     sed -i '/zfs.encryption/s/false/true/' "hosts/$HOST_NAME/configuration.nix"
   fi
-  $hostId=$(head -c 8 /etc/machine-id)
-  sed -i "/networking.hostId/s/placeholder/$hostId" "hosts/$HOST_NAME/configuration.nix"
-  sed -i "/hostname/s/placeholder/$HOST_NAME" "hosts/$HOST_NAME/configuration.nix"
+  hostId="$(head -c 8 /etc/machine-id)"
+  sed -i "/networking.hostId/s/placeholder/$hostId/" "hosts/$HOST_NAME/configuration.nix"
+  sed -i "/hostname/s/placeholder/$HOST_NAME/" "hosts/$HOST_NAME/configuration.nix"
   nvim "hosts/$HOST_NAME/configuration.nix"
   info "Adding configuration to flake.nix"
   sed -i "/nixosConfigurations = {/a \ \ \ \ \ \ $HOST_NAME = mkConfig {name = \"$HOST_NAME\";};" flake.nix
@@ -191,11 +191,12 @@ elif [ "$HOST" == "Install existing host with minimal config" ]; then
   info "TODO"
 else
   info "Installing NixOS configuration for host $HOST"
+  HOST_NAME=$HOST
 fi
 
 info "Press enter to continue..."
 read
-sudo nixos-install --no-root-password --flake .#$HOST --impure
+sudo nixos-install --no-root-password --flake .#$HOST_NAME --impure
 
 info "Copying secrets"
 # This assumes the user ID and group ID are set properly for the user
