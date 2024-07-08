@@ -28,6 +28,7 @@
     networking = {
       enable = true;
       hostname = "placeholder";
+      wifi.enable = true;
     };
     utils.enable = true;
     console = {
