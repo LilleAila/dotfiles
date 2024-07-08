@@ -108,11 +108,7 @@ in
           size = mkDefault 10;
         };
 
-      persist.home.directories = [
-        "devel"
-        "dotfiles"
-        ".config/plover"
-      ];
+      persist.home.directories = [ ".config/plover" ];
     };
 
     settings.webapps.chromium = {

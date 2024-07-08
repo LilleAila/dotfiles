@@ -22,6 +22,10 @@ in
   config = lib.mkIf config.settings.impermanence.enable {
     sops.age.keyFile = "/persist/cache/home/${config.settings.user.name}/.config/sops/age/keys.txt";
     settings.persist.home.cache = [ ".config/sops/age" ];
+    settings.persist.home.directories = [
+      "devel"
+      "dotfiles"
+    ];
     # With impermanence, the file can not be managed by nix
     hm.home.file.".config/sops/age/keys.txt".enable = false;
 
