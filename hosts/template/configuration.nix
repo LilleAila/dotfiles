@@ -36,6 +36,14 @@
     };
     sops.enable = true;
 
+    ssh.enable = true;
+    ssh.keys = with keys.ssh; [
+      mac.public
+      legion.public
+      e14g5.public
+      t420.public
+    ];
+
     zfs.enable = true;
     zfs.encryption = false;
     zfs.snapshots = true;

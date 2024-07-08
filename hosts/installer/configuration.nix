@@ -8,6 +8,7 @@
   inputs,
   globalSettings,
   modulesPath,
+  keys,
   ...
 }:
 {
@@ -31,6 +32,14 @@
       other = "nb_NO.UTF-8";
       timeZone = "Europe/Oslo";
     };
+
+    ssh.enable = true;
+    ssh.keys = with keys.ssh; [
+      mac.public
+      legion.public
+      e14g5.public
+      t420.public
+    ];
   };
   programs.zsh.enable = true;
   users.users.nixos.shell = pkgs.zsh;
