@@ -29,6 +29,7 @@
     ./plymouth.nix
     ./zfs.nix
     ./impermanence
+    ./gpg.nix
 
     # "home-manager" modules
     # idk if i like this way of doing it, because this means that some things can be enabled even when everything system-wise is disabled
