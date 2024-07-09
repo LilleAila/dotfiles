@@ -25,8 +25,7 @@
     desktop.enable = true;
     sound.enable = true;
     yubikey.enable = true;
-    # TODO: syncthing
-    # syncthing.enable = true;
+    syncthing.enable = true;
 
     locale = {
       main = "en_US.UTF-8";

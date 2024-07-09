@@ -31,7 +31,6 @@ in
 
       # Config panel at http://127.0.0.1:8384/
       # Go to the config panel to find the device ID
-      # TODO: configure syncthing keys and certs for different computers using sops
       services.syncthing = {
         enable = true;
         user = username;
@@ -66,6 +65,9 @@ in
             e14g5 = {
               id = "${secrets.ids.e14g5}";
             };
+            x220 = {
+              id = "${secrets.ids.x220}";
+            };
           };
           folders = {
             "Default Folder" = {
@@ -76,6 +78,7 @@ in
                 "mac"
                 "t420"
                 "e14g5"
+                "x220"
               ];
             };
             "Obsidian" = {
@@ -84,6 +87,7 @@ in
                 "oci"
                 "e14g5"
                 "t420"
+                "x220"
               ];
             };
             "Factorio Saves" = {
@@ -103,6 +107,7 @@ in
                 "mac"
                 "t420"
                 "e14g5"
+                "x220"
               ];
             };
             "Minecraft" = {
