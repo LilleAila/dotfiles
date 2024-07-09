@@ -23,6 +23,8 @@
     wm.hyprland.monitors.enable = true;
     desktop.enable = true;
     blueman-applet.enable = true;
+
+    fonts.size = 8;
   };
 
   # caps is ctrl, both shift toggle caps, disable with only one shift, menu key as super
