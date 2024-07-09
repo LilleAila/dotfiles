@@ -21,48 +21,14 @@
     gaming.enable = true;
     gaming.steam.enable = true;
     desktop.enable = true;
-    nix.unfree = [
-      "1password"
-      "1password-gui"
-      "geogebra"
-      "obsidian"
-    ];
+    desktop.full.enable = true;
     wm.hyprland.monitors.enable = true;
     wm.hyprland.useFlake = true;
-
-    persist.home.cache = [ ".config/1Password" ];
-    persist.home.directories = [
-      ".local/share/Anki2"
-      ".config/MuseScore"
-      ".local/share/MuseScore"
-    ];
   };
   wayland.windowManager.hyprland.settings.input.kb_options = "ctrl:nocaps,altwin:prtsc_rwin";
   home.shellAliases = {
     bt = "bluetooth";
   };
-  home.packages = with pkgs; [
-    _1password-gui-beta
-    protonvpn-gui
-    fluidsynth
-    qsynth
-    inkscape
-    (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (
-      ps: with ps; [
-        plover_uinput
-        plover-lapwing-aio
-      ]
-    ))
-    geogebra6
-    krita
-    obsidian
-    libreoffice
-    handbrake
-    kdenlive
-    wf-recorder
-    (outputs.packages.${pkgs.system}.anki-nix-colors.override { inherit (config) colorScheme; })
-    musescore
-  ];
 
   sops.secrets."yubikey/u2f_keys".path = "${config.home.homeDirectory}/.config/Yubico/u2f_keys";
   sops.secrets."ssh/e14g5".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
