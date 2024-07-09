@@ -27,9 +27,8 @@
 
   wayland.windowManager.hyprland.settings.input.kb_options = lib.mkForce "ctrl:nocaps,altwin:menu_win";
 
-  # FIXME temporary ssh key, replace with a new one as soon as possible
-  sops.secrets."ssh/installer".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
-  home.file.".ssh/id_ed25519.pub".text = keys.ssh.installer.public;
+  sops.secrets."ssh/x220".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
+  home.file.".ssh/id_ed25519.pub".text = keys.ssh.x220.public;
 
   sops.secrets."yubikey/u2f_keys".path = "${config.home.homeDirectory}/.config/Yubico/u2f_keys";
 
