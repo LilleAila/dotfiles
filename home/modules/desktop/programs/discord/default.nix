@@ -42,7 +42,7 @@ in
       home.file.".config/vesktop/settings/settings.json".source = jsonFormat.generate "vesktop-settings" config.settings.discord.vesktop.settings;
 
       home.file.".config/vesktop/themes/base16.theme.css".source = pkgs.writeText "base16.theme.css" (
-        import ./theme.nix { inherit config; }
+        import ./theme.nix { inherit config lib; }
       );
 
       settings.discord.vesktop.settings = lib.mkDefault {

@@ -1,5 +1,6 @@
 # https://syndishanx.github.io/Website/Update_Classes.html
-{ config, ... }:
+{ config, lib, ... }:
+
 with config.colorScheme.palette;
 with config.settings.fonts;
 # css
@@ -72,7 +73,43 @@ with config.settings.fonts;
     --font-code ${monospace.name} !important;
     --font-display ${serif.name} !important;
     --font-headline ${serif.name} !important;
-    --font-primary ${sansSerif.name} !important;
+    --font-primary ${monospace.name} !important;
+  }
+
+  /* Font and spacing stuff */
+  .groupStart_d5deea {
+    margin-top: 2px !important;
+  }
+
+  .message_d5deea {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    /* could also set --custom-message-spacing-vertical-container-cozy variable */
+  }
+
+  .messageContent_f9f2ca,
+  .username_f9f2ca,
+  .botText_a02df3,
+  .timestamp_f9f2ca,
+  .timestampInline_f9f2c,
+  .editor_a552a6,
+  .slateTextArea_e52116,
+  .name_d8bfb3,
+  .contents_dd4f85,
+  .username_f9f2ca,
+  .repliedTextContent_f9f2ca,
+  .markup_f8f345 {
+    /*font-size: ${toString (lib.fonts.toPx size)}px;*/
+    font-size: ${toString size}pt !important;
+  }
+
+  ::-webkit-input-placeholder, body, button, input, select, textarea {
+      font-family: "${monospace.name}";
+  }
+
+  /* Squircle avatars instead of square */
+  .avatar_f9f2ca {
+    border-radius: 8px;
   }
 
   /* Fix thread channel header */
