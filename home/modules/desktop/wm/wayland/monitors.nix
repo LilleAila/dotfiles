@@ -16,7 +16,7 @@ in
           name = lib.mkStrOption "eDP-1";
           geometry = lib.mkOption' (types.nullOr types.str) null;
           position = lib.mkOption' (types.nullOr types.str) null;
-          scale = lib.mkOption' types.int 1;
+          scale = lib.mkOption' types.number 1;
           enable = lib.mkDisableOption "this monitor";
           rotation = lib.mkOption' types.int 0;
         };

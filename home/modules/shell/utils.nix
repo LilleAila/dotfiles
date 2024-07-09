@@ -60,6 +60,7 @@
     programs.starship = {
       enable = true;
       settings = {
+        command_timeout = 1000;
         add_newline = false;
         format = "$all";
       };

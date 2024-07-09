@@ -9,7 +9,7 @@
   height ? 1080,
 }:
 stdenv.mkDerivation {
-  name = "nix-wallpaper-${colorScheme.slug}";
+  name = "nix-wallpaper-${colorScheme.slug}.png";
   src = ./template.svg;
   nativeBuildInputs = [ inkscape ];
   unpackPhase = "true";
