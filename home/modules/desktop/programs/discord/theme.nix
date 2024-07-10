@@ -1,4 +1,6 @@
 # https://syndishanx.github.io/Website/Update_Classes.html
+# Maybe TODO later?:
+# https://github.com/Elisniper/MBD/blob/main/Addons/ChatBubbles.css
 { config, lib, ... }:
 
 with config.colorScheme.palette;
@@ -74,6 +76,11 @@ with config.settings.fonts;
     --font-display ${serif.name} !important;
     --font-headline ${serif.name} !important;
     --font-primary ${monospace.name} !important;
+  }
+
+  /* Unread message red line thing */
+  .isUnread_c2654d {
+    margin-bottom: 16px !important;
   }
 
   /* Font and spacing stuff */
