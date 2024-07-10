@@ -17,11 +17,6 @@
   config = lib.mkIf config.settings.yubikey.enable {
     services.udev.packages = [ pkgs.yubikey-personalization ];
 
-    programs.gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-
     security.pam.yubico = {
       enable = true;
       # debug = true;

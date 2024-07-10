@@ -40,6 +40,7 @@
       keyMap = "no";
     };
     sops.enable = true;
+    gpg.enable = true;
     ssh.enable = true;
     ssh.keys = with keys.ssh; [
       e14g5.public

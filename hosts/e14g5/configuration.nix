@@ -40,6 +40,7 @@
       keyMap = "no";
     };
     sops.enable = true;
+    gpg.enable = true;
     yubikey.enable = true;
     virtualisation.enable = true;
 
