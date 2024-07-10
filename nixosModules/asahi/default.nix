@@ -28,12 +28,6 @@
 
     programs.hyprland.enable = true;
 
-    # Enable OpenGL
-    hardware.opengl = {
-      enable = true;
-      driSupport = true;
-    };
-
     programs.nix-ld.enable = true;
 
     sound.enable = true;

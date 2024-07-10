@@ -63,13 +63,6 @@
   boot.initrd.luks.devices."luks-88c6adff-e723-48ab-8595-5a0b7975f623".device = "/dev/disk/by-uuid/88c6adff-e723-48ab-8595-5a0b7975f623";
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # https://github.com/NixOS/nixos-hardware
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-
   services.tlp = {
     enable = true;
     settings = {

@@ -9,6 +9,8 @@
   options.settings.desktop.enable = lib.mkEnableOption "misc. gui utils";
 
   config = lib.mkIf (config.settings.desktop.enable) {
+    hardware.graphics.enable = true;
+
     services.seatd.enable = true;
     programs.dconf.enable = true;
     programs.xfconf.enable = true;

@@ -73,37 +73,10 @@
   '';
 
   services.xserver.videoDrivers = [ "amdgpu" ];
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
 
   nixpkgs.overlays = [
     (final: prev: { libfprint = prev.callPackage ../../pkgs/libfprint-fpcmoh.nix { }; })
   ];
-
-  services.fprintd = {
-    enable = false;
-  };
-
-  # settings.nix.unfree = [
-  #   # "libfprint-2-tod1-goodix-550a"
-  #   # "libfprint-2-tod1-goodix"
-  #   # "libfprint-2-tod1-elan"
-  # ];
-  #
-  # services.fprintd = {
-  #   enable = true;
-  #   tod = {
-  #     enable = true;
-  #     # driver = pkgs.libfprint-2-tod1-vfs0090;
-  #     # driver = pkgs.libfprint-2-tod1-goodix-550a;
-  #     # driver = pkgs.libfprint-2-tod1-goodix;
-  #     # driver = pkgs.libfprint-2-tod1-elan;
-  #     driver = outputs.packages.${pkgs.system}.libfprint-2-tod1-fpc;
-  #   };
-  # };
 
   services.fwupd.enable = true;
 

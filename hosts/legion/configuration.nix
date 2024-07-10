@@ -143,10 +143,4 @@
       USB_AUTOSUSPEND = 1;
     };
   };
-
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
 }
