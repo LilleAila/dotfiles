@@ -12,6 +12,7 @@
     home.shellAliases =
       {
         bigfiles = "sudo fd --one-file-system --base-directory / --type f --hidden --exec ls -lS | sort -k5,5nr | head -n 10";
+        current-generation = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system | tail -n 3";
 
         cat = "${pkgs.bat}/bin/bat";
 
