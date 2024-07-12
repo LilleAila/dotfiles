@@ -78,6 +78,12 @@ with config.settings.fonts;
     --font-primary ${monospace.name} !important;
   }
 
+  /* Embeds */
+  .embedWrapper_b558d0 {
+    border: 2px solid var(--base01);
+    border-radius: 16px;
+  }
+
   /* Vencord update notification */
   /* #vc-notification-container {
     display: none !important;
