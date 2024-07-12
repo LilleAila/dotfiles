@@ -42,7 +42,7 @@ I use the following computers with my dotfiles:
 | ------------------------- | ------------ | ------------ | --------------------------- |
 | Lenovo ThinkPad E14 Gen 5 | `e14g5-nix`  | `x86_64`     | Main                        |
 | Lenovo ThinkPad X220      | `x220-nix`   | `x86_64`     |                             |
-| Apple MacBook Pro 14"     | `mac-nix`    | `aarch64`    | Build with `--impure`       |
+| Apple MacBook Pro 14"     | `mac-nix`    | `aarch64`    | Deprecated as of [30c156f](https://github.com/LilleAila/dotfiles/commit/30c156fd9a3cf98db7e0f58d10df9b841800ca54) |
 | Lenovo ThinkPad T420      | `t420-nix`   | `x86_64`     |                             |
 | Lenovo Legion Y540        | `legion-nix` | `x86_64`     |                             |
 | Oracle cloud A1           | `oci-nix`    | `aarch64`    |                             |
