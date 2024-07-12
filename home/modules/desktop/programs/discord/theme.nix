@@ -78,6 +78,21 @@ with config.settings.fonts;
     --font-primary ${monospace.name} !important;
   }
 
+  /* Vencord update notification */
+  /* #vc-notification-container {
+    display: none !important;
+  } */
+
+  /* Active channel */
+  .selected_f6f816 .link_d8bfb3 {
+    background-color: var(--base01) !important;
+    border-radius: 12px;
+  }
+
+  .selected_f6f816 .name_d8bfb3 {
+    color: var(--base0E) !important;
+  }
+
   /* Unread message red line thing */
   .isUnread_c2654d {
     margin-bottom: 16px !important;
