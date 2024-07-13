@@ -30,6 +30,7 @@
     (lib.mkIf config.hm.settings.gaming.enable {
       programs.gamemode.enable = true;
       programs.gamescope.enable = true;
+      programs.gamescope.capSysNice = true;
       # Use system glfw libraries in prismlauncher, from the workarounds tab
       # For some reason, i get extremely bad performance running through xwayland
       hardware.graphics.extraPackages = with pkgs; [ glfw-wayland-minecraft ];

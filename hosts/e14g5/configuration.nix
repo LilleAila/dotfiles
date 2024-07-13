@@ -73,7 +73,19 @@
     HandleLidSwitchDocked=suspend
   '';
 
+  environment.variables.LIBSEAT_BACKEND = "logind";
+
   services.xserver.videoDrivers = [ "amdgpu" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  hardware.graphics.extraPackages = with pkgs; [
+    vaapiVdpau
+    libvdpau-va-gl
+    amdvlk
+  ];
+  hardware.graphics.extraPackages32 = with pkgs; [
+    driversi686Linux.amdvlk
+    pkgsi686Linux.libva
+  ];
 
   nixpkgs.overlays = [
     (final: prev: { libfprint = prev.callPackage ../../pkgs/libfprint-fpcmoh.nix { }; })

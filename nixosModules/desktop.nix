@@ -10,6 +10,7 @@
 
   config = lib.mkIf (config.settings.desktop.enable) {
     hardware.graphics.enable = true;
+    hardware.graphics.enable32Bit = true;
 
     services.seatd.enable = true;
     programs.dconf.enable = true;

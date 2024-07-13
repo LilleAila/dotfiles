@@ -24,6 +24,8 @@
     desktop.full.enable = true;
     wm.hyprland.monitors.enable = true;
     wm.hyprland.useFlake = true;
+
+    wm.sway.enable = true;
   };
   wayland.windowManager.hyprland.settings.input.kb_options = "ctrl:nocaps,altwin:prtsc_rwin";
   home.shellAliases = {
