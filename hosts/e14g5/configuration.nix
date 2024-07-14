@@ -34,6 +34,7 @@
     };
     utils.enable = true;
     desktop.enable = true;
+    sway.enable = true;
     syncthing.enable = true;
     sound.enable = true;
     console = {

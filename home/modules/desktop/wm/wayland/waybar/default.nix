@@ -17,7 +17,7 @@
         layer = "top";
         output = map (m: m.name) config.settings.monitors;
         position = "top";
-        height = lib.fonts.round ((lib.fonts.toPx config.settings.fonts.size) * 2);
+        height = lib.fonts.round ((lib.fonts.toPx config.settings.fonts.size) * 2.5);
         spacing = 10;
         modules-left = [
           "clock"

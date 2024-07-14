@@ -55,7 +55,7 @@ lib.mkIf config.settings.wm.sway.enable {
         "${mod}+e" = "layout toggle split";
 
         "${mod}+f" = "floating toggle";
-        "${mod}+m" = "focus mode_toggle";
+        # "${mod}+m" = "focus mode_toggle";
 
         # === Workspaces ===
         "${mod}+1" = "workspace number 1";
@@ -82,6 +82,17 @@ lib.mkIf config.settings.wm.sway.enable {
 
         "${mod}+Shift+z" = "move scratchpad";
         "${mod}+z" = "scratchpad show";
+
+        # === Screenshots ===
+        # TODO: set up similar to in hyprland
+        "${mod}+s" = "exec grim -g \"$(slurp)\" - | wl-copy";
+
+        # === Apps ===
+        "${mod}+b" = "exec firefox -P main";
+        "${mod}+m" = "exec firefox -P math";
+        "${mod}+y" = "exec firefox -P yt";
+        "${mod}+Shift+b" = "exec firefox -P school";
+        "${mod}+d" = "exec vesktop";
       };
 
       modes = {

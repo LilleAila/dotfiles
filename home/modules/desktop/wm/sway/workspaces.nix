@@ -11,43 +11,43 @@ lib.mkIf config.settings.wm.sway.enable {
     defaultWorkspace = "workspace 1";
     workspaceOutputAssign = [
       {
-        workspace = "number 1";
+        workspace = "1";
         output = "eDP-1";
       }
       {
-        workspace = "number 2";
+        workspace = "2";
         output = "eDP-1";
       }
       {
-        workspace = "number 3";
+        workspace = "3";
         output = "eDP-1";
       }
       {
-        workspace = "number 4";
+        workspace = "4";
         output = "eDP-1";
       }
       {
-        workspace = "number 5";
+        workspace = "5";
         output = "eDP-1";
       }
       {
-        workspace = "number 6";
+        workspace = "6";
         output = "HDMI-A-1";
       }
       {
-        workspace = "number 7";
+        workspace = "7";
         output = "HDMI-A-1";
       }
       {
-        workspace = "number 8";
+        workspace = "8";
         output = "HDMI-A-1";
       }
       {
-        workspace = "number 9";
+        workspace = "9";
         output = "HDMI-A-1";
       }
       {
-        workspace = "number 10";
+        workspace = "10";
         output = "HDMI-A-1";
       }
     ];

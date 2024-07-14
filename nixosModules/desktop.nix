@@ -44,10 +44,14 @@
 
     xdg.portal = {
       enable = true;
-      # wlr.enable = true;
+      wlr.enable = true;
       configPackages = [ pkgs.xdg-desktop-portal-gtk ];
       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     };
+    environment.pathsToLink = [
+      "/share/xdg-desktop-portal"
+      "/share/applications"
+    ];
 
     services.libinput = {
       enable = true;

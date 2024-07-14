@@ -22,6 +22,19 @@ in
 
   config = lib.mkMerge [
     (lib.mkIf (config.settings.wm.sway.enable) {
+      xdg.portal = {
+        extraPortals = with pkgs; [
+          xdg-desktop-portal-wlr
+          xdg-desktop-portal-gtk
+        ];
+        enable = true;
+        config.common = {
+          default = [ "gtk" ];
+          "org.freedesktop.impl.portal.Screencast" = "wlr";
+          "org.freedesktop.impl.portal.Screenshot" = "wlr";
+        };
+      };
+
       wayland.windowManager.sway = {
         enable = true;
         package = pkgs.sway;
@@ -34,7 +47,16 @@ in
         config = {
           bars = [ ];
 
-          startup = [ { command = lib.getExe pkgs.autotiling-rs; } ];
+          startup = [
+            { command = lib.getExe pkgs.autotiling-rs; }
+            { command = "exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK"; }
+            {
+              command = "exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK";
+            }
+          ];
+
+          # Basically window rules
+          window.commands = [ ];
 
           input = {
             "*" = {
