@@ -67,7 +67,7 @@
 
         battery = {
           format = "{capacity}% {icon} {time}";
-          tooltip-format = "{power}W - {timeTo}";
+          tooltip-format = "Plugged in";
           tooltip-format-charging = "{power}W - {time} until full";
           tooltip-format-discharging = "{power}W - {time} until empty";
           format-icons = [
