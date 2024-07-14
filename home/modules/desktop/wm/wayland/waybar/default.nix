@@ -9,6 +9,16 @@
   options.settings.wm.waybar.enable = lib.mkEnableOption "waybar";
 
   config = lib.mkIf config.settings.wm.waybar.enable {
+    # Random dependencies that may or may not be needed idk
+    home.packages = with pkgs; [
+      libnotify
+      pamixer
+      pavucontrol
+      playerctl
+      brightnessctl
+      wlr-randr
+    ];
+
     programs.waybar = {
       enable = true;
       systemd.enable = true;
@@ -20,6 +30,7 @@
         height = lib.fonts.round ((lib.fonts.toPx config.settings.fonts.size) * 2.5);
         spacing = 10;
         modules-left = [
+          # "group/power"
           "clock"
           "sway/workspaces"
           "sway/mode"
@@ -55,7 +66,10 @@
         };
 
         battery = {
-          format = "{capacity}% {icon}";
+          format = "{capacity}% {icon} {time}";
+          tooltip-format = "{power}W - {timeTo}";
+          tooltip-format-charging = "{power}W - {time} until full";
+          tooltip-format-discharging = "{power}W - {time} until empty";
           format-icons = [
             " "
             " "
@@ -144,6 +158,56 @@
         tray = {
           icon-size = lib.fonts.toPx config.settings.fonts.size;
           inherit spacing;
+        };
+
+        # Weird stuff with fonts makes it render very bad :(
+        "group/power" = {
+          modules = [
+            "custom/lock"
+            "custom/logout"
+            "custom/suspend"
+            "custom/poweroff"
+            "custom/reboot"
+            "custom/soft-reboot"
+          ];
+          orientation = "inherit";
+          drawer.transition-duration = 500;
+        };
+
+        "custom/lock" = {
+          format = " ";
+          tooltip-format = "Lock";
+          on-click = "pidof swaylock || swaylock";
+        };
+
+        "custom/logout" = {
+          format = "󰈆 ";
+          tooltip-format = "Log out";
+          on-click = "swaymsg exit";
+        };
+
+        "custom/suspend" = {
+          format = " ";
+          tooltip-format = "Suspend";
+          on-click = "systemctl suspend";
+        };
+
+        "custom/poweroff" = {
+          format = " ";
+          tooltip-format = "Power off";
+          on-click = "systemctl poweroff";
+        };
+
+        "custom/reboot" = {
+          format = "󰜉 ";
+          tooltip-format = "Reboot";
+          on-click = "systemctl reboot";
+        };
+
+        "custom/soft-reboot" = {
+          format = "󱄌 ";
+          tooltip-format = "Reboot userspace";
+          on-click = "systemctl userspace-reboot";
         };
       };
 

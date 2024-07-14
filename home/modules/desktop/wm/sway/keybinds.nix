@@ -93,6 +93,15 @@ lib.mkIf config.settings.wm.sway.enable {
         "${mod}+y" = "exec firefox -P yt";
         "${mod}+Shift+b" = "exec firefox -P school";
         "${mod}+d" = "exec vesktop";
+
+        # === Volume and brightness ===
+        "XF86AudioRaiseVolume" = "exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%+";
+        "XF86AudioLowerVolume" = "exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%-";
+        "Shift+XF86AudioRaiseVolume" = "exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 10%+";
+        "Shift+XF86AudioLowerVolume" = "exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 10%-";
+
+        "XF86MonBrightnessUp" = "exec brightnessctl set 15%+";
+        "XF86MonBrightnessDown" = "exec brightnessctl set 15%-";
       };
 
       modes = {

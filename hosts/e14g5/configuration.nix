@@ -171,10 +171,10 @@
       DEVICES_TO_DISABLE_ON_LAN_CONNECT = "wifi";
       DEVICES_TO_ENABLE_ON_LAN_DISCONNECT = "wifi";
 
-      DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth nfc wwan";
-      DEVICES_TO_ENABLE_ON_STARTUP = "wifi";
-      DEVICES_TO_DISABLE_ON_SHUTDOWN = "bluetooth nfc wifi wwan";
-      DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "bluetooth nfc wifi wwan";
+      DEVICES_TO_DISABLE_ON_STARTUP = "nfc wwan";
+      DEVICES_TO_ENABLE_ON_STARTUP = "bluetooth wifi";
+      DEVICES_TO_DISABLE_ON_SHUTDOWN = "nfc wifi wwan";
+      DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "nfc wifi wwan";
     };
   };
   system.stateVersion = "24.11";

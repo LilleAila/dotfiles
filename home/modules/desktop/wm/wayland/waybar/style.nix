@@ -78,4 +78,8 @@ in
   #tray menu {
     background-color: #${c.base00};
   }
+
+  #custom-lock, #custom-logout, #cusrom-suspend, #custom-poweroff, #custom-reboot {
+    margin-right: 10px;
+  }
 ''
