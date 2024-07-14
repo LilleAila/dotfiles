@@ -16,5 +16,6 @@
     ./mako.nix
     ./avizo.nix
     ./wlogout.nix
+    ./waybar
   ];
 }

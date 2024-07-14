@@ -91,7 +91,7 @@ in
         };
 
         fcitx5.enable = mkDefault false;
-        blueman-applet.enable = lib.mkDefault true;
+        # blueman-applet.enable = lib.mkDefault true;
         # syncthing.tray.enable = mkDefault true;
         wm = {
           ags.enable = mkDefault true;

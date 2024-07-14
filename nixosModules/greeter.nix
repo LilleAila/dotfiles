@@ -6,8 +6,8 @@
   ...
 }:
 {
-  # NOTE: This is not the same options.settings as in home; All options are completely separate
   options.settings.greeter.enable = lib.mkEnableOption "greeter";
+  options.settings.greeter.command = lib.mkStrOption "Hyprland";
 
   config = lib.mkIf (config.settings.greeter.enable) {
     settings.persist.root.cache = [ "/var/cache/tuigreet" ];
@@ -15,9 +15,8 @@
       enable = true;
       settings = {
         default_session = {
-          # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd Hyprland";
           command = pkgs.writeScript "start_tuigreet" ''
-            ${lib.getExe pkgs.greetd.tuigreet} --cmd Hyprland \
+            ${lib.getExe pkgs.greetd.tuigreet} --cmd ${config.settings.greeter.command} \
               --time \
               --user-menu \
               --asterisks \

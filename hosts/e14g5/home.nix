@@ -26,6 +26,8 @@
     wm.hyprland.useFlake = true;
 
     wm.sway.enable = true;
+    wm.hyprpaper.enable = false;
+    wm.waybar.enable = true;
   };
   wayland.windowManager.hyprland.settings.input.kb_options = "ctrl:nocaps,altwin:prtsc_rwin";
   home.shellAliases = {
