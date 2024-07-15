@@ -18,6 +18,7 @@ in
     ./colors.nix
     ./keybinds.nix
     ./workspaces.nix
+    ./which-key.nix
   ];
 
   config = lib.mkMerge [
