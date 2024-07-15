@@ -19,6 +19,7 @@ in
     ./keybinds.nix
     ./workspaces.nix
     ./which-key.nix
+    ./swaync.nix
   ];
 
   config = lib.mkMerge [

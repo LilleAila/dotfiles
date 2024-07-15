@@ -45,6 +45,7 @@
           "idle_inhibitor"
           # "tray"
           "group/tray"
+          "custom/notification"
         ];
 
         clock = {
@@ -63,6 +64,10 @@
               today = "<span color='#${base08}'><b><u>{}</u></b></span>";
             };
           };
+        };
+
+        "sway/workspaces" = {
+          tooltip = false;
         };
 
         battery = {
@@ -160,54 +165,25 @@
           inherit spacing;
         };
 
-        # Weird stuff with fonts makes it render very bad :(
-        "group/power" = {
-          modules = [
-            "custom/lock"
-            "custom/logout"
-            "custom/suspend"
-            "custom/poweroff"
-            "custom/reboot"
-            "custom/soft-reboot"
-          ];
-          orientation = "inherit";
-          drawer.transition-duration = 500;
-        };
-
-        "custom/lock" = {
-          format = " ";
-          tooltip-format = "Lock";
-          on-click = "pidof swaylock || swaylock";
-        };
-
-        "custom/logout" = {
-          format = "󰈆 ";
-          tooltip-format = "Log out";
-          on-click = "swaymsg exit";
-        };
-
-        "custom/suspend" = {
-          format = " ";
-          tooltip-format = "Suspend";
-          on-click = "systemctl suspend";
-        };
-
-        "custom/poweroff" = {
-          format = " ";
-          tooltip-format = "Power off";
-          on-click = "systemctl poweroff";
-        };
-
-        "custom/reboot" = {
-          format = "󰜉 ";
-          tooltip-format = "Reboot";
-          on-click = "systemctl reboot";
-        };
-
-        "custom/soft-reboot" = {
-          format = "󱄌 ";
-          tooltip-format = "Reboot userspace";
-          on-click = "systemctl userspace-reboot";
+        "custom/notification" = {
+          tooltip = false;
+          format = "{icon}";
+          format-icons = with config.colorScheme.palette; {
+            notification = " <span foreground='#${base08}'><sup></sup></span>";
+            none = " ";
+            dnd-notification = " <span foreground='#${base08}'><sup></sup></span>";
+            dnd-none = " ";
+            inhibited-notification = " <span foreground='#${base08}'><sup></sup></span>";
+            inhibited-none = " ";
+            dnd-inhibited-notification = " <span foreground='#${base08}'><sup></sup></span>";
+            dnd-inhibited-none = " ";
+          };
+          return-type = "json";
+          exec-if = "which swaync-client";
+          exec = "swaync-client -swb";
+          on-click = "swaync-client -t -sw";
+          on-click-right = "swaync-client -d -sw";
+          escape = true;
         };
       };
 

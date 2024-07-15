@@ -1,0 +1,706 @@
+[4mswaync[24m(5)                                         File Formats Manual                                        [4mswaync[24m(5)
+
+[1mNAME[0m
+       swaync - Configuration file
+
+[1mCONFIGURATION[0m
+       Using  a  text editor with a JSON language server is recommended when editing the config file to be able to de‐
+       tect config errors
+
+       [1mpositionX[0m
+            type: string
+            default: right
+            values: left, right, center
+            description: Horizontal position of control center and notification window
+
+       [1mpositionY[0m
+            type: string
+            default: top
+            values: top, center, bottom
+            description: Vertical position of control center and notification window
+
+       [1mlayer[0m
+            type: string
+            default: overlay
+            values: background, bottom, top, overlay
+            description: Layer of notification window relative to normal windows.
+                 background is below all windows, overlay is above all windows.
+
+       [1mlayer-shell[0m
+            type: bool
+            default: true
+            description: Wether or not the windows should be opened as layer-shell
+                 surfaces. Note: Requires swaync restart to apply
+
+       [1mcssPriority[0m
+            type: string
+            default: application
+            values: application, user
+            description: Which GTK priority to use when loading the default and user
+                 CSS files. Pick "user" to override [1mXDG_CONFIG_HOME/gtk-3.0/gtk.css[0m
+
+       [1mcontrol-center-margin-top[0m
+            type: integer
+            default: 0
+            description: The margin (in pixels) at the top of the notification center. 0 to disable
+
+       [1mcontrol-center-margin-bottom[0m
+            type: integer
+            default: 0
+            description: The margin (in pixels) at the bottom of the notification center. 0 to disable
+
+       [1mcontrol-center-margin-right[0m
+            type: integer
+            default: 0
+            description: The margin (in pixels) at the right of the notification center. 0 to disable
+
+       [1mcontrol-center-margin-left[0m
+            type: integer
+            default: 0
+            description: The margin (in pixels) at the left of the notification center. 0 to disable
+
+       [1mcontrol-center-layer[0m
+            type: string
+            default: top
+            values: background, bottom, top, overlay
+            description: Layer of control center window relative to normal windows.
+                 background is below all windows, overlay is above all windows.
+
+       [1mcontrol-center-exclusive-zone[0m
+            type: bool
+            default: true
+            description: Whether or not the control center should follow the
+                 compositors exclusive zones. An example would be setting it to
+                 [1mfalse [22mto cover your panel/dock.
+
+       [1mnotification-2fa-action[0m
+            type: bool
+            default: true
+            description: If each notification should display a 'COPY "1234"' action
+
+       [1mtimeout[0m
+            type: integer
+            default: 10
+            description: The notification timeout for notifications with normal priority
+
+       [1mtimeout-low[0m
+            type: integer
+            default: 5
+            description: The notification timeout for notifications with low priority
+
+       [1mtimeout-critical[0m
+            type: integer
+            default: 0
+            description: The notification timeout for notifications with critical priority. 0 to disable
+
+       [1mnotification-window-width[0m
+            type: integer
+            default: 500
+            description: Width of the notification in pixels
+
+       [1mkeyboard-shortcuts[0m
+            type: bool
+            default: true
+            description: If control center should use keyboard shortcuts
+
+       [1mimage-visibility[0m
+            type: string
+            default: always
+            values: always, when-available, never
+            description: An explanation about the purpose of this instance.
+
+       [1mtransition-time[0m
+            type: integer
+            default: 200
+            description: The notification animation duration. 0 to disable
+
+       [1mhide-on-clear[0m
+            type: bool
+            default: false
+            description: Hides the control center after pressing "Clear All"
+
+       [1mhide-on-action[0m
+            type: bool
+            default: true
+            description: Hides the control center when clicking on notification action
+
+       [1mfit-to-screen[0m
+            type: bool
+            default: true
+            description: Whether the control center should expand vertically to fill the screen
+
+       [1mrelative-timestamps[0m
+            type: bool
+            default: true
+            description: Display notification timestamps relative to now e.g. "26 minutes ago".
+                 If false, a local iso8601-formatted absolute timestamp is displayed.
+
+       [1mcontrol-center-height[0m
+            type: integer
+            default: 500
+            description: The control center height in pixels
+                 This setting is ignored when [4mfit-to-screen[24m is set to "true".
+
+       [1mcontrol-center-width[0m
+            type: integer
+            default: 500
+            description: The control center width in pixels
+
+       [1mnotification-visibility[0m
+            type: object
+            visibility object properties:
+                 [1mstate[0m
+                      type: string
+                      optional: false
+                      default: enabled
+                      values: ignored, muted, transient, enabled
+                      description: The notification visibility state.
+                 [1moverride-urgency[0m
+                      type: string
+                      optional: true
+                      default: unset
+                      values: unset, low, normal, critical
+                      description: The new urgency for the notification if set.
+                 [1mapp-name[0m
+                      type: string
+                      optional: true
+                      description: The app-name. Uses Regex.
+                 [1mdesktop-entry[0m
+                      type: string
+                      optional: true
+                      description: The desktop-entry. Uses Regex.
+                 [1msummary[0m
+                      type: string
+                      optional: true
+                      description: The summary of the notification. Uses Regex.
+                 [1mbody[0m
+                      type: string
+                      optional: true
+                      description: The body of the notification. Uses Regex.
+                 [1murgency[0m
+                      type: string
+                      optional: true
+                      default: Normal
+                      values: Low, Normal, Critical
+                      description: The urgency of the notification.
+                 [1mcategory[0m
+                      type: string
+                      optional: true
+                      description: Which category the notification belongs to. Uses Regex.
+            description: Set the visibility or override urgency of each incoming
+                 notification.
+                 If the notification doesn't include one of the properties, that
+                 property will be ignored. All properties (except for state) use
+                 regex. If all properties match the given notification, the
+                 notification will be follow the provided state.
+                 Only the first matching object will be used.
+            example:
+           {
+                "notification-visibility": {
+                     "example-name": {
+                          "state": "The notification state",
+                          "app-name": "Notification app-name Regex",
+                          "summary": "Notification summary Regex",
+                          "body": "Notification body Regex",
+                          "urgency": "Low or Normal or Critical",
+                          "category": "Notification category Regex"
+                     }
+                }
+           }
+
+       [1mwidgets[0m
+            type: array
+            Default values: ["title", "dnd", "notifications"]
+            Valid array values (see [1mwidget-config [22mfor more information):
+                 [1mnotifications[0m
+                      required: true
+                      optional: false
+                 [1mtitle[0m
+                      optional: true
+                 [1mdnd[0m
+                      optional: true
+                 [1mlabel[0m
+                      optional: true
+                 [1mmpris[0m
+                      optional: true
+                 [1mmenubar[0m
+                      optional: true
+                 [1mbuttons-grid[0m
+                      optional: true
+                 [1mvolume[0m
+                      optional: true
+                 [1mbacklight[0m
+                      optional: true
+                 [1minhibitors[0m
+                      optional: true
+            description:
+                 Which order and which widgets to display.
+                 If the "notifications" widget isn't specified, it
+                 will be placed at the bottom.
+            multiple of same widget:
+                 Append a # with any value to the end of the widget name.
+                 Example: "title#TheMainTitle"
+                 To address this widget specifically in the css file use the css class .TheMainTitle
+            example:
+           {
+                "widgets": [
+                     "inhibitors",
+                     "title",
+                     "dnd",
+                     "notifications"
+                ]
+           }
+
+       [1mwidget-config[0m
+            type: object
+            description: Configure specific widget properties.
+            multiple of same widget:
+                 Append a # with any value to the end of the widget name.
+                 Example: "title#TheMainTitle"
+                 To address this widget specifically in the css file use the css class .TheMainTitle
+            Widgets to customize:
+                 [1mtitle[0m
+                      type: object
+                      css class: widget-title
+                      properties:
+                           text:
+                                type: string
+                                optional: true
+                                default: "Notifications"
+                                description: The title of the widget
+                           clear-all-button:
+                                type: bool
+                                optional: true
+                                default: true
+                                description: Whether to display a "Clear All" button
+                           button-text:
+                                type: string
+                                optional: true
+                                default: "Clear All"
+                                description: "Clear All" button text
+                      description: The notification visibility state.
+                 [1mdnd[0m
+                      type: object
+                      css class: widget-dnd
+                      properties:
+                           text:
+                                type: string
+                                optional: true
+                                default: "Do Not Disturb"
+                                description: The title of the widget
+                      description: Control Center Do Not Disturb Widget.
+                 [1mlabel[0m
+                      type: object
+                      css class: widget-label
+                      properties:
+                           text:
+                                type: string
+                                optional: true
+                                default: "Label Text"
+                                description: The text content of the widget
+                           clear-all-button:
+                                type: integer
+                                optional: true
+                                default: 5
+                                description: The maximum lines
+                      description: A generic widget that allows the user to add custom text.
+                 [1mmpris[0m
+                      type: object
+                      css classes:
+                           widget-mpris
+                           widget-mpris-player
+                           widget-mpris-title
+                           widget-mpris-subtitle
+                      properties:
+                           image-size:
+                                type: integer
+                                optional: true
+                                default: 96
+                                description: The size of the album art.
+                           image-radius:
+                                type: integer
+                                optional: true
+                                default: 12
+                                description: The border radius of the album art.
+                      description: A widget that displays multiple music players.
+                 [1mmenubar[0m
+                      type: object
+                      css classes:
+                           widget-menubar
+                           .widget-menubar>box>.menu-button-bar
+                           name of element given after menu or buttons with #
+                      patternProperties:
+                           menu#<name>:
+                                type: object
+                                properties:
+                                     label:
+                                          type: string
+                                          optional: true
+                                          default: "Menu"
+                                          description: Label of button to show/hide menu dropdown
+                                     position:
+                                          type: string
+                                          optional: true
+                                          default: "right"
+                                          description: Horizontal position of the button in the bar
+                                          enum: ["right", "left"]
+                                     animation-type:
+                                          type: string
+                                          optional: true
+                                          default: "slide_down"
+                                          description: Animation type for menu
+                                          enum: ["slide_down", "slide_up", "none"]
+                                     animation-duration:
+                                          type: integer
+                                          optional: true
+                                          default: 250
+                                          description: Duration of animation in milliseconds
+                                     actions:
+                                          type: array
+                                          Default values: []
+                                          Valid array values:
+                                               type: object
+                                               properties:
+                                                    label:
+                                                         type: string
+                                                         default: "label"
+                                                         description: Text to be displayed in button
+                                                    command:
+                                                         type: string
+                                                         default: ""
+                                                         description: "Command to be executed on click"
+                                                    type:
+                                                         type: string
+                                                         default: "normal"
+                                                         description: Type of the button.
+                                                              Toggle buttons receive the '.active' css class
+                                                         enum: ["normal", "toggle"]
+                                                    update-command:
+                                                         type: string
+                                                         default: ""
+                                                         description: "Command to be executed on visibility change of
+                                                              cc to update the  active  state  of  the  toggle  button
+       (should
+                                                              echo true or false)"
+                                                    active:
+                                                         type: bool
+                                                         default: false
+                                                         description: Wether the toggle button is active as default or
+       not
+                                          description: A list of actions containing a label and a command
+                                description: A button to reveal a dropdown with action-buttons
+                           buttons#<name>:
+                                type: object
+                                properties:
+                                     position:
+                                          type: string
+                                          optional: true
+                                          default: "right"
+                                          description: Horizontal position of the buttons in the bar
+                                          enum: ["right", "left"]
+                                     actions:
+                                          type: array
+                                          Default values: []
+                                          Valid array values:
+                                               type: object
+                                               properties:
+                                                    label:
+                                                         type: string
+                                                         default: "label"
+                                                         description: Text to be displayed in button
+                                                    command:
+                                                         type: string
+                                                         default: ""
+                                                         description: "Command to be executed on click"
+                                                    type:
+                                                         type: string
+                                                         default: "normal"
+                                                         description: Type of the button
+                                                              Toggle  buttons  receive  the '.active' css class and an
+       env
+                                                              variable "SWAYNC_TOGGLE_STATE" is set. See example usage
+       in the
+                                                              default config.json
+                                                         enum: ["normal", "toggle"]
+                                                    update-command:
+                                                         type: string
+                                                         default: ""
+                                                         description: "Command to be executed on visibility change of
+                                                              cc to update the  active  state  of  the  toggle  button
+       (should
+                                                              echo true or false)"
+                                                    active:
+                                                         type: bool
+                                                         default: false
+                                                         description: Wether the toggle button is active as default or
+       not
+                                          description: A list of actions containing a label and a command
+                                description: A list of buttons to be displayed in the menu-button-bar
+                 [1mbuttons-grid[0m
+                      type: object
+                      css class: widget-buttons (access buttons with >flowbox>flowboxchild>button)
+                      properties:
+                           actions:
+                                type: array
+                                Default values: []
+                                Valid array values:
+                                     type: object
+                                     properties:
+                                          label:
+                                               type: string
+                                               default: "label"
+                                               description: Text to be displayed in button
+                                          command:
+                                               type: string
+                                               default: ""
+                                               description: "Command to be executed on click"
+                                          type:
+                                               type: string
+                                               default: "normal"
+                                               description: Type of the button
+                                                    Toggle buttons receive the '.active' css class and an env
+                                                    variable "SWAYNC_TOGGLE_STATE" is set. See example usage in the
+                                                    default config.json
+                                               enum: ["normal", "toggle"]
+                                          active:
+                                               type: bool
+                                               default: false
+                                               description: Wether the toggle button is active as default or not
+                                description: A list of actions containing a label and a command
+                      description: A grid of buttons that execute shell commands
+                 [1mvolume[0m
+                      type: object
+                      css class:
+                           widget-volume
+                           per-app-volume
+                      properties:
+                           label:
+                                type: string
+                                optional: true
+                                default: "Volume"
+                                description: Text displayed in front of the volume slider
+                           show-per-app:
+                                type: bool
+                                optional: true
+                                default: false
+                                description: Show per app volume control
+                           show-per-app-icon:
+                                type: bool
+                                optional: true
+                                default: false
+                                description: Show application icon in per app control
+                           show-per-app-label:
+                                type: bool
+                                optional: true
+                                default: false
+                                description: Show application name in per app control
+                           empty-list-label:
+                                type: string
+                                optional: true
+                                default: "No active sink input"
+                                description: Text displayed when there are not active sink inputs
+                           expand-button-label:
+                                type: string
+                                optional: true
+                                default: "⇧"
+                                description: Label displayed on button to show per app volume control
+                           collapse-button-label:
+                                type: string
+                                optional: true
+                                default: "⇩"
+                                description: Label displayed on button to hide per app volume control
+                           icon-size:
+                                type: integer
+                                optional: true
+                                default: 24
+                                description: Size of the application icon in per app volume control
+                           animation-type:
+                                type: string
+                                optional: true
+                                default: "slide_down"
+                                description: Animation type for the per app volume control
+                                enum: ["slide_down", "slide_up", "none"]
+                           animation-duration:
+                                type: integer
+                                optional: true
+                                default: 250
+                                description: Duration of animation in milliseconds
+                      description: Slider to control pulse volume
+                 [1mbacklight[0m
+                      type: object
+                      css class: widget-backlight
+                      properties:
+                           label:
+                                type: string
+                                optional: true
+                                default: "Brightness"
+                                description: Text displayed in front of the backlight slider
+                           device:
+                                type: string
+                                optional: true
+                                default: "intel_backlight"
+                                description: Device in `/sys/class/backlight` or `/sys/class/leds`
+                           subsystem:
+                                type: string
+                                optional: true
+                                default: "backlight"
+                                description: Kernel subsystem for brightness control
+                                enum: ["backlight", "leds"]
+                           min:
+                                type: integer
+                                optional: true
+                                default: 0
+                                description: Lowest possible value for brightness
+                      description: Slider to control screen brightness
+                 [1minhibitors[0m
+                      type: object
+                      css class: widget-inhibitors
+                      properties:
+                           text:
+                                type: string
+                                optional: true
+                                default: "Inhibitors"
+                                description: The title of the widget
+                           clear-all-button:
+                                type: bool
+                                optional: true
+                                default: true
+                                description: Whether to display a "Clear All" button
+                           button-text:
+                                type: string
+                                optional: true
+                                default: "Clear All"
+                                description: "Clear All" button text
+                      description: Displayed if notifications are inhibited.
+
+           example:
+           {
+                "widget-config": {
+                     "title": {
+                          "text": "Notifications",
+                          "clear-all-button": true,
+                          "button-text": "Clear All"
+                     },
+                     "dnd": {
+                          "text": "Do Not Disturb"
+                     },
+                     "label": {
+                          "max-lines": 5,
+                          "text": "Label Text"
+                     },
+                     "mpris": {
+                          "image-size": 96,
+                          "image-radius": 12
+                     },
+                     "menubar": {
+                          "menu#power": {
+                               "label": "Power",
+                               "position": "right",
+                               "actions": [
+                                    {
+                                         "label": "Shut down",
+                                         "command": "systemctl poweroff"
+                                    },
+                                    ...
+                               ]
+                          },
+                          "buttons#screenshot": {
+                               "position": "left",
+                               "actions": [
+                                    {
+                                         "label": "Screenshot",
+                                         "command": "grim"
+                                    },
+                                    ...
+                               ]
+                          }
+                     },
+                     "buttons": {
+                          "actions": [
+                               {
+                                    "label": "wifi",
+                                    "command": "rofi-wifi-menu"
+                               },
+                               ...
+                          ]
+                     }
+                }
+           }
+
+[1mScripts[0m
+       [1mscript-fail-notify[0m
+            type: bool
+            default: true
+            description: Sends a notification if a script fails to run
+
+       [1mscripts[0m
+            type: object
+            script object properties:
+                 [1mexec[0m
+                      type: string
+                      optional: false
+                      description: The script to run. Can also run regular shell commands.
+                 [1mapp-name[0m
+                      type: string
+                      optional: true
+                      description: The app-name. Uses Regex.
+                 [1mdesktop-entry[0m
+                      type: string
+                      optional: true
+                      description: The desktop-entry. Uses Regex.
+                 [1msummary[0m
+                      type: string
+                      optional: true
+                      description: The summary of the notification. Uses Regex.
+                 [1mbody[0m
+                      type: string
+                      optional: true
+                      description: The body of the notification. Uses Regex.
+                 [1murgency[0m
+                      type: string
+                      optional: true
+                      default: Normal
+                      values: Low, Normal, Critical
+                      description: The urgency of the notification.
+                 [1mcategory[0m
+                      type: string
+                      optional: true
+                      description: Which category the notification belongs to. Uses Regex.
+                 [1mrun-on[0m
+                      type: string
+                      optional: true
+                      values: action, receive
+                      default: receive
+                      description: Whether to run this action when the notification is
+                                      received, or when an action is taken on it.
+            description: Which scripts to check and potentially run for every
+                 notification. If the notification doesn't include one of the properties,
+                 that property will be ignored. All properties (except for exec) use regex.
+                 If all properties match the given notification, the script will be run.
+                 Only the first matching script will be run.
+            example:
+           {
+                "scripts": {
+                     "example-script": {
+                          "exec": "Your shell command or script here...",
+                          "app-name": "Notification app-name Regex",
+                          "summary": "Notification summary Regex",
+                          "body": "Notification body Regex",
+                          "urgency": "Low or Normal or Critical",
+                          "category": "Notification category Regex"
+                     }
+                }
+           }
+
+           You can also use these environment variables in your script:
+           SWAYNC_BODY="Notification body content"
+           SWAYNC_DESKTOP_ENTRY="Desktop entry"
+           SWAYNC_URGENCY="Notification urgency"
+           SWAYNC_TIME="Notification time"
+           SWAYNC_APP_NAME="Notification app name"
+           SWAYNC_CATEGORY="SwayNC notification category"
+           SWAYNC_REPLACES_ID="ID of notification to replace"
+           SWAYNC_ID="SwayNC notification ID"
+           SWAYNC_SUMMARY="Notification summary"
+
+                                                      1980-01-01                                             [4mswaync[24m(5)

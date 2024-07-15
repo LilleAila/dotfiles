@@ -29,24 +29,5 @@ lib.mkIf config.settings.wm.sway.enable {
         margin_left = 0;
         margin_top = 0;
       };
-    menus.test = {
-      w = {
-        desc = "WiFi";
-        submenu = {
-          t = {
-            desc = "Toggle";
-            cmd = "rfkill toggle wifi";
-          };
-          c = {
-            desc = "Connect";
-            cmd = "kitty -e nmtui-connect";
-          };
-        };
-      };
-      l = {
-        desc = "Lock";
-        cmd = "pidof swaylock || swaylock";
-      };
-    };
   };
 }

@@ -19,6 +19,51 @@
         programs.firefox.package = null;
       })
       (lib.mkIf config.settings.wm.hyprland.enable {
+        settings.wlr-which-key.menus.firefox =
+          let
+            url = desc: url: {
+              inherit desc;
+              cmd = "firefox -P main --new-tab \"${url}\"";
+            };
+          in
+          {
+            p = {
+              desc = "Profiles";
+              submenu = {
+                b.desc = "Main";
+                b.cmd = "firefox -P main";
+                m.desc = "Math";
+                m.cmd = "firefox -P math";
+                y.desc = "YouTube";
+                y.cmd = "firefox -P yt";
+                s.desc = "School";
+                s.cmd = "firefox -P school";
+              };
+            };
+            g = {
+              desc = "GitHub";
+              submenu = {
+                g = url "GitHub" "https://github.com";
+                l = url "LilleAila dots" "https://github.com/LilleAila/dotfiles";
+                i = url "IldenH dots" "https://github.com/IldenH/dotfiles";
+                n = url "Nixpkgs" "https://github.com/NixOS/nixpkgs";
+                h = url "Home-manager" "https://github.com/nix-community/home-manager";
+              };
+            };
+            d = {
+              desc = "Documentation";
+              submenu = {
+                h = url "Hyprland" "https://wiki.hyprland.org";
+                a = url "AGS" "https://aylur.github.io/ags-docs";
+                n = url "Nixvim" "https://nix-community.github.io/nixvim";
+              };
+            };
+            a = url "Astro" "localhost:4321";
+            s = url "Synthing" "localhost:8384";
+            c = url "ChatGPT" "https://chatgpt.com";
+            t = url "Temp mail" "https://temp-mail.org";
+          };
+
         wayland.windowManager.hyprland =
           let
             c = config.colorScheme.palette;

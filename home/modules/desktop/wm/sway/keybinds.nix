@@ -89,9 +89,7 @@ lib.mkIf config.settings.wm.sway.enable {
 
         # === Apps ===
         "${mod}+b" = "exec firefox -P main";
-        "${mod}+m" = "exec firefox -P math";
-        "${mod}+y" = "exec firefox -P yt";
-        "${mod}+Shift+b" = "exec firefox -P school";
+        "${mod}+Shift+b" = "exec wlr-which-key firefox";
         "${mod}+d" = "exec vesktop";
 
         # === Volume and brightness ===
