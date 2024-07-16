@@ -32,7 +32,7 @@
             "nixos-rebuild switch --flake ${flakePath}#${hostname} --target-host olai@${hostname}.local --use-remote-sudo";
         in
         {
-          osbuild = lib.mkDefault "sudo nixos-rebuild switch --flake ${flakePath}";
+          osbuild = lib.mkDefault "sudo nixos-rebuild switch --flake ${flakePath} --show-trace --option eval-cache false";
           osbuild-t420 = remoteBuild "t420-nix";
         }
       );
