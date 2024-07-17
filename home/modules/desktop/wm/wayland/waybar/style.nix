@@ -6,7 +6,7 @@ in
 # scss
 ''
   * {
-    font-family: ${f.monospace.name};
+    font-family: ${f.nerd.name};
     font-size: ${toString f.size}pt;
     border-radius: 0;
     transition: none;
@@ -69,10 +69,6 @@ in
   }
   window#waybar.battery-critical {
     background-color: mix(#${c.base00}, #${c.base08}, 80%);
-  }
-
-  #custom-tray-label {
-    margin-right: 10px;
   }
 
   #tray menu {

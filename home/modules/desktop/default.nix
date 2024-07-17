@@ -153,7 +153,10 @@ in
             monospace.package = mkDefault jetbrains_nerd;
             monospace.name = mkDefault "JetBrainsMono Nerd Font";
             nerd.package = mkDefault jetbrains_nerd;
-            nerd.name = mkDefault "JetBrainsMono Nerd Font";
+            # "Nerd Font": icons expand with more space
+            # "Nerd Font Mono": icons are all same size
+            # "Nerd Font Propo": icons always take up their full size
+            nerd.name = mkDefault "JetBrainsMono Nerd Font Propo";
             size = mkDefault 10;
           };
 
