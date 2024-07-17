@@ -43,7 +43,7 @@
           "network"
           "idle_inhibitor"
           # "tray"
-          "group/tray"
+          "group/systray"
           "custom/notification"
         ];
 
@@ -146,7 +146,8 @@
           start-activated = false;
         };
 
-        "group/tray" = {
+        # CSS conflicts if the group is also called "tray"
+        "group/systray" = {
           modules = [
             "custom/tray-label"
             "tray"
@@ -163,7 +164,7 @@
 
         tray = {
           icon-size = lib.fonts.toPx config.settings.fonts.size;
-          inherit spacing;
+          spacing = 10;
         };
 
         "custom/notification" = {

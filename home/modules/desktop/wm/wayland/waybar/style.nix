@@ -71,11 +71,11 @@ in
     background-color: mix(#${c.base00}, #${c.base08}, 80%);
   }
 
+  #tray {
+    padding-left: 10px;
+  }
   #tray menu {
     background-color: #${c.base00};
-  }
-
-  #custom-lock, #custom-logout, #cusrom-suspend, #custom-poweroff, #custom-reboot {
-    margin-right: 10px;
+    border: 1px solid #${c.base05};
   }
 ''
