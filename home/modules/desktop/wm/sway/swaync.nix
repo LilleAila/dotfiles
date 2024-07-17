@@ -30,7 +30,7 @@ lib.mkIf config.settings.wm.sway.enable {
       nativeBuildInputs = [ pkgs.sass ];
       src = pkgs.writeTextFile {
         name = "style.scss";
-        text = import ./swaync-style.nix config;
+        text = import ./swaync-style.nix { inherit config pkgs; };
       };
       unpackPhase = "true";
       buildPhase = ''
