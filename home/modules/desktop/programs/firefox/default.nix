@@ -55,7 +55,9 @@
               submenu = {
                 h = url "Hyprland" "https://wiki.hyprland.org";
                 a = url "AGS" "https://aylur.github.io/ags-docs";
-                n = url "Nixvim" "https://nix-community.github.io/nixvim";
+                v = url "Nixvim" "https://nix-community.github.io/nixvim";
+                n = url "Nixpkgs" "https://ryantm.github.io/nixpkgs/";
+                s = url "Stylix" "https://github.com/danth/stylix";
               };
             };
             a = url "Astro" "localhost:4321";
