@@ -29,5 +29,18 @@ lib.mkIf config.settings.wm.sway.enable {
         margin_left = 0;
         margin_top = 0;
       };
+
+    menus.power =
+      let
+        item = desc: cmd: { inherit desc cmd; };
+      in
+      {
+        p = item "⏻ Power off" "systemctl poweroff";
+        l = item " Lock" "swaylock";
+        e = item "󰈆 Logout" "swaymsg exit"; # (exit)
+        s = item "󰤄 Suspend" "systemctl suspend";
+        r = item "󰜉 Reboot" "systemctl reboot";
+        u = item "󰤁 Soft reboot" "systemctl soft-reboot"; # (userspace reboot)
+      };
   };
 }

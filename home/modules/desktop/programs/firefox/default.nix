@@ -28,42 +28,43 @@
           in
           {
             p = {
-              desc = "Profiles";
+              desc = " Profiles";
               submenu = {
-                b.desc = "Main";
+                b.desc = " Main";
                 b.cmd = "firefox -P main";
-                m.desc = "Math";
+                m.desc = " Math";
                 m.cmd = "firefox -P math";
-                y.desc = "YouTube";
+                y.desc = " YouTube";
                 y.cmd = "firefox -P yt";
-                s.desc = "School";
+                s.desc = " School";
                 s.cmd = "firefox -P school";
               };
             };
             g = {
-              desc = "GitHub";
+              desc = "󰊤 GitHub";
               submenu = {
-                g = url "GitHub" "https://github.com";
-                l = url "LilleAila dots" "https://github.com/LilleAila/dotfiles";
-                i = url "IldenH dots" "https://github.com/IldenH/dotfiles";
-                n = url "Nixpkgs" "https://github.com/NixOS/nixpkgs";
-                h = url "Home-manager" "https://github.com/nix-community/home-manager";
+                g = url "󰊤 GitHub" "https://github.com";
+                l = url " LilleAila dots" "https://github.com/LilleAila/dotfiles";
+                i = url " IldenH dots" "https://github.com/IldenH/dotfiles";
+                n = url "󱄅 Nixpkgs" "https://github.com/NixOS/nixpkgs";
+                h = url " Home-manager" "https://github.com/nix-community/home-manager";
               };
             };
             d = {
-              desc = "Documentation";
+              desc = "󰈙 Documentation";
               submenu = {
-                h = url "Hyprland" "https://wiki.hyprland.org";
-                a = url "AGS" "https://aylur.github.io/ags-docs";
-                v = url "Nixvim" "https://nix-community.github.io/nixvim";
-                n = url "Nixpkgs" "https://ryantm.github.io/nixpkgs/";
-                s = url "Stylix" "https://github.com/danth/stylix";
+                h = url " Hyprland" "https://wiki.hyprland.org";
+                a = url "󱍕 AGS" "https://aylur.github.io/ags-docs";
+                v = url " Nixvim" "https://nix-community.github.io/nixvim";
+                n = url "󱄅 Nixpkgs" "https://ryantm.github.io/nixpkgs/";
+                s = url " Stylix" "https://github.com/danth/stylix";
               };
             };
-            a = url "Astro" "localhost:4321";
-            s = url "Synthing" "localhost:8384";
-            c = url "ChatGPT" "https://chatgpt.com";
-            t = url "Temp mail" "https://temp-mail.org";
+            a = url " Astro" "localhost:4321";
+            s = url " Synthing" "localhost:8384";
+            c = url "󰭹 ChatGPT" "https://chatgpt.com";
+            t = url " Temp mail" "https://temp-mail.org";
+            n = url " Nerd fonts" "https://www.nerdfonts.com/cheat-sheet";
           };
 
         wayland.windowManager.hyprland =

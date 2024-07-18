@@ -91,6 +91,7 @@ lib.mkIf config.settings.wm.sway.enable {
         "${mod}+b" = "exec firefox -P main";
         "${mod}+Shift+b" = "exec wlr-which-key firefox";
         "${mod}+d" = "exec vesktop";
+        "${mod}+p" = "exec wlr-which-key power";
 
         # === Volume and brightness ===
         "XF86AudioRaiseVolume" = "exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%+";
