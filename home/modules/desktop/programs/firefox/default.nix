@@ -19,6 +19,25 @@
         programs.firefox.package = null;
       })
       (lib.mkIf config.settings.wm.hyprland.enable {
+        wayland.windowManager.sway.config.window.commands = [
+          {
+            criteria.app_id = "firefox";
+            command = "move container to workspace number 2";
+          }
+          {
+            criteria.app_id = "firefox-yt";
+            command = "move container to workspace number 3";
+          }
+          {
+            criteria.app_id = "firefox-math";
+            command = "move container to workspace number 4";
+          }
+          {
+            criteria.app_id = "firefox-school";
+            command = "move container to workspace number 4";
+          }
+        ];
+
         settings.wlr-which-key.menus.firefox =
           let
             url = desc: url: {
@@ -32,12 +51,12 @@
               submenu = {
                 b.desc = " Main";
                 b.cmd = "firefox -P main";
-                m.desc = " Math";
-                m.cmd = "firefox -P math";
                 y.desc = " YouTube";
-                y.cmd = "firefox -P yt";
+                y.cmd = "firefox -P yt --name=firefox-yt";
+                m.desc = " Math";
+                m.cmd = "firefox -P math --name=firefox-math";
                 s.desc = " School";
-                s.cmd = "firefox -P school";
+                s.cmd = "firefox -P school --name=firefox-school";
               };
             };
             g = {
