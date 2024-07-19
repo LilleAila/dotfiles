@@ -28,10 +28,7 @@ lib.mkIf config.settings.wm.sway.enable {
     style = pkgs.stdenv.mkDerivation {
       name = "style.css";
       nativeBuildInputs = [ pkgs.sass ];
-      src = pkgs.writeTextFile {
-        name = "style.scss";
-        text = import ./swaync-style.nix { inherit config pkgs; };
-      };
+      src = pkgs.writeText "style.scss" (import ./swaync-style.nix { inherit config pkgs; });
       unpackPhase = "true";
       buildPhase = ''
         sass $src $out
@@ -45,4 +42,8 @@ lib.mkIf config.settings.wm.sway.enable {
   systemd.user.services.waybar.Service.Environment = "PATH=${
     lib.makeBinPath [ config.services.swaync.package ]
   }";
+
+  wayland.windowManager.sway.config.keybindings = {
+    "XF86Messenger" = "exec swaync-client -t -sw";
+  };
 }

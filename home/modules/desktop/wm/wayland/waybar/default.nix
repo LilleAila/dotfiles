@@ -44,7 +44,7 @@
           "idle_inhibitor"
           # "tray"
           "group/systray"
-          "custom/notification"
+          "custom/notifications"
         ];
 
         clock = {
@@ -167,7 +167,7 @@
           spacing = 10;
         };
 
-        "custom/notification" = {
+        "custom/notifications" = {
           tooltip = false;
           format = "{icon}";
           format-icons = with config.colorScheme.palette; {

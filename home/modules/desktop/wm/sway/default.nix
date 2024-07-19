@@ -20,6 +20,7 @@ in
     ./workspaces.nix
     ./which-key.nix
     ./swaync.nix
+    ./swayosd.nix
   ];
 
   config = lib.mkMerge [
@@ -63,7 +64,7 @@ in
           input = {
             "*" = {
               xkb_layout = "no";
-              xkb_options = "ctrl:nocaps";
+              xkb_options = "ctrl:nocaps,shift:both_capslock_cancel,altwin:menu_win,altwin:prtsc_rwin";
               accel_profile = "flat";
             };
           };
