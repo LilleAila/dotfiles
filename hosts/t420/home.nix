@@ -11,14 +11,7 @@
   imports = [ ../../home ];
 
   settings = {
-    monitors = [
-      {
-        name = "LVDS-1";
-        wallpaper = outputs.packages.${pkgs.system}.wallpaper2.override {
-          colorScheme = config.colorScheme;
-        };
-      }
-    ];
+    monitors = [ { name = "LVDS-1"; } ];
     desktop.enable = true;
     blueman-applet.enable = false;
   };

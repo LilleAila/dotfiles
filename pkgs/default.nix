@@ -8,24 +8,16 @@ let
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
 in
 {
-  box64 = pkgs.callPackage ./box64.nix { };
   fhsenv = pkgs.callPackage ./fhsenv.nix { };
 
-  wallpaper = pkgs.callPackage ./wallpaper.nix { inherit colorScheme; };
-  wallpaper2 = pkgs.callPackage ./wallpaper { inherit colorScheme; };
-
-  lutgen-img = pkgs.callPackage ./lutgen-img.nix {
-    inherit colorScheme;
-    image = ../home/wallpapers/wall25.jpg;
-  };
+  wallpaper = pkgs.callPackage ./wallpaper { inherit colorScheme; };
 
   plymouth-theme = pkgs.callPackage ./plymouth-theme { inherit colorScheme; };
 
+  # None of these work :(
   libfprint-2-tod1-fpc = pkgs.callPackage ./e14g5-fpc.nix { };
   libfprint-fpcmoh = pkgs.callPackage ./libfprint-fpcmoh.nix { };
 
+  # Maybe it's possible to do at runtime instead of compile time?
   anki-nix-colors = pkgs.callPackage ./anki.nix { inherit colorScheme; };
-
-  # Works but extremely slow
-  # nerdfont_patcher = pkgs.callPackage ./nerdfonts.nix {};
 }

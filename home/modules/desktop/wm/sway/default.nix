@@ -80,7 +80,7 @@ in
           output = {
             "*" = {
               bg = "${
-                outputs.packages.${pkgs.system}.wallpaper2.override { colorScheme = config.colorScheme; }
+                outputs.packages.${pkgs.system}.wallpaper.override { colorScheme = config.colorScheme; }
               } fill";
             };
           };

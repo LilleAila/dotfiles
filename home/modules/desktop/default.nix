@@ -106,7 +106,7 @@ in
           # hyprlock.enable = mkDefault false;
           hyprpaper.enable = mkDefault true;
           hyprpaper.wallpaper = mkDefault (
-            outputs.packages.${pkgs.system}.wallpaper2.override { colorScheme = config.colorScheme; }
+            outputs.packages.${pkgs.system}.wallpaper.override { colorScheme = config.colorScheme; }
           );
           mako.enable = mkDefault false;
           wlogout.enable = mkDefault false;
@@ -118,7 +118,13 @@ in
 
         zathura.enable = mkDefault true;
         browser.firefox.enable = mkDefault true;
-        browser.firefox.newtab_image = mkDefault ../../wallpapers/wall1.png;
+        browser.firefox.newtab_image = mkDefault (
+          outputs.packages.${pkgs.system}.wallpaper.override rec {
+            colorScheme = config.colorScheme;
+            logo = false;
+            accent = colorScheme.palette.base09;
+          }
+        );
         # browser.qutebrowser.enable = mkDefault true;
 
         discord.vesktop.enable = mkDefault true;

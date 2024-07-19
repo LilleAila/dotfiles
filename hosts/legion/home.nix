@@ -14,8 +14,6 @@
     monitors = [
       {
         name = "eDP-1";
-        # wallpaper = ./wallpapers/wall10.jpg;
-        # wallpaper = ./wallpapers/wall24.png;
         wallpaper = outputs.packages.${pkgs.system}.wallpaper.override { scheme = config.colorScheme; };
         geometry = "1920x1080@60";
         position = "0x0";
