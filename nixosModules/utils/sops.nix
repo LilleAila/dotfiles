@@ -11,7 +11,7 @@
   imports = [ inputs.sops-nix.nixosModules.sops ];
 
   config = lib.mkIf (config.settings.sops.enable) {
-    sops.defaultSopsFile = ../secrets/secrets.yaml;
+    sops.defaultSopsFile = ../../secrets/secrets.yaml;
     sops.defaultSopsFormat = "yaml";
 
     # sops.age.keyFile = lib.mkDefault "/etc/sops-key.txt";

@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   imports = [
     ./nextcloud.nix
     ./syncthing.nix
