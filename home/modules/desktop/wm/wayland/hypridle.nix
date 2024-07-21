@@ -23,13 +23,6 @@
   # };
 
   config = lib.mkIf (config.settings.wm.hypridle.enable) {
-    home.packages = [ inputs.matcha.packages.${pkgs.system}.default ];
-
-    wayland.windowManager.hyprland.settings.exec-once = [
-      # Start inhibitor daemon with inhibit disabled
-      "${lib.getExe' inputs.matcha.packages.${pkgs.system}.default "matcha"} --daemon --off"
-    ];
-
     wayland.windowManager.hyprland.settings.bindl = [
       # ", switch:on:Lid Switch, exec, ${lib.getExe' pkgs.systemd "systemctl"} suspend"
       ", switch:on:Lid Switch, exec, ${lib.getExe config.programs.swaylock.package}"

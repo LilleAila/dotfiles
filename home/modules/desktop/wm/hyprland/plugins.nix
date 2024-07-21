@@ -1,3 +1,4 @@
+# This file no longer works, because it requires hyprland to be used as a flake input. It is left here for reference, but is no longer imported
 {
   config,
   lib,

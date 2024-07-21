@@ -6,10 +6,6 @@
   ...
 }:
 {
-  # imports = [
-  #   inputs.hyprlock.homeManagerModules.hyprlock
-  # ];
-
   options.settings.wm.hyprlock.enable = lib.mkEnableOption "hyprlock";
 
   config = lib.mkIf (config.settings.wm.hyprlock.enable) (
@@ -22,7 +18,6 @@
           in
           {
             enable = true;
-            package = inputs.hyprlock.packages.${pkgs.system}.hyprlock;
             general = {
               disable_loading_bar = true;
               grace = 1;

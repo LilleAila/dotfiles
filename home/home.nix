@@ -38,7 +38,6 @@
       ags.enable = true;
       hyprland = {
         enable = true;
-        useLegacyRenderer = true;
       };
       avizo.enable = true;
       hypridle.enable = true;

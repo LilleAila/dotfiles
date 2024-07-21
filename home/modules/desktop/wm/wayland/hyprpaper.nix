@@ -11,13 +11,8 @@
     wm.hyprpaper.wallpaper = lib.mkOption' lib.types.path null;
   };
 
-  # imports = [
-  #   inputs.hyprpaper.homeManagerModules.hyprpaper
-  # ];
-
   config = lib.mkIf (config.settings.wm.hyprpaper.enable) {
     services.hyprpaper = {
-      package = inputs.hyprpaper.packages.${pkgs.system}.hyprpaper;
       enable = true;
       settings = {
         splash = true;

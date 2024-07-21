@@ -5,27 +5,20 @@
   inputs,
   ...
 }:
+let
+  ags-config = inputs.ags-config.packages.${pkgs.system}.default.override {
+    colorScheme = config.colorScheme;
+  };
+  types = "share/com.github.Aylur.ags/types";
+in
 {
-  imports = [ inputs.ags.homeManagerModules.default ];
-
   options.settings.wm.ags.enable = lib.mkEnableOption "ags";
 
   config = lib.mkIf (config.settings.wm.ags.enable) {
-    programs.ags = {
-      enable = true;
-
-      extraPackages = with pkgs; [
-        gtksourceview
-        webkitgtk
-        accountsservice
-      ];
-    };
-
     settings.persist.home.cache = [ ".cache/ags" ];
 
-    home.file.".config/ags".source = inputs.ags-config.packages.${pkgs.system}.default.override {
-      colorScheme = config.colorScheme;
-    };
+    home.file.".config/ags".source = ags-config;
+    home.file.".local/${types}".source = "${pkgs.ags}/${types}";
 
     wayland.windowManager.hyprland.settings = {
       exec-once = [ "ags" ];

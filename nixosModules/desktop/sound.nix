@@ -12,7 +12,6 @@
     settings.persist.home.cache = [ ".local/state/wireplumber" ];
     settings.persist.root.cache = [ "/var/lib/alsa" ]; # alsa-store.service was complaining or something
 
-    sound.enable = true;
     security.rtkit.enable = true;
     services.pipewire = {
       enable = true;

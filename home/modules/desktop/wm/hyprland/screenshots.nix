@@ -57,11 +57,7 @@
         bind =
           let
             # cmd = "${lib.getExe pkgs.hyprshot} -o ${cfg.path} -f $(date +${cfg.format})";
-            cmd =
-              mode:
-              "${
-                lib.getExe inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
-              } --notify --freeze copysave ${mode} ${cfg.path}";
+            cmd = mode: "${lib.getExe pkgs.grimblast} --notify --freeze copysave ${mode} ${cfg.path}";
             paste = lib.getExe' pkgs.wl-clipboard "wl-paste";
             copy = lib.getExe' pkgs.wl-clipboard "wl-copy";
             magick = lib.getExe pkgs.imagemagick;

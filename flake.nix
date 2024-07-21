@@ -100,103 +100,39 @@
     };
 
   inputs = {
+    # === Important stuff ===
+    # NOTE: I'm trying to make sure as few as possible instances of nixpkgs are instantiated, to improve the time and space it takes. All the top-level nixpkgs inputs are set to follow either the stable or unstable input, but i have not done anything for inputs of the inputs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # This is only used by a few things
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    # i think this can be just nixpkgs with the same result
+    nixpkgs-lib.url = "github:nix-community/nixpkgs.lib";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # === Hardware ===
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
-    # === Hyprland ===
-    hyprland = {
-      # url = "github:hyprwm/Hyprland/tags/v0.39.0";
-      # url = "github:hyprwm/Hyprland?ref=v0.40.0&submodules=1";
-      url = "github:hyprwm/Hyprland?ref=v0.40.0&submodules=1";
-      # inputs.nixpkgs.follows = "nixpkgs"; # Disabled because cachix
-    };
-
-    hyprland-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Idle inhibitor
-    matcha = {
-      url = "git+https://codeberg.org/QuincePie/matcha.git";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
-
-    hyprlock = {
-      url = "github:hyprwm/hyprlock";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprpaper = {
-      url = "github:hyprwm/hyprpaper";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprpicker = {
-      url = "github:hyprwm/hyprpicker";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    xdph = {
-      url = "github:hyprwm/xdg-desktop-portal-hyprland";
-      # inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hypr-darkwindow = {
-      url = "github:micha4w/Hypr-DarkWindow/tags/v0.40.0";
-      # url = "github:micha4w/Hypr-DarkWindow";
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    hyprfocus = {
-      # url = "github:VortexCoyote/hyprfocus";
-      url = "github:pyt0xic/hyprfocus";
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    woomer = {
-      url = "github:coffeeispower/woomer";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # === Window Manager Related ===
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-
-    ags = {
-      url = "github:Aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # === Emacs ===
-    emacs-overlay = {
-      url = "github:nix-community/emacs-overlay";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # === Other utils ===
     impermanence.url = "github:nix-community/impermanence";
 
-    flake-utils.url = "github:numtide/flake-utils";
+    # === Other utils ===
+    # TODO: keep updated and fix and stuff
+    plover-flake = {
+      url = "github:LilleAila/plover-flake/wayland-support";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    plover-flake.url = "github:LilleAila/plover-flake/wayland-support";
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-stable.follows = "nixpkgs-stable";
+    };
 
-    nix-colors.url = "github:misterio77/nix-colors";
+    nix-colors = {
+      url = "github:misterio77/nix-colors";
+      inputs.nixpkgs-lib.follows = "nixpkgs-lib";
+    };
 
     wrapper-manager = {
       url = "github:viperML/wrapper-manager";
@@ -211,15 +147,25 @@
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-stable.follows = "nixpkgs-stable";
     };
 
-    nix-index-database.url = "github:Mic92/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    programsdb.url = "github:wamserma/flake-programs-sqlite";
-    programsdb.inputs.nixpkgs.follows = "nixpkgs";
+    programsdb = {
+      url = "github:wamserma/flake-programs-sqlite";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     factorio-versions.url = "github:ocfox/factorio-versions";
+
+    woomer = {
+      url = "github:coffeeispower/woomer";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # === My stuff ===
     nix-cursors = {
@@ -228,11 +174,9 @@
     };
 
     nixvim-config = {
-      # url = "/home/olai/nvim";
       url = "github:LilleAila/nvim-nix";
-      # Adding the follows causes issues for some reason
-      # inputs.nixpkgs.follows = "nixpkgs";
-      # inputs.flake-parts.follows = "flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nix-colors.follows = "nix-colors";
     };
 
     ags-config = {

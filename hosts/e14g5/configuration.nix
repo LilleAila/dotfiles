@@ -93,7 +93,7 @@
     (final: prev: { libfprint = prev.callPackage ../../pkgs/libfprint-fpcmoh.nix { }; })
   ];
 
-  services.fwupd.enable = true;
+  # services.fwupd.enable = true;
 
   services.thermald.enable = true;
 

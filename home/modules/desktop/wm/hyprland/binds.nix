@@ -10,9 +10,7 @@
     "$terminal" = "${lib.getExe config.settings.terminal.emulator.package}";
     "$fileManager" = "nemo";
     "$calculator" = "qalculate-gtk";
-    "$colorPicker" = "${
-      lib.getExe inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
-    } --render-inactive --autocopy --format=hex";
+    "$colorPicker" = "${lib.getExe pkgs.hyprpicker} --render-inactive --autocopy --format=hex";
 
     "$mainMod" = lib.mkDefault "SUPER";
 
