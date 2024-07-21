@@ -50,12 +50,6 @@ in
             password = "${secrets.password}";
           };
           devices = {
-            legion = {
-              id = "${secrets.ids.legion}";
-            };
-            mac = {
-              id = "${secrets.ids.mac}";
-            };
             t420 = {
               id = "${secrets.ids.t420}";
             };
@@ -74,8 +68,6 @@ in
               path = "${homePath}/Sync";
               devices = [
                 "oci"
-                "legion"
-                "mac"
                 "t420"
                 "e14g5"
                 "x220"
@@ -94,8 +86,6 @@ in
               path = "${homePath}/.factorio";
               devices = [
                 "oci"
-                "legion"
-                "mac"
                 "e14g5"
               ];
             };
@@ -103,8 +93,6 @@ in
               path = "${homePath}/org";
               devices = [
                 "oci"
-                "legion"
-                "mac"
                 "t420"
                 "e14g5"
                 "x220"
@@ -114,8 +102,6 @@ in
               path = "${homePath}/.local/share/PrismLauncher/instances";
               devices = [
                 "oci"
-                "legion"
-                "mac"
                 "e14g5"
               ];
             };

@@ -161,8 +161,6 @@
   ssh = {
     # Same here. private keys are encrypted
     yubikey.public = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCoH6SWZ9pIUJErbpxwvgCHj+Kv3r84/TCXhHCrFD3UBCWBBOel6PBiC8epr5edFLCt49DozOrrVRVsKKhhsD0cW7QRWK/GKQuaHQ5iHPKxJjO1TP5iBb/oBdDOhpfXnokp9HygncKHVh8Ypa1zEMBBqj/KyDiDfjKEBkkeb8RtjQOtlGqQbrA4B2pqKlGXHAyzmi3Rc/yR5ch8Su9pAqrT5QgD4vW84nBqdQ5dBRqTdLkHxQGScCBG+xfuh75R9HGQy/pBu2SSjAJ+CF7+WAzakq6MWdXrSCFds7YewsIOSl8Zbq5bDo0k6VxNBTM0yEAzU0iMFrMjzyLy3g94SBVQUg4OQ5xaSUcXfTR6yeOq6yqw2PdDtzf45xn8VDVax/0dC2S4uSGAiMK/QqlSZhN6d4Gyhiqd6NAPHmUygg6/y8OOc/5SsdRfo9OzvAnvXGDaodjIbcY1aoYF7MVFyht7qtMTESNyLhTDeBVKx02LGlX2DInTYCk/bghSiD+waPf83R8n9c2wAVAhZzCCT9kYx2ReLMKNYS+dpNTqLd1GXsZQvXtlRMG91+cKWM04Jp6xcRbeeRthsinE3m6QuIlurByVaU25p5H2vQyPaTw7xbdwtmO5mwRgABApawKl5kmTjYc3fK74lQ8mn7DAjNCNv+TBLynG7uxxE8U1A5qhfQ== openpgp:0xA6168C50";
-    mac.public = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC8kaSCUCHrIhpwp5tU6vWeQ/dFX+f3/B7XU31Kl51vG olai.solsvik@gmail.com";
-    legion.public = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN5Z52ibKQO2mugbjo8x4+EvWFSCf+rFg8cOd9Zl7Xj2 olai.solsvik@gmail.com legion";
     t420.public = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEJHIpVw9hUyEkO/b4qmkpumxceN1vZQKKm6HAJC87NW olai.solsvik@gmail.com T420";
     oci.public = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAflP4pHO9TpdmFmqdrnhWgBH3JsZqZJ8cnBZKabGANg olai.solsvik@gmail.com OCI";
     installer.public = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ/cCDWazpsY+tkCHJ8NJX3/s+jJgEQnlL+P2APqcr2Q olai.solsvik@gmail.com NixOS installer";

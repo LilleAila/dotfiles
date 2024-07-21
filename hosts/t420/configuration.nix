@@ -42,11 +42,7 @@
     sops.enable = true;
     gpg.enable = true;
     ssh.enable = true;
-    ssh.keys = with keys.ssh; [
-      e14g5.public
-      legion.public
-      mac.public
-    ];
+    ssh.keys = with keys.ssh; [ e14g5.public ];
     yubikey.enable = true;
   };
 

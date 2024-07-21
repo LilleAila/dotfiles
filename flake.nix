@@ -64,21 +64,11 @@
           extraModules = [ nixos-hardware.nixosModules.lenovo-thinkpad-t420 ];
         };
 
-        mac-nix = mkConfig {
-          name = "mac-nix";
-          extraModules = [ inputs.nixos-apple-silicon.nixosModules.apple-silicon-support ];
-        };
-
         oci-nix = mkConfig { name = "oci"; };
 
         t420-nix = mkConfig {
           name = "t420";
           extraModules = [ nixos-hardware.nixosModules.lenovo-thinkpad-t420 ];
-        };
-
-        legion-nix = mkConfig {
-          name = "legion";
-          extraModules = [ nixos-hardware.nixosModules.common-cpu-intel ];
         };
 
         e14g5-nix = mkConfig {
@@ -119,10 +109,6 @@
 
     # === Hardware ===
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nixos-apple-silicon = {
-      url = "github:tpwrules/nixos-apple-silicon";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     # === Hyprland ===
     hyprland = {

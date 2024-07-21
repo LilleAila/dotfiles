@@ -39,8 +39,6 @@
 
     ssh.enable = true;
     ssh.keys = with keys.ssh; [
-      mac.public
-      legion.public
       e14g5.public
       t420.public
     ];
