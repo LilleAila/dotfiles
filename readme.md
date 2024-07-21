@@ -44,7 +44,7 @@ I use the following computers with my dotfiles:
 | Lenovo ThinkPad X220      | `x220-nix`   | `x86_64`     |                             |
 | Apple MacBook Pro 14"     | `mac-nix`    | `aarch64`    | Deprecated as of [30c156f](https://github.com/LilleAila/dotfiles/commit/30c156fd9a3cf98db7e0f58d10df9b841800ca54) |
 | Lenovo ThinkPad T420      | `t420-nix`   | `x86_64`     |                             |
-| Lenovo Legion Y540        | `legion-nix` | `x86_64`     |                             |
+| Lenovo Legion Y540        | `legion-nix` | `x86_64`     | Deprecated as of [2a8641e](https://github.com/LilleAila/dotfiles/commit/2a8641eaf5bdf22d609baf2021100634dd83c5ad) |
 | Oracle cloud A1           | `oci-nix`    | `aarch64`    |                             |
 
 ### For more info, see the [docs](/docs/main.md)
