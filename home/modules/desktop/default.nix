@@ -54,7 +54,7 @@ in
         _1password-gui-beta
         (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (
           ps: with ps; [
-            plover_uinput
+            plover-uinput
             plover-lapwing-aio
           ]
         ))

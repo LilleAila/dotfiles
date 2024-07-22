@@ -117,9 +117,8 @@
     impermanence.url = "github:nix-community/impermanence";
 
     # === Other utils ===
-    # TODO: keep updated and fix and stuff
     plover-flake = {
-      url = "github:LilleAila/plover-flake/wayland-support";
+      url = "github:dnaq/plover-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

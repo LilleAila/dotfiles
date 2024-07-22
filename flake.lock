@@ -606,25 +606,21 @@
         ],
         "plover": "plover",
         "plover-machine-hid": "plover-machine-hid",
-        "plover-output-dotool": "plover-output-dotool",
         "plover-stroke": "plover-stroke",
-        "plover-uinput": "plover-uinput",
         "plover2cat": "plover2cat",
-        "plover_auto_reconnect_machine": "plover_auto_reconnect_machine",
         "plover_plugins_registry": "plover_plugins_registry",
         "rtf-tokenize": "rtf-tokenize"
       },
       "locked": {
-        "lastModified": 1716309841,
-        "narHash": "sha256-BccK7EpDfQvuHdJtKmEpX+p1poY5GKbgIwXAiUW0rX8=",
-        "owner": "LilleAila",
+        "lastModified": 1721641919,
+        "narHash": "sha256-bcZjh6jNnJ0aJGiuPKnx6bAw5pvGSA2ab1g3Efi8/Pw=",
+        "owner": "dnaq",
         "repo": "plover-flake",
-        "rev": "9d15fbe49c24659114047f860453d6bb942c3766",
+        "rev": "b0584ae790874ed734e2fa9158ef1f259005ecc9",
         "type": "github"
       },
       "original": {
-        "owner": "LilleAila",
-        "ref": "wayland-support",
+        "owner": "dnaq",
         "repo": "plover-flake",
         "type": "github"
       }
@@ -645,22 +641,6 @@
         "type": "github"
       }
     },
-    "plover-output-dotool": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1712588815,
-        "narHash": "sha256-7jO+a5gRzr1L0za9HTh8KwNUy5ZtE5IGyBOpN5CixBc=",
-        "owner": "LilleAila",
-        "repo": "plover-output-dotool",
-        "rev": "17c9b4697d65b0f7bd8cdc35b1f3e7979f3206db",
-        "type": "github"
-      },
-      "original": {
-        "owner": "LilleAila",
-        "repo": "plover-output-dotool",
-        "type": "github"
-      }
-    },
     "plover-stroke": {
       "flake": false,
       "locked": {
@@ -677,62 +657,30 @@
         "type": "github"
       }
     },
-    "plover-uinput": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1712850916,
-        "narHash": "sha256-n2yfhZO25VTvs8IapcH+39dO5aPETdRDKKY8+aBVZOc=",
-        "owner": "LilleAila",
-        "repo": "plover-uinput",
-        "rev": "f6a32b343849ce4037dd574f6ef1d919c07e809f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "LilleAila",
-        "repo": "plover-uinput",
-        "type": "github"
-      }
-    },
     "plover2cat": {
       "flake": false,
       "locked": {
-        "lastModified": 1698341994,
-        "narHash": "sha256-IpfVZJC8jVdCv9rE82zU8P2sgbijc2fdavvrHFW4jqc=",
+        "lastModified": 1721079194,
+        "narHash": "sha256-CZpNDJtJ7rTWdHVVxItSJmmAYOkse9LpkJR60CxDMp8=",
         "owner": "greenwyrt",
         "repo": "plover2CAT",
-        "rev": "ab22fabfe5737a987a7373ded6f54b78c42a76d2",
+        "rev": "217f6adffdb71c712dd639ce5dcb9fdf277fca73",
         "type": "github"
       },
       "original": {
         "owner": "greenwyrt",
         "repo": "plover2CAT",
-        "type": "github"
-      }
-    },
-    "plover_auto_reconnect_machine": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1696968927,
-        "narHash": "sha256-x7s0JnZE8VYXH76KaR50qoQg29GnQ405l1/72HA6AMk=",
-        "owner": "tschulte",
-        "repo": "plover_auto_reconnect_machine",
-        "rev": "aaacf26b245c82d9818ea8e4cfa62167a56d93a9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tschulte",
-        "repo": "plover_auto_reconnect_machine",
         "type": "github"
       }
     },
     "plover_plugins_registry": {
       "flake": false,
       "locked": {
-        "lastModified": 1706997226,
-        "narHash": "sha256-KdV/1/xfvymshUNaT13wPMlthGaiZVr0xWz8gQdu3o8=",
+        "lastModified": 1721506796,
+        "narHash": "sha256-XMCUXl1koOt/PRB4xyEBOc5ycp00PSI4kjk40dGJsik=",
         "owner": "openstenoproject",
         "repo": "plover_plugins_registry",
-        "rev": "421efcac42f0b2aae8cfa039c01b8c281371b621",
+        "rev": "9cee587b4a5ab9f7fc10f612bc142b1a90b9cb01",
         "type": "github"
       },
       "original": {
