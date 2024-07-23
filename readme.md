@@ -47,8 +47,6 @@ I use the following computers with my dotfiles:
 | Apple MacBook Pro 14"                                | `mac-nix`    | `aarch64`    | Deprecated as of [30c156f](https://github.com/LilleAila/dotfiles/commit/30c156fd9a3cf98db7e0f58d10df9b841800ca54) |
 | Lenovo Legion Y540                                   | `legion-nix` | `x86_64`     | Deprecated as of [2a8641e](https://github.com/LilleAila/dotfiles/commit/2a8641eaf5bdf22d609baf2021100634dd83c5ad) |
 
-### For more info, see the [docs](/docs/main.md)
-
 ## Inspiration
 - [tpwrules/nixos-apple-silicon](https://github.com/tpwrules/nixos-apple-silicon/tree/main) - Installing NixOS on m1
 - [Vimjoyer](https://www.youtube.com/@vimjoyer/featured) - Learning nix
