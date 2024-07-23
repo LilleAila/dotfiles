@@ -38,20 +38,19 @@ Riced with [nix-colors](https://github.com/Misterio77/nix-colors) using [gruvbox
 ## Hardware
 I use the following computers with my dotfiles:
 
-| Type                      | Name         | Architecture | Note                        |
-| ------------------------- | ------------ | ------------ | --------------------------- |
-| Lenovo ThinkPad E14 Gen 5 | `e14g5-nix`  | `x86_64`     | Main                        |
-| Lenovo ThinkPad X220      | `x220-nix`   | `x86_64`     |                             |
-| Apple MacBook Pro 14"     | `mac-nix`    | `aarch64`    | Deprecated as of [30c156f](https://github.com/LilleAila/dotfiles/commit/30c156fd9a3cf98db7e0f58d10df9b841800ca54) |
-| Lenovo ThinkPad T420      | `t420-nix`   | `x86_64`     |                             |
-| Lenovo Legion Y540        | `legion-nix` | `x86_64`     | Deprecated as of [2a8641e](https://github.com/LilleAila/dotfiles/commit/2a8641eaf5bdf22d609baf2021100634dd83c5ad) |
-| Oracle cloud A1           | `oci-nix`    | `aarch64`    |                             |
+| Type                                                 | Name         | Architecture | Note                                                                                                              |
+| ---                                                  | ---          | ---          | ---                                                                                                               |
+| [Lenovo ThinkPad E14 Gen 5](./hosts/e14g5/readme.md) | `e14g5-nix`  | `x86_64`     | Main                                                                                                              |
+| [Lenovo ThinkPad X220](./hosts/x220-nix/readme.md)   | `x220-nix`   | `x86_64`     |                                                                                                                   |
+| [Lenovo ThinkPad T420](./hosts/t420/readme.md)       | `t420-nix`   | `x86_64`     |                                                                                                                   |
+| [Oracle cloud](./hosts/oci/readme.md)                | `oci-nix`    | `aarch64`    |                                                                                                                   |
+| Apple MacBook Pro 14"                                | `mac-nix`    | `aarch64`    | Deprecated as of [30c156f](https://github.com/LilleAila/dotfiles/commit/30c156fd9a3cf98db7e0f58d10df9b841800ca54) |
+| Lenovo Legion Y540                                   | `legion-nix` | `x86_64`     | Deprecated as of [2a8641e](https://github.com/LilleAila/dotfiles/commit/2a8641eaf5bdf22d609baf2021100634dd83c5ad) |
 
 ### For more info, see the [docs](/docs/main.md)
 
 ## Inspiration
 - [tpwrules/nixos-apple-silicon](https://github.com/tpwrules/nixos-apple-silicon/tree/main) - Installing NixOS on m1
-- [NixOS on oracle cloud](https://blog.korfuri.fr/posts/2022/08/nixos-on-an-oracle-free-tier-ampere-machine/)
 - [Vimjoyer](https://www.youtube.com/@vimjoyer/featured) - Learning nix
 - [System Crafters](https://www.youtube.com/watch?v=74zOY-vgkyw&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ) - Emacs from scratch
 - [nix-workflow](https://ayats.org/blog/nix-workflow/)
