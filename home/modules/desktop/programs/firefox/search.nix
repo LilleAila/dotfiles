@@ -1,7 +1,21 @@
 { pkgs, ... }:
 {
-  default = "DuckDuckGo";
+  default = "Searx";
   engines = {
+    "Searx" = {
+      urls = [
+        {
+          template = "http://localhost:6969";
+          params = [
+            {
+              name = "q";
+              value = "{searchTerms}";
+            }
+          ];
+        }
+      ];
+    };
+
     "Nix Packages" = {
       urls = [
         {

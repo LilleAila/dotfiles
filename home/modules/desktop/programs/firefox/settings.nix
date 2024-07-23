@@ -15,7 +15,7 @@
   "privacy.globalprivacycontrol.enabled" = true;
 
   # New tab page
-  "browser.startup.homepage" = "https://start.duckduckgo.com";
+  "browser.startup.homepage" = "http://localhost:6969"; # searx
   "browser.startup.page" = 3; # `1` default, `3` restore pages
   "browser.newtabpage.activity-stream.showSearch" = false;
   "browser.newtabpage.activity-stream.feeds.topsites" = false;

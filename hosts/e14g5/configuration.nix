@@ -45,6 +45,7 @@
     gpg.enable = true;
     yubikey.enable = true;
     virtualisation.enable = true;
+    searx.enable = true;
 
     zfs.enable = true;
     zfs.encryption = true;
