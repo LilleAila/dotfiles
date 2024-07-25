@@ -38,8 +38,9 @@ Riced with [nix-colors](https://github.com/Misterio77/nix-colors) using [gruvbox
 ## Hardware
 I use the following computers with my dotfiles:
 
-| Type                                                 | Name         | Architecture | Note                                                                                                              |
+| Name                                                 | Hostname     | Architecture | Note                                                                                                              |
 | ---                                                  | ---          | ---          | ---                                                                                                               |
+| [Desktop](./hosts/desktop/readme.md)                 | `nixdesktop` | `x86_64`     | Not configured yet                                                                                                |
 | [Lenovo ThinkPad E14 Gen 5](./hosts/e14g5/readme.md) | `e14g5-nix`  | `x86_64`     | Main                                                                                                              |
 | [Lenovo ThinkPad X220](./hosts/x220-nix/readme.md)   | `x220-nix`   | `x86_64`     |                                                                                                                   |
 | [Lenovo ThinkPad T420](./hosts/t420/readme.md)       | `t420-nix`   | `x86_64`     |                                                                                                                   |
