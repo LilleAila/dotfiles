@@ -118,7 +118,7 @@
 
     # === Other utils ===
     plover-flake = {
-      url = "github:dnaq/plover-flake";
+      url = "github:LilleAila/plover-flake/linux-uinput-fixed";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

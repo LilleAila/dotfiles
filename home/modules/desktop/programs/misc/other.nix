@@ -19,15 +19,15 @@
       # loupe (not the best UI)
       # feh (very minimal)
       # oculante (blurry and no theme)
-      # cinnamon.pix (YES)
+      # pix (YES)
       # swayimg (good but has to be configed)
       # vimiv-qt (VIM but no theme)
-      home.packages = [ pkgs.cinnamon.pix ];
+      home.packages = [ pkgs.pix ];
       xdg.desktopEntries.pix = {
         name = "Pix";
         genericName = "Image viewer";
         icon = "pix";
-        exec = "${lib.getExe' pkgs.cinnamon.pix "pix"} %f";
+        exec = "${lib.getExe' pkgs.pix "pix"} %f";
       };
       xdg.mimeApps.defaultApplications = {
         "image/png" = "pix.desktop";

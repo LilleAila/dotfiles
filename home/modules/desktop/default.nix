@@ -53,10 +53,7 @@ in
       home.packages = with pkgs; [
         _1password-gui-beta
         (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (
-          ps: with ps; [
-            plover-uinput
-            plover-lapwing-aio
-          ]
+          ps: with ps; [ plover-lapwing-aio ]
         ))
         obsidian
         handbrake
