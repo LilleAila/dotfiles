@@ -27,8 +27,9 @@
     user.name = globalSettings.username;
     networking = {
       enable = true;
-      hostname = "desktop";
+      hostname = "nixtop";
       wifi.enable = true;
+      bluetooth.enable = true;
     };
     utils.enable = true;
     console = {
@@ -47,12 +48,18 @@
     zfs.encryption = false;
     zfs.snapshots = true;
     impermanence.enable = true;
-  };
 
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryPackage = pkgs.pinentry-tty;
+    greeter.enable = true;
+    greeter.command = "sway";
+    xserver.xwayland.enable = true;
+    desktop.enable = true;
+    sway.enable = true;
+    syncthing.enable = true;
+    sound.enable = true;
+    gpg.enable = true;
+    yubikey.enable = true;
+    virtualisation.enable = true;
+    searx.enable = true;
   };
 
   system.stateVersion = "24.11";
