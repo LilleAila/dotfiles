@@ -59,6 +59,7 @@
       });
 
       nixosConfigurations = {
+      desktop = mkConfig {name = "desktop";};
         x220-nix = mkConfig {
           name = "x220-nix";
           extraModules = [ nixos-hardware.nixosModules.lenovo-thinkpad-t420 ];
