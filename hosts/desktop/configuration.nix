@@ -27,7 +27,7 @@
     user.name = globalSettings.username;
     networking = {
       enable = true;
-      hostname = "nixtop";
+      hostname = "nixdesktop";
       wifi.enable = true;
       bluetooth.enable = true;
     };

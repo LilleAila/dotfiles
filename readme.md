@@ -40,7 +40,7 @@ I use the following computers with my dotfiles:
 
 | Name                                                 | Hostname     | Architecture | Note                                                                                                              |
 | ---                                                  | ---          | ---          | ---                                                                                                               |
-| [Desktop](./hosts/desktop/readme.md)                 | `nixdesktop` | `x86_64`     | Not configured yet                                                                                                |
+| [Desktop](./hosts/desktop/readme.md)                 | `nixdesktop` | `x86_64`     |                                                                                                                   |
 | [Lenovo ThinkPad E14 Gen 5](./hosts/e14g5/readme.md) | `e14g5-nix`  | `x86_64`     | Main                                                                                                              |
 | [Lenovo ThinkPad X220](./hosts/x220-nix/readme.md)   | `x220-nix`   | `x86_64`     |                                                                                                                   |
 | [Lenovo ThinkPad T420](./hosts/t420/readme.md)       | `t420-nix`   | `x86_64`     |                                                                                                                   |

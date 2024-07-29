@@ -60,7 +60,7 @@
 
       nixosConfigurations = {
         # Desktop but nix
-        nixtop = mkConfig { name = "desktop"; };
+        nixdesktop = mkConfig { name = "desktop"; };
 
         x220-nix = mkConfig {
           name = "x220-nix";
