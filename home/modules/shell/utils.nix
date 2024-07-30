@@ -22,6 +22,8 @@
         img = "kitty +kitten icat";
         c = ''cd $(find . -type d -not -path "*/.*" -not -path "." | fzf -m)'';
 
+        qkb = "qmk compile -kb beekeeb/piantor_pro -km olai && sudo mount /dev/disk/by-label/RPI-RP2 /mnt/qmk -m && sudo cp $HOME/qmk_firmware/beekeeb_piantor_pro_olai.uf2 /mnt/qmk/";
+
         neofetch = "${lib.getExe pkgs.nitch}";
       }
       // (
