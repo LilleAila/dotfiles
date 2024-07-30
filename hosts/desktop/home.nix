@@ -31,9 +31,8 @@
     wm.waybar.enable = true;
   };
 
-  # FIXME temporary ssh key, replace with a new one as soon as possible
-  sops.secrets."ssh/installer".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
-  home.file.".ssh/id_ed25519.pub".text = keys.ssh.installer.public;
+  sops.secrets."ssh/desktop".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
+  home.file.".ssh/id_ed25519.pub".text = keys.ssh.desktop.public;
 
   # Needed to decrypt the other secrets
   home.file."gpg-key.asc".source = ../../secrets/gpg-key.asc;
