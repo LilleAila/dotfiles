@@ -27,7 +27,7 @@ Riced with [nix-colors](https://github.com/Misterio77/nix-colors) using [gruvbox
 </div>
 
 ## Using
-- Window Manager: [Hyprland](https://hyprland.org)
+- Window Manager: [Sway](https://swaywm.org)
 - Bar: [AGS](https://aylur.github.io/ags-docs/) ([config](https://github.com/LilleAila/ags-config))
 - Terminal Emulator: [kitty](https://sw.kovidgoyal.net/kitty)
 - Shell: [Zsh](https://www.zsh.org/) with [starship](https://starship.rs/)
