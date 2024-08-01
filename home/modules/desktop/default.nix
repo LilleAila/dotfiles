@@ -144,7 +144,12 @@ in
 
         fonts =
           let
-            jetbrains_nerd = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+            nerdfonts = pkgs.nerdfonts.override {
+              fonts = [
+                "JetBrainsMono"
+                "Iosevka"
+              ];
+            };
           in
           {
             serif.package = mkDefault pkgs.dejavu_fonts;
@@ -153,13 +158,13 @@ in
             sansSerif.package = mkDefault pkgs.dejavu_fonts;
             sansSerif.name = mkDefault "DejaVu Sans";
             sansSerif.variant = "Book";
-            monospace.package = mkDefault jetbrains_nerd;
-            monospace.name = mkDefault "JetBrainsMono Nerd Font";
-            nerd.package = mkDefault jetbrains_nerd;
+            monospace.package = mkDefault nerdfonts;
+            monospace.name = mkDefault "Iosevka Nerd Font";
+            nerd.package = mkDefault nerdfonts;
             # "Nerd Font": icons expand with more space
             # "Nerd Font Mono": icons are all same size
             # "Nerd Font Propo": icons always take up their full size
-            nerd.name = mkDefault "JetBrainsMono Nerd Font Propo";
+            nerd.name = mkDefault "Iosevka Nerd Font Propo";
             size = mkDefault 10;
           };
 
