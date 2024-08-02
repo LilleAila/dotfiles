@@ -159,12 +159,12 @@ in
             sansSerif.name = mkDefault "DejaVu Sans";
             sansSerif.variant = "Book";
             monospace.package = mkDefault nerdfonts;
-            monospace.name = mkDefault "Iosevka Nerd Font";
+            monospace.name = mkDefault "JetBrainsMono Nerd Font";
             nerd.package = mkDefault nerdfonts;
             # "Nerd Font": icons expand with more space
             # "Nerd Font Mono": icons are all same size
             # "Nerd Font Propo": icons always take up their full size
-            nerd.name = mkDefault "Iosevka Nerd Font Propo";
+            nerd.name = mkDefault "JetBrainsMono Nerd Font Propo";
             size = mkDefault 10;
           };
 
