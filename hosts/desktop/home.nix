@@ -31,6 +31,37 @@
     wm.waybar.enable = true;
   };
 
+  wayland.windowManager.sway.config.output = {
+    "HDMI-A-1" = {
+      mode = "2560x1441@144Hz";
+      position = "1080 0";
+    };
+    "DP-3" = {
+      mode = "1920x1080@75Hz";
+      transform = "270";
+      position = "0 0";
+    };
+  };
+
+  wayland.windowManager.sway.config.workspaceOutputAssign =
+    let
+      mkWs = workspace: output: {
+        inherit output;
+        workspace = toString workspace;
+      };
+    in
+    [
+      (mkWs 1 "HDMI-A-1")
+      (mkWs 2 "HDMI-A-1")
+      (mkWs 3 "HDMI-A-1")
+      (mkWs 4 "HDMI-A-1")
+      (mkWs 5 "HDMI-A-1")
+      (mkWs 6 "DP-3")
+      (mkWs 7 "DP-3")
+      (mkWs 8 "DP-3")
+      (mkWs 9 "DP-3")
+    ];
+
   sops.secrets."ssh/desktop".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
   home.file.".ssh/id_ed25519.pub".text = keys.ssh.desktop.public;
 

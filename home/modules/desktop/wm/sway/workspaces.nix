@@ -9,7 +9,7 @@ lib.mkIf config.settings.wm.sway.enable {
   wayland.windowManager.sway.config = {
     workspaceAutoBackAndForth = false;
     defaultWorkspace = "workspace 1";
-    workspaceOutputAssign = [
+    workspaceOutputAssign = lib.mkDefault [
       {
         workspace = "1";
         output = "eDP-1";
