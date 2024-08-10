@@ -21,6 +21,7 @@ in
     ./which-key.nix
     ./swaync.nix
     ./swayosd.nix
+    ./screenrec.nix
   ];
 
   config = lib.mkMerge [
@@ -34,7 +35,6 @@ in
         config.common = {
           default = [ "gtk" ];
           "org.freedesktop.impl.portal.Screencast" = "wlr";
-          "org.freedesktop.impl.portal.Screenshot" = "wlr";
         };
       };
 
