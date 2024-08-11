@@ -105,6 +105,12 @@ let
                 exit 0
               fi
             fi
+            # FIXME: this is a temporary workaround for russelltg/wl-screenrec#83
+            if [[ -n "$rec_pid" && ! -e /proc/$rec_pid ]]; then
+              rm "$rec_file"
+              rec_pid=""
+              reset_rec
+            fi
             sleep 0.1
           done
         }
