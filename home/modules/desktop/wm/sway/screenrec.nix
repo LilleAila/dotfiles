@@ -21,7 +21,7 @@ lib.mkIf config.settings.wm.sway.enable {
       };
       startup = [
         {
-          command = "${lib.getExe screenrec} --daemon -h 15 -- --low-power off --output HDMI-A-1 --audio --bitrate \"2 MB\"";
+          command = "${lib.getExe screenrec} --daemon -h 20 -- --low-power off --output HDMI-A-1 --audio --audio-device alsa_output.usb-SteelSeries_SteelSeries_Arctis_7-00.stereo-game.monitor --bitrate \"2 MB\"";
         }
       ];
     };
