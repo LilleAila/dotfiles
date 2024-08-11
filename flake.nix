@@ -175,6 +175,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    wl-screenrec-daemon = {
+      url = "github:LilleAila/wl-screenrec-daemon";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixvim-config = {
       url = "github:LilleAila/nvim-nix";
       inputs.nixpkgs.follows = "nixpkgs";

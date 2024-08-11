@@ -780,6 +780,7 @@
         "plover-flake": "plover-flake",
         "programsdb": "programsdb",
         "sops-nix": "sops-nix",
+        "wl-screenrec-daemon": "wl-screenrec-daemon",
         "woomer": "woomer",
         "wrapper-manager": "wrapper-manager"
       }
@@ -917,6 +918,26 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "wl-screenrec-daemon": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1723380601,
+        "narHash": "sha256-PQRCxc5Cvn/ruFSRVjjicdDGmdv4/v1BpYt9ysQ0xmE=",
+        "owner": "LilleAila",
+        "repo": "wl-screenrec-daemon",
+        "rev": "b1c5cde8dff56d5793f56b6145d0dafdec4baeb2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LilleAila",
+        "repo": "wl-screenrec-daemon",
         "type": "github"
       }
     },
