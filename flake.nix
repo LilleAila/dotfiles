@@ -182,7 +182,7 @@
 
     nixvim-config = {
       url = "github:LilleAila/nvim-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
       inputs.nix-colors.follows = "nix-colors";
     };
 

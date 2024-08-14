@@ -29,7 +29,11 @@
       #   };
       # };
       users.users.${config.settings.user.name}.extraGroups = [ "libvirtd" ];
-      environment.systemPackages = [ pkgs.virt-manager ];
+      environment.systemPackages = with pkgs; [
+        virt-manager
+        swtpm
+        OVMFFull
+      ];
       settings.persist.root.cache = [ "/var/lib/libvirt" ];
     })
     (lib.mkIf config.settings.nvidia.passthrough.enable {

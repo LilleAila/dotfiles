@@ -37,7 +37,7 @@ in
         krita
         libreoffice
         kdenlive
-        (outputs.packages.${pkgs.system}.anki-nix-colors.override { inherit (config) colorScheme; })
+        # (outputs.packages.${pkgs.system}.anki-nix-colors.override { inherit (config) colorScheme; })
         musescore
       ];
 
