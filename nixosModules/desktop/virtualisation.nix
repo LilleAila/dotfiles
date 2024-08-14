@@ -19,6 +19,7 @@
       virtualisation.libvirtd = {
         enable = true;
         qemu.ovmf.enable = true;
+        qemu.swtpm.enable = true;
         onBoot = "ignore";
         onShutdown = "shutdown";
       };
@@ -29,11 +30,7 @@
       #   };
       # };
       users.users.${config.settings.user.name}.extraGroups = [ "libvirtd" ];
-      environment.systemPackages = with pkgs; [
-        virt-manager
-        swtpm
-        OVMFFull
-      ];
+      environment.systemPackages = with pkgs; [ virt-manager ];
       settings.persist.root.cache = [ "/var/lib/libvirt" ];
     })
     (lib.mkIf config.settings.nvidia.passthrough.enable {
