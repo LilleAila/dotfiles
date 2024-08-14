@@ -28,7 +28,7 @@
     settings.persist.home.cache = [ ".config/heroic" ];
 
     home.packages = with pkgs; [
-      heroic
+      # heroic # FIXME: currently broken :(
       ryujinx
       (pkgs.factorio.override {
         # It's easier to use the built-in mod manager than to package it with nix
