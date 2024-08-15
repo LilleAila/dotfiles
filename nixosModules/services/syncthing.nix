@@ -62,6 +62,9 @@ in
             x220 = {
               id = "${secrets.ids.x220}";
             };
+            desktop = {
+              id = "${secrets.ids.desktop}";
+            };
           };
           folders = {
             "Default Folder" = {
@@ -71,6 +74,7 @@ in
                 "t420"
                 "e14g5"
                 "x220"
+                "desktop"
               ];
             };
             "Obsidian" = {
@@ -80,6 +84,7 @@ in
                 "e14g5"
                 "t420"
                 "x220"
+                "desktop"
               ];
             };
             "Factorio Saves" = {
@@ -87,6 +92,7 @@ in
               devices = [
                 "oci"
                 "e14g5"
+                "desktop"
               ];
             };
             "Notes" = {
@@ -96,6 +102,7 @@ in
                 "t420"
                 "e14g5"
                 "x220"
+                "desktop"
               ];
             };
             "Minecraft" = {
@@ -103,6 +110,7 @@ in
               devices = [
                 "oci"
                 "e14g5"
+                "desktop"
               ];
             };
           };

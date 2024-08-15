@@ -69,4 +69,7 @@
   home.file."gpg-key.asc".source = ../../secrets/gpg-key.asc;
 
   sops.secrets."yubikey/u2f_keys".path = "${config.home.homeDirectory}/.config/Yubico/u2f_keys";
+
+  sops.secrets."syncthing/desktop/cert".path = "${config.home.homeDirectory}/.config/syncthing/cert.pem";
+  sops.secrets."syncthing/desktop/key".path = "${config.home.homeDirectory}/.config/syncthing/key.pem";
 }
