@@ -36,7 +36,7 @@
         ];
         modules-center = [ "sway/window" ];
         modules-right = [
-          # "battery"
+          "battery"
           # "wireplumber"
           "pulseaudio" # More configureable
           "bluetooth"
