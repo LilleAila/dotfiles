@@ -39,6 +39,7 @@ in
         kdenlive
         # (outputs.packages.${pkgs.system}.anki-nix-colors.override { inherit (config) colorScheme; })
         musescore
+        calibre
       ];
 
       settings.persist.home.directories = [
