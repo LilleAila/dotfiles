@@ -13,5 +13,7 @@
       teams-for-linux
       libreoffice
     ];
+
+    settings.persist.home.directories = [ ".config/teams-for-linux" ];
   };
 }
