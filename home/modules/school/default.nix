@@ -12,8 +12,12 @@
     home.packages = with pkgs; [
       teams-for-linux
       libreoffice
+      anki-bin
     ];
 
-    settings.persist.home.directories = [ ".config/teams-for-linux" ];
+    settings.persist.home.directories = [
+      ".local/share/Anki2"
+      ".config/teams-for-linux"
+    ];
   };
 }

@@ -37,13 +37,12 @@ in
         krita
         libreoffice
         kdenlive
-        # (outputs.packages.${pkgs.system}.anki-nix-colors.override { inherit (config) colorScheme; })
+        # (outputs.packages.${pkgs.system}.anki-nix-colors.override { inherit (config) colorScheme; }) # it's just too slow
         musescore
         calibre
       ];
 
       settings.persist.home.directories = [
-        ".local/share/Anki2"
         ".config/MuseScore"
         ".local/share/MuseScore"
       ];
