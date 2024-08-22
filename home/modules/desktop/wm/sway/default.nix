@@ -64,7 +64,7 @@ in
           input = {
             "*" = {
               xkb_layout = "no";
-              xkb_options = "ctrl:nocaps,shift:both_capslock_cancel,altwin:menu_win,altwin:prtsc_rwin";
+              xkb_options = "ctrl:nocaps,shift:both_capslock_cancel,altwin:menu_win,compose:prsc";
               accel_profile = "flat";
             };
           };
