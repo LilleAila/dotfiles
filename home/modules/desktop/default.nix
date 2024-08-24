@@ -45,6 +45,7 @@ in
       settings.persist.home.directories = [
         ".config/MuseScore"
         ".local/share/MuseScore"
+        ".config/obsidian" # Make it remembed the opened vault
       ];
 
       settings.nix.unfree = [ "geogebra" ];
