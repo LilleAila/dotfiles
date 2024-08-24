@@ -31,6 +31,8 @@
   config = lib.mkIf config.settings.user.enable (
     with config.settings.user;
     {
+      settings.persist.root.directories = [ "/var/lib/nixos" ];
+
       users.users."${name}" = {
         isNormalUser = true;
         uid = 1000;
