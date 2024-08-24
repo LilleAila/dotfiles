@@ -25,6 +25,7 @@ in
         ".factorio"
         "org"
         ".local/share/PrismLauncher/instances"
+        ".spell"
       ];
 
       settings.persist.home.cache = [ ".config/syncthing" ];
@@ -69,6 +70,16 @@ in
           folders = {
             "Default Folder" = {
               path = "${homePath}/Sync";
+              devices = [
+                "oci"
+                "t420"
+                "e14g5"
+                "x220"
+                "desktop"
+              ];
+            };
+            "Spell" = {
+              path = "${homePath}/.spell";
               devices = [
                 "oci"
                 "t420"
