@@ -23,7 +23,7 @@ in
   }
 
   #workspaces button {
-    padding: 0;
+    padding: 0 8px;
     border-top: 1px solid transparent;
 
     &.focused {
