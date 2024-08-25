@@ -15,6 +15,7 @@ lib: with lib; rec {
       inherit r g b;
     };
 
+  # hex to rgb as string
   rgb =
     c:
     let

@@ -40,12 +40,14 @@ in
         # (outputs.packages.${pkgs.system}.anki-nix-colors.override { inherit (config) colorScheme; }) # it's just too slow
         musescore
         calibre
+        bottles
       ];
 
       settings.persist.home.directories = [
         ".config/MuseScore"
         ".local/share/MuseScore"
-        ".config/obsidian" # Make it remembed the opened vault
+        ".config/obsidian" # Make it remember the opened vault
+        ".local/share/bottles"
       ];
 
       settings.nix.unfree = [ "geogebra" ];
