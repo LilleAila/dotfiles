@@ -24,6 +24,8 @@
     ];
     # services.printing.enable = true;
 
+    services.udisks2.enable = true;
+
     hardware.keyboard.qmk.enable = true;
     # Allow read/write to ttyACM0 serial port
     # Allow uinput as non-root user (in input group)

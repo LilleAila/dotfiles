@@ -48,6 +48,8 @@ in
         ".local/share/MuseScore"
         ".config/obsidian" # Make it remember the opened vault
         ".local/share/bottles"
+        "Calibre\ Library"
+        ".config/calibre"
       ];
 
       settings.nix.unfree = [ "geogebra" ];
