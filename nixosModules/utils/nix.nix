@@ -44,7 +44,7 @@
           "flakes"
         ];
 
-        access-tokens = "github.com=${builtins.readFile ../../secrets/github-token.txt}";
+        access-tokens = "github.com=${(import ../../secrets/tokens.nix).github}";
 
         substituters = [
           "https://hyprland.cachix.org"

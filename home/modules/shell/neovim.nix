@@ -20,7 +20,7 @@
 
         home.sessionVariables = {
           EDITOR = "nvim";
-          OBSIDIAN_REST_API_KEY = builtins.readFile ../../../secrets/obsidian-token.txt;
+          OBSIDIAN_REST_API_KEY = (import ../../../secrets/tokens.nix).obsidian;
           # PAGER = "nvimpager";
         };
 

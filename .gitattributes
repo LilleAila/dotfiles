@@ -1,6 +1,5 @@
 secrets/sops-key.txt filter=git-crypt diff=git-crypt
 secrets/gpg-key.asc filter=git-crypt diff=git-crypt
-secrets/github-token.txt filter=git-crypt diff=git-crypt
-secrets/obsidian-token.txt filter=git-crypt diff=git-crypt
+secrets/tokens.nix filter=git-crypt diff=git-crypt
 secrets/factorio.nix filter=git-crypt diff=git-crypt
 secrets/syncthing.nix filter=git-crypt diff=git-crypt
