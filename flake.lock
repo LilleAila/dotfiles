@@ -582,14 +582,15 @@
         "plugin-cmp-vimtex": "plugin-cmp-vimtex",
         "plugin-img-clip": "plugin-img-clip",
         "plugin-move": "plugin-move",
+        "plugin-obsidian-bridge": "plugin-obsidian-bridge",
         "plugin-org-bullets": "plugin-org-bullets"
       },
       "locked": {
-        "lastModified": 1725033629,
-        "narHash": "sha256-wjcVVLdwP6Khled75FE/7lWDFyQBYNyvH2AoXR8MqDA=",
+        "lastModified": 1725172593,
+        "narHash": "sha256-WVuZ6Yhcxj2esvApjVU8PBkCIGiNyNT8JoHw+/8vLmk=",
         "owner": "LilleAila",
         "repo": "nvim-nix",
-        "rev": "a0beca0c7e99ecc2284e2865724a1661d57e23c4",
+        "rev": "5e1a843ca67699e3f19275081f2a3d654e23d3b7",
         "type": "github"
       },
       "original": {
@@ -792,6 +793,22 @@
       "original": {
         "owner": "fedepujol",
         "repo": "move.nvim",
+        "type": "github"
+      }
+    },
+    "plugin-obsidian-bridge": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1718297529,
+        "narHash": "sha256-Phm4/Qjl7ebga7ViBz1K9In/favCBJPjsa/XU5U0J84=",
+        "owner": "oflisback",
+        "repo": "obsidian-bridge.nvim",
+        "rev": "ad05b2ecdf0d22a3a9387ae4684acd208695d466",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oflisback",
+        "repo": "obsidian-bridge.nvim",
         "type": "github"
       }
     },
