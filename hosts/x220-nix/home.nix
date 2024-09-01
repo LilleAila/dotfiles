@@ -20,11 +20,21 @@
         position = "0x0";
       }
     ];
-    wm.hyprland.monitors.enable = true;
     desktop.enable = true;
-    blueman-applet.enable = true;
+    desktop.full.enable = true;
+    wm.hyprland.monitors.enable = true;
+
+    wm.sway.enable = true;
+    wm.hyprpaper.enable = false;
+    wm.waybar.enable = true;
+
+    school.enable = true;
 
     fonts.size = 8;
+  };
+
+  home.shellAliases = {
+    bt = "bluetooth";
   };
 
   # caps is ctrl, both shift toggle caps, disable with only one shift, menu key as super
