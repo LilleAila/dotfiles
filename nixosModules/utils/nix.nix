@@ -31,6 +31,8 @@
     # _module.args.util = import ../lib lib;
 
     nix = {
+      package = pkgs.nixVersions.latest;
+
       optimise.automatic = true;
 
       gc = {
