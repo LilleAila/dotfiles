@@ -42,6 +42,7 @@
     ssh.keys = with keys.ssh; [
       e14g5.public
       t420.public
+      x220.public
     ];
 
     zfs.enable = true;
