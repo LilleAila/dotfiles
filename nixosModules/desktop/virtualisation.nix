@@ -34,11 +34,11 @@
       settings.persist.root.cache = [ "/var/lib/libvirt" ];
     })
     (lib.mkIf config.settings.nvidia.passthrough.enable {
-      boot.kernelPackages = lib.mkForce pkgs.linuxPackages_zen; # This not be necessary on other computers, but on my computer the GPU was in the same IOMMU group as other pci stuff that was not supposed to be passed through
+      # boot.kernelPackages = lib.mkForce pkgs.linuxPackages_zen; # This not be necessary on other computers, but on my computer the GPU was in the same IOMMU group as other pci stuff that was not supposed to be passed through
       boot.kernelParams = [
         # These are device ids found with `lspci -nnk`.
         "vfio-pci.ids=${lib.concatStringsSep "," config.settings.nvidia.passthrough.ids}"
-        "pcie_acs_override=downstream,multifunction" # Make GPU be in a different IOMMU group
+        # "pcie_acs_override=downstream,multifunction" # Make GPU be in a different IOMMU group
       ];
       boot.initrd.kernelModules = [
         "vfio_pci"

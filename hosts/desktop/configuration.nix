@@ -45,6 +45,14 @@
       x220.public
     ];
 
+    nvidia.passthrough = {
+      enable = true;
+      ids = [
+        "10de:2216"
+        "10de:1aef"
+      ];
+    };
+
     zfs.enable = true;
     zfs.encryption = false;
     zfs.snapshots = true;

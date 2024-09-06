@@ -36,7 +36,7 @@
       mode = "2560x1441@144Hz";
       position = "1080 0";
     };
-    "DP-3" = {
+    "DP-2" = {
       mode = "1920x1080@75Hz";
       transform = "270";
       position = "0 0";
@@ -56,10 +56,11 @@
       (mkWs 3 "HDMI-A-1")
       (mkWs 4 "HDMI-A-1")
       (mkWs 5 "HDMI-A-1")
-      (mkWs 6 "DP-3")
-      (mkWs 7 "DP-3")
-      (mkWs 8 "DP-3")
-      (mkWs 9 "DP-3")
+      (mkWs 6 "DP-2")
+      (mkWs 7 "DP-2")
+      (mkWs 8 "DP-2")
+      (mkWs 9 "DP-2")
+      (mkWs 10 "DP-2")
     ];
 
   sops.secrets."ssh/desktop".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
