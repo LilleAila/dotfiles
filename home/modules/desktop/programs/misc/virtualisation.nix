@@ -27,6 +27,8 @@
         };
         input = {
           grabKeyboard = false; # don't capture the keyboard, only the mouse
+          # captureOnFocus = true;
+          releaseKeysOnFocusLoss = true;
         };
       };
     };
