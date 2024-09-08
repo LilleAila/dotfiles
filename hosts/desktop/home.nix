@@ -29,6 +29,8 @@
     wm.sway.enable = true;
     wm.hyprpaper.enable = false;
     wm.waybar.enable = true;
+
+    virtualisation.enable = true;
   };
 
   wayland.windowManager.sway.config.output = {

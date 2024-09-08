@@ -23,12 +23,6 @@
         onBoot = "ignore";
         onShutdown = "shutdown";
       };
-      # dconf.settings = {
-      #   "org/virt-manager/virt-manager/connections" = {
-      #     autoconnect = ["qemu:///system"];
-      #     uris = ["qemu:///system"];
-      #   };
-      # };
       users.users.${config.settings.user.name}.extraGroups = [ "libvirtd" ];
       environment.systemPackages = with pkgs; [ virt-manager ];
       settings.persist.root.cache = [ "/var/lib/libvirt" ];

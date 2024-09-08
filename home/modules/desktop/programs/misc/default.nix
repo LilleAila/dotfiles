@@ -13,6 +13,7 @@
     ./zathura.nix
     ./espanso
     ./syncthing.nix
+    ./virtualisation.nix
     ./wlr-which-key.nix
   ];
 }

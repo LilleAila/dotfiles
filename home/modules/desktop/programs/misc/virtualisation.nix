@@ -1,0 +1,31 @@
+{
+  pkgs,
+  inputs,
+  config,
+  lib,
+  ...
+}:
+{
+  options.settings.virtualisation.enable = lib.mkEnableOption "virtualisation";
+
+  config = lib.mkIf config.settings.virtualisation.enable {
+    dconf.settings = {
+      "org/virt-manager/virt-manager/connections" = {
+        autoconnect = [ "qemu:///system" ];
+        uris = [ "qemu:///system" ];
+      };
+    };
+
+    programs.looking-glass-client = {
+      enable = true;
+      settings = {
+        win = {
+          title = "Looking glass (Windows)";
+          fullScreen = true;
+          noScreensaver = true;
+          alerts = false; # hide alerts such as from toggling capture
+        };
+      };
+    };
+  };
+}
