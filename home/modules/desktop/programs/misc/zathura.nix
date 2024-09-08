@@ -26,8 +26,8 @@
         notification-error-fg = "#${base08}";
         notification-warning-bg = "#${base00}";
         notification-warning-fg = "#${base08}";
-        highlight-color = "#${base0A}";
-        highlight-active-color = "#${base0D}";
+        highlight-color = with lib.colors.rgb base0A; "rgba(${r}, ${g}, ${b}, 0.4)";
+        highlight-active-color = with lib.colors.rgb base0D; "rgba(${r}, ${g}, ${b}, 0.4)";
         completion-bg = "#${base01}";
         completion-fg = "#${base0D}";
         completion-highlight-fg = "#${base07}";
