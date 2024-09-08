@@ -25,6 +25,9 @@
           noScreensaver = true;
           alerts = false; # hide alerts such as from toggling capture
         };
+        input = {
+          grabKeyboard = false; # don't capture the keyboard, only the mouse
+        };
       };
     };
   };
