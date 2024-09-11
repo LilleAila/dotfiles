@@ -169,6 +169,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    focal = {
+      url = "github:iynaix/focal";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # === My stuff ===
     nix-cursors = {
       url = "github:LilleAila/nix-cursors";

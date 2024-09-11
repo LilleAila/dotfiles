@@ -22,6 +22,7 @@ in
     ./swaync.nix
     ./swayosd.nix
     ./screenrec.nix
+    ./screenshots.nix
   ];
 
   config = lib.mkMerge [

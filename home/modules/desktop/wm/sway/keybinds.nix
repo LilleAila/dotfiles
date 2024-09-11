@@ -85,7 +85,7 @@ lib.mkIf config.settings.wm.sway.enable {
 
         # === Screenshots ===
         # TODO: set up similar to in hyprland
-        "${mod}+s" = "exec grim -g \"$(slurp)\" - | wl-copy";
+        # "${mod}+s" = "exec grim -g \"$(slurp)\" - | wl-copy";
 
         # === Apps ===
         "${mod}+b" = "exec firefox -P main";
