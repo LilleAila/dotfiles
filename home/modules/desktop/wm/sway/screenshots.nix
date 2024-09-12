@@ -36,7 +36,7 @@ lib.mkIf config.settings.wm.sway.enable {
       keybindings = {
         "${mod}+s" = "exec focal --area selection";
         "${mod}+Shift+s" = "exec focal --area monitor";
-        "${mod}+Shift+Ctrl+s" = "exec focal --rofi";
+        "${mod}+Shift+Control+s" = "exec focal --rofi";
         "${mod}+Alt+s" = "exec wlr-which-key ocr";
       };
     };

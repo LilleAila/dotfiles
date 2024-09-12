@@ -55,6 +55,9 @@
 
   environment.sessionVariables.ANKI_WAYLAND = 1;
 
+  # wshowkeys -b 282828 -f ebdbb2 -F "JetBrainsMono Nerd Font 24" -a top -a left -m 50
+  programs.wshowkeys.enable = true;
+
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
