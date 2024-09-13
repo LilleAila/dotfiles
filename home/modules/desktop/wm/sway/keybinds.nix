@@ -29,7 +29,6 @@ lib.mkIf config.settings.wm.sway.enable {
         "${mod}+Space" = "exec ${conf.menu}";
 
         "${mod}+Shift+r" = "reload";
-        "${mod}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
 
         # === Windows ===
         "${mod}+${conf.left}" = "focus left";
@@ -52,7 +51,7 @@ lib.mkIf config.settings.wm.sway.enable {
 
         # "${mod}+s" = "layout stacking";
         # "${mod}+t" = "layout tabbed";
-        "${mod}+e" = "layout toggle split";
+        "${mod}+t" = "layout toggle split";
 
         "${mod}+f" = "floating toggle";
         # "${mod}+m" = "focus mode_toggle";
@@ -82,10 +81,6 @@ lib.mkIf config.settings.wm.sway.enable {
 
         "${mod}+Shift+z" = "move scratchpad";
         "${mod}+z" = "scratchpad show";
-
-        # === Screenshots ===
-        # TODO: set up similar to in hyprland
-        # "${mod}+s" = "exec grim -g \"$(slurp)\" - | wl-copy";
 
         # === Apps ===
         "${mod}+b" = "exec firefox -P main";
