@@ -52,6 +52,10 @@ in
         ".config/calibre"
       ];
 
+      settings.persist.home.cache = [
+        ".cache/puppeteer" # Chrome is downloaded here
+      ];
+
       settings.nix.unfree = [ "geogebra" ];
     })
     (mkIf cfg.enable {
