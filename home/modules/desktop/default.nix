@@ -41,6 +41,7 @@ in
         musescore
         calibre
         bottles
+        outputs.packages.${pkgs.system}.fhsenv
       ];
 
       settings.persist.home.directories = [
