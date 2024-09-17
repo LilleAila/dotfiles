@@ -53,6 +53,11 @@
 	:bind ("M-#" . evilnc-comment-or-uncomment-lines)
 )
 
+;; === Direnv ===
+(use-package direnv
+  :config
+  (direnv-mode))
+
 ;; === Languages === (move to separate files)
 (use-package typescript-mode
 	:mode "\\.ts\\'"

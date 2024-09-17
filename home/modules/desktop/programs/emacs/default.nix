@@ -7,80 +7,53 @@
 }:
 # https://github.com/ircurry/cfg/blob/master/home/programs/emacs/default.nix
 let
+  # TODO: maybe use the emacs-overlay?
   # NOTE: The -pgtk version does NOT work with EXWM
-  emacs-package =
-    with pkgs;
-    ((emacsPackagesFor emacs29-pgtk).emacsWithPackages (
-      # emacs-package = with pkgs; ((emacsPackagesFor emacs29).emacsWithPackages (
-      epkgs: with epkgs; [
-        # === Use-package ===
-        use-package
-        # ( import ./eaf.nix { inherit pkgs; })
+  emacs-package = (pkgs.emacsPackagesFor pkgs.emacs29-pgtk).emacsWithPackages (
+    epkgs: with epkgs; [
+      # === Use-package ===
+      use-package
 
-        # === Completion ===
-        ivy
-        ivy-rich
-        counsel
-        swiper
-        helpful
+      # === Completion ===
+      ivy
+      ivy-rich
+      counsel
+      swiper
+      helpful
 
-        # === UI ===
-        all-the-icons
-        pkgs.emacs-all-the-icons-fonts
-        doom-modeline
-        (pkgs.callPackage ./theme.nix { inherit (config) colorScheme; })
+      # === UI ===
+      all-the-icons
+      pkgs.emacs-all-the-icons-fonts
+      doom-modeline
+      (pkgs.callPackage ./theme.nix { inherit (config) colorScheme; })
 
-        # === Keybinds ===
-        evil
-        evil-collection
-        which-key
-        general
-        hydra
+      # === Keybinds ===
+      evil
+      evil-collection
+      which-key
+      general
+      hydra
 
-        # === IDE ===
-        lsp-mode
-        lsp-ui
-        lsp-treemacs
-        lsp-ivy
-        company
-        company-box
-        undo-tree
-        evil-nerd-commenter
-        typescript-mode
+      # === IDE ===
+      lsp-mode
+      lsp-ui
+      lsp-treemacs
+      lsp-ivy
+      company
+      company-box
+      undo-tree
+      evil-nerd-commenter
+      direnv
 
-        # === Org-mode ===
-        org
-        org-bullets
-        visual-fill-column
-      ]
-    ));
-  # emacs-python-deps = python-pkgs: with python-pkgs; [
-  # ];
-  emacs-deps = with pkgs; [
-    # ( python311.withPackages emacs-python-deps )
+      # === Languages ===
+      typescript-mode
 
-    # === TypeScript ===
-    nodejs
-    nodePackages.npm
-    nodePackages.typescript
-    nodePackages.typescript-language-server
-
-    # === EXWM ===
-    # xorg.xinit
-    # xorg.xmodmap
-    # arandr
-  ];
-  emacs-wrapped = inputs.wrapper-manager.lib.build {
-    inherit pkgs;
-    modules = [
-      {
-        wrappers.emacs = {
-          basePackage = emacs-package;
-          pathAdd = emacs-deps;
-        };
-      }
-    ];
-  };
+      # === Org-mode ===
+      org
+      org-bullets
+      visual-fill-column
+    ]
+  );
 in
 {
   options.settings.emacs.enable = lib.mkEnableOption "emacs";
@@ -88,7 +61,7 @@ in
   config = lib.mkIf config.settings.emacs.enable {
     programs.emacs = {
       enable = true;
-      package = emacs-wrapped;
+      package = emacs-package;
     };
 
     home.file.".emacs.d" = {
@@ -107,7 +80,7 @@ in
     # Restart with systemctl --user restart emacs
     services.emacs = {
       enable = true;
-      package = emacs-wrapped;
+      package = emacs-package;
       client.enable = true;
     };
   };

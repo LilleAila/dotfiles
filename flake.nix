@@ -95,10 +95,7 @@
           globalSettings = defaultSettings;
         };
 
-        modules = [
-          { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
-          ./home.nix
-        ];
+        modules = [ ./home.nix ];
       };
     };
 
@@ -125,20 +122,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    emacs-overlay = {
-      url = "github:nix-community/emacs-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixpkgs-stable.follows = "nixpkgs-stable";
-    };
+    # emacs-overlay = {
+    #   url = "github:nix-community/emacs-overlay";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.nixpkgs-stable.follows = "nixpkgs-stable";
+    # };
 
     nix-colors = {
       url = "github:misterio77/nix-colors";
       inputs.nixpkgs-lib.follows = "nixpkgs-lib";
-    };
-
-    wrapper-manager = {
-      url = "github:viperML/wrapper-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     firefox-addons = {
