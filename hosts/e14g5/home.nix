@@ -23,6 +23,7 @@
     desktop.enable = true;
     desktop.full.enable = true;
     wm.hyprland.monitors.enable = true;
+    emacs.enable = true;
 
     wm.sway.enable = true;
     wm.hyprpaper.enable = false;

@@ -1,13 +1,12 @@
 ;; === Fonts ===
 (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :height 100)
 (set-face-attribute 'fixed-pitch nil :font "JetBrainsMono Nerd Font" :height 100)
-;; (set-face-attribute 'variable-pitch nil :font "Arial" :height 100 :weight 'regular)
+(set-face-attribute 'variable-pitch nil :font "DejaVu Sans" :height 100 :weight 'regular)
 
 ;; === Theme ===
-(use-package doom-themes
-  :config
-  (load-theme 'doom-dracula t)
-)
+(require 'base16-nix-colors-theme)
+(setq base16-theme-256-color-source 'colors)
+(load-theme 'base16-nix-colors t)
 
 ;; === Modeline ===
 (use-package all-the-icons)

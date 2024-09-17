@@ -40,13 +40,13 @@
 
 (use-package hydra)
 ;; === Example usage ===
-;; (defhydra hydra-text-scale (:timeout 4)
-;;     "scale text"
-;;     ("j" text-scale-increase "in")
-;;     ("k" text-scale-decrease "out")
-;;     ("f" nil "finished" :exit t))
-;;
-;; (os/leader-keys
-;;     "ts" 'hydra-text-scale/body :which-key "scale text")
+(defhydra hydra-text-scale (:timeout 4)
+    "scale text"
+    ("j" text-scale-increase "in")
+    ("k" text-scale-decrease "out")
+    ("f" nil "finished" :exit t))
+
+(os/leader-keys
+    "ts" 'hydra-text-scale/body :which-key "scale text")
 
 (provide 'config-bindings)

@@ -12,49 +12,46 @@ let
     with pkgs;
     ((emacsPackagesFor emacs29-pgtk).emacsWithPackages (
       # emacs-package = with pkgs; ((emacsPackagesFor emacs29).emacsWithPackages (
-      epkgs: [
+      epkgs: with epkgs; [
         # === Use-package ===
-        epkgs.use-package
+        use-package
         # ( import ./eaf.nix { inherit pkgs; })
 
         # === Completion ===
-        epkgs.ivy
-        epkgs.ivy-rich
-        epkgs.counsel
-        epkgs.swiper
-        epkgs.helpful
+        ivy
+        ivy-rich
+        counsel
+        swiper
+        helpful
 
         # === UI ===
-        epkgs.doom-themes
-        epkgs.all-the-icons
-        epkgs.doom-modeline
+        all-the-icons
+        pkgs.emacs-all-the-icons-fonts
+        doom-modeline
+        (pkgs.callPackage ./theme.nix { inherit (config) colorScheme; })
 
         # === Keybinds ===
-        epkgs.evil
-        epkgs.evil-collection
-        epkgs.which-key
-        epkgs.general
-        epkgs.hydra
+        evil
+        evil-collection
+        which-key
+        general
+        hydra
 
         # === IDE ===
-        epkgs.lsp-mode
-        epkgs.lsp-ui
-        epkgs.lsp-treemacs
-        epkgs.lsp-ivy
-        epkgs.company
-        epkgs.company-box
-        epkgs.undo-tree
-        epkgs.evil-nerd-commenter
-        epkgs.typescript-mode
+        lsp-mode
+        lsp-ui
+        lsp-treemacs
+        lsp-ivy
+        company
+        company-box
+        undo-tree
+        evil-nerd-commenter
+        typescript-mode
 
         # === Org-mode ===
-        epkgs.org
-        epkgs.org-bullets
-        epkgs.visual-fill-column
-
-        # === EXWM ===
-        # epkgs.exwm
-        # epkgs.exwm-modeline
+        org
+        org-bullets
+        visual-fill-column
       ]
     ));
   # emacs-python-deps = python-pkgs: with python-pkgs; [
