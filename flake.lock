@@ -907,11 +907,11 @@
         "plugin-org-bullets": "plugin-org-bullets"
       },
       "locked": {
-        "lastModified": 1725963766,
-        "narHash": "sha256-1MwcpvxcWNeD/Wy1Ki37tOHuu0jpAS4+33J9htMVcI8=",
+        "lastModified": 1726728789,
+        "narHash": "sha256-0ZJ4nzWaAtXpLhYFBEwPJHaBbIkmiUo7warcLxvMLvE=",
         "owner": "LilleAila",
         "repo": "nvim-nix",
-        "rev": "0518790b9d5964bd4fb8a360f9e516f7ce175347",
+        "rev": "f3c32379b2c7aa0da0dce7ccc555765002796197",
         "type": "github"
       },
       "original": {
@@ -1141,11 +1141,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1725897620,
-        "narHash": "sha256-rWasbxmfp3l+SzPrbU2lureDcs+P2mak7XUtD5Lz6js=",
+        "lastModified": 1726215540,
+        "narHash": "sha256-9a1HlwKx7zBpaKJJFJgZ2BLSsbKtmbB/hnRrOUIdwlA=",
         "owner": "LilleAila",
         "repo": "obsidian-todo.nvim",
-        "rev": "204f7c4fa659bc8c2ab2218a56c82b4768abd7f7",
+        "rev": "3fb0e42dbc3907069ac9fd6f5f5c83a03c9edb25",
         "type": "github"
       },
       "original": {
