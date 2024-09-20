@@ -9,7 +9,7 @@
   imports = [
     ./ags
     ./discord
-    ./emacs
+    ./emacs.nix
     ./fcitx5
     ./firefox
     ./misc

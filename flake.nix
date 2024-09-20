@@ -183,6 +183,12 @@
       inputs.nix-colors.follows = "nix-colors";
     };
 
+    emacs-config = {
+      url = "github:LilleAila/emacs-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nix-colors.follows = "nix-colors";
+    };
+
     ags-config = {
       url = "github:LilleAila/ags-config";
       inputs.nixpkgs.follows = "nixpkgs";

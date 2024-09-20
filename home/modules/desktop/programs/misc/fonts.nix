@@ -92,6 +92,7 @@
       sansSerif.package
       monospace.package
       emoji.package
+      pkgs.emacs-all-the-icons-fonts
     ];
   };
 }
