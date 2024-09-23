@@ -25,7 +25,7 @@
     };
 
     "NixOS Wiki" = {
-      urls = [ { template = "https://wiki.nixos.org/index.php?search={searchTerms}"; } ];
+      urls = [ { template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; } ];
       iconUpdateURL = "https://wiki.nixos.org/favicon.png";
       updateInterval = 24 * 60 * 60 * 1000; # Every day
       definedAliases = [ "@nw" ];
