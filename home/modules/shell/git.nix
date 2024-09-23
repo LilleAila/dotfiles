@@ -7,7 +7,7 @@
   ...
 }:
 {
-  config = lib.mkIf (config.settings.terminal.utils.enable) {
+  config = lib.mkIf config.settings.terminal.utils.enable {
     programs.git = {
       enable = true;
       userName = "LilleAila";

@@ -192,7 +192,7 @@ in
     };
 
     indicator = {
-      error = error;
+      inherit error;
       start = secondary-info;
       stop = info;
     };

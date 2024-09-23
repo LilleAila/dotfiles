@@ -13,7 +13,7 @@
   };
 
   config = lib.mkMerge [
-    (lib.mkIf (config.settings.files.nemo.enable) {
+    (lib.mkIf config.settings.files.nemo.enable {
       home.packages = with pkgs; [
         (nemo-with-extensions.override {
           extensions = [
@@ -96,7 +96,7 @@
         };
       };
     })
-    (lib.mkIf (config.settings.files.thunar.enable) {
+    (lib.mkIf config.settings.files.thunar.enable {
       home.packages = with pkgs; [
         (xfce.thunar.override {
           thunarPlugins = with xfce; [

@@ -6,27 +6,29 @@
   ...
 }:
 {
+  # FIXME all of this stuff
   options.settings.terminal = {
-    emulator.enable = lib.mkEnableOption "terminal emulator";
-    emulator.name = lib.mkOption {
-      type = lib.types.str;
-      default = "kitty";
+    enable = lib.mkEnableOption "terminal emulator";
+    emulator = {
+      name = lib.mkOption {
+        type = lib.types.str;
+        default = "kitty";
+      };
+      exec = lib.mkOption {
+        # internal option, do not set in config
+        type = lib.types.str;
+      };
+      package = lib.mkOption {
+        # lib.getExe gets used a lot. maybe make it its own option?
+        type = lib.types.package;
+      };
     };
-    # TODO: use these options. Either use assertions to allow only one, or use another value to set the default terminal, but allow installing multiple
     kitty.enable = lib.mkEnableOption "Kitty terminal emulator";
     alacritty.enable = lib.mkEnableOption "Alacritty terminal emulator";
     wezterm.enable = lib.mkEnableOption "WezTerm terminal emulator";
-    emulator.exec = lib.mkOption {
-      # internal option, do not set in config
-      type = lib.types.str;
-    };
-    emulator.package = lib.mkOption {
-      # lib.getExe gets used a lot. maybe make it its own option?
-      type = lib.types.package;
-    };
   };
 
-  config = lib.mkIf (config.settings.terminal.emulator.enable) (
+  config = lib.mkIf config.settings.terminal.emulator.enable (
     lib.mkMerge [
       (lib.mkIf (config.settings.terminal.emulator.name == "kitty") {
         settings.terminal.emulator.package = config.programs.kitty.package;
@@ -35,9 +37,9 @@
           enable = true;
           package = pkgs.kitty;
           font = with config.settings.fonts; {
-            name = monospace.name;
-            package = monospace.package;
-            size = size;
+            inherit (monospace) name;
+            inherit (monospace) package;
+            inherit size;
           };
           shellIntegration.enableZshIntegration = true;
           shellIntegration.enableFishIntegration = true;
@@ -147,7 +149,7 @@
           enable = true;
           settings = {
             font = with config.settings.fonts; {
-              size = size;
+              inherit size;
               normal.family = monospace.name;
               bold.family = monospace.name;
               bold_italic.family = monospace.name;

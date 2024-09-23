@@ -15,19 +15,19 @@
   };
 
   config = lib.mkMerge [
-    (lib.mkIf (config.settings.networking.bluetooth.enable) {
+    (lib.mkIf config.settings.networking.bluetooth.enable {
       hardware.bluetooth.enable = true;
       services.blueman.enable = true;
       settings.persist.root.cache = [ "/var/lib/bluetooth" ];
     })
-    (lib.mkIf (config.settings.networking.enable) {
+    (lib.mkIf config.settings.networking.enable {
       services.avahi = {
         enable = true;
         openFirewall = true;
       };
       networking.hostName = config.settings.networking.hostname;
     })
-    (lib.mkIf (config.settings.networking.wifi.enable) {
+    (lib.mkIf config.settings.networking.wifi.enable {
       networking.networkmanager.enable = true;
       users.users."${config.settings.user.name}".extraGroups = [ "networkmanager" ];
       settings.networking.enable = true;
@@ -38,7 +38,7 @@
       # };
       settings.persist.root.cache = [ "/etc/NetworkManager/system-connections" ];
     })
-    (lib.mkIf (config.settings.networking.rtl8852be.enable) {
+    (lib.mkIf config.settings.networking.rtl8852be.enable {
       # Things to make realtek wifi card work
       # https://bbs.archlinux.org/viewtopic.php?pid=2102231#p2102231
       boot.extraModprobeConfig = ''

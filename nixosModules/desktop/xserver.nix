@@ -12,7 +12,7 @@
   };
 
   config = lib.mkMerge [
-    (lib.mkIf (config.settings.xserver.enable) {
+    (lib.mkIf config.settings.xserver.enable {
       services.xserver = {
         enable = true;
 
@@ -26,7 +26,7 @@
         enableCtrlAltBackspace = true;
       };
     })
-    (lib.mkIf (config.settings.xserver.xwayland.enable) {
+    (lib.mkIf config.settings.xserver.xwayland.enable {
       programs.xwayland.enable = true;
       settings.xserver.enable = true; # Also enable xserver (above)
     })

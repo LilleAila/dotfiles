@@ -26,7 +26,7 @@ in
   ];
 
   config = lib.mkMerge [
-    (lib.mkIf (config.settings.wm.sway.enable) {
+    (lib.mkIf config.settings.wm.sway.enable {
       xdg.portal = {
         extraPortals = with pkgs; [
           xdg-desktop-portal-wlr
@@ -84,7 +84,7 @@ in
           output = {
             "*" = {
               bg = "${
-                outputs.packages.${pkgs.system}.wallpaper.override { colorScheme = config.colorScheme; }
+                outputs.packages.${pkgs.system}.wallpaper.override { inherit (config) colorScheme; }
               } fill";
             };
           };

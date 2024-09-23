@@ -13,14 +13,14 @@ in
     vesktop.enable = lib.mkEnableOption "vesktop";
     dissent.enable = lib.mkEnableOption "dissent";
     vesktop.settings = lib.mkOption {
-      type = jsonFormat.type;
+      inherit (jsonFormat) type;
       default = { };
     };
   };
 
   config = lib.mkMerge [
-    (lib.mkIf (config.settings.discord.dissent.enable) { home.packages = with pkgs; [ dissent ]; })
-    (lib.mkIf (config.settings.discord.vesktop.enable) {
+    (lib.mkIf config.settings.discord.dissent.enable { home.packages = with pkgs; [ dissent ]; })
+    (lib.mkIf config.settings.discord.vesktop.enable {
       home.packages = with pkgs; [ vesktop ];
 
       settings.persist.home.cache = [ ".config/vesktop" ];
@@ -129,7 +129,7 @@ in
       };
     })
 
-    (lib.mkIf (config.settings.wm.hyprland.enable) {
+    (lib.mkIf config.settings.wm.hyprland.enable {
       wayland.windowManager.hyprland.settings = {
         "$discord" = "vesktop";
         bind = [

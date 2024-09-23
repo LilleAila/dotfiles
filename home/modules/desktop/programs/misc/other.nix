@@ -13,7 +13,7 @@
   };
 
   config = lib.mkMerge [
-    (lib.mkIf (config.settings.imageviewer.enable) {
+    (lib.mkIf config.settings.imageviewer.enable {
       # Image viewers:
       # lxqt.lximage-qt (does not get themed bc QT and not GTK)
       # loupe (not the best UI)
@@ -43,7 +43,7 @@
         "${lib.getExe' pkgs.blueman "blueman-applet"}"
       ];
     })
-    (lib.mkIf (config.settings.other.enable) {
+    (lib.mkIf config.settings.other.enable {
       dconf.settings."org/blueman/general" = {
         plugin-list = [ "!ConnectionNotifier" ];
       };

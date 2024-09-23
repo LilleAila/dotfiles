@@ -8,7 +8,7 @@
 {
   options.settings.zathura.enable = lib.mkEnableOption "zathura";
 
-  config = lib.mkIf (config.settings.zathura.enable) {
+  config = lib.mkIf config.settings.zathura.enable {
     programs.zathura = with config.colorScheme.palette; {
       enable = true;
       options = {

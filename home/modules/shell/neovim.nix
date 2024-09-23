@@ -8,13 +8,13 @@
 {
   options.settings.terminal.neovim.enable = lib.mkEnableOption "neovim";
 
-  config = lib.mkIf (config.settings.terminal.neovim.enable) (
+  config = lib.mkIf config.settings.terminal.neovim.enable (
     lib.mkMerge [
       {
         # Putting this as programs.neovim.package does not work, so configuring manually:
         # Here is my nixvim config: https://github.com/LilleAila/nvim-nix/
         home.packages = [
-          (inputs.nixvim-config.packages."${pkgs.system}".nvim.override { colorScheme = config.colorScheme; })
+          (inputs.nixvim-config.packages."${pkgs.system}".nvim.override { inherit (config) colorScheme; })
           # pkgs.nvimpager
         ];
 
@@ -46,7 +46,7 @@
           ".local/state/nvim"
         ];
       }
-      (lib.mkIf (config.settings.terminal.emulator.enable) {
+      (lib.mkIf config.settings.terminal.emulator.enable {
         xdg.desktopEntries.nvim = {
           name = "Neovim";
           genericName = "Text Editor";

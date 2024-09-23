@@ -8,7 +8,7 @@
 {
   options.settings.desktop.enable = lib.mkEnableOption "misc. gui utils";
 
-  config = lib.mkIf (config.settings.desktop.enable) {
+  config = lib.mkIf config.settings.desktop.enable {
     hardware.graphics.enable = true;
     hardware.graphics.enable32Bit = true;
 

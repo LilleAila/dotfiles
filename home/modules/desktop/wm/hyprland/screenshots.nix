@@ -22,7 +22,7 @@
     let
       cfg = config.settings.wm.hyprland.screenshots;
     in
-    lib.mkIf (cfg.enable) {
+    lib.mkIf cfg.enable {
       home.packages = with pkgs; [
         grim
         slurp

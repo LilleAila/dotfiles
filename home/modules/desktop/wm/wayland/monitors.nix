@@ -51,7 +51,7 @@ in
             else
               "disable"
           }"
-        ) (config.settings.monitors);
+        ) config.settings.monitors;
       })
     ]
   );

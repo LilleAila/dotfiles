@@ -8,7 +8,7 @@
 {
   options.settings.qt.enable = lib.mkEnableOption "qt";
 
-  config = lib.mkIf (config.settings.qt.enable) (
+  config = lib.mkIf config.settings.qt.enable (
     let
       colorScheme = lib.generators.toINI { } {
         ColorScheme =

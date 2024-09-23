@@ -43,7 +43,7 @@
         terminal = false;
         type = "Application";
       }
-    ) (config.settings.webapps.chromium);
+    ) config.settings.webapps.chromium;
 
     settings.persist.home.directories = lib.attrsets.mapAttrsToList (
       name: cfg: ".config/chromium/${name}"

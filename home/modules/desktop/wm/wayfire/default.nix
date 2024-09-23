@@ -10,10 +10,10 @@
     enable = lib.mkEnableOption "WayfireWM";
   };
 
-  config = lib.mkIf (config.settings.wayfire.enable) {
+  config = lib.mkIf config.settings.wayfire.enable {
     home.packages = [
       (pkgs.wayfire-with-plugins.override {
-        wayfire = pkgs.wayfire;
+        inherit (pkgs) wayfire;
         plugins = with pkgs.wayfirePlugins; [ ];
       })
     ];

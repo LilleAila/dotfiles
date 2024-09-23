@@ -21,7 +21,7 @@ lib: with lib; rec {
     let
       color = rgb' c;
     in
-    lib.mapAttrs (_: v: toString v) color;
+    lib.mapAttrs (_: toString) color;
 
   rgb_dec =
     c:
@@ -37,7 +37,7 @@ lib: with lib; rec {
     in
     "rgb(${
       lib.concatStringsSep ", " (
-        map (c: toString c) [
+        map toString [
           r
           g
           b

@@ -43,7 +43,7 @@
           "dialout"
         ];
         packages = with pkgs; [ ];
-        shell = shell;
+        inherit shell;
         initialPassword = "";
       };
 

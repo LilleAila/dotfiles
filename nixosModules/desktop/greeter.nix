@@ -9,7 +9,7 @@
   options.settings.greeter.enable = lib.mkEnableOption "greeter";
   options.settings.greeter.command = lib.mkStrOption "Hyprland";
 
-  config = lib.mkIf (config.settings.greeter.enable) {
+  config = lib.mkIf config.settings.greeter.enable {
     settings.persist.root.cache = [ "/var/cache/tuigreet" ];
     services.greetd = {
       enable = true;

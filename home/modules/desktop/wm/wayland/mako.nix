@@ -8,7 +8,7 @@
 {
   options.settings.wm.mako.enable = lib.mkEnableOption "mako";
 
-  config = lib.mkIf (config.settings.wm.mako.enable) {
+  config = lib.mkIf config.settings.wm.mako.enable {
     services.mako = {
       enable = true;
       backgroundColor = "#${config.colorScheme.palette.base01}";

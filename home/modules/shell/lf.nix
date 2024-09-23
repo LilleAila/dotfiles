@@ -6,7 +6,7 @@
   ...
 }:
 {
-  config = lib.mkIf (config.settings.terminal.utils.enable) {
+  config = lib.mkIf config.settings.terminal.utils.enable {
     xdg.configFile."lf/icons".source = ./icons;
     programs.lf = {
       enable = true;

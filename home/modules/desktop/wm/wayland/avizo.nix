@@ -8,7 +8,7 @@
 {
   options.settings.wm.avizo.enable = lib.mkEnableOption "avizo";
 
-  config = lib.mkIf (config.settings.wm.avizo.enable) {
+  config = lib.mkIf config.settings.wm.avizo.enable {
     # TODO: rewrite in ags
     services.avizo = {
       enable = true;

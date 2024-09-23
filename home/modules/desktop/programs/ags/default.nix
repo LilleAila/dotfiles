@@ -7,14 +7,14 @@
 }:
 let
   ags-config = inputs.ags-config.packages.${pkgs.system}.default.override {
-    colorScheme = config.colorScheme;
+    inherit (config) colorScheme;
   };
   types = "share/com.github.Aylur.ags/types";
 in
 {
   options.settings.wm.ags.enable = lib.mkEnableOption "ags";
 
-  config = lib.mkIf (config.settings.wm.ags.enable) {
+  config = lib.mkIf config.settings.wm.ags.enable {
     settings.persist.home.cache = [ ".cache/ags" ];
 
     home.file.".config/ags".source = ags-config;

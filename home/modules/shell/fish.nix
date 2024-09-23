@@ -10,7 +10,7 @@
     enable = lib.mkEnableOption "fish";
   };
 
-  config = lib.mkIf (config.settings.terminal.fish.enable) (
+  config = lib.mkIf config.settings.terminal.fish.enable (
     lib.mkMerge [
       {
         programs.fish = {

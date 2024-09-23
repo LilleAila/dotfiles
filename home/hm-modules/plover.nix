@@ -25,7 +25,7 @@ in
           '';
     };
     settings = lib.mkOption {
-      type = iniFormat.type;
+      inherit (iniFormat) type;
       default = { };
       example =
         lib.literalExpression # nix

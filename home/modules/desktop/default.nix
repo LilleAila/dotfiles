@@ -113,7 +113,7 @@ in
           # hyprlock.enable = mkDefault false;
           hyprpaper.enable = mkDefault true;
           hyprpaper.wallpaper = mkDefault (
-            outputs.packages.${pkgs.system}.wallpaper.override { colorScheme = config.colorScheme; }
+            outputs.packages.${pkgs.system}.wallpaper.override { inherit (config) colorScheme; }
           );
           mako.enable = mkDefault false;
           wlogout.enable = mkDefault false;
@@ -127,7 +127,7 @@ in
         browser.firefox.enable = mkDefault true;
         browser.firefox.newtab_image = mkDefault (
           outputs.packages.${pkgs.system}.wallpaper.override rec {
-            colorScheme = config.colorScheme;
+            inherit (config) colorScheme;
             logo = false;
             accent = colorScheme.palette.base09;
           }

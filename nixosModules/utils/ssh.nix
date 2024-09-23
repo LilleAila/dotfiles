@@ -9,7 +9,7 @@
   options.settings.ssh.enable = lib.mkEnableOption "ssh";
   options.settings.ssh.keys = lib.mkOption' (lib.types.listOf lib.types.str) [ ];
 
-  config = lib.mkIf (config.settings.ssh.enable) (
+  config = lib.mkIf config.settings.ssh.enable (
     lib.mkMerge [
       {
         services.openssh = {

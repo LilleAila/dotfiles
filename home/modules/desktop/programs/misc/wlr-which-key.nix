@@ -13,7 +13,7 @@ in
   options.settings.wlr-which-key = {
     enable = lib.mkEnableOption "wlr-which-key";
     settings = lib.mkOption {
-      type = yamlFormat.type;
+      inherit (yamlFormat) type;
       default = { };
       example =
         lib.literalExpression # nix
@@ -75,7 +75,7 @@ in
         filename = if name == "default" then "config" else name;
       in
       lib.attrsets.nameValuePair "wlr-which-key/${filename}.yaml" {
-        source = (yamlFormat.generate "${filename}.yaml" (cfg.settings // { inherit menu; }));
+        source = yamlFormat.generate "${filename}.yaml" (cfg.settings // { inherit menu; });
       }
     ) cfg.menus;
   };

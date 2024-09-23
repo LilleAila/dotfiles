@@ -8,7 +8,7 @@
 {
   options.settings.terminal.utils.enable = lib.mkEnableOption "utils";
 
-  config = lib.mkIf (config.settings.terminal.utils.enable) {
+  config = lib.mkIf config.settings.terminal.utils.enable {
     home.shellAliases =
       {
         bigfiles = "sudo fd --one-file-system --base-directory / --type f --hidden --exec ls -lS | sort -k5,5nr | head -n 10";

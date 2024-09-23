@@ -27,9 +27,9 @@
         jetbrains-mono
       ];
       console = {
-        packages = with pkgs; [ ] ++ config.fonts.packages;
-        font = font;
-        keyMap = keyMap;
+        packages = with pkgs; config.fonts.packages;
+        inherit font;
+        inherit keyMap;
       };
 
       console.colors =

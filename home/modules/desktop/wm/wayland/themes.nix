@@ -19,7 +19,7 @@ in
   imports = [ ./qt.nix ];
 
   config = lib.mkMerge [
-    (lib.mkIf (config.settings.gtk.enable) (let
+    (lib.mkIf config.settings.gtk.enable (let
       gtkCss = import ./gtk-theme2.nix { inherit (config) colorScheme; inherit lib; };
     in {
       gtk = {
@@ -41,11 +41,11 @@ in
       xdg.configFile."gtk-3.0/gtk.css".text = gtkCss;
       xdg.configFile."gtk-4.0/gtk.css".text = gtkCss;
     }))
-    (lib.mkIf (config.settings.wm.hyprland.enable) {
+    (lib.mkIf config.settings.wm.hyprland.enable {
       home.pointerCursor = {
-        package = config.settings.cursor.package;
-        name = config.settings.cursor.name;
-        size = config.settings.cursor.size;
+        inherit (config.settings.cursor) package;
+        inherit (config.settings.cursor) name;
+        inherit (config.settings.cursor) size;
         gtk.enable = true;
       };
       # wayland.windowManager.hyprland.settings = {

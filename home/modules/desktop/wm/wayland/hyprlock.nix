@@ -8,7 +8,7 @@
 {
   options.settings.wm.hyprlock.enable = lib.mkEnableOption "hyprlock";
 
-  config = lib.mkIf (config.settings.wm.hyprlock.enable) (
+  config = lib.mkIf config.settings.wm.hyprlock.enable (
     lib.mkAssert (!config.settings.wm.swaylock.enable)
       "You cannot enable both swaylock and hyprlock at the same time!"
       {
@@ -41,7 +41,7 @@
               brightness = 0.8172;
               vibrancy = 0.1686;
               vibrancy_darkness = 5.0e-2;
-            }) (config.settings.monitors);
+            }) config.settings.monitors;
 
             input-fields = [
               {

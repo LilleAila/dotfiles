@@ -8,7 +8,7 @@
 {
   options.settings.utils.enable = lib.mkEnableOption "various general utilities";
 
-  config = lib.mkIf (config.settings.utils.enable) {
+  config = lib.mkIf config.settings.utils.enable {
     environment.shells = [
       pkgs.zsh
       pkgs.fish
@@ -16,8 +16,9 @@
     programs.zsh.enable = true;
     programs.fish.enable = true;
 
-    services.fstrim.enable = true;
-    services.upower.enable = true;
+    fstrim.enable = true;
+    upower.enable = true;
+    envfs.enable = true;
 
     programs.nh = {
       enable = true;
@@ -27,8 +28,6 @@
     };
 
     programs.nano.enable = false;
-
-    services.envfs.enable = true;
 
     programs.nix-ld.enable = true;
 

@@ -17,7 +17,7 @@ in
     };
   };
 
-  config = lib.mkIf (config.settings.terminal.zsh.enable) {
+  config = lib.mkIf config.settings.terminal.zsh.enable {
     settings.persist.home.cache_files = [ ".zsh_history" ];
     programs.zsh = {
       enable = true;
@@ -27,7 +27,7 @@ in
       oh-my-zsh = {
         enable = true;
         # https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-        theme = config.settings.terminal.zsh.theme;
+        inherit (config.settings.terminal.zsh) theme;
       };
       initExtra = ''
         ex = () {

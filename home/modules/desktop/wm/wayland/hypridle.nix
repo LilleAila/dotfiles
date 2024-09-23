@@ -22,7 +22,7 @@
   #   default = [];
   # };
 
-  config = lib.mkIf (config.settings.wm.hypridle.enable) {
+  config = lib.mkIf config.settings.wm.hypridle.enable {
     wayland.windowManager.hyprland.settings.bindl = [
       # ", switch:on:Lid Switch, exec, ${lib.getExe' pkgs.systemd "systemctl"} suspend"
       ", switch:on:Lid Switch, exec, ${lib.getExe config.programs.swaylock.package}"

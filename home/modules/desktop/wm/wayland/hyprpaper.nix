@@ -11,7 +11,7 @@
     wm.hyprpaper.wallpaper = lib.mkOption' lib.types.path null;
   };
 
-  config = lib.mkIf (config.settings.wm.hyprpaper.enable) {
+  config = lib.mkIf config.settings.wm.hyprpaper.enable {
     services.hyprpaper = {
       enable = true;
       settings = {

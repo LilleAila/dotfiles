@@ -99,7 +99,7 @@
           "layout.css.prefers-color-scheme.content-override" = 0;
         };
       }
-    ) (config.settings.webapps.firefox);
+    ) config.settings.webapps.firefox;
     xdg.desktopEntries = lib.attrsets.mapAttrs' (
       name: cfg:
       lib.attrsets.nameValuePair "hm-webapp-firefox-${name}" {
@@ -114,6 +114,6 @@
         terminal = false;
         type = "Application";
       }
-    ) (config.settings.webapps.firefox);
+    ) config.settings.webapps.firefox;
   };
 }

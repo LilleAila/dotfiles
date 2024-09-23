@@ -10,7 +10,7 @@
 
   imports = [ inputs.sops-nix.nixosModules.sops ];
 
-  config = lib.mkIf (config.settings.sops.enable) {
+  config = lib.mkIf config.settings.sops.enable {
     sops.defaultSopsFile = ../../secrets/secrets.yaml;
     sops.defaultSopsFormat = "yaml";
 

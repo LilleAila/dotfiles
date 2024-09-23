@@ -6,7 +6,7 @@
   ...
 }:
 {
-  config = lib.mkIf (config.settings.terminal.utils.enable) (
+  config = lib.mkIf config.settings.terminal.utils.enable (
     lib.mkMerge [
       {
         programs.zellij = {
