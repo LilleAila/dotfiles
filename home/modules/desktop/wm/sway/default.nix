@@ -68,6 +68,9 @@ in
               xkb_options = "ctrl:nocaps,shift:both_capslock_cancel,altwin:menu_win,compose:prsc";
               accel_profile = "flat";
             };
+
+            "1739:52828:SYNA8020:00_06CB:CE5C_Touchpad".natural_scroll = "enabled";
+            "1739:52828:SYNA8020:00_06CB:CE5C_Mouse".natural_scroll = "enabled";
           };
 
           focus.mouseWarping = "container"; # Move mouse to focused window
