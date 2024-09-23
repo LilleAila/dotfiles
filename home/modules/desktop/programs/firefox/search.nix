@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
-  default = "Searx";
+  default = "Google"; # It does have bad privacy but also slightly better results most of the time
+
   engines = {
     "Searx" = {
       urls = [
@@ -14,6 +15,20 @@
           ];
         }
       ];
+    };
+
+    "Google".metaData.alias = "@g";
+
+    "Ordbokene" = {
+      urls = [ { template = "https://ordbokene.no/nno/bm,nn/{searchTerms}"; } ];
+      definedAliases = [ "@oo" ];
+    };
+
+    "NixOS Wiki" = {
+      urls = [ { template = "https://wiki.nixos.org/index.php?search={searchTerms}"; } ];
+      iconUpdateURL = "https://wiki.nixos.org/favicon.png";
+      updateInterval = 24 * 60 * 60 * 1000; # Every day
+      definedAliases = [ "@nw" ];
     };
 
     "Nix Packages" = {

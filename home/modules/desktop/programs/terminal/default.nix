@@ -8,8 +8,8 @@
 {
   # FIXME all of this stuff
   options.settings.terminal = {
-    enable = lib.mkEnableOption "terminal emulator";
     emulator = {
+      enable = lib.mkEnableOption "terminal emulator";
       name = lib.mkOption {
         type = lib.types.str;
         default = "kitty";

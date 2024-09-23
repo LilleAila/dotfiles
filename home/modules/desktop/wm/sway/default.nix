@@ -6,9 +6,6 @@
   outputs,
   ...
 }:
-let
-  cfg = config.wayland.windowManager.sway;
-in
 {
   options.settings.wm.sway = {
     enable = lib.mkEnableOption "swaywm";
@@ -83,9 +80,7 @@ in
           # Set wallpapers
           output = {
             "*" = {
-              bg = "${
-                outputs.packages.${pkgs.system}.wallpaper.override { inherit (config) colorScheme; }
-              } fill";
+              bg = "${outputs.packages.${pkgs.system}.wallpaper.override { inherit (config) colorScheme; }} fill";
             };
           };
 

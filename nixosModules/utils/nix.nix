@@ -37,7 +37,7 @@
 
       gc = {
         automatic = true;
-        options = "--keep 5 --nogcroots";
+        # options = "--keep 5 --nogcroots";
       };
 
       settings = {

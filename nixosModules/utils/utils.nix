@@ -16,9 +16,8 @@
     programs.zsh.enable = true;
     programs.fish.enable = true;
 
-    fstrim.enable = true;
-    upower.enable = true;
-    envfs.enable = true;
+    services.fstrim.enable = true;
+    services.upower.enable = true;
 
     programs.nh = {
       enable = true;
@@ -30,6 +29,7 @@
     programs.nano.enable = false;
 
     programs.nix-ld.enable = true;
+    services.envfs.enable = true;
 
     environment.systemPackages = with pkgs; [
       pciutils

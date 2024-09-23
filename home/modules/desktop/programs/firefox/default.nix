@@ -18,7 +18,7 @@
         # The package is set to null here because firefox is configured in system, see `nixosModules/firefox.nix`
         programs.firefox.package = null;
       })
-      (lib.mkIf config.settings.wm.hyprland.enable {
+      (lib.mkIf config.settings.wm.sway.enable {
         wayland.windowManager.sway.config.window.commands = [
           {
             criteria.app_id = "firefox";
@@ -27,10 +27,6 @@
           {
             criteria.app_id = "firefox-yt";
             command = "move container to workspace number 3";
-          }
-          {
-            criteria.app_id = "firefox-math";
-            command = "move container to workspace number 4";
           }
           {
             criteria.app_id = "firefox-school";
@@ -53,8 +49,6 @@
                 b.cmd = "firefox -P main";
                 y.desc = " YouTube";
                 y.cmd = "firefox -P yt --name=firefox-yt";
-                m.desc = " Math";
-                m.cmd = "firefox -P math --name=firefox-math";
                 s.desc = " School";
                 s.cmd = "firefox -P school --name=firefox-school";
               };
@@ -72,7 +66,6 @@
             d = {
               desc = "󰈙 Documentation";
               submenu = {
-                h = url " Hyprland" "https://wiki.hyprland.org";
                 a = url "󱍕 AGS" "https://aylur.github.io/ags-docs";
                 v = url " Nixvim" "https://nix-community.github.io/nixvim";
                 n = url "󱄅 Nixpkgs" "https://ryantm.github.io/nixpkgs/";
@@ -84,48 +77,6 @@
             c = url "󰭹 ChatGPT" "https://chatgpt.com";
             t = url " Temp mail" "https://temp-mail.org";
             n = url " Nerd fonts" "https://www.nerdfonts.com/cheat-sheet";
-          };
-
-        wayland.windowManager.hyprland =
-          let
-            c = config.colorScheme.palette;
-            inactive = config.wayland.windowManager.hyprland.settings.general."col.inactive_border";
-            mkShortcut = key: url: { inherit key url; };
-            shortcuts = [
-              (mkShortcut "L" "https://github.com/LilleAila/dotfiles/")
-              (mkShortcut "I" "https://github.com/IldenH/dotfiles/")
-              (mkShortcut "H" "https://wiki.hyprland.org/")
-              (mkShortcut "A" "https://aylur.github.io/ags-docs/")
-              (mkShortcut "G" "https://grep.app/")
-              (mkShortcut "C" "https://chat.openai.com/")
-              (mkShortcut "T" "https://temp-mail.org")
-              (mkShortcut "N" "https://nix-community.github.io/nixvim")
-              (mkShortcut "S" "http://127.0.0.1:8384/")
-            ];
-          in
-          {
-            settings.bind = [
-              # Bordercolors don't work :( it reverts to default color when window is unfocused and re-focused
-              "$mainMod, B, exec, [workspace 2;bordercolor rgb(${c.base0D}) ${inactive}] firefox -P main"
-              "$mainMod, M, exec, [workspace 4;bordercolor rgb(${c.base0E}) ${inactive}] firefox -P math"
-              "$mainMod SHIFT, B, exec, [workspace 4;bordercolor rgb(${c.base0B}) ${inactive}] firefox -P school"
-              "$mainMod, Y, exec, [workspace 3;bordercolor rgb(${c.base08}) ${inactive}] firefox -P yt"
-            ];
-            extraConfig =
-              ''
-                bind = $mainMod CONTROL, B, submap, browser
-                submap = browser
-              ''
-              + (lib.concatStringsSep "\n" (
-                map (w: ''
-                  bind = , ${w.key}, exec, firefox -P main --new-tab "${w.url}"
-                  bind = , ${w.key}, submap, reset
-                '') shortcuts
-              ))
-              + ''
-                bind = , escape, submap, reset
-                submap = reset
-              '';
           };
       })
       {
@@ -181,16 +132,6 @@
                 };
                 userChrome = userChrome + (with config.colorScheme.palette; colorTab base0B base00);
                 bookmarks = import ./bookmarks/school.nix;
-              };
-
-              math = {
-                id = 2;
-                inherit search extensions userContent;
-                settings = settings // {
-                  "browser.startup.homepage" = "https://skole.digilaer.no";
-                };
-                userChrome = userChrome + (with config.colorScheme.palette; colorTab base0E base00);
-                bookmarks = import ./bookmarks/math.nix;
               };
 
               yt = {
