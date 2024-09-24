@@ -93,6 +93,13 @@
       monospace.package
       emoji.package
       pkgs.emacs-all-the-icons-fonts
+      pkgs.corefonts
+      pkgs.vistafonts
+    ];
+
+    settings.nix.unfree = [
+      "corefonts"
+      "vista-fonts"
     ];
   };
 }
