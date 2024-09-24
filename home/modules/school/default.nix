@@ -13,11 +13,14 @@
       teams-for-linux
       libreoffice
       anki-bin
+      zotero
     ];
 
     settings.persist.home.directories = [
       ".local/share/Anki2"
       ".config/teams-for-linux"
+      ".config/libreoffice"
+      "Zotero"
     ];
   };
 }
