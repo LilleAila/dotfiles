@@ -30,6 +30,8 @@ in
         inherit (config.settings.terminal.zsh) theme;
       };
       initExtra = ''
+        unsetopt HIST_SAVE_BY_COPY
+
         ex = () {
           if [ -f $1 ] ; then
             case $1 in
