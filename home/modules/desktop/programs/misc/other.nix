@@ -29,11 +29,6 @@
         icon = "pix";
         exec = "${lib.getExe' pkgs.pix "pix"} %f";
       };
-      xdg.mimeApps.defaultApplications = {
-        "image/png" = "pix.desktop";
-        "image/jpg" = "pix.desktop";
-        "image/jpeg" = "pix.desktop";
-      };
     })
     # (lib.mkIf config.services.blueman-applet.enable {
     #   systemd.user.services.blueman-applet.Service.ExecStart = lib.mkForce "sleep 5 && ${lib.getExe' pkgs.blueman "blueman-applet"}";
@@ -49,18 +44,6 @@
       };
 
       services.network-manager-applet.enable = true;
-
-      xdg.mimeApps.enable = true;
-      # https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
-      xdg.mimeApps.defaultApplications = {
-        "application/pdf" = "zathura.desktop";
-        "video/png" = "mpv.desktop";
-        "video/jpg" = "mpv.desktop";
-        "video/mp4" = "mpv.desktop";
-        "video/mov" = "mpv.desktop";
-        "video/webm" = "mpv.desktop";
-        "video/ogg" = "mpv.desktop";
-      };
 
       xdg.userDirs = {
         enable = true;

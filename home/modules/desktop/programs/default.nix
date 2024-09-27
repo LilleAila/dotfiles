@@ -13,6 +13,7 @@
     ./fcitx5
     ./firefox
     ./misc
+    ./mimeapps.nix
     ./qutebrowser
     ./terminal
     ./webapps

@@ -53,10 +53,6 @@
           icon = "nvim";
           exec = "${config.settings.terminal.emulator.exec} ${lib.getExe config.programs.neovim.package} %f";
         };
-        xdg.mimeApps.defaultApplications = {
-          "text/plain" = "nvim.desktop";
-          "application/x-shellscript" = "nvim.desktop";
-        };
       })
     ]
   );

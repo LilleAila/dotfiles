@@ -19,7 +19,6 @@ in
   imports = [
     ./wm
     ./programs
-    ./xdg.nix
   ];
 
   options.settings.desktop.enable = mkEnableOption "Default desktop configuration";
@@ -84,6 +83,7 @@ in
       settings = {
         gtk.enable = mkDefault true;
         qt.enable = mkDefault true;
+        mimeApps.enable = true;
         cursor = {
           size = mkDefault 24;
           package = mkDefault (
