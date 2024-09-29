@@ -43,7 +43,7 @@
 
     security.acme = {
       acceptTerms = true;
-      defaults.email = "olai.solsvik@gmail.com";
+      defaults.email = "olai@olai.dev";
     };
 
     # idk which ones are *actually* needed

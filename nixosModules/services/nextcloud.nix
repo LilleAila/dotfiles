@@ -13,6 +13,7 @@
   options.settings.nextcloud.enable = lib.mkEnableOption "nextcloud";
 
   config = lib.mkIf config.settings.nextcloud.enable {
+    # Needed for ACME
     networking.firewall.allowedTCPPorts = [
       80
       443
@@ -24,33 +25,36 @@
 
     security.acme = {
       acceptTerms = true;
-      defaults.email = "olai.solsvik@gmail.com"; # TODO: make this a global option from flake.nix
-      certs."nextcloud.olai.dev" = {
-        dnsProvider = "cloudflare";
-        webroot = null;
-        environmentFile = config.sops.secrets."nextcloud/cloudflare".path;
-      };
+      defaults.email = "olai.solsvik@gmail.com";
+      # certs."nextcloud.olai.dev" = {
+      #   dnsProvider = "cloudflare";
+      #   webroot = null;
+      #   environmentFile = config.sops.secrets."nextcloud/cloudflare".path;
+      # };
     };
 
     users.users.nginx.extraGroups = [ "acme" ];
+
     services.nginx = {
       enable = true;
-      recommendedGzipSettings = true;
-      recommendedOptimisation = true;
+      # recommendedGzipSettings = true;
+      # recommendedOptimisation = true;
       recommendedProxySettings = true;
       recommendedTlsSettings = true;
 
-      sslCiphers = "AES256+EECDH:AES256+EDH:!aNULL";
+      # sslCiphers = "AES256+EECDH:AES256+EDH:!aNULL";
 
       virtualHosts = {
         "nextcloud.olai.dev" = {
           enableACME = true;
-          acmeRoot = null;
           forceSSL = true;
-          # addSSL = true;
           locations."/" = {
-            proxyPass = "http://0.0.0.0:8080";
+            proxyPass = "http://127.0.0.1:80";
             proxyWebsockets = true;
+            extraConfig = ''
+              proxy_ssl_server_name on;
+              proxy_pass_header Authorization;
+            '';
           };
         };
       };
@@ -88,15 +92,15 @@
       enable = true;
       hostName = "nextcloud.olai.dev";
       # nginx.enable = true;
-      https = true;
+
       autoUpdateApps.enable = true;
       autoUpdateApps.startAt = "01:00:00";
 
       settings = {
-        overwriteprotocol = "https";
         # config_is_read_only = "true";
         default_phone_region = "NO";
       };
+
       config = {
         dbtype = "pgsql";
         dbuser = "nextcloud";
