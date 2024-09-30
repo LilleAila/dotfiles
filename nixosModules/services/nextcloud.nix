@@ -13,49 +13,49 @@
   options.settings.nextcloud.enable = lib.mkEnableOption "nextcloud";
 
   config = lib.mkIf config.settings.nextcloud.enable {
-    # Needed for ACME
-    networking.firewall.allowedTCPPorts = [
-      80
-      443
-    ];
+    # # Needed for ACME
+    # networking.firewall.allowedTCPPorts = [
+    #   80
+    #   443
+    # ];
+    # networking.firewall.allowedUDPPorts = [
+    #   80
+    #   443
+    # ];
+    #
+    # sops.secrets."nextcloud/cloudflare" = {
+    #   neededForUsers = true;
+    # };
+    #
+    # users.users.nginx.extraGroups = [ "acme" ];
+    #
+    # services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
+    #   enableACME = true;
+    #   forceSSL = true;
+    # };
+    #
+    # security.acme = {
+    #   acceptTerms = true;
+    #   defaults.email = "olai.solsvik@gmail.com";
+    #   # certs.${config.services.nextcloud.hostName} = {
+    #   #   dnsProvider = "cloudflare";
+    #   #   webroot = null;
+    #   #   environmentFile = config.sops.secrets."nextcloud/cloudflare".path;
+    #   # };
+    # };
 
-    sops.secrets."nextcloud/cloudflare" = {
-      neededForUsers = true;
+    sops.secrets."tunnels/nextcloud" = {
+      owner = "cloudflared";
+      group = "cloudflared";
     };
 
-    security.acme = {
-      acceptTerms = true;
-      defaults.email = "olai.solsvik@gmail.com";
-      # certs."nextcloud.olai.dev" = {
-      #   dnsProvider = "cloudflare";
-      #   webroot = null;
-      #   environmentFile = config.sops.secrets."nextcloud/cloudflare".path;
-      # };
-    };
-
-    users.users.nginx.extraGroups = [ "acme" ];
-
-    services.nginx = {
+    services.cloudflared = {
       enable = true;
-      # recommendedGzipSettings = true;
-      # recommendedOptimisation = true;
-      recommendedProxySettings = true;
-      recommendedTlsSettings = true;
-
-      # sslCiphers = "AES256+EECDH:AES256+EDH:!aNULL";
-
-      virtualHosts = {
-        "nextcloud.olai.dev" = {
-          enableACME = true;
-          forceSSL = true;
-          locations."/" = {
-            proxyPass = "http://127.0.0.1:80";
-            proxyWebsockets = true;
-            extraConfig = ''
-              proxy_ssl_server_name on;
-              proxy_pass_header Authorization;
-            '';
-          };
+      tunnels.${(import ../../secrets/tokens.nix).nextcloud.id} = {
+        credentialsFile = config.sops.secrets."tunnels/nextcloud".path;
+        default = "http_status:404";
+        ingress = {
+          "nextcloud.olai.dev" = "http://localhost:80";
         };
       };
     };
@@ -90,8 +90,13 @@
 
     services.nextcloud = {
       enable = true;
-      hostName = "nextcloud.olai.dev";
-      # nginx.enable = true;
+      hostName = "127.0.0.1";
+      https = false;
+      configureRedis = true;
+
+      # Could configure apps declaratively, but it's easier to install imperatively
+      # Also, some apps are not available in nixpkgs
+      # https://wiki.nixos.org/wiki/Nextcloud#Apps
 
       autoUpdateApps.enable = true;
       autoUpdateApps.startAt = "01:00:00";
@@ -99,6 +104,7 @@
       settings = {
         # config_is_read_only = "true";
         default_phone_region = "NO";
+        trusted_domains = [ "nextcloud.olai.dev" ];
       };
 
       config = {
