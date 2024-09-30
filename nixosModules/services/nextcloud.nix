@@ -103,6 +103,7 @@
 
       settings = {
         # config_is_read_only = "true";
+        overwriteprotocol = "https";
         default_phone_region = "NO";
         trusted_domains = [ "nextcloud.olai.dev" ];
       };
