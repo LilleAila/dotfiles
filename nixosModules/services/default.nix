@@ -4,5 +4,6 @@ _: {
     ./syncthing.nix
     ./webdav.nix
     ./searx.nix
+    ./cloudflared.nix
   ];
 }

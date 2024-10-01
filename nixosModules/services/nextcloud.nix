@@ -13,50 +13,16 @@
   options.settings.nextcloud.enable = lib.mkEnableOption "nextcloud";
 
   config = lib.mkIf config.settings.nextcloud.enable {
-    # # Needed for ACME
-    # networking.firewall.allowedTCPPorts = [
-    #   80
-    #   443
-    # ];
-    # networking.firewall.allowedUDPPorts = [
-    #   80
-    #   443
-    # ];
-    #
-    # sops.secrets."nextcloud/cloudflare" = {
-    #   neededForUsers = true;
-    # };
-    #
-    # users.users.nginx.extraGroups = [ "acme" ];
-    #
-    # services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
-    #   enableACME = true;
-    #   forceSSL = true;
-    # };
-    #
-    # security.acme = {
-    #   acceptTerms = true;
-    #   defaults.email = "olai.solsvik@gmail.com";
-    #   # certs.${config.services.nextcloud.hostName} = {
-    #   #   dnsProvider = "cloudflare";
-    #   #   webroot = null;
-    #   #   environmentFile = config.sops.secrets."nextcloud/cloudflare".path;
-    #   # };
-    # };
-
     sops.secrets."tunnels/nextcloud" = {
       owner = "cloudflared";
       group = "cloudflared";
     };
 
-    services.cloudflared = {
-      enable = true;
-      tunnels.${(import ../../secrets/tokens.nix).nextcloud.id} = {
-        credentialsFile = config.sops.secrets."tunnels/nextcloud".path;
-        default = "http_status:404";
-        ingress = {
-          "nextcloud.olai.dev" = "http://localhost:80";
-        };
+    services.cloudflared.tunnels.${(import ../../secrets/tokens.nix).nextcloud.id} = {
+      credentialsFile = config.sops.secrets."tunnels/nextcloud".path;
+      default = "http_status:404";
+      ingress = {
+        "nextcloud.olai.dev" = "http://localhost:80";
       };
     };
 
