@@ -89,8 +89,8 @@ in
                 "desktop"
               ];
             };
-            "Notes Folder" = {
-              path = "${homePath}/notes";
+            "Obsidian Notes" = {
+              path = "${homePath}/notes/obsidian";
               devices = [
                 "oci"
                 "e14g5"
