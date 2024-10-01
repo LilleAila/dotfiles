@@ -50,6 +50,7 @@ in
         ".local/share/bottles"
         "Calibre\ Library"
         ".config/calibre"
+        "notes"
       ];
 
       settings.persist.home.cache = [

@@ -20,10 +20,11 @@ in
   config = lib.mkMerge [
     (lib.mkIf config.settings.syncthing.enable {
       settings.persist.home.directories = [
-        "Sync"
         "Documents/Obsidian Vault"
-        ".factorio"
         "org"
+
+        "Sync"
+        ".factorio"
         ".local/share/PrismLauncher/instances"
         ".spell"
       ];
@@ -88,31 +89,20 @@ in
                 "desktop"
               ];
             };
-            "Obsidian" = {
-              path = "${homePath}/Documents/Obsidian\ Vault";
+            "Notes Folder" = {
+              path = "${homePath}/notes";
               devices = [
                 "oci"
                 "e14g5"
-                "t420"
-                "x220"
                 "desktop"
               ];
             };
+            # TODO: steam sync is probably good now, so switch back to steam-managed factorio
             "Factorio Saves" = {
               path = "${homePath}/.factorio";
               devices = [
                 "oci"
                 "e14g5"
-                "desktop"
-              ];
-            };
-            "Notes" = {
-              path = "${homePath}/org";
-              devices = [
-                "oci"
-                "t420"
-                "e14g5"
-                "x220"
                 "desktop"
               ];
             };
