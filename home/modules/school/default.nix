@@ -12,7 +12,8 @@
     home.packages = with pkgs; [
       teams-for-linux
       libreoffice
-      jre_minimal
+      # jre_minimal
+      temurin-jre-bin-17
       anki-bin
       zotero
     ];
