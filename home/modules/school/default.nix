@@ -25,5 +25,14 @@
       "Zotero"
       ".zotero"
     ];
+
+    # https://wiki.nixos.org/wiki/Zotero
+    # the wiki is badly written, using tmpfiles is better
+    systemd.user.tmpfiles.rules = lib.lists.flatten (
+      lib.attrsets.mapAttrsToList (profile: _: [
+        "L+ ${config.home.homeDirectory}/.mozilla/firefox/${profile}/zotero/pdftotext-Linux-x86_64 - - - - ${lib.getExe' pkgs.poppler_utils "pdftotext"}"
+        "L+ ${config.home.homeDirectory}/.mozilla/firefox/${profile}/zotero/pdfinfo-Linux-x86_64 - - - - ${lib.getExe' pkgs.poppler_utils "pdfinfo"}"
+      ]) config.programs.firefox.profiles
+    );
   };
 }
