@@ -22,6 +22,7 @@
       ".config/teams-for-linux"
       ".config/libreoffice"
       "Zotero"
+      ".zotero"
     ];
   };
 }
