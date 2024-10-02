@@ -49,12 +49,25 @@
             ]) config.programs.firefox.profiles
           )
           ++ [
-            "L+ ${config.home.homeDirectory}/Documents/Zotero_LibreOffice_Integration.oxt - - - - ${pkgs.zotero}//usr/lib/zotero-bin-7.0/integration/libreoffice/Zotero_LibreOffice_Integration.oxt"
+            "L+ ${config.home.homeDirectory}/Documents/Zotero_LibreOffice_Integration.oxt - - - - ${pkgs.zotero}/usr/lib/zotero-bin-7.0/integration/libreoffice/Zotero_LibreOffice_Integration.oxt"
           ];
 
         settings.persist.home.directories = [
           "Zotero"
           ".zotero"
+        ];
+
+        wayland.windowManager.sway.config.window.commands = [
+          {
+            criteria.app_id = "Zotero";
+            # criteria.title = "(Framgang|Progress|Hurtigformater henvisning|Quick Format Citation)";
+            command = "floating enable";
+          }
+          # {
+          #   criteria.app_id = "Zotero";
+          #   criteria.title = ".* - Zotero";
+          #   command = "move scratchpad";
+          # }
         ];
       }
     ]
