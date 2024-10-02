@@ -1349,7 +1349,8 @@
         "programsdb": "programsdb",
         "sops-nix": "sops-nix",
         "wl-screenrec-daemon": "wl-screenrec-daemon",
-        "woomer": "woomer"
+        "woomer": "woomer",
+        "wrapper-manager": "wrapper-manager"
       }
     },
     "rtf-tokenize": {
@@ -1572,6 +1573,26 @@
       "original": {
         "owner": "coffeeispower",
         "repo": "woomer",
+        "type": "github"
+      }
+    },
+    "wrapper-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1724503599,
+        "narHash": "sha256-WVhNq3QjnG/2mi772CkTxZCQcomKV5S03TbQKwe1Kj4=",
+        "owner": "viperML",
+        "repo": "wrapper-manager",
+        "rev": "c936f9203217e654a6074d206505c16432edbc70",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "repo": "wrapper-manager",
         "type": "github"
       }
     },

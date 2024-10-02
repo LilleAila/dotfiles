@@ -24,9 +24,18 @@
       }
       {
         home.packages = with pkgs; [
-          libreoffice
+          (inputs.wrapper-manager.lib.build {
+            inherit pkgs;
+            modules = [
+              {
+                wrappers.libreoffice = {
+                  basePackage = libreoffice;
+                  extraPackages = [ temurin-jre-bin-17 ];
+                };
+              }
+            ];
+          })
           zotero
-          temurin-jre-bin-17
           poppler_utils
         ];
 
