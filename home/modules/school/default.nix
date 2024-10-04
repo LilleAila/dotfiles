@@ -30,7 +30,19 @@
               {
                 wrappers.libreoffice = {
                   basePackage = libreoffice;
-                  extraPackages = [ temurin-jre-bin-17 ];
+                  extraPackages = [
+                    temurin-jre-bin-17
+                    (hunspellWithDicts (
+                      with hunspellDicts;
+                      [
+                        nb-no
+                        nn-no
+                        en-us-large
+                        en-gb-large
+                        fr-any
+                      ]
+                    ))
+                  ];
                 };
               }
             ];
