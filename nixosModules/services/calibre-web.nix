@@ -39,6 +39,7 @@
     };
 
     # For some reason calibre-web doesn't like it being in /home, likely because of ownership
+    # Make sure this folder is still owned by olai:users, even though it's placed in root
     services.syncthing.settings.folders."Calibre Library".path = lib.mkForce "/calibre";
   };
 }
