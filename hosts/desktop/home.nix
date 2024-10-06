@@ -31,6 +31,8 @@
     wm.waybar.enable = true;
 
     virtualisation.enable = true;
+
+    school.enable = true;
   };
 
   wayland.windowManager.sway.config.output = {
