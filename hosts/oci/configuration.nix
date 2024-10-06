@@ -43,7 +43,7 @@
     nextcloud.enable = true;
     syncthing.enable = true;
     webdav.enable = true;
-    calibre-web.enable = false;
+    calibre-web.enable = true;
   };
 
   programs.gnupg.agent = {

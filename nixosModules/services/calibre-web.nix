@@ -23,16 +23,12 @@
     };
 
     services.calibre-web = {
-      user = "calibre-web";
-      group = "calibre-web";
+      enable = true;
       listen = {
         ip = "127.0.0.1";
         port = 8083;
       };
-      options.reverseProxyAuth.enable = true;
-      options.reverseProxyAuth.header = "X-Script-Name";
       dataDir = "calibre-web"; # /var/lib/calibre-web
-      openFirewall = true;
     };
   };
 }
