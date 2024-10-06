@@ -5,5 +5,6 @@ _: {
     ./webdav.nix
     ./searx.nix
     ./cloudflared.nix
+    ./calibre-web.nix
   ];
 }
