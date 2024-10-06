@@ -29,6 +29,16 @@
         port = 8083;
       };
       dataDir = "calibre-web"; # /var/lib/calibre-web
+      options = {
+        # calibreLibrary = "/home/${config.settings.user.name}/Calibre Library";
+        calibreLibrary = "/calibre";
+        enableKepubify = true;
+        enableBookConversion = true;
+        enableBookUploading = false;
+      };
     };
+
+    # For some reason calibre-web doesn't like it being in /home, likely because of ownership
+    services.syncthing.settings.folders."Calibre Library".path = lib.mkForce "/calibre";
   };
 }
