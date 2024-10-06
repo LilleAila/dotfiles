@@ -97,6 +97,14 @@ in
                 "desktop"
               ];
             };
+            "Calibre Library" = {
+              path = "${homePath}/Calibre\ Library";
+              devices = [
+                "oci"
+                "e14g5"
+                "desktop"
+              ];
+            };
             # TODO: steam sync is probably good now, so switch back to steam-managed factorio
             "Factorio Saves" = {
               path = "${homePath}/.factorio";
