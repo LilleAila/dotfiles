@@ -32,7 +32,6 @@ in
         fluidsynth
         qsynth
         inkscape
-        geogebra6
         krita
         libreoffice
         kdenlive
@@ -55,6 +54,7 @@ in
 
       settings.persist.home.cache = [
         ".cache/puppeteer" # Chrome is downloaded here
+        ".cache/calibre"
       ];
 
       settings.nix.unfree = [ "geogebra" ];

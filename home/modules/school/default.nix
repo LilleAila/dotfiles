@@ -14,6 +14,7 @@
         home.packages = with pkgs; [
           teams-for-linux
           anki-bin
+          geogebra6
         ];
 
         settings.persist.home.directories = [
@@ -21,6 +22,8 @@
           ".config/teams-for-linux"
           ".config/libreoffice"
         ];
+
+        settings.persist.home.cache = [ ".config/GeoGebra" ];
       }
       {
         home.packages = with pkgs; [
