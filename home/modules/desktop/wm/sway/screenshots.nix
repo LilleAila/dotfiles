@@ -23,8 +23,6 @@ lib.mkIf config.settings.wm.sway.enable {
       g = item "German" "deu";
       d = item "Danish" "dan";
       s = item "Swedish" "swe";
-      c = item "Chinese simple" "chi_sim";
-      t = item "Chinese traditional" "chi_tra";
     };
 
   wayland.windowManager.sway.config =
@@ -34,10 +32,9 @@ lib.mkIf config.settings.wm.sway.enable {
     in
     {
       keybindings = {
-        "${mod}+s" = "exec focal --area selection --delay 0";
-        "${mod}+Shift+s" = "exec focal --area monitor --delay 0";
-        "${mod}+Shift+Control+s" = "exec focal --rofi";
-        "${mod}+Alt+s" = "exec wlr-which-key ocr";
+        "${mod}+s" = "exec focal image --area selection";
+        "${mod}+Shift+s" = "exec focal image --area monitor";
+        "${mod}+Control+s" = "exec wlr-which-key ocr";
 
         "${mod}+e" = "exec grim -g \"$(slurp)\" - | wl-copy";
         "${mod}+Shift+e" = "exec wl-paste | swappy -f -";
