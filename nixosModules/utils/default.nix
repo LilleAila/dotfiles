@@ -1,6 +1,7 @@
 _: {
   imports = [
     ./console.nix
+    ./docker.nix
     ./gpg.nix
     ./locale.nix
     ./networking.nix
