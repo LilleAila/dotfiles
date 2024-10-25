@@ -61,7 +61,7 @@ in
     })
     (mkIf cfg.enable {
       home.packages = with pkgs; [
-        _1password-gui-beta
+        _1password-gui
         (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (
           ps: with ps; [ plover-lapwing-aio ]
         ))
