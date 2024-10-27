@@ -107,7 +107,7 @@ in
           hyprland.enable = mkDefault true;
           sway.enable = mkDefault false;
           avizo.enable = mkDefault false;
-          hypridle.enable = mkDefault true;
+          hypridle.enable = mkDefault false; # FIXME: add an idle daemon (swayidle)
           # hypridle.inhibit = [
           #   "cstimer"
           # ];

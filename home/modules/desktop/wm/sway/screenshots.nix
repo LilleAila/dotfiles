@@ -12,7 +12,7 @@ lib.mkIf config.settings.wm.sway.enable {
     let
       item = desc: lang: {
         inherit desc;
-        cmd = "focal --area selection --ocr ${lang} --delay 0";
+        cmd = "focal image --area selection --ocr ${lang} --delay 0";
       };
     in
     {
@@ -34,7 +34,7 @@ lib.mkIf config.settings.wm.sway.enable {
       keybindings = {
         "${mod}+s" = "exec focal image --area selection";
         "${mod}+Shift+s" = "exec focal image --area monitor";
-        "${mod}+Control+s" = "exec wlr-which-key ocr";
+        "${mod}+Alt+s" = "exec wlr-which-key ocr";
 
         "${mod}+e" = "exec grim -g \"$(slurp)\" - | wl-copy";
         "${mod}+Shift+e" = "exec wl-paste | swappy -f -";

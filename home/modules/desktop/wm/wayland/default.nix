@@ -11,6 +11,7 @@
     # ./hyprlock.nix
     ./swaylock.nix
     ./hypridle.nix
+    ./swayidle.nix
     ./hyprpaper.nix
     ./themes.nix
     ./mako.nix
