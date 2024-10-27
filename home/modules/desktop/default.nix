@@ -38,6 +38,7 @@ in
         # (outputs.packages.${pkgs.system}.anki-nix-colors.override { inherit (config) colorScheme; }) # it's just too slow
         musescore
         calibre
+        k2pdfopt
         bottles
         outputs.packages.${pkgs.system}.fhsenv
       ];

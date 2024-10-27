@@ -15,6 +15,7 @@
           teams-for-linux
           anki-bin
           geogebra6
+          p3x-onenote
         ];
 
         settings.persist.home.directories = [
