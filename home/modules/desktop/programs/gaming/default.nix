@@ -27,6 +27,11 @@
 
     settings.persist.home.cache = [ ".config/heroic" ];
 
+    settings.persist.home.directories = [
+      ".config/openttd"
+      ".local/share/openttd"
+    ];
+
     home.packages = with pkgs; [
       # heroic # FIXME: currently broken :(
       ryujinx

@@ -18,6 +18,18 @@
           p3x-onenote
         ];
 
+        programs.translate-shell = {
+          enable = true;
+          settings = {
+            hl = "en";
+            tl = [
+              "fr"
+              "no"
+            ];
+            verbose = true;
+          };
+        };
+
         settings.persist.home.directories = [
           ".local/share/Anki2"
           ".config/teams-for-linux"

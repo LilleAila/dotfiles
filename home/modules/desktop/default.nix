@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  # stablePkgs,
   lib,
   inputs,
   outputs,
@@ -34,13 +35,17 @@ in
         inkscape
         krita
         libreoffice
-        kdenlive
+        # kdenlive
+        # ffmpeg # FIXME: Temporarily remove ffmpeg again
         # (outputs.packages.${pkgs.system}.anki-nix-colors.override { inherit (config) colorScheme; }) # it's just too slow
         musescore
         calibre
+        # stablePkgs.calibre
+        libgen-cli
         k2pdfopt
         bottles
         outputs.packages.${pkgs.system}.fhsenv
+        pb_cli
       ];
 
       settings.persist.home.directories = [
@@ -56,6 +61,7 @@ in
       settings.persist.home.cache = [
         ".cache/puppeteer" # Chrome is downloaded here
         ".cache/calibre"
+        ".config/Proton"
       ];
 
       settings.nix.unfree = [ "geogebra" ];
@@ -68,7 +74,8 @@ in
         ))
         obsidian
         handbrake
-        wf-recorder
+        # FIXME: temporarily disabled due to pipewire build failure
+        # wf-recorder
       ];
 
       settings.nix.unfree = [
@@ -107,10 +114,7 @@ in
           hyprland.enable = mkDefault true;
           sway.enable = mkDefault false;
           avizo.enable = mkDefault false;
-          hypridle.enable = mkDefault false; # FIXME: add an idle daemon (swayidle)
-          # hypridle.inhibit = [
-          #   "cstimer"
-          # ];
+          hypridle.enable = mkDefault true;
           swaylock.enable = mkDefault true;
           # hyprlock.enable = mkDefault false;
           hyprpaper.enable = mkDefault true;
@@ -166,10 +170,10 @@ in
           {
             serif.package = mkDefault pkgs.dejavu_fonts;
             serif.name = mkDefault "DejaVu Serif";
-            serif.variant = "Book";
+            serif.variant = mkDefault "Book";
             sansSerif.package = mkDefault pkgs.dejavu_fonts;
             sansSerif.name = mkDefault "DejaVu Sans";
-            sansSerif.variant = "Book";
+            sansSerif.variant = mkDefault "Book";
             monospace.package = mkDefault nerdfonts;
             monospace.name = mkDefault "JetBrainsMono Nerd Font";
             nerd.package = mkDefault nerdfonts;
