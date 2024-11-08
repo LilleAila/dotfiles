@@ -47,7 +47,7 @@ in
     environment.persistence = {
       "/persist" = {
         hideMounts = true;
-        files = [ "/etc/machine-id" ] ++ cfg.root.files;
+        files = cfg.root.files;
         directories = [ "/var/log" ] ++ cfg.root.directories;
 
         users.${user} = {

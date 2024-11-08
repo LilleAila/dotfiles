@@ -62,6 +62,7 @@ in
         ".cache/puppeteer" # Chrome is downloaded here
         ".cache/calibre"
         ".config/Proton"
+        ".cache/Proton"
       ];
 
       settings.nix.unfree = [ "geogebra" ];

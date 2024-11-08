@@ -36,7 +36,10 @@
           ".config/libreoffice"
         ];
 
-        settings.persist.home.cache = [ ".config/GeoGebra" ];
+        settings.persist.home.cache = [
+          ".config/GeoGebra"
+          ".config/p3x-onenote"
+        ];
       }
       {
         home.packages = with pkgs; [
