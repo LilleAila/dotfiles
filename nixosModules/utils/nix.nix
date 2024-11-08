@@ -30,8 +30,7 @@
     # _module.args.util = pkgs.callPackage ../lib {};
     # _module.args.util = import ../lib lib;
 
-    # FIXME: make this work
-    # _module.args.stablePkgs = import inputs.nixpkgs-stable { inherit (pkgs) system; };
+    _module.args.stablePkgs = import inputs.nixpkgs-stable { inherit (pkgs) system; };
 
     # FIXME: Temporarily just replaced ffmpeg with the old one lol
     nixpkgs.overlays = [

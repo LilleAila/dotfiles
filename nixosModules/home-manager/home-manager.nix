@@ -2,6 +2,7 @@
   inputs,
   lib,
   pkgs,
+  stablePkgs,
   config,
   outputs,
   globalSettings,
@@ -28,6 +29,7 @@
           extraSpecialArgs = {
             inherit
               inputs
+              stablePkgs
               outputs
               globalSettings
               keys

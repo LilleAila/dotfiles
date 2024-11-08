@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  # stablePkgs,
+  stablePkgs,
   lib,
   inputs,
   outputs,
@@ -39,8 +39,7 @@ in
         # ffmpeg # FIXME: Temporarily remove ffmpeg again
         # (outputs.packages.${pkgs.system}.anki-nix-colors.override { inherit (config) colorScheme; }) # it's just too slow
         musescore
-        calibre
-        # stablePkgs.calibre
+        stablePkgs.calibre
         libgen-cli
         k2pdfopt
         bottles
