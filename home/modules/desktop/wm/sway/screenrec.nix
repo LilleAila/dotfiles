@@ -10,7 +10,7 @@
 
   config = lib.mkIf config.settings.wm.sway.enable {
     services.wl-screenrec-daemon = {
-      enable = false; # FIXME: Temporarily disabled due to the same thing as with the other wf-recorder-dependent programs
+      enable = false;
       args = [ "--history 20" ];
       wl-screenrec-args = [
         "--low-power off"

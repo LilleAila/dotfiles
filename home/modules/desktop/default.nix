@@ -33,10 +33,11 @@ in
         fluidsynth
         qsynth
         inkscape
+        xournalpp
         krita
         libreoffice
-        # kdenlive
-        # ffmpeg # FIXME: Temporarily remove ffmpeg again
+        kdenlive
+        ffmpeg
         # (outputs.packages.${pkgs.system}.anki-nix-colors.override { inherit (config) colorScheme; }) # it's just too slow
         musescore
         stablePkgs.calibre
@@ -73,8 +74,7 @@ in
         ))
         obsidian
         handbrake
-        # FIXME: temporarily disabled due to pipewire build failure
-        # wf-recorder
+        wf-recorder
       ];
 
       settings.nix.unfree = [

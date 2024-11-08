@@ -32,13 +32,6 @@
 
     _module.args.stablePkgs = import inputs.nixpkgs-stable { inherit (pkgs) system; };
 
-    # FIXME: Temporarily just replaced ffmpeg with the old one lol
-    # nixpkgs.overlays = [
-    #   (final: prev: {
-    #     ffmpeg = prev.ffmpeg_6;
-    #   })
-    # ];
-
     nix = {
       package = pkgs.nixVersions.latest;
 

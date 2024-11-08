@@ -52,7 +52,7 @@ pkgs.buildFHSEnv {
       libusb1
       dbus-glib
       gsettings-desktop-schemas
-      # ffmpeg # FIXME: Temporarily disabled due to ffmpeg again aaaaa
+      ffmpeg
       libudev0-shim
 
       # Verified games requirements

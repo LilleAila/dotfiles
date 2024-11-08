@@ -33,15 +33,12 @@
       swaylock.yubicoAuth = true;
     };
 
-    # FIXME: Temporarily disabled because of https://github.com/NixOS/nixpkgs/issues/352598
-    # Fixed in https://nixpk.gs/pr-tracker.html?pr=353230 , but not yet in unstable
-    # likely applies to all packages, not just yubikey-manager
     environment.systemPackages = with pkgs; [
-      # yubioath-flutter
-      # yubikey-manager
-      # yubikey-manager-qt
-      # yubikey-personalization
-      # yubikey-personalization-gui
+      yubioath-flutter
+      yubikey-manager
+      yubikey-manager-qt
+      yubikey-personalization
+      yubikey-personalization-gui
     ];
   };
 }

@@ -42,6 +42,7 @@
         experimental = false;
       })
       osu-lazer-bin
+      openttd
     ];
   };
 }
