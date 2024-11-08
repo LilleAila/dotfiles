@@ -56,6 +56,7 @@ in
         "Calibre\ Library"
         ".config/calibre"
         "notes"
+        ".config/xournalpp"
       ];
 
       settings.persist.home.cache = [
@@ -63,6 +64,7 @@ in
         ".cache/calibre"
         ".config/Proton"
         ".cache/Proton"
+        ".cache/xournalpp"
       ];
 
       settings.nix.unfree = [ "geogebra" ];
