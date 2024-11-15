@@ -10,6 +10,7 @@
     ./hyprland
     ./sway
     ./wayfire
+    ./niri
     ./wayland # shared
   ];
 }

@@ -35,6 +35,8 @@
     utils.enable = true;
     desktop.enable = true;
     sway.enable = true;
+    niri.enable = true;
+
     syncthing.enable = true;
     sound.enable = true;
     console = {
@@ -64,6 +66,16 @@
   boot.loader.timeout = 2;
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [ "amd_pstate=active" ];
+
+  boot.loader.systemd-boot.windows = {
+    "11-pro" = {
+      title = "Windows 11 Pro";
+      sortKey = "a"; # Display first in list
+      efiDeviceHandle = "HD1b";
+    };
+  };
+
+  # boot.loader.systemd-boot.edk2-uefi-shell.enable = true;
 
   systemd.services.disable_micmute_led = {
     description = "Disabled the microphone mute light on the keyboard";

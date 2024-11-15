@@ -9,5 +9,6 @@ _: {
     ./sway.nix
     ./virtualisation.nix
     ./xserver.nix
+    ./niri.nix
   ];
 }
