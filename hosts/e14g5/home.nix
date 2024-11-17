@@ -23,7 +23,7 @@
     desktop.enable = true;
     desktop.full.enable = true;
     wm.hyprland.monitors.enable = true;
-    emacs.enable = false;
+    spacemacs.enable = true;
 
     niri.enable = true;
 

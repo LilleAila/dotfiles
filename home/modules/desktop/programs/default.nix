@@ -10,6 +10,7 @@
     ./ags
     ./discord
     ./emacs.nix
+    ./spacemacs.nix
     ./fcitx5
     ./firefox
     ./misc

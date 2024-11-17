@@ -133,6 +133,11 @@
     #   inputs.nixpkgs-stable.follows = "nixpkgs-stable";
     # };
 
+    spacemacs = {
+      url = "github:syl20bnr/spacemacs";
+      flake = false;
+    };
+
     nix-colors = {
       url = "github:misterio77/nix-colors";
       inputs.nixpkgs-lib.follows = "nixpkgs-lib";

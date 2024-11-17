@@ -47,7 +47,6 @@ in
         bottles
         outputs.packages.${pkgs.system}.fhsenv
         pb_cli
-        emacs30-pgtk
       ];
 
       settings.persist.home.directories = [
@@ -67,7 +66,6 @@ in
         ".config/Proton"
         ".cache/Proton"
         ".cache/xournalpp"
-        ".emacs.d"
       ];
 
       settings.nix.unfree = [ "geogebra" ];

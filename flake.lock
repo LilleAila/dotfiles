@@ -1607,6 +1607,7 @@
         "plover-flake": "plover-flake",
         "programsdb": "programsdb",
         "sops-nix": "sops-nix",
+        "spacemacs": "spacemacs",
         "wl-screenrec-daemon": "wl-screenrec-daemon",
         "woomer": "woomer",
         "wrapper-manager": "wrapper-manager"
@@ -1648,6 +1649,22 @@
       "original": {
         "owner": "Mic92",
         "repo": "sops-nix",
+        "type": "github"
+      }
+    },
+    "spacemacs": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1731643748,
+        "narHash": "sha256-KK8TbhAeSJwpH1wkaqgxBpa46EQEJ+KgHTAehxIaRmk=",
+        "owner": "syl20bnr",
+        "repo": "spacemacs",
+        "rev": "c3269f6a3b9ce8ee57f362c2b053b5381f8727e3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "syl20bnr",
+        "repo": "spacemacs",
         "type": "github"
       }
     },
