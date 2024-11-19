@@ -47,6 +47,7 @@ in
         bottles
         outputs.packages.${pkgs.system}.fhsenv
         pb_cli
+        kicad
       ];
 
       settings.persist.home.directories = [
@@ -58,6 +59,8 @@ in
         ".config/calibre"
         "notes"
         ".config/xournalpp"
+        ".local/share/kicad"
+        ".config/kicad"
       ];
 
       settings.persist.home.cache = [
@@ -66,6 +69,7 @@ in
         ".config/Proton"
         ".cache/Proton"
         ".cache/xournalpp"
+        ".cache/kiced"
       ];
 
       settings.nix.unfree = [ "geogebra" ];
