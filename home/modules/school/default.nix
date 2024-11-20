@@ -16,6 +16,7 @@
           anki-bin
           geogebra6
           p3x-onenote
+          ungoogled-chromium
         ];
 
         programs.translate-shell = {
