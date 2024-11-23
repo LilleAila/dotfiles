@@ -41,7 +41,7 @@ in
         shotcut
         # (outputs.packages.${pkgs.system}.anki-nix-colors.override { inherit (config) colorScheme; }) # it's just too slow
         musescore
-        stablePkgs.calibre
+        calibre
         libgen-cli
         k2pdfopt
         bottles
