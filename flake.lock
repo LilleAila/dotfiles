@@ -1205,11 +1205,11 @@
         "plugin-org-bullets": "plugin-org-bullets"
       },
       "locked": {
-        "lastModified": 1727849876,
-        "narHash": "sha256-IPF5uKqXQNW3DufAOZ2CAaSVxpGEa5PiSN8uIB3Tsbc=",
+        "lastModified": 1733944541,
+        "narHash": "sha256-IFQDyKDRp6IcjHSgXrydkipqCDwt2ZIaebksMGU79zI=",
         "owner": "LilleAila",
         "repo": "nvim-nix",
-        "rev": "5e17eaa9fa71761fca53eb03d1ea6cf819ef5726",
+        "rev": "132aae8a88c1c8b12575888ca075cb3713904a13",
         "type": "github"
       },
       "original": {
