@@ -70,6 +70,9 @@ in
         ".cache/Proton"
         ".cache/xournalpp"
         ".cache/kiced"
+        ".config/cabal"
+        ".cache/cabal"
+        ".local/state/cabal"
       ];
 
       settings.nix.unfree = [ "geogebra" ];
