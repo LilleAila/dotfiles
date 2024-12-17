@@ -71,5 +71,17 @@
     searx.enable = true;
   };
 
+  # random packages trying to get vaapi to work properly with webm
+  hardware.graphics.extraPackages = with pkgs; [
+    libvdpau-va-gl
+    libva-vdpau-driver
+    vaapiVdpau
+    intel-media-driver
+    intel-vaapi-driver
+  ];
+
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
+
   system.stateVersion = "24.11";
 }
