@@ -48,6 +48,10 @@ in
         outputs.packages.${pkgs.system}.fhsenv
         pb_cli
         kicad
+        bambu-studio
+        freecad-wayland
+        openscad
+        blender
       ];
 
       settings.persist.home.directories = [
@@ -61,6 +65,9 @@ in
         ".config/xournalpp"
         ".local/share/kicad"
         ".config/kicad"
+        ".config/BambuStudio"
+        ".config/FreeCAD"
+        ".config/OpenSCAD"
       ];
 
       settings.persist.home.cache = [
@@ -73,6 +80,11 @@ in
         ".config/cabal"
         ".cache/cabal"
         ".local/state/cabal"
+        ".local/share/bambu-studio"
+        ".cache/bambu-studio"
+        ".local/share/FreeCAD"
+        ".cache/FreeCAD"
+        ".local/share/OpenSCAD"
       ];
 
       settings.nix.unfree = [ "geogebra" ];

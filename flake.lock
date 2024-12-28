@@ -1273,11 +1273,11 @@
         "xkbcommon": "xkbcommon"
       },
       "locked": {
-        "lastModified": 1722066345,
-        "narHash": "sha256-RKtEImKCzXyywMSD1+kWM1rnB1qYiEfcXVfmTJ90SPg=",
+        "lastModified": 1734276863,
+        "narHash": "sha256-c+g6CKZFWtv/U5M9DNZxF/HjiwgjICctDWEu5A0/Cnw=",
         "owner": "LilleAila",
         "repo": "plover-flake",
-        "rev": "23cc1bf1b15a26869a17b97373d073234c52d760",
+        "rev": "2b62ef3d8b6332c9929f3baaa045c892760b5ec9",
         "type": "github"
       },
       "original": {
