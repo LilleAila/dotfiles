@@ -38,7 +38,7 @@
       optimise.automatic = true;
 
       gc = {
-        automatic = true;
+        automatic = false; # too resource intensive
         # options = "--keep 5 --nogcroots";
       };
 
