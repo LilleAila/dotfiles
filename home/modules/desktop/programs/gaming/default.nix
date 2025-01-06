@@ -35,12 +35,12 @@
     home.packages = with pkgs; [
       # heroic # FIXME: currently broken :(
       ryujinx
-      (pkgs.factorio.override {
-        # It's easier to use the built-in mod manager than to package it with nix
-        inherit (import ../../../../../secrets/factorio.nix) username token;
-        versionsJson = inputs.factorio-versions.versions;
-        experimental = false;
-      })
+      # (pkgs.factorio.override {
+      #   # It's easier to use the built-in mod manager than to package it with nix
+      #   inherit (import ../../../../../secrets/factorio.nix) username token;
+      #   versionsJson = inputs.factorio-versions.versions;
+      #   experimental = false;
+      # })
       osu-lazer-bin
       openttd
     ];

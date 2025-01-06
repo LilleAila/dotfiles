@@ -168,7 +168,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    factorio-versions.url = "github:ocfox/factorio-versions";
+    # factorio-versions.url = "github:ocfox/factorio-versions";
 
     woomer = {
       url = "github:coffeeispower/woomer";

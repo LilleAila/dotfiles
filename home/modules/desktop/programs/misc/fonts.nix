@@ -64,7 +64,7 @@
         description = "Nerd Font (icons)";
         type = fontType;
         default = {
-          package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+          package = pkgs.nerd-fonts.jetbrains-mono;
           name = "JetBrainsMono Nerd Font";
         };
       };

@@ -182,12 +182,7 @@ in
 
         fonts =
           let
-            nerdfonts = pkgs.nerdfonts.override {
-              fonts = [
-                "JetBrainsMono"
-                "Iosevka"
-              ];
-            };
+            nerdfonts = pkgs.nerd-fonts.jetbrains-mono;
           in
           {
             serif.package = mkDefault pkgs.dejavu_fonts;
