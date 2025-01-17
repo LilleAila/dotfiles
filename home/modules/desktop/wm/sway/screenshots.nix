@@ -40,6 +40,9 @@ lib.mkIf config.settings.wm.sway.enable {
 
         "${mod}+e" = "exec grim -g \"$(slurp)\" - | wl-copy";
         "${mod}+Shift+e" = "exec wl-paste | swappy -f -";
+        "${mod}+q" = ''
+          exec ${lib.getExe pkgs.grim} -g "$(${lib.getExe pkgs.slurp})" - | ${lib.getExe' pkgs.zbar "zbarimg"} - -q --raw | wl-copy
+        '';
       };
     };
 }
