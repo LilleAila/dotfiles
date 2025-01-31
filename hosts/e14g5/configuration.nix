@@ -48,6 +48,7 @@
     yubikey.enable = true;
     virtualisation.enable = true;
     docker.enable = true;
+    ollama.enable = true;
 
     zfs.enable = true;
     zfs.encryption = true;

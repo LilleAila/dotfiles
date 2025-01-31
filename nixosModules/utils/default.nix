@@ -11,5 +11,6 @@ _: {
     ./user.nix
     ./utils.nix
     ./yubikey.nix
+    ./ollama.nix
   ];
 }
