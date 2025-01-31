@@ -1,0 +1,40 @@
+{
+  config,
+  pkgs,
+  inputs,
+  outputs,
+  lib,
+  keys,
+  ...
+}:
+{
+  imports = [ ../../home ];
+
+  settings = {
+    monitors = [
+      {
+        name = "eDP-1";
+        geometry = "1920x1200@60";
+        position = "0x0";
+      }
+    ];
+    desktop.enable = true;
+    desktop.full.enable = true;
+
+    wm.sway.enable = true;
+    wm.hyprpaper.enable = false;
+    wm.waybar.enable = true;
+
+    school.enable = true;
+  };
+
+  colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
+
+  sops.secrets."yubikey/u2f_keys".path = "${config.home.homeDirectory}/.config/Yubico/u2f_keys";
+  # home.file."gpg-key.asc".source = ../../secrets/gpg-key.asc;
+  sops.secrets."ssh/m1pro".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
+  home.file.".ssh/id_ed25519.pub".text = keys.ssh.m1pro.public;
+  sops.secrets."syncthing/m1pro/cert".path =
+    "${config.home.homeDirectory}/.config/syncthing/cert.pem";
+  sops.secrets."syncthing/m1pro/key".path = "${config.home.homeDirectory}/.config/syncthing/key.pem";
+}

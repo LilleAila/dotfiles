@@ -40,15 +40,14 @@ in
         ffmpeg
         shotcut
         # (outputs.packages.${pkgs.system}.anki-nix-colors.override { inherit (config) colorScheme; }) # it's just too slow
-        musescore
+        # musescore
         calibre
         libgen-cli
-        k2pdfopt
         bottles
         outputs.packages.${pkgs.system}.fhsenv
         pb_cli
-        kicad
-        bambu-studio
+        # kicad
+        # bambu-studio
         freecad-wayland
         openscad
         blender
@@ -96,7 +95,6 @@ in
           ps: with ps; [ plover-lapwing-aio ]
         ))
         obsidian
-        handbrake
         wf-recorder
       ];
 

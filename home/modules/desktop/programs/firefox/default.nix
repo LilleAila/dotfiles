@@ -96,7 +96,7 @@
                 darkreader
                 youtube-shorts-block
                 enhanced-h264ify
-                clearurls
+                # clearurls
                 # tridactyl
               ];
               settings = import ./settings.nix { inherit config; };

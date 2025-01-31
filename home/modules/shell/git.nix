@@ -87,7 +87,7 @@
       ];
     };
 
-    settings.persist.home.cache_files = [ "gpg-key.asc" ];
+    settings.persist.home.cache_files = [ "gpg-key.asc" ]; # Maybe FIXME
     settings.persist.home.cache = [
       ".gnupg"
       ".local/state/lazygit"

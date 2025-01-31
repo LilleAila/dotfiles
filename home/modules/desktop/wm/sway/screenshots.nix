@@ -8,7 +8,7 @@
 lib.mkIf config.settings.wm.sway.enable {
   # FIXME: Temporarily disabled due to wf-recorder being broken with nixpkgs move from ffmpeg 6 to 7
   # https://github.com/NixOS/nixpkgs/pull/353362
-  home.packages = [ inputs.focal.packages.${pkgs.system}.focal-sway ];
+  # home.packages = [ inputs.focal.packages.${pkgs.system}.focal-sway ];
 
   settings.wlr-which-key.menus.ocr =
     let

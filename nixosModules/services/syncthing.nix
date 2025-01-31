@@ -67,6 +67,9 @@ in
             desktop = {
               id = "${secrets.ids.desktop}";
             };
+            m1pro = {
+              id = "${secrets.ids.m1pro}";
+            };
           };
           folders = {
             "Default Folder" = {
@@ -77,6 +80,7 @@ in
                 "e14g5"
                 "x220"
                 "desktop"
+                "m1pro"
               ];
             };
             "Spell" = {
@@ -87,6 +91,7 @@ in
                 "e14g5"
                 "x220"
                 "desktop"
+                "m1pro"
               ];
             };
             "Obsidian Notes" = {
@@ -95,6 +100,7 @@ in
                 "oci"
                 "e14g5"
                 "desktop"
+                "m1pro"
               ];
             };
             "Calibre Library" = {
@@ -103,6 +109,7 @@ in
                 "oci"
                 "e14g5"
                 "desktop"
+                "m1pro"
               ];
             };
             # TODO: steam sync is probably good now, so switch back to steam-managed factorio

@@ -167,5 +167,6 @@
     e14g5.public = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBELvMHga1OSBHxls4IpxNbmTAIzLNGT3rBOU9wp7KZr olai.solsvik@gmail.com e14g5";
     x220.public = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICc5ObSEYlAn6L75yK7bRzzpSTw00Hhkv2A1p3ETeZLm olai.solsvik@gmail.com x220";
     desktop.public = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBg07qLIzRjEuzmaZjs1rPYRF/S3pznsEfDebltwVs2K olai.solsvik@gmail.com desktop";
+    m1pro.public = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBoabplhcx1D3V7/w+TGi6JC5EME9Fs7uNruYw1d3rma olai.solsvik@gmail.com m1pro nixos";
   };
 }
