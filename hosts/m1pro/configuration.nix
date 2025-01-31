@@ -17,6 +17,11 @@
     useExperimentalGPUDriver = true;
   };
 
+  boot.kernelParams = [
+    "apple_dcp.show_notch=1"
+    "hid_apple.fnmode=2"
+  ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
 

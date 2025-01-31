@@ -14,8 +14,9 @@
     monitors = [
       {
         name = "eDP-1";
-        geometry = "1920x1200@60";
+        geometry = "3024x1964@60";
         position = "0x0";
+        scale = "2";
       }
     ];
     desktop.enable = true;
@@ -28,7 +29,10 @@
     school.enable = true;
   };
 
-  colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
+  wayland.windowManager.sway.config.output.eDP-1 = {
+    scale = "1.6";
+    mode = "3024x1964@60Hz";
+  };
 
   sops.secrets."yubikey/u2f_keys".path = "${config.home.homeDirectory}/.config/Yubico/u2f_keys";
   # home.file."gpg-key.asc".source = ../../secrets/gpg-key.asc;
