@@ -30,8 +30,13 @@
   };
 
   wayland.windowManager.sway.config.output.eDP-1 = {
-    scale = "2";
+    scale = "1.6";
     mode = "3024x1964@60Hz";
+  };
+
+  programs.waybar.settings.bar = {
+    height = lib.mkForce 41;
+    modules-center = lib.mkForce [ ];
   };
 
   sops.secrets."yubikey/u2f_keys".path = "${config.home.homeDirectory}/.config/Yubico/u2f_keys";
