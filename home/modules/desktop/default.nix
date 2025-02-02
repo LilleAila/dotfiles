@@ -126,7 +126,7 @@ in
           name = mkDefault "Bibata-Modern-Custom";
         };
 
-        fcitx5.enable = mkDefault false;
+        fcitx5.enable = mkDefault true;
         # blueman-applet.enable = lib.mkDefault true;
         # syncthing.tray.enable = mkDefault true;
         wm = {
