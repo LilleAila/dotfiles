@@ -29,9 +29,20 @@
     school.enable = true;
   };
 
-  wayland.windowManager.sway.config.output.eDP-1 = {
-    scale = "1.6";
-    mode = "3024x1964@60Hz";
+  wayland.windowManager.sway.config = {
+    output.eDP-1 = {
+      scale = "1.6";
+      mode = "3024x1964@60Hz";
+    };
+    # TODO: Create nix option for xkb options
+    input."*".xkb_options = lib.mkForce (
+      lib.concatStringsSep "," [
+        "ctrl:nocaps" # Caps as ctrl
+        "shift:both_capslock_cancel"
+        "altwin:swap_alt_win"
+        "compose:ralt"
+      ]
+    );
   };
 
   programs.waybar.settings.bar = {
