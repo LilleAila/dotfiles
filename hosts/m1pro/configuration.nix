@@ -52,7 +52,8 @@
     gpg.enable = true;
     yubikey.enable = true;
     virtualisation.enable = true;
-    docker.enable = true;
+    # docker.enable = true;
+    distrobox.enable = true;
     syncthing.enable = true;
 
     impermanence.enable = true;
