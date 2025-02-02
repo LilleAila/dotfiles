@@ -39,8 +39,8 @@
       lib.concatStringsSep "," [
         "ctrl:nocaps" # Caps as ctrl
         "shift:both_capslock_cancel"
-        "altwin:swap_alt_win"
-        "compose:ralt"
+        # "altwin:swap_alt_win"
+        "compose:rwin"
       ]
     );
   };
