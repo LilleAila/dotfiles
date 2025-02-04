@@ -13,7 +13,8 @@
       {
         home.packages = with pkgs; [
           teams-for-linux
-          anki-bin
+          anki
+          # anki-bin
           geogebra6
           ungoogled-chromium
         ];
