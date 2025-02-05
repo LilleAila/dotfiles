@@ -48,6 +48,7 @@ in
         pb_cli
         # kicad
         # bambu-studio
+        stablePkgs.bambu-studio
         freecad-wayland
         openscad
         blender
