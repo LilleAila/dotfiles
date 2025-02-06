@@ -110,7 +110,7 @@
     # NOTE: I'm trying to make sure as few as possible instances of nixpkgs are instantiated, to improve the time and space it takes. All the top-level nixpkgs inputs are set to follow either the stable or unstable input, but i have not done anything for inputs of the inputs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # This is only used by a few things
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     # i think this can be just nixpkgs with the same result
     nixpkgs-lib.url = "github:nix-community/nixpkgs.lib";
 
