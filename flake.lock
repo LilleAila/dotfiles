@@ -309,11 +309,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1710146030,
-        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
         "type": "github"
       },
       "original": {
@@ -972,16 +972,15 @@
     "plover": {
       "flake": false,
       "locked": {
-        "lastModified": 1722066221,
-        "narHash": "sha256-zJDyzKN/qGqdknZGi/bce7ViXv06tw9WBwKubrSn6uI=",
-        "owner": "LilleAila",
+        "lastModified": 1738859243,
+        "narHash": "sha256-N+HHiyE2qvq3C7elXHH824bF8O4u4FEvQs10Ay5yb14=",
+        "owner": "openstenoproject",
         "repo": "plover",
-        "rev": "1782a7d58e7b75bd503d8d6815ecefb45c4dca53",
+        "rev": "b12c617811704bfa8f7aee3e5b5ff5db67d1184f",
         "type": "github"
       },
       "original": {
-        "owner": "LilleAila",
-        "ref": "linux-uinput",
+        "owner": "openstenoproject",
         "repo": "plover",
         "type": "github"
       }
@@ -997,20 +996,18 @@
         "plover-stroke": "plover-stroke",
         "plover2cat": "plover2cat",
         "plover_plugins_registry": "plover_plugins_registry",
-        "rtf-tokenize": "rtf-tokenize",
-        "xkbcommon": "xkbcommon"
+        "rtf-tokenize": "rtf-tokenize"
       },
       "locked": {
-        "lastModified": 1734276863,
-        "narHash": "sha256-c+g6CKZFWtv/U5M9DNZxF/HjiwgjICctDWEu5A0/Cnw=",
-        "owner": "LilleAila",
+        "lastModified": 1738864065,
+        "narHash": "sha256-/VS1ORu1U0Je8a1UXVGjIZdOrRJGXdG0lBLFkbb74zM=",
+        "owner": "dnaq",
         "repo": "plover-flake",
-        "rev": "2b62ef3d8b6332c9929f3baaa045c892760b5ec9",
+        "rev": "d785a28e7f8903526cb8c34528a2b766b8e7df6e",
         "type": "github"
       },
       "original": {
-        "owner": "LilleAila",
-        "ref": "linux-uinput-fixed",
+        "owner": "dnaq",
         "repo": "plover-flake",
         "type": "github"
       }
@@ -1018,11 +1015,11 @@
     "plover-machine-hid": {
       "flake": false,
       "locked": {
-        "lastModified": 1707772199,
-        "narHash": "sha256-o5CUQ7tX9ChTUr32hh4ptS37YFyUDwS54j9wRp8kxuc=",
+        "lastModified": 1737480175,
+        "narHash": "sha256-gQAPJwOPQB11El2UyM3NOC7JlC0ppdkHiI0qEIFCEA0=",
         "owner": "dnaq",
         "repo": "plover-machine-hid",
-        "rev": "45e90785ac7afd1b8714a308599aa3b6b6db3677",
+        "rev": "5f80c9e53dbc52980cf48b55b1c1278e4f0f025e",
         "type": "github"
       },
       "original": {
@@ -1050,11 +1047,11 @@
     "plover2cat": {
       "flake": false,
       "locked": {
-        "lastModified": 1721079194,
-        "narHash": "sha256-CZpNDJtJ7rTWdHVVxItSJmmAYOkse9LpkJR60CxDMp8=",
+        "lastModified": 1737759823,
+        "narHash": "sha256-GLZ8+GoCxkQ6lgxuvuRhrPY6zjgDyk5sWdCX7C7aE1c=",
         "owner": "greenwyrt",
         "repo": "plover2CAT",
-        "rev": "217f6adffdb71c712dd639ce5dcb9fdf277fca73",
+        "rev": "ea3da35f2d5ed2f5a8715b2406438dc85a0ead40",
         "type": "github"
       },
       "original": {
@@ -1066,11 +1063,11 @@
     "plover_plugins_registry": {
       "flake": false,
       "locked": {
-        "lastModified": 1721506796,
-        "narHash": "sha256-XMCUXl1koOt/PRB4xyEBOc5ycp00PSI4kjk40dGJsik=",
+        "lastModified": 1738261391,
+        "narHash": "sha256-G7shVgPBfu+YTG1z3oblfNVaguEWheG0zrI5O0YENCM=",
         "owner": "openstenoproject",
         "repo": "plover_plugins_registry",
-        "rev": "9cee587b4a5ab9f7fc10f612bc142b1a90b9cb01",
+        "rev": "e7f1a127dd3e64e2a92ebd8d50e8fe7420997a17",
         "type": "github"
       },
       "original": {
@@ -1486,23 +1483,6 @@
       "original": {
         "owner": "viperML",
         "repo": "wrapper-manager",
-        "type": "github"
-      }
-    },
-    "xkbcommon": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1720215817,
-        "narHash": "sha256-+jCzUnZWz2/jzzMR50cpR7gfk0XXL5ioK7kK7b2dLmU=",
-        "owner": "sde1000",
-        "repo": "python-xkbcommon",
-        "rev": "870f6f31b833d3526fd256b96832d9375647ef34",
-        "type": "github"
-      },
-      "original": {
-        "owner": "sde1000",
-        "ref": "v1.0.1",
-        "repo": "python-xkbcommon",
         "type": "github"
       }
     },
