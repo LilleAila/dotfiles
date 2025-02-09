@@ -44,13 +44,13 @@ in
         calibre
         libgen-cli
         bottles
-        outputs.packages.${pkgs.system}.fhsenv
+        # outputs.packages.${pkgs.system}.fhsenv
         pb_cli
         # kicad
         # bambu-studio
         freecad-wayland
         openscad
-        blender
+        # blender
       ];
 
       settings.persist.home.directories = [
