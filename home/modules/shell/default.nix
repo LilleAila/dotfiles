@@ -14,7 +14,7 @@
     ./neovim.nix
     ./lf.nix
     ./git.nix
-    ./zellij.nix
+    # ./zellij.nix
     ./btop.nix
   ];
 }
