@@ -107,11 +107,8 @@
 
   inputs = {
     # === Important stuff ===
-    # NOTE: I'm trying to make sure as few as possible instances of nixpkgs are instantiated, to improve the time and space it takes. All the top-level nixpkgs inputs are set to follow either the stable or unstable input, but i have not done anything for inputs of the inputs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # This is only used by a few things
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
-    # i think this can be just nixpkgs with the same result
     nixpkgs-lib.url = "github:nix-community/nixpkgs.lib";
 
     home-manager = {
@@ -130,19 +127,12 @@
     # === Other utils ===
     plover-flake = {
       url = "github:dnaq/plover-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # emacs-overlay = {
-    #   url = "github:nix-community/emacs-overlay";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.nixpkgs-stable.follows = "nixpkgs-stable";
-    # };
 
     spacemacs = {
       url = "github:syl20bnr/spacemacs";
@@ -179,8 +169,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # factorio-versions.url = "github:ocfox/factorio-versions";
-
     woomer = {
       url = "github:coffeeispower/woomer";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -204,7 +192,6 @@
 
     nixvim-config = {
       url = "github:LilleAila/nvim-nix";
-      # inputs.nixpkgs.follows = "nixpkgs";
       inputs.nix-colors.follows = "nix-colors";
     };
 
