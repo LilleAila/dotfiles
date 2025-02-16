@@ -147,7 +147,14 @@ sudo zfs create -o mountpoint=legacy zroot/cache
 sudo mount --mkdir -t zfs zroot/cache /mnt/cache
 
 info "Creating /persist"
-sudo zfs create -o mountpoint=legacy zroot/persist
+do_restore=$(yesno "Restore from snapshot?")
+if [[ $do_restore == "y" ]]; then
+  info "Enter full path to snapshot: "
+  read -r snapshot_file_path
+  sudo zfs receive -o mountpoint=legacy zroot/persist < "$snapshot_file_path"
+else
+  sudo zfs create -o mountpoint=legacy zroot/persist
+fi
 sudo mount --mkdir -t zfs zroot/persist /mnt/persist
 
 info "Importing GPG key"
