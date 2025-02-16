@@ -18,6 +18,7 @@
 
   settings = {
     greeter.enable = true;
+    greeter.command = "sway";
     xserver.xwayland.enable = true;
     locale = {
       main = "en_US.UTF-8";

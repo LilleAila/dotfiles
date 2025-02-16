@@ -14,7 +14,13 @@
   settings = {
     monitors = [ { name = "LVDS-1"; } ];
     desktop.enable = true;
-    blueman-applet.enable = false;
+    desktop.full.enable = true;
+
+    wm.sway.enable = true;
+    wm.hyprpaper.enable = false;
+    wm.waybar.enable = true;
+
+    school.enable = true;
   };
 
   wayland.windowManager.hyprland.settings.input.kb_options =
