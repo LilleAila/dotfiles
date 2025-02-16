@@ -32,8 +32,14 @@
     fzf
     git
   ];
+
   home.file."install.sh" = {
     source = ./install.sh;
+    executable = true;
+  };
+
+  home.file."post-install.sh" = {
+    source = ./post-install.sh;
     executable = true;
   };
 }
