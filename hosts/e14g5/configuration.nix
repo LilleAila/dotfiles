@@ -35,7 +35,7 @@
     utils.enable = true;
     desktop.enable = true;
     sway.enable = true;
-    niri.enable = true;
+    # niri.enable = true;
 
     syncthing.enable = true;
     sound.enable = true;
