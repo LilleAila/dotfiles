@@ -32,7 +32,7 @@
       bluetooth.enable = false;
     };
     utils.enable = true;
-    desktop.enable = true;
+    # desktop.enable = true;
     syncthing.enable = true;
     sound.enable = true;
     console = {
@@ -44,6 +44,11 @@
     ssh.enable = true;
     ssh.keys = with keys.ssh; [ e14g5.public ];
     yubikey.enable = true;
+
+    zfs.enable = true;
+    zfs.encryption = true;
+    zfs.snapshots = true;
+    impermanence.enable = true;
   };
 
   system.stateVersion = "24.05";

@@ -10,9 +10,10 @@
 {
   imports = [ ../../home ];
 
+  colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
   settings = {
     monitors = [ { name = "LVDS-1"; } ];
-    desktop.enable = true;
+    # desktop.enable = true;
     blueman-applet.enable = false;
   };
 
