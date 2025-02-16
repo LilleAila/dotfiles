@@ -64,8 +64,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 2;
-  boot.initrd.luks.devices."luks-88c6adff-e723-48ab-8595-5a0b7975f623".device = "/dev/disk/by-uuid/88c6adff-e723-48ab-8595-5a0b7975f623";
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   services.tlp = {
     enable = true;
