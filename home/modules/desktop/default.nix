@@ -47,7 +47,7 @@ in
         # outputs.packages.${pkgs.system}.fhsenv
         pb_cli
         # kicad
-        # bambu-studio
+        bambu-studio
         freecad-wayland
         openscad
         # blender
