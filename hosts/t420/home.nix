@@ -25,7 +25,9 @@
 
   wayland.windowManager.hyprland.settings.input.kb_options =
     lib.mkForce "ctrl:nocaps,altwin:menu_win";
-  # wayland.windowManager.hyprland.settings."$mainMod" = lib.mkForce "ALT_L";
   sops.secrets."ssh/t420".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
   home.file.".ssh/id_ed25519.pub".text = keys.ssh.t420.public;
+  sops.secrets."syncthing/t420/cert".path =
+    "${config.home.homeDirectory}/.config/syncthing/cert.pem";
+  sops.secrets."syncthing/t420/key".path = "${config.home.homeDirectory}/.config/syncthing/key.pem";
 }

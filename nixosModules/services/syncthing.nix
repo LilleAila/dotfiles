@@ -101,6 +101,7 @@ in
                 "e14g5"
                 "desktop"
                 "m1pro"
+                "t420"
               ];
             };
             "Calibre Library" = {
@@ -110,6 +111,7 @@ in
                 "e14g5"
                 "desktop"
                 "m1pro"
+                "t420"
               ];
             };
             # TODO: steam sync is probably good now, so switch back to steam-managed factorio
