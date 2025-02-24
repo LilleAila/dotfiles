@@ -35,6 +35,7 @@
           specialArgs = {
             inherit
               inputs
+              self
               outputs
               globalSettings
               keys
@@ -55,6 +56,13 @@
       devShells = forEachSystem (pkgs: {
         default = import ./shell.nix { inherit pkgs; };
       });
+
+      darwinConfigurations = {
+        "Olais-MacBook-Pro" = inputs.nix-darwin.lib.darwinSystem {
+          modules = [ ./hosts/m1pro-darwin/configuration.nix ];
+          specialArgs = { inherit inputs outputs self; };
+        };
+      };
 
       nixosConfigurations = {
         # Desktop but nix
@@ -107,6 +115,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-lib.url = "github:nix-community/nixpkgs.lib";
+
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
