@@ -8,5 +8,6 @@ pkgs.mkShell {
     statix
     sops
     git-crypt
+    ripgrep
   ];
 }

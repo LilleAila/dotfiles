@@ -12,7 +12,7 @@
     unfree = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [ ];
-      description = "List of allowed unfree package names, usually defined in allowUnfreePredicate.";
+      description = "List of allowed unfree package names";
     };
   };
 
@@ -23,9 +23,7 @@
       hostPlatform = "aarch64-darwin";
       config =
         let
-          unfreePkgs =
-            config.settings.nix.unfree
-            ++ config.home-manager.users.${config.settings.user.name}.settings.nix.unfree;
+          unfreePkgs = config.settings.nix.unfree ++ config.hm.settings.nix.unfree;
         in
         {
           allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) unfreePkgs;
