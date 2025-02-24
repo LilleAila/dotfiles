@@ -15,7 +15,7 @@
     username = "olai";
     homeDirectory = "/Users/${config.home.username}";
     shellAliases = {
-      osbuild = "darwin-rebuild switch --flake ${config.home.homeDirectory}/.config/nix-darwin";
+      osbuild = "darwin-rebuild switch --flake ${config.home.homeDirectory}/dotfiles";
     };
     sessionVariables = {
       OBSIDIAN_REST_API_KEY = "placeholder";
@@ -56,6 +56,7 @@
       };
     };
 
+    # nix-darwin module is excactly the same except with "settings" instead of "userSettings". Probably doesn't matter which is used.
     aerospace = {
       enable = true;
       package = pkgs.emptyDirectory;

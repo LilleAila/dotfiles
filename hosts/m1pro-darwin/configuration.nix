@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   self,
   pkgs,
@@ -8,6 +9,14 @@
 {
   imports = [
     inputs.home-manager.darwinModules.home-manager
+    (lib.mkAliasOptionModule
+      [ "hm" ]
+      [
+        "home-manager"
+        "users"
+        "olai"
+      ]
+    )
   ];
 
   users.users.olai.home = "/Users/olai";
@@ -36,7 +45,7 @@
     # Could maybe to something like "geogebra@6.0.875.1"
     # , manually for each one
     taps = [
-      "nikitabobko/tap" # aerospace
+      "nikitabobko/tap"
     ];
     casks = [
       "ghostty"
@@ -69,6 +78,19 @@
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
+
+  services = {
+    jankyborders = with config.hm.colorScheme.palette; {
+      enable = true;
+      active_color = "0xFF${base06}";
+      inactive_color = "0xFF${base01}";
+      background_color = "0x00$000000";
+      blur_radius = 0.0;
+      order = "above";
+      style = "round";
+      width = 1.0;
+    };
+  };
 
   system = {
     keyboard = {
@@ -137,7 +159,7 @@
         AppleInterfaceStyle = "Dark";
         # AppleKeyboardUIMode = 3; # https://support.apple.com/guide/mac-help/navigate-your-mac-using-full-keyboard-access-mchlc06d1059/mac
         # ApplePressAndHoldEnabled = false;
-        AppleShowAllExtensions = true; # file extensions
+        AppleShowAllExtensions = false; # file extensions
         AppleShowAllFiles = true;
         InitialKeyRepeat = 10;
         KeyRepeat = 1;
@@ -151,6 +173,7 @@
         NSNavPanelExpandedStateForSaveMode = true;
         NSNavPanelExpandedStateForSaveMode2 = true;
         NSUseAnimatedFocusRing = false;
+        NSWindowShouldDragOnGesture = true; # Move window with ctrl + cmd + drag
         # _HIHideMenuBar = true;
         # "com.apple.keyboard.fnState" = true; # F-keys as f-keys by default
         # "com.apple.swipescrolldirection" = true; # use the objectively correct tracpkad scrolling direction (already default)
