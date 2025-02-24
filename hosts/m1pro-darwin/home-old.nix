@@ -1,18 +1,24 @@
 {
-  pkgs,
   config,
   lib,
+  pkgs,
   inputs,
-  user,
   ...
 }:
 {
-  imports = [ ../../home ];
+  imports = [
+    inputs.nix-colors.homeManagerModules.default
+  ];
 
   home = {
-    homeDirectory = lib.mkForce "/Users/${user}";
+    stateVersion = "24.11";
+    username = "olai";
+    homeDirectory = "/Users/${config.home.username}";
     shellAliases = {
-      osbuild = lib.mkForce "darwin-rebuild switch --flake ${config.home.homeDirectory}/dotfiles";
+      osbuild = "darwin-rebuild switch --flake ${config.home.homeDirectory}/dotfiles";
+    };
+    sessionVariables = {
+      OBSIDIAN_REST_API_KEY = "placeholder";
     };
   };
 

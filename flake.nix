@@ -20,6 +20,7 @@
 
       keys = import ./secrets/not-so-secrets.nix;
 
+      # TODO: clean up all of this shit
       defaultSettings = {
         # Define username here. Probably a better way to do this
         username = "olai";
@@ -59,8 +60,21 @@
 
       darwinConfigurations = {
         "Olais-MacBook-Pro" = inputs.nix-darwin.lib.darwinSystem {
-          modules = [ ./hosts/m1pro-darwin/configuration.nix ];
-          specialArgs = { inherit inputs outputs self; };
+          modules = [
+            ./hosts/m1pro-darwin/configuration.nix
+            ./nixDarwinModules
+          ];
+          specialArgs = {
+            inherit
+              inputs
+              outputs
+              self
+              keys
+              lib
+              ;
+            user = "olai";
+            globalSettings = defaultSettings; # For compatibility, will remove
+          };
         };
       };
 
