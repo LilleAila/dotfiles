@@ -6,5 +6,7 @@ pkgs.mkShell {
     nixd
     nixfmt-rfc-style
     statix
+    sops
+    git-crypt
   ];
 }
