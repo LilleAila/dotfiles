@@ -39,6 +39,7 @@
           lib
           user
           ;
+        isNixOS = false;
       };
       backupFileExtension = "hm-backup";
     };

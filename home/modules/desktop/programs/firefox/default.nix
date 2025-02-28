@@ -9,7 +9,6 @@
 {
   options.settings.browser.firefox = {
     enable = lib.mkEnableOption "firefox";
-    newtab_image = lib.mkOption { type = lib.types.path; };
   };
 
   config = lib.mkIf config.settings.browser.firefox.enable (
@@ -23,10 +22,6 @@
           {
             criteria.app_id = "firefox";
             command = "move container to workspace number 2";
-          }
-          {
-            criteria.app_id = "firefox-yt";
-            command = "move container to workspace number 3";
           }
           {
             criteria.app_id = "firefox-school";
@@ -47,8 +42,6 @@
               submenu = {
                 b.desc = " Main";
                 b.cmd = "firefox -P main";
-                y.desc = " YouTube";
-                y.cmd = "firefox -P yt --name=firefox-yt";
                 s.desc = " School";
                 s.cmd = "firefox -P school --name=firefox-school";
               };
@@ -96,12 +89,11 @@
                 darkreader
                 youtube-shorts-block
                 enhanced-h264ify
-                # clearurls
-                # tridactyl
+                zotero-connector
+                (onepassword-password-manager.overrideAttrs { meta.license = lib.licenses.free; }) # bruh
               ];
               settings = import ./settings.nix { inherit config; };
               userChrome = import ./userChrome.nix { colorScheme = config.colorScheme.palette; };
-              userContent = import ./userContent.nix { inherit config pkgs; };
               colorTab = bg: fg: ''
                 .tab-background[selected] {
                   background-color: #${bg} !important;
@@ -116,7 +108,7 @@
               main = {
                 isDefault = true;
                 id = 0;
-                inherit search extensions userContent;
+                inherit search extensions;
                 settings = settings // {
                   "browser.startup.homepage" = "https://start.duckduckgo.com";
                 };
@@ -126,22 +118,12 @@
 
               school = {
                 id = 1;
-                inherit search extensions userContent;
+                inherit search extensions;
                 settings = settings // {
                   "browser.startup.homepage" = "https://classroom.google.com";
                 };
                 userChrome = userChrome + (with config.colorScheme.palette; colorTab base0B base00);
                 bookmarks = import ./bookmarks/school.nix;
-              };
-
-              yt = {
-                id = 3;
-                inherit search extensions userContent;
-                settings = settings // {
-                  "browser.startup.homepage" = "https://youtube.com";
-                };
-                userChrome = userChrome + (with config.colorScheme.palette; colorTab base08 base00);
-                bookmarks = import ./bookmarks/yt.nix;
               };
             };
         };

@@ -6,6 +6,10 @@
   ...
 }:
 {
+  imports = [
+    ./ghostty.nix
+  ];
+
   # FIXME all of this stuff
   options.settings.terminal = {
     emulator = {

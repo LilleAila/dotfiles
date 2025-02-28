@@ -128,7 +128,6 @@ in
 
         fcitx5.enable = mkDefault true;
         # blueman-applet.enable = lib.mkDefault true;
-        # syncthing.tray.enable = mkDefault true;
         wm = {
           ags.enable = mkDefault true;
           hyprland.enable = mkDefault true;
@@ -151,13 +150,6 @@ in
 
         zathura.enable = mkDefault true;
         browser.firefox.enable = mkDefault true;
-        browser.firefox.newtab_image = mkDefault (
-          outputs.packages.${pkgs.system}.wallpaper.override rec {
-            inherit (config) colorScheme;
-            logo = false;
-            accent = colorScheme.palette.base09;
-          }
-        );
         # browser.qutebrowser.enable = mkDefault true;
 
         discord.vesktop.enable = mkDefault true;

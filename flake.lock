@@ -543,6 +543,23 @@
         "type": "github"
       }
     },
+    "importlib-resources": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1688746452,
+        "narHash": "sha256-PaJjjdcqsrG3mAD5g8X3cCZpugMPqGxixF2KJY33hOE=",
+        "owner": "python",
+        "repo": "importlib_resources",
+        "rev": "0de39943e6ab57598618018711d44d1f8c71c80d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "python",
+        "ref": "v5.13.0",
+        "repo": "importlib_resources",
+        "type": "github"
+      }
+    },
     "libgit2": {
       "flake": false,
       "locked": {
@@ -1034,15 +1051,16 @@
     "plover": {
       "flake": false,
       "locked": {
-        "lastModified": 1739252568,
-        "narHash": "sha256-WSU1oYIVm4RQ/EM+jVw8ZB1hXWV4FD6ynCkjNp5L64g=",
-        "owner": "openstenoproject",
+        "lastModified": 1740635473,
+        "narHash": "sha256-ihxfyartef7R0CGE5SMvZ6YNkwoA7Velccr8/0R3RwE=",
+        "owner": "greghope667",
         "repo": "plover",
-        "rev": "bd99b79e2085bb6e4d33f6874d9c7cee1c0c97eb",
+        "rev": "1d8545da93979e07ef36447942ad6a085c23be8c",
         "type": "github"
       },
       "original": {
-        "owner": "openstenoproject",
+        "owner": "greghope667",
+        "ref": "pyqt6-migration",
         "repo": "plover",
         "type": "github"
       }
@@ -1050,24 +1068,27 @@
     "plover-flake": {
       "inputs": {
         "flake-utils": "flake-utils_3",
+        "importlib-resources": "importlib-resources",
         "nixpkgs": "nixpkgs_6",
         "plover": "plover",
         "plover-machine-hid": "plover-machine-hid",
         "plover-stroke": "plover-stroke",
         "plover2cat": "plover2cat",
         "plover_plugins_registry": "plover_plugins_registry",
+        "pyqt6rc": "pyqt6rc",
         "rtf-tokenize": "rtf-tokenize"
       },
       "locked": {
-        "lastModified": 1739677210,
-        "narHash": "sha256-46h01CyJ2qL++ez1xFqLRYTHsQZ1G1GXW5zndO0UDwo=",
-        "owner": "dnaq",
+        "lastModified": 1740681787,
+        "narHash": "sha256-VApA81N+zVFJ9UwSHgRiS2LsOQbRS7RoUX0KAQ2MmoY=",
+        "owner": "lilleaila",
         "repo": "plover-flake",
-        "rev": "569d6d5de72c483a571f10c1b68faf29bcb86174",
+        "rev": "46f9cb4ebce0805b79a3dbe3b68ec9d0f0331662",
         "type": "github"
       },
       "original": {
-        "owner": "dnaq",
+        "owner": "lilleaila",
+        "ref": "fix-build-darwin",
         "repo": "plover-flake",
         "type": "github"
       }
@@ -1107,11 +1128,11 @@
     "plover2cat": {
       "flake": false,
       "locked": {
-        "lastModified": 1739651421,
-        "narHash": "sha256-vEsRAeL66iIMFks4JvNqszqiVw4Zkv40As7dzDsftrg=",
+        "lastModified": 1740191225,
+        "narHash": "sha256-rAHNYkmEHLvnsKBkirCizGYJNgDzu1XEnLh54fmTW/U=",
         "owner": "greenwyrt",
         "repo": "plover2CAT",
-        "rev": "72773449402966b5b58825fbe3225a8693337da5",
+        "rev": "c5187632e5e7a633c141704b1a59d9a5703ecd73",
         "type": "github"
       },
       "original": {
@@ -1271,6 +1292,22 @@
       "original": {
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
+        "type": "github"
+      }
+    },
+    "pyqt6rc": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1732204623,
+        "narHash": "sha256-EATUBsuXOraXyH3WIX/VNCjdrdQda7qqzkpiTa52QPo=",
+        "owner": "domarm-comat",
+        "repo": "pyqt6rc",
+        "rev": "06696d23500273fd08c4cc67bdd8ea8c4cb8e117",
+        "type": "github"
+      },
+      "original": {
+        "owner": "domarm-comat",
+        "repo": "pyqt6rc",
         "type": "github"
       }
     },

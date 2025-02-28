@@ -4,6 +4,7 @@
   lib,
   inputs,
   user,
+  keys,
   ...
 }:
 {
@@ -16,109 +17,52 @@
     };
   };
 
-  home.packages = with pkgs; [
-    inputs.nixvim-config.packages.${pkgs.system}.default
-    mas
-    ffmpeg
-  ];
-
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
 
-  programs = {
-    gpg.enable = true;
+  settings = {
+    ghostty.enable = true;
+    browser.firefox.enable = true;
+    syncthing.enable = true;
 
-    firefox = {
-      enable = true;
-      package = null;
-      profiles = {
-        main = {
-          isDefault = true;
-          id = 0;
-          settings = {
-            "extensions.autoDisableScopes" = 0; # Auto-enable extensions
-          };
-          extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
-            ublock-origin
-            sponsorblock
-            darkreader
-            youtube-shorts-block
-            enhanced-h264ify
-            zotero-connector
-            (onepassword-password-manager.overrideAttrs { meta.license = lib.licenses.free; }) # bruh
-          ];
-        };
-      };
+    terminal = {
+      zsh.enable = true;
+      utils.enable = true;
+      neovim.enable = true;
     };
 
-    ghostty = {
-      enable = true;
-      package = null;
-      settings = {
-        theme = config.colorScheme.slug;
-        font-size = 12;
-        font-family = "JetBrainsMono Nerd Font";
-      };
-      themes.${config.colorScheme.slug} = with config.colorScheme.palette; {
-        background = base00;
-        cursor-color = base06;
-        cursor-text = base00;
-        foreground = base06;
-        selection-background = base03;
-        selection-foreground = base06;
-        palette = [
-          "0=#${base00}"
-          "1=#${base08}"
-          "2=#${base0B}"
-          "3=#${base0A}"
-          "4=#${base0D}"
-          "5=#${base0E}"
-          "6=#${base0C}"
-          "7=#${base03}"
-          "8=#${base02}"
-          "9=#${base08}"
-          "10=#${base0B}"
-          "11=#${base0A}"
-          "12=#${base0D}"
-          "13=#${base0E}"
-          "14=#${base0C}"
-          "15=#${base06}"
-        ];
-      };
-    };
-
-    git = {
-      enable = true;
-      userName = "LilleAila";
-      userEmail = "olai.solsvik@gmail.com";
-      extraConfig = {
-        init.defaultBranch = "main";
-        commit.gpgSign = true;
-      };
-      aliases = {
-        p = "push";
-        c = "commit -m";
-        aa = "add -A";
-      };
-      ignores = [
-        ".direnv"
-        "result"
-      ];
-    };
-
-    zsh = {
-      enable = true;
-      enableCompletion = true;
-      autosuggestion.enable = true;
-      syntaxHighlighting.enable = true;
-    };
-
-    zoxide = {
-      enable = true;
-      options = [
-        "--cmd cd"
-      ];
-    };
-    starship.enable = true;
-    direnv.enable = true;
+    sops.enable = true;
   };
+
+  home.packages = with pkgs; [
+    (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (
+      ps: with ps; [ plover-lapwing-aio ]
+    ))
+    mas
+    ffmpeg
+    fd
+    ripgrep
+  ];
+
+  sops.secrets."ssh/m1pro-darwin".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
+  home.file.".ssh/id_ed25519.pub".text = keys.ssh.m1pro-darwin.public;
+  sops.secrets."syncthing/m1pro-darwin/cert".path =
+    "${config.home.homeDirectory}/Library/Application Support/Syncthing/cert.pem";
+  sops.secrets."syncthing/m1pro-darwin/key".path =
+    "${config.home.homeDirectory}/Library/Application Support/Syncthing/key.pem";
+
+  # TODO: All below should be handled in the modules, through some use of pkgs.stdenv.hostPlatform.isDarwin, or through a specialArg
+  # All graphicals applications should be installed through brew.
+  programs.firefox.package = lib.mkForce null;
+  programs.ghostty.package = lib.mkForce null;
+
+  services.syncthing.settings.folders = {
+    "Factorio Saves".path =
+      lib.mkForce "${config.home.homeDirectory}/Library/Application Support/factorio";
+    "Minecraft".path =
+      lib.mkForce "${config.home.homeDirectory}/Library/Application Support/PrismLauncher/instances";
+  };
+
+  home.file.".config/sops/age/keys.txt".enable = false;
+  home.file."Library/Application Support/sops/age/keys.txt".source = ./../../secrets/sops-key.txt;
+  sops.age.keyFile = lib.mkForce "${config.home.homeDirectory}/Library/Application Support/sops/age/keys.txt";
 }

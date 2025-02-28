@@ -72,21 +72,6 @@ in
           fi
         }
       '';
-      /*
-        Fastest to slowest
-        ${pkgs.screenfetch}/bin/screenfetch
-        ${pkgs.neofetch}/bin/neofetch
-        ${pkgs.fastfetch}/bin/fastfetch
-        ${pkgs.disfetch}/bin/disfetch
-        ${pkgs.owofetch}/bin/owofetch
-        ${pkgs.inxi}/bin/inxi
-        ${pkgs.nitch}/bin/nitch # Looks the most goodest
-        ${pkgs.bunnyfetch}/bin/bunnyfetch
-        ${pkgs.yafetch}/bin/yafetch
-        ${pkgs.afetch}/bin/afetch
-        cat /etc/os-release
-        ${pkgs.leaf}/bin/leaf
-      */
     };
   };
 }
