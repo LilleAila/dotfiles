@@ -19,6 +19,12 @@
         remapCapsLockToControl = true;
       };
       defaults = {
+        CustomUserPreferences = {
+          NSGlobalDomain = {
+            WebAutomaticSpellingCorrectionEnabled = false;
+          };
+        };
+
         dock = {
           autohide = true;
           autohide-delay = 0.0;
@@ -55,11 +61,11 @@
           # Menu bar.
           AirDrop = false;
           BatteryShowPercentage = true;
-          Bluetooth = true;
+          Bluetooth = false;
           Display = false;
-          FocusModes = true;
-          NowPlaying = true;
-          Sound = true;
+          FocusModes = false;
+          NowPlaying = false;
+          Sound = false;
         };
 
         screencapture = {
