@@ -36,7 +36,7 @@ in
         xournalpp
         krita
         libreoffice
-        kdenlive
+        kdePackages.kdenlive
         ffmpeg
         shotcut
         # (outputs.packages.${pkgs.system}.anki-nix-colors.override { inherit (config) colorScheme; }) # it's just too slow
@@ -91,9 +91,9 @@ in
     (mkIf cfg.enable {
       home.packages = with pkgs; [
         _1password-gui
-        (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (
-          ps: with ps; [ plover-lapwing-aio ]
-        ))
+        # (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (
+        #   ps: with ps; [ plover-lapwing-aio ]
+        # ))
         obsidian
         wf-recorder
       ];

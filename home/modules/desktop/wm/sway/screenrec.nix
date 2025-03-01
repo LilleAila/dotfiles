@@ -9,7 +9,8 @@
   imports = [ inputs.wl-screenrec-daemon.homeManagerModules.wl-screenrec-daemon ];
 
   config = lib.mkIf config.settings.wm.sway.enable {
-    home.packages = [ inputs.wl-screenrec-daemon.packages.${pkgs.system}.wl-screenrec-daemon ];
+    # Mismatched hash?? idk FIXME
+    # home.packages = [ inputs.wl-screenrec-daemon.packages.${pkgs.system}.wl-screenrec-daemon ];
 
     services.wl-screenrec-daemon = {
       enable = false;
