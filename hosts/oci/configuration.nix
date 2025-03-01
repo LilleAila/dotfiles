@@ -40,6 +40,7 @@
       t420.public
       desktop.public
       m1pro.public
+      m1pro-darwin.public
     ];
     cloudflared.enable = true;
     nextcloud.enable = true;
