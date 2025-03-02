@@ -29,8 +29,8 @@
         "discord"
         # "vesktop" # https://github.com/Vencord/Vesktop/issues/172
         "aerospace"
-        "microsoft-auto-update" # maybe needed, maybe not; idk
-        "microsoft-office"
+        # "microsoft-auto-update" # maybe needed, maybe not; idk
+        # "microsoft-office"
         "microsoft-teams"
         "freecad"
         "bambu-studio"
@@ -47,11 +47,22 @@
         "sioyek"
         "ordnett-pluss"
         "obsidian"
+        "jupyterlab"
+        "chatgpt"
       ];
       # Requires apps to be already "purchased" (press get)
       # sometimes works, sometimes doesn't /shrug
+      # running `mas purchase` will fix this, making it so subsequent installations of the same app will work
       masApps = {
         "1Password for Safari" = 1569813296;
+        # "Lichess" = 968371784; # https://github.com/mas-cli/mas/issues/321
+        # Installing from app store avoids using microsoft auto update
+        # Teams is not present, but is also provided as a separate package, which does not use MAU
+        "Microsoft Word" = 462054704;
+        "Microsoft Outlook" = 985367838;
+        "Microsoft Excel" = 462058435;
+        "Microsoft PowerPoint" = 462062816;
+        "Microsoft OneNote" = 784801555;
       };
     };
   };
