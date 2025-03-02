@@ -46,6 +46,7 @@
         "firefox"
         "sioyek"
         "ordnett-pluss"
+        "obsidian"
       ];
       # Requires apps to be already "purchased" (press get)
       # sometimes works, sometimes doesn't /shrug
