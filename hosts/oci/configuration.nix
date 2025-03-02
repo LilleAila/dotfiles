@@ -55,6 +55,12 @@
     pinentryPackage = pkgs.pinentry-tty;
   };
 
+  environment.systemPackages = with pkgs; [
+    # Terminfo for ssh
+    kitty
+    ghostty
+  ];
+
   services.syncthing.settings.folders."Obsidian Notes".path =
     lib.mkForce "/home/${config.settings.user.name}/webdav/obsidian";
 
