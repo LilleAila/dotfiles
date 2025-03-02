@@ -1,8 +1,16 @@
 { config, lib, ... }:
 {
-  options.settings.aerospace.enable = lib.mkEnableOption "aerospace";
+  options.settings.aerospace = {
+    enable = lib.mkEnableOption "aerospace";
+    float = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [ ];
+    };
+  };
 
   config = lib.mkIf config.settings.aerospace.enable {
+    settings.aerospace.float = [ "no.gyldendal.ordnettpluss" ];
+
     services.aerospace = {
       enable = true;
       settings = {
@@ -10,11 +18,35 @@
         enable-normalization-flatten-containers = true;
         enable-normalization-opposite-orientation-for-nested-containers = true;
 
+        on-window-detected =
+          (map (app-id: {
+            "if" = {
+              inherit app-id;
+            };
+            run = "layout floating";
+          }) config.settings.aerospace.float)
+          # below code does not seem to work... todo
+          ++ [
+            {
+              "if" = {
+                app-id = "com.hnc.discord";
+              };
+              run = "move-node-to-workspace z";
+            }
+            {
+              "if" = {
+                app-id = "no.gyldendal.ordnettpluss";
+              };
+              run = "move-node-to-workspace o";
+            }
+          ];
+
         # Might interfere with apps etc.
         mode.main.binding = {
           alt-r = "reload-config";
           alt-o = "fullscreen";
           alt-f = "layout floating tiling";
+          alt-shift-t = "layout tiles";
 
           cmd-h = "focus left";
           cmd-j = "focus down";
@@ -41,6 +73,7 @@
           cmd-alt-9 = "workspace 9";
           cmd-alt-0 = "workspace 10";
           cmd-alt-z = "workspace z";
+          cmd-alt-o = "workspace o";
           cmd-alt-shift-1 = "move-node-to-workspace 1";
           cmd-alt-shift-2 = "move-node-to-workspace 2";
           cmd-alt-shift-3 = "move-node-to-workspace 3";
@@ -52,6 +85,7 @@
           cmd-alt-shift-9 = "move-node-to-workspace 9";
           cmd-alt-shift-0 = "move-node-to-workspace 10";
           cmd-alt-shift-z = "move-node-to-workspace z";
+          cmd-alt-shift-o = "move-node-to-workspace o";
         };
       };
     };

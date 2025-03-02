@@ -3,6 +3,12 @@
   options.settings.brew.enable = lib.mkEnableOption "brew";
 
   config = lib.mkIf config.settings.brew.enable {
+    # https://github.com/LnL7/nix-darwin/issues/786
+    # (hard to uninstall)
+    system.activationScripts.extraActivation.text = ''
+      softwareupdate --install-rosetta --agree-to-license
+    '';
+
     homebrew = {
       enable = true;
       onActivation = {
@@ -16,6 +22,7 @@
       # TODO: move these things into the correct places, rather than always install.
       taps = [
         "nikitabobko/tap"
+        "LilleAila/tap"
       ];
       casks = [
         "ghostty"
@@ -38,6 +45,7 @@
         "prefs-editor"
         "firefox"
         "sioyek"
+        "ordnett-pluss"
       ];
       # Requires apps to be already "purchased" (press get)
       # sometimes works, sometimes doesn't /shrug

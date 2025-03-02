@@ -43,6 +43,13 @@
     ripgrep
   ];
 
+  # Brew was installed imperatively :(
+  # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  programs.zsh.profileExtra = # sh
+    ''
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+    '';
+
   sops.secrets."ssh/m1pro-darwin".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
   home.file.".ssh/id_ed25519.pub".text = keys.ssh.m1pro-darwin.public;
   sops.secrets."syncthing/m1pro-darwin/cert".path =
