@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   options.settings.aerospace = {
     enable = lib.mkEnableOption "aerospace";
@@ -43,6 +48,18 @@
 
         # Might interfere with apps etc.
         mode.main.binding = {
+          # Could be made more generic to support other apps
+          cmd-enter = "exec-and-forget osascript ${pkgs.writeText "open-ghostty.applescript" ''
+            tell application "Ghostty"
+              if it is running then
+                activate
+                tell application "System Events" to keystroke "n" using {command down}
+              else
+                activate
+              end if
+            end tell
+          ''}";
+
           alt-r = "reload-config";
           alt-o = "fullscreen";
           alt-f = "layout floating tiling";
