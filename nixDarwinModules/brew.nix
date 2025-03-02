@@ -45,10 +45,13 @@
         "prefs-editor"
         "firefox"
         "sioyek"
-        "ordnett-pluss"
         "obsidian"
         "jupyterlab"
         "chatgpt"
+        "prismlauncher"
+        # Not apple silicon; requires rosetta 2
+        "ordnett-pluss"
+        "steam"
       ];
       # Requires apps to be already "purchased" (press get)
       # sometimes works, sometimes doesn't /shrug

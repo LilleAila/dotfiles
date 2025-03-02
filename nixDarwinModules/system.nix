@@ -18,11 +18,16 @@
         enableKeyMapping = true;
         remapCapsLockToControl = true;
       };
+
       defaults = {
         CustomUserPreferences = {
           NSGlobalDomain = {
             WebAutomaticSpellingCorrectionEnabled = false;
           };
+        };
+
+        LaunchServices = {
+          LSQuarantine = false; # Disable quarantine for downloaded apps
         };
 
         dock = {
