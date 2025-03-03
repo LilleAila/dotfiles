@@ -16,6 +16,7 @@
         autoUpdate = false;
         upgrade = false;
       };
+      caskArgs.no_quarantine = true;
       # Unfortunately not 100% declarative :(
       # Could maybe to something like "geogebra@6.0.875.1"
       # , manually for each one
