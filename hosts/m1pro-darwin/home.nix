@@ -41,6 +41,7 @@
     ffmpeg
     fd
     ripgrep
+    pngpaste
   ];
 
   # Brew was installed imperatively :(
