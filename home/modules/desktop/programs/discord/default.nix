@@ -7,10 +7,20 @@
 }:
 let
   jsonFormat = pkgs.formats.json { };
+  config_dir =
+    if pkgs.stdenv.hostPlatform.isDarwin then
+      "Library/Application Support/vesktop"
+    else
+      ".config/vesktop";
 in
 {
   options.settings.discord = {
-    vesktop.enable = lib.mkEnableOption "vesktop";
+    vesktop = {
+      enable = lib.mkEnableOption "vesktop";
+      package = lib.mkPackageOption pkgs "vesktop" {
+        nullable = true;
+      };
+    };
     dissent.enable = lib.mkEnableOption "dissent";
     vesktop.settings = lib.mkOption {
       inherit (jsonFormat) type;
@@ -21,11 +31,13 @@ in
   config = lib.mkMerge [
     (lib.mkIf config.settings.discord.dissent.enable { home.packages = with pkgs; [ dissent ]; })
     (lib.mkIf config.settings.discord.vesktop.enable {
-      home.packages = with pkgs; [ vesktop ];
+      home.packages = lib.optionals (config.settings.discord.vesktop.package != null) [
+        config.settings.discord.vesktop.package
+      ];
 
       settings.persist.home.cache = [ ".config/vesktop" ];
 
-      home.file.".config/vesktop/settings.json".text = builtins.toJSON {
+      home.file."${config_dir}/settings.json".text = builtins.toJSON {
         splashColor = "#${config.colorScheme.palette.base05}";
         splashBackground = "#${config.colorScheme.palette.base01}";
         customTitleBar = false;
@@ -39,9 +51,10 @@ in
         arRPC = true;
       };
 
-      home.file.".config/vesktop/settings/settings.json".source = jsonFormat.generate "vesktop-settings" config.settings.discord.vesktop.settings;
+      home.file."${config_dir}/settings/settings.json".source =
+        jsonFormat.generate "vesktop-settings" config.settings.discord.vesktop.settings;
 
-      home.file.".config/vesktop/themes/base16.theme.css".source = pkgs.writeText "base16.theme.css" (
+      home.file."${config_dir}/themes/base16.theme.css".source = pkgs.writeText "base16.theme.css" (
         import ./theme.nix { inherit config lib; }
       );
 

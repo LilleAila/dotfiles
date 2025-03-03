@@ -27,8 +27,7 @@
       ];
       casks = [
         "ghostty"
-        "discord"
-        # "vesktop" # https://github.com/Vencord/Vesktop/issues/172
+        "vesktop" # packaged myself, see https://github.com/Vencord/Vesktop/issues/172
         "aerospace"
         # "microsoft-auto-update" # maybe needed, maybe not; idk
         # "microsoft-office"
@@ -49,7 +48,7 @@
         "obsidian"
         "jupyterlab"
         "chatgpt"
-        "prismlauncher"
+        "vesktop"
         # Not apple silicon; requires rosetta 2
         "ordnett-pluss"
         "steam"

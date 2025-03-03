@@ -23,6 +23,10 @@
     ghostty.enable = true;
     browser.firefox.enable = true;
     syncthing.enable = true;
+    discord.vesktop = {
+      enable = true;
+      package = null;
+    };
 
     terminal = {
       zsh.enable = true;
