@@ -49,6 +49,8 @@
         "jupyterlab"
         "chatgpt"
         "vesktop"
+        "soapui"
+        "prismlauncher"
         # Not apple silicon; requires rosetta 2
         "ordnett-pluss"
         "steam"
