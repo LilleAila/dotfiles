@@ -719,11 +719,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1740755725,
-        "narHash": "sha256-amZbqP84H/ApugaT+TADXTB3NbjkVHI9Vac1saIk0kE=",
+        "lastModified": 1741229100,
+        "narHash": "sha256-0HwrTDXp9buEwal/1ymK9uQmzUD5ozIA7CJGqnT/gLs=",
         "owner": "LnL7",
         "repo": "nix-darwin",
-        "rev": "5d6e0851b60508cffd66b4a6982440a40720338d",
+        "rev": "adf5c88ba1fe21af5c083b4d655004431f20c5ab",
         "type": "github"
       },
       "original": {
@@ -1051,11 +1051,11 @@
     "plover": {
       "flake": false,
       "locked": {
-        "lastModified": 1740635473,
-        "narHash": "sha256-ihxfyartef7R0CGE5SMvZ6YNkwoA7Velccr8/0R3RwE=",
+        "lastModified": 1741105063,
+        "narHash": "sha256-q58+iGU/Pr183mCxYtTn1LIxGySPR3WfL74/0VaUSPA=",
         "owner": "greghope667",
         "repo": "plover",
-        "rev": "1d8545da93979e07ef36447942ad6a085c23be8c",
+        "rev": "7be2441fb8175e5e78b2456ccc87deb58fae89a0",
         "type": "github"
       },
       "original": {
@@ -1075,15 +1075,14 @@
         "plover-stroke": "plover-stroke",
         "plover2cat": "plover2cat",
         "plover_plugins_registry": "plover_plugins_registry",
-        "pyqt6rc": "pyqt6rc",
         "rtf-tokenize": "rtf-tokenize"
       },
       "locked": {
-        "lastModified": 1740681787,
-        "narHash": "sha256-VApA81N+zVFJ9UwSHgRiS2LsOQbRS7RoUX0KAQ2MmoY=",
+        "lastModified": 1741203063,
+        "narHash": "sha256-yrI9JAsg8eYGKMXrq+yna7RCS7OfFuX1rEgW30YHVPQ=",
         "owner": "lilleaila",
         "repo": "plover-flake",
-        "rev": "46f9cb4ebce0805b79a3dbe3b68ec9d0f0331662",
+        "rev": "bcc3a9b936f2b324bf4ce9874918e117651b703c",
         "type": "github"
       },
       "original": {
@@ -1292,22 +1291,6 @@
       "original": {
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "type": "github"
-      }
-    },
-    "pyqt6rc": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1732204623,
-        "narHash": "sha256-EATUBsuXOraXyH3WIX/VNCjdrdQda7qqzkpiTa52QPo=",
-        "owner": "domarm-comat",
-        "repo": "pyqt6rc",
-        "rev": "06696d23500273fd08c4cc67bdd8ea8c4cb8e117",
-        "type": "github"
-      },
-      "original": {
-        "owner": "domarm-comat",
-        "repo": "pyqt6rc",
         "type": "github"
       }
     },

@@ -51,6 +51,7 @@
         "vesktop"
         "soapui"
         "prismlauncher"
+        "ukelele"
         # Not apple silicon; requires rosetta 2
         "ordnett-pluss"
         "steam"
