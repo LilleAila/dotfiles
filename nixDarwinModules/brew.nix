@@ -52,6 +52,7 @@
         "soapui"
         "prismlauncher"
         "ukelele"
+        "kicad"
         # Not apple silicon; requires rosetta 2
         "ordnett-pluss"
         "steam"
