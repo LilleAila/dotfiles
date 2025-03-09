@@ -53,6 +53,7 @@
         "prismlauncher"
         "ukelele"
         "kicad"
+        "scroll-reverser"
         # Not apple silicon; requires rosetta 2
         "ordnett-pluss"
         "steam"
