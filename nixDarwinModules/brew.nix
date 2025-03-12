@@ -54,6 +54,7 @@
         "ukelele"
         "kicad"
         "scroll-reverser"
+        "tor-browser"
         # Not apple silicon; requires rosetta 2
         "ordnett-pluss"
         "steam"
