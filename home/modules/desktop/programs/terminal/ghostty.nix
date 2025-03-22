@@ -13,6 +13,7 @@
         theme = config.colorScheme.slug;
         font-size = 12;
         font-family = "JetBrainsMono Nerd Font";
+        macos-option-as-alt = "left";
       };
       themes.${config.colorScheme.slug} = with config.colorScheme.palette; {
         background = base00;

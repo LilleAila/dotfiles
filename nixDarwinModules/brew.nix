@@ -55,6 +55,8 @@
         "kicad"
         "scroll-reverser"
         "tor-browser"
+        "dymo-connect"
+        "raspberry-pi-imager"
         # Not apple silicon; requires rosetta 2
         "ordnett-pluss"
         "steam"
