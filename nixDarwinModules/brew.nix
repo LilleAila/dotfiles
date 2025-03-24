@@ -57,6 +57,8 @@
         "tor-browser"
         "dymo-connect"
         "raspberry-pi-imager"
+        "eloston-chromium" # ungoogled-chromium
+        "openscad"
         # Not apple silicon; requires rosetta 2
         "ordnett-pluss"
         "steam"
