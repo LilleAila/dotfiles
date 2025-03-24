@@ -58,7 +58,7 @@
         "dymo-connect"
         "raspberry-pi-imager"
         "eloston-chromium" # ungoogled-chromium
-        "openscad"
+        "openscad@snapshot"
         # Not apple silicon; requires rosetta 2
         "ordnett-pluss"
         "steam"
