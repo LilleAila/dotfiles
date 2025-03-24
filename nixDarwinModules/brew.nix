@@ -59,6 +59,7 @@
         "raspberry-pi-imager"
         "eloston-chromium" # ungoogled-chromium
         "openscad@snapshot"
+        "kiwix"
         # Not apple silicon; requires rosetta 2
         "ordnett-pluss"
         "steam"
