@@ -40,20 +40,7 @@
     programs.ssh = {
       enable = true;
       # NOTE: this is a user-specific setting, that should maybe be set somewhere else. desktop/default.nix?
-      matchBlocks = {
-        oci = {
-          hostname = "158.179.205.169";
-          user = "olai";
-          localForwards = [
-            {
-              # Forward syncthing interface
-              bind.port = 9999;
-              host.port = 8384;
-              host.address = "127.0.0.1";
-            }
-          ];
-        };
-      };
+      matchBlocks = import ../../../secrets/ssh-hosts.nix;
     };
     # services.ssh-agent.enable = true;
     # programs.ssh.addKeysToAgent = "yes";

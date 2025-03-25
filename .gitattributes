@@ -3,3 +3,4 @@ secrets/gpg-key.asc filter=git-crypt diff=git-crypt
 secrets/tokens.nix filter=git-crypt diff=git-crypt
 secrets/factorio.nix filter=git-crypt diff=git-crypt
 secrets/syncthing.nix filter=git-crypt diff=git-crypt
+secrets/ssh-hosts.nix filter=git-crypt diff=git-crypt
