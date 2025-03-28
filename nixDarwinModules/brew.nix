@@ -60,6 +60,7 @@
         "eloston-chromium" # ungoogled-chromium
         "openscad@snapshot"
         "kiwix"
+        "docker"
         # Not apple silicon; requires rosetta 2
         "ordnett-pluss"
         "steam"
