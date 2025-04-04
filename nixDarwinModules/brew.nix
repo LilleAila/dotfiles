@@ -78,6 +78,7 @@
         "Microsoft Excel" = 462058435;
         "Microsoft PowerPoint" = 462062816;
         "Microsoft OneNote" = 784801555;
+        "Clarify Dictionaries" = 6451003473;
       };
     };
   };
