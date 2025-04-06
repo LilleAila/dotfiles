@@ -22,6 +22,16 @@
       {
         programs.niri = {
           settings = {
+            spawn-at-startup = [
+              {
+                command = [ (lib.getExe pkgs.xwayland-satellite) ];
+              }
+            ];
+
+            environment = {
+              DISPLAY = ":0";
+            };
+
             binds =
               # Actions includes all of the ones listed here:
               # https://github.com/sodiboo/niri-flake/blob/main/memo-binds.nix
