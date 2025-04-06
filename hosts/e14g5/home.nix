@@ -23,9 +23,9 @@
     desktop.enable = true;
     desktop.full.enable = true;
     wm.hyprland.monitors.enable = true;
-    spacemacs.enable = true;
+    ghostty.enable = true;
 
-    # niri.enable = true;
+    niri.enable = true;
 
     wm.sway.enable = true;
     wm.hyprpaper.enable = false;

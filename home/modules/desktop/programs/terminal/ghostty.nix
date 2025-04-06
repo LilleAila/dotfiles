@@ -9,10 +9,10 @@
   config = lib.mkIf config.settings.ghostty.enable {
     programs.ghostty = {
       enable = true;
-      settings = {
+      settings = with config.settings.fonts; {
         theme = config.colorScheme.slug;
-        font-size = 12;
-        font-family = "JetBrainsMono Nerd Font";
+        font-size = size;
+        font-family = monospace.name;
         macos-option-as-alt = "left";
       };
       themes.${config.colorScheme.slug} = with config.colorScheme.palette; {

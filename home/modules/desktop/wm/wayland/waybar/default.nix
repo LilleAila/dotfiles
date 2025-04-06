@@ -22,7 +22,7 @@
     programs.waybar = {
       enable = true;
       systemd.enable = true;
-      systemd.target = "sway-session.target";
+      systemd.target = "wayland-session.target";
       settings.bar = rec {
         layer = "top";
         # output = map (m: m.name) config.settings.monitors;
@@ -31,10 +31,9 @@
         spacing = 20;
         modules-left = [
           "clock"
-          "sway/workspaces"
-          "sway/mode"
+          "niri/workspaces"
         ];
-        modules-center = [ "sway/window" ];
+        modules-center = [ "niri/window" ];
         modules-right = [
           "battery"
           # "wireplumber"
@@ -65,8 +64,8 @@
           };
         };
 
-        "sway/workspaces" = {
-          tooltip = false;
+        "niri/window" = {
+          icon = true;
         };
 
         battery = {
