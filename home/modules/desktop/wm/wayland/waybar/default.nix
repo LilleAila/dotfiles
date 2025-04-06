@@ -22,8 +22,8 @@
     programs.waybar = {
       enable = true;
       systemd.enable = true;
-      systemd.target = "wayland-session.target";
-      settings.bar = rec {
+      systemd.target = "graphical-session.target";
+      settings.bar = {
         layer = "top";
         # output = map (m: m.name) config.settings.monitors;
         position = "top";
