@@ -91,6 +91,19 @@ in
               "Pixel 8a" # NOTE: android is configured imperatively. `path` defined above does *not* apply
             ];
           };
+          "Android Camera" = {
+            id = "pixel_8a_nd5h-photos";
+            path = "${config.home.homeDirectory}/Pictures/Android";
+            devices = [
+              "oci"
+              "e14g5"
+              "desktop"
+              "m1pro"
+              "m1pro-darwin"
+              "t420"
+              "Pixel 8a"
+            ];
+          };
           "Calibre Library" = {
             path = "${config.home.homeDirectory}/Calibre\ Library";
             devices = [
