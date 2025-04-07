@@ -49,6 +49,9 @@ in
           m1pro-darwin = {
             id = secrets.ids.m1pro-darwin;
           };
+          "Pixel 8a" = {
+            id = secrets.ids.pixel8a;
+          };
         };
 
         folders = {
@@ -76,8 +79,8 @@ in
               "m1pro-darwin"
             ];
           };
-          "Obsidian Notes" = {
-            path = "${config.home.homeDirectory}/notes/obsidian";
+          "Notes" = {
+            path = "${config.home.homeDirectory}/notes";
             devices = [
               "oci"
               "e14g5"
@@ -85,6 +88,7 @@ in
               "m1pro"
               "m1pro-darwin"
               "t420"
+              "Pixel 8a" # NOTE: android is configured imperatively. `path` defined above does *not* apply
             ];
           };
           "Calibre Library" = {
