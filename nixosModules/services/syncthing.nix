@@ -106,7 +106,7 @@ in
               ];
             };
             "Notes" = {
-              path = "${config.home.homeDirectory}/notes";
+              path = "${homePath}/notes";
               devices = [
                 "oci"
                 "e14g5"
