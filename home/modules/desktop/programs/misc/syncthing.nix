@@ -104,6 +104,19 @@ in
               "Pixel 8a"
             ];
           };
+          "Android Screenshots" = {
+            id = "fqpt7-c6be0";
+            path = "${config.home.homeDirectory}/Pictures/AndroidScreenshots";
+            devices = [
+              "oci"
+              "e14g5"
+              "desktop"
+              "m1pro"
+              "m1pro-darwin"
+              "t420"
+              "Pixel 8a"
+            ];
+          };
           "Calibre Library" = {
             path = "${config.home.homeDirectory}/Calibre\ Library";
             devices = [
