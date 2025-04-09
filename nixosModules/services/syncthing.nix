@@ -119,7 +119,7 @@ in
             };
             "Android Camera" = {
               id = "pixel_8a_nd5h-photos";
-              path = "${homePath}/Pictures/Android";
+              path = "${homePath}/Pictures/Android/DCIM";
               devices = [
                 "oci"
                 "e14g5"
@@ -132,7 +132,7 @@ in
             };
             "Android Screenshots" = {
               id = "fqpt7-c6be0";
-              path = "${homePath}/Pictures/AndroidScreenshots";
+              path = "${homePath}/Pictures/Android/Screenshots";
               devices = [
                 "oci"
                 "e14g5"
