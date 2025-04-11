@@ -15,5 +15,6 @@
     ./syncthing.nix
     ./virtualisation.nix
     ./wlr-which-key.nix
+    ./kdeconnect.nix
   ];
 }

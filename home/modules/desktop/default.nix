@@ -157,6 +157,8 @@ in
 
         emacs.enable = mkDefault false;
 
+        kdeconnect.enable = mkDefault true;
+
         terminal = {
           zsh.enable = mkDefault true;
           zsh.theme = mkDefault "nanotech";

@@ -5,5 +5,6 @@ _: {
     ./fcitx5.nix
     ./firefox.nix
     ./gaming.nix
+    ./kdeconnect.nix
   ];
 }
