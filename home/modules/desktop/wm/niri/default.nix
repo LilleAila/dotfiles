@@ -24,6 +24,13 @@
           settings = {
             spawn-at-startup = [
               {
+                command = [
+                  "dbus-update-activation-environment"
+                  "--systemd"
+                  "--all"
+                ];
+              }
+              {
                 command = [ (lib.getExe pkgs.xwayland-satellite) ];
               }
             ];
@@ -31,6 +38,8 @@
             environment = {
               DISPLAY = ":0";
             };
+
+            hotkey-overlay.skip-at-startup = true;
 
             binds =
               # Actions includes all of the ones listed here:

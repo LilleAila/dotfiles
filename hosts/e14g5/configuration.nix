@@ -17,7 +17,7 @@
 
   settings = {
     greeter.enable = true;
-    greeter.command = "niri";
+    greeter.command = "niri-session";
     xserver.xwayland.enable = true;
     locale = {
       main = "en_US.UTF-8";
