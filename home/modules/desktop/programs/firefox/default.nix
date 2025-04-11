@@ -108,22 +108,16 @@
               main = {
                 isDefault = true;
                 id = 0;
-                inherit search extensions;
-                settings = settings // {
-                  "browser.startup.homepage" = "https://start.duckduckgo.com";
-                };
+                inherit search settings;
+                extensions.packages = extensions;
                 userChrome = userChrome + (with config.colorScheme.palette; colorTab base0D base00);
-                bookmarks = import ./bookmarks/main.nix;
               };
 
               school = {
                 id = 1;
-                inherit search extensions;
-                settings = settings // {
-                  "browser.startup.homepage" = "https://classroom.google.com";
-                };
+                inherit search settings;
+                extensions.packages = extensions;
                 userChrome = userChrome + (with config.colorScheme.palette; colorTab base0B base00);
-                bookmarks = import ./bookmarks/school.nix;
               };
             };
         };

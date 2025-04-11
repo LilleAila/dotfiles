@@ -42,7 +42,7 @@
                 "Mod+Space".action = spawn (lib.getExe pkgs.rofi-wayland) "-show" "drun" "-show-icons";
 
                 "Mod+s".action = screenshot;
-                "Mod+Shift+s".action = screenshot-screen;
+                # "Mod+Shift+s".action = screenshot-screen;
                 "Mod+Ctrl+s".action = screenshot-window;
 
                 "Mod+h".action = focus-column-left;

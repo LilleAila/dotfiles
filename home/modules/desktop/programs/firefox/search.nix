@@ -1,11 +1,12 @@
 { pkgs, ... }:
 {
-  default = "Google"; # It does have bad privacy but also slightly better results most of the time
+  default = "google"; # It does have bad privacy but also slightly better results most of the time
 
   engines = {
     "Searx" = {
       urls = [
         {
+          # NOTE: only works when searx is enabled and running locally
           template = "http://localhost:6969";
           params = [
             {
@@ -15,9 +16,8 @@
           ];
         }
       ];
+      definedAliases = [ "@sx" ];
     };
-
-    "Google".metaData.alias = "@g";
 
     "Ordbokene" = {
       urls = [ { template = "https://ordbokene.no/nno/bm,nn/{searchTerms}"; } ];
@@ -26,7 +26,7 @@
 
     "NixOS Wiki" = {
       urls = [ { template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; } ];
-      iconUpdateURL = "https://wiki.nixos.org/favicon.png";
+      icon = "https://wiki.nixos.org/favicon.png";
       updateInterval = 24 * 60 * 60 * 1000; # Every day
       definedAliases = [ "@nw" ];
     };
@@ -34,8 +34,12 @@
     "Nix Packages" = {
       urls = [
         {
-          template = "https://search.nixos.org/packages?channel=unstable";
+          template = "https://search.nixos.org/packages";
           params = [
+            {
+              name = "channel";
+              value = "unstable";
+            }
             {
               name = "type";
               value = "packages";
@@ -55,8 +59,12 @@
     "Nix Options" = {
       urls = [
         {
-          template = "https://search.nixos.org/options?channel=unstable";
+          template = "https://search.nixos.org/options";
           params = [
+            {
+              name = "channel";
+              value = "unstable";
+            }
             {
               name = "type";
               value = "options";
@@ -80,6 +88,10 @@
           # home-manager option search was moved to:
           template = "https://home-manager-options.extranix.com";
           params = [
+            {
+              name = "release";
+              value = "master";
+            }
             {
               name = "query";
               value = "{searchTerms}";
