@@ -14,7 +14,7 @@
   config = lib.mkIf config.settings.gaming.enable {
     # Other stuff like steam is enabled in system module gaming.nix
     programs.mangohud = {
-      enable = true;
+      enable = false;
       enableSessionWide = false;
     };
 
