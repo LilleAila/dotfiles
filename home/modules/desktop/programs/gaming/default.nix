@@ -15,7 +15,7 @@
     # Other stuff like steam is enabled in system module gaming.nix
     programs.mangohud = {
       enable = true;
-      enableSessionWide = true;
+      enableSessionWide = false;
     };
 
     settings.nix.unfree = [
