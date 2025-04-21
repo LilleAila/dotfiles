@@ -150,7 +150,7 @@
 
     # === Other utils ===
     plover-flake = {
-      url = "github:lilleaila/plover-flake/fix-build-darwin";
+      url = "github:openstenoproject/plover-flake";
     };
 
     niri = {

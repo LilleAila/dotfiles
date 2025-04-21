@@ -15,6 +15,10 @@
 
   networking.hostId = "cc76db3f";
 
+  environment.systemPackages = with pkgs; [
+    qt6.qtwayland
+  ];
+
   settings = {
     greeter.enable = true;
     greeter.command = "niri-session";

@@ -218,24 +218,6 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1731533236,
-        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "flake-utils_3": {
-      "inputs": {
-        "systems": "systems_4"
-      },
-      "locked": {
         "lastModified": 1710146030,
         "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
         "owner": "numtide",
@@ -679,17 +661,17 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1738797219,
-        "narHash": "sha256-KRwX9Z1XavpgeSDVM/THdFd6uH8rNm/6R+7kIbGa+2s=",
+        "lastModified": 1744463964,
+        "narHash": "sha256-LWqduOgLHCFxiTNYi3Uj5Lgz0SR+Xhw3kr/3Xd0GPTM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "1da52dd49a127ad74486b135898da2cef8c62665",
+        "rev": "2631b0b7abcea6e640ce31cd78ea58910d31e650",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "1da52dd49a127ad74486b135898da2cef8c62665",
+        "rev": "2631b0b7abcea6e640ce31cd78ea58910d31e650",
         "type": "github"
       }
     },
@@ -777,23 +759,21 @@
     "plover": {
       "flake": false,
       "locked": {
-        "lastModified": 1741105063,
-        "narHash": "sha256-q58+iGU/Pr183mCxYtTn1LIxGySPR3WfL74/0VaUSPA=",
-        "owner": "greghope667",
+        "lastModified": 1745167080,
+        "narHash": "sha256-Fml+ZokVoqOz3gy6lLGHqi8RRWPgVH3hKxfr3LPyFsY=",
+        "owner": "openstenoproject",
         "repo": "plover",
-        "rev": "7be2441fb8175e5e78b2456ccc87deb58fae89a0",
+        "rev": "ecb4f901cab48e284a2a864f112f5ec26f60ffa6",
         "type": "github"
       },
       "original": {
-        "owner": "greghope667",
-        "ref": "pyqt6-migration",
+        "owner": "openstenoproject",
         "repo": "plover",
         "type": "github"
       }
     },
     "plover-flake": {
       "inputs": {
-        "flake-utils": "flake-utils_2",
         "nixpkgs": "nixpkgs_3",
         "plover": "plover",
         "plover-machine-hid": "plover-machine-hid",
@@ -803,16 +783,15 @@
         "rtf-tokenize": "rtf-tokenize"
       },
       "locked": {
-        "lastModified": 1741246305,
-        "narHash": "sha256-0JTYd1BK26wKM89XLJaXW3cbtTNdd9mXAlJOrRdBKEw=",
-        "owner": "lilleaila",
+        "lastModified": 1745235787,
+        "narHash": "sha256-Igkexo19HPCi2MPUtsXB1CPrZz4UL3Ob++gUG/8OAJI=",
+        "owner": "openstenoproject",
         "repo": "plover-flake",
-        "rev": "2ada1503f6b0e4469b2ef463d86bb0b273c62973",
+        "rev": "8e27333a331158570274eab09a68daf151b49ed4",
         "type": "github"
       },
       "original": {
-        "owner": "lilleaila",
-        "ref": "fix-build-darwin",
+        "owner": "openstenoproject",
         "repo": "plover-flake",
         "type": "github"
       }
@@ -868,11 +847,11 @@
     "plover_plugins_registry": {
       "flake": false,
       "locked": {
-        "lastModified": 1738261391,
-        "narHash": "sha256-G7shVgPBfu+YTG1z3oblfNVaguEWheG0zrI5O0YENCM=",
+        "lastModified": 1741203979,
+        "narHash": "sha256-/kpVH28I8netfbWrpytiaPy67OoJOfrohwD1FeYjDV8=",
         "owner": "openstenoproject",
         "repo": "plover_plugins_registry",
-        "rev": "e7f1a127dd3e64e2a92ebd8d50e8fe7420997a17",
+        "rev": "3b43217796844f27ecf8ad480c371c3a31ab2c95",
         "type": "github"
       },
       "original": {
@@ -1160,21 +1139,6 @@
         "type": "github"
       }
     },
-    "systems_4": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
-        "type": "github"
-      }
-    },
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": [
@@ -1253,7 +1217,7 @@
     "woomer": {
       "inputs": {
         "crane": "crane",
-        "flake-utils": "flake-utils_3",
+        "flake-utils": "flake-utils_2",
         "nixpkgs": [
           "nixpkgs"
         ]

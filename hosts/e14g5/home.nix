@@ -8,7 +8,19 @@
   ...
 }:
 {
-  imports = [ ../../home ];
+  imports = [
+    ../../home
+    inputs.plover-flake.homeManagerModules.plover
+  ];
+
+  programs.plover = {
+    enable = true;
+    package = inputs.plover-flake.packages.${pkgs.system}.plover.withPlugins (
+      ps: with ps; [
+        plover-lapwing-aio
+      ]
+    );
+  };
 
   settings = {
     monitors = [
