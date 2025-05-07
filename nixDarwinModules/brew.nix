@@ -64,6 +64,8 @@
         # Not apple silicon; requires rosetta 2
         "ordnett-pluss"
         "steam"
+        "qgis@ltr"
+        "kitty"
       ];
       # Requires apps to be already "purchased" (press get)
       # sometimes works, sometimes doesn't /shrug

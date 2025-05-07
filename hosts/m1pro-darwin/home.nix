@@ -37,15 +37,15 @@
     sops.enable = true;
   };
 
+  programs.lf.enable = lib.mkForce false;
+
   home.packages = with pkgs; [
-    (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (
-      ps: with ps; [ plover-lapwing-aio ]
-    ))
     mas
     ffmpeg
     fd
     ripgrep
     pngpaste
+    libqalculate
   ];
 
   # Brew was installed imperatively :(
