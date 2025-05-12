@@ -67,6 +67,7 @@
         "qgis@ltr"
         "kitty"
         "xournal++"
+        "wacom-tablet"
       ];
       # Requires apps to be already "purchased" (press get)
       # sometimes works, sometimes doesn't /shrug
