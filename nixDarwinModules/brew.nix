@@ -47,7 +47,7 @@
         "sioyek"
         "obsidian"
         "jupyterlab"
-        "chatgpt"
+        # "chatgpt" # NOTE: temp disabled for exam
         "vesktop"
         "soapui"
         "prismlauncher"
@@ -68,6 +68,7 @@
         "kitty"
         "xournal++"
         "wacom-tablet"
+        "musescore"
       ];
       # Requires apps to be already "purchased" (press get)
       # sometimes works, sometimes doesn't /shrug
