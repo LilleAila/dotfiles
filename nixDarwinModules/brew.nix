@@ -69,6 +69,7 @@
         "xournal++"
         "wacom-tablet"
         "musescore"
+        "vnc-viewer"
       ];
       # Requires apps to be already "purchased" (press get)
       # sometimes works, sometimes doesn't /shrug
