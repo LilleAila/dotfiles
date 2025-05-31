@@ -46,7 +46,7 @@ in
         bottles
         # outputs.packages.${pkgs.system}.fhsenv
         pb_cli
-        # kicad
+        kicad
         bambu-studio
         freecad-wayland
         openscad
