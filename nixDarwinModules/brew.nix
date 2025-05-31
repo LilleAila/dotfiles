@@ -70,6 +70,7 @@
         "wacom-tablet"
         "musescore"
         "vnc-viewer"
+        "cyberduck"
       ];
       # Requires apps to be already "purchased" (press get)
       # sometimes works, sometimes doesn't /shrug
