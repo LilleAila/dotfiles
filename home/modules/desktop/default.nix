@@ -51,6 +51,7 @@ in
         freecad-wayland
         openscad
         # blender
+        tigervnc
       ];
 
       settings.persist.home.directories = [

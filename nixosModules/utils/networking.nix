@@ -23,6 +23,7 @@
     (lib.mkIf config.settings.networking.enable {
       services.avahi = {
         enable = true;
+        nssmdns4 = true;
         openFirewall = true;
       };
       networking.hostName = config.settings.networking.hostname;
