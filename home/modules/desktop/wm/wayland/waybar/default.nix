@@ -32,6 +32,7 @@
         modules-left = [
           "clock"
           "niri/workspaces"
+          "sway/workspaces" # only one will show at a time
         ];
         modules-center = [ "niri/window" ];
         modules-right = [
