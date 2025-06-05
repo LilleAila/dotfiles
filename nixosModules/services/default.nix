@@ -6,5 +6,6 @@ _: {
     ./searx.nix
     ./cloudflared.nix
     ./calibre-web.nix
+    ./jellyfin.nix
   ];
 }

@@ -69,6 +69,7 @@
     yubikey.enable = true;
     virtualisation.enable = true;
     searx.enable = true;
+    jellyfin.enable = true;
   };
 
   # random packages trying to get vaapi to work properly with webm

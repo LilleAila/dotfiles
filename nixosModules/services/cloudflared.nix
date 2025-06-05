@@ -15,6 +15,8 @@
       owner = config.settings.user.name;
     };
 
+    settings.persist.home.directories = [ ".cloudflared" ];
+
     environment.systemPackages = [ pkgs.cloudflared ];
 
     # the above *could* be done in home-manager, but i prefer having it centralized
