@@ -71,6 +71,7 @@
         "musescore"
         "vnc-viewer"
         "cyberduck"
+        "bitwarden"
       ];
       # Requires apps to be already "purchased" (press get)
       # sometimes works, sometimes doesn't /shrug
