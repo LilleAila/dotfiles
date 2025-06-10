@@ -25,6 +25,9 @@
         "nikitabobko/tap"
         "LilleAila/tap"
       ];
+      brews = [
+        "bitwarden-cli"
+      ];
       casks = [
         "ghostty"
         "vesktop" # packaged myself, see https://github.com/Vencord/Vesktop/issues/172

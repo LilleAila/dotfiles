@@ -46,7 +46,6 @@
     ripgrep
     pngpaste
     libqalculate
-    bitwarden-cli
   ];
 
   # Brew was installed imperatively :(
