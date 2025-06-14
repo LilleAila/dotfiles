@@ -214,9 +214,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim-config = {
-      url = "github:LilleAila/nvim-nix";
-      inputs.nix-colors.follows = "nix-colors";
+    # nixvim-config = {
+    #   url = "github:LilleAila/nvim-nix";
+    #   inputs.nix-colors.follows = "nix-colors";
+    # };
+
+    nvf-config = {
+      url = "github:LilleAila/nvf-config";
     };
 
     emacs-config = {

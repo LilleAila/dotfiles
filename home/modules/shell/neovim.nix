@@ -14,7 +14,8 @@
         # Putting this as programs.neovim.package does not work, so configuring manually:
         # Here is my nixvim config: https://github.com/LilleAila/nvim-nix/
         home.packages = [
-          (inputs.nixvim-config.packages."${pkgs.system}".nvim.override { inherit (config) colorScheme; })
+          # (inputs.nixvim-config.packages."${pkgs.system}".nvim.override { inherit (config) colorScheme; })
+          inputs.nvf-config.packages.${pkgs.system}.default
           # pkgs.nvimpager
         ];
 
@@ -51,7 +52,7 @@
           name = "Neovim";
           genericName = "Text Editor";
           icon = "nvim";
-          exec = "${config.settings.terminal.emulator.exec} ${lib.getExe config.programs.neovim.package} %f";
+          exec = "${config.settings.terminal.emulator.exec} nvim %f";
         };
       })
     ]
