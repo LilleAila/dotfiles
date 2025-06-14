@@ -114,6 +114,13 @@ in
         "obsidian"
       ];
 
+      home.pointerCursor = {
+        inherit (config.settings.cursor) package;
+        inherit (config.settings.cursor) name;
+        inherit (config.settings.cursor) size;
+        gtk.enable = true;
+      };
+
       # https://github.com/tinted-theming/base16-schemes/
       colorScheme = mkDefault inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
       home.file."colorscheme.txt".text = lib.concatStringsSep "\n" (
