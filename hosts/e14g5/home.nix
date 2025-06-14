@@ -10,17 +10,7 @@
 {
   imports = [
     ../../home
-    inputs.plover-flake.homeManagerModules.plover
   ];
-
-  programs.plover = {
-    enable = true;
-    package = inputs.plover-flake.packages.${pkgs.system}.plover.withPlugins (
-      ps: with ps; [
-        plover-lapwing-aio
-      ]
-    );
-  };
 
   settings = {
     monitors = [
@@ -30,21 +20,11 @@
         position = "0x0";
       }
     ];
-    gaming.enable = true;
-    gaming.steam.enable = true;
-    desktop.enable = true;
+
     desktop.full.enable = true;
-    wm.hyprland.monitors.enable = true;
-    ghostty.enable = true;
-
-    niri.enable = true;
-
-    wm.sway.enable = true;
-    wm.hyprpaper.enable = false;
-    wm.waybar.enable = true;
-
     school.enable = true;
   };
+
   wayland.windowManager.hyprland.settings.input.kb_options = "ctrl:nocaps,altwin:prtsc_rwin";
   home.shellAliases = {
     bt = "bluetooth";

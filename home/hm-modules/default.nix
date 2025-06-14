@@ -1,1 +1,0 @@
-_: { imports = [ ./plover.nix ]; }

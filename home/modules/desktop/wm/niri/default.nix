@@ -50,6 +50,25 @@
                 "Mod+Return".action = spawn "ghostty";
                 "Mod+Space".action = spawn (lib.getExe pkgs.rofi-wayland) "-show" "drun" "-show-icons";
 
+                "XF86MonBrightnessUp".action = spawn "brightnessctl" "set" "5%+";
+                "XF86MonBrightnessDown".action = spawn "brightnessctl" "set" "5%-";
+
+                "XF86AudioRaiseVolume".action = spawn "wpctl" "set-volume" "-l" "1" "@DEFAULT_AUDIO_SINK@" "10%+";
+                "XF86AudioLowerVolume".action = spawn "wpctl" "set-volume" "-l" "1" "@DEFAULT_AUDIO_SINK@" "10%-";
+                "XF86AudioMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
+                "Shift+XF86AudioRaiseVolume".action =
+                  spawn "wpctl" "set-volume" "-l" "1" "@DEFAULT_AUDIO_SOURCE@"
+                    "10%+";
+                "Shift+XF86AudioLowerVolume".action =
+                  spawn "wpctl" "set-volume" "-l" "1" "@DEFAULT_AUDIO_SOURCE@"
+                    "10%-";
+                "Shift+XF86AudioMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+                "XF86AudioMicMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+
+                "XF86AudioPlay".action = spawn "playerctl" "play-pause";
+                "XF86AudioNext".action = spawn "playerctl" "next";
+                "XF86AudioPrev".action = spawn "playerctl" "previous";
+
                 "Mod+s".action = screenshot;
                 # "Mod+Shift+s".action = screenshot-screen;
                 "Mod+Ctrl+s".action = screenshot-window;
@@ -113,12 +132,14 @@
               };
 
             layout = {
-              gaps = 4;
-              focus-ring = {
+              gaps = 0;
+              border = {
+                enable = true;
                 width = 1;
                 active.color = "#${config.colorScheme.palette.base05}";
                 inactive.color = "#${config.colorScheme.palette.base01}";
               };
+              focus-ring.enable = false;
             };
 
             prefer-no-csd = true;

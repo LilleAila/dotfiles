@@ -20,7 +20,6 @@
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
 
   settings = {
-    ghostty.enable = true;
     browser.firefox.enable = true;
     syncthing.enable = true;
     discord.vesktop = {

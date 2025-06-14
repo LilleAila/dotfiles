@@ -101,6 +101,7 @@
       file
       wget
       fd
+      libqalculate
     ];
   };
 }

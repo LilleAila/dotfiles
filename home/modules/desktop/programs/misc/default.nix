@@ -16,5 +16,6 @@
     ./virtualisation.nix
     ./wlr-which-key.nix
     ./kdeconnect.nix
+    ./plover.nix
   ];
 }

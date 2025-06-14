@@ -21,7 +21,6 @@ in
         nullable = true;
       };
     };
-    dissent.enable = lib.mkEnableOption "dissent";
     vesktop.settings = lib.mkOption {
       inherit (jsonFormat) type;
       default = { };
@@ -29,7 +28,6 @@ in
   };
 
   config = lib.mkMerge [
-    (lib.mkIf config.settings.discord.dissent.enable { home.packages = with pkgs; [ dissent ]; })
     (lib.mkIf config.settings.discord.vesktop.enable {
       home.packages = lib.optionals (config.settings.discord.vesktop.package != null) [
         config.settings.discord.vesktop.package

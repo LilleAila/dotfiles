@@ -6,8 +6,10 @@
   ...
 }:
 {
-  options.settings.greeter.enable = lib.mkEnableOption "greeter";
-  options.settings.greeter.command = lib.mkStrOption "Hyprland";
+  options.settings.greeter = {
+    enable = lib.mkEnableOption "greeter";
+    command = lib.mkStrOption "niri-session";
+  };
 
   config = lib.mkIf config.settings.greeter.enable {
     settings.persist.root.cache = [ "/var/cache/tuigreet" ];

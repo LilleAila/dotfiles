@@ -24,6 +24,10 @@
 
   config = lib.mkMerge [
     (lib.mkIf config.settings.wm.sway.enable {
+      settings = {
+        wm.swaync.enable = lib.mkDefault true;
+      };
+
       xdg.portal = {
         extraPortals = with pkgs; [
           xdg-desktop-portal-wlr

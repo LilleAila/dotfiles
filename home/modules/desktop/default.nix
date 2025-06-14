@@ -27,7 +27,14 @@ in
 
   config = mkMerge [
     (mkIf cfg.full.enable {
-      settings.desktop.enable = true;
+      settings = {
+        desktop.enable = true;
+        gaming = {
+          enable = true;
+          steam.enable = true;
+        };
+      };
+
       home.packages = with pkgs; [
         protonvpn-gui
         fluidsynth
@@ -52,6 +59,8 @@ in
         openscad
         # blender
         tigervnc
+        qalculate-gtk
+        wl-clipboard
       ];
 
       settings.persist.home.directories = [
@@ -130,43 +139,39 @@ in
         fcitx5.enable = mkDefault true;
         # blueman-applet.enable = lib.mkDefault true;
         wm = {
-          ags.enable = mkDefault true;
-          hyprland.enable = mkDefault true;
-          sway.enable = mkDefault false;
-          avizo.enable = mkDefault false;
           hypridle.enable = mkDefault true;
           swaylock.enable = mkDefault true;
           # hyprlock.enable = mkDefault false;
-          hyprpaper.enable = mkDefault true;
-          hyprpaper.wallpaper = mkDefault (
-            outputs.packages.${pkgs.system}.wallpaper.override { inherit (config) colorScheme; }
-          );
-          mako.enable = mkDefault false;
-          wlogout.enable = mkDefault false;
-          espanso.enable = mkDefault false;
+          hyprpaper = {
+            enable = mkDefault true;
+            wallpaper = mkDefault (
+              outputs.packages.${pkgs.system}.wallpaper.override { inherit (config) colorScheme; }
+            );
+          };
+
+          waybar.enable = mkDefault true;
+          swaync.enable = mkDefault true;
         };
+
+        plover.enable = mkDefault true;
 
         files.nemo.enable = mkDefault true;
         files.thunar.enable = mkDefault false;
 
         zathura.enable = mkDefault true;
         browser.firefox.enable = mkDefault true;
-        # browser.qutebrowser.enable = mkDefault true;
+        browser.qutebrowser.enable = mkDefault true;
 
         discord.vesktop.enable = mkDefault true;
-        discord.dissent.enable = mkDefault false;
-
-        emacs.enable = mkDefault false;
 
         kdeconnect.enable = mkDefault true;
 
         terminal = {
           zsh.enable = mkDefault true;
           zsh.theme = mkDefault "nanotech";
-          fish.enable = mkDefault false;
           utils.enable = mkDefault true;
           emulator.enable = mkDefault true;
-          emulator.name = mkDefault "kitty";
+          emulator.name = mkDefault "ghostty";
           neovim.enable = mkDefault true;
         };
 
@@ -203,13 +208,7 @@ in
           icon = mkDefault "input-keyboard-symbolic";
           url = mkDefault "https://monkeytype.com";
         };
-        # CSTimer = {
-        #   icon = mkDefault "timer-symbolic";
-        #   url = mkDefault "https://cstimer.net";
-        # };
       };
-
-      home.sessionVariables."PLOVER_UINPUT_LAYOUT" = lib.mkDefault "no";
     })
   ];
 }
