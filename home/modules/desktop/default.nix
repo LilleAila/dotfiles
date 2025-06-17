@@ -101,6 +101,7 @@ in
     (mkIf cfg.enable {
       home.packages = with pkgs; [
         _1password-gui
+        bitwarden-desktop
         # (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (
         #   ps: with ps; [ plover-lapwing-aio ]
         # ))
