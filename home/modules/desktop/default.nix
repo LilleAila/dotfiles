@@ -95,6 +95,8 @@ in
         ".local/share/FreeCAD"
         ".cache/FreeCAD"
         ".local/share/OpenSCAD"
+        ".cache/tor project"
+        ".tor project"
       ];
 
       settings.nix.unfree = [ "geogebra" ];
