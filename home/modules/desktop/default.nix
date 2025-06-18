@@ -61,6 +61,7 @@ in
         tigervnc
         qalculate-gtk
         wl-clipboard
+        tor-browser
       ];
 
       settings.persist.home.directories = [
