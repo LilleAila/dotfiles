@@ -41,6 +41,7 @@
       desktop.public
       m1pro.public
       m1pro-darwin.public
+      pixel8a.public
     ];
     cloudflared.enable = true;
     nextcloud.enable = true;

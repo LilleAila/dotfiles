@@ -1,5 +1,6 @@
 {
   config,
+  keys,
   lib,
   pkgs,
   inputs,
@@ -39,6 +40,14 @@
     desktop.enable = true;
     sway.enable = true;
     niri.enable = true;
+
+    ssh.enable = true;
+    ssh.keys = with keys.ssh; [
+      desktop.public
+      t420.public
+      x220.public
+      pixel8a.public
+    ];
 
     syncthing.enable = true;
     sound.enable = true;

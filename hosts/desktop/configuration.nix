@@ -43,6 +43,7 @@
       e14g5.public
       t420.public
       x220.public
+      pixel8a.public
     ];
 
     nvidia.passthrough = {
