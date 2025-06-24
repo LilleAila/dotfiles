@@ -12,6 +12,8 @@
   imports = [
     ./hardware-configuration.nix
     ../../nixosModules
+
+    inputs.declarative-flatpak.nixosModule
   ];
 
   networking.hostId = "cc76db3f";
@@ -19,6 +21,26 @@
   environment.systemPackages = with pkgs; [
     qt6.qtwayland
   ];
+
+  services.flatpak = {
+    enable = true;
+    remotes = {
+      "flathub" = "https://dl.flathub.org/repo/flathub.flatpakrepo";
+    };
+    packages = [
+      ":${
+        pkgs.fetchurl {
+          url = "https://www.zubersoft.download/mobilesheets.flatpak";
+          sha256 = "sha256-BJS1twDdGeAovLtY5g2MTQN39xz5jhDfMHtfF9dif5o=";
+        }
+      }"
+    ];
+  };
+
+  settings.persist = {
+    home.cache = [ ".local/share/flatpak" ];
+    root.cache = [ "/var/lib/flatpak" ];
+  };
 
   settings = {
     greeter.enable = true;

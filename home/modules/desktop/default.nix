@@ -164,6 +164,8 @@ in
           swaync.enable = mkDefault true;
         };
 
+        niri.enable = mkDefault true;
+
         plover.enable = mkDefault true;
 
         files.nemo.enable = mkDefault true;

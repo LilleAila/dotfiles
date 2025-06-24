@@ -148,6 +148,10 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
+    declarative-flatpak = {
+      url = "github:in-a-dil-emma/declarative-flatpak";
+    };
+
     # === Other utils ===
     plover-flake = {
       url = "github:openstenoproject/plover-flake";

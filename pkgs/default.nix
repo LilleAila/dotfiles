@@ -20,4 +20,7 @@ in
 
   # Maybe it's possible to do at runtime instead of compile time?
   anki-nix-colors = pkgs.callPackage ./anki.nix { inherit colorScheme; };
+
+  mobilesheets-companion = pkgs.callPackage ./mobilesheets-companion.nix { };
+  mobilesheets-companion2 = pkgs.callPackage ./mobilesheets-companion2.nix { };
 }

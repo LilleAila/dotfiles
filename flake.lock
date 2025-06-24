@@ -76,6 +76,21 @@
         "type": "github"
       }
     },
+    "declarative-flatpak": {
+      "locked": {
+        "lastModified": 1750417150,
+        "narHash": "sha256-L7Tlymc+4cqOCXvKLd2g6J3cycxUg9QG05AVyzlkaC8=",
+        "owner": "in-a-dil-emma",
+        "repo": "declarative-flatpak",
+        "rev": "9c372670f16997cc5ec99cd2bc6fa6962cad5899",
+        "type": "github"
+      },
+      "original": {
+        "owner": "in-a-dil-emma",
+        "repo": "declarative-flatpak",
+        "type": "github"
+      }
+    },
     "emacs-config": {
       "inputs": {
         "nix-colors": [
@@ -817,6 +832,7 @@
     "root": {
       "inputs": {
         "ags-config": "ags-config",
+        "declarative-flatpak": "declarative-flatpak",
         "emacs-config": "emacs-config",
         "firefox-addons": "firefox-addons",
         "focal": "focal",
