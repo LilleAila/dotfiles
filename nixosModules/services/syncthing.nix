@@ -39,7 +39,7 @@ in
         dataDir = "/home/${username}";
         configDir = "/home/${username}/.config/syncthing";
         openDefaultPorts = true;
-        overrideDevices = true;
+        overrideDevices = false; # Fails to add device? https://github.com/NixOS/nixpkgs/issues/326704 https://github.com/NixOS/nixpkgs/issues/394405
         overrideFolders = true;
         # inherit (config.hm.services.syncthing) settings;
         settings = {
@@ -78,6 +78,9 @@ in
             "Pixel 8a" = {
               id = secrets.ids.pixel8a;
             };
+            oppad3 = {
+              id = secrets.ids.oppad3;
+            };
           };
 
           folders = {
@@ -114,7 +117,9 @@ in
                 "m1pro"
                 "m1pro-darwin"
                 "t420"
-                "Pixel 8a" # NOTE: android is configured imperatively. `path` defined above does *not* apply
+                # NOTE: android is configured imperatively. `path` defined above does *not* apply
+                "Pixel 8a"
+                "oppad3"
               ];
             };
             "Android Camera" = {

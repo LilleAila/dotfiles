@@ -29,7 +29,7 @@ in
         # https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
         inherit (config.settings.terminal.zsh) theme;
       };
-      initExtra = ''
+      initContent = ''
         unsetopt HIST_SAVE_BY_COPY
 
         ex = () {

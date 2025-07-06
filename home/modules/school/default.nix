@@ -44,27 +44,21 @@
       }
       {
         home.packages = with pkgs; [
-          (inputs.wrapper-manager.lib.build {
-            inherit pkgs;
-            modules = [
-              {
-                wrappers.libreoffice = {
-                  basePackage = libreoffice;
-                  extraPackages = [
-                    temurin-jre-bin-17
-                    (hunspellWithDicts (
-                      with hunspellDicts;
-                      [
-                        nb-no
-                        nn-no
-                        en-us-large
-                        en-gb-large
-                        fr-any
-                      ]
-                    ))
-                  ];
-                };
-              }
+          (inputs.wrapper-manager.lib.wrapWith pkgs {
+            basePackage = libreoffice;
+            extraPackages = [
+              temurin-jre-bin-17
+              # FIXME
+              # (hunspell.withDicts (
+              #   with hunspellDicts;
+              #   [
+              #     nb-no
+              #     nn-no
+              #     en-us-large
+              #     en-gb-large
+              #     fr-any
+              #   ]
+              # ))
             ];
           })
           zotero

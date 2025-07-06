@@ -42,12 +42,11 @@ in
         inkscape
         xournalpp
         krita
-        libreoffice
         kdePackages.kdenlive
         ffmpeg
         shotcut
         # (outputs.packages.${pkgs.system}.anki-nix-colors.override { inherit (config) colorScheme; }) # it's just too slow
-        # musescore
+        musescore
         calibre
         libgen-cli
         bottles

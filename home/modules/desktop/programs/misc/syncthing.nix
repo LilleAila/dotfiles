@@ -52,6 +52,9 @@ in
           "Pixel 8a" = {
             id = secrets.ids.pixel8a;
           };
+          oppad3 = {
+            id = secrets.ids.oppad3;
+          };
         };
 
         folders = {
@@ -88,7 +91,9 @@ in
               "m1pro"
               "m1pro-darwin"
               "t420"
-              "Pixel 8a" # NOTE: android is configured imperatively. `path` defined above does *not* apply
+              # NOTE: android is configured imperatively. `path` defined above does *not* apply
+              "Pixel 8a"
+              "oppad3"
             ];
           };
           "Android Camera" = {

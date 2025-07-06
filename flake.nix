@@ -184,7 +184,6 @@
 
     wrapper-manager = {
       url = "github:viperML/wrapper-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-index-database = {

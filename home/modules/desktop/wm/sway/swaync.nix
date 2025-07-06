@@ -43,7 +43,7 @@
 
     # Required for waybar to recognise the program properly
     # FIXME: maybe just start waybar from sway instead of through systemd (disable systemd.enable in waybar)
-    systemd.user.services.waybar.Service.Environment = "PATH=${
+    systemd.user.services.waybar.Service.Environment = lib.mkForce "PATH=${
       lib.makeBinPath [ config.services.swaync.package ]
     }";
 
