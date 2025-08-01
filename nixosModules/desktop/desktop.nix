@@ -22,7 +22,13 @@
       ".config/dconf"
       "qmk_firmware"
     ];
-    # services.printing.enable = true;
+
+    services.printing = {
+      enable = true;
+      drivers = with pkgs; [
+        brlaser
+      ];
+    };
 
     services.udisks2.enable = true;
 
