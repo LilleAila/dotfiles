@@ -25,6 +25,10 @@
     school.enable = true;
   };
 
+  home.packages = with pkgs; [
+    ardour
+  ];
+
   wayland.windowManager.hyprland.settings.input.kb_options = "ctrl:nocaps,altwin:prtsc_rwin";
   home.shellAliases = {
     bt = "bluetooth";
