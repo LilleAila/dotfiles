@@ -102,9 +102,7 @@
     };
 
     # Disable power button (handle in window manager)
-    services.logind.extraConfig = ''
-      HandlePowerKey=ignore
-    '';
+    services.logind.settings.Login.HandlePowerKey = "ignore";
 
     # == Authentication stuff ==
     # Allow authentication in swaylock

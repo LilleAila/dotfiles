@@ -120,10 +120,10 @@
     wantedBy = [ "multi-user.target" ];
   };
 
-  services.logind.extraConfig = ''
-    HandleLidSwitch=suspend
-    HandleLidSwitchDocked=suspend
-  '';
+  services.logind.settings.Login = {
+    HandleLidSwitch = "suspend";
+    HandleLidSwitchDocked = "suspend";
+  };
 
   environment.variables.LIBSEAT_BACKEND = "logind";
 

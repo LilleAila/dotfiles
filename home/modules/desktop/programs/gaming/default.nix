@@ -33,8 +33,8 @@
     ];
 
     home.packages = with pkgs; [
-      # heroic # FIXME: currently broken :(
-      ryujinx
+      # heroic
+      # ryubing
       # (pkgs.factorio.override {
       #   # It's easier to use the built-in mod manager than to package it with nix
       #   inherit (import ../../../../../secrets/factorio.nix) username token;

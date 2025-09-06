@@ -15,10 +15,11 @@
     settings.persist.root.cache = [ "/var/cache/tuigreet" ];
     services.greetd = {
       enable = true;
+      useTextGreeter = true;
       settings = {
         default_session = {
           command = pkgs.writeScript "start_tuigreet" ''
-            ${lib.getExe pkgs.greetd.tuigreet} --cmd ${config.settings.greeter.command} \
+            ${lib.getExe pkgs.tuigreet} --cmd ${config.settings.greeter.command} \
               --time \
               --user-menu \
               --asterisks \
@@ -43,7 +44,6 @@
           '';
         };
       };
-      vt = 2;
     };
   };
 }
