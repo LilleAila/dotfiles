@@ -26,6 +26,7 @@
   };
 
   home.packages = with pkgs; [
+    neural-amp-modeler-lv2
     ardour
   ];
 

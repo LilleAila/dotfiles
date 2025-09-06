@@ -49,7 +49,8 @@
               # I don't want to pass name as a specialArg
               settings.home-manager.path = ./hosts/${name}/home.nix;
             }
-          ] ++ extraModules;
+          ]
+          ++ extraModules;
         };
     in
     {
@@ -137,6 +138,11 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    musnix = {
+      url = "github:musnix/musnix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
