@@ -38,7 +38,7 @@
 
   # Translations
   "browser.translations.panelShown" = true;
-  "browser.translations.enable" = true;
+  "browser.translations.enable" = false;
   "browser.translations.automaticallyPopup" = false;
   "browser.translations.neverTranslateLanguages" = "nb,nn,fr,en";
 
@@ -68,6 +68,8 @@
   "media.videocontrols.picture-in-picture.enabled" = false;
   "mousewheel.with_control.action" = 0; # Disable ctrl+scroll to zoom
 
+  "devtools.debugger.remote-enabled" = true;
+  "devtools.chrome.enabled" = true; # ctrl+alt+shift+i to open browser toolbox
   "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
   "browser.tabs.inTitlebar" = 0;
@@ -78,4 +80,60 @@
   "font.name.monospace.x-western" = config.settings.fonts.monospace.name;
   "font.name.sans-serif.x-western" = config.settings.fonts.sansSerif.name;
   "font.name.serif.x-western" = config.settings.fonts.serif.name;
+
+  # UI Customization, themes and stuff
+  "ui.systemUsesDarkTheme" = 1;
+  # "browser.theme.native-theme" = false; # do not use the GTK theme
+  # To change this, just modify the toolbar with the editor inside firefox and copy the new value here.
+  "browser.uiCustomization.state" = builtins.toJSON {
+    "placements" = {
+      "widget-overflow-fixed-list" = [ ];
+      "unified-extensions-area" = [
+        "sponsorblocker_ajay_app-browser-action"
+        "ublock0_raymondhill_net-browser-action"
+        "addon_darkreader_org-browser-action"
+        "zotero_chnm_gmu_edu-browser-action"
+      ];
+      "nav-bar" = [
+        "back-button"
+        "forward-button"
+        "alltabs-button"
+        "urlbar-container"
+        "downloads-button"
+        "unified-extensions-button"
+        "vertical-spacer"
+        "reset-pbm-toolbar-button"
+      ];
+      "toolbar-menubar" = [ "menubar-items" ];
+      "TabsToolbar" = [
+        "tabbrowser-tabs"
+        "new-tab-button"
+      ];
+      "vertical-tabs" = [ ];
+      "PersonalToolbar" = [ "personal-bookmarks" ];
+    };
+    "seen" = [
+      "addon_darkreader_org-browser-action"
+      "ublock0_raymondhill_net-browser-action"
+      "_34daeb50-c2d2-4f14-886a-7160b24d66a4_-browser-action"
+      "_531906d3-e22f-4a6c-a102-8057b88a1a63_-browser-action"
+      "_9a41dee2-b924-4161-a971-7fb35c053a4a_-browser-action"
+      "sponsorblocker_ajay_app-browser-action"
+      "zotero_chnm_gmu_edu-browser-action"
+      "_d634138d-c276-4fc8-924b-40a0ea21d284_-browser-action"
+      "developer-button"
+      "screenshot-button"
+    ];
+    "dirtyAreaCache" = [
+      "unified-extensions-area"
+      "nav-bar"
+      "toolbar-menubar"
+      "TabsToolbar"
+      "vertical-tabs"
+      "PersonalToolbar"
+      "widget-overflow-fixed-list"
+    ];
+    "currentVersion" = 23;
+    "newElementCount" = 16;
+  };
 }

@@ -13,6 +13,21 @@ in
     --toolbar-field-color: #${c.base07} !important;
   }
 
+  /* Colors */
+
+  #urlbar,
+  #urlbar *,
+  .tabbrowser-tab,
+  .tabbrowser-tab *,
+  #nav-bar toolbarbutton,
+  #nav-bar toolbarbutton *,
+  #PopupAutoCompleteRichResult,
+  #PopupAutoCompleteRichResult *,
+  #toolbar-menubar,
+  #toolbar-menubar * {
+    color: #${c.base07} !important;
+  }
+
   /* Titlebar(s) */
   #titlebar,
   #PersonalToolbar,
@@ -26,6 +41,21 @@ in
     border: 0 !important;
     margin: 0 !important;
   }
+
+  /* Swap search and tab bars */
+  /* #nav-bar {
+    -moz-box-ordinal-group: 0 !important;
+  }
+
+  #TabsToolbar {
+    -moz-box-ordinal-group: 1 !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  #toolbar-menubar {
+    -moz-box-ordinal-group: 0 !important;
+  } */
 
   /* URL input field */
   #urlbar-input-container {
@@ -103,10 +133,6 @@ in
     color: #${c.base07} !important;
   }*/
 
-  #star-button {
-    fill: #${c.base0A} !important;
-  }
-
   #editBookmarkPanel toolbarseparator {
     display: none !important;
   }
@@ -124,6 +150,15 @@ in
     background-color: #${c.base0A} !important;
     color: #${c.base01} !important;
   }
+
+  /* Toolbar buttons */
+  #star-button {
+    fill: #${c.base0A} !important;
+  }
+
+  .toolbarbutton-1 {
+    fill: #${c.base07} !important;
+  };
 
   /* Context menus (right-click) */
   .menupopup-arrowscrollbox {
@@ -189,6 +224,22 @@ in
     width: 1.1em !important;
     margin-right: 4px !important;
   }
+  #TabsToolbar {
+    height: 2em !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  #tabbrowser-arrowscrollbox-periphery {
+    display: none !important;
+  }
+  #tabbrowser-arrowscrollbox {
+    height: 2em !important;
+  }
+  #tabbrowser-tabs {
+    min-height: 0 !important;
+    height: 2em !important;
+  }
 
   /* Disable the search bar (show on ctrl + L) */
   /*
@@ -223,6 +274,8 @@ in
   .searchbar-search-button,
   #tracking-protection-icon-container,
   #urlbar .search-one-offs,
+  #scrollbutton-down,
+  #scrollbutton-up,
   .tab-close-button
   {
     display: none !important;
