@@ -41,16 +41,17 @@ Riced with [nix-colors](https://github.com/Misterio77/nix-colors) using [gruvbox
 
 I use the following computers with my dotfiles:
 
-| Name                                                 | Hostname     | Architecture | Note                                                                                                              |
-| ---------------------------------------------------- | ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------- |
-| [Desktop](./hosts/desktop/readme.md)                 | `nixdesktop` | `x86_64`     |                                                                                                                   |
-| [Lenovo ThinkPad E14 Gen 5](./hosts/e14g5/readme.md) | `e14g5-nix`  | `x86_64`     | Main                                                                                                              |
-| [Lenovo ThinkPad X220](./hosts/x220-nix/readme.md)   | `x220-nix`   | `x86_64`     |                                                                                                                   |
-| [Lenovo ThinkPad T420](./hosts/t420/readme.md)       | `t420-nix`   | `x86_64`     |                                                                                                                   |
-| [Oracle cloud](./hosts/oci/readme.md)                | `oci-nix`    | `aarch64`    |                                                                                                                   |
-| Apple MacBook Pro 14"                                | `m1pro-nix`  | `aarch64`    | WIP                                                                                                               |
-| Apple MacBook Pro 14"                                | `mac-nix`    | `aarch64`    | Deprecated as of [30c156f](https://github.com/LilleAila/dotfiles/commit/30c156fd9a3cf98db7e0f58d10df9b841800ca54) |
-| Lenovo Legion Y540                                   | `legion-nix` | `x86_64`     | Deprecated as of [2a8641e](https://github.com/LilleAila/dotfiles/commit/2a8641eaf5bdf22d609baf2021100634dd83c5ad) |
+| Name                                                             | Hostname       | Architecture | Note                                                                                                              |
+| ---------------------------------------------------------------- | -------------- | ------------ | ----------------------------------------------------------------------------------------------------------------- |
+| [Apple MacBook Pro 14" (Darwin)](./hosts/m1pro-darwin/readme.md) | `m1pro-darwin` | `aarch64`    |                                                                                                                   |
+| [Desktop](./hosts/desktop/readme.md)                             | `nixdesktop`   | `x86_64`     |                                                                                                                   |
+| [Lenovo ThinkPad E14 Gen 5](./hosts/e14g5/readme.md)             | `e14g5-nix`    | `x86_64`     | Main                                                                                                              |
+| [Lenovo ThinkPad X220](./hosts/x220-nix/readme.md)               | `x220-nix`     | `x86_64`     |                                                                                                                   |
+| [Lenovo ThinkPad T420](./hosts/t420/readme.md)                   | `t420-nix`     | `x86_64`     |                                                                                                                   |
+| [Oracle cloud](./hosts/oci/readme.md)                            | `oci-nix`      | `aarch64`    |                                                                                                                   |
+| Apple MacBook Pro 14"                                            | `m1pro-nix`    | `aarch64`    | Deprecated as of [f7c0989](https://github.com/LilleAila/dotfiles/commit/f7c09896473236ccc84c5513cc27c4368efc3090) |
+| Apple MacBook Pro 14"                                            | `mac-nix`      | `aarch64`    | Deprecated as of [30c156f](https://github.com/LilleAila/dotfiles/commit/30c156fd9a3cf98db7e0f58d10df9b841800ca54) |
+| Lenovo Legion Y540                                               | `legion-nix`   | `x86_64`     | Deprecated as of [2a8641e](https://github.com/LilleAila/dotfiles/commit/2a8641eaf5bdf22d609baf2021100634dd83c5ad) |
 
 ## Inspiration
 
