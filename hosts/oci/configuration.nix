@@ -39,7 +39,6 @@
       e14g5.public
       t420.public
       desktop.public
-      m1pro.public
       m1pro-darwin.public
       pixel8a.public
     ];

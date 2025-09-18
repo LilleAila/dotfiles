@@ -7,7 +7,6 @@
       nixpkgs,
       home-manager,
       nixos-hardware,
-      nixos-apple-silicon,
       ...
     }@inputs:
     let
@@ -101,11 +100,6 @@
           extraModules = [ nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd ];
         };
 
-        m1pro-nix = mkConfig {
-          name = "m1pro";
-          extraModules = [ nixos-apple-silicon.nixosModules.apple-silicon-support ];
-        };
-
         vm-nix = mkConfig { name = "vm"; };
 
         installer = mkConfig {
@@ -147,10 +141,6 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nixos-apple-silicon = {
-      url = "github:tpwrules/nixos-apple-silicon";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     impermanence.url = "github:nix-community/impermanence";
 

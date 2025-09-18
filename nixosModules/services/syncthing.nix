@@ -69,9 +69,6 @@ in
             desktop = {
               id = secrets.ids.desktop;
             };
-            m1pro = {
-              id = secrets.ids.m1pro;
-            };
             m1pro-darwin = {
               id = secrets.ids.m1pro-darwin;
             };
@@ -92,7 +89,6 @@ in
                 "e14g5"
                 "x220"
                 "desktop"
-                "m1pro"
                 "m1pro-darwin"
               ];
             };
@@ -104,7 +100,6 @@ in
                 "e14g5"
                 "x220"
                 "desktop"
-                "m1pro"
                 "m1pro-darwin"
               ];
             };
@@ -114,7 +109,6 @@ in
                 "oci"
                 "e14g5"
                 "desktop"
-                "m1pro"
                 "m1pro-darwin"
                 "t420"
                 # NOTE: android is configured imperatively. `path` defined above does *not* apply
@@ -129,7 +123,6 @@ in
                 "oci"
                 "e14g5"
                 "desktop"
-                "m1pro"
                 "m1pro-darwin"
                 "t420"
                 "Pixel 8a"
@@ -142,7 +135,6 @@ in
                 "oci"
                 "e14g5"
                 "desktop"
-                "m1pro"
                 "m1pro-darwin"
                 "t420"
                 "Pixel 8a"
@@ -154,7 +146,6 @@ in
                 "oci"
                 "e14g5"
                 "desktop"
-                "m1pro"
                 "m1pro-darwin"
                 "t420"
               ];
