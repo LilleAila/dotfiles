@@ -21,7 +21,7 @@
 
   settings = {
     browser.firefox.enable = false;
-    syncthing.enable = false;
+    syncthing.enable = true;
     discord.vesktop = {
       enable = true;
       package = null;
@@ -56,10 +56,14 @@
 
   sops.secrets."ssh/m4air-darwin".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
   home.file.".ssh/id_ed25519.pub".text = keys.ssh.m4air-darwin.public;
-  # sops.secrets."syncthing/m1pro-darwin/cert".path =
-  #   "${config.home.homeDirectory}/Library/Application Support/Syncthing/cert.pem";
-  # sops.secrets."syncthing/m1pro-darwin/key".path =
-  #   "${config.home.homeDirectory}/Library/Application Support/Syncthing/key.pem";
+  sops.secrets."syncthing/m4air-darwin/cert".path =
+    "${config.home.homeDirectory}/Library/Application Support/Syncthing/cert.pem";
+  sops.secrets."syncthing/m4air-darwin/key".path =
+    "${config.home.homeDirectory}/Library/Application Support/Syncthing/key.pem";
+  sops.secrets."syncthing/m4air-darwin/https-cert".path =
+    "${config.home.homeDirectory}/Library/Application Support/Syncthing/https-cert.pem";
+  sops.secrets."syncthing/m4air-darwin/https-key".path =
+    "${config.home.homeDirectory}/Library/Application Support/Syncthing/https-key.pem";
 
   # TODO: All below should be handled in the modules, through some use of pkgs.stdenv.hostPlatform.isDarwin, or through a specialArg
   # All graphicals applications should be installed through brew.

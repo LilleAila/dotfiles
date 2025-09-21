@@ -43,8 +43,8 @@ in
           desktop = {
             id = secrets.ids.desktop;
           };
-          m1pro-darwin = {
-            id = secrets.ids.m1pro-darwin;
+          m4air-darwin = {
+            id = secrets.ids.m4air-darwin;
           };
           "Pixel 8a" = {
             id = secrets.ids.pixel8a;
@@ -63,7 +63,7 @@ in
               "e14g5"
               "x220"
               "desktop"
-              "m1pro-darwin"
+              "m4air-darwin"
             ];
           };
           "Spell" = {
@@ -74,7 +74,7 @@ in
               "e14g5"
               "x220"
               "desktop"
-              "m1pro-darwin"
+              "m4air-darwin"
             ];
           };
           "Notes" = {
@@ -83,7 +83,7 @@ in
               "oci"
               "e14g5"
               "desktop"
-              "m1pro-darwin"
+              "m4air-darwin"
               "t420"
               # NOTE: android is configured imperatively. `path` defined above does *not* apply
               "Pixel 8a"
@@ -97,7 +97,7 @@ in
               "oci"
               "e14g5"
               "desktop"
-              "m1pro-darwin"
+              "m4air-darwin"
               "t420"
               "Pixel 8a"
             ];
@@ -109,7 +109,7 @@ in
               "oci"
               "e14g5"
               "desktop"
-              "m1pro-darwin"
+              "m4air-darwin"
               "t420"
               "Pixel 8a"
             ];
@@ -120,7 +120,7 @@ in
               "oci"
               "e14g5"
               "desktop"
-              "m1pro-darwin"
+              "m4air-darwin"
               "t420"
             ];
           };
@@ -131,7 +131,7 @@ in
               "oci"
               "e14g5"
               "desktop"
-              "m1pro-darwin"
+              "m4air-darwin"
             ];
           };
           "Minecraft" = {
@@ -140,7 +140,7 @@ in
               "oci"
               "e14g5"
               "desktop"
-              "m1pro-darwin"
+              "m4air-darwin"
             ];
           };
         };
