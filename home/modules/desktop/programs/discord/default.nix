@@ -62,7 +62,9 @@ in
         notifyAboutUpdates = false;
         useQuickCss = true;
         disableMinSize = true;
-        enabledThemes = [ "base16.theme.css" ];
+        enabledThemes = [
+          # "base16.theme.css"
+        ];
         plugins = {
           AlwaysTrust.enabled = true;
           AnonymiseFileNames.enabled = true;

@@ -14,7 +14,9 @@
   };
 
   config = lib.mkIf config.settings.aerospace.enable {
-    settings.aerospace.float = [ "no.gyldendal.ordnettpluss" ];
+    settings.aerospace.float = [ ];
+
+    launchd.user.agents.aerospace.serviceConfig.Nice = -20;
 
     services.aerospace = {
       enable = true;
@@ -37,12 +39,6 @@
                 app-id = "com.hnc.discord";
               };
               run = "move-node-to-workspace z";
-            }
-            {
-              "if" = {
-                app-id = "no.gyldendal.ordnettpluss";
-              };
-              run = "move-node-to-workspace o";
             }
           ];
 

@@ -11,7 +11,7 @@
 
   config = lib.mkIf config.settings.system.enable {
     system = {
-      primaryUser = "olai";
+      primaryUser = "olaisolsvik";
 
       configurationRevision = self.rev or self.dirtyRev or null;
       stateVersion = 6;

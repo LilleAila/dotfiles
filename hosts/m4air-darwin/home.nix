@@ -13,15 +13,15 @@
   home = {
     homeDirectory = lib.mkForce "/Users/${user}";
     shellAliases = {
-      osbuild = lib.mkForce "darwin-rebuild switch --flake ${config.home.homeDirectory}/dotfiles";
+      osbuild = lib.mkForce "sudo darwin-rebuild switch --flake ${config.home.homeDirectory}/dotfiles";
     };
   };
 
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
 
   settings = {
-    browser.firefox.enable = true;
-    syncthing.enable = true;
+    browser.firefox.enable = false;
+    syncthing.enable = false;
     discord.vesktop = {
       enable = true;
       package = null;
@@ -31,6 +31,7 @@
       zsh.enable = true;
       utils.enable = true;
       neovim.enable = true;
+      emulator.enable = true;
     };
 
     sops.enable = true;
@@ -39,7 +40,6 @@
   programs.lf.enable = lib.mkForce false;
 
   home.packages = with pkgs; [
-    mas
     ffmpeg
     fd
     ripgrep
@@ -54,12 +54,12 @@
       eval "$(/opt/homebrew/bin/brew shellenv)"
     '';
 
-  sops.secrets."ssh/m1pro-darwin".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
-  home.file.".ssh/id_ed25519.pub".text = keys.ssh.m1pro-darwin.public;
-  sops.secrets."syncthing/m1pro-darwin/cert".path =
-    "${config.home.homeDirectory}/Library/Application Support/Syncthing/cert.pem";
-  sops.secrets."syncthing/m1pro-darwin/key".path =
-    "${config.home.homeDirectory}/Library/Application Support/Syncthing/key.pem";
+  # sops.secrets."ssh/m1pro-darwin".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
+  # home.file.".ssh/id_ed25519.pub".text = keys.ssh.m1pro-darwin.public;
+  # sops.secrets."syncthing/m1pro-darwin/cert".path =
+  #   "${config.home.homeDirectory}/Library/Application Support/Syncthing/cert.pem";
+  # sops.secrets."syncthing/m1pro-darwin/key".path =
+  #   "${config.home.homeDirectory}/Library/Application Support/Syncthing/key.pem";
 
   # TODO: All below should be handled in the modules, through some use of pkgs.stdenv.hostPlatform.isDarwin, or through a specialArg
   # All graphicals applications should be installed through brew.

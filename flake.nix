@@ -59,9 +59,9 @@
       });
 
       darwinConfigurations = {
-        "Olais-MacBook-Pro" = inputs.nix-darwin.lib.darwinSystem {
+        "Olais-MacBook-Air" = inputs.nix-darwin.lib.darwinSystem {
           modules = [
-            ./hosts/m1pro-darwin/configuration.nix
+            ./hosts/m4air-darwin/configuration.nix
             ./nixDarwinModules
           ];
           specialArgs = {
@@ -72,7 +72,7 @@
               keys
               lib
               ;
-            user = "olai";
+            user = "olaisolsvik";
             globalSettings = defaultSettings; # For compatibility, will remove
           };
         };

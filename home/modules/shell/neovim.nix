@@ -47,7 +47,7 @@
           ".local/state/nvim"
         ];
       }
-      (lib.mkIf config.settings.terminal.emulator.enable {
+      (lib.mkIf (config.settings.terminal.emulator.enable && !pkgs.stdenv.isDarwin) {
         xdg.desktopEntries.nvim = {
           name = "Neovim";
           genericName = "Text Editor";

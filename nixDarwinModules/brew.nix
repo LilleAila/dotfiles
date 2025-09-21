@@ -22,18 +22,17 @@
       # , manually for each one
       # TODO: move these things into the correct places, rather than always install.
       taps = [
-        "nikitabobko/tap"
+        # "nikitabobko/tap"
         "LilleAila/tap"
       ];
       brews = [
+        "mas"
         "bitwarden-cli"
       ];
       casks = [
         "ghostty"
         "vesktop" # packaged myself, see https://github.com/Vencord/Vesktop/issues/172
-        "aerospace"
-        # "microsoft-auto-update" # maybe needed, maybe not; idk
-        # "microsoft-office"
+        # "aerospace"
         "microsoft-teams"
         "freecad"
         "bambu-studio"
@@ -43,44 +42,34 @@
         "inkscape"
         "anki"
         "geogebra"
-        "1password"
         "yubico-authenticator"
         "prefs-editor"
         "firefox"
         "sioyek"
         "obsidian"
-        "jupyterlab"
-        # "chatgpt" # NOTE: temp disabled for exam
+        "chatgpt"
         "vesktop"
-        "soapui"
         "prismlauncher"
-        "ukelele"
         "kicad"
         "scroll-reverser"
         "tor-browser"
         "dymo-connect"
         "raspberry-pi-imager"
-        "eloston-chromium" # ungoogled-chromium
+        "ungoogled-chromium"
         "openscad@snapshot"
-        "kiwix"
-        "docker"
-        # Not apple silicon; requires rosetta 2
-        "ordnett-pluss"
-        "steam"
-        "qgis@ltr"
-        "kitty"
-        "xournal++"
-        "wacom-tablet"
+        "docker-desktop"
         "musescore"
         "vnc-viewer"
         "cyberduck"
         "bitwarden"
+
+        # Not apple silicon; requires rosetta 2
+        "steam"
       ];
       # Requires apps to be already "purchased" (press get)
       # sometimes works, sometimes doesn't /shrug
       # running `mas purchase` will fix this, making it so subsequent installations of the same app will work
       masApps = {
-        "1Password for Safari" = 1569813296;
         # "Lichess" = 968371784; # https://github.com/mas-cli/mas/issues/321
         # Installing from app store avoids using microsoft auto update
         # Teams is not present, but is also provided as a separate package, which does not use MAU
