@@ -54,8 +54,8 @@
       eval "$(/opt/homebrew/bin/brew shellenv)"
     '';
 
-  # sops.secrets."ssh/m1pro-darwin".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
-  # home.file.".ssh/id_ed25519.pub".text = keys.ssh.m1pro-darwin.public;
+  sops.secrets."ssh/m4air-darwin".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
+  home.file.".ssh/id_ed25519.pub".text = keys.ssh.m4air-darwin.public;
   # sops.secrets."syncthing/m1pro-darwin/cert".path =
   #   "${config.home.homeDirectory}/Library/Application Support/Syncthing/cert.pem";
   # sops.secrets."syncthing/m1pro-darwin/key".path =
