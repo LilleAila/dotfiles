@@ -1,5 +1,8 @@
 {
   user,
+  pkgs,
+  outputs,
+  config,
   ...
 }:
 {
@@ -14,4 +17,17 @@
   };
 
   home-manager.users.${user} = import ./home.nix;
+
+  # NOTE: might want to do this in hm instead.
+  system.activationScripts.extraActivation.text =
+    let
+      wallpaper = outputs.packages.${pkgs.system}.wallpaper.override {
+        inherit (config.hm) colorScheme;
+        logo = "apple";
+      };
+    in
+    ''
+      /usr/bin/osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"${wallpaper}\""
+    '';
+
 }

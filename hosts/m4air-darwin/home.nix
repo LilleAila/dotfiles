@@ -3,6 +3,7 @@
   config,
   lib,
   inputs,
+  outputs,
   user,
   keys,
   ...

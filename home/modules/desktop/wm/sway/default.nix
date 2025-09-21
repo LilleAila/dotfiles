@@ -84,7 +84,12 @@
           # Set wallpapers
           output = {
             "*" = {
-              bg = "${outputs.packages.${pkgs.system}.wallpaper.override { inherit (config) colorScheme; }} fill";
+              bg = "${
+                outputs.packages.${pkgs.system}.wallpaper.override {
+                  inherit (config) colorScheme;
+                  logo = "nix";
+                }
+              } fill";
             };
           };
 

@@ -7,14 +7,14 @@
   bg ? colorScheme.palette.base00,
   fg ? colorScheme.palette.base01,
   accent ? colorScheme.palette.base0D,
-  logo ? true,
+  logo ? "none",
   # Arguments
   width ? 1920,
   height ? 1080,
 }:
 stdenv.mkDerivation {
-  name = "nix-wallpaper-${colorScheme.slug}.png";
-  src = if logo then ./template.svg else ./template_no_logo.svg;
+  name = "nix-wallpaper-${colorScheme.slug}-${logo}.png";
+  src = ./template_${logo}.svg;
   nativeBuildInputs = [ inkscape ];
   unpackPhase = "true";
   buildPhase =

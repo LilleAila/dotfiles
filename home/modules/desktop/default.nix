@@ -155,7 +155,10 @@ in
           hyprpaper = {
             enable = mkDefault true;
             wallpaper = mkDefault (
-              outputs.packages.${pkgs.system}.wallpaper.override { inherit (config) colorScheme; }
+              outputs.packages.${pkgs.system}.wallpaper.override {
+                inherit (config) colorScheme;
+                logo = "nix";
+              }
             );
           };
 
