@@ -17,7 +17,7 @@ lib.mkIf config.settings.wm.sway.enable {
       up = "k";
       right = "l";
       terminal = config.settings.terminal.emulator.exec;
-      menu = "${lib.getExe pkgs.rofi-wayland} -show drun -show-icons"; # TODO: Actually set up a launcher (ags)
+      menu = "${lib.getExe pkgs.rofi} -show drun -show-icons"; # TODO: Actually set up a launcher (ags)
       modifier = "Mod4"; # This is super
       # https://depau.github.io/sway-cheatsheet/
       # https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/i3-sway/sway.nix

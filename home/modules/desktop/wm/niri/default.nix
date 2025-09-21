@@ -48,7 +48,7 @@
                 # `Mod` is super in tty and alt as a nested window
                 "Mod+w".action = close-window;
                 "Mod+Return".action = spawn "ghostty";
-                "Mod+Space".action = spawn (lib.getExe pkgs.rofi-wayland) "-show" "drun" "-show-icons";
+                "Mod+Space".action = spawn (lib.getExe pkgs.rofi) "-show" "drun" "-show-icons";
 
                 "XF86MonBrightnessUp".action = spawn "brightnessctl" "set" "5%+";
                 "XF86MonBrightnessDown".action = spawn "brightnessctl" "set" "5%-";
