@@ -62,6 +62,7 @@
         "vnc-viewer"
         "cyberduck"
         "bitwarden"
+        "arduino-ide"
 
         # Not apple silicon; requires rosetta 2
         "steam"
