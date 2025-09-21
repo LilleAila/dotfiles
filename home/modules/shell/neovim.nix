@@ -45,6 +45,7 @@
         settings.persist.home.directories = [
           ".local/share/nvim"
           ".local/state/nvim"
+          ".local/share/nvf/site"
         ];
       }
       (lib.mkIf (config.settings.terminal.emulator.enable && !pkgs.stdenv.isDarwin) {
