@@ -21,7 +21,7 @@
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
 
   settings = {
-    browser.firefox.enable = false;
+    browser.firefox.enable = true; # TODO: optimize for macos
     syncthing.enable = true;
     discord.vesktop = {
       enable = true;
