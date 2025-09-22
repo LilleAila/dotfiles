@@ -67,6 +67,10 @@
         "ableton-live-lite"
         "ilok-license-manager"
         "arturia-software-center"
+        "neural-amp-modeler"
+        # "uvi-workstation" # installed through uvi portal
+        "uvi-portal"
+        "native-access"
 
         # Not apple silicon; requires rosetta 2
         "steam"
