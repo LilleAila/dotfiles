@@ -64,6 +64,10 @@
         "bitwarden"
         "arduino-ide"
 
+        "ableton-live-lite"
+        "ilok-license-manager"
+        "arturia-software-center"
+
         # Not apple silicon; requires rosetta 2
         "steam"
       ];
