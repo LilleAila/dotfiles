@@ -28,6 +28,7 @@
       brews = [
         "mas"
         "bitwarden-cli"
+        "arduino-cli"
       ];
       casks = [
         "ghostty"
