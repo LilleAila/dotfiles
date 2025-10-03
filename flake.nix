@@ -202,6 +202,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-minecraft = {
+      url = "github:Infinidoge/nix-minecraft";
+    };
+
     # === My stuff ===
     nix-cursors = {
       url = "github:LilleAila/nix-cursors";

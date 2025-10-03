@@ -47,6 +47,7 @@
     syncthing.enable = true;
     webdav.enable = true;
     calibre-web.enable = true;
+    minecraft.enable = true;
   };
 
   programs.gnupg.agent = {
