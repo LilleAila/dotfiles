@@ -39,11 +39,11 @@
       e14g5.public
       t420.public
       desktop.public
-      m1pro-darwin.public
+      m4air-darwin.public
       pixel8a.public
     ];
-    cloudflared.enable = true;
-    nextcloud.enable = true;
+
+    caddy.enable = true;
     syncthing.enable = true;
     webdav.enable = true;
     calibre-web.enable = true;

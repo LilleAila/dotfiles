@@ -14,13 +14,17 @@
       group = "cloudflared";
     };
 
-    services.cloudflared.tunnels.${(import ../../secrets/tokens.nix).calibre.id} = {
-      credentialsFile = config.sops.secrets."tunnels/calibre".path;
-      default = "http_status:404";
-      ingress = {
-        "calibre.olai.dev" = "http://${config.services.calibre-web.listen.ip}:${toString config.services.calibre-web.listen.port}";
-      };
-    };
+    # services.cloudflared.tunnels.${(import ../../secrets/tokens.nix).calibre.id} = {
+    #   credentialsFile = config.sops.secrets."tunnels/calibre".path;
+    #   default = "http_status:404";
+    #   ingress = {
+    #     "calibre.olai.dev" = "http://${config.services.calibre-web.listen.ip}:${toString config.services.calibre-web.listen.port}";
+    #   };
+    # };
+
+    services.caddy.virtualHosts."calibre.olai.dev" = ''
+      reverse_proxy http://${config.services.calibre-web.listen.ip}:${toString config.services.calibre-web.listen.port}
+    '';
 
     services.calibre-web = {
       enable = true;

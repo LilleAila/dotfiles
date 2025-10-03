@@ -7,5 +7,6 @@ _: {
     ./cloudflared.nix
     ./calibre-web.nix
     ./jellyfin.nix
+    ./caddy.nix
   ];
 }

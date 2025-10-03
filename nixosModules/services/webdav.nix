@@ -21,13 +21,17 @@
       group = "cloudflared";
     };
 
-    services.cloudflared.tunnels.${(import ../../secrets/tokens.nix).webdav.id} = {
-      credentialsFile = config.sops.secrets."tunnels/webdav".path;
-      default = "http_status:404";
-      ingress = {
-        "webdav.olai.dev" = "http://localhost:8080";
-      };
-    };
+    # services.cloudflared.tunnels.${(import ../../secrets/tokens.nix).webdav.id} = {
+    #   credentialsFile = config.sops.secrets."tunnels/webdav".path;
+    #   default = "http_status:404";
+    #   ingress = {
+    #     "webdav.olai.dev" = "http://localhost:8080";
+    #   };
+    # };
+
+    services.caddy.virtualHosts."webdav.olai.dev" = ''
+      reverse_proxy http://127.0.0.1:8080
+    '';
 
     sops.secrets."webdav/password" = {
       owner = "webdav";
