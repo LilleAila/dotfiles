@@ -27,6 +27,7 @@
       enable = true;
       package = null;
     };
+    plover.enable = true;
 
     terminal = {
       zsh.enable = true;
