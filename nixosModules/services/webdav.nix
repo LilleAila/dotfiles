@@ -29,7 +29,7 @@
     #   };
     # };
 
-    services.caddy.virtualHosts."webdav.olai.dev" = ''
+    services.caddy.virtualHosts."webdav.olai.dev".extraConfig = ''
       reverse_proxy http://127.0.0.1:8080
     '';
 

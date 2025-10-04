@@ -22,7 +22,7 @@
     #   };
     # };
 
-    services.caddy.virtualHosts."calibre.olai.dev" = ''
+    services.caddy.virtualHosts."calibre.olai.dev".extraConfig = ''
       reverse_proxy http://${config.services.calibre-web.listen.ip}:${toString config.services.calibre-web.listen.port}
     '';
 

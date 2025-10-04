@@ -18,7 +18,7 @@ in
   config = lib.mkIf cfg.enable {
     nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
 
-    services.caddy.virtualHosts."minecraft.olai.dev" = ''
+    services.caddy.virtualHosts."minecraft.olai.dev".extraConfig = ''
       reverse_proxy http://127.0.0.1:25565
     '';
 

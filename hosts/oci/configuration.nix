@@ -43,7 +43,7 @@
       pixel8a.public
     ];
 
-    # caddy.enable = true;
+    caddy.enable = true;
     syncthing.enable = true;
     webdav.enable = true;
     calibre-web.enable = true;
