@@ -37,7 +37,7 @@
         # calibreLibrary = "/home/${config.settings.user.name}/Calibre Library";
         calibreLibrary = "/calibre";
         enableKepubify = true;
-        enableBookConversion = true;
+        # enableBookConversion = true; # Broken on arm
         enableBookUploading = false;
       };
     };
