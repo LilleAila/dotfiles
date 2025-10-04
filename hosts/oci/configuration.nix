@@ -50,6 +50,8 @@
     # minecraft.enable = true;
   };
 
+  nixpkgs.config.allowBroken = true;
+
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
