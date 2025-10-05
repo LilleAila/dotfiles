@@ -521,15 +521,15 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1758765258,
-        "narHash": "sha256-orU21BYUJn/7zMhIYbY7T5EDqZ8NtRMSH/f8Qtu047Q=",
-        "owner": "Infinidoge",
+        "lastModified": 1759625949,
+        "narHash": "sha256-SDYMJDGKNHFJCiVx64ALVZfIrY/z5BxypZnM+7j6R4M=",
+        "owner": "PistachioCake",
         "repo": "nix-minecraft",
-        "rev": "5a6c66b90ab4519b7578b54300abc308008c544e",
+        "rev": "0ba651053502653b2528784b2cd95c8a0f6e5954",
         "type": "github"
       },
       "original": {
-        "owner": "Infinidoge",
+        "owner": "PistachioCake",
         "repo": "nix-minecraft",
         "type": "github"
       }

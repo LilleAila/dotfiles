@@ -9,10 +9,10 @@
   options.settings.calibre-web.enable = lib.mkEnableOption "calibre-web";
 
   config = lib.mkIf config.settings.calibre-web.enable {
-    sops.secrets."tunnels/calibre" = {
-      owner = "cloudflared";
-      group = "cloudflared";
-    };
+    # sops.secrets."tunnels/calibre" = {
+    #   owner = "cloudflared";
+    #   group = "cloudflared";
+    # };
 
     # services.cloudflared.tunnels.${(import ../../secrets/tokens.nix).calibre.id} = {
     #   credentialsFile = config.sops.secrets."tunnels/calibre".path;

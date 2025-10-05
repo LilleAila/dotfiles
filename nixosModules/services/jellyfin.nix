@@ -33,10 +33,10 @@ in
 
     settings.cloudflared.enable = true;
 
-    sops.secrets."tunnels/jellyfin" = {
-      owner = "cloudflared";
-      group = "cloudflared";
-    };
+    # sops.secrets."tunnels/jellyfin" = {
+    #   owner = "cloudflared";
+    #   group = "cloudflared";
+    # };
 
     services.cloudflared.tunnels."e00ace6c-e320-4a93-abbd-78e3d6477754" = {
       credentialsFile = config.sops.secrets."tunnels/jellyfin".path;

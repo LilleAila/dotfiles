@@ -203,7 +203,9 @@
     };
 
     nix-minecraft = {
-      url = "github:Infinidoge/nix-minecraft";
+      # url = "github:Infinidoge/nix-minecraft";
+      # FIXME: this is temporary until https://github.com/Infinidoge/nix-minecraft/pull/176 is merged
+      url = "github:PistachioCake/nix-minecraft";
     };
 
     # === My stuff ===

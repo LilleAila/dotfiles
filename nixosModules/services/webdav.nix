@@ -16,10 +16,10 @@
   options.settings.webdav.enable = lib.mkEnableOption "webdav";
 
   config = lib.mkIf config.settings.webdav.enable {
-    sops.secrets."tunnels/webdav" = {
-      owner = "cloudflared";
-      group = "cloudflared";
-    };
+    # sops.secrets."tunnels/webdav" = {
+    #   owner = "cloudflared";
+    #   group = "cloudflared";
+    # };
 
     # services.cloudflared.tunnels.${(import ../../secrets/tokens.nix).webdav.id} = {
     #   credentialsFile = config.sops.secrets."tunnels/webdav".path;

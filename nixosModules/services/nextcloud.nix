@@ -13,10 +13,10 @@
   options.settings.nextcloud.enable = lib.mkEnableOption "nextcloud";
 
   config = lib.mkIf config.settings.nextcloud.enable {
-    sops.secrets."tunnels/nextcloud" = {
-      owner = "cloudflared";
-      group = "cloudflared";
-    };
+    # sops.secrets."tunnels/nextcloud" = {
+    #   owner = "cloudflared";
+    #   group = "cloudflared";
+    # };
 
     services.cloudflared.tunnels.${(import ../../secrets/tokens.nix).nextcloud.id} = {
       credentialsFile = config.sops.secrets."tunnels/nextcloud".path;
