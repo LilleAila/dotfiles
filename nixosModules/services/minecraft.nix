@@ -45,9 +45,18 @@ in
 
             "velocity.toml".value = {
               bind = "0.0.0.0:25565";
-              motd = "Velocity server proxy";
               forwarding-mode = "modern";
               player-info-forwarding-mode = "modern";
+
+              online-mode = true;
+              force-key-authentication = true;
+              prevent-client-proxy-connections = false;
+              ping-passthrough = "all";
+
+              forwarding-secret-file = "forwarding.secret";
+
+              motd = "The server is offline :(";
+              show-max-players = 67;
 
               servers = {
                 main = "127.0.0.1:30001";
@@ -64,14 +73,12 @@ in
 
         server1 = {
           enable = true;
-          enableReload = true; # Reload rather than restart on config change
 
           package = pkgs.minecraftServers.fabric-1_21_9;
 
           symlinks = {
             mods = pkgs.linkFarmFromDrvs "mods" (
               builtins.attrValues {
-                # The server crashes with this??
                 FabricProxy-Lite = pkgs.fetchurl {
                   url = "https://cdn.modrinth.com/data/8dI2tmqs/versions/nR8AIdvx/FabricProxy-Lite-2.11.0.jar";
                   sha512 = "c2e1d9279f6f19a561f934b846540b28a033586b4b419b9c1aa27ac43ffc8fad2ce60e212a15406e5fa3907ff5ecbe5af7a5edb183a9ee6737a41e464aec1375";
@@ -89,7 +96,7 @@ in
           };
 
           files = {
-            "FabricProxy-Lite.toml".value = {
+            "config/FabricProxy-Lite.toml".value = {
               secret = secrets.forwarding-secret;
             };
           };
