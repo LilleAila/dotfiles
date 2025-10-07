@@ -100,6 +100,10 @@
       nix-direnv.enable = true;
     };
 
+    programs.yazi = {
+      enable = true;
+    };
+
     settings.persist.home.cache = [
       ".local/share/direnv"
       ".local/share/zoxide"
