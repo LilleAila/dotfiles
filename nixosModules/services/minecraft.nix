@@ -69,6 +69,11 @@ in
                 "minecraft.olai.dev" = [ "main" ];
               };
             };
+
+            "plugins/voicechat.jar" = pkgs.fetchurl {
+              url = "https://cdn.modrinth.com/data/9eGKb6K1/versions/jMopHMDQ/voicechat-velocity-2.6.4.jar";
+              sha512 = "03db44bdcf8012fdd7c93ce94c3fe37506d6cd39084ac9fcc294a9069d8bc5f9f160423b67af6a43b2fe044e4df9e716fd8b27fe61f404f94bda71556cc21ebc";
+            };
           };
         };
 
