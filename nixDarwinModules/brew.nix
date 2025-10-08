@@ -64,6 +64,7 @@
         "cyberduck"
         "bitwarden"
         "arduino-ide"
+        "spotify"
 
         "ableton-live-lite"
         "ilok-license-manager"
