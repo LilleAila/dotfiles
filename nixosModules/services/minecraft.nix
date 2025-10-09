@@ -123,6 +123,8 @@ in
             motd = "Veldig gøy server!!";
             white-list = true;
 
+            view-distance = 32;
+
             enable-rcon = true;
             "rcon.password" = secrets.rcon-password;
             "rcon.port" = 25575;
