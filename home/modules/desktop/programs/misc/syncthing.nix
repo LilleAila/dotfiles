@@ -15,6 +15,9 @@ in
   config = lib.mkIf config.settings.syncthing.enable {
     # Config panel at http://127.0.0.1:8384/
     services.syncthing = {
+
+      overrideDevices = false; # Causes issues where some of the devices just do not get added for some reason
+
       enable = true;
       settings = {
         options = {
