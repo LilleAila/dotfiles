@@ -102,8 +102,11 @@ in
                   sha512 = "234e5dbbad40a56546c5897995b9ac81bac11fa7478537f02e55a555af261783947b9695a5eb476173c0534248a46bb78040de16d4b831c4fc500c0406ac4e2a";
                 };
 
-                # TODO https://github.com/henkelmax/hermitcraft-server
-                # (or maybe a variation of it idk)
+                # TODO: vanilla tweaks https://vanillatweaks.net/share#Z4MSlG
+                # datapack-injector = pkgs.fetchurl {
+                #   url = "https://cdn.modrinth.com/data/9nFfpUyI/versions/CeZQK2mE/datapack-injector-fabric-1.0.0%2B1.21.9.jar";
+                #   sha512 = "4301d9666d52a9abf84f6367f066712fc775bc2028a62fa7fe2335744cc2fffb3609b0fffbe9a3d38492c095a06a8bce3cdc002481882ead9fbbfe827c423a94";
+                # };
               }
             );
           };
