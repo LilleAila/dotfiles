@@ -66,6 +66,7 @@
         "arduino-ide"
         "spotify"
 
+        # music stuff
         "ableton-live-lite"
         "ilok-license-manager"
         "arturia-software-center"
@@ -73,6 +74,7 @@
         # "uvi-workstation" # installed through uvi portal
         "uvi-portal"
         "native-access"
+        "loopback"
 
         # Not apple silicon; requires rosetta 2
         "steam"
