@@ -74,7 +74,7 @@
         # "uvi-workstation" # installed through uvi portal
         "uvi-portal"
         "native-access"
-        "loopback"
+        "blackhole-2ch"
 
         # Not apple silicon; requires rosetta 2
         "steam"
