@@ -125,6 +125,7 @@ in
             difficulty = "hard";
             motd = "Veldig gøy server!!";
             white-list = true;
+            view-distance = 12;
 
             enable-rcon = true;
             "rcon.password" = secrets.rcon-password;
