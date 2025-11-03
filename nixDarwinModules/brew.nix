@@ -65,6 +65,7 @@
         "bitwarden"
         "arduino-ide"
         "spotify"
+        "obs"
 
         # music stuff
         "ableton-live-lite"
