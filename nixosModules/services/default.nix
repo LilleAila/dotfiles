@@ -9,5 +9,6 @@ _: {
     ./jellyfin.nix
     ./caddy.nix
     ./minecraft.nix
+    ./pocketbase.nix
   ];
 }

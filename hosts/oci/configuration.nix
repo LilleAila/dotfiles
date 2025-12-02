@@ -56,6 +56,18 @@
     pinentryPackage = pkgs.pinentry-tty;
   };
 
+  services.pocketbase = {
+    enable = true;
+  };
+
+  services.caddy.virtualHosts."pb-typing.olai.dev".extraConfig = ''
+    reverse_proxy 127.0.0.1:8090 {
+        header_up X-Forwarded-For {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+        header_up Host {host}
+    }
+  '';
+
   environment.systemPackages = with pkgs; [
     # Terminfo for ssh
     kitty
