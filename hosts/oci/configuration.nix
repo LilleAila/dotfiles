@@ -68,6 +68,26 @@
     }
   '';
 
+  services.tinyproxy = {
+    enable = true;
+    settings = {
+      Port = 8888;
+      Allow = "0.0.0.0/0";
+    };
+  };
+
+  services.caddy.virtualHosts."proxy.olai.dev".extraConfig = ''
+    basic_auth {
+      proxyuser $2a$14$bD5hJ34MsRTbFaUZkTLSRuGWgvhkSNZzP6pz2sCgzjTPzjDMnEHia
+    }
+
+    reverse_proxy localhost:8888 {
+      transport http {
+        keepalive 10s
+      }
+    }
+  '';
+
   environment.systemPackages = with pkgs; [
     # Terminfo for ssh
     kitty
