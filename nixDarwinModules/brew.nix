@@ -66,6 +66,7 @@
         "arduino-ide"
         "spotify"
         "obs"
+        "proxybridge"
 
         # music stuff
         "ableton-live-lite"
