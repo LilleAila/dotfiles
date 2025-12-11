@@ -67,6 +67,7 @@
         "spotify"
         "obs"
         "proxybridge"
+        "db-browser-for-sqlite"
 
         # music stuff
         "ableton-live-lite"
