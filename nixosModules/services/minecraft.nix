@@ -169,7 +169,6 @@ in
                   sha512 = "234e5dbbad40a56546c5897995b9ac81bac11fa7478537f02e55a555af261783947b9695a5eb476173c0534248a46bb78040de16d4b831c4fc500c0406ac4e2a";
                 };
 
-                # TODO: vanilla tweaks https://vanillatweaks.net/share#Z4MSlG
                 datapack-injector = pkgs.fetchurl {
                   url = "https://cdn.modrinth.com/data/9nFfpUyI/versions/CeZQK2mE/datapack-injector-fabric-1.0.0%2B1.21.9.jar";
                   sha512 = "4301d9666d52a9abf84f6367f066712fc775bc2028a62fa7fe2335744cc2fffb3609b0fffbe9a3d38492c095a06a8bce3cdc002481882ead9fbbfe827c423a94";
@@ -177,23 +176,10 @@ in
               }
             );
 
-            # datapacks = pkgs.stdenv.mkDerivation {
-            #   name = "VanillaTweaks";
-            #   src = pkgs.fetchurl {
-            #     url = "https://vanillatweaks.net/download/VanillaTweaks_d914028_UNZIP_ME.zip";
-            #     sha256 = "sha256-x0moVoHyeWYwC2Db87/TuNk4dxL5YnUqSUJwb4eiXDk=";
-            #   };
-            #   nativeBuildInputs = with pkgs; [
-            #     unzip
-            #   ];
-            #   buildPhase = ''
-            #     unzip $src -d $out
-            #   '';
-            # };
-
+            # https://vanillatweaks.net/share#7fcThl
             datapacks = pkgs.fetchzip {
-              url = "https://vanillatweaks.net/download/VanillaTweaks_d914028_UNZIP_ME.zip";
-              sha256 = "sha256-/g4kpDdo+iar/6JMsf5oAum/fAQMSey4h75EjQ/OERQ=";
+              url = "https://vanillatweaks.net/download/VanillaTweaks_d828028_UNZIP_ME.zip";
+              sha256 = "sha256-jN9hCkh3Hh6+7YWjtIJs4wuZCQV3s+PsXxiUuM+f1h0=";
               stripRoot = false;
             };
           };
