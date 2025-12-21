@@ -8,7 +8,8 @@ _: {
     ./calibre-web.nix
     ./jellyfin.nix
     ./caddy.nix
-    ./minecraft.nix
     ./pocketbase.nix
+
+    ./minecraft
   ];
 }

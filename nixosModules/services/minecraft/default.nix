@@ -8,7 +8,7 @@
 let
   cfg = config.settings.minecraft;
 
-  secrets = import ../../secrets/minecraft.nix;
+  secrets = import ../../../secrets/minecraft.nix;
 in
 {
   options.settings.minecraft = {
@@ -175,13 +175,6 @@ in
                 };
               }
             );
-
-            # https://vanillatweaks.net/share#7fcThl
-            datapacks = pkgs.fetchzip {
-              url = "https://vanillatweaks.net/download/VanillaTweaks_d828028_UNZIP_ME.zip";
-              sha256 = "sha256-jN9hCkh3Hh6+7YWjtIJs4wuZCQV3s+PsXxiUuM+f1h0=";
-              stripRoot = false;
-            };
           };
 
           files = {
@@ -191,6 +184,23 @@ in
 
             "config/voicechat/voicechat-server.properties".value = {
               port = 24455;
+            };
+
+            datapacks = pkgs.buildEnv {
+              name = "minecraft-datapacks";
+              paths = [
+                # https://vanillatweaks.net/share#7fcThl
+                (pkgs.fetchzip {
+                  url = "https://vanillatweaks.net/download/VanillaTweaks_d828028_UNZIP_ME.zip";
+                  sha256 = "sha256-jN9hCkh3Hh6+7YWjtIJs4wuZCQV3s+PsXxiUuM+f1h0=";
+                  stripRoot = false;
+                })
+                # (pkgs.runCommand "touch_grass_zip" { } ''
+                #   mkdir -p $out
+                #   cd ${./datapacks/touch_grass}
+                #   ${lib.getExe pkgs.zip} -r $out/touch_grass.zip ./*
+                # '')
+              ];
             };
           };
 
