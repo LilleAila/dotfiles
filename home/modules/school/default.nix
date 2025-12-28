@@ -62,7 +62,7 @@
             ];
           })
           zotero
-          poppler_utils
+          poppler-utils
         ];
 
         # https://wiki.nixos.org/wiki/Zotero
@@ -70,8 +70,8 @@
         systemd.user.tmpfiles.rules =
           lib.lists.flatten (
             lib.attrsets.mapAttrsToList (profile: _: [
-              "L+ ${config.home.homeDirectory}/.mozilla/firefox/${profile}/zotero/pdftotext-Linux-x86_64 - - - - ${lib.getExe' pkgs.poppler_utils "pdftotext"}"
-              "L+ ${config.home.homeDirectory}/.mozilla/firefox/${profile}/zotero/pdfinfo-Linux-x86_64 - - - - ${lib.getExe' pkgs.poppler_utils "pdfinfo"}"
+              "L+ ${config.home.homeDirectory}/.mozilla/firefox/${profile}/zotero/pdftotext-Linux-x86_64 - - - - ${lib.getExe' pkgs.poppler-utils "pdftotext"}"
+              "L+ ${config.home.homeDirectory}/.mozilla/firefox/${profile}/zotero/pdfinfo-Linux-x86_64 - - - - ${lib.getExe' pkgs.poppler-utils "pdfinfo"}"
             ]) config.programs.firefox.profiles
           )
           ++ [

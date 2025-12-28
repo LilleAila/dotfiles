@@ -31,11 +31,11 @@
         gh = "cd";
         "g/" = "/";
         ee = "editor-open";
-        V = ''''$${pkgs.bat}/bin/bat --paging=always --theme=gruvbox "$f"'';
+        V = ''''$${lib.getExe pkgs.bat} --paging=always --theme=gruvbox "$f"'';
       };
 
       commands = {
-        dragon-out = ''%${pkgs.xdragon}/bin/xdragin -a -x "$fx"'';
+        dragon-out = ''%${lib.getExe pkgs.dragon-drop} -a -x "$fx"'';
         editor-open = ''$$EDITOR $f'';
         mkdir = ''
           ''${{

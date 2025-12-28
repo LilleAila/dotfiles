@@ -69,9 +69,7 @@
                 "XF86AudioNext".action = spawn "playerctl" "next";
                 "XF86AudioPrev".action = spawn "playerctl" "previous";
 
-                "Mod+s".action = screenshot;
-                # "Mod+Shift+s".action = screenshot-screen;
-                "Mod+Ctrl+s".action = screenshot-window;
+                # "Mod+s".action = screenshot;
 
                 "Mod+h".action = focus-column-left;
                 "Mod+l".action = focus-column-right;
@@ -146,19 +144,6 @@
 
             prefer-no-csd = true;
             screenshot-path = "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png";
-
-            # For some reason deviates from the options defined in upstream
-            outputs = {
-              "eDP-1" = {
-                mode = {
-                  width = 1920;
-                  height = 1200;
-                  refresh = 60.0;
-                };
-                scale = 1;
-                background-color = "#${config.colorScheme.palette.base00}";
-              };
-            };
 
             input = {
               keyboard = {

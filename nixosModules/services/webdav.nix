@@ -2,8 +2,6 @@
   Notes:
   https://github.com/pmeiyu/nixos-config/blob/master/modules/webdav.nix
   https://github.com/miquels/webdav-server-rs/blob/master/webdav-server.toml
-  https://nixos.wiki/wiki/Nginx (section about TLS reverse proxy)
-  For cloudflare, remember to disable proxy in the A record!!!!!!!
 */
 {
   pkgs,
@@ -16,19 +14,6 @@
   options.settings.webdav.enable = lib.mkEnableOption "webdav";
 
   config = lib.mkIf config.settings.webdav.enable {
-    # sops.secrets."tunnels/webdav" = {
-    #   owner = "cloudflared";
-    #   group = "cloudflared";
-    # };
-
-    # services.cloudflared.tunnels.${(import ../../secrets/tokens.nix).webdav.id} = {
-    #   credentialsFile = config.sops.secrets."tunnels/webdav".path;
-    #   default = "http_status:404";
-    #   ingress = {
-    #     "webdav.olai.dev" = "http://localhost:8080";
-    #   };
-    # };
-
     services.caddy.virtualHosts."webdav.olai.dev".extraConfig = ''
       reverse_proxy http://127.0.0.1:8080
     '';

@@ -130,7 +130,7 @@
   services.xserver.videoDrivers = [ "amdgpu" ];
   boot.initrd.kernelModules = [ "amdgpu" ];
   hardware.graphics.extraPackages = with pkgs; [
-    vaapiVdpau
+    libva-vdpau-driver
     libvdpau-va-gl
     amdvlk
   ];

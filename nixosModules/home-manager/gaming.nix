@@ -34,7 +34,7 @@
       programs.gamescope.capSysNice = true;
       # Use system glfw libraries in prismlauncher, from the workarounds tab
       # For some reason, i get extremely bad performance running through xwayland
-      hardware.graphics.extraPackages = with pkgs; [ glfw-wayland-minecraft ];
+      hardware.graphics.extraPackages = with pkgs; [ glfw3-minecraft ];
       environment.sessionVariables = {
         # Make factorio use the correct video driver (see FFF#408)
         "SDL_VIDEODRIVER" = "wayland";

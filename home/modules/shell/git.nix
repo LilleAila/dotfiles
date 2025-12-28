@@ -10,10 +10,12 @@
   config = lib.mkIf config.settings.terminal.utils.enable {
     programs.git = {
       enable = true;
-      userName = "LilleAila";
-      userEmail = "olai.solsvik@gmail.com";
-      extraConfig = {
+      settings = {
         init.defaultBranch = "main";
+        user = {
+          name = "LilleAila";
+          email = "olai.solsvik@gmail.com";
+        };
         commit.gpgSign = true;
         gpg.program = "${lib.getExe config.programs.gpg.package}";
         user.signingKey = keys.gpg.id;
@@ -87,7 +89,7 @@
       ];
     };
 
-    settings.persist.home.cache_files = [ "gpg-key.asc" ]; # Maybe FIXME
+    # settings.persist.home.cache_files = [ "gpg-key.asc" ]; # Maybe FIXME
     settings.persist.home.cache = [
       ".gnupg"
       ".local/state/lazygit"

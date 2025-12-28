@@ -52,7 +52,7 @@ in
         bottles
         # outputs.packages.${pkgs.system}.fhsenv
         pb_cli
-        kicad
+        # kicad # FIXME: build failure?
         bambu-studio
         freecad-wayland
         openscad

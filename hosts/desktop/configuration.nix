@@ -60,10 +60,10 @@
     impermanence.enable = true;
 
     greeter.enable = true;
-    greeter.command = "sway";
     xserver.xwayland.enable = true;
     desktop.enable = true;
     sway.enable = true;
+    niri.enable = true;
     syncthing.enable = true;
     sound.enable = true;
     gpg.enable = true;
@@ -77,7 +77,6 @@
   hardware.graphics.extraPackages = with pkgs; [
     libvdpau-va-gl
     libva-vdpau-driver
-    vaapiVdpau
     intel-media-driver
     intel-vaapi-driver
   ];

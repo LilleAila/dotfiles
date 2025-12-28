@@ -25,6 +25,18 @@
     school.enable = true;
   };
 
+  programs.niri.settings.outputs = {
+    "eDP-1" = {
+      mode = {
+        width = 1920;
+        height = 1200;
+        refresh = 60.0;
+      };
+      scale = 1;
+      background-color = "#${config.colorScheme.palette.base00}";
+    };
+  };
+
   home.packages = with pkgs; [
     neural-amp-modeler-lv2
     ardour

@@ -73,7 +73,7 @@
         description = "Emoji font";
         type = fontType;
         default = {
-          package = pkgs.noto-fonts-emoji;
+          package = pkgs.noto-fonts-color-emoji;
           name = "Noto Color Emoji";
         };
       };
@@ -94,7 +94,7 @@
       emoji.package
       pkgs.emacs-all-the-icons-fonts
       pkgs.corefonts
-      pkgs.vistafonts
+      pkgs.vista-fonts
     ];
 
     settings.nix.unfree = [

@@ -13,19 +13,7 @@
   options.settings.nextcloud.enable = lib.mkEnableOption "nextcloud";
 
   config = lib.mkIf config.settings.nextcloud.enable {
-    # sops.secrets."tunnels/nextcloud" = {
-    #   owner = "cloudflared";
-    #   group = "cloudflared";
-    # };
-
-    services.cloudflared.tunnels.${(import ../../secrets/tokens.nix).nextcloud.id} = {
-      credentialsFile = config.sops.secrets."tunnels/nextcloud".path;
-      default = "http_status:404";
-      ingress = {
-        "nextcloud.olai.dev" = "http://localhost:80";
-      };
-    };
-
+    # TODO: proxy http://localhost:80 to https://nextcloud.olai.dev
     services.postgresql = {
       enable = true;
       ensureDatabases = [ "nextcloud" ];
