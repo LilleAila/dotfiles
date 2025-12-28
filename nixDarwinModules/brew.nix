@@ -68,6 +68,7 @@
         "obs"
         "proxybridge"
         "db-browser-for-sqlite"
+        "slicer"
 
         # music stuff
         "ableton-live-lite"
