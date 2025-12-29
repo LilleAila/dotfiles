@@ -11,32 +11,35 @@
     programs.git = {
       enable = true;
       settings = {
-        init.defaultBranch = "main";
         user = {
           name = "LilleAila";
           email = "olai.solsvik@gmail.com";
         };
+
+        alias = {
+          p = "push";
+          pu = "pull";
+          pr = "pull --rebase";
+          pp = "!git pull --rebase && git push";
+          co = "checkout";
+          cm = "commit";
+          c = "commit -m";
+          a = "add";
+          aa = "add -A";
+          wc = "whatchanged";
+          d = "diff";
+          fu = "fetch upstream";
+          fu-shallow = "fetch --depth=1 upstream";
+          cl = "clone";
+          cl-shallow = "clone --depth=1";
+        };
+
+        init.defaultBranch = "main";
         commit.gpgSign = true;
         gpg.program = "${lib.getExe config.programs.gpg.package}";
         user.signingKey = keys.gpg.id;
       };
-      aliases = {
-        p = "push";
-        pu = "pull";
-        pr = "pull --rebase";
-        pp = "!git pull --rebase && git push";
-        co = "checkout";
-        cm = "commit";
-        c = "commit -m";
-        a = "add";
-        aa = "add -A";
-        wc = "whatchanged";
-        d = "diff";
-        fu = "fetch upstream";
-        fu-shallow = "fetch --depth=1 upstream";
-        cl = "clone";
-        cl-shallow = "clone --depth=1";
-      };
+
       ignores = [
         ".direnv"
         "result"

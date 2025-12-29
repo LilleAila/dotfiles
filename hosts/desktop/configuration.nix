@@ -46,14 +46,6 @@
       pixel8a.public
     ];
 
-    nvidia.passthrough = {
-      enable = true;
-      ids = [
-        "10de:2216"
-        "10de:1aef"
-      ];
-    };
-
     zfs.enable = true;
     zfs.encryption = false;
     zfs.snapshots = true;
@@ -71,6 +63,27 @@
     virtualisation.enable = true;
     searx.enable = true;
     jellyfin.enable = true;
+
+    nvidia.enable = true;
+  };
+
+  specialisation = {
+    # nvidia enabled is default
+    virtualisation.configuration = {
+      settings = {
+        nvidia.enable = lib.mkForce false;
+        nvidia.passthrough = {
+          enable = true;
+          ids = [
+            "10de:2216"
+            "10de:1aef"
+          ];
+        };
+
+      };
+
+      environment.sessionVariables.NIXOS_ACTIVE_SPECIALISATION = "virtualisation";
+    };
   };
 
   # random packages trying to get vaapi to work properly with webm
