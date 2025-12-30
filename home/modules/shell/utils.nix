@@ -109,6 +109,7 @@
       ".local/share/zoxide"
       ".ssh"
       ".cache/nix-index"
+      ".cache/pip"
     ];
 
     home.packages = with pkgs; [
