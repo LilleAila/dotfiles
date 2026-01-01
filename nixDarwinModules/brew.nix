@@ -69,6 +69,7 @@
         "proxybridge"
         "db-browser-for-sqlite"
         "slicer"
+        "freesurfer"
 
         # music stuff
         "ableton-live-lite"
