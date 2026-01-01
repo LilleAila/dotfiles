@@ -28,6 +28,11 @@
     virtualisation.enable = true;
 
     school.enable = true;
+
+    persist.home.cache = [
+      "hd-bet-weights"
+      "hd-bet_params"
+    ];
   };
 
   programs.niri.settings.outputs = {
