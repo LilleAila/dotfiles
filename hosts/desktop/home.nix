@@ -36,7 +36,7 @@
   };
 
   programs.niri.settings.outputs = {
-    "HDMI-A-1" = {
+    "DP-2" = {
       mode = {
         width = 1920;
         height = 1080;
