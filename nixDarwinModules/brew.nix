@@ -80,6 +80,7 @@
         "uvi-portal"
         "native-access"
         "blackhole-2ch"
+        "colemak-dh"
 
         # Not apple silicon; requires rosetta 2
         "steam"
