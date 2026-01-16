@@ -70,6 +70,7 @@
         "db-browser-for-sqlite"
         "slicer"
         "freesurfer"
+        "blender"
 
         # music stuff
         "ableton-live-lite"
