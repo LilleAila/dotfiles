@@ -71,6 +71,7 @@
         "slicer"
         "freesurfer"
         "blender"
+        "meshlab"
 
         # music stuff
         "ableton-live-lite"
