@@ -72,6 +72,7 @@
         "freesurfer"
         "blender"
         "meshlab"
+        "cloudcompare"
 
         # music stuff
         "ableton-live-lite"
