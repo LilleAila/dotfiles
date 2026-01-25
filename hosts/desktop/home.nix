@@ -35,6 +35,10 @@
     ];
   };
 
+  home.packages = with pkgs; [
+    blender
+  ];
+
   programs.niri.settings.outputs = {
     "DP-2" = {
       mode = {

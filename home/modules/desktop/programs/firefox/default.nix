@@ -90,7 +90,8 @@
                 youtube-shorts-block
                 enhanced-h264ify
                 zotero-connector
-                (onepassword-password-manager.overrideAttrs { meta.license = lib.licenses.free; }) # bruh
+                bitwarden
+                violentmonkey
               ];
               settings = import ./settings.nix { inherit config; };
               userChrome = import ./userChrome.nix { colorScheme = config.colorScheme.palette; };
