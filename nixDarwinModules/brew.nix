@@ -74,6 +74,7 @@
         "meshlab"
         "cloudcompare"
         "sqlitestudio"
+        "drawio"
 
         # music stuff
         "ableton-live-lite"
