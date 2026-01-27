@@ -73,6 +73,7 @@
         "blender"
         "meshlab"
         "cloudcompare"
+        "sqlitestudio"
 
         # music stuff
         "ableton-live-lite"
