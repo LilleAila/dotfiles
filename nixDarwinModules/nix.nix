@@ -41,6 +41,7 @@
         experimental-features = [
           "nix-command"
           "flakes"
+          "pipe-operators"
         ];
 
         access-tokens = "github.com=${(import ../secrets/tokens.nix).github}";
