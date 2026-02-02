@@ -83,11 +83,21 @@
       {
         imports = [
           inputs.home-manager.nixosModules.home-manager
+
+          (lib.mkAliasOptionModule
+            [ "hm" ]
+            [
+              "home-manager"
+              "users"
+              user
+            ]
+          )
         ];
 
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
+          backupFileExtension = "backup";
           users.${user}.imports = (builtins.attrValues self.modules.homeManager) ++ [
             {
               home = {
@@ -104,11 +114,21 @@
       {
         imports = [
           inputs.home-manager.darwinModules.home-manager
+
+          (lib.mkAliasOptionModule
+            [ "hm" ]
+            [
+              "home-manager"
+              "users"
+              user
+            ]
+          )
         ];
 
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
+          backupFileExtension = "backup";
           users.${user}.imports = (builtins.attrValues self.modules.homeManager) ++ [
             {
               home = {
