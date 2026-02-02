@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ self, lib, ... }:
 {
   flake.modules.nixos.console =
     {
@@ -36,7 +36,7 @@
 
           console.colors =
             let
-              c = config.hm.colorScheme.palette;
+              c = self.colorScheme.palette;
             in
             [
               "${c.base00}" # black

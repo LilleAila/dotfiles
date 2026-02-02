@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ self, lib, ... }:
 {
   flake.modules.darwin.jankyborders =
     { config, ... }:
@@ -8,7 +8,7 @@
       config = lib.mkIf config.settings.jankyborders.enable {
         launchd.user.agents.jankyborders.serviceConfig.Nice = -20;
 
-        services.jankyborders = with config.hm.colorScheme.palette; {
+        services.jankyborders = with self.colorScheme.palette; {
           enable = true;
           active_color = "0xFF${base06}";
           inactive_color = "0xFF${base01}";

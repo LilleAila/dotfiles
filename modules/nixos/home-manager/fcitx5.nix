@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ self, lib, ... }:
 {
   flake.modules.nixos.fcitx5 =
     {
@@ -40,7 +40,7 @@
                 GroupOrder."0" = "Default";
               };
 
-              addons.classicui.globalSection = with config.hm.colorScheme.palette; {
+              addons.classicui.globalSection = with self.colorScheme.palette; {
                 TrayOutlineColor = "#${base00}";
                 TrayTextColor = "#${base06}";
                 Theme = "nix-colors";

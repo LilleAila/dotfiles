@@ -98,6 +98,10 @@
           useGlobalPkgs = true;
           useUserPackages = true;
           backupFileExtension = "backup";
+          extraSpecialArgs = {
+            inherit inputs self;
+            isNixOS = true;
+          };
           users.${user}.imports = (builtins.attrValues self.modules.homeManager) ++ [
             {
               home = {
@@ -129,6 +133,10 @@
           useGlobalPkgs = true;
           useUserPackages = true;
           backupFileExtension = "backup";
+          extraSpecialArgs = {
+            inherit inputs self;
+            isNixOS = false;
+          };
           users.${user}.imports = (builtins.attrValues self.modules.homeManager) ++ [
             {
               home = {
@@ -166,6 +174,10 @@
       _: cfg:
       inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = import inputs.nixpkgs { inherit (cfg) system; };
+        extraSpecialArgs = {
+          inherit inputs self;
+          isNixOS = false;
+        };
         modules = [
           cfg.module
           {
