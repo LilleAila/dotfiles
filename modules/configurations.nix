@@ -165,9 +165,9 @@
         (
           config.flake.nixosConfigurations
           |> lib.mapAttrsToList (
-            name: nixos: {
-              ${nixos.config.nixpkgs.hostPlatform.system} = {
-                "configurations:nixos:${name}" = nixos.config.system.build.toplevel;
+            name: cfg: {
+              ${cfg.config.nixpkgs.hostPlatform.system} = {
+                "configurations:nixos:${name}" = cfg.config.system.build.toplevel;
               };
             }
           )
@@ -175,9 +175,19 @@
         ++ (
           config.flake.darwinConfigurations
           |> lib.mapAttrsToList (
-            name: nixos: {
-              ${nixos.config.nixpkgs.hostPlatform.system} = {
-                "configurations:darwin:${name}" = nixos.config.system.build.toplevel;
+            name: cfg: {
+              ${cfg.config.nixpkgs.hostPlatform.system} = {
+                "configurations:darwin:${name}" = cfg.config.system.build.toplevel;
+              };
+            }
+          )
+        )
+        ++ (
+          config.flake.homeConfigurations
+          |> lib.mapAttrsToList (
+            name: cfg: {
+              ${cfg.pkgs.stdenv.hostPlatform.system} = {
+                "configurations:home:${name}" = cfg.config.home.activationPackage;
               };
             }
           )
