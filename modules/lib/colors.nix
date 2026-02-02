@@ -1,7 +1,7 @@
 # Mostly stolen from https://github.com/fufexan/dotfiles/blob/main/lib/colors/default.nix
 { lib, ... }:
 {
-  flake.lib.colors = with lib; {
+  flake.lib.colors = with lib; rec {
     # Add # to color
     x = c: "#${c}";
 
