@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ self, lib, ... }:
 {
   flake.modules.nixos.minecraft =
     {
@@ -10,7 +10,7 @@
     let
       cfg = config.settings.minecraft;
 
-      secrets = import ../../../secrets/minecraft.nix;
+      secrets = self.secrets.minecraft;
     in
     {
       options.settings.minecraft = {

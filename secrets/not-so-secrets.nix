@@ -1,4 +1,3 @@
-# TODO: also put some stuff like usernames etc. here
 {
   gpg = {
     id = "D1ACCDCF2B9B9799";
@@ -21,6 +20,7 @@
       =noFm
       -----END PGP PUBLIC KEY BLOCK-----
     '';
+
     # TODO: figure out ssh stuff with this and git
     # id = "AA574B5D929430FE";
     # public = ''

@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ self, lib, ... }:
 {
   flake.modules.homeManager.syncthing =
     {
@@ -9,7 +9,7 @@
       ...
     }:
     let
-      secrets = import ../../../../../secrets/syncthing.nix;
+      secrets = self.secrets.syncthing;
     in
     {
       options.settings.syncthing.enable = lib.mkEnableOption "Syncthing";

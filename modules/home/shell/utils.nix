@@ -1,4 +1,9 @@
-{ lib, inputs, ... }:
+{
+  self,
+  lib,
+  inputs,
+  ...
+}:
 {
   flake.modules.homeManager.utils =
     {
@@ -45,7 +50,7 @@
           enable = true;
           enableDefaultConfig = false;
           # NOTE: this is a user-specific setting, that should maybe be set somewhere else. desktop/default.nix?
-          matchBlocks = import ../../../secrets/ssh-hosts.nix // {
+          matchBlocks = self.secrets.ssh-hosts // {
             "*" = {
               forwardAgent = false;
               addKeysToAgent = "no";

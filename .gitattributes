@@ -5,3 +5,5 @@ secrets/factorio.nix filter=git-crypt diff=git-crypt
 secrets/syncthing.nix filter=git-crypt diff=git-crypt
 secrets/ssh-hosts.nix filter=git-crypt diff=git-crypt
 secrets/minecraft.nix filter=git-crypt diff=git-crypt
+
+secrets/secrets.nix filter=git-crypt diff=git-crypt

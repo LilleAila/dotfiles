@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ self, lib, ... }:
 {
   flake.modules.nixos.nix =
     {
@@ -51,7 +51,7 @@
               "pipe-operators"
             ];
 
-            access-tokens = "github.com=${(import ../../secrets/tokens.nix).github}";
+            access-tokens = "github.com=${self.secrets.tokens.github}";
 
             substituters = [
               "https://hyprland.cachix.org"

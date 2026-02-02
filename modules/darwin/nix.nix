@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ self, lib, ... }:
 {
   flake.modules.darwin.nix =
     {
@@ -46,7 +46,7 @@
               "pipe-operators"
             ];
 
-            access-tokens = "github.com=${(import ../secrets/tokens.nix).github}";
+            access-tokens = "github.com=${self.secrets.tokens.github}";
 
             substituters = [
               "https://nix-community.cachix.org"

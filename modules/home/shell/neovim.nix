@@ -1,4 +1,9 @@
-{ lib, inputs, ... }:
+{
+  self,
+  lib,
+  inputs,
+  ...
+}:
 {
   flake.modules.homeManager.neovim =
     {
@@ -23,7 +28,7 @@
 
             home.sessionVariables = {
               EDITOR = "nvim";
-              OBSIDIAN_REST_API_KEY = (import ../../../secrets/tokens.nix).obsidian;
+              OBSIDIAN_REST_API_KEY = self.secrets.tokens.obsidian;
               # PAGER = "nvimpager";
             };
 

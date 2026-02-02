@@ -2,7 +2,7 @@
   https://nixos.wiki/wiki/Syncthing
   https://wes.today/nixos-syncthing
 */
-{ lib, ... }:
+{ self, lib, ... }:
 {
   flake.modules.nixos.syncthing =
     {
@@ -14,7 +14,7 @@
     let
       username = config.settings.user.name;
       homePath = "/home/${username}";
-      secrets = import ../../secrets/syncthing.nix;
+      secrets = self.secrets.syncthing;
     in
     {
       options.settings.syncthing.enable = lib.mkEnableOption "Syncthing";
