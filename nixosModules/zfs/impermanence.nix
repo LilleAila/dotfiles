@@ -47,7 +47,7 @@ in
     environment.persistence = {
       "/persist" = {
         hideMounts = true;
-        files = cfg.root.files;
+        inherit (cfg.root) files;
         directories = [ "/var/log" ] ++ cfg.root.directories;
 
         users.${user} = {

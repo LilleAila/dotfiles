@@ -30,7 +30,7 @@ in
   config = lib.mkIf config.settings.plover.enable {
     programs.plover = {
       enable = true;
-      package = cfg.package;
+      inherit (cfg) package;
     };
   };
 }

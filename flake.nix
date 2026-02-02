@@ -1,129 +1,19 @@
 {
   description = "NixOS config flake";
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      nixos-hardware,
-      ...
-    }@inputs:
-    let
-      inherit (self) outputs;
-      lib = nixpkgs.lib.extend (final: prev: (import ./lib final) // home-manager.lib);
-
-      systems = lib.systems.flakeExposed;
-      pkgsFor = lib.genAttrs systems (system: import nixpkgs { inherit system; });
-      forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
-
-      keys = import ./secrets/not-so-secrets.nix;
-
-      # TODO: clean up all of this shit
-      defaultSettings = {
-        # Define username here. Probably a better way to do this
-        username = "olai";
-      };
-
-      mkConfig =
-        {
-          name,
-          extraModules ? [ ],
-          globalSettings ? defaultSettings,
-        }:
-        lib.nixosSystem {
-          specialArgs = {
-            inherit
-              inputs
-              self
-              outputs
-              globalSettings
-              keys
-              lib
-              ;
-          };
-          modules = [
-            ./hosts/${name}/configuration.nix
-            {
-              # I don't want to pass name as a specialArg
-              settings.home-manager.path = ./hosts/${name}/home.nix;
-            }
-          ]
-          ++ extraModules;
-        };
-    in
-    {
-      packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs inputs; });
-      devShells = forEachSystem (pkgs: {
-        default = import ./shell.nix { inherit pkgs; };
-      });
-
-      darwinConfigurations = {
-        "Olais-MacBook-Air" = inputs.nix-darwin.lib.darwinSystem {
-          modules = [
-            ./hosts/m4air-darwin/configuration.nix
-            ./nixDarwinModules
-          ];
-          specialArgs = {
-            inherit
-              inputs
-              outputs
-              self
-              keys
-              lib
-              ;
-            user = "olaisolsvik";
-            globalSettings = defaultSettings; # For compatibility, will remove
-          };
-        };
-      };
-
-      nixosConfigurations = {
-        # Desktop but nix
-        nixdesktop = mkConfig { name = "desktop"; };
-
-        x220-nix = mkConfig {
-          name = "x220-nix";
-          extraModules = [ nixos-hardware.nixosModules.lenovo-thinkpad-t420 ];
-        };
-
-        oci-nix = mkConfig { name = "oci"; };
-
-        t420-nix = mkConfig {
-          name = "t420";
-          extraModules = [ nixos-hardware.nixosModules.lenovo-thinkpad-t420 ];
-        };
-
-        e14g5-nix = mkConfig {
-          name = "e14g5";
-          # extraModules = [nixos-hardware.nixosModules.common-cpu-amd nixos-hardware.nixosModules.common-gpu-amd];
-          extraModules = [ nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd ];
-        };
-
-        vm-nix = mkConfig { name = "vm"; };
-
-        installer = mkConfig {
-          name = "installer";
-          globalSettings.username = "nixos";
-        };
-      };
-
-      homeConfigurations."${defaultSettings.username}" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-linux"; # Idk how to do but somehow make this also arm
-        extraSpecialArgs = {
-          inherit inputs outputs keys;
-          globalSettings = defaultSettings;
-        };
-
-        modules = [ ./home.nix ];
-      };
-    };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
     # === Important stuff ===
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
-    nixpkgs-lib.url = "github:nix-community/nixpkgs.lib";
+
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
+    import-tree.url = "github:vic/import-tree";
 
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
@@ -165,7 +55,7 @@
 
     nix-colors = {
       url = "github:misterio77/nix-colors";
-      inputs.nixpkgs-lib.follows = "nixpkgs-lib";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
     firefox-addons = {
