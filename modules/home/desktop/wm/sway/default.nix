@@ -76,7 +76,7 @@
               output = {
                 "*" = {
                   bg = "${
-                    outputs.packages.${pkgs.system}.wallpaper.override {
+                    outputs.packages.${pkgs.stdenv.hostPlatform.system}.wallpaper.override {
                       inherit (config) colorScheme;
                       logo = "nix";
                     }

@@ -12,7 +12,7 @@
       options.settings.emacs.enable = lib.mkEnableOption "emacs";
       options.settings.emacs.package = lib.mkOption {
         type = lib.types.package;
-        default = inputs.emacs-config.packages.${pkgs.system}.emacs.override {
+        default = inputs.emacs-config.packages.${pkgs.stdenv.hostPlatform.system}.emacs.override {
           inherit (config) colorScheme;
         };
       };

@@ -21,8 +21,8 @@
             # Putting this as programs.neovim.package does not work, so configuring manually:
             # Here is my nixvim config: https://github.com/LilleAila/nvim-nix/
             home.packages = [
-              # (inputs.nixvim-config.packages."${pkgs.system}".nvim.override { inherit (config) colorScheme; })
-              inputs.nvf-config.packages.${pkgs.system}.default
+              # (inputs.nixvim-config.packages."${pkgs.stdenv.hostPlatform.system}".nvim.override { inherit (config) colorScheme; })
+              inputs.nvf-config.packages.${pkgs.stdenv.hostPlatform.system}.default
               # pkgs.nvimpager
             ];
 

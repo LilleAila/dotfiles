@@ -75,7 +75,7 @@
         systemd.tmpfiles.rules = [ "L+ /etc/nixpkgs/channels/nixpkgs - - - - ${pkgs.path}" ];
 
         environment.etc."programs.sqlite".source =
-          inputs.programsdb.packages.${pkgs.system}.programs-sqlite;
+          inputs.programsdb.packages.${pkgs.stdenv.hostPlatform.system}.programs-sqlite;
         programs.command-not-found = {
           enable = true;
           dbPath = "/etc/programs.sqlite";

@@ -40,12 +40,12 @@
             kdePackages.kdenlive
             ffmpeg
             shotcut
-            # (self.packages.${pkgs.system}.anki-nix-colors.override { inherit (self) colorScheme; }) # it's just too slow
+            # (self.packages.${pkgs.stdenv.hostPlatform.system}.anki-nix-colors.override { inherit (self) colorScheme; }) # it's just too slow
             musescore
             calibre
             libgen-cli
             bottles
-            # self.packages.${pkgs.system}.fhsenv
+            # self.packages.${pkgs.stdenv.hostPlatform.system}.fhsenv
             pb_cli
             # kicad # FIXME: build failure?
             bambu-studio
@@ -99,7 +99,7 @@
           home.packages = with pkgs; [
             _1password-gui
             bitwarden-desktop
-            # (inputs.plover-flake.packages.${pkgs.system}.plover.with-plugins (
+            # (inputs.plover-flake.packages.${pkgs.stdenv.hostPlatform.system}.plover.with-plugins (
             #   ps: with ps; [ plover-lapwing-aio ]
             # ))
             obsidian
@@ -130,7 +130,7 @@
             cursor = {
               size = mkDefault 24;
               package = mkDefault (
-                inputs.nix-cursors.packages.${pkgs.system}.bibata-modern-cursor.override {
+                inputs.nix-cursors.packages.${pkgs.stdenv.hostPlatform.system}.bibata-modern-cursor.override {
                   background_color = "#${self.colorScheme.palette.base00}";
                   outline_color = "#${self.colorScheme.palette.base06}";
                   accent_color = "#${self.colorScheme.palette.base00}";
@@ -149,7 +149,7 @@
               hyprpaper = {
                 enable = mkDefault true;
                 wallpaper = mkDefault (
-                  self.packages.${pkgs.system}.wallpaper.override {
+                  self.packages.${pkgs.stdenv.hostPlatform.system}.wallpaper.override {
                     inherit (self) colorScheme;
                     logo = "nix";
                   }

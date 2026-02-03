@@ -16,7 +16,7 @@
           enable = true;
           theme = "nix-colors";
           themePackages = [
-            (outputs.packages.${pkgs.system}.plymouth-theme.override { inherit (config.hm) colorScheme; })
+            (outputs.packages.${pkgs.stdenv.hostPlatform.system}.plymouth-theme.override { inherit (config.hm) colorScheme; })
           ];
         };
       };

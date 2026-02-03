@@ -11,8 +11,8 @@
   config = lib.mkIf config.settings.wm.hyprland.useFlake {
     wayland.windowManager.hyprland = {
       plugins = [
-        inputs.hypr-darkwindow.packages.${pkgs.system}.Hypr-DarkWindow
-        inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
+        inputs.hypr-darkwindow.packages.${pkgs.stdenv.hostPlatform.system}.Hypr-DarkWindow
+        inputs.hyprfocus.packages.${pkgs.stdenv.hostPlatform.system}.hyprfocus
       ];
       settings = {
         darkwindow_invert = [ "class:(GeoGebra)" ];

@@ -85,7 +85,7 @@
               profiles =
                 let
                   search = import ./_search.nix { inherit pkgs; };
-                  extensions = with inputs.firefox-addons.packages."${pkgs.system}"; [
+                  extensions = with inputs.firefox-addons.packages."${pkgs.stdenv.hostPlatform.system}"; [
                     ublock-origin
                     sponsorblock
                     darkreader

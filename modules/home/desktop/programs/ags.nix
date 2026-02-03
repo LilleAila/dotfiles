@@ -8,7 +8,7 @@
       ...
     }:
     let
-      ags-config = inputs.ags-config.packages.${pkgs.system}.default.override {
+      ags-config = inputs.ags-config.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
         inherit (config) colorScheme;
       };
       types = "share/com.github.Aylur.ags/types";

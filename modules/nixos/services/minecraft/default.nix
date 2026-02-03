@@ -26,7 +26,7 @@
       config = lib.mkIf cfg.enable {
         nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
         environment.systemPackages = [
-          inputs.nix-minecraft.packages.${pkgs.system}.nix-modrinth-prefetch
+          inputs.nix-minecraft.packages.${pkgs.stdenv.hostPlatform.system}.nix-modrinth-prefetch
         ];
 
         settings.nix.unfree = [
@@ -45,7 +45,7 @@
             # TODO: automatically proxy server with name x to x.olai.dev rather than hard code
             proxy = {
               enable = true;
-              package = inputs.nix-minecraft.legacyPackages.${pkgs.system}.velocityServers.velocity;
+              package = inputs.nix-minecraft.legacyPackages.${pkgs.stdenv.hostPlatform.system}.velocityServers.velocity;
 
               files = {
                 "forwarding.secret" = pkgs.writeText "forwarding.secret" secrets.forwarding-secret;

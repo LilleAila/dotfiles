@@ -12,7 +12,7 @@
 
       config = lib.mkIf config.settings.wm.sway.enable {
         # Mismatched hash?? idk FIXME
-        # home.packages = [ inputs.wl-screenrec-daemon.packages.${pkgs.system}.wl-screenrec-daemon ];
+        # home.packages = [ inputs.wl-screenrec-daemon.packages.${pkgs.stdenv.hostPlatform.system}.wl-screenrec-daemon ];
 
         services.wl-screenrec-daemon = {
           enable = false;
