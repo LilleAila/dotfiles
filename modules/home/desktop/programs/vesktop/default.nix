@@ -56,7 +56,7 @@
 
           home.file."${config_dir}/themes/base16.theme.css".source = pkgs.writeText "base16.theme.css" (
             import ./_theme.nix {
-              inherit config lib;
+              inherit config self;
               inherit (self) colorScheme;
             }
           );

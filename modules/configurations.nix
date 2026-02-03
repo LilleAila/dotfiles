@@ -99,7 +99,7 @@
           useUserPackages = true;
           backupFileExtension = "backup";
           extraSpecialArgs = {
-            inherit inputs self;
+            inherit inputs self user;
             isNixOS = true;
             isStandalone = false;
           };
@@ -135,7 +135,7 @@
           useUserPackages = true;
           backupFileExtension = "backup";
           extraSpecialArgs = {
-            inherit inputs self;
+            inherit inputs self user;
             isNixOS = false;
             isStandalone = false;
           };
@@ -153,9 +153,11 @@
     nixosConfigurations = lib.mapAttrs (
       _: cfg:
       lib.nixosSystem {
+        specialArgs = {
+          inherit (cfg) user;
+        };
         modules = [
           cfg.module
-          { _module.args.user = cfg.user; }
         ]
         ++ builtins.attrValues self.modules.nixos;
       }
@@ -164,9 +166,11 @@
     darwinConfigurations = lib.mapAttrs (
       _: cfg:
       inputs.nix-darwin.lib.darwinSystem {
+        specialArgs = {
+          inherit (cfg) user;
+        };
         modules = [
           cfg.module
-          { _module.args.user = cfg.user; }
         ]
         ++ builtins.attrValues self.modules.darwin;
       }
@@ -178,13 +182,13 @@
         pkgs = import inputs.nixpkgs { inherit (cfg) system; };
         extraSpecialArgs = {
           inherit inputs self;
+          inherit (cfg) user;
           isNixOS = false;
           isStandalone = true;
         };
         modules = [
           cfg.module
           {
-            _module.args.user = cfg.user;
             home = {
               homeDirectory = lib.mkForce cfg.homeDirectory;
               username = cfg.user;

@@ -4,7 +4,7 @@
 {
   colorScheme,
   config,
-  lib,
+  self,
   ...
 }:
 
@@ -13,7 +13,7 @@ with config.settings.fonts;
 # css
 ''
   /**
-  * @name ${config.colorScheme.slug}
+  * @name ${colorScheme.slug}
   * @author LilleAila
   * @version 1.0.0
   * @description Base16 color scheme generated from https://github.com/Misterio77/nix-colors
@@ -126,7 +126,7 @@ with config.settings.fonts;
   .username_f9f2ca,
   .repliedTextContent_f9f2ca,
   .markup_f8f345 {
-    /*font-size: ${toString (lib.fonts.toPx size)}px;*/
+    /*font-size: ${toString (self.lib.fonts.toPx size)}px;*/
     font-size: ${toString size}pt !important;
   }
 

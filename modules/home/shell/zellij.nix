@@ -14,7 +14,7 @@
             programs.zellij = {
               enable = true;
               settings = {
-                copy_command = lib.getExe' pkgs.wl-clipboard "wl-copy";
+                # copy_command = lib.getExe' pkgs.wl-clipboard "wl-copy"; # FIXME: only on wayland
                 # copy_clipboard = "system";
                 copy_on_select = false;
                 session_serialization = true; # Save sessions

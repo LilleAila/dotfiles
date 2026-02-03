@@ -1,9 +1,8 @@
-{ lib, ... }:
+{ self, lib, ... }:
 {
   flake.modules.darwin.system =
     {
       config,
-      self,
       pkgs,
       inputs,
       ...

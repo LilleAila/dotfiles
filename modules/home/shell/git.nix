@@ -5,7 +5,6 @@
       config,
       pkgs,
       inputs,
-      keys,
       ...
     }:
     {
@@ -39,7 +38,7 @@
             init.defaultBranch = "main";
             commit.gpgSign = true;
             gpg.program = "${lib.getExe config.programs.gpg.package}";
-            user.signingKey = keys.gpg.id;
+            user.signingKey = self.keys.gpg.id;
           };
 
           ignores = [
@@ -84,11 +83,11 @@
           publicKeys = [
             # Remember to run `gpg2 --card-status` so that secret keys work
             {
-              text = keys.gpg.public;
+              text = self.keys.gpg.public;
               trust = "ultimate";
             }
             {
-              text = keys.gpg.other.ildenh;
+              text = self.keys.gpg.other.ildenh;
               trust = "ultimate";
             }
           ];
