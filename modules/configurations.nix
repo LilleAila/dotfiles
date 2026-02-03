@@ -101,6 +101,7 @@
           extraSpecialArgs = {
             inherit inputs self;
             isNixOS = true;
+            isStandalone = false;
           };
           users.${user}.imports = (builtins.attrValues self.modules.homeManager) ++ [
             {
@@ -136,6 +137,7 @@
           extraSpecialArgs = {
             inherit inputs self;
             isNixOS = false;
+            isStandalone = false;
           };
           users.${user}.imports = (builtins.attrValues self.modules.homeManager) ++ [
             {
@@ -177,6 +179,7 @@
         extraSpecialArgs = {
           inherit inputs self;
           isNixOS = false;
+          isStandalone = true;
         };
         modules = [
           cfg.module

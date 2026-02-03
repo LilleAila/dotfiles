@@ -1,9 +1,13 @@
-{ self, lib, ... }:
+{
+  self,
+  inputs,
+  lib,
+  ...
+}:
 {
   flake.modules.nixos.nix =
     {
       config,
-      inputs,
       pkgs,
       ...
     }:
@@ -19,20 +23,12 @@
       config = lib.mkIf config.settings.nix.enable {
         nixpkgs.config =
           let
-            unfreePkgs =
-              config.settings.nix.unfree
-              ++ config.home-manager.users.${config.settings.user.name}.settings.nix.unfree;
+            unfreePkgs = config.settings.nix.unfree ++ config.hm.settings.nix.unfree;
           in
           {
             allowUnsupportedSystem = true;
             allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) unfreePkgs;
           };
-
-        # Extending lib instead
-        # _module.args.util = pkgs.callPackage ../lib {};
-        # _module.args.util = import ../lib lib;
-
-        _module.args.stablePkgs = import inputs.nixpkgs-stable { inherit (pkgs) system; };
 
         nix = {
           package = pkgs.nixVersions.latest;

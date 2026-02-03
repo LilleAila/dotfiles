@@ -1,16 +1,19 @@
-{ self, lib, ... }:
+{
+  self,
+  inputs,
+  lib,
+  ...
+}:
 {
   flake.modules.darwin.nix =
     {
       config,
-      self,
       pkgs,
-      inputs,
       ...
     }:
     {
       options.settings.nix = {
-        enable = lib.mkEnableOption "nix";
+        enable = self.lib.mkDisableOption "nix";
         unfree = lib.mkOption {
           type = lib.types.listOf lib.types.str;
           default = [ ];
@@ -19,8 +22,6 @@
       };
 
       config = lib.mkIf config.settings.nix.enable {
-        _module.args.stablePkgs = import inputs.nixpkgs-stable { inherit (pkgs) system; };
-
         nixpkgs = {
           hostPlatform = "aarch64-darwin";
           config =
