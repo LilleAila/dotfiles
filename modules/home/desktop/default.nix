@@ -5,7 +5,6 @@
       config,
       pkgs,
       inputs,
-      outputs,
       ...
     }:
     let
@@ -41,12 +40,12 @@
             kdePackages.kdenlive
             ffmpeg
             shotcut
-            # (outputs.packages.${pkgs.system}.anki-nix-colors.override { inherit (self) colorScheme; }) # it's just too slow
+            # (self.packages.${pkgs.system}.anki-nix-colors.override { inherit (self) colorScheme; }) # it's just too slow
             musescore
             calibre
             libgen-cli
             bottles
-            # outputs.packages.${pkgs.system}.fhsenv
+            # self.packages.${pkgs.system}.fhsenv
             pb_cli
             # kicad # FIXME: build failure?
             bambu-studio
@@ -150,7 +149,7 @@
               hyprpaper = {
                 enable = mkDefault true;
                 wallpaper = mkDefault (
-                  outputs.packages.${pkgs.system}.wallpaper.override {
+                  self.packages.${pkgs.system}.wallpaper.override {
                     inherit (self) colorScheme;
                     logo = "nix";
                   }

@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ self, lib, ... }:
 {
   flake.modules.nixos.greeter =
     {
@@ -10,7 +10,7 @@
     {
       options.settings.greeter = {
         enable = lib.mkEnableOption "greeter";
-        command = lib.mkStrOption "niri-session";
+        command = self.lib.mkStrOption "niri-session";
       };
 
       config = lib.mkIf config.settings.greeter.enable {

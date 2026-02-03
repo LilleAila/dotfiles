@@ -47,6 +47,8 @@
               "pipe-operators"
             ];
 
+            warn-dirty = false;
+
             access-tokens = "github.com=${self.secrets.tokens.github}";
 
             substituters = [

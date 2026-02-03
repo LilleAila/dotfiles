@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, inputs, ... }:
 {
   flake.modules.homeManager.impermanence = {
     options.settings.persist = {
@@ -30,7 +30,6 @@
   flake.modules.nixos.impermanence =
     {
       pkgs,
-      inputs,
       config,
       user,
       ...
@@ -40,6 +39,10 @@
       hmCfg = config.hm.settings.persist;
     in
     {
+      imports = [
+        inputs.impermanence.nixosModules.impermanence
+      ];
+
       options.settings.impermanence.enable = lib.mkEnableOption "impermanence";
 
       options.settings.persist = {
@@ -83,12 +86,6 @@
           };
         };
       };
-
-      imports = [
-        inputs.impermanence.nixosModules.impermanence
-        ./nixos.nix
-        ./hm.nix
-      ];
 
       config = lib.mkIf config.settings.impermanence.enable {
         sops.age.keyFile = "/persist/cache/home/${user}/.config/sops/age/keys.txt";

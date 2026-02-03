@@ -7,13 +7,12 @@
   flake.modules.nixos.syncthing =
     {
       pkgs,
-      inputs,
       config,
+      user,
       ...
     }:
     let
-      username = config.settings.user.name;
-      homePath = "/home/${username}";
+      inherit (config.hm.home) homeDirectory;
       secrets = self.secrets.syncthing;
     in
     {
@@ -37,9 +36,9 @@
           # Go to the config panel to find the device ID
           services.syncthing = {
             enable = true;
-            user = username;
-            dataDir = "/home/${username}";
-            configDir = "/home/${username}/.config/syncthing";
+            inherit user;
+            dataDir = homeDirectory;
+            configDir = "${homeDirectory}/.config/syncthing";
             openDefaultPorts = true;
             overrideDevices = false; # Fails to add device? https://github.com/NixOS/nixpkgs/issues/326704 https://github.com/NixOS/nixpkgs/issues/394405
             overrideFolders = true;
@@ -51,7 +50,7 @@
               };
 
               gui = {
-                user = username;
+                inherit user;
                 inherit (secrets) password;
               };
 
@@ -84,7 +83,7 @@
 
               folders = {
                 "Default Folder" = {
-                  path = "${homePath}/Sync";
+                  path = "${homeDirectory}/Sync";
                   devices = [
                     "oci"
                     "t420"
@@ -95,7 +94,7 @@
                   ];
                 };
                 "Spell" = {
-                  path = "${homePath}/.spell";
+                  path = "${homeDirectory}/.spell";
                   devices = [
                     "oci"
                     "t420"
@@ -106,7 +105,7 @@
                   ];
                 };
                 "Notes" = {
-                  path = "${homePath}/notes";
+                  path = "${homeDirectory}/notes";
                   devices = [
                     "oci"
                     "e14g5"
@@ -120,7 +119,7 @@
                 };
                 "Android Camera" = {
                   id = "pixel_8a_nd5h-photos";
-                  path = "${homePath}/Pictures/Android/DCIM";
+                  path = "${homeDirectory}/Pictures/Android/DCIM";
                   devices = [
                     "oci"
                     "e14g5"
@@ -132,7 +131,7 @@
                 };
                 "Android Screenshots" = {
                   id = "fqpt7-c6be0";
-                  path = "${homePath}/Pictures/Android/Screenshots";
+                  path = "${homeDirectory}/Pictures/Android/Screenshots";
                   devices = [
                     "oci"
                     "e14g5"
@@ -143,7 +142,7 @@
                   ];
                 };
                 "Calibre Library" = {
-                  path = "${homePath}/Calibre\ Library";
+                  path = "${homeDirectory}/Calibre\ Library";
                   devices = [
                     "oci"
                     "e14g5"
@@ -154,7 +153,7 @@
                 };
                 # TODO: steam sync is probably good now, so switch back to steam-managed factorio
                 "Factorio Saves" = {
-                  path = "${homePath}/.factorio";
+                  path = "${homeDirectory}/.factorio";
                   devices = [
                     "oci"
                     "e14g5"
@@ -163,7 +162,7 @@
                   ];
                 };
                 "Minecraft" = {
-                  path = "${homePath}/.local/share/PrismLauncher/instances";
+                  path = "${homeDirectory}/.local/share/PrismLauncher/instances";
                   devices = [
                     "oci"
                     "e14g5"

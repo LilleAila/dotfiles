@@ -3,8 +3,8 @@
   flake.modules.nixos.virtualisation =
     {
       config,
-      inputs,
       pkgs,
+      user,
       ...
     }:
     {
@@ -24,7 +24,7 @@
             onBoot = "ignore";
             onShutdown = "shutdown";
           };
-          users.users.${config.settings.user.name}.extraGroups = [ "libvirtd" ];
+          user.extraGroups = [ "libvirtd" ];
           environment.systemPackages = with pkgs; [ virt-manager ];
           settings.persist.root.cache = [ "/var/lib/libvirt" ];
         })
@@ -57,7 +57,7 @@
           # Looking glass
           environment.systemPackages = [ pkgs.looking-glass-client ];
           systemd.tmpfiles.rules = [
-            "f /dev/shm/looking-glass 0660 ${config.settings.user.name} libvirtd -"
+            "f /dev/shm/looking-glass 0660 ${user} libvirtd -"
           ];
 
           settings.virtualisation.enable = true;

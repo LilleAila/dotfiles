@@ -4,7 +4,6 @@
     {
       config,
       pkgs,
-      inputs,
       ...
     }:
     {
@@ -29,7 +28,7 @@
             layer = "top";
             # output = map (m: m.name) config.settings.monitors;
             position = "top";
-            height = lib.fonts.round ((lib.fonts.toPx config.settings.fonts.size) * 2.5);
+            height = self.lib.fonts.round ((self.lib.fonts.toPx config.settings.fonts.size) * 2.5);
             spacing = 20;
             modules-left = [
               "clock"
@@ -165,7 +164,7 @@
             };
 
             tray = {
-              icon-size = lib.fonts.toPx config.settings.fonts.size;
+              icon-size = self.lib.fonts.toPx config.settings.fonts.size;
               spacing = 10;
             };
 

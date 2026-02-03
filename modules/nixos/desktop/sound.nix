@@ -1,10 +1,9 @@
-{ lib, ... }:
+{ lib, inputs, ... }:
 {
   flake.modules.nixos.sound =
     {
       config,
       pkgs,
-      inputs,
       ...
     }:
     {

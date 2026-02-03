@@ -1,9 +1,13 @@
-{ self, lib, ... }:
+{
+  self,
+  lib,
+  inputs,
+  ...
+}:
 {
   flake.modules.nixos.minecraft =
     {
       config,
-      inputs,
       pkgs,
       ...
     }:

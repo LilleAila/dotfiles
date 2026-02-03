@@ -1,10 +1,9 @@
-{ lib, ... }:
+{ lib, inputs, ... }:
 {
   flake.modules.nixos.niri =
     {
       config,
       pkgs,
-      inputs,
       ...
     }:
     {

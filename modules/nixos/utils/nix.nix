@@ -13,7 +13,7 @@
     }:
     {
       options.settings.nix = {
-        enable = lib.mkDisableOption "nix";
+        enable = self.lib.mkDisableOption "nix";
         unfree = lib.mkOption {
           type = lib.types.listOf lib.types.str;
           default = [ ];
@@ -46,6 +46,8 @@
               "flakes"
               "pipe-operators"
             ];
+
+            warn-dirty = false;
 
             access-tokens = "github.com=${self.secrets.tokens.github}";
 

@@ -26,7 +26,7 @@
 
         settings.persist.root.cache = [ "/var/lib/docker" ];
 
-        # users.users.${config.settings.user.name}.extraGroups = [ "docker" ];
+        # user.extraGroups = [ "docker" ];
       };
     };
 }

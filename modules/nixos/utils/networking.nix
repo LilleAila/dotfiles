@@ -1,17 +1,16 @@
-{ lib, ... }:
+{ self, lib, ... }:
 {
   flake.modules.nixos.networking =
     {
       config,
       pkgs,
-      inputs,
       ...
     }:
     {
       options.settings.networking = {
         bluetooth.enable = lib.mkEnableOption "Bluetooth";
         enable = lib.mkEnableOption "Networking";
-        hostname = lib.mkStrOption "nixos";
+        hostname = self.lib.mkStrOption "nixos";
         wifi.enable = lib.mkEnableOption "wifi";
         rtl8852be.enable = lib.mkEnableOption "rtl8852be tweaks";
       };
@@ -32,7 +31,7 @@
         })
         (lib.mkIf config.settings.networking.wifi.enable {
           networking.networkmanager.enable = true;
-          users.users."${config.settings.user.name}".extraGroups = [ "networkmanager" ];
+          user.extraGroups = [ "networkmanager" ];
           settings.networking.enable = true;
           # networking.networkmanager.wifi.backend = "iwd";
           # networking.wireless.iwd = {

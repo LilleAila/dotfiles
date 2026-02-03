@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ self, lib, ... }:
 {
   flake.modules.homeManager.themes =
     {
@@ -22,8 +22,8 @@
         (lib.mkIf config.settings.gtk.enable (
           let
             gtkCss = import ./_gtk-theme2.nix {
-              inherit (config) colorScheme;
-              inherit lib;
+              inherit (self) colorScheme;
+              inherit self lib;
             };
           in
           {
