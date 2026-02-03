@@ -54,7 +54,7 @@
             # blender
             tigervnc
             qalculate-gtk
-            # wl-clipboard # FIXME: only on wayland
+            wl-clipboard
             tor-browser
           ];
 

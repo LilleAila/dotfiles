@@ -13,6 +13,10 @@
       ...
     }:
     {
+      imports = [
+        ./_hardware-configuration.nix
+      ];
+
       boot.loader.systemd-boot.enable = true;
       boot.loader.efi.canTouchEfiVariables = true;
 
@@ -148,26 +152,5 @@
         sops.secrets."syncthing/desktop/key".path =
           "${config.hm.home.homeDirectory}/.config/syncthing/key.pem";
       };
-
-      # auto generated hardware config
-      imports = [
-        (modulesPath + "/installer/scan/not-detected.nix")
-      ];
-
-      boot.initrd.availableKernelModules = [
-        "nvme"
-        "xhci_pci"
-        "ahci"
-        "usbhid"
-        "usb_storage"
-        "sd_mod"
-      ];
-      boot.kernelModules = [ "kvm-amd" ];
-      boot.extraModulePackages = [ ];
-
-      networking.useDHCP = lib.mkDefault true;
-
-      nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-      hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     };
 }
