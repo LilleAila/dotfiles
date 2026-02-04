@@ -95,7 +95,7 @@
           "dotfiles"
         ];
         # With impermanence, the file can not be managed by nix
-        hm.home.file.".config/sops/age/keys.txt".enable = false;
+        hm.home.file.".config/sops/age/keys.txt".enable = lib.mkForce false;
 
         boot.tmp.cleanOnBoot = true;
 

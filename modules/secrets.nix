@@ -54,7 +54,7 @@
 
       config = lib.mkIf config.settings.sops.enable {
         hm.settings.sops.enable = true;
-        home.file.".config/sops/age/keys.txt".source = ../secrets/sops-key.txt;
+        hm.home.file.".config/sops/age/keys.txt".source = ../secrets/sops-key.txt;
 
         sops.defaultSopsFile = ../secrets/secrets.yaml;
         sops.defaultSopsFormat = "yaml";
