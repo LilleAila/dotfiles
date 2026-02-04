@@ -17,6 +17,8 @@
         misc.enable = true;
         nix.enable = true;
         system.enable = true;
+
+        sops.enable = true;
       };
 
       environment.systemPackages = [
@@ -64,8 +66,6 @@
             neovim.enable = true;
             emulator.enable = true;
           };
-
-          sops.enable = true;
         };
 
         programs.lf.enable = lib.mkForce false;
@@ -108,8 +108,6 @@
             lib.mkForce "${config.hm.home.homeDirectory}/Library/Application Support/PrismLauncher/instances";
         };
 
-        home.file.".config/sops/age/keys.txt".enable = false;
-        home.file."Library/Application Support/sops/age/keys.txt".source = ./../../secrets/sops-key.txt;
         sops.age.keyFile = lib.mkForce "${config.hm.home.homeDirectory}/Library/Application Support/sops/age/keys.txt";
       };
     };

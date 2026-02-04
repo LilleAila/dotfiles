@@ -27,8 +27,17 @@
           age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
           defaultSopsFile = ../secrets/secrets.yaml;
         };
+      };
+    };
 
-        home.file.".config/sops/age/keys.txt".source = ../secrets/sops-key.txt;
+  flake.modules.darwin.sops =
+    { config, ... }:
+    {
+      options.settings.sops.enable = self.lib.mkDisableOption "sops";
+
+      config = lib.mkIf config.settings.sops.enable {
+        hm.settings.sops.enable = true;
+        hm.home.file."Library/Application Support/sops/age/keys.txt".source = ../secrets/sops-key.txt;
       };
     };
 
@@ -39,11 +48,14 @@
       ...
     }:
     {
-      options.settings.sops.enable = lib.mkEnableOption "sops";
+      options.settings.sops.enable = self.lib.mkDisableOption "sops";
 
       imports = [ inputs.sops-nix.nixosModules.sops ];
 
       config = lib.mkIf config.settings.sops.enable {
+        hm.settings.sops.enable = true;
+        home.file.".config/sops/age/keys.txt".source = ../secrets/sops-key.txt;
+
         sops.defaultSopsFile = ../secrets/secrets.yaml;
         sops.defaultSopsFormat = "yaml";
 

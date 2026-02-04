@@ -36,6 +36,8 @@
             e14g5.public
             t420.public
           ];
+
+          sops.enable = true;
         };
         programs.zsh.enable = true;
         users.users.nixos.shell = pkgs.zsh;
