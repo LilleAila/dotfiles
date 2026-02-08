@@ -1,0 +1,108 @@
+{ lib, ... }:
+{
+  flake.modules.homeManager.fonts =
+    {
+      pkgs,
+      inputs,
+      config,
+      ...
+    }:
+    {
+      options.settings.fonts =
+        with lib;
+        let
+          fontType = types.submodule {
+            options = {
+              package = mkOption {
+                description = "Package providing the font";
+                type = types.package;
+              };
+
+              name = mkOption {
+                description = "Name of the font within the package";
+                type = types.str;
+              };
+
+              variant = mkOption {
+                description = "Variant of the font";
+                type = types.str;
+                default = "Regular";
+              };
+            };
+          };
+        in
+        {
+          # Fonts are not disablable
+          # enable = mkEnableOption "Fonts";
+
+          serif = mkOption {
+            description = "Serif font";
+            type = fontType;
+            default = {
+              package = pkgs.dejavu_fonts;
+              name = "DejaVu Serif";
+            };
+          };
+
+          sansSerif = mkOption {
+            description = "Sans-serif font";
+            type = fontType;
+            default = {
+              package = pkgs.dejavu_fonts;
+              name = "DejaVu Sans";
+            };
+          };
+
+          monospace = mkOption {
+            description = "Monospace font";
+            type = fontType;
+            default = {
+              package = pkgs.dejavu_fonts;
+              name = "DejaVu Sans Mono";
+            };
+          };
+
+          nerd = mkOption {
+            description = "Nerd Font (icons)";
+            type = fontType;
+            default = {
+              package = pkgs.nerd-fonts.jetbrains-mono;
+              name = "JetBrainsMono Nerd Font";
+            };
+          };
+
+          emoji = mkOption {
+            description = "Emoji font";
+            type = fontType;
+            default = {
+              package = pkgs.noto-fonts-color-emoji;
+              name = "Noto Color Emoji";
+            };
+          };
+
+          size = mkOption {
+            description = "Font size";
+            type = types.int;
+            default = 10;
+          };
+        };
+
+      config = {
+        fonts.fontconfig.enable = true;
+        home.packages = with config.settings.fonts; [
+          serif.package
+          sansSerif.package
+          monospace.package
+          emoji.package
+          pkgs.emacs-all-the-icons-fonts
+          pkgs.corefonts
+          pkgs.vista-fonts
+        ];
+
+        settings.nix.unfree = [
+          "corefonts"
+          "vista-fonts"
+        ];
+      };
+    };
+}
