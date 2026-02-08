@@ -19,8 +19,8 @@
           name = "fcitx5-theme";
           src = ./themes; # really just a placeholder dir
           buildPhase = ''
-            mkdir -p nix-colors
-            cat > nix-colors/theme.conf << EOF
+            mkdir -p ${self.colorScheme.slug}
+            cat > ${self.colorScheme.slug}/theme.conf << EOF
             ${import ./_theme.nix { inherit (self) colorScheme; }}
             EOF
           '';

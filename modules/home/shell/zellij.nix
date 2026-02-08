@@ -22,7 +22,7 @@
                 scrollback_lines_to_serialize = 100;
                 ui.pane_frames.rounded_corners = true;
 
-                themes.nix-colors =
+                themes.${self.colorScheme.slug} =
                   let
                     c = self.colorScheme.palette;
                   in
@@ -39,7 +39,7 @@
                     black = "#${c.base01}";
                     white = "#${c.base05}";
                   };
-                theme = "nix-colors";
+                theme = self.colorScheme.slug;
               };
             };
             home.shellAliases = {

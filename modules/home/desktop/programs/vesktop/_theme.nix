@@ -16,7 +16,7 @@ with config.settings.fonts;
   * @name ${colorScheme.slug}
   * @author LilleAila
   * @version 1.0.0
-  * @description Base16 color scheme generated from https://github.com/Misterio77/nix-colors
+  * @description Base16 color scheme
   **/
 
   /*@import url(https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Apple.css);*/

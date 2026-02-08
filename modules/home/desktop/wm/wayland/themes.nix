@@ -7,9 +7,6 @@
       inputs,
       ...
     }:
-    let
-      nix-colors-lib = inputs.nix-colors.lib.contrib { inherit pkgs; };
-    in
     {
       options.settings = {
         gtk.enable = lib.mkEnableOption "gtk";

@@ -1,28 +1,5 @@
 {
   "nodes": {
-    "ags-config": {
-      "inputs": {
-        "nix-colors": [
-          "nix-colors"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1719156324,
-        "narHash": "sha256-eEhdXvq8nonE2TXG5tX2niAHBvx8Cx3O8G+p0tUwSTg=",
-        "owner": "LilleAila",
-        "repo": "ags-config",
-        "rev": "988ffd5d78520202e09a71f924df72725e29c516",
-        "type": "github"
-      },
-      "original": {
-        "owner": "LilleAila",
-        "repo": "ags-config",
-        "type": "github"
-      }
-    },
     "base16-schemes": {
       "flake": false,
       "locked": {
@@ -55,21 +32,6 @@
         "type": "github"
       }
     },
-    "crane": {
-      "locked": {
-        "lastModified": 1747587869,
-        "narHash": "sha256-Zay3WJdSvC2VQmNqWSVLBOg/1iS/0/Q0c9JOBsB+3qw=",
-        "owner": "ipetkov",
-        "repo": "crane",
-        "rev": "76603d32f18e0e378d9f6335c8fc286413493655",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ipetkov",
-        "repo": "crane",
-        "type": "github"
-      }
-    },
     "declarative-flatpak": {
       "locked": {
         "lastModified": 1763835632,
@@ -87,9 +49,7 @@
     },
     "emacs-config": {
       "inputs": {
-        "nix-colors": [
-          "nix-colors"
-        ],
+        "nix-colors": "nix-colors",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -184,7 +144,7 @@
     },
     "flake-parts_2": {
       "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib"
+        "nixpkgs-lib": "nixpkgs-lib_2"
       },
       "locked": {
         "lastModified": 1760948891,
@@ -225,24 +185,6 @@
     "flake-utils": {
       "inputs": {
         "systems": "systems_2"
-      },
-      "locked": {
-        "lastModified": 1731533236,
-        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "flake-utils_2": {
-      "inputs": {
-        "systems": "systems_4"
       },
       "locked": {
         "lastModified": 1731533236,
@@ -444,20 +386,18 @@
     "nix-colors": {
       "inputs": {
         "base16-schemes": "base16-schemes",
-        "nixpkgs-lib": [
-          "nixpkgs"
-        ]
+        "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
         "lastModified": 1707825078,
         "narHash": "sha256-hTfge2J2W+42SZ7VHXkf4kjU+qzFqPeC9k66jAUBMHk=",
-        "owner": "misterio77",
+        "owner": "Misterio77",
         "repo": "nix-colors",
         "rev": "b01f024090d2c4fc3152cd0cf12027a7b8453ba1",
         "type": "github"
       },
       "original": {
-        "owner": "misterio77",
+        "owner": "Misterio77",
         "repo": "nix-colors",
         "type": "github"
       }
@@ -465,7 +405,7 @@
     "nix-colors_2": {
       "inputs": {
         "base16-schemes": "base16-schemes_2",
-        "nixpkgs-lib": "nixpkgs-lib_2"
+        "nixpkgs-lib": "nixpkgs-lib_3"
       },
       "locked": {
         "lastModified": 1707825078,
@@ -595,6 +535,21 @@
     },
     "nixpkgs-lib": {
       "locked": {
+        "lastModified": 1697935651,
+        "narHash": "sha256-qOfWjQ2JQSQL15KLh6D7xQhx0qgZlYZTYlcEiRuAMMw=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "e1e11fdbb01113d85c7f41cada9d2847660e3902",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
+    "nixpkgs-lib_2": {
+      "locked": {
         "lastModified": 1754788789,
         "narHash": "sha256-x2rJ+Ovzq0sCMpgfgGaaqgBSwY+LST+WbZ6TytnT9Rk=",
         "owner": "nix-community",
@@ -608,7 +563,7 @@
         "type": "github"
       }
     },
-    "nixpkgs-lib_2": {
+    "nixpkgs-lib_3": {
       "locked": {
         "lastModified": 1697935651,
         "narHash": "sha256-qOfWjQ2JQSQL15KLh6D7xQhx0qgZlYZTYlcEiRuAMMw=",
@@ -910,7 +865,6 @@
     },
     "root": {
       "inputs": {
-        "ags-config": "ags-config",
         "declarative-flatpak": "declarative-flatpak",
         "emacs-config": "emacs-config",
         "firefox-addons": "firefox-addons",
@@ -921,7 +875,6 @@
         "import-tree": "import-tree",
         "musnix": "musnix",
         "niri": "niri",
-        "nix-colors": "nix-colors",
         "nix-cursors": "nix-cursors",
         "nix-darwin": "nix-darwin",
         "nix-index-database": "nix-index-database",
@@ -933,9 +886,7 @@
         "plover-flake": "plover-flake",
         "programsdb": "programsdb",
         "sops-nix": "sops-nix",
-        "spacemacs": "spacemacs",
         "wl-screenrec-daemon": "wl-screenrec-daemon",
-        "woomer": "woomer",
         "wrapper-manager": "wrapper-manager"
       }
     },
@@ -975,22 +926,6 @@
         "type": "github"
       }
     },
-    "spacemacs": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1766946131,
-        "narHash": "sha256-qCzR0ztW47xNdOOEzZYNkpZwU/Gm8iJZIyM0n/gs224=",
-        "owner": "syl20bnr",
-        "repo": "spacemacs",
-        "rev": "eaabe2fd4393b75556b9c6322c37597703ffecb1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "syl20bnr",
-        "repo": "spacemacs",
-        "type": "github"
-      }
-    },
     "systems": {
       "locked": {
         "lastModified": 1689347949,
@@ -1022,21 +957,6 @@
       }
     },
     "systems_3": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
-        "type": "github"
-      }
-    },
-    "systems_4": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
@@ -1101,28 +1021,6 @@
         "owner": "russelltg",
         "ref": "russell/reconnect_on_lost_output",
         "repo": "wl-screenrec",
-        "type": "github"
-      }
-    },
-    "woomer": {
-      "inputs": {
-        "crane": "crane",
-        "flake-utils": "flake-utils_2",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1753003614,
-        "narHash": "sha256-1qjmgysglX48Lg6RgSQDm/OebALpKNxbtG7FqVQcwgQ=",
-        "owner": "coffeeispower",
-        "repo": "woomer",
-        "rev": "351491c49e6869a930e11acb5ec9714f97029b21",
-        "type": "github"
-      },
-      "original": {
-        "owner": "coffeeispower",
-        "repo": "woomer",
         "type": "github"
       }
     },

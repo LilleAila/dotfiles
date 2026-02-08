@@ -8,7 +8,7 @@ in
   Name=${name}
   Version=0.1
   Author=LilleAila
-  Description=Nix-colors ${name}
+  Description=Base16 ${name}
   ScaleWithDPI=True
 
   [InputPanel]

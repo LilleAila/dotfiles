@@ -4,8 +4,6 @@
 
 **My personal configuration files for Linux, using NixOS with Home-Manager.**
 
-Riced with [nix-colors](https://github.com/Misterio77/nix-colors) using [gruvbox](https://github.com/morhetz/gruvbox) as the color scheme.
-
 </div>
 
 The configuration is written using a dendritic structure in which every nix file represents a flake-parts module, as opposed to using relative imports across the files. This means that all the modules are reusable and exported from this flake under `modules`. You can use them in your own flake by adding this to the inputs, then importing the desired modules as such:
@@ -18,6 +16,7 @@ imports = [
 
 ## Using
 
+- Color Scheme: [gruvbox](https://github.com/morhetz/gruvbox)
 - Window Manager: [Niri](https://github.com/YaLTeR/niri)
 - Bar: [Waybar](https://github.com/Alexays/Waybar)
 - Terminal Emulator: [Ghostty](https://github.com/ghostty-org/ghostty)

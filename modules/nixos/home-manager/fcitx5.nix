@@ -43,8 +43,8 @@
               addons.classicui.globalSection = with self.colorScheme.palette; {
                 TrayOutlineColor = "#${base00}";
                 TrayTextColor = "#${base06}";
-                Theme = "nix-colors";
-                DarkTheme = "nix-colors";
+                Theme = self.colorScheme.slug;
+                DarkTheme = self.colorScheme.slug;
 
                 Font = "Sans 10";
                 MenuFont = "Sans 10";

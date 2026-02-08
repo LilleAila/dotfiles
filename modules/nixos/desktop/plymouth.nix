@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ self, lib, ... }:
 {
   flake.modules.nixos.plymouth =
     {
@@ -14,9 +14,11 @@
       config = lib.mkIf config.settings.plymouth.enable {
         boot.plymouth = {
           enable = true;
-          theme = "nix-colors";
+          theme = self.colorScheme.slug;
           themePackages = [
-            (outputs.packages.${pkgs.stdenv.hostPlatform.system}.plymouth-theme.override { inherit (config.hm) colorScheme; })
+            (outputs.packages.${pkgs.stdenv.hostPlatform.system}.plymouth-theme.override {
+              inherit (config.hm) colorScheme;
+            })
           ];
         };
       };

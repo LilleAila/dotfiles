@@ -145,7 +145,7 @@ in
               base05-rgb = colors.rgb_dec c.base05;
             in
             ''
-              themeDir="$out/share/plymouth/themes/nix-colors"
+              themeDir="$out/share/plymouth/themes/${colorScheme.slug}"
               mkdir -p $themeDir
 
               cp ${logo} template.svg
@@ -160,22 +160,22 @@ in
                 template.svg \
                 $themeDir/logo.png
 
-              cp $src $themeDir/nix-colors.script
+              cp $src $themeDir/${colorScheme.slug}.script
 
-              substituteInPlace $themeDir/nix-colors.script \
+              substituteInPlace $themeDir/${colorScheme.slug}.script \
                 --replace-fail "%BASE00%" "${base00-rgb.r}, ${base00-rgb.g}, ${base00-rgb.b}" \
                 --replace-fail "%BASE05%" "${base05-rgb.r}, ${base05-rgb.g}, ${base05-rgb.b}"
             '';
 
           installPhase = ''
-            cat << EOF > $themeDir/nix-colors.plymouth
+            cat << EOF > $themeDir/${colorScheme.slug}.plymouth
             [Plymouth Theme]
-            Name=Nix-colors
+            Name=${colorScheme.slug}
             ModuleName=script
 
             [script]
             ImageDir=$themeDir
-            ScriptFile=$themeDir/nix-colors.script
+            ScriptFile=$themeDir/${colorScheme.slug}.script
             EOF
           '';
         }

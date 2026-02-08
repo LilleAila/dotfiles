@@ -40,7 +40,7 @@
             kdePackages.kdenlive
             ffmpeg
             shotcut
-            # (self.packages.${pkgs.stdenv.hostPlatform.system}.anki-nix-colors.override { inherit (self) colorScheme; }) # it's just too slow
+            # (self.packages.${pkgs.stdenv.hostPlatform.system}.anki.override { inherit (self) colorScheme; }) # it's just too slow
             musescore
             calibre
             libgen-cli

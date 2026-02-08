@@ -48,16 +48,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    spacemacs = {
-      url = "github:syl20bnr/spacemacs";
-      flake = false;
-    };
-
-    nix-colors = {
-      url = "github:misterio77/nix-colors";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -82,11 +72,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    woomer = {
-      url = "github:coffeeispower/woomer";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     focal = {
       url = "github:iynaix/focal";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -107,11 +92,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nixvim-config = {
-    #   url = "github:LilleAila/nvim-nix";
-    #   inputs.nix-colors.follows = "nix-colors";
-    # };
-
     nvf-config = {
       url = "github:LilleAila/nvf-config";
     };
@@ -119,13 +99,6 @@
     emacs-config = {
       url = "github:LilleAila/emacs-nix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nix-colors.follows = "nix-colors";
-    };
-
-    ags-config = {
-      url = "github:LilleAila/ags-config";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nix-colors.follows = "nix-colors";
     };
   };
 }
