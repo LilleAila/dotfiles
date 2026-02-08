@@ -40,7 +40,6 @@ let
 
     registry.nixpkgs.flake = inputs.nixpkgs;
     nixPath = [
-      "nixpkgs=/etc/nixpkgs/channels/nixpkgs"
       "/nix/var/nix/profiles/per-user/root/channels"
     ];
   };
@@ -74,9 +73,13 @@ in
         nix = lib.mkMerge [
           {
             package = pkgs.nixVersions.latest;
+            nixPath = [
+              "nixpkgs=/etc/nixpkgs/channels/nixpkgs"
+            ];
           }
           nix-config
         ];
+
         systemd.tmpfiles.rules = [ "L+ /etc/nixpkgs/channels/nixpkgs - - - - ${pkgs.path}" ];
 
         environment.etc."programs.sqlite".source =
