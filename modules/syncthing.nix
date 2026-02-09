@@ -103,16 +103,16 @@ let
         "t420"
       ];
     };
-    # TODO: steam sync is probably good now, so switch back to steam-managed factorio
-    "Factorio Saves" = {
-      path = "${homeDirectory}/.factorio";
-      devices = [
-        "oci"
-        "e14g5"
-        "desktop"
-        "m4air-darwin"
-      ];
-    };
+    # NOTE: disabled in favor of steam sync. Hopefully won't cause issues
+    # "Factorio Saves" = {
+    #   path = "${homeDirectory}/.factorio";
+    #   devices = [
+    #     "oci"
+    #     "e14g5"
+    #     "desktop"
+    #     "m4air-darwin"
+    #   ];
+    # };
     "Minecraft" = {
       path = "${homeDirectory}/.local/share/PrismLauncher/instances";
       devices = [
