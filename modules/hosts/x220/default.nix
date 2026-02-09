@@ -25,6 +25,8 @@
         yubikey.enable = true;
         syncthing.enable = true;
 
+	niri.enable = true;
+
         locale = {
           main = "en_US.UTF-8";
           other = "nb_NO.UTF-8";
@@ -119,14 +121,8 @@
               position = "0x0";
             }
           ];
-          desktop.enable = true;
+
           desktop.full.enable = true;
-          wm.hyprland.monitors.enable = true;
-
-          wm.sway.enable = true;
-          wm.hyprpaper.enable = false;
-          wm.waybar.enable = true;
-
           school.enable = true;
 
           fonts.size = 8;
