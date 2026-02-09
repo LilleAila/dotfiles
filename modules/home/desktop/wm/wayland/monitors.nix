@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ self, lib, ... }:
 {
   flake.modules.homeManager.monitors =
     {
@@ -15,12 +15,12 @@
         type = types.listOf (
           types.submodule {
             options = {
-              name = lib.mkStrOption "eDP-1";
-              geometry = lib.mkOption' (types.nullOr types.str) null;
-              position = lib.mkOption' (types.nullOr types.str) null;
-              scale = lib.mkOption' types.number 1;
-              enable = lib.mkDisableOption "this monitor";
-              rotation = lib.mkOption' types.int 0;
+              name = self.lib.mkStrOption "eDP-1";
+              geometry = self.lib.mkOption' (types.nullOr types.str) null;
+              position = self.lib.mkOption' (types.nullOr types.str) null;
+              scale = self.lib.mkOption' types.number 1;
+              enable = self.lib.mkDisableOption "this monitor";
+              rotation = self.lib.mkOption' types.int 0;
             };
           }
         );

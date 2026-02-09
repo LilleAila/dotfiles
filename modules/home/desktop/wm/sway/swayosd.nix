@@ -10,7 +10,7 @@
     lib.mkIf config.settings.wm.sway.enable {
       services.swayosd = {
         enable = true;
-        display = (builtins.head config.settings.monitors).name;
+        # display = (builtins.head config.settings.monitors).name;
         topMargin = 5.0e-2;
         stylePath = pkgs.stdenv.mkDerivation {
           name = "style.css";
