@@ -47,6 +47,7 @@
           t420.public
           x220.public
           pixel8a.public
+          installer.public
         ];
 
         zfs.enable = true;
