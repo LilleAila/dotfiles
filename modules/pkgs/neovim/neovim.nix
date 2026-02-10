@@ -11,7 +11,11 @@
       packages.neovim = inputs.mnw.lib.wrap pkgs {
         neovim = pkgs.neovim-unwrapped;
 
-        initLua = '''';
+        initLua = # lua
+          ''
+            require("init")
+            require("lz.n").load("plugins")
+          '';
 
         plugins = {
           start = with pkgs.vimPlugins; [
@@ -47,6 +51,8 @@
           ];
 
           opt = with pkgs.vimPlugins; [
+            fzf-lua
+            which-key-nvim
           ];
 
           dev.myconfig = {
