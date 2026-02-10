@@ -53,6 +53,7 @@
           opt = with pkgs.vimPlugins; [
             fzf-lua
             which-key-nvim
+            nvim-treesitter.withAllGrammars
           ];
 
           dev.myconfig = {
