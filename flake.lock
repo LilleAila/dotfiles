@@ -707,11 +707,11 @@
         "nvf": "nvf"
       },
       "locked": {
-        "lastModified": 1765570407,
-        "narHash": "sha256-A5u78enfO7A9K8aZnQ4DixlwapLzMyTTrfZMJpa9HN8=",
+        "lastModified": 1770724056,
+        "narHash": "sha256-PVqKpk6MDsWrc2SzDxsf21ViG8WjpIkStrk6J9Woutw=",
         "owner": "LilleAila",
         "repo": "nvf-config",
-        "rev": "037ccba8319074be8eb2f9d1ae884b419e05c806",
+        "rev": "da53500095e79da52daf32bc0233815e84c9a10c",
         "type": "github"
       },
       "original": {
