@@ -55,6 +55,8 @@
             mini-statusline
             mini-hipatterns
             blink-cmp
+            mini-pairs
+            mini-notify
 
             # NOTE: this is in the wrong place it should probably be done in another way something like this: https://github.com/Goxore/nixconf/blob/a33777adcce4a55ce5d3d74c67695059e19a8f76/modules/wrappedPrograms/neovim/neovim.nix#L55
             pkgs.fzf
