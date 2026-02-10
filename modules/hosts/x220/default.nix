@@ -25,7 +25,7 @@
         yubikey.enable = true;
         syncthing.enable = true;
 
-	niri.enable = true;
+        niri.enable = true;
 
         locale = {
           main = "en_US.UTF-8";
@@ -49,6 +49,7 @@
         ssh.keys = with self.keys.ssh; [
           e14g5.public
           t420.public
+          desktop.public
         ];
 
         zfs.enable = true;
