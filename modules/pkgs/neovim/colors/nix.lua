@@ -56,7 +56,7 @@ local highlights = {
     -- Syntax
     Boolean = { fg = COLORSCHEME.base0E },
     Character = { fg = COLORSCHEME.base0E },
-    Comment = { fg = COLORSCHEME.base03 },
+    Comment = { fg = COLORSCHEME.base04 },
     Conditional = { fg = COLORSCHEME.base08 },
     Constant = { fg = COLORSCHEME.base0E },
     Define = { fg = COLORSCHEME.base0C },
@@ -84,7 +84,7 @@ local highlights = {
 
     -- Diff
     DiffAdd = { fg = COLORSCHEME.base0B, bg = COLORSCHEME.base01 },
-    DiffChange = { fg = COLORSCHEME.base03, bg = COLORSCHEME.base01 },
+    DiffChange = { fg = COLORSCHEME.base0A, bg = COLORSCHEME.base01 },
     DiffDelete = { fg = COLORSCHEME.base08, bg = COLORSCHEME.base01 },
     DiffText = { fg = COLORSCHEME.base0D, bg = COLORSCHEME.base01 },
 

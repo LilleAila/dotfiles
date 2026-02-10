@@ -20,7 +20,7 @@
         plugins = {
           start = with pkgs.vimPlugins; [
             lz-n
-            mini-icons
+
             (pkgs.writeTextFile {
               name = "colorscheme-${self.colorScheme.slug}";
               destination = "/lua/colorscheme/init.lua";
@@ -49,6 +49,10 @@
                   return M
                 '';
             })
+
+            mini-icons
+            mini-statusline
+
           ];
 
           opt = with pkgs.vimPlugins; [
