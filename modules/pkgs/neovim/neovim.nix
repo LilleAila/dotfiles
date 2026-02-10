@@ -50,9 +50,13 @@
                 '';
             })
 
+            nvim-web-devicons
             mini-icons
             mini-statusline
+            blink-cmp
 
+            # NOTE: this is in the wrong place it should probably be done in another way something like this: https://github.com/Goxore/nixconf/blob/a33777adcce4a55ce5d3d74c67695059e19a8f76/modules/wrappedPrograms/neovim/neovim.nix#L55
+            pkgs.fzf
           ];
 
           opt = with pkgs.vimPlugins; [
@@ -60,9 +64,7 @@
             which-key-nvim
             nvim-treesitter.withAllGrammars
             mini-files
-            nvim-web-devicons
-
-            pkgs.fzf
+            nvim-lspconfig
           ];
 
           dev.myconfig = {

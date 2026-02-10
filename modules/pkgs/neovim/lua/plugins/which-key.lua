@@ -10,8 +10,17 @@ return {
         separator = "➜",
         group = "",
       },
+      triggers = {
+        {
+          "<leader>",
+          mode = "n",
+        },
+      },
     })
 
-    wk.add({"<leader>f", desc="Picker"})
+    wk.add({
+      {"<leader>f", desc="Picker"},
+      {"<leader>l", desc="LSP"},
+    })
   end,
 }
