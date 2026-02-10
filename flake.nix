@@ -38,6 +38,15 @@
       url = "github:in-a-dil-emma/declarative-flatpak";
     };
 
+    # === Wrappers ===
+    wrapper-manager = {
+      url = "github:viperML/wrapper-manager";
+    };
+
+    mnw = {
+      url = "github:Gerg-L/mnw";
+    };
+
     # === Other utils ===
     plover-flake = {
       url = "github:openstenoproject/plover-flake";
@@ -56,10 +65,6 @@
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    wrapper-manager = {
-      url = "github:viperML/wrapper-manager";
     };
 
     nix-index-database = {
