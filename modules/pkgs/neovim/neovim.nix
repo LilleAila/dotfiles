@@ -20,6 +20,7 @@
         plugins = {
           start = with pkgs.vimPlugins; [
             lz-n
+            mini-icons
             (pkgs.writeTextFile {
               name = "colorscheme-${self.colorScheme.slug}";
               destination = "/lua/colorscheme/init.lua";
@@ -54,6 +55,10 @@
             fzf-lua
             which-key-nvim
             nvim-treesitter.withAllGrammars
+            mini-files
+            nvim-web-devicons
+
+            pkgs.fzf
           ];
 
           dev.myconfig = {
