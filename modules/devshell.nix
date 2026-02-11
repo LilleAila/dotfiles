@@ -23,6 +23,8 @@ _: {
             nixfmt-rfc-style
             sops
             git-crypt
+            stylua
+            lua-language-server
           ];
         };
     };

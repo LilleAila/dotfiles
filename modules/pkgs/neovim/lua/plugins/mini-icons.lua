@@ -1,6 +1,6 @@
 return {
-  "mini.icons",
-  after = function()
-    require("mini.icons").setup()
-  end,
+	"mini.icons",
+	after = function()
+		require("mini.icons").setup()
+	end,
 }
