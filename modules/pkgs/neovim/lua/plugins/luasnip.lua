@@ -1,5 +1,5 @@
 return {
-	"luasnip",
+	"lilleaila-snippets",
 	event = "BufEnter",
 	after = function()
 		require("luasnip").setup({

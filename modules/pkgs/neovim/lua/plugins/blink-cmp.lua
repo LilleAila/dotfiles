@@ -2,7 +2,7 @@ return {
 	"blink.cmp",
 	after = function()
 		require("blink.cmp").setup({
-			snippts = { preset = "luasnip" },
+			snippets = { preset = "luasnip" },
 
 			keymap = {
 				preset = "none",
