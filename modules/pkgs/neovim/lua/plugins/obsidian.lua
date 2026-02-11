@@ -7,6 +7,11 @@ return {
 		require("obsidian").setup({
 			legacy_commands = false,
 
+			-- FIXME completions do not work :(
+			-- completion = {
+			-- 	blink = true,
+			-- },
+
 			workspaces = {
 				{
 					name = "personal",
@@ -23,13 +28,13 @@ return {
 				name = "fzf-lua",
 			},
 
+			checkbox = {
+				order = { " ", ">", "x" },
+				create_new = false,
+			},
+
 			ui = {
 				ignore_conceal_warn = true,
-				checkboxes = {
-					[" "] = { hl_group = "ObsidianTodo" },
-					[">"] = { hl_group = "ObsidianRightArrow" },
-					["x"] = { hl_group = "ObsidianDone" },
-				},
 				hl_groups = {
 					ObsidianTodo = { fg = COLORSCHEME.base0A },
 					ObsidianDone = { fg = COLORSCHEME.base0B },
@@ -107,5 +112,6 @@ return {
 		{ "<leader>od", ":Obsidian today<cr>", desc = "Daily note" },
 		{ "<leader>oa", ":Obsidian open<cr>", desc = "Open app" },
 		{ "<leader>op", ":Obsidian paste_img<cr>", desc = "Paste image" },
+		{ "<leader>ot", ":Obsidian tags<cr>", desc = "Tags" },
 	},
 }
