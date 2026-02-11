@@ -1,5 +1,6 @@
 return {
 	"mini.hipatterns",
+	event = "BufEnter",
 	after = function()
 		local hi = function(pattern, group)
 			return { group = group, pattern = "%f[%w]()" .. pattern .. "()%f[%W]" }

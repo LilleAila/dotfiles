@@ -52,13 +52,12 @@
             nvim-web-devicons
             mini-icons
             mini-statusline
-            mini-hipatterns
-            blink-cmp
-            mini-pairs
             mini-notify
-            nvim-lint
-            conform-nvim
             fzf-lua
+            blink-cmp
+            self.packages.${pkgs.stdenv.hostPlatform.system}.nvim-snippets
+            luasnip
+            nvim-treesitter.withAllGrammars
 
             # NOTE: this is in the wrong place it should probably be done in another way something like this: https://github.com/Goxore/nixconf/blob/a33777adcce4a55ce5d3d74c67695059e19a8f76/modules/wrappedPrograms/neovim/neovim.nix#L55
             pkgs.fzf
@@ -66,11 +65,13 @@
 
           opt = with pkgs.vimPlugins; [
             which-key-nvim
-            nvim-treesitter.withAllGrammars
             mini-files
             nvim-lspconfig
             obsidian-nvim
-            self.packages.${pkgs.stdenv.hostPlatform.system}.nvim-snippets
+            mini-hipatterns
+            nvim-lint
+            conform-nvim
+            mini-pairs
           ];
 
           dev.myconfig = {

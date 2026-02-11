@@ -1,5 +1,6 @@
 return {
 	"conform.nvim",
+	event = "BufEnter",
 	after = function()
 		require("conform").setup({
 			format_after_save = {
