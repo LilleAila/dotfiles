@@ -1,6 +1,11 @@
 return {
 	"fzf-lua",
-	cmd = "FzfLua",
+	-- cmd = "FzfLua",
+	lazy = false, -- Obsidian breaks when this is lazy loaded
+
+	after = function()
+		require("fzf-lua").setup()
+	end,
 
 	keys = {
 		{ "<leader>ff", ":FzfLua files<cr>", desc = "Files" },
