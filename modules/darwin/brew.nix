@@ -78,6 +78,7 @@
             "cloudcompare"
             "sqlitestudio"
             "drawio"
+            "audiveris"
 
             # music stuff
             "ableton-live-lite"
