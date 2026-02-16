@@ -79,6 +79,7 @@
             "sqlitestudio"
             "drawio"
             "audiveris"
+            "midi-monitor"
 
             # music stuff
             "ableton-live-lite"
