@@ -26,3 +26,4 @@ vim.keymap.set("n", "<leader>clb", mk_spell({ "nb", "en_us", "fr" }), opts("Nors
 vim.keymap.set("n", "<leader>cln", mk_spell({ "nn", "en_us", "fr" }), opts("Norsk Nynorsk"))
 
 vim.keymap.set("n", "<leader>cd", ":setlocal nospell<cr>", opts("Disable spellcheck"))
+vim.keymap.set("n", "<leader>cc", ":FzfLua spell_suggest<cr>", opts("See suggestions"))
