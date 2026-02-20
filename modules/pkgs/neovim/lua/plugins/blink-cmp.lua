@@ -13,6 +13,12 @@ return {
 
 			sources = {
 				default = { "snippets", "lsp", "path", "buffer" },
+				per_filetype = {
+					sql = { "snippets", "dadbod", "lsp", "path", "buffer" },
+				},
+				providers = {
+					dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+				},
 			},
 		})
 	end,

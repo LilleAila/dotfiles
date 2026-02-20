@@ -22,6 +22,7 @@ return {
 			{ "<leader>f", desc = "Picker" },
 			{ "<leader>l", desc = "LSP" },
 			{ "<leader>o", desc = "Obsidian" },
+			{ "<leader>d", desc = "Database" },
 		})
 	end,
 }
