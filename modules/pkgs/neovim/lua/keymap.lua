@@ -16,3 +16,5 @@ vim.keymap.set("n", "<leader>fd", function()
 		print("Delete canceled")
 	end
 end, { noremap = true, silent = true, desc = "Delete file" })
+
+vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]])
