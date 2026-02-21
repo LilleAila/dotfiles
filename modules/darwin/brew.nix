@@ -78,8 +78,8 @@
             "cloudcompare"
             "sqlitestudio"
             "drawio"
-            "audiveris"
-            "midi-monitor"
+            "skim"
+            "colemak-dh"
 
             # music stuff
             "ableton-live-lite"
@@ -90,7 +90,8 @@
             "uvi-portal"
             "native-access"
             "blackhole-2ch"
-            "colemak-dh"
+            "audiveris"
+            "midi-monitor"
 
             # Not apple silicon; requires rosetta 2
             "steam"
