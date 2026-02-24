@@ -21,6 +21,7 @@ return {
 				nix = { "nixfmt" },
 				rust = { "rustfmt" },
 				typst = { "typstyle" },
+				cpp = { "clang-format" },
 			},
 		})
 	end,

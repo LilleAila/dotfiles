@@ -13,13 +13,16 @@ return {
 			vim.keymap.set("n", "<leader>lk", vim.diagnostic.goto_prev, opts("Previous diagnostic"))
 		end
 
-		vim.lsp.config("*", {
+		-- vim.lsp.config("*", {
+		-- 	root_markers = { ".git" },
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- })
+
+		vim.lsp.config("nixd", {
 			root_markers = { ".git" },
 			capabilities = capabilities,
 			on_attach = on_attach,
-		})
-
-		vim.lsp.config("nixd", {
 			settings = {
 				nixd = {
 					diagnostic = {
@@ -31,6 +34,9 @@ return {
 		vim.lsp.enable("nixd")
 
 		vim.lsp.config("lua_ls", {
+			root_markers = { ".git" },
+			capabilities = capabilities,
+			on_attach = on_attach,
 			settings = {
 				Lua = {
 					diagnostics = {
@@ -41,6 +47,7 @@ return {
 				},
 			},
 		})
+		vim.lsp.enable("lua_ls")
 
 		-- Servers which only use defaults
 		for _, lsp in ipairs({
@@ -58,8 +65,13 @@ return {
 			"tinymist",
 			"html",
 			"emmet_ls",
+			"clangd",
 		}) do
-			vim.lsp.config(lsp, {})
+			vim.lsp.config(lsp, {
+				root_markers = { ".git" },
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
 			vim.lsp.enable(lsp)
 		end
 	end,
