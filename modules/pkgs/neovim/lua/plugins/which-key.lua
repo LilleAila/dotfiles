@@ -23,6 +23,7 @@ return {
 			{ "<leader>l", desc = "LSP" },
 			{ "<leader>o", desc = "Obsidian" },
 			{ "<leader>d", desc = "Database" },
+			{ "<leader>c", desc = "Spellcheck" },
 		})
 	end,
 }

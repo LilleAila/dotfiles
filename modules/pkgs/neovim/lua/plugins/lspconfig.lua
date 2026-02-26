@@ -11,6 +11,8 @@ return {
 			vim.keymap.set("n", "<leader>le", vim.diagnostic.open_float, opts("Open diagnostic float"))
 			vim.keymap.set("n", "<leader>lj", vim.diagnostic.goto_next, opts("Next diagnostic"))
 			vim.keymap.set("n", "<leader>lk", vim.diagnostic.goto_prev, opts("Previous diagnostic"))
+
+			vim.keymap.set("n", "<leader>ln", vim.lsp.buf.rename, opts("Rename symbol"))
 		end
 
 		-- vim.lsp.config("*", {
