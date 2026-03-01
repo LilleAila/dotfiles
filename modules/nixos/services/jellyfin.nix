@@ -27,6 +27,11 @@
         environment.persistence."/persist" = {
           directories = [
             {
+              directory = config.services.jellyfin.cacheDir;
+              mode = "664";
+              inherit (config.services.jellyfin) user group;
+            }
+            {
               directory = config.services.jellyfin.dataDir;
               mode = "664";
               inherit (config.services.jellyfin) user group;
