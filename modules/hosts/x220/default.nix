@@ -14,6 +14,12 @@
       boot.loader.systemd-boot.enable = true;
       boot.loader.efi.canTouchEfiVariables = true;
 
+      hardware.enableRedistributableFirmware = true;
+      hardware.graphics.extraPackages = with pkgs; [
+          mesa
+          libglvnd
+        ];
+
       networking.hostId = "210c2d42";
 
       settings = {
