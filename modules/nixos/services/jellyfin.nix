@@ -5,6 +5,7 @@
       pkgs,
       inputs,
       config,
+      user,
       ...
     }:
     let
@@ -19,6 +20,8 @@
           enable = true;
           openFirewall = true;
         };
+
+        users.users.${user}.extraGroups = [ config.services.jellyfin.group ];
 
         # settings.persist.root.directories = [
         #   config.services.jellyfin.dataDir
