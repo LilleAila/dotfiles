@@ -16,9 +16,9 @@
 
       hardware.enableRedistributableFirmware = true;
       hardware.graphics.extraPackages = with pkgs; [
-          mesa
-          libglvnd
-        ];
+        mesa
+        libglvnd
+      ];
 
       networking.hostId = "210c2d42";
 
@@ -121,6 +121,7 @@
 
       hm = {
         settings = {
+          terminal.emulator.name = "alacritty"; # ghostty broken on x220
           monitors = [
             {
               name = "LVDS-1";
@@ -133,7 +134,19 @@
           school.enable = true;
 
           fonts.size = 8;
+
+          nix.unfree = [
+            "makemkv"
+          ];
+
+          persist.home.directories = [
+            ".MakeMKV"
+          ];
         };
+
+        home.packages = with pkgs; [
+          makemkv
+        ];
 
         home.shellAliases = {
           bt = "bluetooth";

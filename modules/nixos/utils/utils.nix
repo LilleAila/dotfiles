@@ -38,6 +38,7 @@
           usbutils
           lshw
           wirelesstools
+          cifs-utils
         ];
       };
     };

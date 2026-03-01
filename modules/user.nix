@@ -55,6 +55,7 @@
             "wheel"
             "input"
             "dialout"
+            "cdrom"
           ];
           packages = with pkgs; [ ];
           initialPassword = "";
