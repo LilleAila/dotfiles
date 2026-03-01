@@ -135,6 +135,7 @@
           gaming.steam.enable = true;
           desktop.enable = true;
           desktop.full.enable = true;
+          dvd.enable = true;
 
           virtualisation.enable = true;
 

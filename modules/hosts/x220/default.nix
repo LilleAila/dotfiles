@@ -132,21 +132,10 @@
 
           desktop.full.enable = true;
           school.enable = true;
+          dvd.enable = true;
 
           fonts.size = 8;
-
-          nix.unfree = [
-            "makemkv"
-          ];
-
-          persist.home.directories = [
-            ".MakeMKV"
-          ];
         };
-
-        home.packages = with pkgs; [
-          makemkv
-        ];
 
         home.shellAliases = {
           bt = "bluetooth";
