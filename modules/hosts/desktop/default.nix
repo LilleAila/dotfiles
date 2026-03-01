@@ -9,7 +9,6 @@
     {
       config,
       pkgs,
-      modulesPath,
       ...
     }:
     {
@@ -110,6 +109,18 @@
 
       system.stateVersion = "24.11";
 
+      sops.secrets."syncthing/desktop/cert" = {
+        path = "${config.hm.home.homeDirectory}/.config/syncthing/cert.pem";
+        inherit (config.services.syncthing) group;
+        owner = config.services.syncthing.user;
+      };
+      sops.secrets."syncthing/desktop/key" = {
+        path = "${config.hm.home.homeDirectory}/.config/syncthing/key.pem";
+        inherit (config.services.syncthing) group;
+        owner = config.services.syncthing.user;
+      };
+      systemd.services.syncthing.after = [ "sops-nix.service" ];
+
       hm = {
         settings = {
           monitors = [
@@ -154,11 +165,6 @@
         home.file.".ssh/id_ed25519.pub".text = self.keys.ssh.desktop.public;
 
         sops.secrets."yubikey/u2f_keys".path = "${config.hm.home.homeDirectory}/.config/Yubico/u2f_keys";
-
-        sops.secrets."syncthing/desktop/cert".path =
-          "${config.hm.home.homeDirectory}/.config/syncthing/cert.pem";
-        sops.secrets."syncthing/desktop/key".path =
-          "${config.hm.home.homeDirectory}/.config/syncthing/key.pem";
       };
     };
 }
