@@ -71,8 +71,9 @@
         gpg.enable = true;
         yubikey.enable = true;
         virtualisation.enable = true;
-        searx.enable = true;
+
         jellyfin.enable = true;
+        samba.enable = true;
 
         nvidia.enable = true;
       };
