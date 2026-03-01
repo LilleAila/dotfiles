@@ -22,6 +22,13 @@
 
       networking.hostId = "7dbd1705";
 
+      fileSystems = {
+        "/srv/jellyfin" = {
+          device = "zroot/jellyfin";
+          fsType = "zfs";
+        };
+      };
+
       settings = {
         locale = {
           main = "en_US.UTF-8";
