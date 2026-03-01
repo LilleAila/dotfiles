@@ -23,16 +23,20 @@
               "map to guest" = "bad user";
             };
 
+            # NOTE: mount on client with:
+            # sudo mount.cifs //192.168.68.120/jellyfin /mnt/jellyfin -o username=olai,uid=$(id -u),gid=$(id -g),sec=ntlmssp
+            # (requires nixpkgs#cifs-utils)
             jellyfin = {
               path = "/srv/jellyfin";
               browseable = "yes";
               "read only" = "no";
               "guest ok" = "no";
+              # NOTE: set password with sudo smbpasswd -a username
+              "valid users" = user; # login user
+              "force user" = "jellyfin"; # filesystem user
+              "force group" = "jellyfin";
               "create mask" = "0644";
               "directory mask" = "0755";
-              # NOTE: set password with sudo smbpasswd -a username
-              "valid users" = user;
-              "force user" = user;
             };
           };
         };
