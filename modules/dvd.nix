@@ -27,6 +27,7 @@
           vlc
           lsdvd
           ddrescue
+          handbrake
         ];
       };
     };
