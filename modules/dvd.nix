@@ -29,6 +29,7 @@
           ddrescue
           handbrake
           mkvtoolnix
+          vobcopy
         ];
       };
     };
