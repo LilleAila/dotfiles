@@ -35,8 +35,8 @@
               "valid users" = user; # login user
               "force user" = "jellyfin"; # filesystem user
               "force group" = "jellyfin";
-              "create mask" = "0644";
-              "directory mask" = "0755";
+              "create mask" = "0664";
+              "directory mask" = "0775";
             };
           };
         };
