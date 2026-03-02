@@ -19,7 +19,25 @@
       boot.loader.systemd-boot.enable = true;
       boot.loader.efi.canTouchEfiVariables = true;
 
-      networking.hostId = "7dbd1705";
+      networking = {
+        hostId = "7dbd1705";
+        # defaultGateway = "10.0.0.138";
+        # nameservers = [
+        #   "1.1.1.1"
+        #   "8.8.8.8"
+        # ];
+
+        # configured through networkmanager
+        # interfaces.wlp4s0 = {
+        #   useDHCP = false;
+        #   ipv4.addresses = [
+        #     {
+        #       address = "10.0.0.42";
+        #       prefixLength = 24;
+        #     }
+        #   ];
+        # };
+      };
 
       fileSystems = {
         "/srv/jellyfin" = {

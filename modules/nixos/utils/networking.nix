@@ -26,8 +26,16 @@
             enable = true;
             nssmdns4 = true;
             openFirewall = true;
+            publish = {
+              enable = true;
+              userServices = true;
+              workstation = true;
+              addresses = true;
+            };
           };
-          networking.hostName = config.settings.networking.hostname;
+          networking = {
+            hostName = config.settings.networking.hostname;
+          };
         })
         (lib.mkIf config.settings.networking.wifi.enable {
           networking.networkmanager.enable = true;
