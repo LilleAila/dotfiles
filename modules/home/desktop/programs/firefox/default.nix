@@ -96,7 +96,7 @@
                     violentmonkey
                   ];
                   settings = import ./_settings.nix { inherit config; };
-                  userChrome = import ./_userChrome.nix { colorScheme = self.colorScheme.palette; };
+                  # userChrome = import ./_userChrome.nix { colorScheme = self.colorScheme.palette; };
                   colorTab = bg: fg: ''
                     .tab-background[selected] {
                       background-color: #${bg} !important;
@@ -113,14 +113,14 @@
                     id = 0;
                     inherit search settings;
                     extensions.packages = extensions;
-                    userChrome = userChrome + (with self.colorScheme.palette; colorTab base0D base00);
+                    userChrome = with self.colorScheme.palette; colorTab base0D base00;
                   };
 
                   school = {
                     id = 1;
                     inherit search settings;
                     extensions.packages = extensions;
-                    userChrome = userChrome + (with self.colorScheme.palette; colorTab base0B base00);
+                    userChrome = with self.colorScheme.palette; colorTab base0B base00;
                   };
                 };
             };

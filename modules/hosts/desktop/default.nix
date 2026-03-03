@@ -91,6 +91,7 @@
           x220.public
           pixel8a.public
           installer.public
+          m4air-darwin.public
         ];
 
         zfs.enable = true;
