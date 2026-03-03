@@ -49,6 +49,13 @@
           "ssh.olai.dev"
           "jellyfin.olai.dev"
         ];
+        credentialsFile = config.sops.secrets."cloudflare_ddns".path;
+      };
+
+      sops.secrets."cloudflare_ddns" = {
+        owner = config.services.cloudflare-ddns.user;
+        inherit (config.services.cloudflare-ddns) group;
+        neededForUsers = true;
       };
 
       fileSystems = {
