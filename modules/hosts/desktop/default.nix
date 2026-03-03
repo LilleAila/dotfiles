@@ -39,6 +39,18 @@
         # };
       };
 
+      services.caddy.virtualHosts."jellyfin.olai.dev".extraConfig = ''
+        reverse_proxy http://127.0.0.1:8096
+      '';
+
+      services.cloudflare-ddns = {
+        enable = true;
+        domains = [
+          "ssh.olai.dev"
+          "jellyfin.olai.dev"
+        ];
+      };
+
       fileSystems = {
         "/srv/jellyfin" = {
           device = "zroot/jellyfin";
@@ -92,6 +104,7 @@
 
         jellyfin.enable = true;
         samba.enable = true;
+        caddy.enable = true;
 
         nvidia.enable = true;
       };

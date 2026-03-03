@@ -5,6 +5,7 @@
       config,
       pkgs,
       lib,
+      user,
       ...
     }:
     {
@@ -19,8 +20,13 @@
               settings = {
                 PasswordAuthentication = false;
                 KbdInteractiveAuthentication = false;
+                PermitRootLogin = "no";
+                AllowUsers = [
+                  user
+                ];
               };
             };
+            services.fail2ban.enable = true;
             user.openssh.authorizedKeys.keys = config.settings.ssh.keys;
             users.users.root.openssh.authorizedKeys.keys = config.settings.ssh.keys;
           }
