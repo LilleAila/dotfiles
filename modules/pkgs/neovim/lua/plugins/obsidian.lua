@@ -48,7 +48,9 @@ return {
 				},
 			},
 
-			preferred_link_style = "wiki",
+			link = {
+				style = "wiki",
+			},
 
 			note_id_func = function(title)
 				local name = ""
@@ -71,22 +73,28 @@ return {
 
 			frontmatter = {
 				func = function(note)
+					note.metadata = note.metadata or {}
+
+					if not note.title then
+						local lines = vim.api.nvim_buf_get_lines(0, 0, 20, false)
+						for _, line in ipairs(lines) do
+							local h1 = line:match("^#%s+(.+)")
+							if h1 then
+								note.title = h1
+								break
+							end
+						end
+					end
+
 					if note.title then
 						note:add_alias(note.title)
+						note.metadata.title = note.title
 					end
 
-					local out = { id = note.id, aliases = note.aliases, tags = note.tags }
-
-					if not note.date then
-						local date = tostring(os.date("%Y-%m-%d"))
-						out.date = date
-					end
-
-					if note.title then
-						out.title = note.title
-					end
+					note.metadata.date = note.metadata.date or os.date("%Y-%m-%d")
 
 					-- Keep existing items
+					local out = { id = note.id, aliases = note.aliases, tags = note.tags }
 					if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
 						for k, v in pairs(note.metadata) do
 							out[k] = v
@@ -98,7 +106,7 @@ return {
 			},
 
 			attachments = {
-				folder = { "Assets" },
+				folder = "Assets",
 				img_name_func = function()
 					return tostring(os.date("%Y%m%dT%H%M")) .. "-"
 				end,
