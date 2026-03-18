@@ -77,6 +77,7 @@
             nvim-lint
             conform-nvim
             mini-pairs
+            arrow-nvim
           ];
 
           dev.myconfig = {
