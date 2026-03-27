@@ -27,6 +27,7 @@
           taps = [
             # "nikitabobko/tap"
             "LilleAila/tap"
+            "Sikarugir-App/sikarugir"
           ];
           brews = [
             "mas"
@@ -81,6 +82,7 @@
             "drawio"
             "skim"
             "colemak-dh"
+            "Sikarugir-App/sikarugir/sikarugir"
 
             # music stuff
             "ableton-live-lite"
