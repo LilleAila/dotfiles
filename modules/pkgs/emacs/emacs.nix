@@ -26,8 +26,11 @@
 
           evil
           evil-collection
+          evil-commentary
           general
           flyover
+          corfu
+          cape
 
           nix-ts-mode
         ]

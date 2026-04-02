@@ -152,6 +152,30 @@
              (flyover-checkers '(flymake))
              (flyover-levels '(error warning info)))
 
+(use-package corfu
+             :custom
+             (corfu-auto t)
+             (corfu-auto-prefix 2)
+             (corfu-auto-delay 0.0)
+             (corfu-quit-at-boundary 'separator)
+             :config
+             (global-corfu-mode)
+             (set-face-attribute 'corfu-border nil :background (face-attribute 'default :background)))
+
+(use-package cape
+             :config
+             (add-to-list 'completion-at-point-functions #'cape-dabbrev)
+             (add-to-list 'completion-at-point-functions #'cape-file)
+             (add-to-list 'completion-at-point-functions #'cape-elisp-block))
+
+(use-package evil-commentary
+             :ensure t
+             :after evil
+             :config
+             (evil-commentary-mode))
+
+(electric-pair-mode 1)
+
 (my/leader-keys
   "l" '(:ignore t :which-key "LSP")
   "lr" '(eglot-rename :which-key "Rename")
