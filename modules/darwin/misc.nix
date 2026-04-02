@@ -18,6 +18,7 @@
 
         fonts.packages = with pkgs; [
           nerd-fonts.jetbrains-mono
+          nerd-fonts.symbols-only
         ];
 
         # Reset with updates, has to be reapplied
