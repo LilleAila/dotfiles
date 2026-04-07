@@ -44,6 +44,13 @@
 	 mac-right-option-modifier nil
 	 mac-command-modifier 'meta))
 
+;; Simpler yes/no confirmation
+(setf (symbol-function 'yes-or-no-p) #'y-or-n-p)
+
+;; Spaces instead of tabs
+; (setq-default indent-tabs-mode nil)
+; (setq-default tab-width 4)
+
 ;; Line numbers
 (setq column-number-mode t)
 (global-hl-line-mode t)
@@ -232,7 +239,7 @@
 
 (my/leader-keys
   "l" '(:ignore t :which-key "LSP")
-  "lr" '(eglot-rename :which-key "Rename")
+  "ln" '(eglot-rename :which-key "Rename")
   "le" '(eldoc :which-key "Open diagnostic float")
   "lj" '(flymake-goto-next-error :which-key "Next diagnostic")
   "lk" '(flymake-goto-prev-error :which-key "Previous diagnostic")
@@ -248,3 +255,50 @@
              (which-key-mode)
              (setq which-key-idle-delay 0.2)
              (setq which-key-idle-secondary-delay 0.01))
+
+;; Dirvish
+(use-package dirvish
+             :config
+             (dirvish-override-dired-mode)
+             (with-eval-after-load 'evil
+                                   (evil-define-key 'normal dired-mode-map (kbd "h") 'dired-up-directory)
+                                   (evil-define-key 'normal dired-mode-map (kbd "l") 'dired-find-file)))
+
+(my/leader-keys
+  "fm" '(dirvish-dwim :which-key "Dirvish dwim")
+  "fd" '(dirvish :which-key "Dirvish")
+  "fq" '(dirvish-quit :which-key "Quit dirvish"))
+
+;; Vterm
+(defun my/vterm-setup-ui ()
+  (display-line-numbers-mode -1)
+  (hl-line-mode -1)
+  (setq-local face-remapping-alist '((hl-line :inherit default)))
+
+  (setq-local face-remapping-alist
+              '((hl-line :inherit default)
+                (nobreak-space :inherit default)
+                (escape-glyph :inherit default)
+                (glyphless-char :inherit default)))
+
+  (setq-local show-trailing-whitespace nil)
+  (if (bound-and-true-p whitespace-mode) (whitespace-mode -1))
+  (if (bound-and-true-p indent-guide-mode) (indent-guide-mode -1))
+
+  (setq-local line-spacing nil)
+  (setq-local line-height 1.0)
+  (setq-local window-vscroll nil)
+
+  (set-window-fringes (selected-window) 0 0)
+  (setq-local window-divider-default-places nil)
+  (setq-local indent-tabs-mode nil)
+
+  (setq-local scroll-margin 0)
+  (setq-local fast-but-imprecise-scrolling t))
+
+(use-package vterm
+             :commands vterm
+             :hook (vterm-mode . my/vterm-setup-ui)
+             :config
+             (setq vterm-keymap-exceptions nil)
+             (evil-set-initial-state 'vterm-mode 'emacs))

@@ -32,6 +32,9 @@
           corfu
           cape
 
+          dirvish
+          vterm
+
           nix-ts-mode
         ]
       );
