@@ -83,6 +83,7 @@
             "skim"
             "colemak-dh"
             "Sikarugir-App/sikarugir/sikarugir"
+            "libreoffice"
 
             # music stuff
             "ableton-live-lite"
