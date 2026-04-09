@@ -7,7 +7,7 @@
   perSystem =
     { pkgs, ... }:
     let
-      basePackage = if pkgs.stdenv.hostPlatform.isDarwin then pkgs.emacs else pkgs.emags-pgtk;
+      basePackage = if pkgs.stdenv.hostPlatform.isDarwin then pkgs.emacs else pkgs.emacs-pgtk;
       emacsPackages = pkgs.emacsPackagesFor basePackage;
       emacsPackage = emacsPackages.emacsWithPackages (
         epkgs: with epkgs; [
