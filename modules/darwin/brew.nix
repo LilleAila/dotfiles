@@ -84,6 +84,7 @@
             "colemak-dh"
             "Sikarugir-App/sikarugir/sikarugir"
             "libreoffice"
+            "dash"
 
             # music stuff
             "ableton-live-lite"
