@@ -130,6 +130,7 @@
           wget
           fd
           libqalculate
+          nushell
         ];
       };
     };
