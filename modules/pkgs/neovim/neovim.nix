@@ -78,6 +78,7 @@
             conform-nvim
             mini-pairs
             arrow-nvim
+            typst-preview-nvim
           ];
 
           dev.myconfig = {
