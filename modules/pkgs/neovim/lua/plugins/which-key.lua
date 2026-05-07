@@ -21,6 +21,7 @@ return {
 		wk.add({
 			{ "<leader>f", desc = "Picker" },
 			{ "<leader>l", desc = "LSP" },
+			{ "<leader>lg", desc = "Go to" },
 			{ "<leader>o", desc = "Obsidian" },
 			{ "<leader>d", desc = "Database" },
 			{ "<leader>c", desc = "Spellcheck" },
