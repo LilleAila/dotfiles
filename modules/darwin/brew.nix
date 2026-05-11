@@ -86,6 +86,7 @@
             "Sikarugir-App/sikarugir/sikarugir"
             "libreoffice"
             "pinta"
+            "gimp"
 
             # music stuff
             "ableton-live-lite"
