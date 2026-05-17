@@ -1,10 +1,9 @@
-{ lib, ... }:
+{ lib, self, ... }:
 {
   flake.modules.homeManager.gaming =
     {
       config,
       pkgs,
-      inputs,
       ...
     }:
     {
@@ -22,6 +21,7 @@
           "factorio-alpha"
           "factorio-headless"
           "factorio-demo"
+          "factorio-space-age"
           "osu-lazer-bin"
         ];
 
@@ -30,17 +30,17 @@
         settings.persist.home.directories = [
           ".config/openttd"
           ".local/share/openttd"
+          ".factorio"
         ];
 
         home.packages = with pkgs; [
           # heroic
           # ryubing
-          # (pkgs.factorio.override {
-          #   # It's easier to use the built-in mod manager than to package it with nix
-          #   inherit (self.secrets.factorio) username token;
-          #   versionsJson = inputs.factorio-versions.versions;
-          #   experimental = false;
-          # })
+          (pkgs.factorio.override {
+            # It's easier to use the built-in mod manager than to package it with nix
+            inherit (self.secrets.factorio) username token;
+            releaseType = "expansion";
+          })
           osu-lazer-bin
           openttd
         ];

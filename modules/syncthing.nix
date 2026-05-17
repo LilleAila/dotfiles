@@ -103,16 +103,6 @@ let
         "t420"
       ];
     };
-    # NOTE: disabled in favor of steam sync. Hopefully won't cause issues
-    # "Factorio Saves" = {
-    #   path = "${homeDirectory}/.factorio";
-    #   devices = [
-    #     "oci"
-    #     "e14g5"
-    #     "desktop"
-    #     "m4air-darwin"
-    #   ];
-    # };
     "Minecraft" = {
       path = "${homeDirectory}/.local/share/PrismLauncher/instances";
       devices = [
@@ -158,7 +148,6 @@ in
             "org"
 
             "Sync"
-            ".factorio"
             ".local/share/PrismLauncher/instances"
             ".spell"
           ];

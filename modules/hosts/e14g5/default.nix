@@ -33,7 +33,7 @@
           ":${
             pkgs.fetchurl {
               url = "https://www.zubersoft.download/mobilesheets.flatpak";
-              sha256 = "sha256-CEjXCoCRklaZv1vmExbvTJdT/5ArbRSnkmlGPhhk9Ek=";
+              sha256 = "sha256-BzPR/4uHVc5xWfMEQcZYwlIm/ePIPky9YrJCx5nHeVQ=";
             }
           }"
         ];
@@ -224,7 +224,20 @@
           DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "nfc wifi wwan";
         };
       };
+
       system.stateVersion = "24.11";
+
+      sops.secrets."syncthing/desktop/cert" = {
+        path = "${config.hm.home.homeDirectory}/.config/syncthing/cert.pem";
+        inherit (config.services.syncthing) group;
+        owner = config.services.syncthing.user;
+      };
+      sops.secrets."syncthing/desktop/key" = {
+        path = "${config.hm.home.homeDirectory}/.config/syncthing/key.pem";
+        inherit (config.services.syncthing) group;
+        owner = config.services.syncthing.user;
+      };
+      systemd.services.syncthing.after = [ "sops-nix.service" ];
 
       hm = {
         settings = {
@@ -266,10 +279,6 @@
         sops.secrets."ssh/e14g5".path = "${config.hm.home.homeDirectory}/.ssh/id_ed25519";
         home.file.".ssh/id_ed25519.pub".text = self.keys.ssh.e14g5.public;
         # home.file.".ssh/yubikey.pub".text = keys.ssh.yubikey.public;
-        sops.secrets."syncthing/e14g5/cert".path =
-          "${config.hm.home.homeDirectory}/.config/syncthing/cert.pem";
-        sops.secrets."syncthing/e14g5/key".path =
-          "${config.hm.home.homeDirectory}/.config/syncthing/key.pem";
       };
     };
 }
