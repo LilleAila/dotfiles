@@ -23,6 +23,7 @@
             devNodes = lib.mkDefault "/dev/disk/by-partuuid"; # by-id for intel, by-partuuid for amd
             package = pkgs.zfs_unstable;
             requestEncryptionCredentials = config.settings.zfs.encryption;
+            forceImportRoot = false;
           };
         };
 

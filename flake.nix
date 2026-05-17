@@ -72,11 +72,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    programsdb = {
-      url = "github:wamserma/flake-programs-sqlite";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     focal = {
       url = "github:iynaix/focal";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -79,9 +79,11 @@
               ".mozilla"
               ".cache/mozilla"
             ];
+
             programs.firefox = {
               enable = true;
               package = lib.mkDefault pkgs.firefox;
+              configPath = ".mozilla/firefox";
               profiles =
                 let
                   search = import ./_search.nix { inherit pkgs; };

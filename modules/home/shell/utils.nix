@@ -112,6 +112,7 @@
 
         programs.yazi = {
           enable = true;
+          shellWrapperName = "y";
         };
 
         settings.persist.home.cache = [

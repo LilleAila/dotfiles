@@ -31,7 +31,7 @@
           };
 
           home.packages = with pkgs; [
-            protonvpn-gui
+            proton-vpn
             fluidsynth
             qsynth
             inkscape
@@ -44,7 +44,7 @@
             musescore
             calibre
             libgen-cli
-            bottles
+            # bottles
             # self.packages.${pkgs.stdenv.hostPlatform.system}.fhsenv
             pb_cli
             # kicad # FIXME: build failure?

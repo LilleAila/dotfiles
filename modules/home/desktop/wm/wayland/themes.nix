@@ -4,7 +4,6 @@
     {
       config,
       pkgs,
-      inputs,
       ...
     }:
     {
@@ -33,6 +32,7 @@
               # `gtk.theme` only applies to gtk2 and gtk3
               theme.package = pkgs.adw-gtk3;
               theme.name = "adw-gtk3";
+              gtk4.theme = config.gtk.theme;
               iconTheme.package = pkgs.papirus-icon-theme;
               iconTheme.name = "Papirus-Dark";
               font.package = config.settings.fonts.sansSerif.package;
