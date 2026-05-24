@@ -13,6 +13,11 @@
       options.settings.nvidia.disable = lib.mkEnableOption "Disable nvidia";
 
       config = lib.mkMerge [
+        {
+          settings.nix.unfree = [
+            "nvidia-kernel-modules"
+          ];
+        }
         (lib.mkIf config.settings.nvidia.disable (
           lib.mkAssert (!config.settings.nvidia.enable) "Nvidia cannot be both enabled and disabled" {
             boot.extraModprobeConfig = ''
