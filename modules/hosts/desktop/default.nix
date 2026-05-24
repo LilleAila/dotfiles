@@ -48,6 +48,7 @@
         domains = [
           "ssh.olai.dev"
           "jellyfin.olai.dev"
+          "create.olai.dev"
         ];
         credentialsFile = config.sops.secrets."cloudflare_ddns".path;
       };
@@ -115,6 +116,11 @@
         caddy.enable = true;
 
         nvidia.enable = true;
+
+        minecraft = {
+          enable = true;
+          preset = "desktop";
+        };
       };
 
       specialisation = {
