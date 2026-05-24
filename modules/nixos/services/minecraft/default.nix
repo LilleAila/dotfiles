@@ -35,18 +35,21 @@
       config = lib.mkIf cfg.enable (
         lib.mkMerge [
           (lib.mkIf (cfg.preset == "desktop") {
+            networking.firewall.allowedTCPPorts = [ 24454 ];
+            networking.firewall.allowedUDPPorts = [ 24454 ];
+
             services.minecraft-servers.servers = {
-              proxy.files."velocity.toml".value = {
-                servers = {
-                  create = "127.0.0.1:30001";
-
-                  try = [ "create" ];
-                };
-
-                forced-hosts = {
-                  "create.olai.dev" = [ "create" ];
-                };
-              };
+              # proxy.files."velocity.toml".value = {
+              #   servers = {
+              #     create = "127.0.0.1:30001";
+              #
+              #     try = [ "create" ];
+              #   };
+              #
+              #   forced-hosts = {
+              #     "create.olai.dev" = [ "create" ];
+              #   };
+              # };
 
               create = {
                 enable = true;
@@ -61,10 +64,10 @@
                     in
                     pkgs.linkFarmFromDrvs "mods" (
                       builtins.attrValues {
-                        Proxy-Compatible-Forge = fetchurl {
-                          url = "https://cdn.modrinth.com/data/vDyrHl8l/versions/iRclYdm8/proxy-compatible-forge-1.2.6.jar";
-                          sha512 = "de48f409c0f780217a257dc5b7196fef5e930703b513ac93f58658f1db0d3c002ba8ee687ead90b1692557aee3cd68095f8860370460edd446faf307a8df485b";
-                        };
+                        # Proxy-Compatible-Forge = fetchurl {
+                        #   url = "https://cdn.modrinth.com/data/vDyrHl8l/versions/iRclYdm8/proxy-compatible-forge-1.2.6.jar";
+                        #   sha512 = "de48f409c0f780217a257dc5b7196fef5e930703b513ac93f58658f1db0d3c002ba8ee687ead90b1692557aee3cd68095f8860370460edd446faf307a8df485b";
+                        # };
 
                         Create = fetchurl {
                           url = "https://cdn.modrinth.com/data/LNytGWDc/versions/UjX6dr61/create-1.21.1-6.0.10.jar";
@@ -96,21 +99,21 @@
                           sha512 = "eb7c46649f5aa359f688fecacfa348b205dff0cfc2d27694632c2e1e1f8f4dbab2c31bdc95b2577201529b2597afe49328c7ad8c348d25eaca109f1a02667534";
                         };
 
-                        Copycats-Aeronautics-Weight = fetchurl {
-                          url = "https://cdn.modrinth.com/data/wjpmYU1u/versions/wsXjRa7l/aerocopycats-1.1.1.jar";
-                          sha512 = "4f48c03a25a6f4ec022398cece20e5aa8d51f00951a0f568980e6e5419c1af2f12c8bb652500721afef119ecc455e4c5b1bc4bb7bef38d88846759f0e4c39e8c";
-                        };
+                        # Copycats-Aeronautics-Weight = fetchurl {
+                        #   url = "https://cdn.modrinth.com/data/wjpmYU1u/versions/wsXjRa7l/aerocopycats-1.1.1.jar";
+                        #   sha512 = "4f48c03a25a6f4ec022398cece20e5aa8d51f00951a0f568980e6e5419c1af2f12c8bb652500721afef119ecc455e4c5b1bc4bb7bef38d88846759f0e4c39e8c";
+                        # };
 
-                        Create-Copycats = fetchurl {
-                          url = "https://cdn.modrinth.com/data/UT2M39wf/versions/kecZ0sl7/copycats-3.0.4%2Bmc.1.21.1-neoforge.jar";
-                          sha512 = "ecc98e659be66a71af0aee66a9f4c7c8838f4f0101402644929079ce7280a572a000e7e417905e1869a51d6e49ebbd601008f54585e07ee4ed01f2c4bc752bfe";
-                        };
+                        # Create-Copycats = fetchurl {
+                        #   url = "https://cdn.modrinth.com/data/UT2M39wf/versions/kecZ0sl7/copycats-3.0.4%2Bmc.1.21.1-neoforge.jar";
+                        #   sha512 = "ecc98e659be66a71af0aee66a9f4c7c8838f4f0101402644929079ce7280a572a000e7e417905e1869a51d6e49ebbd601008f54585e07ee4ed01f2c4bc752bfe";
+                        # };
 
                         # NOTE: not on modrinth - used curseforge. not sure of stability
-                        Create-Copycats-Weight = fetchurl {
-                          url = "https://www.curseforge.com/api/v1/mods/1530305/files/8020405/download";
-                          sha256 = "1yb42assr6k11g91fzbz8pkahlz68zn8xyafdh4s7w9xfmv1rya0";
-                        };
+                        # Create-Copycats-Wing = fetchurl {
+                        #   url = "https://www.curseforge.com/api/v1/mods/1530305/files/8020405/download";
+                        #   sha256 = "1yb42assr6k11g91fzbz8pkahlz68zn8xyafdh4s7w9xfmv1rya0";
+                        # };
 
                         Create-Aeroworks = fetchurl {
                           url = "https://cdn.modrinth.com/data/P26k79kP/versions/LKsY0cFi/aeroworks-1.2.9.jar";
@@ -219,8 +222,8 @@
                         };
 
                         Corpse-Curios-API-Compat = fetchurl {
-                          url = "https://cdn.modrinth.com/data/pJGcKPh1/versions/Ix4uAd2i/corpsecurioscompat-1.21.1-NeoForge-4.0.1.jar";
-                          sha512 = "3a75b28b4bf25d775c399c8b5eff1f186020957332f3698d4e313cd0c0785c8b5814ca7fd7194e8b938e276073bab99e8d22aa2c5c10ca78763945db825059fe";
+                          url = "https://cdn.modrinth.com/data/pJGcKPh1/versions/zrZBuGfY/corpsecurioscompat-1.21.1-NeoForge-3.1.3.jar";
+                          sha512 = "a0d63bf5b37b6315e078513fe67c8297ab36e451b7ef57e73ea16d9879c3aa09d45f7052905c481fc298003df656ead65e3e1349174901983bc66e088d158c16";
                         };
 
                         Torchmaster = fetchurl {
@@ -228,10 +231,10 @@
                           sha512 = "855dd7f37a01c617dddcb5fe569b14a14cff4d5ea7f53a958bec4a694eb4b82677160a2509a84a03e41adea2d44617434667f56f2191e6427811ddbdc63e48fc";
                         };
 
-                        Simple-Voice-Chat = fetchurl {
-                          url = "https://cdn.modrinth.com/data/9eGKb6K1/versions/6rT2RWh6/voicechat-neoforge-1.21.1-2.6.17.jar";
-                          sha512 = "9646faa446300ee4d34936fdb71614d1e23bc2b3ca8da39a7dc46dc420caa01139db7f9db830154e27ea6662a1a50a68665e09407ba73da45841c3678f1659db";
-                        };
+                        # Simple-Voice-Chat = fetchurl {
+                        #   url = "https://cdn.modrinth.com/data/9eGKb6K1/versions/6rT2RWh6/voicechat-neoforge-1.21.1-2.6.17.jar";
+                        #   sha512 = "9646faa446300ee4d34936fdb71614d1e23bc2b3ca8da39a7dc46dc420caa01139db7f9db830154e27ea6662a1a50a68665e09407ba73da45841c3678f1659db";
+                        # };
 
                         Clumps = fetchurl {
                           url = "https://cdn.modrinth.com/data/Wnxd13zP/versions/jo7lDoK4/Clumps-neoforge-1.21.1-19.0.0.1.jar";
@@ -294,6 +297,28 @@
                           sha512 = "50604fa4125e846b659479a8bb8bcef5db47460a8185902b8655d8b12c6cc67eb3cc4c08fee45e82a6b215976bea2a480e32ce420f062cea88abe17cb362365c";
                         };
 
+                        Chunk-Pregenerator = fetchurl {
+                          url = "https://www.curseforge.com/api/v1/mods/267193/files/8133002/download";
+                          sha256 = "1a1w4w61byljvmvj8g3fw6dpdh4illch29hz71fgbiy19x8zp0ic";
+                        };
+
+                        Im-Sorry-But-The-Elytra-Is-In-Another-End-City = fetchurl {
+                          url = "https://cdn.modrinth.com/data/xGmalenI/versions/ZgP8dEP9/NoElytrasMod-NeoForge-1.21.1-1.1.jar";
+                          sha512 = "2fdf6ca157d7542a70871b43493251e85d5976a95a608a33e583571b85f0afcc9fe0a991c0cab8ad88fe0bbaa4aa8203a1489ea934e755d8b7563f938ec75663";
+                        };
+
+                        ###### Various server optimization and packet stuff idk
+
+                        Packet-Fixer = fetchurl {
+                          url = "https://cdn.modrinth.com/data/c7m1mi73/versions/2C41Q8WX/packetfixer-3.3.1-1.20.5-1.21.X-merged.jar";
+                          sha512 = "d0acfaa6ef394fc7d9e677022bda06a6c8be7851ba8860897999775b657b5e10878578fe626505b0c9dbc01d26f559dbb1214aabb081d076824648047094e2e1";
+                        };
+
+                        Connectivity = fetchurl {
+                          url = "https://www.curseforge.com/api/v1/mods/470193/files/7367221/download";
+                          sha256 = "06i85cs63bmrh6zlj9czic1lhrhac5dnx8hmpawh1fp5v8yrfri3";
+                        };
+
                         ##### Dependencies:
 
                         Architectury-API = fetchurl {
@@ -322,8 +347,8 @@
                         };
 
                         Citadel = fetchurl {
-                          url = "https://cdn.modrinth.com/data/jJfV67b1/versions/uzrkhBpn/citadel-2.7.0-1.21.1.jar";
-                          sha512 = "d77d8d25279d877ef94f1e48e770547ba2fbee2f01ed151aa932c6e36ed5dd7f846db096f7b1f9c13f49a3e2fd5de434d20a0924a3232e06d20c7ca5f46e47f6";
+                          url = "https://cdn.modrinth.com/data/XjY0RcQj/versions/mIylVpkN/citadel-1.21.1-2.7.6.jar";
+                          sha512 = "81fd425d8910da30d9ce130213e518ed3acf6d6b63c98396668126e17f99f4d8e17348de7f6147ed3639ca59a3d3d79e1f0d78937972732fda04b7ac8a886547";
                         };
 
                         Deimos = fetchurl {
@@ -414,26 +439,55 @@
                   "rcon.port" = 25575;
 
                   # To use with proxy:
-                  server-port = 30001;
-                  online-mode = false;
-                  server-ip = "127.0.0.1";
+                  server-port = 25565;
+                  # online-mode = false;
+                  # server-ip = "127.0.0.1";
                 };
               };
             };
           })
           (lib.mkIf (cfg.preset == "oci") {
             services.minecraft-servers.servers = {
-              proxy.files."velocity.toml".value = {
-                servers = {
-                  server1 = "127.0.0.1:30001";
-                  ghserver = "127.0.0.1:30002";
+              proxy = {
+                enable = true;
+                package =
+                  inputs.nix-minecraft.legacyPackages.${pkgs.stdenv.hostPlatform.system}.velocityServers.velocity;
 
-                  try = [ "ghserver" ];
-                };
+                files = {
+                  "forwarding.secret" = pkgs.writeText "forwarding.secret" secrets.forwarding-secret;
 
-                forced-hosts = {
-                  "minecraft.olai.dev" = [ "server1" ];
-                  "thederivativeofgparenthesisandhcoalitionminecraftserver.olai.dev" = [ "ghserver" ];
+                  "velocity.toml".value = {
+                    bind = "0.0.0.0:25565";
+                    forwarding-mode = "modern";
+                    player-info-forwarding-mode = "modern";
+
+                    online-mode = true;
+                    force-key-authentication = true;
+                    prevent-client-proxy-connections = false;
+                    ping-passthrough = "all";
+
+                    forwarding-secret-file = "forwarding.secret";
+
+                    motd = "The server is offline :(";
+                    show-max-players = 67;
+
+                    servers = {
+                      server1 = "127.0.0.1:30001";
+                      ghserver = "127.0.0.1:30002";
+
+                      try = [ "ghserver" ];
+                    };
+
+                    forced-hosts = {
+                      "minecraft.olai.dev" = [ "server1" ];
+                      "thederivativeofgparenthesisandhcoalitionminecraftserver.olai.dev" = [ "ghserver" ];
+                    };
+                  };
+
+                  "plugins/voicechat.jar" = pkgs.fetchurl {
+                    url = "https://cdn.modrinth.com/data/9eGKb6K1/versions/jMopHMDQ/voicechat-velocity-2.6.4.jar";
+                    sha512 = "03db44bdcf8012fdd7c93ce94c3fe37506d6cd39084ac9fcc294a9069d8bc5f9f160423b67af6a43b2fe044e4df9e716fd8b27fe61f404f94bda71556cc21ebc";
+                  };
                 };
               };
 
@@ -604,37 +658,6 @@
 
               servers = {
                 # TODO: automatically proxy server with name x to x.olai.dev rather than hard code
-                proxy = {
-                  enable = true;
-                  package =
-                    inputs.nix-minecraft.legacyPackages.${pkgs.stdenv.hostPlatform.system}.velocityServers.velocity;
-
-                  files = {
-                    "forwarding.secret" = pkgs.writeText "forwarding.secret" secrets.forwarding-secret;
-
-                    "velocity.toml".value = {
-                      bind = "0.0.0.0:25565";
-                      forwarding-mode = "modern";
-                      player-info-forwarding-mode = "modern";
-
-                      online-mode = true;
-                      force-key-authentication = true;
-                      prevent-client-proxy-connections = false;
-                      ping-passthrough = "all";
-
-                      forwarding-secret-file = "forwarding.secret";
-
-                      motd = "The server is offline :(";
-                      show-max-players = 67;
-                    };
-
-                    "plugins/voicechat.jar" = pkgs.fetchurl {
-                      url = "https://cdn.modrinth.com/data/9eGKb6K1/versions/jMopHMDQ/voicechat-velocity-2.6.4.jar";
-                      sha512 = "03db44bdcf8012fdd7c93ce94c3fe37506d6cd39084ac9fcc294a9069d8bc5f9f160423b67af6a43b2fe044e4df9e716fd8b27fe61f404f94bda71556cc21ebc";
-                    };
-                  };
-                };
-
               };
             };
           }
