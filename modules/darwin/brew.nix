@@ -87,6 +87,7 @@
             "libreoffice"
             "pinta"
             "gimp"
+            "curseforge"
 
             # music stuff
             "ableton-live-lite"
