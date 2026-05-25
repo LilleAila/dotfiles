@@ -93,6 +93,7 @@
           pixel8a.public
           installer.public
           m4air-darwin.public
+          termius.public
         ];
 
         zfs.enable = true;
