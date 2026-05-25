@@ -74,6 +74,11 @@
                           sha512 = "11cc8fc049d2f67f6548c7abfada6b82a3adb5c7ca410a742de04bbca76e03862c518721b88d806f6e6d768a4d68531fdb903a85859b25d1484d550cc7bafd4b";
                         };
 
+                        Create-Deco = fetchurl {
+                          url = "https://cdn.modrinth.com/data/sMvUb4Rb/versions/qrcMVoBD/createdeco-2.1.3.jar";
+                          sha512 = "c536662f9d47ad57a37419165ded14835b23ad6c3e82a920298ecd7ee074244b0b6062ef9cc7ea4501ddd35919a840faccd7fc64e43eb8df31e12076681c3c0d";
+                        };
+
                         Create-Aeronautics = fetchurl {
                           url = "https://cdn.modrinth.com/data/oWaK0Q19/versions/YhZLrAFC/create-aeronautics-bundled-1.21.1-1.2.1.jar";
                           sha512 = "c7899f8a693cf1b4c17a31faf64e631383f6df331b82b517ed6abe01b0464a9f10b226f0336fa8611c5af514375716c4d009d55c7f92640445c68239b63ebc03";
@@ -197,6 +202,7 @@
 
                         Alex-Delight = fetchurl {
                           # NOTE: curseforge
+                          name = "alexsdelight-1.6.jar";
                           url = "https://www.curseforge.com/api/v1/mods/556448/files/7612806/download";
                           sha256 = "1nsj61426b7f3i4k3xvywzdzpn798qxy9hqbrc8gk6wfmycakay2";
                         };
@@ -263,6 +269,7 @@
 
                         One-To-One-Nether-Travel = fetchurl {
                           # NOTE: curseforge
+                          name = "onetoonenethertravel-0.1.0.jar";
                           url = "https://www.curseforge.com/api/v1/mods/1235340/files/6383951/download";
                           sha256 = "1lmif3lbz3782swnb4mxldm5ia60w0l2y1ccnnizlxm0ppp6r44w";
                         };
@@ -298,6 +305,8 @@
                         };
 
                         Chunk-Pregenerator = fetchurl {
+                          # NOTE: curseforge
+                          name = "Chunk-Pregenerator-Neoforge-1.21-4.5.2";
                           url = "https://www.curseforge.com/api/v1/mods/267193/files/8133002/download";
                           sha256 = "1a1w4w61byljvmvj8g3fw6dpdh4illch29hz71fgbiy19x8zp0ic";
                         };
@@ -315,11 +324,20 @@
                         };
 
                         Connectivity = fetchurl {
+                          # NOTE: curseforge
+                          name = "connectivity-1.21.1-7.6.jar";
                           url = "https://www.curseforge.com/api/v1/mods/470193/files/7367221/download";
                           sha256 = "06i85cs63bmrh6zlj9czic1lhrhac5dnx8hmpawh1fp5v8yrfri3";
                         };
 
                         ##### Dependencies:
+
+                        Cupboard = fetchurl {
+                          #NOTE: curseforge
+                          name = "cupboard-1.21-3.5.jar";
+                          url = "https://www.curseforge.com/api/v1/mods/326652/files/7746488/download";
+                          sha256 = "1ny79535hi717cws053g7vrr7ywwyihbss8qvxdwkmklgnv9hwnj";
+                        };
 
                         Architectury-API = fetchurl {
                           url = "https://cdn.modrinth.com/data/lhGA9TYQ/versions/ZxYGwlk0/architectury-13.0.8-neoforge.jar";
