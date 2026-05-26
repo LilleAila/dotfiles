@@ -51,6 +51,10 @@
               #   };
               # };
 
+              # NOTE: imperative changes done in /srv/minecraft/create/config:
+              # Disable creeper, enderman and ghast in moremobgriefingoptions-server.toml
+              # Disable attempt_udp_networking in sable-common.toml
+
               create = {
                 enable = true;
                 package = pkgs.neoforgeServers.neoforge-1_21_1;
