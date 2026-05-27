@@ -88,6 +88,7 @@
             "pinta"
             "gimp"
             "curseforge"
+            "wiiudownloader"
 
             # music stuff
             "ableton-live-lite"
