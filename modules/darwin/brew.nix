@@ -89,6 +89,7 @@
             "gimp"
             "curseforge"
             "wiiudownloader"
+            "protonvpn"
 
             # music stuff
             "ableton-live-lite"
