@@ -108,15 +108,15 @@
                           sha512 = "eb7c46649f5aa359f688fecacfa348b205dff0cfc2d27694632c2e1e1f8f4dbab2c31bdc95b2577201529b2597afe49328c7ad8c348d25eaca109f1a02667534";
                         };
 
-                        # Copycats-Aeronautics-Weight = fetchurl {
-                        #   url = "https://cdn.modrinth.com/data/wjpmYU1u/versions/wsXjRa7l/aerocopycats-1.1.1.jar";
-                        #   sha512 = "4f48c03a25a6f4ec022398cece20e5aa8d51f00951a0f568980e6e5419c1af2f12c8bb652500721afef119ecc455e4c5b1bc4bb7bef38d88846759f0e4c39e8c";
-                        # };
+                        Copycats-Aeronautics-Weight = fetchurl {
+                          url = "https://cdn.modrinth.com/data/wjpmYU1u/versions/wsXjRa7l/aerocopycats-1.1.1.jar";
+                          sha512 = "4f48c03a25a6f4ec022398cece20e5aa8d51f00951a0f568980e6e5419c1af2f12c8bb652500721afef119ecc455e4c5b1bc4bb7bef38d88846759f0e4c39e8c";
+                        };
 
-                        # Create-Copycats = fetchurl {
-                        #   url = "https://cdn.modrinth.com/data/UT2M39wf/versions/kecZ0sl7/copycats-3.0.4%2Bmc.1.21.1-neoforge.jar";
-                        #   sha512 = "ecc98e659be66a71af0aee66a9f4c7c8838f4f0101402644929079ce7280a572a000e7e417905e1869a51d6e49ebbd601008f54585e07ee4ed01f2c4bc752bfe";
-                        # };
+                        Create-Copycats-Plus = fetchurl {
+                          url = "https://cdn.modrinth.com/data/UT2M39wf/versions/kecZ0sl7/copycats-3.0.4%2Bmc.1.21.1-neoforge.jar";
+                          sha512 = "ecc98e659be66a71af0aee66a9f4c7c8838f4f0101402644929079ce7280a572a000e7e417905e1869a51d6e49ebbd601008f54585e07ee4ed01f2c4bc752bfe";
+                        };
 
                         # NOTE: not on modrinth - used curseforge. not sure of stability
                         # Create-Copycats-Wing = fetchurl {
@@ -320,6 +320,57 @@
                           sha512 = "2fdf6ca157d7542a70871b43493251e85d5976a95a608a33e583571b85f0afcc9fe0a991c0cab8ad88fe0bbaa4aa8203a1489ea934e755d8b7563f938ec75663";
                         };
 
+                        Create-Aero-Cables = fetchurl {
+                          url = "https://cdn.modrinth.com/data/AHTfty0S/versions/8TmD04yf/aerocables-0.3.0.jar";
+                          sha512 = "4c47404b5e2bf17a0f44b52f2b00a836281a51bbb91d03968af3c0a2f018150f1eef4490d7cdf86069c9f5a5b175ee8af25e10c0f2d3455a24541dd8a070afc5";
+                        };
+
+                        Create-Integrated-Farming = fetchurl {
+                          url = "https://cdn.modrinth.com/data/9k1pAsfR/versions/DKe4Owf4/create-integrated-farming-1.2.2.jar";
+                          sha512 = "eb1c1d314e6651dea81d3433b16160034c71ab218328c086bc844febbb23524f09495a6e489c8834889d46ba264cca26283c0ab82a389af3e3659c031275fd69";
+                        };
+
+                        Create-Enchangment-Industry = fetchurl {
+                          url = "https://cdn.modrinth.com/data/JWGBpFUP/versions/zjSKnkVT/create-enchantment-industry-2.3.1.jar";
+                          sha512 = "0e83fef0ae333a2bad9cff09cb661d72c0ab48a5b8a97a06c946d54da1eb967b7bd532e780845ff62d19f3bb094daed07f63daec7c1caaa1aeb5050ec4bfcd7c";
+                        };
+
+                        Create-Tracks = fetchurl {
+                          name = "tracks-neoforge-1.21.1-1.0.1.jar";
+                          url = "https://www.curseforge.com/api/v1/mods/1519765/files/7968280/download";
+                          sha256 = "1j15c5wq79cb8q3gj710vyixkfi64xhbi4b4xkmi770j599b49mi";
+                        };
+
+                        Create-Aeronautics-Automated-Logistics = fetchurl {
+                          url = "https://cdn.modrinth.com/data/73ZXeRfx/versions/Lr07X5oA/create_aeronautics_automated_logistics-0.3.0.jar";
+                          sha512 = "a478c9296c006530032d48f02c347b1992b08e4e9d9bfda462accde33730e8622b861d5f22302f21d3cc295ca259b7f58dce99fa35e227682951a921274c8e95";
+                        };
+
+                        Create-Aeronautics-Compatibility = fetchurl {
+                          url = "https://cdn.modrinth.com/data/aLVC5usA/versions/QTtIbBua/aeronauticscompat-1.1.2.jar";
+                          sha512 = "e4bf1c16e476d47f2b09d3b5bf6c8713bf7d474019dca871a24a6ea1e35f12288e6aed276004c310ddfd53af80c5415927c8bde2abc0b1005531fce918ea7c90";
+                        };
+
+                        Chipped = fetchurl {
+                          url = "https://cdn.modrinth.com/data/BAscRYKm/versions/eqVowbGc/chipped-neoforge-1.21.1-4.0.2.jar";
+                          sha512 = "f3083b01267e7c674c4b42f45a317c93ee7723443cba2051fe5bc593638b533b0fe90699e2101661c934dff458eab693cce4e188533bfe977778c249563a2fa5";
+                        };
+
+                        Rechiseled-Chipped = fetchurl {
+                          url = "https://cdn.modrinth.com/data/ryYcxeeA/versions/UEdISMbk/rechiseled_chipped-2.0-1.21.1.jar";
+                          sha512 = "4cd04802d016f1751e5388f878954ad278a3f453e54b09354efc306ded7bbd99002f3db88fcf470d57c5e918e1486426a9014e7c9ed99ff4187276567615d4d0";
+                        };
+
+                        Applied-Energistics = fetchurl {
+                          url = "https://cdn.modrinth.com/data/XxWD5pD3/versions/kfyIqgJ6/appliedenergistics2-19.2.17.jar";
+                          sha512 = "55edfd948366aff620881e0625e48c333a2cb847e73249bc0b588efbc4b86709992a8ffbca97ea387e270df4186fe7f74ee2f27b739f1c952e932becfb9dea33";
+                        };
+
+                        Discord-Integration = fetchurl {
+                          url = "https://cdn.modrinth.com/data/wdZidyDu/versions/RWECzFvH/DiscordIntegration-1.21.1-4.0.1.jar";
+                          sha512 = "6df7323d55c460a296ed236b770da3cddbb335b662ecf8704829ef4061900b192e2654e96c3ce6555af66fa61003cec52c19a03b01a10e09bc29777e862a07c0";
+                        };
+
                         ###### Various server optimization and packet stuff idk
 
                         Packet-Fixer = fetchurl {
@@ -335,6 +386,21 @@
                         };
 
                         ##### Dependencies:
+
+                        GuideME = fetchurl {
+                          url = "https://cdn.modrinth.com/data/Ck4E7v7R/versions/bFr2FBaJ/guideme-21.1.16.jar";
+                          sha512 = "52bc29671cb378045fc22598575f32ff80e4483e88aff75674d881ff49933a3e96ee9e424996ddaa52b63d9fdeb2ea0a993bf3fec5f6daf43e3142c0f973e192";
+                        };
+
+                        Resourceful-Lib = fetchurl {
+                          url = "https://cdn.modrinth.com/data/G1hIVOrD/versions/x99nCLTm/resourcefullib-neoforge-1.21-3.0.12.jar";
+                          sha512 = "a9d20e345faa9bcb297bd95ac9524205834804d1bb13518397dd4f7f62b352b08c3339ee7f7870d3669078ceeb33d5c31ea527aecce4b31d62ec1ff7d8b562c8";
+                        };
+
+                        Athena = fetchurl {
+                          url = "https://cdn.modrinth.com/data/b1ZV3DIJ/versions/dJgL278E/athena-neoforge-1.21.1-4.0.6.jar";
+                          sha512 = "ab40a306a26ce834daae921a1e87768cd2538a4bfe27a4480f97af854084cc334e7416b1bd0b7583834a32a86951283f29fd4b1df7b98a967a6b26a3ec05e2cf";
+                        };
 
                         Cupboard = fetchurl {
                           #NOTE: curseforge
