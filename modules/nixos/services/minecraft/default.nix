@@ -668,7 +668,10 @@
               "neoforge"
             ];
 
-            settings.persist.root.directories = [ "/srv/minecraft" ];
+            settings.persist.root.directories = [
+              "/srv/minecraft"
+              "/srv/backups"
+            ];
 
             networking.firewall.allowedTCPPorts = [ 25565 ]; # Velocity
             networking.firewall.allowedUDPPorts = [ 25565 ]; # Velocity (voice chat)
