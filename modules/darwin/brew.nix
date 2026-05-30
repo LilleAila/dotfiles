@@ -90,6 +90,7 @@
             "curseforge"
             "wiiudownloader"
             "protonvpn"
+            "tinywiibackupmanager"
 
             # music stuff
             "ableton-live-lite"
