@@ -91,6 +91,7 @@
             "wiiudownloader"
             "protonvpn"
             "tinywiibackupmanager"
+            "dolphin"
 
             # music stuff
             "ableton-live-lite"
