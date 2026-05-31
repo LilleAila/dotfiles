@@ -92,6 +92,7 @@
             "protonvpn"
             "tinywiibackupmanager"
             "dolphin"
+            "jdownloader"
 
             # music stuff
             "ableton-live-lite"
