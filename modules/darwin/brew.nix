@@ -16,6 +16,10 @@
           enable = true;
           onActivation = {
             cleanup = "zap"; # Uninstall all not declared
+            extraFlags = [
+              # https://github.com/nix-darwin/nix-darwin/issues/1787
+              "--force-cleanup"
+            ];
             autoUpdate = false;
             upgrade = false;
           };
