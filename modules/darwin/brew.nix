@@ -97,6 +97,7 @@
             "tinywiibackupmanager"
             "dolphin"
             "jdownloader"
+            "qview"
 
             # music stuff
             "ableton-live-lite"
