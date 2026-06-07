@@ -371,6 +371,11 @@
                           sha512 = "6df7323d55c460a296ed236b770da3cddbb335b662ecf8704829ef4061900b192e2654e96c3ce6555af66fa61003cec52c19a03b01a10e09bc29777e862a07c0";
                         };
 
+                        Create-Crafts-And-Additions = fetchurl {
+                          url = "https://cdn.modrinth.com/data/kU1G12Nn/versions/qPr8V4G2/createaddition-1.6.0.jar";
+                          sha512 = "e3a31eefb15d37bd1a2ba9012d0c00ec92f7c9e57b7a35c993676ea0cc85ba4f35a055a9f98d57636f24a0562d6da18b4e90713f4f46d47959666a097a6a5cea";
+                        };
+
                         ###### Various server optimization and packet stuff idk
 
                         Packet-Fixer = fetchurl {
