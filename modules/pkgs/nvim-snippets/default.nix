@@ -12,6 +12,7 @@
             luasnip
             nvim-treesitter
           ];
+          nvimRequireCheck = [ "lilleaila-snippets" ];
         }
       ) { };
     };
