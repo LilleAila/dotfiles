@@ -61,7 +61,7 @@
             "chatgpt"
             "vesktop"
             "prismlauncher"
-            "kicad"
+            # "kicad"
             "scroll-reverser"
             "tor-browser"
             "dymo-connect"
