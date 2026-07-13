@@ -110,6 +110,7 @@
             "blackhole-2ch"
             "audiveris"
             "midi-monitor"
+            "surge-xt"
 
             # Not apple silicon; requires rosetta 2
             "steam"
