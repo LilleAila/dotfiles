@@ -128,6 +128,7 @@
             "Microsoft PowerPoint" = 462062816;
             "Microsoft OneNote" = 784801555;
             "Clarify Dictionaries" = 6451003473;
+            "Amphetamine" = 937984704;
           };
         };
       };
