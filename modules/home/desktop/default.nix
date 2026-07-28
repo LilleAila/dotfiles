@@ -48,7 +48,7 @@
             # self.packages.${pkgs.stdenv.hostPlatform.system}.fhsenv
             pb_cli
             # kicad # FIXME: build failure?
-            bambu-studio
+            # bambu-studio
             freecad-wayland
             openscad
             # blender
@@ -93,7 +93,10 @@
             ".tor project"
           ];
 
-          settings.nix.unfree = [ "geogebra" ];
+          settings.nix.unfree = [
+            "geogebra"
+            "bambu-studio"
+          ];
         })
         (mkIf cfg.enable {
           home.packages = with pkgs; [

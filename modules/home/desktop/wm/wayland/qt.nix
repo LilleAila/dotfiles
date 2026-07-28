@@ -135,7 +135,7 @@
             ];
           };
           home.packages = with pkgs; [
-            libsForQt5.qt5.qtwayland
+            qt5.qtwayland
             kdePackages.qtwayland
           ];
           home.file.".config/qt5ct/colors/${self.colorScheme.slug}.conf".text = colorScheme;
