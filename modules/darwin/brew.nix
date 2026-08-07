@@ -39,6 +39,7 @@
             "arduino-cli"
             "python3" # needed for some things in arduino ide :(
             "custom-install"
+            "zxing-cpp"
           ];
           casks = [
             "ghostty"
