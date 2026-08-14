@@ -57,6 +57,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    ewm = {
+      url = "https://codeberg.org/ezemtsov/ewm/archive/master.tar.gz";
+    };
+
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";

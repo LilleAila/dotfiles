@@ -13,7 +13,7 @@
   ;; 1. Point no-littering to your writable local share
   (setq no-littering-etc-directory "~/.local/share/emacs/etc/"
         no-littering-var-directory "~/.local/share/emacs/var/")
-  
+
   :config
   ;; 2. Fix the specific Transient issue you had
   ;; This tells transient to use the no-littering paths
@@ -70,7 +70,7 @@
 ;; Modeline
 (use-package doom-modeline
   :init (add-hook 'after-init-hook #'doom-modeline-mode)
-  :custom 
+  :custom
   (doom-modeline-height 25)
   (doom-modeline-icon t)
   (doom-modeline-major-mode-icon t)
@@ -302,3 +302,7 @@
              :config
              (setq vterm-keymap-exceptions nil)
              (evil-set-initial-state 'vterm-mode 'emacs))
+
+(use-package ewm
+             :custom
+             (ewm-output-config '(("eDP-1" :width 1920 :height 1200))))
