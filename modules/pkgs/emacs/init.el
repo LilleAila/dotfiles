@@ -302,7 +302,3 @@
              :config
              (setq vterm-keymap-exceptions nil)
              (evil-set-initial-state 'vterm-mode 'emacs))
-
-(use-package ewm
-             :custom
-             (ewm-output-config '(("eDP-1" :width 1920 :height 1200))))

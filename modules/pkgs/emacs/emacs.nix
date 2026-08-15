@@ -43,22 +43,37 @@
           ]
           ++ extraEmacsPackages
         );
-      ts-grammars = emacsPackages.treesit-grammars.with-all-grammars;
     in
     {
       packages = rec {
+        emacs-ts-grammars = emacsPackages.treesit-grammars.with-all-grammars;
+
+        emacs-config = pkgs.callPackage (
+          {
+            extraConfig ? "",
+          }:
+          pkgs.runCommand "emacs-config-dir"
+            {
+              inherit extraConfig;
+            }
+            ''
+              cp -r ${./.} $out;
+              chmod -R a+w $out/*
+              echo "$extraConfig" >> $out/init.el
+            ''
+        ) { };
+
         emacs-unwrapped = pkgs.callPackage (
           {
             extraEmacsPackages ? [ ],
           }:
           emacsPackage extraEmacsPackages
         ) { };
-        # emacs-config = ./.;
-        emacs-config = pkgs.runCommand "emacs-config-dir" { } ''
-          cp -r ${./.} $out;
-        '';
-        emacs-ts-grammars = ts-grammars;
-        emacs =
+
+        emacsWithConfig = pkgs.callPackage (
+          {
+            emacsConfig ? emacs-config,
+          }:
           pkgs.runCommand "emacs-config"
             {
               nativeBuildInputs = [ pkgs.makeWrapper ];
@@ -68,9 +83,10 @@
               cp -rs ${emacs-unwrapped} $out
               chmod -R a+w $out/*
               wrapProgram $out/bin/emacs \
-                --add-flags "--init-directory=${emacs-config}" \
+                --add-flags "--init-directory=${emacsConfig}" \
                 --set EMACS_GRAMMAR_PATH "${emacs-ts-grammars}/lib"
-            '';
+            ''
+        ) { };
       };
     };
 }
