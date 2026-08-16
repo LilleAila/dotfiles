@@ -10,14 +10,21 @@
                  ("s-o" :fullscreen) ; Fullscreen
                  ("<Print>" :fullscreen)))
              (ewm-input-config
-               '((keyboard :xkb-layouts "no"
-                           :xkb-options "ctrl:nocaps")))
+               '((touchpad :natural-scroll t :tap nil :dwt t :accel-profile "flat")
+                 (trackpoint :accel-profile "flat" :accel-speed 0.5)
+                 (keyboard :xkb-layouts "no"
+                           :xkb-options "ctrl:nocaps"
+                           :repeat-delay 200
+                           :repeat-rate 60)))
+             (ewm-focus-follows-mouse t)
+             (ewm-mouse-follows-focus t)
+             (ewm-cursor-auto-hide 1)
+             (ewm-cursor-hide-while-typing t)
              :config
             (ewm-text-input-auto-mode-enable)
             :bind (:map ewm-mode-map
                         ("s-:" . evil-ex)
-                        ("s-<return>" . (lambda () (interactive)
-                                  (start-process "ghostty" nil "ghostty")))
+                        ("s-<return>" . (lambda () (interactive) (start-process "ghostty" nil "ghostty")))
 
                         ("s-SPC" . ewm-launch-app)
                         ("s-o" . ewm-toggle-fullscreen)
