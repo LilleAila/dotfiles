@@ -42,6 +42,13 @@ in
           extraEmacsArgs = "--init-directory ${emacs-config}";
           inherit emacsPackage;
         };
+        hm.programs.ghostty.settings.window-decoration = lib.mkForce "none";
+
+        # Doesn't work
+        # environment.sessionVariables = {
+        #   GTK_CSD = 0;
+        #   QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
+        # };
       };
     };
 }

@@ -20,6 +20,7 @@
              (ewm-mouse-follows-focus t)
              (ewm-cursor-auto-hide 1)
              (ewm-cursor-hide-while-typing t)
+             (ewm-unfocused-alpha 1.0)
              :config
             (ewm-text-input-auto-mode-enable)
             :bind (:map ewm-mode-map
