@@ -20,7 +20,7 @@ _: {
               };
             }))
             nixd
-            nixfmt-rfc-style
+            nixfmt
             sops
             git-crypt
             stylua

@@ -2,7 +2,8 @@ local ls = require("lilleaila-snippets.helpers.ls")
 local s, t = ls.s, ls.t
 
 local M = {
-  s({ trig = "!init!", name = "New flake" }, { t([[
+	s({ trig = "!init!", name = "New flake" }, {
+		t([[
     {
       description = "A flake";
 
@@ -25,14 +26,15 @@ local M = {
             default = pkgs.mkShell {
               packages = with pkgs; [
                 nixd
-                nixfmt-rfc-style
+                nixfmt
                 statix
               ];
             };
           });
         };
     }
-    ]]) })
+    ]]),
+	}),
 }
 
 return M
