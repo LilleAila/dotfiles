@@ -30,8 +30,15 @@
           # TODO: move these things into the correct places, rather than always install.
           taps = [
             # "nikitabobko/tap"
-            "LilleAila/tap"
-            "Sikarugir-App/sikarugir"
+            {
+              name = "lilleaila/tap";
+              trusted = true;
+            }
+            {
+
+              name = "Sikarugir-App/sikarugir";
+              trusted = true;
+            }
           ];
           brews = [
             "mas"
@@ -95,10 +102,11 @@
             "curseforge"
             "wiiudownloader"
             "protonvpn"
-            "tinywiibackupmanager"
+            "lilleaila/tap/tinywiibackupmanager"
             "dolphin"
             "jdownloader"
             "qview"
+            "openmtp"
 
             # music stuff
             "ableton-live-lite"
@@ -130,6 +138,12 @@
             "Microsoft OneNote" = 784801555;
             "Clarify Dictionaries" = 6451003473;
             "Amphetamine" = 937984704;
+
+            "GarageBand" = 682658836;
+            "iMovie" = 408981434;
+            "Keynote" = 409183694;
+            "Numbers" = 409203825;
+            "Pages" = 409201541;
           };
         };
       };

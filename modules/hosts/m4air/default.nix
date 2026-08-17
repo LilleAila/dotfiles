@@ -21,10 +21,10 @@
         sops.enable = true;
       };
 
-      environment.systemPackages = [
-        config.hm.settings.plover.package
-      ];
-      hm.programs.plover.package = lib.mkForce pkgs.emptyDirectory;
+      # environment.systemPackages = [
+      #   config.hm.settings.plover.package
+      # ];
+      # hm.programs.plover.package = lib.mkForce pkgs.emptyDirectory;
       # launchd.user.agents.plover = {
       #   command = "${config.hm.settings.plover.package}/Applications/Plover.app/Contents/MacOS/Plover";
       #   serviceConfig = {
@@ -58,7 +58,7 @@
             enable = true;
             package = null;
           };
-          plover.enable = true;
+          # plover.enable = true;
 
           terminal = {
             zsh.enable = true;
