@@ -42,7 +42,14 @@ in
           extraEmacsArgs = "--init-directory ${emacs-config}";
           inherit emacsPackage;
         };
+
         hm.programs.ghostty.settings.window-decoration = lib.mkForce "none";
+
+        # Could have made ewm-init.el a nix file but this is easier lol
+        environment.systemPackages = with pkgs; [
+          slurp
+          grim
+        ];
 
         environment.sessionVariables = {
           EMACS_GRAMMAR_PATH = "${pkgs'.emacs-ts-grammars}/lib";

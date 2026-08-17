@@ -33,6 +33,9 @@
                         ("s-c" . kill-ring-save)
                         ("s-v" . yank)
 
+                        ("s-s" . (lambda () (interactive) (start-process-shell-command "grim" nil "grim - | wl-copy")))
+                        ("s-S" . (lambda () (interactive) (start-process-shell-command "grim" nil "grim -g \"$(slurp)\" - | wl-copy")))
+
                         ;; Movement and stuff
                         ("s-h" . ewm-focus-left)
                         ("s-j" . ewm-focus-down)
