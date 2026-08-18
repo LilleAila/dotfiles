@@ -7,6 +7,8 @@
   perSystem =
     { pkgs, ... }:
     let
+      pkgs' = self.packages.${pkgs.stdenv.hostPlatform.system};
+
       basePackage = if pkgs.stdenv.hostPlatform.isDarwin then pkgs.emacs else pkgs.emacs-pgtk;
       emacsPackages = pkgs.emacsPackagesFor basePackage;
       emacsPackage =
@@ -18,8 +20,7 @@
             gcmh
             no-littering
 
-            self.packages.${pkgs.stdenv.hostPlatform.system}.emacs-theme
-
+            pkgs'.emacs-theme
             doom-modeline
             nerd-icons
 
@@ -38,6 +39,12 @@
 
             dirvish
             vterm
+
+            magit # dependency of org-roam
+            org-roam
+            org
+            visual-fill-column
+            pkgs'.ob-typst
 
             nix-ts-mode
           ]

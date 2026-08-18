@@ -302,3 +302,145 @@
              :config
              (setq vterm-keymap-exceptions nil)
              (evil-set-initial-state 'vterm-mode 'emacs))
+
+;; Different font sizes for headings
+(defun my/org-mode-font-setup ()
+    (dolist (face '((org-level-1 . 1.2)
+                    (org-level-2 . 1.1)
+                    (org-level-3 . 1.05)
+                    (org-level-4 . 1.0)
+                    (org-level-5 . 1.1)
+                    (org-level-6 . 1.1)
+                    (org-level-7 . 1.1)
+                    (org-level-8 . 1.1)))
+        (set-face-attribute (car face) nil :font "DejaVu Sans" :weight 'regular :height (cdr face)))
+
+    (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
+    (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
+    (set-face-attribute 'org-table nil   :inherit '(shadow fixed-pitch))
+    (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+    (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+    (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+    (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch))
+
+
+;; Move different things to set into its own function
+(defun my/org-mode-setup ()
+  (org-indent-mode)
+  (variable-pitch-mode 1)
+  (auto-fill-mode 0)
+  (visual-line-mode 1)
+  (setq evil-auto-indent nil))
+
+
+(use-package org
+  :hook (org-mode . my/org-mode-setup)
+  :config
+  (setq org-ellipsis " ▾")
+  (my/org-mode-font-setup)
+
+  (setq org-agenda-start-with-log-mode t)
+  (setq org-log-done 'time)
+  (setq org-log-into-drawer t)
+  (setq org-return-follows-link t)
+  (setq org-hide-emphasis-markers t)
+  (setq org-agenda-files '("~/notes/org"))
+
+  ;; Increase LaTeX preview size (C-c C-x C-l)
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+
+  ;; Capture templates
+  (setq org-capture-templates
+    '(
+      ("t" "General To-Do"
+        entry (file+headline "~/notes/org/todo.org" "General Tasks")
+        "* TODO [#B] %?\n:Created: %T\n "
+        :empty-lines 0)
+    )
+  )
+
+  ;; To-Do states
+  (setq org-todo-keywords
+    '((sequence "TODO(t)" "PLANNING(p)" "IN-PROGRESS(i@/!)" "VERIFYING(v!)" "BLOCKED(b@)" "|" "DONE(d!)" "OBE(o@!)" "Wont-DO(w@/!)"))
+  )
+
+  ;; org-babel
+  (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((emacs-lisp . t)
+       (python . t)))
+
+  (setq org-confirm-babel-evaluate nil)
+  (setq org-babel-python-command "python3") ;; Fix the python executable name
+  (push '("conf-unix" . conf-unix) org-src-lang-modes)
+
+  ;; Images
+  (add-hook 'org-babel-after-execute-hook 'org-display-inline-images) ;; Show output images immediately
+  (setq org-startup-with-inline-images t)
+  (setq org-image-max-width 800)
+
+  ;; Bindings and stuff
+  (my/leader-keys
+    "t" '(:ignore t :which-key "Fonts")
+    "tm" '(variable-pitch-mode :which-key "Variable pitch")
+   )
+
+  :bind (:map org-mode-map
+    ("C-c <up>" . org-priority-up)
+    ("C-c <down>" . org-priority-down)
+    ("C-c C-g C-r" . org-shiftmetaright)
+  )
+  :bind
+  ("C-c l" . org-store-link)
+  ("C-c a" . org-agenda)
+  ("C-c c" . org-capture)
+)
+
+;; Center the editor
+(use-package visual-fill-column
+  :ensure t
+  :after org
+  :hook (org-mode . my/org-mode-visual-fill)
+  :config
+  (defun my/org-mode-visual-fill ()
+    (setq visual-fill-column-width 150
+          visual-fill-column-center-text t)
+    (visual-fill-column-mode 1)))
+
+(use-package org-roam
+             :bind (("C-c n l" . org-roam-buffer-toggle)
+                    ("C-c n f" . org-roam-node-find)
+                    ("C-c n i" . org-roam-node-insert)
+                    ("C-c n c" . org-roam-capture)
+                    ("C-c n j" . org-roam-dailies-capture-today))
+             :custom
+             (org-roam-directory (file-truename "~/notes/org"))
+             :config
+             (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+             (org-roam-setup)
+             (org-roam-db-autosync-mode +1)
+             ; (require 'org-roam-graph)
+             ;; Open links with C-c C-o in the same pane
+             (setq org-link-frame-setup
+                   (quote ((file . find-file))))
+             ;; Capture templates and notes and stuff
+             (setq org-roam-capture-templates
+                   '(
+                     ("d" "default" plain
+                      "%?"
+                      :target (file+head "%<%Y%m%d%H%M%S>.org"
+                                         "#+title: ${title}\n#+created: %U\n#+last_modified: %U\n#+filetags:\n\n")
+                      :unnarrowed t)))
+             (setq org-roam-dailies-directory "daily/")
+             (setq org-roam-dailies-capture-templates
+                   '(("default" "default" entry
+                      "* %U - %?\n\n"
+                      :target (file+head "%<%Y-%m-%d>.org"
+                                         "#+title: %<%Y-%m-%d>\n\n")))))
+
+(use-package ob-typst
+             :after org
+             :custom
+             (ob-typst/default-rules-alist
+               '((page . "width: 600pt, height: auto, margin: 1em, fill: rgb(\"#282828\")")
+                 (text . "font: \"DejaVu Sans\", size: 12pt, fill: rgb(\"#ebdbb2\")"))))
