@@ -482,6 +482,9 @@
                       :target (file+head "%<%Y-%m-%d>.org"
                                          "#+title: %<%Y-%m-%d>\n\n")))))
 
+(use-package ox-typst
+             :after org)
+
 (use-package ob-typst
              :after org
              :custom

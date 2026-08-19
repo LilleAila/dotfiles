@@ -45,6 +45,7 @@
             org
             visual-fill-column
             org-modern
+            ox-typst
             pkgs'.ob-typst
             pkgs'.typst-overlay
 
