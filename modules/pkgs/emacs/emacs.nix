@@ -44,9 +44,12 @@
             org-roam
             org
             visual-fill-column
+            org-modern
             pkgs'.ob-typst
+            pkgs'.typst-overlay
 
             nix-ts-mode
+            typst-ts-mode
           ]
           ++ extraEmacsPackages
         );

@@ -62,6 +62,11 @@
 (add-hook 'eshell-mode-hook #'my/disable-line-numbers)
 (add-hook 'term-mode-hook #'my/disable-line-numbers)
 
+;; Scrolling stuff
+(pixel-scroll-precision-mode 1)
+(setq scroll-conservatively 101)
+(setq scroll-margin 3)
+
 ;; Icons and stuff
 (use-package nerd-icons
              :custom
@@ -140,9 +145,9 @@
                     (if (fboundp ts-mode)
                         (list (cons mode ts-mode))
                       nil)))
-                '(python-mode rust-mode c-mode c++-mode js-mode 
-                  typescript-mode json-mode css-mode bash-mode 
-                  cmake-mode dockerfile-mode nix-mode)))
+                '(python-mode rust-mode c-mode c++-mode js-mode
+                  typescript-mode json-mode css-mode bash-mode
+                  cmake-mode dockerfile-mode nix-mode typst-mode)))
   (setq treesit-font-lock-level 3))
 
 (when-let ((path (getenv "EMACS_GRAMMAR_PATH")))
@@ -207,6 +212,16 @@
              :mode "\\.astro\\'"
              :hook (astro-mode . my/eglot-lazy-ensure))
 
+;; FIXME: ts grammar broken
+(use-package typst-ts-mode
+             :mode "\\.typ\\'"
+             :config
+             (add-to-list 'treesit-language-source-alist
+                          '(typst "https://github.com/uben0/tree-sitter-typst"))
+             (unless (treesit-language-available-p 'typst)
+                     (treesit-install-language-grammar 'typst))
+             (add-to-list 'org-src-lang-modes '("typst" . typst-ts-mode)))
+
 (use-package flyover
              :hook ((flymake-mode . flyover-mode))
              :custom
@@ -232,6 +247,9 @@
 (use-package evil-commentary
              :ensure t
              :after evil
+             :bind (:map evil-motion-state-map
+                      ("gj" . evil-next-visual-line)
+                      ("gk" . evil-previous-visual-line))
              :config
              (evil-commentary-mode))
 
@@ -345,6 +363,7 @@
   (setq org-return-follows-link t)
   (setq org-hide-emphasis-markers t)
   (setq org-agenda-files '("~/notes/org"))
+  (setq org-src-fontify-natively t)
 
   ;; Increase LaTeX preview size (C-c C-x C-l)
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
@@ -395,6 +414,17 @@
   ("C-c a" . org-agenda)
   ("C-c c" . org-capture)
 )
+
+(use-package org-modern
+             :hook (org-mode . org-modern-mode)
+             :custom
+             (org-modern-star '("◉" "○" "✸" "✿" "✤")))
+
+; (use-package org-superstar
+;              :after org
+;              :hook (org-mode . org-superstar-mode)
+;              :config
+;              (setq org-hide-leading-stars t))
 
 ;; Center the editor
 (use-package visual-fill-column
@@ -458,3 +488,12 @@
              (ob-typst/default-rules-alist
                '((page . "width: 600pt, height: auto, margin: 1em, fill: rgb(\"#282828\")")
                  (text . "font: \"DejaVu Sans\", size: 12pt, fill: rgb(\"#ebdbb2\")"))))
+
+(use-package typst-overlay
+  :custom
+  ;; Optional: shown values are the defaults
+  (typst-overlay-scale 1.3)
+  (typst-overlay-max-active-compiles 8)
+  :hook ((typst-ts-mode . typst-overlay-mode)
+         (org-mode . typst-overlay-mode)
+         (after-save . typst-overlay-save-refresh)))
