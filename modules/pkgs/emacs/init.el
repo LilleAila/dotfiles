@@ -407,7 +407,21 @@
           visual-fill-column-center-text t)
     (visual-fill-column-mode 1)))
 
+(defvar my/org-dirs
+  '("~/notes/org"
+    "~/notes/org/assets"))
+
+(defun my/create-org-dirs ()
+  "Ensure all directories in `my/required-directories` exist."
+  (dolist (dir my/org-dirs)
+    (let ((expanded-dir (file-truename dir)))
+      (unless (file-directory-p expanded-dir)
+        (make-directory expanded-dir t)
+        (message "Created directory: %s" expanded-dir)))))
+
 (use-package org-roam
+             :init
+             (my/create-org-dirs)
              :bind (("C-c n l" . org-roam-buffer-toggle)
                     ("C-c n f" . org-roam-node-find)
                     ("C-c n i" . org-roam-node-insert)
