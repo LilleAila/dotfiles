@@ -397,6 +397,7 @@
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images) ;; Show output images immediately
   (setq org-startup-with-inline-images t)
   (setq org-image-max-width 800)
+  (setq org-image-actual-width nil)
 
   ;; Bindings and stuff
   (my/leader-keys
@@ -500,3 +501,27 @@
   :hook ((typst-ts-mode . typst-overlay-mode)
          (org-mode . typst-overlay-mode)
          (after-save . typst-overlay-save-refresh)))
+
+; (defun my/org-download-clipboard-no-id ()
+;   "Paste image from clipboard without letting org-download create a property drawer."
+;   (interactive)
+;   (let ((org-id-include-to-child nil))
+;     (org-download-clipboard)))
+
+(use-package org-download
+             :after org
+             :commands (org-download-clipboard)
+             :bind (:map org-mode-map
+                         ("C-c n p" . org-download-clipboard))
+             :config
+             (setq-default org-download-image-dir "~/notes/org/assets")
+             (setq org-download-method 'directory)
+             (setq org-download-heading-lvl nil)
+             (setq org-download-timestamp "%Y%m%d%H%M%S_")
+             (setq org-download-image-org-width 400)
+             (defun my/org-download-ignore-id (orig-fn &rest args)
+                 (cl-letf (((symbol-function 'org-id-get-create) #'ignore))
+                   (apply orig-fn args)))
+
+             (advice-add 'org-download-clipboard :around #'my/org-download-ignore-id)
+             (advice-add 'org-download-screenshot :around #'my/org-download-ignore-id))
