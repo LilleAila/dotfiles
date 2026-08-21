@@ -34,7 +34,7 @@
             evil-commentary
             general
             flyover
-            corfu
+            company
             cape
 
             dirvish

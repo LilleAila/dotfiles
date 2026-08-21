@@ -89,8 +89,9 @@
              (setq evil-undo-system 'undo-redo)
              :config
              (evil-mode 1)
-             (evil-set-initial-state 'embr-mode 'emacs)
-             (evil-set-initial-state 'embr-vimium-mode 'emacs))
+             (evil-define-key 'motion 'global
+                              "gj" 'evil-next-visual-line
+                              "gk" 'evil-previous-visual-line))
 
 (use-package evil-collection
              :after evil
@@ -228,15 +229,17 @@
              (flyover-checkers '(flymake))
              (flyover-levels '(error warning info)))
 
-(use-package corfu
-             :custom
-             (corfu-auto t)
-             (corfu-auto-prefix 2)
-             (corfu-auto-delay 0.0)
-             (corfu-quit-at-boundary 'separator)
-             :config
-             (global-corfu-mode)
-             (set-face-attribute 'corfu-border nil :background (face-attribute 'default :background)))
+(use-package company
+  :custom
+  (company-idle-delay 0.0)
+  (company-minimum-prefix-length 2)
+  (company-show-numbers t)
+  (company-tooltip-align-annotations t)
+  (company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
+                       company-preview-if-just-one-frontend
+                       company-echo-metadata-frontend))
+  :config
+  (global-company-mode t))
 
 (use-package cape
              :config
@@ -247,9 +250,6 @@
 (use-package evil-commentary
              :ensure t
              :after evil
-             :bind (:map evil-motion-state-map
-                      ("gj" . evil-next-visual-line)
-                      ("gk" . evil-previous-visual-line))
              :config
              (evil-commentary-mode))
 
