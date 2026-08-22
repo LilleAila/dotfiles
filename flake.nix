@@ -85,6 +85,11 @@
       url = "github:Infinidoge/nix-minecraft";
     };
 
+    typst-overlay = {
+      url = "github:hesampakdaman/typst-overlay";
+      flake = false;
+    };
+
     # === My stuff ===
     nix-cursors = {
       url = "github:LilleAila/nix-cursors";

@@ -65,7 +65,28 @@
 ;; Scrolling stuff
 (pixel-scroll-precision-mode 1)
 (setq scroll-conservatively 101)
-(setq scroll-margin 3)
+
+;; Detect scrolling with debounce
+;; Used to inhibit typst-overlay causing jittering by updating while scrolling.
+(defvar my/native-scrolling-p nil)
+(defvar my/scroll-idle-timer nil)
+(advice-add 'pixel-scroll-precision :around
+            (lambda (orig-fun &rest args)
+              (setq my/native-scrolling-p t)
+              (when (timerp my/scroll-idle-timer)
+                (cancel-timer my/scroll-idle-timer))
+              (apply orig-fun args)
+              (setq my/scroll-idle-timer
+                    (run-with-idle-timer
+                     0.2 nil
+                     (lambda ()
+                       (setq my/native-scrolling-p nil)
+                       (setq my/scroll-idle-timer nil)
+                       (typst-overlay--post-command-update))))))
+(advice-add 'typst-overlay--post-command-update :around
+            (lambda (orig-fun &rest args)
+              (unless my/native-scrolling-p
+                (apply orig-fun args))))
 
 ;; Icons and stuff
 (use-package nerd-icons
@@ -457,7 +478,8 @@
                     ("C-c n f" . org-roam-node-find)
                     ("C-c n i" . org-roam-node-insert)
                     ("C-c n c" . org-roam-capture)
-                    ("C-c n j" . org-roam-dailies-capture-today))
+                    ("C-c n j" . org-roam-dailies-capture-today)
+                    ("C-c n d" . org-roam-delete-current-note))
              :custom
              (org-roam-directory (file-truename "~/notes/org"))
              :config
@@ -481,10 +503,49 @@
                    '(("default" "default" entry
                       "* %U - %?\n\n"
                       :target (file+head "%<%Y-%m-%d>.org"
-                                         "#+title: %<%Y-%m-%d>\n\n")))))
+                                         "#+title: %<%Y-%m-%d>\n\n"))))
+
+             (defun org-roam-delete-current-note ()
+                    "Delete the file backing the current Org-roam note, move it to trash, and kill the buffer."
+                    (interactive)
+                    (unless (org-roam-file-p)
+                      (user-error "Current buffer is not an Org-roam note"))
+                    (when (yes-or-no-p (format "Are you sure you want to delete '%s'? " (buffer-name)))
+                      (let ((delete-by-moving-to-trash t))
+                        (delete-file (buffer-file-name) t)
+                        (kill-current-buffer)
+                        (message "Note deleted and moved to trash.")))))
+
+(defconst my/typst-author "Olai Solsvik" "Default author name for ox-typst exports.")
 
 (use-package ox-typst
-             :after org)
+             :after org
+             :config
+             (setq org-typst-from-latex-environment #'org-typst-from-latex-with-naive
+                   org-typst-from-latex-fragment     #'org-typst-from-latex-with-naive)
+
+             (setq org-typst-default-template
+                   (format "\
+                           #import \"%s\": custom-template
+                           #show: custom-template.with(
+                             title: \"%%t\",
+                             author: \"%%a\",
+                             date: \"%%d\",
+                           )
+
+                           %%c
+                           "
+                           (expand-file-name "template.typ" user-emacs-directory)))
+
+             (defun my/org-export-output-directory-modifier (orig-fun extension &optional subtreep pub-dir)
+                 "Direct exported files (including ox-typst PDFs) to the Downloads directory."
+                 (unless pub-dir
+                   (setq pub-dir (expand-file-name "~/Downloads/"))
+                   (unless (file-directory-p pub-dir)
+                     (make-directory pub-dir t)))
+                 (apply orig-fun extension subtreep pub-dir nil))
+
+             (advice-add 'org-export-output-file-name :around #'my/org-export-output-directory-modifier))
 
 (use-package ob-typst
              :after org
@@ -500,7 +561,24 @@
   (typst-overlay-max-active-compiles 8)
   :hook ((typst-ts-mode . typst-overlay-mode)
          (org-mode . typst-overlay-mode)
-         (after-save . typst-overlay-save-refresh)))
+         (after-save . typst-overlay-save-refresh))
+;   :config
+; (defun typst-overlay--smart-previous-line (orig-fn &rest args)
+;   "Move to previous line, but if entering a typst-overlay from below, land at its end."
+;   (let* ((old-point (point))
+;          (_ (apply orig-fn args))
+;          (new-point (point)))
+;     (when (> old-point new-point)
+;       (let* ((overlays (overlays-at new-point))
+;              (typst-ov (cl-find-if (lambda (o) (overlay-get o 'typst-overlay)) overlays)))
+;         (when typst-ov
+;           (unless (and (>= old-point (overlay-start typst-ov))
+;                        (<= old-point (overlay-end typst-ov)))
+;             (goto-char (overlay-end typst-ov))))))))
+;
+; (advice-add 'previous-line :around #'typst-overlay--smart-previous-line)
+; (advice-add 'evil-previous-line :around #'typst-overlay--smart-previous-line)
+  )
 
 ; (defun my/org-download-clipboard-no-id ()
 ;   "Paste image from clipboard without letting org-download create a property drawer."

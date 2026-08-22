@@ -1,11 +1,10 @@
-# TODO
 {
   self,
   ...
 }:
 {
   perSystem =
-    { pkgs, ... }:
+    { pkgs, lib, ... }:
     let
       pkgs' = self.packages.${pkgs.stdenv.hostPlatform.system};
 
@@ -19,6 +18,10 @@
           [
             gcmh
             no-littering
+
+            # scroll-restore
+            # ultra-scroll
+            # good-scroll
 
             pkgs'.emacs-theme
             doom-modeline
@@ -55,6 +58,10 @@
           ]
           ++ extraEmacsPackages
         );
+
+      runtimeDependencies = with pkgs; [
+        typst
+      ];
     in
     {
       packages = rec {
@@ -96,7 +103,8 @@
               chmod -R a+w $out/*
               wrapProgram $out/bin/emacs \
                 --add-flags "--init-directory=${emacsConfig}" \
-                --set EMACS_GRAMMAR_PATH "${emacs-ts-grammars}/lib"
+                --set EMACS_GRAMMAR_PATH "${emacs-ts-grammars}/lib" \
+                --prefix PATH : "${lib.makeBinPath runtimeDependencies}"
             ''
         ) { };
       };

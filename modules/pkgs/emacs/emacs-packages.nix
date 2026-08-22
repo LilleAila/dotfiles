@@ -1,4 +1,9 @@
-{ lib, self, ... }:
+{
+  lib,
+  self,
+  inputs,
+  ...
+}:
 {
   perSystem =
     { pkgs, system, ... }:
@@ -27,12 +32,8 @@
           pname = "typst-overlay";
           version = "master";
 
-          src = pkgs.fetchFromGitHub {
-            owner = "hesampakdaman";
-            repo = "typst-overlay";
-            rev = "292cea49c5073a54b02aa5eb12467a4ac9919097";
-            hash = "sha256-Ew7t4bVxJ9GqaYFqV8esUqAfs1nKzZbnNkdkOS88nv4=";
-          };
+          # FIXME: temp as flake input because of local dev
+          src = inputs.typst-overlay;
 
           propagatedUserEnvPkgs = [ pkgs.typst ];
 

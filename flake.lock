@@ -934,6 +934,7 @@
         "nvf-config": "nvf-config",
         "plover-flake": "plover-flake",
         "sops-nix": "sops-nix",
+        "typst-overlay": "typst-overlay",
         "wl-screenrec-daemon": "wl-screenrec-daemon",
         "wrapper-manager": "wrapper-manager"
       }
@@ -1034,6 +1035,22 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "typst-overlay": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1780550834,
+        "narHash": "sha256-Ew7t4bVxJ9GqaYFqV8esUqAfs1nKzZbnNkdkOS88nv4=",
+        "owner": "hesampakdaman",
+        "repo": "typst-overlay",
+        "rev": "292cea49c5073a54b02aa5eb12467a4ac9919097",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hesampakdaman",
+        "repo": "typst-overlay",
         "type": "github"
       }
     },
