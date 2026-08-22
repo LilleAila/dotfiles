@@ -19,10 +19,6 @@
             gcmh
             no-littering
 
-            # scroll-restore
-            # ultra-scroll
-            # good-scroll
-
             pkgs'.emacs-theme
             doom-modeline
             nerd-icons
@@ -61,11 +57,54 @@
 
       runtimeDependencies = with pkgs; [
         typst
+        pkgs'.org-to-pdf
       ];
     in
     {
       packages = rec {
         emacs-ts-grammars = emacsPackages.treesit-grammars.with-all-grammars;
+
+        # org-to-pdf = pkgs.writeShellApplication {
+        #   name = "org-to-pdf";
+        #   runtimeInputs = with pkgs; [
+        #     python3
+        #     typst
+        #     pandoc
+        #   ];
+        #   text = ''
+        #     python3 ${./org-to-pdf.py} "$@"
+        #   '';
+        # };
+
+        org-to-pdf = pkgs.stdenv.mkDerivation {
+          pname = "org-to-pdf";
+          version = "0.1.0";
+          src = ./typst;
+          buildInputs = with pkgs; [
+            python3
+            pandoc
+            typst
+          ];
+          nativeBuildInputs = [ pkgs.makeWrapper ];
+          installPhase = ''
+            runHook preInstall
+            mkdir -p $out/bin
+            mkdir -p $out/share/org-to-pdf
+            cp -r ./* $out/share/org-to-pdf
+            makeWrapper ${pkgs.python3}/bin/python3 $out/bin/org-to-pdf \
+              --add-flags "$out/share/org-to-pdf/main.py" \
+              --prefix PATH : ${
+                pkgs.lib.makeBinPath (
+                  with pkgs;
+                  [
+                    pandoc
+                    typst
+                  ]
+                )
+              }
+            runHook postInstall
+          '';
+        };
 
         emacs-config = pkgs.callPackage (
           {
