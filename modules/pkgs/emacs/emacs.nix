@@ -41,6 +41,7 @@
 
             magit # dependency of org-roam
             org-roam
+            org-roam-ui
             org
             visual-fill-column
             org-modern
@@ -56,6 +57,7 @@
         );
 
       runtimeDependencies = with pkgs; [
+        # graphviz
         typst
         pkgs'.org-to-pdf
       ];

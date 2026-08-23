@@ -42,6 +42,14 @@
   (setq org-agenda-files '("~/notes/org"))
   (setq org-src-fontify-natively t)
 
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (setq-local electric-pair-inhibit-predicate
+                          (lambda (c)
+                            (if (char-equal c ?<)
+                                t ; Inhibit pairing for '<'
+                              (electric-pair-default-inhibit c))))))
+
   ;; Increase LaTeX preview size (C-c C-x C-l)
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
 
@@ -155,7 +163,9 @@
                     ("C-c n i" . org-roam-node-insert)
                     ("C-c n c" . org-roam-capture)
                     ("C-c n j" . org-roam-dailies-capture-today)
-                    ("C-c n d" . org-roam-delete-current-note))
+                    ("C-c n d" . org-roam-delete-current-note)
+                    ("C-c n t" . org-roam-tag-add)
+                    ("C-c n T" . org-roam-tag-remove))
              :custom
              (org-roam-directory (file-truename "~/notes/org"))
              :config
@@ -292,5 +302,18 @@
 
              (advice-add 'org-download-clipboard :around #'my/org-download-ignore-id)
              (advice-add 'org-download-screenshot :around #'my/org-download-ignore-id))
+
+(use-package websocket
+             :after org-roam)
+
+(use-package org-roam-ui
+             :after org-roam
+             :bind (:map org-mode-map
+                         ("C-c u" . #'org-roam-ui-mode))
+             :config
+             (setq org-roam-ui-sync-theme t
+                   org-roam-ui-follow t
+                   org-roam-ui-update-on-save t
+                   org-roam-ui-open-on-start t))
 
 (provide 'config-org)
