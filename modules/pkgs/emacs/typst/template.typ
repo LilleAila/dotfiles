@@ -1,5 +1,3 @@
-#import "ob-typst-preamble.typ": *
-
 #let colorschemes = (
   "gruvbox": (
     base00: rgb("#282828"),

@@ -430,24 +430,28 @@
     ("C-c <up>" . org-priority-up)
     ("C-c <down>" . org-priority-down)
     ("C-c C-g C-r" . org-shiftmetaright)
-("C-c e" . (lambda ()
-               (interactive)
-               (if (derived-mode-p 'org-mode)
-                   (let ((file (buffer-file-name)))
-                     (if file
-                          (let* ((proc-name "org-to-pdf-proc")
-                                   (buf (get-buffer-create " *org-to-pdf-internal*"))
-                                 (proc (start-process proc-name buf "org-to-pdf" file)))
-                           (set-process-sentinel
-                            proc
-                            (lambda (p event)
-                              (when (string-match-p "finished" event)
-                                (message "org-to-pdf finished successfully for: %s" 
-                                         (car (process-command p))))))
-                           (message "Started org-to-pdf asynchronously for: %s" file))
-                       (user-error "Current buffer is not backed by a file")))
-                 (user-error "Current buffer is not in org-mode"))))
-  )
+    ("C-c e" . (lambda ()
+                 (interactive)
+                 (if (derived-mode-p 'org-mode)
+                     (let ((file (buffer-file-name)))
+                       (if file
+                           (let* ((proc-name "org-to-pdf-proc")
+                                  (buf (get-buffer-create " *org-to-pdf-internal*"))
+                                  (proc (start-process proc-name buf "org-to-pdf" file)))
+                             (set-process-filter
+                              proc
+                              (lambda (p output)
+                                (message "[org-to-pdf] %s" (string-trim-right output))))
+
+                             (set-process-sentinel
+                              proc
+                              (lambda (p event)
+                                (when (string-match-p "finished" event)
+                                  (message "org-to-pdf finished successfully for: %s"
+                                           (car (process-command p))))))
+                             (message "Started org-to-pdf asynchronously for: %s" file))
+                         (user-error "Current buffer is not backed by a file")))
+                 (user-error "Current buffer is not in org-mode")))))
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda)
