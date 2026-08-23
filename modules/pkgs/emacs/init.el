@@ -65,6 +65,7 @@
 ;; Scrolling stuff
 (pixel-scroll-precision-mode 1)
 (setq scroll-conservatively 101)
+(advice-add #'mouse-wheel-text-scale :override #'ignore)
 
 ;; Detect scrolling with debounce
 ;; Used to inhibit typst-overlay causing jittering by updating while scrolling.
@@ -510,12 +511,13 @@
              ;; Open links with C-c C-o in the same pane
              (setq org-link-frame-setup
                    (quote ((file . find-file))))
+
              ;; Capture templates and notes and stuff
              (setq org-roam-capture-templates
                    '(
                      ("d" "default" plain
                       "%?"
-                      :target (file+head "%<%Y%m%d%H%M%S>.org"
+                      :target (file+head "roam/%<%Y%m%d%H%M%S>.org"
                                          "#+title: ${title}\n#+created: %U\n#+last_modified: %U\n#+filetags:\n\n")
                       :unnarrowed t)))
              (setq org-roam-dailies-directory "daily/")
@@ -599,6 +601,7 @@
   :hook ((typst-ts-mode . typst-overlay-mode)
          (org-mode . typst-overlay-mode)
          (after-save . typst-overlay-save-refresh))
+; Instead patched in upstream
 ;   :config
 ; (defun typst-overlay--smart-previous-line (orig-fn &rest args)
 ;   "Move to previous line, but if entering a typst-overlay from below, land at its end."
@@ -616,12 +619,6 @@
 ; (advice-add 'previous-line :around #'typst-overlay--smart-previous-line)
 ; (advice-add 'evil-previous-line :around #'typst-overlay--smart-previous-line)
   )
-
-; (defun my/org-download-clipboard-no-id ()
-;   "Paste image from clipboard without letting org-download create a property drawer."
-;   (interactive)
-;   (let ((org-id-include-to-child nil))
-;     (org-download-clipboard)))
 
 (use-package org-download
              :after org
