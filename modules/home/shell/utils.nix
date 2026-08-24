@@ -99,7 +99,7 @@
             "--header"
             "--color=always"
             "--no-quotes"
-            "--hyperlink"
+            "--hyperlink=auto"
           ];
         };
 
