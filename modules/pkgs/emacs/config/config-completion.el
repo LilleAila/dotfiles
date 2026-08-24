@@ -23,11 +23,15 @@
              (vertico-cycle t)
              (vertico-resize nil))
 
-(use-package orderless
-             :custom
-             (completion-styles '(orderless basic))
-             (completion-category-defaults nil)
-             (completion-category-overrides '((file (styles basic partial-completion)))))
+; (use-package orderless
+;              :custom
+;              (completion-styles '(orderless basic))
+;              (completion-category-defaults nil)
+;              (completion-category-overrides '((file (styles basic partial-completion)))))
+
+(use-package fussy
+             :config
+             (fussy-setup))
 
 (use-package marginalia
              :config

@@ -24,7 +24,7 @@
             nerd-icons
 
             vertico
-            orderless
+            fussy
             marginalia
             consult
 

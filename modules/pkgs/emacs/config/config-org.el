@@ -158,6 +158,7 @@
 (use-package org-roam
              :init
              (my/create-org-dirs)
+             (setq org-roam-directory (file-truename "~/notes/org"))
              :bind (("C-c n l" . org-roam-buffer-toggle)
                     ("C-c n f" . org-roam-node-find)
                     ("C-c n i" . org-roam-node-insert)
@@ -165,9 +166,12 @@
                     ("C-c n j" . org-roam-dailies-capture-today)
                     ("C-c n d" . org-roam-delete-current-note)
                     ("C-c n t" . org-roam-tag-add)
-                    ("C-c n T" . org-roam-tag-remove))
-             :custom
-             (org-roam-directory (file-truename "~/notes/org"))
+                    ("C-c n T" . org-roam-tag-remove)
+                    ("C-c n s" . (lambda ()
+                        "Search `org-roam-directory' content using ripgrep."
+                        (interactive)
+                        (let ((consult-ripgrep-args "rg --null --ignore-case --type org --line-buffered --color=never --max-columns=500 --no-heading --line-number"))
+                          (consult-ripgrep org-roam-directory)))))
              :config
              (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
              (org-roam-setup)
@@ -202,8 +206,6 @@
                         (delete-file (buffer-file-name) t)
                         (kill-current-buffer)
                         (message "Note deleted and moved to trash.")))))
-
-(defconst my/typst-author "Olai Solsvik" "Default author name for ox-typst exports.")
 
 (use-package ox-typst
              :after org
