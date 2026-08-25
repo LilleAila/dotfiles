@@ -82,30 +82,30 @@
   ;; This seems to work 90% of the time for conflicts due to equals signs =
   ;; And for lines starting with pipes, it works at startup but becomes
   ;; incorrect the instant anything is typed. It is better than nothing though.
-  (with-eval-after-load 'org
-    (setq org-emphasis-alist
-          (assoc-delete-all "=" org-emphasis-alist))
-    (org-set-emph-re 'org-emphasis-alist org-emphasis-alist))
-
-  (defun my-org-typst-math-font-lock-matcher (limit)
-    (let ((typst-math-re "\\(?:\\$[^\n$ ]\\(?:[^$\n]*[^\n$ ]\\)?\\$\\|\\(?:^\n[ \t]*\\$[ \t]*\n[^\0]*?[^\n]*?[ \t]*\\$[ \t]*\\(\r?\n\\)?\\)\\)"))
-      (when (re-search-forward typst-math-re limit t)
-        (let* ((start (match-beginning 0))
-               (end (match-end 0))
-               (in-src-block (org-in-src-block-p))
-               (bg-color (and in-src-block (face-background 'org-block nil t))))
-          (remove-text-properties start end '(invisible t))
-          (put-text-property start end 'face
-                             (if bg-color
-                                 (list :inherit 'default :weight 'normal :slant 'normal :background bg-color)
-                               '(:inherit 'default :weight 'normal :slant 'normal)))
-          t))))
-
-  (with-eval-after-load 'org
-    (font-lock-add-keywords
-     'org-mode
-     '((my-org-typst-math-font-lock-matcher))
-     'prepend))
+  ; (with-eval-after-load 'org
+  ;   (setq org-emphasis-alist
+  ;         (assoc-delete-all "=" org-emphasis-alist))
+  ;   (org-set-emph-re 'org-emphasis-alist org-emphasis-alist))
+  ;
+  ; (defun my-org-typst-math-font-lock-matcher (limit)
+  ;   (let ((typst-math-re "\\(?:\\$[^\n$ ]\\(?:[^$\n]*[^\n$ ]\\)?\\$\\|\\(?:^\n[ \t]*\\$[ \t]*\n[^\0]*?[^\n]*?[ \t]*\\$[ \t]*\\(\r?\n\\)?\\)\\)"))
+  ;     (when (re-search-forward typst-math-re limit t)
+  ;       (let* ((start (match-beginning 0))
+  ;              (end (match-end 0))
+  ;              (in-src-block (org-in-src-block-p))
+  ;              (bg-color (and in-src-block (face-background 'org-block nil t))))
+  ;         (remove-text-properties start end '(invisible t))
+  ;         (put-text-property start end 'face
+  ;                            (if bg-color
+  ;                                (list :inherit 'default :weight 'normal :slant 'normal :background bg-color)
+  ;                              '(:inherit 'default :weight 'normal :slant 'normal)))
+  ;         t))))
+  ;
+  ; (with-eval-after-load 'org
+  ;   (font-lock-add-keywords
+  ;    'org-mode
+  ;    '((my-org-typst-math-font-lock-matcher))
+  ;    'prepend))
 
   ;; Images
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images) ;; Show output images immediately
