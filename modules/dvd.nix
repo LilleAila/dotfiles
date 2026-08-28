@@ -20,7 +20,7 @@
         };
 
         home.packages = with pkgs; [
-          makemkv # did not recognise the drive :(
+          # makemkv # did not recognise the drive :( # FIXME: broken as of 2026-08-28
           libdvdcss
           dvdbackup
           ffmpeg

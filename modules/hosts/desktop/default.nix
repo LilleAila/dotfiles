@@ -49,6 +49,7 @@
           "ssh.olai.dev"
           "jellyfin.olai.dev"
           "create.olai.dev"
+          "factorio.olai.dev"
         ];
         credentialsFile = config.sops.secrets."cloudflare_ddns".path;
       };
@@ -122,6 +123,7 @@
           enable = true;
           preset = "desktop";
         };
+        factorio.enable = true;
       };
 
       specialisation = {

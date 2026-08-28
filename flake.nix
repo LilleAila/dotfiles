@@ -5,7 +5,8 @@
 
   inputs = {
     # === Important stuff ===
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/127348b2d8e3da5783348a0443c0e1e61e65e5fe"; # FIXME: Temp pinned for libdisplay-info_0_2, see https://github.com/sodiboo/niri-flake/issues/1851
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
 
     flake-parts = {
