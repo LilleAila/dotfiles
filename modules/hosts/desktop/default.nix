@@ -67,8 +67,6 @@
         };
       };
 
-      services.foldingathome.enable = true;
-
       settings = {
         locale = {
           main = "en_US.UTF-8";
