@@ -1,8 +1,8 @@
 ;; Restore gc and stuff after early-init
 (use-package gcmh
              :init
-             (setq gcmh-idle-delay 10
-                   gcmh-high-cons-threshold #x40000000
+             (setq gcmh-idle-delay 2
+                   gcmh-high-cons-threshold (* 128 1024 1024) ; 128MB
                    gcmh-verbose nil)
              :config
              (gcmh-mode 1))
