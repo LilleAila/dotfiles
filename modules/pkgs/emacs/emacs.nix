@@ -47,6 +47,7 @@
             org-modern
             ox-typst
             org-download
+            org-appear
             pkgs'.ob-typst
             pkgs'.typst-overlay
 

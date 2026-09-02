@@ -155,6 +155,13 @@
              :custom
              (org-modern-star '("◉" "○" "✸" "✿" "✤")))
 
+(use-package org-appear
+             :hook (org-mode . org-appear-mode)
+             :custom
+             (org-appear-autoemphasis t)
+             (org-appear-autolinks t)
+             (org-appear-delay 0.1))
+
 ; (use-package org-superstar
 ;              :after org
 ;              :hook (org-mode . org-superstar-mode)
