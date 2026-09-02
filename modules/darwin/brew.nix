@@ -112,7 +112,7 @@
             "ableton-live-lite"
             "ilok-license-manager"
             "arturia-software-center"
-            "neural-amp-modeler"
+            # "neural-amp-modeler"
             # "uvi-workstation" # installed through uvi portal
             "uvi-portal"
             "native-access"
