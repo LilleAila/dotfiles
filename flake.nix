@@ -87,7 +87,9 @@
     };
 
     typst-overlay = {
-      url = "github:hesampakdaman/typst-overlay";
+      # FIXME: use upstream when merged or fixed
+      # url = "github:hesampakdaman/typst-overlay";
+      url = "github:LilleAila/typst-overlay/display-math";
       flake = false;
     };
 

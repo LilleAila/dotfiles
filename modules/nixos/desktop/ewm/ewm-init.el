@@ -5,10 +5,9 @@
              :custom
              (ewm-output-config '(("eDP-1" :width 1920 :height 1200)))
              (ewm-intercept-prefixes
-               '("C-x" "C-h" "M-x" ; Emacs stuff
-                 "s-:" ; Evil-cmd
-                 ("s-o" :fullscreen) ; Fullscreen
-                 ("<Print>" :fullscreen)))
+               '("C-x" "C-h" "M-x" "C-c" "M-:" ; Emacs stuff
+                 "s-." ; evil-ex
+                 ("s-o" :fullscreen)))
              (ewm-input-config
                '((touchpad :natural-scroll t :tap nil :dwt t :accel-profile "flat")
                  (trackpoint :accel-profile "flat" :accel-speed 0.5)
@@ -24,7 +23,7 @@
              :config
             (ewm-text-input-auto-mode-enable)
             :bind (:map ewm-mode-map
-                        ("s-:" . evil-ex)
+                        ("s-." . evil-ex)
                         ("s-<return>" . (lambda () (interactive) (start-process "ghostty" nil "ghostty")))
 
                         ("s-SPC" . ewm-launch-app)

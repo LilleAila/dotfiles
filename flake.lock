@@ -1041,15 +1041,16 @@
     "typst-overlay": {
       "flake": false,
       "locked": {
-        "lastModified": 1780550834,
-        "narHash": "sha256-Ew7t4bVxJ9GqaYFqV8esUqAfs1nKzZbnNkdkOS88nv4=",
-        "owner": "hesampakdaman",
+        "lastModified": 1787413644,
+        "narHash": "sha256-YVgan0QRWa4oB/zZtw+GWIKBgZcnGgDyHdQOiUeuXEk=",
+        "owner": "LilleAila",
         "repo": "typst-overlay",
-        "rev": "292cea49c5073a54b02aa5eb12467a4ac9919097",
+        "rev": "3d0fe4e29084cf277d3a1f84725d13b75c59838a",
         "type": "github"
       },
       "original": {
-        "owner": "hesampakdaman",
+        "owner": "LilleAila",
+        "ref": "display-math",
         "repo": "typst-overlay",
         "type": "github"
       }
