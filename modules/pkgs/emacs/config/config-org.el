@@ -27,6 +27,11 @@
   (visual-line-mode 1)
   (setq evil-auto-indent nil))
 
+(defun my/open-org-agenda-dir ()
+  "Open `find-file` preset to the org agenda directory."
+  (interactive)
+  (let ((default-directory "~/notes/org/agenda/"))
+    (call-interactively #'find-file)))
 
 (use-package org
   :hook (org-mode . my/org-mode-setup)
@@ -39,7 +44,7 @@
   (setq org-log-into-drawer t)
   (setq org-return-follows-link t)
   (setq org-hide-emphasis-markers t)
-  (setq org-agenda-files '("~/notes/org"))
+  (setq org-agenda-files '("~/notes/org/agenda"))
   (setq org-src-fontify-natively t)
 
   (add-hook 'org-mode-hook
@@ -67,6 +72,14 @@
   (setq org-todo-keywords
     '((sequence "TODO(t)" "PLANNING(p)" "IN-PROGRESS(i@/!)" "VERIFYING(v!)" "BLOCKED(b@)" "|" "DONE(d!)" "OBE(o@!)" "Wont-DO(w@/!)"))
   )
+
+  ; (with-eval-after-load 'org-agenda
+  ;                       (add-to-list 'org-agenda-custom-commands
+  ;                                    '("D" "TODOs ordered by deadline"
+  ;                                      alltodo ""
+  ;                                      ((org-agenda-sorting-strategy '(deadline-up))
+  ;                                       (org-agenda-overriding-columns-format "%40ITEM %DEADLINE %TODO")
+  ;                                       (org-agenda-view-columns-initially t)))))
 
   ;; org-babel
   (org-babel-do-load-languages
@@ -148,7 +161,8 @@
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda)
-  ("C-c c" . org-capture))
+  ("C-c c" . org-capture)
+  ("C-c n a" . #'my/open-org-agenda-dir))
 
 (use-package org-modern
              :hook (org-mode . org-modern-mode)
