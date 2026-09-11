@@ -9,7 +9,7 @@ author = "Olai Solsvik"
 # output_path = Path(sys.argv[1])
 
 typst_root = Path(__file__).resolve().parent
-ob_typst_preamble = typst_root / "ob-typst-preamble.typ"
+typst_preamble = typst_root / "typst-preamble.typ"
 typst_template = typst_root / "template.typ"
 org_path = Path(org_filename).resolve()
 content = org_path.read_text(encoding="utf-8")
@@ -67,7 +67,7 @@ typst_code = f"""
 #let date = "{iso8601_date}"
 #let colorscheme = "gruvbox"
 
-{ob_typst_preamble.read_text(encoding="utf-8")}
+{typst_preamble.read_text(encoding="utf-8")}
 {typst_template.read_text(encoding="utf-8")}
 {typst_body}
 """

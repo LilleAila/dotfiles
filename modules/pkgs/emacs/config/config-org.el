@@ -286,6 +286,16 @@
 
              (advice-add 'org-export-output-file-name :around #'my/org-export-output-directory-modifier))
 
+(defun my/read-emacs-file-content (relative-path)
+  "Read the contents of a file at RELATIVE-PATH relative to `user-emacs-directory`.
+Returns the file content as a string, or an empty string if it does not exist."
+  (let ((file (expand-file-name relative-path user-emacs-directory)))
+    (if (file-exists-p file)
+        (with-temp-buffer
+          (insert-file-contents file)
+          (buffer-string))
+      "")))
+
 (use-package ob-typst
              :after org
              :custom
@@ -300,42 +310,19 @@
                          (lambda (orig-fun body params)
                            (if my-ob-typst-inhibit-preamble
                                (funcall orig-fun body params)
-                             (let* ((preamble-file (expand-file-name "typst/ob-typst-preamble.typ" user-emacs-directory))
-                                    (preamble-content (if (file-exists-p preamble-file)
-                                                          (with-temp-buffer
-                                                            (insert-file-contents preamble-file)
-                                                            (buffer-string))
-                                                        ""))
+                             (let* ((preamble-content (my/read-emacs-file-content "typst/typst-preamble.typ"))
                                     (modified-body (concat preamble-content "\n\n" body))
                                     (my-ob-typst-inhibit-preamble t))
                                (funcall orig-fun modified-body params))))))
 
 (use-package typst-overlay
   :custom
-  ;; Optional: shown values are the defaults
   (typst-overlay-scale 1.3)
   (typst-overlay-max-active-compiles 8)
+  (typst-overlay-extra-prelude (my/read-emacs-file-content "typst/typst-preamble.typ"))
   :hook ((typst-ts-mode . typst-overlay-mode)
          (org-mode . typst-overlay-mode)
-         (after-save . typst-overlay-save-refresh))
-; Instead patched in upstream
-;   :config
-; (defun typst-overlay--smart-previous-line (orig-fn &rest args)
-;   "Move to previous line, but if entering a typst-overlay from below, land at its end."
-;   (let* ((old-point (point))
-;          (_ (apply orig-fn args))
-;          (new-point (point)))
-;     (when (> old-point new-point)
-;       (let* ((overlays (overlays-at new-point))
-;              (typst-ov (cl-find-if (lambda (o) (overlay-get o 'typst-overlay)) overlays)))
-;         (when typst-ov
-;           (unless (and (>= old-point (overlay-start typst-ov))
-;                        (<= old-point (overlay-end typst-ov)))
-;             (goto-char (overlay-end typst-ov))))))))
-;
-; (advice-add 'previous-line :around #'typst-overlay--smart-previous-line)
-; (advice-add 'evil-previous-line :around #'typst-overlay--smart-previous-line)
-  )
+         (after-save . typst-overlay-save-refresh)))
 
 (use-package org-download
              :after org

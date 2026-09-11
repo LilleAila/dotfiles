@@ -1041,11 +1041,11 @@
     "typst-overlay": {
       "flake": false,
       "locked": {
-        "lastModified": 1787413644,
-        "narHash": "sha256-YVgan0QRWa4oB/zZtw+GWIKBgZcnGgDyHdQOiUeuXEk=",
+        "lastModified": 1789148713,
+        "narHash": "sha256-mMLWGD4qM4O5lyH/6JVT6UvlOI+v5isk7nnfGnNZomI=",
         "owner": "LilleAila",
         "repo": "typst-overlay",
-        "rev": "3d0fe4e29084cf277d3a1f84725d13b75c59838a",
+        "rev": "1fe79ea4760dde261b527d35f6dfb4270c25980b",
         "type": "github"
       },
       "original": {

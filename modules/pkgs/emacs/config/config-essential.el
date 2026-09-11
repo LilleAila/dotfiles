@@ -37,6 +37,9 @@
 ;; Simpler yes/no confirmation
 (setf (symbol-function 'yes-or-no-p) #'y-or-n-p)
 
+;; Confirm before kill with C-x C-c
+(setq confirm-kill-emacs 'y-or-n-p)
+
 ;; Spaces instead of tabs
 ; (setq-default indent-tabs-mode nil)
 ; (setq-default tab-width 4)

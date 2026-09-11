@@ -10,3 +10,10 @@
 )
 
 #let gap = [- #v(0.2em)]
+
+// Math stuff:
+#let va = math.arrow
+#let ub(x) = $upright(bold(#x))$
+#let bmat(..xs) = $mat(..xs, delim: "[")$
+#let dlim(x) = $display(lim_(#x))$
+#let unit(u) = $upright(#u)$
