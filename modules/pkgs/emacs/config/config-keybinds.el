@@ -4,6 +4,8 @@
              (setq evil-want-keybinding nil)
              (setq evil-want-Y-yank-to-eol t)
              (setq evil-undo-system 'undo-redo)
+             (setq evil-split-window-below t
+                   evil-vsplit-window-right t)
              :config
              (evil-mode 1)
              (evil-define-key 'motion 'global
