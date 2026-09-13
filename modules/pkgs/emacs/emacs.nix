@@ -22,6 +22,7 @@
             pkgs'.emacs-theme
             doom-modeline
             nerd-icons
+            buffer-move # NOTE: may want to move to ewm package?
 
             vertico
             fussy
