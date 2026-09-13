@@ -1,3 +1,18 @@
+(defun my-split-window-scratch (split-func &rest args)
+  "Split window using SPLIT-FUNC, then focus the new window and switch to *scratch*."
+  (let ((new-win (apply split-func args)))
+    (select-window new-win)
+    (scratch-buffer)
+    new-win))
+
+(defun my-split-window-below-scratch (&optional size)
+  (interactive "P")
+  (my-split-window-scratch #'split-window-below size))
+
+(defun my-split-window-right-scratch (&optional size)
+  (interactive "P")
+  (my-split-window-scratch #'split-window-right size))
+
 (use-package evil
              :init
              (setq evil-want-integration t)
@@ -10,7 +25,9 @@
              (evil-mode 1)
              (evil-define-key 'motion 'global
                               "gj" 'evil-next-visual-line
-                              "gk" 'evil-previous-visual-line))
+                              "gk" 'evil-previous-visual-line)
+             (evil-ex-define-cmd "sp" #'my-split-window-below-scratch)
+             (evil-ex-define-cmd "vs" #'my-split-window-right-scratch))
 
 (use-package evil-collection
              :after evil

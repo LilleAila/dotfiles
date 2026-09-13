@@ -116,6 +116,7 @@
           ];
 
           home.pointerCursor = {
+            enable = true;
             inherit (config.settings.cursor) package;
             inherit (config.settings.cursor) name;
             inherit (config.settings.cursor) size;
