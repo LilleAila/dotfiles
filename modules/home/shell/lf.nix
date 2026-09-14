@@ -38,7 +38,7 @@
 
           commands = {
             dragon-out = ''%${lib.getExe pkgs.dragon-drop} -a -x "$fx"'';
-            editor-open = ''$$EDITOR $f'';
+            editor-open = "$$EDITOR $f";
             mkdir = ''
               ''${{
               	printf "Directory Name: "
