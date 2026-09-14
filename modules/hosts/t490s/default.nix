@@ -5,7 +5,7 @@
   ...
 }:
 {
-  configurations.nixos.e14g5-nix.module =
+  configurations.nixos.t490s-nix.module =
     {
       config,
       pkgs,
@@ -18,7 +18,7 @@
         ./_hardware-configuration.nix
       ];
 
-      networking.hostId = "cc76db3f";
+      networking.hostId = "c70b6e36";
 
       environment.systemPackages = with pkgs; [
         qt6.qtwayland
@@ -35,7 +35,7 @@
         user.shell = pkgs.zsh;
         networking = {
           enable = true;
-          hostname = "e14g5-nix";
+          hostname = "t490s-nix";
           wifi.enable = true;
           bluetooth.enable = true;
         };
@@ -66,7 +66,6 @@
         docker.enable = true;
 
         zfs.enable = true;
-        zfs.encryption = true;
         zfs.snapshots = true;
         impermanence.enable = true;
       };
@@ -181,8 +180,8 @@
         };
 
         sops.secrets."yubikey/u2f_keys".path = "${config.hm.home.homeDirectory}/.config/Yubico/u2f_keys";
-        # sops.secrets."ssh/e14g5".path = "${config.hm.home.homeDirectory}/.ssh/id_ed25519";
-        # home.file.".ssh/id_ed25519.pub".text = self.keys.ssh.e14g5.public;
+        # sops.secrets."ssh/t490s".path = "${config.hm.home.homeDirectory}/.ssh/id_ed25519"; # TODO
+        # home.file.".ssh/id_ed25519.pub".text = self.keys.ssh.t490s.public; # TODO
         # home.file.".ssh/yubikey.pub".text = keys.ssh.yubikey.public;
       };
     };
