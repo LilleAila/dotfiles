@@ -20,6 +20,11 @@
 
       networking.hostId = "c70b6e36";
 
+      boot.zfs = {
+        devNodes = "/dev/disk/by-id";
+        forceImportRoot = lib.mkForce true;
+      };
+
       environment.systemPackages = with pkgs; [
         qt6.qtwayland
       ];
@@ -43,7 +48,7 @@
         desktop.enable = true;
         sway.enable = true;
         niri.enable = true;
-        ewm.enable = true;
+        ewm.enable = false;
 
         ssh.enable = true;
         ssh.keys = with self.keys.ssh; [
