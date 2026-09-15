@@ -31,6 +31,9 @@ let
     oppad3 = {
       id = secrets.ids.oppad3;
     };
+    t490s = {
+      id = secrets.ids.t490s;
+    };
   };
 
   mkFolders = homeDirectory: {
@@ -43,6 +46,7 @@ let
         "x220"
         "desktop"
         "m4air-darwin"
+        "t490s"
       ];
     };
     "Spell" = {
@@ -54,6 +58,7 @@ let
         "x220"
         "desktop"
         "m4air-darwin"
+        "t490s"
       ];
     };
     "Notes" = {
@@ -64,6 +69,7 @@ let
         "desktop"
         "m4air-darwin"
         "t420"
+        "t490s"
         # NOTE: android is configured imperatively. `path` defined above does *not* apply
         "Pixel 8a"
         "oppad3"
@@ -79,6 +85,7 @@ let
         "m4air-darwin"
         "t420"
         "Pixel 8a"
+        "t490s"
       ];
     };
     "Android Screenshots" = {
@@ -91,6 +98,7 @@ let
         "m4air-darwin"
         "t420"
         "Pixel 8a"
+        "t490s"
       ];
     };
     "Calibre Library" = {
