@@ -171,6 +171,7 @@
           desktop.full.enable = true;
           school.enable = true;
           music.enable = true;
+          wm.hypridle.enable = false;
         };
 
         programs.niri.settings.outputs = {
