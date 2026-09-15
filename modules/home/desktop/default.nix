@@ -91,6 +91,7 @@
             ".local/share/OpenSCAD"
             ".cache/tor project"
             ".tor project"
+            ".config/Bitwarden"
           ];
 
           settings.nix.unfree = [

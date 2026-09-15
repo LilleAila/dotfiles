@@ -170,6 +170,7 @@
 
           desktop.full.enable = true;
           school.enable = true;
+          music.enable = true;
         };
 
         programs.niri.settings.outputs = {
@@ -183,11 +184,6 @@
             background-color = "#${self.colorScheme.palette.base00}";
           };
         };
-
-        home.packages = with pkgs; [
-          neural-amp-modeler-lv2
-          ardour
-        ];
 
         wayland.windowManager.hyprland.settings.input.kb_options = "ctrl:nocaps,altwin:prtsc_rwin";
         home.shellAliases = {
