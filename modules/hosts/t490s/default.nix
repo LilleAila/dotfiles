@@ -136,17 +136,27 @@
 
       system.stateVersion = "26.05";
 
-      # sops.secrets."syncthing/desktop/cert" = {
-      #   path = "${config.hm.home.homeDirectory}/.config/syncthing/cert.pem";
-      #   inherit (config.services.syncthing) group;
-      #   owner = config.services.syncthing.user;
-      # };
-      # sops.secrets."syncthing/desktop/key" = {
-      #   path = "${config.hm.home.homeDirectory}/.config/syncthing/key.pem";
-      #   inherit (config.services.syncthing) group;
-      #   owner = config.services.syncthing.user;
-      # };
-      # systemd.services.syncthing.after = [ "sops-nix.service" ];
+      sops.secrets."syncthing/t490s/cert" = {
+        path = "${config.hm.home.homeDirectory}/.config/syncthing/cert.pem";
+        inherit (config.services.syncthing) group;
+        owner = config.services.syncthing.user;
+      };
+      sops.secrets."syncthing/t490s/key" = {
+        path = "${config.hm.home.homeDirectory}/.config/syncthing/key.pem";
+        inherit (config.services.syncthing) group;
+        owner = config.services.syncthing.user;
+      };
+      sops.secrets."syncthing/t490s/https-cert" = {
+        path = "${config.hm.home.homeDirectory}/.config/syncthing/https-cert.pem";
+        inherit (config.services.syncthing) group;
+        owner = config.services.syncthing.user;
+      };
+      sops.secrets."syncthing/t490s/https-key" = {
+        path = "${config.hm.home.homeDirectory}/.config/syncthing/https-key.pem";
+        inherit (config.services.syncthing) group;
+        owner = config.services.syncthing.user;
+      };
+      systemd.services.syncthing.after = [ "sops-nix.service" ];
 
       hm = {
         settings = {
@@ -185,8 +195,8 @@
         };
 
         sops.secrets."yubikey/u2f_keys".path = "${config.hm.home.homeDirectory}/.config/Yubico/u2f_keys";
-        # sops.secrets."ssh/t490s".path = "${config.hm.home.homeDirectory}/.ssh/id_ed25519"; # TODO
-        # home.file.".ssh/id_ed25519.pub".text = self.keys.ssh.t490s.public; # TODO
+        sops.secrets."ssh/t490s".path = "${config.hm.home.homeDirectory}/.ssh/id_ed25519"; # TODO
+        home.file.".ssh/id_ed25519.pub".text = self.keys.ssh.t490s.public;
         # home.file.".ssh/yubikey.pub".text = keys.ssh.yubikey.public;
       };
     };
