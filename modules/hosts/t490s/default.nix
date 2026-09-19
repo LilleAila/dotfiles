@@ -94,7 +94,7 @@
       services.thermald.enable = true;
 
       services.auto-cpufreq = {
-        enable = false;
+        enable = true;
         settings = {
           charger = {
             turbo = "auto";
@@ -104,7 +104,7 @@
             # cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq
             scaling_min_freq = 400000; # (400 mHz in kHz)
             # cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq
-            scaling_max_freq = 4546000; # (4546 mHz in kHz)
+            scaling_max_freq = 4600000; # (4600 mHz in kHz)
           };
           battery = {
             governor = "powersave";
@@ -116,13 +116,13 @@
             stop_threshold = 80;
             turbo = "never";
             scaling_min_freq = 400000; # (400 mHz in kHz)
-            scaling_max_freq = 2000000; # (2000 mHz in kHz)
+            scaling_max_freq = 4600000; # (2000 mHz in kHz)
           };
         };
       };
 
       services.tlp = {
-        enable = true;
+        enable = false;
         settings = {
           # Values commented out are managed by auto-cpufreq instead
           # TLP is only used for GPU and disabling / enabling devices
