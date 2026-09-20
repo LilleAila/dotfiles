@@ -16,50 +16,56 @@
         };
       };
 
-      config = lib.mkIf cfg.enable {
-        settings.sound.enable = lib.mkDefault true;
-
-        hm.systemd.user.services.shairport-sync =
-          let
-            config-file = configFormat.generate "shairport-sync.conf" {
-              general = {
-                inherit (cfg) name;
-                output_backend = "pipewire";
-                diagnostics.log_verbosity = 1;
-              };
-
-              pipewire = {
-                latency_offset = 0;
-                output_rate = 44100;
-                output_format = "S16";
-              };
+      config =
+        let
+          config-file = configFormat.generate "shairport-sync.conf" {
+            general = {
+              inherit (cfg) name;
+              output_backend = "pipewire";
+              diagnostics.log_verbosity = 1;
             };
-          in
-          {
+
+            pipewire = {
+              latency_offset = 0;
+              output_rate = 44100;
+              output_format = "S16";
+            };
+          };
+        in
+        lib.mkIf cfg.enable {
+          settings.sound.enable = lib.mkDefault true;
+
+          hm.systemd.user.services.shairport-sync = {
             Unit = {
               Description = "shairport-sync";
               After = [
                 "graphical-session.target"
                 "pipewire.service"
               ];
+              Wants = [ "pipewire.service" ];
+              PartOf = [ "graphical-session.target" ];
             };
 
             Service = {
               ExecStart = "${lib.getExe pkgs.shairport-sync} -c ${config-file}";
               Restart = "on-failure";
             };
+
+            Install = {
+              WantedBy = [ "graphical-session.target" ];
+            };
           };
 
-        networking.firewall = {
-          allowedTCPPorts = [ 5000 ];
-          allowedUDPPortRanges = [
-            {
-              from = 6001;
-              to = 6011;
-            }
-          ];
-        };
+          networking.firewall = {
+            allowedTCPPorts = [ 5000 ];
+            allowedUDPPortRanges = [
+              {
+                from = 6001;
+                to = 6011;
+              }
+            ];
+          };
 
-      };
+        };
     };
 }
