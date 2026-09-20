@@ -24,12 +24,34 @@
           alsa.support32Bit = true;
           pulse.enable = true;
           jack.enable = true;
+          wireplumber.enable = true;
         };
+
+        user.extraGroups = [ "audio" ];
+
+        security.pam.loginLimits = [
+          {
+            domain = "@audio";
+            type = "-";
+            item = "rtprio";
+            value = "95";
+          }
+          {
+            domain = "@audio";
+            type = "-";
+            item = "memlock";
+            value = "unlimited";
+          }
+        ];
 
         musnix = {
           enable = true;
           rtcqs.enable = true;
         };
+
+        environment.systemPackages = with pkgs; [
+          pipewire.jack
+        ];
       };
     };
 }

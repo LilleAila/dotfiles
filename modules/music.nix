@@ -23,11 +23,16 @@
   };
 
   flake.modules.homeManager.music =
-    { config, pkgs, ... }:
+    {
+      config,
+      pkgs,
+      osConfig, # NOTE: using this is not very good practive, but it works fine
+      ...
+    }:
     let
       cfg = config.settings.music;
 
-      # Temp due to libdisplay info version issues
+      # Temp due to libdisplay-info version issues
       pkgs' = import inputs.nixpkgs-unstable {
         inherit (pkgs.stdenv.hostPlatform) system;
         config.allowUnfreePredicate =
@@ -36,6 +41,24 @@
             "pianoteq-standard"
           ];
       };
+
+      # Wrapped to run with `pw-jack`, which makes JACK output work properly through the pipewire compatibility layer
+      pianoteq-jack =
+        let
+          pianoteq = pkgs'.pianoteq.standard_9;
+        in
+        pkgs.symlinkJoin {
+          name = "pianoteq-wrapped-${pianoteq.version}";
+          paths = [ pianoteq ];
+          postBuild = ''
+            rm "$out/bin/Pianoteq 9"
+            cat << 'EOF' > "$out/bin/Pianoteq 9"
+            #!${pkgs.runtimeShell}
+            exec "${lib.getExe' osConfig.services.pipewire.package.jack "pw-jack"}" "${lib.getExe pianoteq}" "$@"
+            EOF
+            chmod +x "$out/bin/Pianoteq 9"
+          '';
+        };
     in
     {
       options.settings.music.enable = lib.mkEnableOption "music";
@@ -50,10 +73,12 @@
 
         home.packages = with pkgs; [
           # pianoteq.standard_9
-          pkgs'.pianoteq.standard_9
+          # pkgs'.pianoteq.standard_9
+          pianoteq-jack
           neural-amp-modeler-lv2
           ardour
           carla
+          qpwgraph
         ];
       };
     };

@@ -20,6 +20,23 @@
 
       networking.hostId = "c70b6e36";
 
+      hardware.bluetooth = {
+        enable = true;
+        powerOnBoot = true;
+        settings = {
+          General = {
+            Name = "Olai-T490s";
+            Class = "0x240404";
+            DiscoverableTimeout = 0;
+            PairableTimeout = 0;
+            FastConnectable = true;
+          };
+          Policy = {
+            AutoEnable = true;
+          };
+        };
+      };
+
       boot.zfs = {
         devNodes = "/dev/disk/by-id";
         forceImportRoot = lib.mkForce true;
@@ -49,6 +66,11 @@
         sway.enable = true;
         niri.enable = true;
         ewm.enable = false;
+
+        shairport-sync = {
+          enable = true;
+          name = "Olai T490s";
+        };
 
         ssh.enable = true;
         ssh.keys = with self.keys.ssh; [

@@ -57,7 +57,7 @@
             "dialout"
             "cdrom"
           ];
-          packages = with pkgs; [ ];
+          packages = [ ];
           initialPassword = "";
         };
 
