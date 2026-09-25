@@ -121,7 +121,7 @@
           charger = {
             turbo = "auto";
             # cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
-            governor = "powersave";
+            governor = "schedutil";
             energy_performance_preference = "balance_performance";
             # cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq
             scaling_min_freq = 400000; # (400 mHz in kHz)
