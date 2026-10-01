@@ -107,6 +107,7 @@
             "jdownloader"
             "qview"
             "openmtp"
+            "vscodium"
 
             # music stuff
             "ableton-live-lite"
