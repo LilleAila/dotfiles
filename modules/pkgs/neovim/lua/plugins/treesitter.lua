@@ -1,7 +1,7 @@
 return {
 	"nvim-treesitter",
 	after = function()
-		require("nvim-treesitter.configs").setup({
+		require("nvim-treesitter.config").setup({
 			highlight = {
 				enable = true,
 			},
