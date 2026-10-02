@@ -40,11 +40,24 @@
       };
 
       settings.persist = {
-        home.cache = [ ".local/share/flatpak" ];
+        home = {
+          directories = [
+            ".config/Code"
+            ".vscode"
+            ".local/share/code"
+          ];
+          files = [ ".kattisrc" ];
+          cache = [ ".local/share/flatpak" ];
+        };
         root.cache = [ "/var/lib/flatpak" ];
       };
 
       settings = {
+        nix.unfree = [
+          "code"
+          "vscode"
+        ];
+
         greeter.enable = true;
         xserver.xwayland.enable = true;
         locale = {
@@ -269,6 +282,8 @@
         home.packages = with pkgs; [
           neural-amp-modeler-lv2
           ardour
+          vscode-fhs
+          nautilus
         ];
 
         wayland.windowManager.hyprland.settings.input.kb_options = "ctrl:nocaps,altwin:prtsc_rwin";
