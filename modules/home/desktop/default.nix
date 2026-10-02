@@ -152,6 +152,15 @@
               swaylock.enable = mkDefault true;
               # hyprlock.enable = mkDefault false;
               hyprpaper = {
+                enable = mkDefault false;
+                wallpaper = mkDefault (
+                  self.packages.${pkgs.stdenv.hostPlatform.system}.wallpaper.override {
+                    inherit (self) colorScheme;
+                    logo = "nix";
+                  }
+                );
+              };
+              swaybg = {
                 enable = mkDefault true;
                 wallpaper = mkDefault (
                   self.packages.${pkgs.stdenv.hostPlatform.system}.wallpaper.override {
