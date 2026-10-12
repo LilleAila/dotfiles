@@ -23,7 +23,7 @@ iso8601_date = datetime.now().strftime("%Y-%m-%d")
 
 # Ensure math gets copied verbatim, as this is a non-standard org feature
 # Regex taken directly from typst-overlay emacs to ensure equal results
-math_regex = r'(?:\$[^\n$ ](?:[^$\n]*[^\n$ ])?\$|(?:^\s*\$\s*\n.*?\n\s*\$\s*))'
+math_regex = r'(?:\$[^\n$ ](?:[^$\\]|\\.)*?[^\n$ ]\$|(?:^\s*\$\s*\n.*?\n\s*\$\s*))'
 math_blocks = []
 def stash_math(match):
     matched = match.group(0)
@@ -41,6 +41,11 @@ def stash_typst(match):
     typst_blocks.append(match.group(1).strip())
     return f"TYPSTBLOCKTOKEN{len(typst_blocks) - 1}END"
 content = re.sub(typst_export_regex, stash_typst, content, flags=re.IGNORECASE | re.MULTILINE | re.DOTALL)
+
+# Fix links to the parent directory
+# FIXME: this is a hacky approach, and could be written better in a way that respects all links instead of assuming this structure
+link_regex = r"(\[\[\s*file:)\.\./"
+content = re.sub(link_regex, r"\1./", content)
 
 pandoc_result = subprocess.run(
     ["pandoc", "-f", "org", "-t", "typst"],
