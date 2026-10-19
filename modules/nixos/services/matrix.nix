@@ -1,3 +1,7 @@
+# NOTE: users not defined declaratively
+# i created my user `olai` using the following command:
+# matrix-synapse-register_new_matrix_user
+
 { lib, self, ... }:
 {
   flake.modules.nixos.matrix =
@@ -10,11 +14,91 @@
     }:
     let
       cfg = config.settings.matrix;
+
+      mkBridgeSettings = id: {
+        homeserver = {
+          address = "http://localhost:8008";
+          domain = "olai.dev";
+        };
+        appservice = {
+          inherit id;
+          public.enabled = false;
+        };
+        double_puppet = {
+          secrets = {
+            "olai.dev" = "as_token:${self.secrets.matrix.as_token}";
+          };
+        };
+        bridge = {
+          create_portals = true;
+          backfill = {
+            enabled = true;
+          };
+          permissions = {
+            # "*" = "relay";
+            "@olai:olai.dev" = "admin";
+          };
+        };
+      };
     in
     {
       options.settings.matrix.enable = lib.mkEnableOption "matrix";
 
       config = lib.mkIf cfg.enable {
+        # Bridges
+        services.mautrix-signal = {
+          enable = true;
+          registerToSynapse = true;
+          settings = mkBridgeSettings "signal";
+        };
+
+        # using the // operator got too complex so hard-coding here.
+        services.mautrix-discord = {
+          # For some reason, the discord bridge didn't automatically use the double puppet config
+          # so instead i had to generate a token with:
+          # curl -XPOST -d '{"type":"m.login.password","identifier":{"type": "m.id.user", "user": "@olai:olai.dev"},"password":"my-password","initial_device_display_name":"a fancy bridge"}' https://matrix.olai.dev/_matrix/client/v3/login
+          # then pass this to `login-matrix` in the bot
+          enable = true;
+          registerToSynapse = true;
+          settings = {
+            homeserver = {
+              address = "http://localhost:8008";
+              domain = "olai.dev";
+            };
+            appservice = {
+              id = "discord";
+              public.enabled = false;
+            };
+            double_puppet = {
+              secrets = {
+                "olai.dev" = "as_token:${self.secrets.matrix.as_token}";
+              };
+            };
+            bridge = {
+              create_portals = true;
+              backfill = {
+                enabled = true;
+                forward_limits = {
+                  initial = {
+                    dm = 150;
+                    channel = 100;
+                    thread = 50;
+                  };
+                  missed = {
+                    dm = -1;
+                    channel = 100;
+                  };
+                };
+              };
+              permissions = {
+                # "*" = "relay";
+                "@olai:olai.dev" = "admin";
+              };
+            };
+          };
+        };
+
+        # Basic matrix config
         services.postgresql = {
           enable = true;
           package = pkgs.postgresql_17;
@@ -120,6 +204,14 @@
                       exclusive: false
               '')
             ];
+
+            # Disable ratelimits for appservies (bridges)
+            rc_admin_redaction = null;
+            rc_message = {
+              per_second = 1000;
+              burst_count = 5000;
+            };
+            appservice_jobs_max_retries = 10;
           };
 
           # extraConfigFiles = [
@@ -127,36 +219,6 @@
           #     registration_shared_secret: "${self.secrets.matrix.registration_shared_secret}"
           #   '')
           # ];
-        };
-
-        services.mautrix-signal = {
-          enable = true;
-          registerToSynapse = true;
-          settings = {
-            homeserver = {
-              address = "http://localhost:8008";
-              domain = "olai.dev";
-            };
-            appservice = {
-              id = "signal";
-              public.enabled = false;
-            };
-            double_puppet = {
-              secrets = {
-                "olai.dev" = "as_token:${self.secrets.matrix.as_token}";
-              };
-            };
-            bridge = {
-              create_portals = true;
-              backfill = {
-                enabled = true;
-              };
-              permissions = {
-                # "*" = "relay";
-                "@olai:olai.dev" = "admin";
-              };
-            };
-          };
         };
 
         services.caddy.virtualHosts = {
@@ -200,6 +262,12 @@
         ];
 
         environment.persistence."/persist".directories = [
+          {
+            directory = "/var/lib/mautrix-discord";
+            user = "mautrix-discord";
+            group = "mautrix-discord";
+            mode = "07000";
+          }
           {
             directory = "/var/lib/mautrix-signal";
             user = "mautrix-signal";
