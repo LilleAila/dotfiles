@@ -116,6 +116,7 @@
         jellyfin.enable = true;
         samba.enable = true;
         caddy.enable = true;
+        matrix.enable = true;
 
         nvidia.enable = true;
 
