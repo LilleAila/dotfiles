@@ -108,6 +108,7 @@
             "qview"
             "openmtp"
             "vscodium"
+            "nheko"
 
             # music stuff
             "ableton-live-lite"
