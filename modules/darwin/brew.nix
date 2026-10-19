@@ -109,6 +109,7 @@
             "openmtp"
             "vscodium"
             "nheko"
+            "element"
 
             # music stuff
             "ableton-live-lite"
