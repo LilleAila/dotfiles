@@ -111,6 +111,7 @@
             "nheko"
             "element"
             "signal"
+            "beeper"
 
             # music stuff
             "ableton-live-lite"
