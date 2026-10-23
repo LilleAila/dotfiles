@@ -110,6 +110,7 @@
             "vscodium"
             "nheko"
             "element"
+            "signal"
 
             # music stuff
             "ableton-live-lite"

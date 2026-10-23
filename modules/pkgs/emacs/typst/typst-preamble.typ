@@ -1,4 +1,5 @@
 #import "@preview/lovelace:0.3.1": *
+#import "@preview/cetz:0.5.3"
 
 #let _pseudocode-list = pseudocode-list.with(
   hooks: 0.5em,
