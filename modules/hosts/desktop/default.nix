@@ -50,6 +50,7 @@
           "jellyfin.olai.dev"
           "create.olai.dev"
           "factorio.olai.dev"
+          "minecraft2.olai.dev"
         ];
         credentialsFile = config.sops.secrets."cloudflare_ddns".path;
       };

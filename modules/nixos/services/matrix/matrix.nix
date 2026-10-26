@@ -98,6 +98,55 @@
           };
         };
 
+        # using the // operator got too complex so hard-coding here.
+        services.mautrix-gmessages = {
+          enable = true;
+          registerToSynapse = true;
+          settings = {
+            homeserver = {
+              address = "http://localhost:8008";
+              domain = "olai.dev";
+            };
+            appservice = {
+              id = "gmessages";
+              public.enabed = false;
+              # address = "http://127.0.0.1:29336";
+              # hostname = "127.0.0.1";
+              # post = 29336;
+            };
+            double_puppet = {
+              secrets = {
+                "olai.dev" = "as_token:${self.secrets.matrix.as_token}";
+              };
+            };
+            bridge = {
+              create_portals = true;
+              google_messages = {
+                os = "Linux (olai.dev)";
+                browser = "CHROME";
+              };
+              backfill = {
+                enabled = true;
+                forward_limits = {
+                  initial = {
+                    dm = 150;
+                    channel = 100;
+                    thread = 50;
+                  };
+                  missed = {
+                    dm = -1;
+                    channel = 100;
+                  };
+                };
+              };
+              permissions = {
+                # "*" = "relay";
+                "@olai:olai.dev" = "admin";
+              };
+            };
+          };
+        };
+
         # Basic matrix config
         services.postgresql = {
           enable = true;
@@ -262,6 +311,12 @@
         ];
 
         environment.persistence."/persist".directories = [
+          {
+            directory = "/var/lib/mautrix-gmessages";
+            user = "mautrix-gmessages";
+            group = "mautrix-gmessages";
+            mode = "07000";
+          }
           {
             directory = "/var/lib/mautrix-discord";
             user = "mautrix-discord";
