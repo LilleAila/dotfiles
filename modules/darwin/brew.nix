@@ -113,6 +113,7 @@
             "signal"
             "beeper"
             "slidepilot"
+            "presentation"
 
             # music stuff
             "ableton-live-lite"
