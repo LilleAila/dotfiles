@@ -25,7 +25,9 @@
   (variable-pitch-mode 1)
   (auto-fill-mode 0)
   (visual-line-mode 1)
-  (setq evil-auto-indent nil))
+  (setq evil-auto-indent nil)
+  (setq-local paragraph-start "[ \t]*$")
+  (setq-local paragraph-separate "[ \t]*$"))
 
 (defun my/open-org-agenda-dir ()
   "Open `find-file` preset to the org agenda directory."

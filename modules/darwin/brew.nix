@@ -112,6 +112,7 @@
             "element"
             "signal"
             "beeper"
+            "slidepilot"
 
             # music stuff
             "ableton-live-lite"
