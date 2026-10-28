@@ -172,6 +172,7 @@
                   motd = "minecraft server ig";
                   white-list = true;
                   level-seed = "5890542";
+                  spawn-protection = 0;
 
                   enable-rcon = true;
                   "rcon.password" = secrets.rcon-password;
