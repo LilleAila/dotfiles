@@ -113,6 +113,7 @@
         gpg.enable = true;
         yubikey.enable = true;
         virtualisation.enable = true;
+        openrgb.enable = true;
 
         jellyfin.enable = true;
         samba.enable = true;
