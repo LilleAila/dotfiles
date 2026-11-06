@@ -11,6 +11,7 @@ return {
 			formatters_by_ft = {
 				haskell = { "ormolu" },
 				html = { "prettier", "prettierd", stop_after_first = true },
+				svelte = { "prettier", "prettierd", stop_after_first = true },
 				css = { "prettier", "prettierd", stop_after_first = true },
 				javascript = { "prettier", "prettierd", stop_after_first = true },
 				javascriptreact = { "prettier", "prettierd", stop_after_first = true },
