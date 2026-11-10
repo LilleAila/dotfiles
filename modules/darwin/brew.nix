@@ -114,6 +114,7 @@
             "beeper"
             "slidepilot"
             "presentation"
+            "wacom-tablet"
 
             # music stuff
             "ableton-live-lite"
