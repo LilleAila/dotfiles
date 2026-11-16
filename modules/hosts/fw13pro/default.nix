@@ -133,24 +133,34 @@
 
       system.stateVersion = "26.05";
 
-      # sops.secrets."syncthing/desktop/cert" = {
-      #   path = "${config.hm.home.homeDirectory}/.config/syncthing/cert.pem";
-      #   inherit (config.services.syncthing) group;
-      #   owner = config.services.syncthing.user;
-      # };
-      # sops.secrets."syncthing/desktop/key" = {
-      #   path = "${config.hm.home.homeDirectory}/.config/syncthing/key.pem";
-      #   inherit (config.services.syncthing) group;
-      #   owner = config.services.syncthing.user;
-      # };
-      # systemd.services.syncthing.after = [ "sops-nix.service" ];
+      sops.secrets."syncthing/fw13pro/cert" = {
+        path = "${config.hm.home.homeDirectory}/.config/syncthing/cert.pem";
+        inherit (config.services.syncthing) group;
+        owner = config.services.syncthing.user;
+      };
+      sops.secrets."syncthing/fw13pro/key" = {
+        path = "${config.hm.home.homeDirectory}/.config/syncthing/key.pem";
+        inherit (config.services.syncthing) group;
+        owner = config.services.syncthing.user;
+      };
+      sops.secrets."syncthing/fw13pro/https-cert" = {
+        path = "${config.hm.home.homeDirectory}/.config/syncthing/https-cert.pem";
+        inherit (config.services.syncthing) group;
+        owner = config.services.syncthing.user;
+      };
+      sops.secrets."syncthing/fw13pro/https-key" = {
+        path = "${config.hm.home.homeDirectory}/.config/syncthing/https-key.pem";
+        inherit (config.services.syncthing) group;
+        owner = config.services.syncthing.user;
+      };
+      systemd.services.syncthing.after = [ "sops-nix.service" ];
 
       hm = {
         settings = {
           monitors = [
             {
               name = "eDP-1";
-              geometry = "1920x1200@60";
+              geometry = "2880x1920@120";
               position = "0x0";
             }
           ];
@@ -162,9 +172,9 @@
         programs.niri.settings.outputs = {
           "eDP-1" = {
             mode = {
-              width = 1920;
-              height = 1200;
-              refresh = 60.0;
+              width = 2280;
+              height = 1920;
+              refresh = 120.0;
             };
             scale = 1;
             background-color = "#${self.colorScheme.palette.base00}";
@@ -182,10 +192,8 @@
           bt = "bluetooth";
         };
 
-        # sops.secrets."yubikey/u2f_keys".path = "${config.hm.home.homeDirectory}/.config/Yubico/u2f_keys";
-        # sops.secrets."ssh/e14g5".path = "${config.hm.home.homeDirectory}/.ssh/id_ed25519";
-        # home.file.".ssh/id_ed25519.pub".text = self.keys.ssh.e14g5.public;
-        # home.file.".ssh/yubikey.pub".text = keys.ssh.yubikey.public;
+        sops.secrets."ssh/fw13pro".path = "${config.hm.home.homeDirectory}/.ssh/id_ed25519";
+        home.file.".ssh/id_ed25519.pub".text = self.keys.ssh.fw13pro.public;
       };
     };
 }

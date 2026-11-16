@@ -34,6 +34,9 @@ let
     t490s = {
       id = secrets.ids.t490s;
     };
+    fw13pro = {
+      id = secrets.ids.fw13pro;
+    };
   };
 
   mkFolders = homeDirectory: {
@@ -47,6 +50,7 @@ let
         "desktop"
         "m4air-darwin"
         "t490s"
+        "fw13pro"
       ];
     };
     "Spell" = {
@@ -59,6 +63,7 @@ let
         "desktop"
         "m4air-darwin"
         "t490s"
+        "fw13pro"
       ];
     };
     "Notes" = {
@@ -70,6 +75,7 @@ let
         "m4air-darwin"
         "t420"
         "t490s"
+        "fw13pro"
         # NOTE: android is configured imperatively. `path` defined above does *not* apply
         "Pixel 8a"
         "oppad3"
@@ -86,6 +92,7 @@ let
         "t420"
         "Pixel 8a"
         "t490s"
+        "fw13pro"
       ];
     };
     "Android Screenshots" = {
@@ -99,6 +106,7 @@ let
         "t420"
         "Pixel 8a"
         "t490s"
+        "fw13pro"
       ];
     };
     "Calibre Library" = {
@@ -109,6 +117,7 @@ let
         "desktop"
         "m4air-darwin"
         "t420"
+        "fw13pro"
       ];
     };
     "Minecraft" = {
@@ -118,6 +127,7 @@ let
         "e14g5"
         "desktop"
         "m4air-darwin"
+        "fw13pro"
       ];
     };
   };
@@ -138,7 +148,6 @@ in
 {
   flake.modules.nixos.syncthing =
     {
-      pkgs,
       config,
       user,
       ...
@@ -190,7 +199,6 @@ in
   flake.modules.homeManager.syncthing =
     {
       config,
-      pkgs,
       user,
       ...
     }:
