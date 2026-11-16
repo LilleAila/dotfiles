@@ -31,6 +31,11 @@
         };
       };
 
+      hardware.graphics.extraPackages = with pkgs; [
+        intel-media-driver
+        vpl-gpu-rt
+      ];
+
       settings = {
         greeter.enable = true;
         xserver.xwayland.enable = true;
@@ -50,6 +55,7 @@
         desktop.enable = true;
         sway.enable = true;
         niri.enable = true;
+        llama-cpp.enable = true;
         # ewm.enable = true;
 
         ssh.enable = true;
