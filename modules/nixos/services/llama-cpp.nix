@@ -12,13 +12,14 @@
       config = lib.mkIf cfg.enable {
         services.llama-swap =
           let
-            llama-cpp = pkgs.llama-cpp.override { vulkanSupport = true; };
-            llama-server = lib.getExe' llama-cpp "llama-server";
+            llama-server = lib.getExe' pkgs.llama-cpp-vulkan "llama-server";
           in
           {
             enable = true;
             port = 8080;
           };
+
+        environment.systemPackages = with pkgs; [ llama-cpp-vulkan ];
 
         systemd.services.llama-swap = {
           environment = {
@@ -41,7 +42,7 @@
           ];
           root.directories = [
             "/var/lib/llama-cpp"
-            "/var/lib/llama-modela"
+            "/var/lib/llama-models"
             "/var/lib/llama-swap"
           ];
         };
