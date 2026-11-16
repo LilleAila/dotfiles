@@ -5,7 +5,7 @@
   ...
 }:
 {
-  configurations.nixos.e14g5-nix.module =
+  configurations.nixos.fw13pro-nix.module =
     {
       config,
       pkgs,
@@ -110,7 +110,9 @@
           "/persist" = mkBtrfs "@persist" // {
             neededForBoot = true;
           };
-          "/persist/cache" = mkBtrfs "@cache";
+          "/persist/cache" = mkBtrfs "@cache" // {
+            neededForBoot = true;
+          };
         };
 
       environment.sessionVariables.ANKI_WAYLAND = 1;

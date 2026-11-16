@@ -1112,17 +1112,15 @@
     },
     "wrapper-manager": {
       "locked": {
-        "lastModified": 1783493101,
-        "narHash": "sha256-LqqlRrZVLdCr/fmfXj/j7bUpvv02Ct3TVInWRxs20a8=",
-        "owner": "viperML",
-        "repo": "wrapper-manager",
-        "rev": "531d7752716f5097f05c709d6727299d70c69b62",
-        "type": "github"
+        "lastModified": 1788355120,
+        "narHash": "sha256-JEuM7FjlX48cpDhDrkeIch5nNYANux5o0wcw8vnwUuE=",
+        "rev": "5dbc685119c53a10c3f9a74b2716107413889796",
+        "type": "tarball",
+        "url": "https://codeberg.org/api/v1/repos/viperML/wrapper-manager/archive/5dbc685119c53a10c3f9a74b2716107413889796.tar.gz"
       },
       "original": {
-        "owner": "viperML",
-        "repo": "wrapper-manager",
-        "type": "github"
+        "type": "tarball",
+        "url": "https://codeberg.org/viperML/wrapper-manager/archive/master.tar.gz"
       }
     },
     "xwayland-satellite-stable": {
