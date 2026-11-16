@@ -49,7 +49,7 @@
         desktop.enable = true;
         sway.enable = true;
         niri.enable = true;
-        ewm.enable = true;
+        # ewm.enable = true;
 
         ssh.enable = true;
         ssh.keys = with self.keys.ssh; [
