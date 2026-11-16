@@ -15,6 +15,7 @@
     {
       imports = [
         ./_hardware-configuration.nix
+        inputs.nixos-hardware.nixosModules.framework-intel-core-ultra-series3
       ];
 
       networking.hostId = "6793c78c";
@@ -167,20 +168,32 @@
 
           desktop.full.enable = true;
           school.enable = true;
+          wm.swaybg.wallpaper = lib.mkForce ./wallpaper.png;
         };
 
-        programs.niri.settings.outputs = {
-          "eDP-1" = {
-            mode = {
-              width = 2280;
-              height = 1920;
-              refresh = 120.0;
+        programs.niri.settings = {
+          outputs = {
+            "eDP-1" = {
+              mode = {
+                width = 2280;
+                height = 1920;
+                refresh = 120.0;
+              };
+              scale = 1;
+              background-color = "#${self.colorScheme.palette.base00}";
             };
-            scale = 1;
-            background-color = "#${self.colorScheme.palette.base00}";
+          };
+
+          input = {
+            touchpad = {
+              tap = false;
+              dwt = true;
+              accel-speed = 0.5;
+              scroll-factor = 0.4;
+              click-method = "clickfinger";
+            };
           };
         };
-
         home.packages = with pkgs; [
           neural-amp-modeler-lv2
           ardour

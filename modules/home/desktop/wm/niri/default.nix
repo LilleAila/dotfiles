@@ -168,7 +168,7 @@
                   };
 
                   touchpad = {
-                    tap = false; # idk if neccessary, test
+                    tap = false;
                     accel-profile = "flat";
                     natural-scroll = true;
                   };
