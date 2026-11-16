@@ -96,6 +96,7 @@
           installer.public
           m4air-darwin.public
           termius.public
+          fw13pro.public
         ];
 
         zfs.enable = true;
