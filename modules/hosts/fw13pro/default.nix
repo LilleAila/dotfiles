@@ -26,9 +26,15 @@
 
       settings.persist = {
         home = {
-          directories = [ ];
+          directories = [
+            ".config/spotify"
+            ".cache/spotify"
+          ];
           files = [ ".kattisrc" ];
         };
+        root.files = [
+          "/etc/machine-id"
+        ];
       };
 
       hardware.graphics.extraPackages = with pkgs; [
@@ -175,6 +181,8 @@
           desktop.full.enable = true;
           school.enable = true;
           wm.swaybg.wallpaper = lib.mkForce ./wallpaper.png;
+
+          nix.unfree = [ "spotify" ];
         };
 
         programs.niri.settings = {
@@ -204,6 +212,7 @@
           neural-amp-modeler-lv2
           ardour
           nautilus
+          spotify
         ];
 
         wayland.windowManager.hyprland.settings.input.kb_options = "ctrl:nocaps";
