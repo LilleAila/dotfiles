@@ -181,6 +181,7 @@
           desktop.full.enable = true;
           school.enable = true;
           wm.swaybg.wallpaper = lib.mkForce ./wallpaper.png;
+          music.enable = true;
 
           nix.unfree = [ "spotify" ];
         };

@@ -75,7 +75,7 @@
                     "XF86AudioNext".action = spawn "playerctl" "next";
                     "XF86AudioPrev".action = spawn "playerctl" "previous";
 
-                    # "Mod+s".action = screenshot;
+                    "Mod+s".action.screenshot = { };
 
                     "Mod+h".action = focus-column-left;
                     "Mod+l".action = focus-column-right;
