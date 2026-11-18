@@ -30,33 +30,46 @@
             };
           };
 
-          home.packages = with pkgs; [
-            proton-vpn
-            fluidsynth
-            qsynth
-            inkscape
-            xournalpp
-            krita
-            kdePackages.kdenlive
-            ffmpeg
-            shotcut
-            # (self.packages.${pkgs.stdenv.hostPlatform.system}.anki.override { inherit (self) colorScheme; }) # it's just too slow
-            musescore
-            calibre
-            libgen-cli
-            # bottles
-            # self.packages.${pkgs.stdenv.hostPlatform.system}.fhsenv
-            pb_cli
-            # kicad # FIXME: build failure?
-            # bambu-studio
-            freecad-wayland
-            openscad
-            # blender
-            tigervnc
-            qalculate-gtk
-            wl-clipboard
-            tor-browser
-          ];
+          home.packages =
+            with pkgs;
+            let
+              stablePkgs = import inputs.nixpkgs-unstable {
+                inherit (pkgs.stdenv.hostPlatform) system;
+                config.allowUnfreePredicate =
+                  pkg:
+                  builtins.elem (lib.getName pkg) [
+                    "bambu-studio"
+                  ];
+              };
+            in
+            [
+              proton-vpn
+              fluidsynth
+              qsynth
+              inkscape
+              xournalpp
+              krita
+              kdePackages.kdenlive
+              ffmpeg
+              shotcut
+              # (self.packages.${pkgs.stdenv.hostPlatform.system}.anki.override { inherit (self) colorScheme; }) # it's just too slow
+              musescore
+              calibre
+              libgen-cli
+              # bottles
+              # self.packages.${pkgs.stdenv.hostPlatform.system}.fhsenv
+              pb_cli
+              # kicad # FIXME: build failure?
+              # bambu-studio
+              stablePkgs.bambu-studio
+              freecad-wayland
+              openscad
+              # blender
+              tigervnc
+              qalculate-gtk
+              wl-clipboard
+              tor-browser
+            ];
 
           settings.persist.home.directories = [
             ".config/MuseScore"

@@ -1,0 +1,3 @@
+[26-11-18 20:19:22.809224][D][75506E4C58C0][IOTC] [IOTC_Check_Session_Status] Error: Not Initialized!
+[26-11-18 20:19:22.809476][D][75506E4C58C0][IOTC] @@@@@ IOTC_DeInitialize called
+[26-11-18 20:19:22.809482][D][75506E4C58C0][IOTC] @ErrCode -12 - Line (13010)
