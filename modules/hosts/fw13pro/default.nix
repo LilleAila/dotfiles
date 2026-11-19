@@ -19,6 +19,7 @@
       ];
 
       networking.hostId = "6793c78c";
+      networking.networkmanager.plugins = with pkgs; [ networkmanager-openconnect ];
 
       environment.systemPackages = with pkgs; [
         qt6.qtwayland
